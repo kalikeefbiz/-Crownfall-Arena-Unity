@@ -1,4 +1,4 @@
-name: Unpack Unity Pipeline Test
+name: Fix Unity Manifest
 
 on:
   workflow_dispatch:
@@ -7,22 +7,27 @@ permissions:
   contents: write
 
 jobs:
-  unpack:
+  fix:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Unpack Unity project
+      - name: Fix Unity 6 package manifest
         run: |
-          unzip -o Crownfall-Unity-Pipeline-Test-27371eb.zip
-          rm Crownfall-Unity-Pipeline-Test-27371eb.zip
+          cat > Packages/manifest.json <<'EOF'
+          {
+            "dependencies": {
+              "com.unity.modules.imgui": "1.0.0",
+              "com.unity.modules.physics": "1.0.0"
+            }
+          }
+          EOF
 
-      - name: Commit unpacked project
+      - name: Commit fix
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "Add Unity pipeline test project"
+          git add Packages/manifest.json
+          git commit -m "Fix Unity 6 package manifest for WebGL build"
           git push
