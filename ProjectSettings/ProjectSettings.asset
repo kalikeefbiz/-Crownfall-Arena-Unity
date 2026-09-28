@@ -5,8 +5,8 @@ PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 28
   companyName: Crownfall
-  productName: Crownfall Unity Pipeline Test
-  bundleVersion: 0.0.1
+  productName: Crownfall Arena
+  bundleVersion: 0.1.0
   defaultScreenWidth: 960
   defaultScreenHeight: 540
   defaultScreenWidthWeb: 960

@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PipelineTest.unity
-    guid: bebdcbd4e8c665be075f8b8148e56e9d
+    path: Assets/Scenes/M0.unity
+    guid: 4ccf1ab0400d53af82d90f934642d04d
   m_configObjects: {}

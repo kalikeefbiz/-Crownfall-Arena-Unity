@@ -9,44 +9,46 @@ public sealed class PipelineBuild : IPreprocessBuildWithReport
 
     public void OnPreprocessBuild(BuildReport report)
     {
-        if (report.summary.platform != BuildTarget.WebGL)
-            throw new BuildFailedException("This repository is a Web pipeline test. Select WebGL in Build Automation.");
-        Configure();
+        Configure(report.summary.platform);
+        Crownfall.Editor.M0Validation.Validate();
     }
 
-    private static void Configure()
+    private static void Configure(BuildTarget target)
     {
         PlayerSettings.companyName = "Crownfall";
-        PlayerSettings.productName = "Crownfall Unity Pipeline Test";
+        PlayerSettings.productName = "Crownfall Arena";
         PlayerSettings.defaultInterfaceOrientation = UIOrientation.AutoRotation;
         PlayerSettings.allowedAutorotateToPortrait = false;
         PlayerSettings.allowedAutorotateToPortraitUpsideDown = false;
         PlayerSettings.allowedAutorotateToLandscapeLeft = true;
         PlayerSettings.allowedAutorotateToLandscapeRight = true;
-        PlayerSettings.defaultWebScreenWidth = 960;
-        PlayerSettings.defaultWebScreenHeight = 540;
-        PlayerSettings.WebGL.template = "PROJECT:PipelineTest";
-        PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
-        PlayerSettings.WebGL.decompressionFallback = true;
-        PlayerSettings.WebGL.dataCaching = false;
-        PlayerSettings.stripEngineCode = true;
-        PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.WebGL, ManagedStrippingLevel.High);
+        if (target == BuildTarget.WebGL)
+        {
+            PlayerSettings.defaultWebScreenWidth = 960;
+            PlayerSettings.defaultWebScreenHeight = 540;
+            PlayerSettings.WebGL.template = "PROJECT:PipelineTest";
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Gzip;
+            PlayerSettings.WebGL.decompressionFallback = true;
+            PlayerSettings.WebGL.dataCaching = false;
+            PlayerSettings.stripEngineCode = true;
+            PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.WebGL, ManagedStrippingLevel.High);
+        }
         EditorBuildSettings.scenes = new[] {
-            new EditorBuildSettingsScene("Assets/Scenes/PipelineTest.unity", true)
+            new EditorBuildSettingsScene("Assets/Scenes/M0.unity", true)
         };
     }
 
     // Optional local/batch entry point once a Unity Editor is available.
     public static void BuildWeb()
     {
-        Configure();
+        Configure(BuildTarget.WebGL);
         BuildReport report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-            scenes = new[] { "Assets/Scenes/PipelineTest.unity" },
+            scenes = new[] { "Assets/Scenes/M0.unity" },
             locationPathName = "Builds/Web",
             target = BuildTarget.WebGL,
             options = BuildOptions.None
         });
         if (report.summary.result != BuildResult.Succeeded)
-            throw new BuildFailedException("Web pipeline test build failed.");
+            throw new BuildFailedException("Crownfall M0 Web build failed.");
     }
 }
