@@ -1,0 +1,121 @@
+name: Import Crownfall M1 Kit Basic
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crownfall-unity-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Protect exact M0.1 baseline
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import pathlib, subprocess
+          BASE = 'af88eaed1cb0408873dbe1e692ae6a9254510bef'
+          allowed_uploads = {'Crownfall-Unity-M1-Kit-Basic.zip', '.github/workflows/import-unity-m1.yml'}
+          def git(*args): return subprocess.check_output(['git', *args])
+          subprocess.run(['git', 'merge-base', '--is-ancestor', BASE, 'HEAD'], check=True)
+          changed = set(filter(None, git('diff', '--name-only', '-z', BASE, 'HEAD').decode().split('\0')))
+          assert changed <= allowed_uploads, 'Baseline drift outside the two delivery uploads: ' + repr(sorted(changed - allowed_uploads))
+          assert not git('status', '--porcelain'), 'Checkout must be clean before import'
+          archive = pathlib.Path('Crownfall-Unity-M1-Kit-Basic.zip')
+          assert archive.is_file() and not archive.is_symlink(), 'Required supplied M1 patch ZIP missing'
+          print('PASS: exact M0.1 baseline protected; only delivery uploads may differ.')
+          PY
+      - name: Apply exact M1 patch
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, stat, zipfile
+          root = pathlib.Path.cwd().resolve()
+          archive = root / 'Crownfall-Unity-M1-Kit-Basic.zip'
+          expected = json.loads("{\"Assets/Art/Characters/Kit/Basic.meta\":{\"sha256\":\"b595b56596f2081d603be8e740cad3c0d4f502add7b3e0be5c9e0c07f142624c\",\"size\":169},\"Assets/Art/Characters/Kit/Basic/000.png\":{\"sha256\":\"d5918960e4f5341ec72ea3cbcf2798fdb97f104f519865521262826b11c07896\",\"size\":1574896},\"Assets/Art/Characters/Kit/Basic/000.png.meta\":{\"sha256\":\"fc0db96a60c8cdec6c4652530b8078adbe8c976c4a51f566073243273ead215a\",\"size\":1453},\"Assets/Art/Characters/Kit/Basic/001.png\":{\"sha256\":\"956f9cc4619f6135ecba9d4dc6f519418ec005eaca2f5cd1c03a621a0351ccfc\",\"size\":1895138},\"Assets/Art/Characters/Kit/Basic/001.png.meta\":{\"sha256\":\"762605c56bb8e0ec9fd359fdb296dd47909cefd1b9df1640ed34ef95b76c7949\",\"size\":1453},\"Assets/Art/Characters/Kit/Basic/002.png\":{\"sha256\":\"dfb1f7b508cfa64c8a9729b87c529837773b4ebca279dd5cbe66bc2b3f5140fa\",\"size\":1534019},\"Assets/Art/Characters/Kit/Basic/002.png.meta\":{\"sha256\":\"33da43b5e0b5ce70f8e373a7a9d82a36933f40d9a984d5d185879353b67f567c\",\"size\":1453},\"Assets/Art/Characters/Kit/Basic/003.png\":{\"sha256\":\"92100d6ed6cb41eee6a3c26fe7c770091b0851847f2d083a4b2063f9028b1cd8\",\"size\":2133656},\"Assets/Art/Characters/Kit/Basic/003.png.meta\":{\"sha256\":\"7f8e2d3f1a0006572addf3fe6f5bffb0dfb4185c670b435c4b391b5e4af16d99\",\"size\":1453},\"Assets/Art/Characters/Kit/Basic/004.png\":{\"sha256\":\"2c38d635f7655bad152d3276623f3e8d6acee4f35fe003b3703fb1312dc55ecb\",\"size\":2214467},\"Assets/Art/Characters/Kit/Basic/004.png.meta\":{\"sha256\":\"21896a344a2d6906cfbf760a8b90957c5d222c667f6c972745f65c56da8eddb4\",\"size\":1453},\"Assets/Crownfall/Combat.meta\":{\"sha256\":\"3434745ed4167f6b40bd1ace6838f451892f24d19c48276ffef9ced37e1617b8\",\"size\":169},\"Assets/Crownfall/Combat/BasicAttackDefinition.cs\":{\"sha256\":\"8e98bf16417af0b494d383fc982b5bd8d8fb9cf2d94a69728c2e33de29c8294d\",\"size\":863},\"Assets/Crownfall/Combat/BasicAttackDefinition.cs.meta\":{\"sha256\":\"97e8fa1cfbfa2ea8ac4b5f367d379b5879b524509c3375ad09cffe234bdbbd2a\",\"size\":240},\"Assets/Crownfall/Combat/BasicAttackExecutor.cs\":{\"sha256\":\"689d3b172e91fa4866193b788ca056b7956420fc3e231383369a150539b11269\",\"size\":3712},\"Assets/Crownfall/Combat/BasicAttackExecutor.cs.meta\":{\"sha256\":\"b7775bc4bea9c3c299bfe2f5c68528f4dc4e007c46db78748498d435acdc99aa\",\"size\":242},\"Assets/Crownfall/Combat/Combatant.cs\":{\"sha256\":\"109481f8959bbb13489c38129e05a257439c03130100794f8da987135a6586a3\",\"size\":1914},\"Assets/Crownfall/Combat/Combatant.cs.meta\":{\"sha256\":\"1a5d0995c8f1e2a8dd0e8fb369d477007e1f07d2bf4111ace343e550d260b8dd\",\"size\":240},\"Assets/Crownfall/Combat/Core.meta\":{\"sha256\":\"3bf221ac9b56e43a4943e15bceb0982b701f618809eba826615f957f2b7a7a0e\",\"size\":169},\"Assets/Crownfall/Combat/Core/AttackTimeline.cs\":{\"sha256\":\"01f151417f8370eba828b8329d38811e0be6c1e064d7caf0b0d65bee9aa485bb\",\"size\":5033},\"Assets/Crownfall/Combat/Core/AttackTimeline.cs.meta\":{\"sha256\":\"8e8e9eabbf601e3d817e9cc43b73fab91882c53a949179118e21ce5d0c570511\",\"size\":240},\"Assets/Crownfall/Combat/Core/CombatState.cs\":{\"sha256\":\"0953b32e99ff05b1d6e111380413dc796ca4673d567b2c98f13d6b54f6ef0b2a\",\"size\":2611},\"Assets/Crownfall/Combat/Core/CombatState.cs.meta\":{\"sha256\":\"183c5b9ab24645c9c2f3e79911e09e7129e6a1defec3adf3b76b8f53a5720d44\",\"size\":240},\"Assets/Crownfall/Combat/Core/CombatWorld.cs\":{\"sha256\":\"e58da1565e25b58003adf9a714f903a7d18707ccff18a4c251eae4abc5876143\",\"size\":670},\"Assets/Crownfall/Combat/Core/CombatWorld.cs.meta\":{\"sha256\":\"ad1dcfcfc56c3bf6803b272cf773e93e5ab6958bea97aef41d31852772f7ad85\",\"size\":240},\"Assets/Crownfall/Combat/Core/ConeHitQuery.cs\":{\"sha256\":\"62dda63d93e943b9ddb5e1190abffaeb5cbfe4da08f2f98f5fae8c7168b25b07\",\"size\":2660},\"Assets/Crownfall/Combat/Core/ConeHitQuery.cs.meta\":{\"sha256\":\"2b3064734b5454bc732a348ceb8c2cb3d9ec8ce13f4886177ad16bca30d50bff\",\"size\":240},\"Assets/Crownfall/Configuration/KitBasicAttack.asset\":{\"sha256\":\"97151c810e1f2cc86aa9cadbe0cce4d5686e44d9a0e800a9e53f351f3b1058c7\",\"size\":520},\"Assets/Crownfall/Configuration/KitBasicAttack.asset.meta\":{\"sha256\":\"935af8b44cee1bf745338e91a12e2ae46936f599f4a0c4d05c880294c7e94516\",\"size\":186},\"Assets/Crownfall/Configuration/KitBasicSprites.asset\":{\"sha256\":\"0be63edc608524ed77c3271da52b1ffedee2c558e3998c602f6c7b1260253ebc\",\"size\":867},\"Assets/Crownfall/Configuration/KitBasicSprites.asset.meta\":{\"sha256\":\"924b41070cf65c33a202180c7caaf67af844f1f9ba561a551d72679ad83140f0\",\"size\":186},\"Assets/Crownfall/M0/M0Diagnostics.cs\":{\"sha256\":\"ec3218bd490d9b7fd48b6abfa47269a2fb16821cb52b5b0eecb1cb626e0ff01e\",\"size\":1880},\"Assets/Crownfall/M1.meta\":{\"sha256\":\"173fb753667e8d7542d54b7fb73ceb44e14aee913493302b3a0672a4c668bf4a\",\"size\":169},\"Assets/Crownfall/M1/M1CombatFixture.cs\":{\"sha256\":\"5f4750a6a72f54397d0a98c540a0f17e0eea2286e445c9d16965c0c6880d210c\",\"size\":6443},\"Assets/Crownfall/M1/M1CombatFixture.cs.meta\":{\"sha256\":\"e35ac26336efd312d1ff5164b492943c8a2313c6e6edd9cdd6059c4133ed97c0\",\"size\":240},\"Assets/Crownfall/Presentation/BasicSpriteSet.cs\":{\"sha256\":\"b2fb5393a56d1a0afc517fed75125fc0de6d1e06820ad699241936c7928db68d\",\"size\":509},\"Assets/Crownfall/Presentation/BasicSpriteSet.cs.meta\":{\"sha256\":\"f0c138aac624d18b48d7cfc2fca63dc4e9ad55414ab89b65dc48d56e261b628a\",\"size\":240},\"Assets/Crownfall/Presentation/KitSpritePresentation.cs\":{\"sha256\":\"8562a81a22815810b615cb4199929a2977f6519d5d4cc36a5d1d07dd56af991c\",\"size\":2072},\"Assets/Editor/M1CombatTests.cs\":{\"sha256\":\"6a96102b41a455705a2a34b0f10b366220c504c89302155b30d2ecb73da20b47\",\"size\":10500},\"Assets/Editor/M1CombatTests.cs.meta\":{\"sha256\":\"e448122c82795927b09f0afddc51d46575f0663fc277a1a4a3875d14bbd290fb\",\"size\":240},\"Assets/Editor/M1Validation.cs\":{\"sha256\":\"f163de74081818eae26f5a98fd828e9941892804c36eeac0f3ff54081f3174b0\",\"size\":2975},\"Assets/Editor/M1Validation.cs.meta\":{\"sha256\":\"791787d4c306897c0393b5de9998f0222605dc2bd310d8150f20b88a7400633c\",\"size\":240},\"Assets/Scenes/M0.unity\":{\"sha256\":\"841262a9751eb3ce1776d87f35465804feb38e6fa08260a0c49b110e5fced0ab\",\"size\":2471},\"Docs/KitBasicSourceManifest.json\":{\"sha256\":\"2cfb244129809adc2b0bb9fc49db6203f022752e1e40470d65989811343e094d\",\"size\":1760},\"Docs/M1_CHANGED_FILES.md\":{\"sha256\":\"ccfbdf7adcf543bdc4795f7c13c8406d8598fb631cce38bdbf55167858f39b07\",\"size\":2576},\"Docs/M1_COMBAT_FOUNDATION.md\":{\"sha256\":\"207bec9696aa45616fbc428470d8400efc6944868c365a82eb2eecf0a824aad4\",\"size\":10489},\"Tools/requirements-m1-static.txt\":{\"sha256\":\"1f75235cf4a43e403a8aa9e77113a116393e44f46ae40770963427f4fb205911\",\"size\":42},\"Tools/run_m1_tests.py\":{\"sha256\":\"fee1ff539fc206826e5042339b614ee7eb5bac3eb3278d5596fb7a2ce6387710\",\"size\":949},\"Tools/validate_m0.py\":{\"sha256\":\"cb7f2ae4493e2c5bb79b3ee207bc922ac77278252a5f5c8a82a9eb7226340020\",\"size\":6230},\"Tools/validate_m1.py\":{\"sha256\":\"99b8dc2d08f9bef2073ec21d78dee95749b0dd4cad0a1fe083c2976a0e706a60\",\"size\":5630}}")
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == 'e040482ab0c433e60dfce57addde4905cd3c2925ac81c044d5b7b946379b760d', 'Wrong/corrupt M1 patch archive'
+          validated = {}
+          with zipfile.ZipFile(archive) as z:
+              infos = z.infolist()
+              assert len(infos) == len(expected) and len({i.filename for i in infos}) == len(infos), 'Missing/duplicate ZIP entries'
+              assert set(z.namelist()) == set(expected), 'Unexpected ZIP contents'
+              assert sum(i.file_size for i in infos) < 32 * 1024 * 1024, 'Oversize patch'
+              assert z.testzip() is None, 'ZIP CRC failure'
+              for info in infos:
+                  name = info.filename
+                  path = pathlib.PurePosixPath(name)
+                  assert not path.is_absolute() and '..' not in path.parts and '.' not in path.parts, 'Unsafe path'
+                  assert path.as_posix() == name and '\\' not in name and ':' not in name and '\0' not in name, 'Noncanonical path'
+                  assert not info.is_dir() and not info.flag_bits & 1, 'Directory/encrypted entry rejected'
+                  mode = info.external_attr >> 16
+                  assert stat.S_IFMT(mode) in (0, stat.S_IFREG), 'Nonregular/symlink entry rejected'
+                  target = root / name
+                  assert target.resolve().is_relative_to(root), 'Destination escapes repository'
+                  for part in [target, *target.parents]:
+                      if part == root: break
+                      assert not part.is_symlink(), 'Symlink destination rejected'
+                  assert not target.exists() or target.is_file(), 'Destination is not a regular file'
+                  data = z.read(info)
+                  assert info.file_size == len(data) == expected[name]['size'], 'Wrong entry size'
+                  assert hashlib.sha256(data).hexdigest() == expected[name]['sha256'], 'Wrong entry content'
+                  validated[name] = data
+          # Nothing is written until every archive member passes all checks.
+          for name, data in validated.items():
+              target = root / name
+              target.parent.mkdir(parents=True, exist_ok=True)
+              target.write_bytes(data)
+              target.chmod(0o644)
+          (pathlib.Path(os.environ['RUNNER_TEMP']) / 'crownfall-m1-expected.json').write_text(json.dumps(expected))
+          print('PASS: applied', len(validated), 'verified files; no deletions.')
+          PY
+      - name: Install validation dependencies
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends mono-mcs python3-venv
+          python3 -m venv "$RUNNER_TEMP/crownfall-m1-venv"
+          "$RUNNER_TEMP/crownfall-m1-venv/bin/python" -m pip install -r Tools/requirements-m1-static.txt
+      - name: Validate source assets and compiled combat core
+        shell: bash
+        run: |
+          "$RUNNER_TEMP/crownfall-m1-venv/bin/python" Tools/validate_m1.py
+          "$RUNNER_TEMP/crownfall-m1-venv/bin/python" Tools/run_m1_tests.py
+      - name: Commit only validated M1 changes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, subprocess
+          expected = json.loads((pathlib.Path(os.environ['RUNNER_TEMP']) / 'crownfall-m1-expected.json').read_text())
+          def git(*args): return subprocess.check_output(['git', *args])
+          def names(*args): return set(filter(None, git(*args).decode().split('\0')))
+          changed = names('diff', '--name-only', '-z') | names('ls-files', '--others', '--exclude-standard', '-z')
+          assert changed == set(expected), 'Unexpected/missing working tree changes: ' + repr(sorted(changed ^ set(expected)))
+          for name, record in expected.items():
+              path = pathlib.Path(name)
+              assert path.is_file() and not path.is_symlink(), 'Missing/unsafe patched path'
+              data = path.read_bytes()
+              assert len(data) == record['size'] and hashlib.sha256(data).hexdigest() == record['sha256'], 'Validation changed patch content'
+          subprocess.run(['git', 'add', '--', *sorted(expected)], check=True)
+          assert names('diff', '--cached', '--name-only', '-z') == set(expected), 'Unexpected staged changes'
+          subprocess.run(['git', 'diff', '--cached', '--check'], check=True)
+          subprocess.run(['git', 'config', 'user.name', 'github-actions[bot]'], check=True)
+          subprocess.run(['git', 'config', 'user.email', '41898282+github-actions[bot]@users.noreply.github.com'], check=True)
+          subprocess.run(['git', 'commit', '-m', 'Add M1 combat foundation and Kit Solar Whip'], check=True)
+          print('PASS: only validated M1 project files committed.')
+          PY
+      - name: Push validated commit to main
+        shell: bash
+        run: git push origin HEAD:main
