@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e515ba46717550aafb86a05b89be7dc, type: 3}
+  m_Name: KitBasicSprites
+  m_EditorClassIdentifier:
+  frames:
+  - {fileID: 21300000, guid: 8d9dc5fb673b5c5ba90f84d728b1ca3f, type: 3}
+  - {fileID: 21300000, guid: 8bd0d01d9dc55aaa9e9d551f0bb13ea1, type: 3}
+  - {fileID: 21300000, guid: 46b0cdbeb9435470af4efdd996bb79e2, type: 3}
+  - {fileID: 21300000, guid: 3637def6c98d5be0b79127a70f463dd4, type: 3}
+  - {fileID: 21300000, guid: 6930be43b35150308ed40518b8b00666, type: 3}
+  - {fileID: 21300000, guid: 758e511d31cd5603b36cbb2a8901d37e, type: 3}
+  framesPerSecond: 12

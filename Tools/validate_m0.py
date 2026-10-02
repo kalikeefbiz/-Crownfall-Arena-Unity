@@ -25,7 +25,8 @@ def main():
         if path.suffix != '.meta': check(Path(str(path)+'.meta').exists(), 'Missing meta: '+str(path))
     kit_files = list((ASSETS/'Art/Characters/Kit').rglob('*'))
     check(not any(p.suffix.lower() in ('.jpeg', '.jpg') for p in kit_files), 'Stale Kit JPEG')
-    check(sum(p.suffix == '.png' for p in kit_files) == 5, 'Unexpected Kit PNG count')
+    # M1 adds a separately validated Basic folder. Keep the exact M0 locomotion count.
+    check(sum(p.suffix == '.png' for p in kit_files if p.parent.name in ('Idle', 'Run')) == 5, 'Unexpected locomotion PNG count')
     check(not any('__MACOSX' in p.parts or p.name.startswith('._') for p in ASSETS.rglob('*')), 'Apple metadata imported')
     ordered, hashes = [], set()
     for i, entry in enumerate(images):

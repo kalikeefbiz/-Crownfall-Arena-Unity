@@ -11,6 +11,11 @@ namespace Crownfall
         Camera viewCamera;
         float cycle;
         bool running;
+        Combat.IAttackViewState attack;
+        BasicSpriteSet basic;
+
+        public void BindBasic(Combat.IAttackViewState combat, BasicSpriteSet sprites)
+        { attack = combat; basic = sprites; }
 
         public void Bind(ISummonerViewState source, KitSpriteSet sprites, Camera camera, Material material)
         {
@@ -30,6 +35,12 @@ namespace Crownfall
             else if (running) cycle = Mathf.Repeat(cycle + Time.deltaTime * Mathf.Max(0.1f, art.framesPerSecond), art.run.Length);
             visual.sprite = running ? art.run[Mathf.FloorToInt(cycle)] : art.idle;
             visual.flipX = state.Facing == PresentationFacing.Left;
+            if (attack != null && attack.Active && basic != null)
+            {
+                visual.sprite = basic.AtTime(attack.Elapsed);
+                float side = Vector3.Dot(attack.CapturedDirection, viewCamera.transform.right);
+                visual.flipX = Mathf.Abs(side) > 0.05f ? side < 0 : attack.CapturedFacing == PresentationFacing.Left;
+            }
             // Camera-aligned child only. Gameplay root remains unrotated and unscaled.
             transform.rotation = viewCamera.transform.rotation;
         }

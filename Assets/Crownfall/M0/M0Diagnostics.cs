@@ -27,7 +27,7 @@ namespace Crownfall
                 "Crownfall M0 | " + (switcher.UsesSprite ? "KIT SPRITE" : "3D PROXY") +
                 "\nMove: left pad / WASD. Aim: hold + drag either right pad.\n" +
                 pawn.Targeting.Phase + " | Selections: " + pawn.Targeting.ConfirmationCount +
-                " | Facing: " + pawn.Facing + " | No damage", label);
+                " | Facing: " + pawn.Facing + " | Direction: basic / Radial: preview", label);
             GUI.Box(input.MoveRect, "MOVE\nDrag", button);
             GUI.Box(input.DirectionRect, "DIRECTION\nTap / hold", button);
             GUI.Box(input.RadialRect, "RADIAL\nTap / hold", button);

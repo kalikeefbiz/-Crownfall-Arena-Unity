@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 101}
   - component: {fileID: 102}
+  - component: {fileID: 103}
   m_Layer: 0
   m_Name: M0 Composition Root
   m_TagString: Untagged
@@ -46,6 +47,26 @@ MonoBehaviour:
   solidMaterial: {fileID: 2100000, guid: 2bdbb7a6212a572d3b3f23c9d4477be9, type: 2}
   spriteMaterial: {fileID: 2100000, guid: 3d285676187f529a9c78529c4cbea14e, type: 2}
   previewMaterial: {fileID: 2100000, guid: 478119471b495af6b352cc8dcc260b2d, type: 2}
+--- !u!114 &103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0690e41ccd454bc834e1aaf60d0c503, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  basic: {fileID: 11400000, guid: e218a1839a635b61a60761d7b9b40b10, type: 2}
+  basicSprites: {fileID: 11400000, guid: 386886877e165873acb28cef14d44e27, type: 2}
+  solidMaterial: {fileID: 2100000, guid: 2bdbb7a6212a572d3b3f23c9d4477be9, type: 2}
+  previewMaterial: {fileID: 2100000, guid: 478119471b495af6b352cc8dcc260b2d, type: 2}
+  kitHealth: 650
+  targetHealth: 1800
+  targetRadius: 0.52
+  targetPosition: {x: 2, y: 0.05, z: -4}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
