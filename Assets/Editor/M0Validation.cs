@@ -11,20 +11,24 @@ namespace Crownfall.Editor
         public static void Validate()
         {
             var art = AssetDatabase.LoadAssetAtPath<KitSpriteSet>("Assets/Crownfall/Configuration/KitSpriteSet.asset");
-            Require(art != null && art.idle != null && art.run != null && art.run.Length == 8, "Missing Kit art");
+            Require(art != null && art.idle != null && art.run != null && art.run.Length == 4, "Missing Kit art");
             Require(art.framesPerSecond > 0 && art.runThreshold > 0, "Invalid presentation tuning");
             var paths = new HashSet<string>();
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < 5; i++)
             {
                 Sprite sprite = i == 0 ? art.idle : art.run[i - 1];
                 string expected = "Assets/Art/Characters/Kit/" +
-                    (i == 0 ? "Idle/Kit_Idle.jpeg" : "Run/Kit_Run_" + i.ToString("00") + ".jpeg");
+                    (i == 0 ? "Idle/idle.png" : "Run/" + (i - 1).ToString("000") + ".png");
                 string path = AssetDatabase.GetAssetPath(sprite);
                 Require(sprite != null && path == expected && paths.Add(path), "Kit order/duplicate: " + expected);
                 var importer = AssetImporter.GetAtPath(path) as TextureImporter;
                 Require(importer != null && importer.textureType == TextureImporterType.Sprite &&
                     importer.spriteImportMode == SpriteImportMode.Single && importer.spritePixelsPerUnit == 500 &&
-                    importer.npotScale == TextureImporterNPOTScale.None && !importer.isReadable,
+                    importer.npotScale == TextureImporterNPOTScale.None && !importer.isReadable &&
+                    importer.alphaSource == TextureImporterAlphaSource.FromInput && importer.alphaIsTransparency &&
+                    importer.wrapMode == TextureWrapMode.Clamp &&
+                    importer.textureCompression == TextureImporterCompression.Uncompressed &&
+                    importer.DoesSourceTextureHaveAlpha(),
                     "Kit import settings: " + path);
             }
             var tuning = AssetDatabase.LoadAssetAtPath<SummonerTuning>("Assets/Crownfall/Configuration/M0SummonerTuning.asset");

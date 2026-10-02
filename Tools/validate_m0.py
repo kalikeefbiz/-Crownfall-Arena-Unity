@@ -1,6 +1,6 @@
 """Static source/asset checks only; does not compile or execute Unity."""
 from pathlib import Path
-import hashlib, json, re
+import hashlib, json, re, struct, zlib
 import xml.etree.ElementTree as ET
 from tree_sitter import Language, Parser
 import tree_sitter_c_sharp
@@ -13,7 +13,7 @@ def check(ok, message):
 
 def main():
     images = json.loads((ROOT/'Docs/KitSourceManifest.json').read_text())['images']
-    check(len(images) == 9, 'Nine images required')
+    check(len(images) == 5, 'Five approved images required')
     guids = {}
     for meta in ASSETS.rglob('*.meta'):
         guid = re.search(r'^guid: ([a-f0-9]{32})$', meta.read_text(), re.M)[1]
@@ -23,16 +23,31 @@ def main():
         guids[guid] = target
     for path in ASSETS.rglob('*'):
         if path.suffix != '.meta': check(Path(str(path)+'.meta').exists(), 'Missing meta: '+str(path))
+    kit_files = list((ASSETS/'Art/Characters/Kit').rglob('*'))
+    check(not any(p.suffix.lower() in ('.jpeg', '.jpg') for p in kit_files), 'Stale Kit JPEG')
+    check(sum(p.suffix == '.png' for p in kit_files) == 5, 'Unexpected Kit PNG count')
+    check(not any('__MACOSX' in p.parts or p.name.startswith('._') for p in ASSETS.rglob('*')), 'Apple metadata imported')
     ordered, hashes = [], set()
     for i, entry in enumerate(images):
-        expected = 'Assets/Art/Characters/Kit/'+('Idle/Kit_Idle.jpeg' if i == 0 else f'Run/Kit_Run_{i:02}.jpeg')
+        expected = 'Assets/Art/Characters/Kit/'+('Idle/idle.png' if i == 0 else f'Run/{i-1:03}.png')
         check(entry['attachment'] == i+1 and entry['asset'] == expected, 'Attachment mapping/order')
         path = ROOT/expected
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        data = path.read_bytes()
+        check(data[:8] == b'\x89PNG\r\n\x1a\n', 'PNG signature: '+expected)
+        check(data[12:16] == b'IHDR' and struct.unpack('>II',data[16:24]) == (1254,1254) and data[25] == 6, 'PNG RGBA/dimensions: '+expected)
+        offset = 8
+        while offset < len(data):
+            length = struct.unpack('>I', data[offset:offset+4])[0]
+            chunk = data[offset+4:offset+8+length]
+            crc = struct.unpack('>I', data[offset+8+length:offset+12+length])[0]
+            check(zlib.crc32(chunk) & 0xffffffff == crc, 'PNG chunk CRC: '+expected)
+            offset += length+12
+        check(offset == len(data), 'PNG chunk bounds')
+        digest = hashlib.sha256(data).hexdigest()
         check(digest == entry['sha256'] and digest not in hashes, 'Source bytes/duplicate: '+expected)
         hashes.add(digest)
         meta = Path(str(path)+'.meta').read_text()
-        for setting in ('spriteMode: 1', 'spritePixelsToUnits: 500', 'alignment: 9', 'spriteMeshType: 0', 'nPOTScale: 0', 'textureCompression: 0', 'maxTextureSize: 2048', 'isReadable: 0', 'textureType: 8'):
+        for setting in ('spriteMode: 1', 'spritePixelsToUnits: 500', 'alignment: 9', 'spriteMeshType: 0', 'nPOTScale: 0', 'textureCompression: 0', 'maxTextureSize: 2048', 'isReadable: 0', 'textureType: 8', 'alphaUsage: 1', 'alphaIsTransparency: 1', 'wrapU: 1', 'wrapV: 1', 'wrapW: 1'):
             check(setting in meta, setting+' missing: '+expected)
         pivot = re.search(r'spritePivot: \{x: ([0-9.]+), y: ([0-9.]+)\}', meta)
         x,y = entry['anchorFromTopLeft']
@@ -65,7 +80,7 @@ def main():
     check(json.loads((ROOT/'Packages/manifest.json').read_text())['dependencies'] == {'com.unity.modules.imgui':'1.0.0','com.unity.modules.physics':'1.0.0'}, 'Proven package manifest changed')
     check((ROOT/'ProjectSettings/ProjectVersion.txt').read_text().strip() == 'm_EditorVersion: 6000.3.10f1', 'Editor version changed')
     ET.parse(ASSETS/'Crownfall/link.xml')
-    print(f'PASS: {len(sources)} C# files parsed; {len(guids)} unique GUIDs; 9 source hashes; ordered sprites; import/pivots; references; architecture guards; package/editor pins.')
+    print(f'PASS: {len(sources)} C# files parsed; {len(guids)} unique GUIDs; 5 PNG source hashes; ordered sprites; import/pivots; references; architecture guards; package/editor pins.')
     print('Unity compilation, shader/import execution, Editor behavioral gates, Cloud and device acceptance: PENDING.')
 
 if __name__ == '__main__': main()

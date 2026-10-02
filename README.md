@@ -25,7 +25,7 @@ from the build.
   Movement never sets aim. M0 facing follows horizontal aim, retains its last side
   for near-vertical aim, and can be replaced by future gameplay facing rules.
 - Directional/radial previews only. No damage, attacks, ability execution or target hits.
-- Original Kit idle and eight chronological run images, configurable looping playback,
+- Approved Kit idle and four chronological side-facing run images, configurable looping playback,
   visual-only mirroring, and a collider-free primitive 3D proxy.
 - A temporary Unity IMGUI diagnostic overlay, not a production HUD.
 
@@ -53,13 +53,13 @@ resolve line of sight, target eligibility or combat collision in M0.
 `Assets/Crownfall/Configuration/M0SummonerTuning.asset`: speed, gravity, 0.22-second
 hold threshold, five-unit range, confirmation duration.
 
-`Assets/Crownfall/Configuration/KitSpriteSet.asset`: idle reference, ordered run
+`Assets/Crownfall/Configuration/KitSpriteSet.asset`: idle reference, ordered four-frame run
 array, **12 FPS**, **0.12 units/second** run threshold, stop hysteresis ratio 0.65.
-The eight-frame loop is 0.6667 seconds at 12 FPS. Animation time is independent of
+The temporary four-frame loop is 0.3333 seconds at 12 FPS. Animation time is independent of
 movement authority. Time advances normally at the rendering rate; a slow frame
 may skip displaying an intermediate animation sample.
 
-All source images are copied byte-for-byte. Their extension is preserved. All nine
+All source images are copied byte-for-byte. Doubled archive extensions are normalized to .png without altering bytes. All five
 use **500 pixels/unit**, full-rectangle sprite geometry, manual custom pivots,
 2048 maximum import size, no NPOT resizing, uncompressed default import, mipmaps,
 trilinear filtering, clamp wrapping, and CPU readback disabled. No platform quality
@@ -77,6 +77,9 @@ and device review; no background correction has been attempted.
 The primitive view reads the same root state, rotates its own child to aim, and has
 no active collider. Switching only changes child activation. A later 3D model can
 consume `ISummonerViewState` without changing `SummonerRoot`.
+
+For the M0.1 PNG correction, use `Docs/M01_KIT_DELIVERY.md`; the original M0
+delivery notes below are historical.
 
 ## Build and delivery
 
@@ -97,7 +100,7 @@ Optional existing batch entry point:
 
 ## Validation status
 
-Local checks passed: all nine original SHA-256 matches, unique/reachable GUIDs,
+Local checks passed: all five original SHA-256 matches, unique/reachable GUIDs,
 ordered sprite references, import/pivot data, scene/material/config links, C# syntax
 parsing, architecture guards, package/editor pins and whitespace checks.
 

@@ -18,10 +18,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4cafc9ed456a51b498ffb93b73ceea2e, type: 3}
   - {fileID: 21300000, guid: 8ae219bf247051d99866082bd01dd84a, type: 3}
   - {fileID: 21300000, guid: a04930c1418f53338d328acd831f8cfa, type: 3}
-  - {fileID: 21300000, guid: 5042462120375df5be2da42b045813bc, type: 3}
-  - {fileID: 21300000, guid: 3fd45bf9072c5d31893e2c89f07cd54d, type: 3}
-  - {fileID: 21300000, guid: 3410174ebe0451cc939c9ead2249cf63, type: 3}
-  - {fileID: 21300000, guid: 35eb1c31623554e9a23ef387fcaa244d, type: 3}
   framesPerSecond: 12
   runThreshold: 0.12
   stopThresholdRatio: 0.65

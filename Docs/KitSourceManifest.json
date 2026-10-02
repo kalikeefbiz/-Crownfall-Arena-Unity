@@ -4,111 +4,95 @@
   "images": [
     {
       "attachment": 1,
-      "source": "86608BCF-8908-4F45-B003-8668081FEFAE(1).jpeg",
-      "asset": "Assets/Art/Characters/Kit/Idle/Kit_Idle.jpeg",
-      "sha256": "e1f80606a6b6255b46f57571253e9ad829ad371a220f6e2ecf61d50955867301",
+      "source": "side-run-idle/idle.png.PNG",
+      "asset": "Assets/Art/Characters/Kit/Idle/idle.png",
+      "sha256": "4f3410f8cb66d8b3a4bcc48502092fcff9c8accf19160a3fea7eb7a4d47bc243",
       "width": 1254,
       "height": 1254,
       "anchorFromTopLeft": [
         640,
         1190
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
       ]
     },
     {
       "attachment": 2,
-      "source": "DADC68C4-4A25-4663-B6BE-F4AE9F1C902B.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_01.jpeg",
-      "sha256": "2aba4b69b478251ca34b8799fbf9de36c96c2cf609e665fb89d0b7c63111edc1",
+      "source": "side-run-idle/000.png.PNG",
+      "asset": "Assets/Art/Characters/Kit/Run/000.png",
+      "sha256": "2b3cbb33d411cfbbf158e96f3858bc2015ae641ecd3293facdcd4f3c69ec7085",
       "width": 1254,
       "height": 1254,
       "anchorFromTopLeft": [
         658,
         1190
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
       ]
     },
     {
       "attachment": 3,
-      "source": "70DB1543-75E4-49C2-9D22-7AEDEE2228C5.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_02.jpeg",
-      "sha256": "83f1ee4bcd109f7aea0bee8002d3d5deddc0316956cd06c841aa38351883f731",
+      "source": "side-run-idle/001.png.PNG",
+      "asset": "Assets/Art/Characters/Kit/Run/001.png",
+      "sha256": "bbf0ca2f7cd7c9696d78f170002819dc0876b35dc7019fd39e687a48be54708b",
       "width": 1254,
       "height": 1254,
       "anchorFromTopLeft": [
         693,
         1190
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
       ]
     },
     {
       "attachment": 4,
-      "source": "8258E63C-674D-43A1-9011-4D83A1561355.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_03.jpeg",
-      "sha256": "8c56876ea924fe5affea6387106f05863ce8adf06dfa5037d29319d6bdab5de9",
+      "source": "side-run-idle/002.png.PNG",
+      "asset": "Assets/Art/Characters/Kit/Run/002.png",
+      "sha256": "a43542be01781eb3b8f1db4348a799ed7abb00710b508124d4cc8511827b1915",
       "width": 1254,
       "height": 1254,
       "anchorFromTopLeft": [
         675,
         1160
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
       ]
     },
     {
       "attachment": 5,
-      "source": "088D64E8-FEE6-46D3-8395-09C3800009B8.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_04.jpeg",
-      "sha256": "70f918d421d18e6def406843f2ab6110498535862e5ba31001960360e66003b4",
+      "source": "side-run-idle/003.png.PNG",
+      "asset": "Assets/Art/Characters/Kit/Run/003.png",
+      "sha256": "e2cea46271aa3128f55403d65e78fd5f26b6a6b73c1784d13d1148aecc6c92dc",
       "width": 1254,
       "height": 1254,
       "anchorFromTopLeft": [
         702,
         1190
-      ]
-    },
-    {
-      "attachment": 6,
-      "source": "158541D3-A4FC-4DBF-B90F-B432C7BD3F88.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_05.jpeg",
-      "sha256": "9020484dbc1dd1ec2920c03518b6c3889516de269421baba7f2a089b9d8794a0",
-      "width": 1254,
-      "height": 1254,
-      "anchorFromTopLeft": [
-        694,
-        1187
-      ]
-    },
-    {
-      "attachment": 7,
-      "source": "79C82128-2727-4865-BAF4-A124C9F57172.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_06.jpeg",
-      "sha256": "994db1caa4903020ecd649c56727cf8a00740b0c4c44509f7bdc77daac853181",
-      "width": 1254,
-      "height": 1254,
-      "anchorFromTopLeft": [
-        677,
-        1173
-      ]
-    },
-    {
-      "attachment": 8,
-      "source": "294F574F-EACF-4E05-944A-FFBF620486D1.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_07.jpeg",
-      "sha256": "ae81179fb20de218c7ecf0e59b40dbcff108405cf6def6d04be7eb566380e231",
-      "width": 1254,
-      "height": 1254,
-      "anchorFromTopLeft": [
-        700,
-        1158
-      ]
-    },
-    {
-      "attachment": 9,
-      "source": "ABD55578-3DBC-4A27-A465-38AADA613617.jpeg",
-      "asset": "Assets/Art/Characters/Kit/Run/Kit_Run_08.jpeg",
-      "sha256": "158705096649328c9c84a93e70c8e5235bb140b20a30531a380e370098e57a7b",
-      "width": 1254,
-      "height": 1254,
-      "anchorFromTopLeft": [
-        720,
-        1183
+      ],
+      "format": "PNG",
+      "mode": "RGBA",
+      "alphaRange": [
+        0,
+        255
       ]
     }
-  ]
+  ],
+  "sourceArchive": "side-run-idle.zip",
+  "approvedRunFrameCount": 4
 }
