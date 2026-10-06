@@ -1,4 +1,4 @@
-name: Materialize Crownfall WebGL
+name: Materialize Crownfall Unity Build 6
 
 on:
   workflow_dispatch:
@@ -15,23 +15,42 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Verify uploaded Unity artifact
+      - name: Resolve Build 6 artifact
+        id: artifact
         shell: bash
         run: |
           set -euo pipefail
-          test -f Crownfall-WebGL.zip
-          unzip -t Crownfall-WebGL.zip >/dev/null
-          unzip -l Crownfall-WebGL.zip | tail -n 40
+          SHARE_ID="dSu6EKGwUrRC7bzjK3U1UKv4CH1xo6W7PDsbow1O4nw"
+          API="https://build-automation.services.api.unity.com/v2/shares/$SHARE_ID"
+          curl -fsSL --retry 3 "$API" -o /tmp/share.json
+          URL="$(jq -r '([.links.artifacts[]? | select(.primary == true) | .files[0].href][0] // .links.download_primary.href // empty)' /tmp/share.json)"
+          if [ -z "$URL" ]; then
+            echo "Unity share metadata did not expose a primary artifact URL." >&2
+            cat /tmp/share.json >&2
+            exit 1
+          fi
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+      - name: Download existing Unity artifact
+        shell: bash
+        env:
+          ARTIFACT_URL: ${{ steps.artifact.outputs.url }}
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --retry-all-errors "$ARTIFACT_URL" -o /tmp/crownfall-build6.zip
+          ls -lh /tmp/crownfall-build6.zip
+          unzip -t /tmp/crownfall-build6.zip >/dev/null
+          unzip -l /tmp/crownfall-build6.zip | tail -n 40
 
       - name: Extract WebGL build
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf /tmp/crownfall-webgl
-          mkdir -p /tmp/crownfall-webgl
-          unzip -q Crownfall-WebGL.zip -d /tmp/crownfall-webgl
+          rm -rf /tmp/crownfall-build6
+          mkdir -p /tmp/crownfall-build6
+          unzip -q /tmp/crownfall-build6.zip -d /tmp/crownfall-build6
 
-          INDEX="$(find /tmp/crownfall-webgl -type f -name index.html -print -quit)"
+          INDEX="$(find /tmp/crownfall-build6 -type f -name index.html -print -quit)"
           if [ -z "$INDEX" ]; then
             echo "No index.html found in Unity artifact." >&2
             exit 1
@@ -58,6 +77,30 @@ jobs:
           /Build/*.json
             Content-Type: application/json
 
+          /Build/*.wasm.br
+            Content-Type: application/wasm
+            Content-Encoding: br
+
+          /Build/*.js.br
+            Content-Type: application/javascript
+            Content-Encoding: br
+
+          /Build/*.data.br
+            Content-Type: application/octet-stream
+            Content-Encoding: br
+
+          /Build/*.wasm.gz
+            Content-Type: application/wasm
+            Content-Encoding: gzip
+
+          /Build/*.js.gz
+            Content-Type: application/javascript
+            Content-Encoding: gzip
+
+          /Build/*.data.gz
+            Content-Type: application/octet-stream
+            Content-Encoding: gzip
+
           /*
             X-Content-Type-Options: nosniff
           EOF
@@ -70,7 +113,7 @@ jobs:
             exit 2
           fi
 
-      - name: Commit hosted WebGL build
+      - name: Commit hosted Build 6
         shell: bash
         run: |
           set -euo pipefail
@@ -78,8 +121,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A webgl-hosted
           if git diff --cached --quiet; then
-            echo "WebGL build is already materialized."
+            echo "Build 6 is already materialized."
             exit 0
           fi
-          git commit -m "Materialize Crownfall WebGL build for static hosting"
+          git commit -m "Materialize Crownfall Unity Build 6 for static hosting"
           git push origin HEAD:main
