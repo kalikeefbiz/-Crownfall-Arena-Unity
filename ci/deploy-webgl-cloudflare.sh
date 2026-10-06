@@ -97,7 +97,14 @@ fi
 
 run_wrangler() {
   if [[ -n "$PORTABLE_NODE_HOME" ]]; then
-    "$PORTABLE_NODE_HOME/node.exe" "$PORTABLE_NODE_HOME/node_modules/npm/bin/npx-cli.js" --yes wrangler@latest "$@"
+    # node.exe is a native Windows executable. Convert the JS entry path as well;
+    # otherwise Git Bash passes /cygdrive/... and Node interprets it as C:\\cygdrive\\...
+    # (the exact Build #8 failure).
+    command -v cygpath >/dev/null 2>&1 || { echo "ERROR: cygpath is unavailable for portable Node."; return 1; }
+    local node_exe_win npx_cli_win
+    node_exe_win="$(cygpath -wa "$PORTABLE_NODE_HOME/node.exe")"
+    npx_cli_win="$(cygpath -wa "$PORTABLE_NODE_HOME/node_modules/npm/bin/npx-cli.js")"
+    "$PORTABLE_NODE_HOME/node.exe" "$npx_cli_win" --yes wrangler@latest "$@"
   else
     command -v npx >/dev/null 2>&1 || { echo "ERROR: npx is unavailable."; return 1; }
     npx --yes wrangler@latest "$@"
@@ -152,7 +159,9 @@ cat > "$UNITY_PLAYER_PATH/_headers" <<'EOF'
 EOF
 
 if [[ "${CROWNFALL_DEPLOY_DRY_RUN:-0}" == "1" ]]; then
-  echo "[Crownfall Arena] DRY RUN: Node/bootstrap/path/header checks passed; skipping Cloudflare API calls and upload."
+  echo "[Crownfall Arena] DRY RUN: validating Wrangler invocation without Cloudflare API calls..."
+  run_wrangler --version
+  echo "[Crownfall Arena] DRY RUN: Node/bootstrap/path/header/Wrangler checks passed; skipping Cloudflare API calls and upload."
   exit 0
 fi
 
