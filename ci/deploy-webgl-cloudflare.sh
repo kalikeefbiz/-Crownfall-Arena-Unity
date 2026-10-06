@@ -7,55 +7,106 @@ if [[ -z "${UNITY_PLAYER_PATH:-}" ]]; then
   echo "ERROR: UNITY_PLAYER_PATH is not set. This script must run as a Unity Build Automation post-build script."
   exit 1
 fi
-
 if [[ ! -d "$UNITY_PLAYER_PATH" ]]; then
   echo "ERROR: UNITY_PLAYER_PATH does not point to a directory: $UNITY_PLAYER_PATH"
   exit 1
 fi
-
 if [[ -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
   echo "ERROR: Missing CLOUDFLARE_API_TOKEN environment variable."
   exit 1
 fi
-
 if [[ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]]; then
   echo "ERROR: Missing CLOUDFLARE_ACCOUNT_ID environment variable."
   exit 1
 fi
 
 CLOUDFLARE_PAGES_PROJECT="${CLOUDFLARE_PAGES_PROJECT:-crownfall-arena}"
-
 echo "[Crownfall Arena] Environment validation complete."
 
-NVM_SCRIPT=""
-if [[ -n "${NVM_DIR:-}" && -f "${NVM_DIR}/nvm.sh" ]]; then
-  NVM_SCRIPT="${NVM_DIR}/nvm.sh"
-elif [[ -f "$HOME/.nvm/nvm.sh" ]]; then
-  NVM_SCRIPT="$HOME/.nvm/nvm.sh"
+# Wrangler currently requires a modern Node runtime. Unity's Windows image is not
+# guaranteed to expose NVM (Build #7 proved it does not), so use the following
+# fail-safe order:
+#   1. existing Node 22+
+#   2. NVM if present
+#   3. portable latest Node 22.x downloaded from nodejs.org on Windows
+PORTABLE_NODE_HOME=""
+node_major() {
+  node --version 2>/dev/null | sed -E 's/^v([0-9]+).*/\1/'
+}
+
+if command -v node >/dev/null 2>&1 && [[ "$(node_major)" =~ ^[0-9]+$ ]] && (( $(node_major) >= 22 )); then
+  echo "[Crownfall Arena] Using existing Node $(node --version)."
+else
+  NVM_SCRIPT=""
+  if [[ -n "${NVM_DIR:-}" && -f "${NVM_DIR}/nvm.sh" ]]; then
+    NVM_SCRIPT="${NVM_DIR}/nvm.sh"
+  elif [[ -f "$HOME/.nvm/nvm.sh" ]]; then
+    NVM_SCRIPT="$HOME/.nvm/nvm.sh"
+  fi
+
+  if [[ -n "$NVM_SCRIPT" ]]; then
+    echo "[Crownfall Arena] Loading NVM and selecting Node 22..."
+    set +u
+    # shellcheck disable=SC1090
+    source "$NVM_SCRIPT"
+    nvm install 22
+    nvm use 22
+    set -u
+  elif [[ "${BUILDER_OS:-}" == "WINDOWS" ]]; then
+    echo "[Crownfall Arena] NVM unavailable; bootstrapping portable Node 22 for this build."
+    command -v curl >/dev/null 2>&1 || { echo "ERROR: curl is unavailable."; exit 1; }
+    command -v cygpath >/dev/null 2>&1 || { echo "ERROR: cygpath is unavailable."; exit 1; }
+    command -v powershell.exe >/dev/null 2>&1 || { echo "ERROR: powershell.exe is unavailable."; exit 1; }
+
+    NODE_CACHE="${TEMP:-${TMP:-$PWD}}/crownfall-node22"
+    mkdir -p "$NODE_CACHE"
+
+    SHASUMS="$(curl -fsSL https://nodejs.org/dist/latest-v22.x/SHASUMS256.txt)"
+    NODE_ZIP="$(printf '%s\n' "$SHASUMS" | awk '/node-v22[^ ]*-win-x64\.zip$/ {print $2; exit}')"
+    if [[ -z "$NODE_ZIP" ]]; then
+      echo "ERROR: Could not resolve latest Node 22 Windows x64 package."
+      exit 1
+    fi
+
+    NODE_DIR_NAME="${NODE_ZIP%.zip}"
+    PORTABLE_NODE_HOME="$NODE_CACHE/$NODE_DIR_NAME"
+    if [[ ! -f "$PORTABLE_NODE_HOME/node.exe" ]]; then
+      NODE_ARCHIVE="$NODE_CACHE/$NODE_ZIP"
+      echo "[Crownfall Arena] Downloading $NODE_ZIP..."
+      curl -fsSL "https://nodejs.org/dist/latest-v22.x/$NODE_ZIP" -o "$NODE_ARCHIVE"
+      WIN_ARCHIVE="$(cygpath -wa "$NODE_ARCHIVE")"
+      WIN_CACHE="$(cygpath -wa "$NODE_CACHE")"
+      powershell.exe -NoProfile -NonInteractive -Command "Expand-Archive -LiteralPath '$WIN_ARCHIVE' -DestinationPath '$WIN_CACHE' -Force"
+    fi
+    if [[ ! -f "$PORTABLE_NODE_HOME/node.exe" ]]; then
+      echo "ERROR: Portable Node extraction did not produce node.exe."
+      exit 1
+    fi
+    export PATH="$PORTABLE_NODE_HOME:$PATH"
+  else
+    echo "ERROR: Node 22+ is unavailable and this non-Windows builder has no NVM fallback."
+    exit 1
+  fi
 fi
 
-if [[ -z "$NVM_SCRIPT" ]]; then
-  echo "ERROR: NVM is required to select Node 22 for Wrangler, but nvm.sh was not found."
+echo "[Crownfall Arena] node: $(node --version)"
+if (( $(node_major) < 22 )); then
+  echo "ERROR: Node 22+ bootstrap failed."
   exit 1
 fi
 
-echo "[Crownfall Arena] Loading NVM..."
-set +u
-source "$NVM_SCRIPT"
-nvm install 22
-nvm use 22
-set -u
-
-echo "[Crownfall Arena] node: $(node --version)"
-echo "[Crownfall Arena] npm: $(npm --version)"
-echo "[Crownfall Arena] npx: $(command -v npx)"
+run_wrangler() {
+  if [[ -n "$PORTABLE_NODE_HOME" ]]; then
+    "$PORTABLE_NODE_HOME/node.exe" "$PORTABLE_NODE_HOME/node_modules/npm/bin/npx-cli.js" --yes wrangler@latest "$@"
+  else
+    command -v npx >/dev/null 2>&1 || { echo "ERROR: npx is unavailable."; return 1; }
+    npx --yes wrangler@latest "$@"
+  fi
+}
 
 PLAYER_PATH="$UNITY_PLAYER_PATH"
 if [[ "${BUILDER_OS:-}" == "WINDOWS" ]]; then
-  if ! command -v cygpath >/dev/null 2>&1; then
-    echo "ERROR: Windows builder detected but cygpath is unavailable."
-    exit 1
-  fi
+  command -v cygpath >/dev/null 2>&1 || { echo "ERROR: Windows builder detected but cygpath is unavailable."; exit 1; }
   PLAYER_PATH="$(cygpath -wa "$UNITY_PLAYER_PATH")"
 fi
 
@@ -100,13 +151,18 @@ cat > "$UNITY_PLAYER_PATH/_headers" <<'EOF'
   X-Content-Type-Options: nosniff
 EOF
 
-if ! command -v npx >/dev/null 2>&1; then
-  echo "ERROR: npx is required for Wrangler but is not available after selecting Node 22."
-  exit 1
+# Fail early on credentials/account scope before attempting an upload.
+echo "[Crownfall Arena] Verifying Cloudflare Pages access..."
+PROJECTS_JSON="$(run_wrangler pages project list --json)"
+if ! printf '%s\n' "$PROJECTS_JSON" | grep -Eq "\"name\"[[:space:]]*:[[:space:]]*\"$CLOUDFLARE_PAGES_PROJECT\""; then
+  echo "[Crownfall Arena] Pages project does not exist; creating $CLOUDFLARE_PAGES_PROJECT..."
+  run_wrangler pages project create "$CLOUDFLARE_PAGES_PROJECT" --production-branch main
+else
+  echo "[Crownfall Arena] Existing Pages project found."
 fi
 
 echo "[Crownfall Arena] Deploying WebGL output to Cloudflare Pages..."
-npx --yes wrangler@latest pages deploy "$PLAYER_PATH" \
+run_wrangler pages deploy "$PLAYER_PATH" \
   --project-name "$CLOUDFLARE_PAGES_PROJECT" \
   --branch main
 
