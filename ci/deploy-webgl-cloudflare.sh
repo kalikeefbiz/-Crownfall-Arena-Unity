@@ -34,7 +34,7 @@ node_major() {
   node --version 2>/dev/null | sed -E 's/^v([0-9]+).*/\1/'
 }
 
-if command -v node >/dev/null 2>&1 && [[ "$(node_major)" =~ ^[0-9]+$ ]] && (( $(node_major) >= 22 )); then
+if [[ "${CROWNFALL_FORCE_PORTABLE_NODE:-0}" != "1" ]] && command -v node >/dev/null 2>&1 && [[ "$(node_major)" =~ ^[0-9]+$ ]] && (( $(node_major) >= 22 )); then
   echo "[Crownfall Arena] Using existing Node $(node --version)."
 else
   NVM_SCRIPT=""
@@ -44,7 +44,7 @@ else
     NVM_SCRIPT="$HOME/.nvm/nvm.sh"
   fi
 
-  if [[ -n "$NVM_SCRIPT" ]]; then
+  if [[ "${CROWNFALL_FORCE_PORTABLE_NODE:-0}" != "1" && -n "$NVM_SCRIPT" ]]; then
     echo "[Crownfall Arena] Loading NVM and selecting Node 22..."
     set +u
     # shellcheck disable=SC1090
@@ -150,6 +150,11 @@ cat > "$UNITY_PLAYER_PATH/_headers" <<'EOF'
 /*
   X-Content-Type-Options: nosniff
 EOF
+
+if [[ "${CROWNFALL_DEPLOY_DRY_RUN:-0}" == "1" ]]; then
+  echo "[Crownfall Arena] DRY RUN: Node/bootstrap/path/header checks passed; skipping Cloudflare API calls and upload."
+  exit 0
+fi
 
 # Fail early on credentials/account scope before attempting an upload.
 echo "[Crownfall Arena] Verifying Cloudflare Pages access..."
