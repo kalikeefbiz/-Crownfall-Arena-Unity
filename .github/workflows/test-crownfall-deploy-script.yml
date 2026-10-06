@@ -1,0 +1,47 @@
+name: Test Crownfall Deploy Script
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-dry-run:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create fake WebGL player directory
+        run: |
+          set -euo pipefail
+          mkdir -p dryrun-player/Build
+          printf '<!doctype html><title>Crownfall dry run</title>\n' > dryrun-player/index.html
+          printf 'dummy\n' > 'dryrun-player/Build/Default WebGL.data'
+          printf 'dummy\n' > 'dryrun-player/Build/Default WebGL.wasm'
+
+      - name: Exercise Windows portable Node fallback and deployment preparation
+        env:
+          UNITY_PLAYER_PATH: ${{ github.workspace }}/dryrun-player
+          BUILDER_OS: WINDOWS
+          CLOUDFLARE_API_TOKEN: dry-run-placeholder
+          CLOUDFLARE_ACCOUNT_ID: dry-run-placeholder
+          CLOUDFLARE_PAGES_PROJECT: crownfall-arena
+          CROWNFALL_FORCE_PORTABLE_NODE: "1"
+          CROWNFALL_DEPLOY_DRY_RUN: "1"
+        run: |
+          set -euo pipefail
+          bash ci/deploy-webgl-cloudflare.sh
+
+      - name: Verify generated WebGL headers
+        run: |
+          set -euo pipefail
+          test -f dryrun-player/_headers
+          grep -F 'Content-Type: application/wasm' dryrun-player/_headers
+          grep -F 'Content-Encoding: br' dryrun-player/_headers
+          grep -F 'X-Content-Type-Options: nosniff' dryrun-player/_headers
