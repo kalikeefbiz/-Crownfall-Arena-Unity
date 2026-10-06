@@ -1,0 +1,85 @@
+name: Materialize Crownfall WebGL
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Verify uploaded Unity artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f Crownfall-WebGL.zip
+          unzip -t Crownfall-WebGL.zip >/dev/null
+          unzip -l Crownfall-WebGL.zip | tail -n 40
+
+      - name: Extract WebGL build
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/crownfall-webgl
+          mkdir -p /tmp/crownfall-webgl
+          unzip -q Crownfall-WebGL.zip -d /tmp/crownfall-webgl
+
+          INDEX="$(find /tmp/crownfall-webgl -type f -name index.html -print -quit)"
+          if [ -z "$INDEX" ]; then
+            echo "No index.html found in Unity artifact." >&2
+            exit 1
+          fi
+
+          ROOT="$(dirname "$INDEX")"
+          echo "WebGL root: $ROOT"
+
+          rm -rf webgl-hosted
+          mkdir -p webgl-hosted
+          cp -a "$ROOT"/. webgl-hosted/
+          rm -f webgl-hosted/_worker.js
+
+          cat > webgl-hosted/_headers <<'EOF'
+          /Build/*.wasm
+            Content-Type: application/wasm
+
+          /Build/*.js
+            Content-Type: application/javascript
+
+          /Build/*.data
+            Content-Type: application/octet-stream
+
+          /Build/*.json
+            Content-Type: application/json
+
+          /*
+            X-Content-Type-Options: nosniff
+          EOF
+
+          test -f webgl-hosted/index.html
+          find webgl-hosted -type f -printf '%s %p\n' | sort -n | tail -n 30
+          MAX="$(find webgl-hosted -type f -printf '%s\n' | sort -n | tail -n 1)"
+          if [ "$MAX" -gt 100000000 ]; then
+            echo "A WebGL file exceeds GitHub's 100 MB hard file limit: $MAX bytes" >&2
+            exit 2
+          fi
+
+      - name: Commit hosted WebGL build
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A webgl-hosted
+          if git diff --cached --quiet; then
+            echo "WebGL build is already materialized."
+            exit 0
+          fi
+          git commit -m "Materialize Crownfall WebGL build for static hosting"
+          git push origin HEAD:main
