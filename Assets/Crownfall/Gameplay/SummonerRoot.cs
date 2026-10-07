@@ -61,13 +61,15 @@ namespace Crownfall
             if (Targeting.Active || Targeting.Phase == TargetPhase.Confirmed)
             {
                 AimDirection = Targeting.Direction;
-                float side = Vector3.Dot(AimDirection, InputRight);
-                if (Mathf.Abs(side) > 0.05f)
-                    SetPresentationFacing(side < 0 ? PresentationFacing.Left : PresentationFacing.Right);
+                SetPresentationFacing(PresentationFacingUtility.FromDirection(
+                    AimDirection, InputRight, InputForward, Facing));
             }
 
             Vector2 move = Vector2.ClampMagnitude(input.Movement, 1f);
             Vector3 horizontal = (InputRight * move.x + InputForward * move.y) * moveSpeed;
+            if (!Targeting.Active && Targeting.Phase != TargetPhase.Confirmed && horizontal.sqrMagnitude > 0.0001f)
+                SetPresentationFacing(PresentationFacingUtility.FromDirection(
+                    horizontal, InputRight, InputForward, Facing));
             float dt = Mathf.Min(Time.deltaTime, 0.05f);
             if (motor.isGrounded && verticalSpeed < 0) verticalSpeed = -2f;
             verticalSpeed += gravity * dt;
