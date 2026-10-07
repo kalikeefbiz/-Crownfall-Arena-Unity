@@ -33,7 +33,7 @@ def main():
     check(not any('__MACOSX' in p.parts or p.name.startswith('._') for p in ASSETS.rglob('*')), 'Apple metadata imported')
     ordered, hashes = [], set()
     for i, entry in enumerate(images):
-        expected = 'Assets/Art/Characters/Kit/'+('Idle/idle.png' if i == 0 else f'Run/{i-1:03}.png')
+        expected = 'Assets/Art/Characters/Kit/'+('Idle/Front/idle.png' if i == 0 else f'Run/{i-1:03}.png')
         check(entry['attachment'] == i+1 and entry['asset'] == expected, 'Attachment mapping/order')
         path = ROOT/expected
         data = path.read_bytes()
