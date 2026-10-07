@@ -51,6 +51,15 @@ namespace Crownfall.Combat
                 Current -= Math.Min(Current, Math.Max(0, request.Amount));
             return new DamageResult(request, Id, before, Current);
         }
+
+        public double Restore(double amount)
+        {
+            if (!Alive || !Finite(amount) || amount <= 0) return 0;
+            double before = Current;
+            Current = Math.Min(Maximum, Current + amount);
+            return Current - before;
+        }
+
         public static bool Finite(double value) { return !double.IsNaN(value) && !double.IsInfinity(value); }
     }
 
