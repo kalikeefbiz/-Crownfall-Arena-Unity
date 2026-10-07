@@ -64,13 +64,19 @@ namespace Crownfall.Tests
             Equal(lethal.Applied, 105, "Damage capped at remaining health");
             Check(lethal.Defeated && !enemy.Health.Alive && !enemy.Targetable, "Defeat and eligibility");
             Equal(enemy.Health.Current, 0, "No negative health");
-            Check(ConeHitQuery.Resolve(candidates, origin, east, 2.8, spec.Arc, request) == 0, "Dead target rejected");
+            Check(ConeHitQuery.Resolve(candidates, origin, east, 2.6, spec.Arc, request) == 0, "Dead target rejected");
             Equal(enemy.Receive(request).Applied, 0, "Dead reception also rejected");
             Equal(self.Receive(request).Applied, 0, "Self rejected by transaction");
             Equal(ally.Receive(request).Applied, 0, "Friendly rejected by transaction");
             Equal(outside.Receive(new DamageRequest(1, 1, 1, 0, -8)).Applied, 0, "Negative damage clamped");
             Equal(outside.Receive(new DamageRequest(1, 1, 1, 0, double.NaN)).Applied, 0, "NaN damage rejected");
             Equal(outside.Receive(new DamageRequest(1, 1, 1, 0, double.PositiveInfinity)).Applied, 0, "Infinite damage rejected");
+            double beforeRestore = outside.Health.Current;
+            Equal(outside.Health.Restore(45), 0, "Full health restoration is clamped");
+            outside.Receive(new DamageRequest(1, 1, 2, 0, 95));
+            Equal(outside.Health.Restore(45), 45, "Health restoration applies after damage");
+            Equal(outside.Health.Current, beforeRestore - 50, "Restore preserves remaining damage");
+            Equal(outside.Health.Restore(9999), 50, "Health restoration caps at maximum");
             Check(lethal.Request.AttackId == 8 && lethal.TargetId == 2, "Transaction provenance");
 
             var timeline = new AttackTimeline(spec);
