@@ -80,14 +80,26 @@ def main():
         "Assets/Art/Characters/Kit/Run/002.png",
         "Assets/Art/Characters/Kit/Run/003.png",
     ]
+    required_import_settings = (
+        "spriteMode: 1", "spritePixelsToUnits: 500", "nPOTScale: 0",
+        "textureCompression: 0", "isReadable: 0", "textureType: 8",
+        "alphaUsage: 1", "alphaIsTransparency: 1", "wrapU: 1", "wrapV: 1", "wrapW: 1"
+    )
+
     for path in locomotion_paths:
         require((ROOT / path).is_file(), "Missing M0 presentation asset: " + path)
         png_rgba(path)
+        meta_text = Path(str(ROOT / path) + ".meta").read_text()
+        for setting in required_import_settings:
+            require(setting in meta_text, f"M0 importer drift {setting}: {path}")
 
     basic_front = [f"Assets/Art/Characters/Kit/Basic/Front/{i:03}.png" for i in range(5)]
     for path in basic_front:
         require((ROOT / path).is_file(), "Missing front basic asset: " + path)
         png_rgba(path)
+        meta_text = Path(str(ROOT / path) + ".meta").read_text()
+        for setting in required_import_settings:
+            require(setting in meta_text, f"M1 importer drift {setting}: {path}")
 
     kit_set = text("Assets/Crownfall/Configuration/KitSpriteSet.asset")
     expected_locomotion_guids = [guid_for(p) for p in locomotion_paths]
