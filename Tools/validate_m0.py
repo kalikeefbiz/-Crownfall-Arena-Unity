@@ -22,8 +22,10 @@ def main():
         check(target.exists(), 'Orphan meta: '+str(meta))
         guids[guid] = target
     for path in ASSETS.rglob('*'):
-        # Empty art-staging folders and .gitkeep placeholders are allowed to let Unity
-        # generate folder metadata. Real imported asset files must keep committed metas.
+        # Empty staging folders may generate metas; populated folders need stable GUIDs.
+        if path.is_dir() and any(p.is_file() and p.suffix != '.meta' and
+                                 not p.name.startswith('.') for p in path.rglob('*')):
+            check(Path(str(path)+'.meta').exists(), 'Missing populated folder meta: '+str(path))
         if path.is_file() and path.suffix != '.meta' and path.name != '.gitkeep':
             check(Path(str(path)+'.meta').exists(), 'Missing meta: '+str(path))
     kit_files = list((ASSETS/'Art/Characters/Kit').rglob('*'))

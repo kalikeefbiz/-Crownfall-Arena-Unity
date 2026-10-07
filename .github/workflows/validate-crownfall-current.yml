@@ -4,9 +4,8 @@ on:
   push:
     branches: [main]
     paths:
-      - 'Assets/Crownfall/**'
-      - 'Assets/Editor/**'
-      - 'Assets/Scenes/M0.unity'
+      - 'Assets/**'
+      - 'Docs/Kit*Manifest.json'
       - 'Packages/**'
       - 'ProjectSettings/**'
       - 'Tools/**'
@@ -33,7 +32,7 @@ jobs:
         shell: bash
         run: |
           python -m pip install -r Tools/requirements-m1-static.txt
-          python Tools/validate_m0.py
+          python Tools/validate_m1.py
           python Tools/validate_current_build.py
           git diff --check
 

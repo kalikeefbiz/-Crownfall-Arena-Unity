@@ -5,6 +5,8 @@ stale repository assumptions.
 """
 from pathlib import Path
 import json, re, struct
+from PIL import Image
+import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / "Assets"
@@ -33,6 +35,135 @@ def png_rgba(path):
     width, height = struct.unpack(">II", data[16:24])
     color_type = data[25]
     require(width > 0 and height > 0 and color_type in (4, 6), f"PNG has no alpha channel: {path}")
+
+def documents(path):
+    # Unity document tags encode class IDs; remove only those tags for SafeLoader.
+    source = re.sub(r"^%.*\n", "", text(path), flags=re.M)
+    source = re.sub(r"^--- !u!\d+ &-?\d+.*$", "---", source, flags=re.M)
+    return list(yaml.safe_load_all(source))
+
+def integration_checks(guid_to_asset):
+    """Check actual fields and reference types, not unrelated matching substrings."""
+    folded = {}
+    for path in ASSETS.rglob("*"):
+        name = path.relative_to(ROOT).as_posix()
+        require(name.casefold() not in folded, "Case-insensitive path collision: " + name)
+        folded[name.casefold()] = name
+
+    def reference(value, expected_path, file_id):
+        require(value == {"fileID": file_id, "guid": guid_for(expected_path),
+                          "type": 3 if file_id in (11500000, 21300000) else 2},
+                "Wrong serialized reference to " + expected_path)
+
+    config_paths = {
+        "KitSpriteSet": "Presentation/KitSpriteSet.cs",
+        "KitBasicSprites": "Presentation/BasicSpriteSet.cs",
+        "KitBasicAttack": "Combat/BasicAttackDefinition.cs",
+        "M0SummonerTuning": "Gameplay/SummonerTuning.cs",
+    }
+    configs = {}
+    for name, script in config_paths.items():
+        value = documents(f"Assets/Crownfall/Configuration/{name}.asset")[0]["MonoBehaviour"]
+        reference(value["m_Script"], "Assets/Crownfall/" + script, 11500000)
+        configs[name] = value
+
+    kit = configs["KitSpriteSet"]
+    require(kit["framesPerSecond"] > 0 and kit["runThreshold"] > 0,
+            "Invalid M0 presentation tuning")
+    tuning = configs["M0SummonerTuning"]
+    require(tuning["moveSpeed"] == 5.2 and tuning["gravity"] < 0 and tuning["previewRange"] > 0,
+            "Invalid M0 movement/targeting tuning")
+
+    basic = configs["KitBasicSprites"]
+    require(basic["framesPerSecond"] == 12, "M1 presentation cadence drift")
+    for field, count, suffix in (("front", 5, "png"), ("back", 4, "PNG"), ("side", 3, "PNG")):
+        frames = basic[field]
+        expected = [f"Assets/Art/Characters/Kit/Basic/{field.title()}/{i:03}.{suffix}"
+                    for i in range(count)]
+        if field == "front":
+            expected.append("Assets/Art/Characters/Kit/Idle/Front/idle.png")
+        require(len(frames) == len(expected), "Directional sequence length: " + field)
+        for value, path in zip(frames, expected):
+            reference(value, path, 21300000)
+        if field == "front":
+            require(frames == basic["frames"], "Legacy/front sequence mismatch")
+
+    # Decode every imported Kit texture, including uppercase directional assets.
+    for path in (ASSETS / "Art/Characters/Kit").rglob("*"):
+        if path.suffix.lower() != ".png":
+            continue
+        relative = path.relative_to(ROOT).as_posix()
+        with Image.open(path) as image:
+            image.verify()
+        with Image.open(path) as image:
+            image.load()
+            require(image.format == "PNG" and image.mode == "RGBA" and
+                    image.size == (1254, 1254) and image.getchannel("A").getextrema() == (0, 255),
+                    "Invalid Kit PNG/alpha: " + relative)
+        importer = documents(relative + ".meta")[0]["TextureImporter"]
+        for key, value in {"spriteMode": 1, "spritePixelsToUnits": 500, "nPOTScale": 0,
+                           "isReadable": 0, "textureType": 8, "alphaUsage": 1,
+                           "alphaIsTransparency": 1}.items():
+            require(importer[key] == value, f"Importer {key}: {relative}")
+        require(all(importer["textureSettings"][key] == 1 for key in ("wrapU", "wrapV", "wrapW")),
+                "Texture wrap drift: " + relative)
+        platforms = {p["buildTarget"]: p for p in importer["platformSettings"]}
+        default = platforms["DefaultTexturePlatform"]
+        require(default["textureCompression"] == 0 and default["maxTextureSize"] >= 1254,
+                "Default importer compression/size: " + relative)
+        web = platforms.get("WebGL")
+        if web and web["overridden"]:
+            require(web["textureCompression"] == 0 and web["maxTextureSize"] >= 1254 and
+                    web["textureFormat"] == -1,
+                    "WebGL importer override: " + relative)
+
+    scene_path = "Assets/Scenes/M0.unity"
+    scene_docs = documents(scene_path)
+    components = [d["MonoBehaviour"] for d in scene_docs if "MonoBehaviour" in d]
+    require(len(components) == 2, "M0 composition component count drift")
+    for component, script, bindings in (
+        (components[0], "M0/M0Bootstrap.cs", {"kit": "KitSpriteSet", "tuning": "M0SummonerTuning"}),
+        (components[1], "M1/M1CombatFixture.cs", {"basic": "KitBasicAttack", "basicSprites": "KitBasicSprites"}),
+    ):
+        reference(component["m_Script"], "Assets/Crownfall/" + script, 11500000)
+        require(component["m_Enabled"] == 1 and component["m_GameObject"] == {"fileID": 100},
+                "Disabled/detached M0 component")
+        for field, asset in bindings.items():
+            reference(component[field], f"Assets/Crownfall/Configuration/{asset}.asset", 11400000)
+        reference(component["solidMaterial"], "Assets/Materials/PipelineCube.mat", 2100000)
+        reference(component["previewMaterial"], "Assets/Crownfall/Presentation/TargetPreview.mat", 2100000)
+    reference(components[0]["spriteMaterial"], "Assets/Crownfall/Presentation/KitSprite.mat", 2100000)
+    require({key: components[1][key] for key in ("kitHealth", "targetHealth", "targetRadius")} ==
+            {"kitHealth": 950, "targetHealth": 1000, "targetRadius": 0.52}, "M1 component data drift")
+    game_object = scene_docs[0]["GameObject"]
+    require(game_object["m_IsActive"] == 1 and game_object["m_Component"] ==
+            [{"component": {"fileID": i}} for i in (101, 102, 103)], "M0 root composition drift")
+    require(scene_docs[-1]["SceneRoots"]["m_Roots"] == [{"fileID": 101}], "M0 scene root drift")
+
+    build = documents("ProjectSettings/EditorBuildSettings.asset")[0]["EditorBuildSettings"]
+    require(build["m_Scenes"] == [{"enabled": 1, "path": scene_path, "guid": guid_for(scene_path)}],
+            "Build scene path/GUID drift")
+    settings = documents("ProjectSettings/ProjectSettings.asset")[0]["PlayerSettings"]
+    for key, value in {"activeInputHandler": 0, "stripEngineCode": 1,
+                       "webGLTemplate": "PROJECT:PipelineTest", "webGLCompressionFormat": 1,
+                       "webGLDecompressionFallback": 1, "webGLDataCaching": 0,
+                       "webGLThreadsSupport": 0}.items():
+        require(settings[key] == value, "PlayerSettings drift: " + key)
+    require(settings["scriptingBackend"]["WebGL"] == 1, "WebGL requires IL2CPP")
+    require(0 < settings["webGLInitialMemorySize"] <= settings["webGLMaximumMemorySize"],
+            "WebGL memory configuration")
+    template = text("Assets/WebGLTemplates/PipelineTest/index.html")
+    for token in ("LOADER_FILENAME", "DATA_FILENAME", "FRAMEWORK_FILENAME", "CODE_FILENAME"):
+        require("{{{ " + token + " }}}" in template, "Missing WebGL template token: " + token)
+
+    # Resolve every serialized external reference, including settings and shaders.
+    for base in (ASSETS, ROOT / "ProjectSettings"):
+        for path in base.rglob("*"):
+            if path.suffix not in (".unity", ".asset", ".mat"):
+                continue
+            for guid in referenced_guids(path.read_text()):
+                require(guid.startswith("0000000000000000") or guid in guid_to_asset,
+                        "Unresolved GUID in " + str(path) + ": " + guid)
 
 def main():
     manifest = json.loads(text("Packages/manifest.json"))
@@ -132,10 +263,15 @@ def main():
     m1_validator = text("Assets/Editor/M1Validation.cs")
     require('"Basic/Front/"' in m1_validator, "M1 validator still targets old basic path")
     require('.Replace("\\r\\n", "\\n")' in m1_validator, "M1 scene validator is not Windows line-ending safe")
+    require('System.IO.Path.Combine(Application.dataPath, "Scenes/M0.unity")' in m1_validator,
+            "M1 scene validator must resolve from the project, not the process working directory")
 
-    # All explicit AssetDatabase paths in the two asset validators must exist.
-    for source_name in ("Assets/Editor/M0Validation.cs", "Assets/Editor/M1Validation.cs"):
-        source = text(source_name)
+    integration_checks(guid_to_asset)
+
+    # Include all Editor sources, so a newly added validator cannot evade path checks.
+    for source_file in (ASSETS / "Editor").rglob("*.cs"):
+        source_name = source_file.relative_to(ROOT).as_posix()
+        source = source_file.read_text()
         for path in re.findall(r'AssetDatabase\.LoadAssetAtPath<[^>]+>\("([^"]+)"\)', source):
             require((ROOT / path).exists(), f"{source_name} references missing asset: {path}")
 

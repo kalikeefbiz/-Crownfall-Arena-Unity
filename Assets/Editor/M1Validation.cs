@@ -23,7 +23,8 @@ namespace Crownfall.Editor
                 Mathf.Approximately(definition.cooldown, .85f) && Mathf.Approximately(definition.comboWindow, 1.25f) &&
                 spec.ComboCount == 2 && spec.Damage(0) == 85 && spec.Damage(1) == 105 &&
                 spec.HitCount == 1 && spec.HitTime(0) == 0, "first-roster basic data drift");
-            var sceneText = System.IO.File.ReadAllText("Assets/Scenes/M0.unity").Replace("\r\n", "\n");
+            var scenePath = System.IO.Path.Combine(Application.dataPath, "Scenes/M0.unity");
+            var sceneText = System.IO.File.ReadAllText(scenePath).Replace("\r\n", "\n");
             Require(sceneText.Contains("  kitHealth: 950\n") &&
                 sceneText.Contains("  targetHealth: 1000\n") &&
                 sceneText.Contains("  targetRadius: 0.52\n"),

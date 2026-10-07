@@ -1,18 +1,11 @@
 """M1 source/data/integrity checks, complementary to compiled core and Unity prebuild checks."""
 from pathlib import Path
 from io import BytesIO
-import hashlib, json, re, subprocess
+import hashlib, json, re
 from PIL import Image
 from validate_m0 import main as validate_m0
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = 'af88eaed1cb0408873dbe1e692ae6a9254510bef'
-MODIFIED = {
-    'Assets/Crownfall/Presentation/KitSpritePresentation.cs',
-    'Assets/Crownfall/M0/M0Diagnostics.cs',
-    'Assets/Scenes/M0.unity',
-    'Tools/validate_m0.py',
-}
 HASHES = [
     'd5918960e4f5341ec72ea3cbcf2798fdb97f104f519865521262826b11c07896',
     '956f9cc4619f6135ecba9d4dc6f519418ec005eaca2f5cd1c03a621a0351ccfc',
@@ -23,22 +16,14 @@ HASHES = [
 ]
 def require(condition, message):
     if not condition: raise AssertionError(message)
-def git(*args):
-    return subprocess.check_output(['git', '-C', str(ROOT), *args])
-
 def main():
     validate_m0()
-    preserved = 0
-    baseline = git('ls-tree', '-r', '--name-only', BASE, '--', 'Assets', 'Packages', 'ProjectSettings', 'Tools', 'Docs', 'README.md').decode().splitlines()
-    for path in baseline:
-        if path in MODIFIED: continue
-        require((ROOT/path).is_file() and (ROOT/path).read_bytes() == git('show', BASE+':'+path), 'Baseline changed: '+path)
-        preserved += 1
-    old_scene = git('show', BASE+':Assets/Scenes/M0.unity').decode()
+    # The original import's byte-identical M0.1 contract belongs to the archived
+    # import workflow. Current-main composition and directional sequences are
+    # checked by validate_current_build, while source hashes remain pinned here.
+    from validate_current_build import main as validate_current
+    validate_current()
     scene = (ROOT/'Assets/Scenes/M0.unity').read_text()
-    stripped = scene.replace('  - component: {fileID: 103}\n', '')
-    stripped = re.sub(r'--- !u!114 &103\n.*?(?=--- !u!1660057539)', '', stripped, flags=re.S)
-    require(stripped == old_scene, 'Scene modification beyond M1 fixture attachment')
     require('  kitHealth: 950\n  targetHealth: 1000\n  targetRadius: 0.52\n' in scene, 'Authored fixture health/radius')
     manifest = json.loads((ROOT/'Docs/KitBasicSourceManifest.json').read_text())
     rows = manifest['images']+[manifest['finalFrame']]
@@ -64,9 +49,9 @@ def main():
     require(len(set(guids)) == 6, 'Duplicate basic frame reference')
     basic_dir = ROOT/'Assets/Art/Characters/Kit/Basic/Front'
     require(sorted(p.name for p in basic_dir.iterdir()) == sorted([f'{i:03}.png{s}' for i in range(5) for s in ('','.meta')]), 'Unexpected front basic artwork/metadata')
-    require(len(list((ROOT/'Assets/Art/Characters/Kit').rglob('*.png'))) == 10, 'Only five additional textures permitted')
     clip = (ROOT/'Assets/Crownfall/Configuration/KitBasicSprites.asset').read_text()
-    require(re.findall(r'fileID: 21300000, guid: (\w+)',clip) == guids and 'framesPerSecond: 12' in clip, 'Six frame cadence/order/idle reference')
+    legacy_frames = clip.split('  frames:\n', 1)[1].split('  front:\n', 1)[0]
+    require(re.findall(r'fileID: 21300000, guid: (\w+)',legacy_frames) == guids and 'framesPerSecond: 12' in clip, 'Six frame cadence/order/idle reference')
     attack = (ROOT/'Assets/Crownfall/Configuration/KitBasicAttack.asset').read_text()
     require('  range: 2.6\n  coneDegrees: 117\n  cooldown: 0.85\n  comboWindow: 1.25\n  comboDamage:\n  - 85\n  - 105\n  hitTimes:\n  - 0\n' in attack, 'Current first-roster Kit definition')
     for file in (ROOT/'Assets/Crownfall/Combat').rglob('*.cs'):
@@ -74,10 +59,10 @@ def main():
         require(not any(word in code for word in ('SpriteRenderer','AnimationEvent','BasicSpriteSet','KitSpritePresentation','Rigidbody','AddForce','Input.Get')), 'Rendering/input authority leaked into combat')
         if 'Core' in file.parts: require('UnityEngine' not in code, 'Pure core dependency')
     sprite = (ROOT/'Assets/Crownfall/Presentation/KitSpritePresentation.cs').read_text()
-    require('Combat.IAttackViewState' in sprite and 'basic.AtTime(attack.Elapsed)' in sprite, 'Simulation-driven presentation')
+    require('Combat.IAttackViewState' in sprite and 'basic.AtTime(attack.Elapsed, facing)' in sprite, 'Simulation-driven directional presentation')
     require(not any(x in sprite for x in ('DamageRequest', '.Receive(', '.TryStart(', '.Advance(', '.Interrupt(')), 'Sprite drives combat')
     require('hit(i, spec.Damage(ComboStep))' in (ROOT/'Assets/Crownfall/Combat/Core/AttackTimeline.cs').read_text(), 'Scheduled query path missing')
-    print(f'PASS: M1 art hashes/alpha, six logical frames, data, references, separation; {preserved} baseline files byte-identical.')
+    print('PASS: M1 source hashes/alpha/pivots, six front logical frames, current data, directional references, and combat/presentation separation.')
     print('Unity compilation/import, actual scene lifecycle, Cloud build and iPhone visuals/input remain pending.')
 
 if __name__ == '__main__': main()
