@@ -12,12 +12,12 @@ if [[ ! -d "$UNITY_PLAYER_PATH" ]]; then
   exit 1
 fi
 if [[ -z "${CLOUDFLARE_API_TOKEN:-}" ]]; then
-  echo "ERROR: Missing CLOUDFLARE_API_TOKEN environment variable."
-  exit 1
+  echo "WARNING: Missing CLOUDFLARE_API_TOKEN. Skipping deployment so a successful Unity export remains a successful build."
+  exit 0
 fi
 if [[ -z "${CLOUDFLARE_ACCOUNT_ID:-}" ]]; then
-  echo "ERROR: Missing CLOUDFLARE_ACCOUNT_ID environment variable."
-  exit 1
+  echo "WARNING: Missing CLOUDFLARE_ACCOUNT_ID. Skipping deployment so a successful Unity export remains a successful build."
+  exit 0
 fi
 
 CLOUDFLARE_PAGES_PROJECT="${CLOUDFLARE_PAGES_PROJECT:-crownfall-arena}"
@@ -165,7 +165,52 @@ if [[ "${CROWNFALL_DEPLOY_DRY_RUN:-0}" == "1" ]]; then
   exit 0
 fi
 
-# Fail early on credentials/account scope before attempting an upload.
+# Cloudflare Pages rejects any individual asset over 25 MiB. A deployment problem
+# must never invalidate an otherwise successful Unity player export, because Unity
+# Build Automation only preserves artifacts for successful builds.
+PAGES_MAX_BYTES=26214400
+OVERSIZED_FILES=""
+while IFS= read -r -d '' candidate; do
+  size_bytes="$(wc -c < "$candidate" | tr -d '[:space:]')"
+  if [[ "$size_bytes" =~ ^[0-9]+$ ]] && (( size_bytes > PAGES_MAX_BYTES )); then
+    OVERSIZED_FILES+="$candidate ($size_bytes bytes)"
+echo "[Crownfall Arena] Verifying Cloudflare Pages access..."
+if ! PROJECTS_JSON="$(run_wrangler pages project list --json)"; then
+  echo "WARNING: Cloudflare access check failed. Unity export remains successful; skipping deployment."
+  exit 0
+fi
+
+if ! printf '%s\n' "$PROJECTS_JSON" | grep -Eq "\"name\"[[:space:]]*:[[:space:]]*\"$CLOUDFLARE_PAGES_PROJECT\""; then
+  echo "[Crownfall Arena] Pages project does not exist; creating $CLOUDFLARE_PAGES_PROJECT..."
+  if ! run_wrangler pages project create "$CLOUDFLARE_PAGES_PROJECT" --production-branch main; then
+    echo "WARNING: Cloudflare Pages project creation failed. Unity export remains successful; skipping deployment."
+    exit 0
+  fi
+else
+  echo "[Crownfall Arena] Existing Pages project found."
+fi
+
+echo "[Crownfall Arena] Deploying WebGL output to Cloudflare Pages..."
+if ! run_wrangler pages deploy "$PLAYER_PATH" \
+  --project-name "$CLOUDFLARE_PAGES_PROJECT" \
+  --branch main; then
+  echo "WARNING: Cloudflare Pages deployment failed. Unity export remains successful and artifacts should be preserved."
+  exit 0
+fi
+
+echo "[Crownfall Arena] Cloudflare Pages deployment complete."
+\n'
+  fi
+done < <(find "$UNITY_PLAYER_PATH" -type f -print0)
+
+if [[ -n "$OVERSIZED_FILES" ]]; then
+  echo "WARNING: Cloudflare Pages deployment skipped because these assets exceed the 25 MiB per-file limit:"
+  printf '%s' "$OVERSIZED_FILES"
+  echo "WARNING: Unity export succeeded; preserving build success/artifacts. Deploy large WebGL assets through a host that supports them (for example R2) in a separate deployment step."
+  exit 0
+fi
+
+# Deployment is intentionally non-fatal. Hosting must not decide Unity build success.
 echo "[Crownfall Arena] Verifying Cloudflare Pages access..."
 PROJECTS_JSON="$(run_wrangler pages project list --json)"
 if ! printf '%s\n' "$PROJECTS_JSON" | grep -Eq "\"name\"[[:space:]]*:[[:space:]]*\"$CLOUDFLARE_PAGES_PROJECT\""; then
