@@ -14,6 +14,10 @@ namespace Crownfall
         public Rect MoveRect { get; private set; }
         public Rect DirectionRect { get; private set; }
         public Rect RadialRect { get; private set; }
+        public Rect BasicRect => DirectionRect;
+        public Rect Skill1Rect { get; private set; }
+        public Rect Skill2Rect { get; private set; }
+        public Rect UltimateRect { get; private set; }
         public Rect CancelRect { get; private set; }
         public Rect SwapRect { get; private set; }
         public float UIScale { get; private set; }
@@ -146,9 +150,21 @@ namespace Crownfall
             float bottom = top + safe.height, right = safe.xMax;
             radius = 90 * s;
             MoveRect = new Rect(left + 16*s, bottom - 200*s, 190*s, 180*s);
-            DirectionRect = new Rect(right - 244*s, bottom - 122*s, 108*s, 102*s);
-            RadialRect = new Rect(right - 124*s, bottom - 122*s, 108*s, 102*s);
-            CancelRect = new Rect(right - 124*s, bottom - 200*s, 108*s, 62*s);
+
+            // Production-oriented right-thumb combat cluster.
+            // M1.1 only wires BASIC to existing directional targeting.
+            // Skill/Ultimate rects intentionally reserve final touch real estate for M2+.
+            float basicSize = 116*s;
+            float skillSize = 82*s;
+            float ultSize = 88*s;
+            DirectionRect = new Rect(right - 26*s - basicSize, bottom - 26*s - basicSize, basicSize, basicSize);
+            Skill1Rect = new Rect(DirectionRect.xMin - 18*s - skillSize, DirectionRect.yMin - 38*s, skillSize, skillSize);
+            Skill2Rect = new Rect(DirectionRect.xMin + 20*s, DirectionRect.yMin - 18*s - skillSize, skillSize, skillSize);
+            UltimateRect = new Rect(DirectionRect.xMin - 28*s, DirectionRect.yMin - 30*s - skillSize - ultSize, ultSize, ultSize);
+
+            // Legacy radial target test remains available but moved out of the production cluster.
+            RadialRect = new Rect(right - 122*s, top + 74*s, 100*s, 72*s);
+            CancelRect = new Rect(right - 122*s, top + 154*s, 100*s, 52*s);
             SwapRect = new Rect(right - 204*s, top + 12*s, 188*s, 50*s);
         }
     }
