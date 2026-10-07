@@ -29,8 +29,11 @@ namespace Crownfall
                 pawn.Targeting.Phase + " | Selections: " + pawn.Targeting.ConfirmationCount +
                 " | Facing: " + pawn.Facing + " | Direction: basic / Radial: preview", label);
             GUI.Box(input.MoveRect, "MOVE\nDrag", button);
-            GUI.Box(input.DirectionRect, "DIRECTION\nTap / hold", button);
-            GUI.Box(input.RadialRect, "RADIAL\nTap / hold", button);
+            GUI.Box(input.BasicRect, "BASIC", button);
+            GUI.Box(input.Skill1Rect, "SKILL 1", button);
+            GUI.Box(input.Skill2Rect, "SKILL 2", button);
+            GUI.Box(input.UltimateRect, "ULT", button);
+            GUI.Box(input.RadialRect, "RADIAL\nTEST", button);
             GUI.Box(input.CancelRect, "CANCEL", button);
             GUI.Box(input.SwapRect, "SWAP PRESENTATION", button);
         }
