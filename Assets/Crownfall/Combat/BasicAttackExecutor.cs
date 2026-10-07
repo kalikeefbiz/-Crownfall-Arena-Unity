@@ -65,6 +65,7 @@ namespace Crownfall.Combat
             HitEvents++;
             LastHitTargets = ConeHitQuery.Resolve(world.Targets, timeline.Origin, timeline.Direction,
                 spec.Range, spec.Arc, new DamageRequest(owner.Health.Id, owner.Health.Team, timeline.Sequence, index, damage));
+            if (LastHitTargets > 0) owner.MarkDamageDealt();
         }
         void OnApplicationFocus(bool value) { focused = value; }
         void OnApplicationPause(bool value) { paused = value; }
