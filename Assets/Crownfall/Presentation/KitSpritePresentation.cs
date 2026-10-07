@@ -22,27 +22,43 @@ namespace Crownfall
             state = source; art = sprites; viewCamera = camera;
             visual = GetComponent<SpriteRenderer>();
             visual.sharedMaterial = material;
-            visual.sprite = art.idle;
+            visual.sprite = art.IdleFor(state.Facing);
         }
 
         void OnEnable() { cycle = 0; running = false; }
+
+        void ApplyFacing(PresentationFacing facing)
+        {
+            visual.flipX = facing == PresentationFacing.Left;
+        }
+
         void LateUpdate()
         {
             if (state == null || art == null) return;
+
             float threshold = art.runThreshold * (running ? art.stopThresholdRatio : 1f);
             bool nextRunning = state.Velocity.sqrMagnitude > threshold * threshold;
             if (nextRunning != running) { running = nextRunning; cycle = 0; }
-            else if (running) cycle = Mathf.Repeat(cycle + Time.deltaTime * Mathf.Max(0.1f, art.framesPerSecond), art.run.Length);
-            visual.sprite = running ? art.run[Mathf.FloorToInt(cycle)] : art.idle;
-            visual.flipX = state.Facing == PresentationFacing.Left;
+            else if (running && art.run != null && art.run.Length > 0)
+                cycle = Mathf.Repeat(cycle + Time.deltaTime * Mathf.Max(0.1f, art.framesPerSecond), art.run.Length);
+
+            var facing = state.Facing;
+            bool sideRun = running && PresentationFacingUtility.IsSide(facing) &&
+                art.run != null && art.run.Length > 0;
+
+            visual.sprite = sideRun ? art.run[Mathf.FloorToInt(cycle)] : art.IdleFor(facing);
+            ApplyFacing(facing);
+
             if (attack != null && attack.Active && basic != null)
             {
-                visual.sprite = basic.AtTime(attack.Elapsed);
-                float side = Vector3.Dot(attack.CapturedDirection, viewCamera.transform.right);
-                visual.flipX = Mathf.Abs(side) > 0.05f ? side < 0 : attack.CapturedFacing == PresentationFacing.Left;
+                facing = attack.CapturedFacing;
+                Sprite attackSprite = basic.AtTime(attack.Elapsed, facing);
+                if (attackSprite != null) visual.sprite = attackSprite;
+                ApplyFacing(facing);
             }
+
             // Camera-aligned child only. Gameplay root remains unrotated and unscaled.
-            transform.rotation = viewCamera.transform.rotation;
+            if (viewCamera != null) transform.rotation = viewCamera.transform.rotation;
         }
     }
 }
