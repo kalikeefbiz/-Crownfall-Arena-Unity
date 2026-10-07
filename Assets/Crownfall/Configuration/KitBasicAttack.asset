@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16453347a5635cd893d1b129619b7f59, type: 3}
   m_Name: KitBasicAttack
   m_EditorClassIdentifier:
-  range: 2.8
+  range: 2.6
   coneDegrees: 117
-  cooldown: 0.55
+  cooldown: 0.85
   comboWindow: 1.25
   comboDamage:
-  - 110
-  - 150
+  - 85
+  - 105
   hitTimes:
   - 0
