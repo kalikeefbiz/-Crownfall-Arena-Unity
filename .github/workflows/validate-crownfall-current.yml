@@ -1,0 +1,116 @@
+name: Validate Crownfall Current
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Assets/Crownfall/**'
+      - 'Assets/Editor/**'
+      - 'Assets/Scenes/M0.unity'
+      - 'Packages/**'
+      - 'ProjectSettings/**'
+      - 'Tools/**'
+      - '.github/workflows/validate-crownfall-current.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Static Unity source validation
+        shell: bash
+        run: |
+          python -m pip install -r Tools/requirements-m1-static.txt
+          python Tools/validate_m0.py
+          git diff --check
+
+      - name: Verify current combat configuration
+        shell: python
+        run: |
+          from pathlib import Path
+          import json
+          root = Path(".")
+          manifest = json.loads((root/"Packages/manifest.json").read_text())
+          assert manifest["dependencies"] == {
+              "com.unity.modules.imgui": "1.0.0",
+              "com.unity.modules.physics": "1.0.0",
+          }, manifest
+          attack = (root/"Assets/Crownfall/Configuration/KitBasicAttack.asset").read_text()
+          for needle in (
+              "  range: 2.6\n",
+              "  cooldown: 0.85\n",
+              "  comboWindow: 1.25\n",
+              "  - 85\n  - 105\n",
+          ):
+              assert needle in attack, needle
+          tuning = (root/"Assets/Crownfall/Configuration/M0SummonerTuning.asset").read_text()
+          assert "  moveSpeed: 5.2\n" in tuning
+          scene = (root/"Assets/Scenes/M0.unity").read_text()
+          assert "  kitHealth: 950\n  targetHealth: 1000\n  targetRadius: 0.52\n" in scene
+          print("PASS: package manifest and current Kit/M1 serialized balance configuration.")
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Compile and execute pure combat framework
+        shell: bash
+        run: |
+          set -euo pipefail
+          TMP="$RUNNER_TEMP/crownfall-framework-tests"
+          mkdir -p "$TMP"
+          cp Assets/Crownfall/Combat/Core/*.cs "$TMP/"
+          cp Assets/Editor/M1CombatTests.cs "$TMP/"
+          cp Assets/Editor/CombatEconomyTests.cs "$TMP/"
+          cp Assets/Editor/FirstRosterBalanceTests.cs "$TMP/"
+          cp Assets/Editor/TerritorySurgeTests.cs "$TMP/"
+          cat > "$TMP/Program.cs" <<'CS'
+          using System;
+          using Crownfall.Tests;
+
+          public static class Program
+          {
+              public static int Main()
+              {
+                  try
+                  {
+                      int m1 = M1CombatTests.Run();
+                      int economy = CombatEconomyTests.Run();
+                      int roster = FirstRosterBalanceTests.Run();
+                      int surge = TerritorySurgeTests.Run();
+                      Console.WriteLine($"PASS: M1={m1}, Economy={economy}, Roster={roster}, Surge={surge}");
+                      return 0;
+                  }
+                  catch (Exception error)
+                  {
+                      Console.Error.WriteLine(error);
+                      return 1;
+                  }
+              }
+          }
+          CS
+          cat > "$TMP/FrameworkTests.csproj" <<'XML'
+          <Project Sdk="Microsoft.NET.Sdk">
+            <PropertyGroup>
+              <OutputType>Exe</OutputType>
+              <TargetFramework>net8.0</TargetFramework>
+              <ImplicitUsings>disable</ImplicitUsings>
+              <Nullable>disable</Nullable>
+              <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+              <LangVersion>latest</LangVersion>
+            </PropertyGroup>
+          </Project>
+          XML
+          dotnet run --project "$TMP/FrameworkTests.csproj" --configuration Release
