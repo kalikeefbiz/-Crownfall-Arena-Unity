@@ -77,7 +77,7 @@ def main():
     check('motor.Move(' in root and 'transform.position =' not in root, 'Collision bypass')
     check('Vector3.ProjectOnPlane(transform.position - before' in root, 'Resolved movement state missing')
     sprite = (ASSETS/'Crownfall/Presentation/KitSpritePresentation.cs').read_text()
-    check('visual.flipX = state.Facing' in sprite and 'localScale' not in sprite, 'Mirror/scale invariant')
+    check('visual.flipX = facing == PresentationFacing.Left' in sprite and 'localScale' not in sprite, 'Mirror/scale invariant')
     check('Mathf.Repeat' in sprite and 'art.run.Length' in sprite, 'Loop missing')
     build = (ROOT/'ProjectSettings/EditorBuildSettings.asset').read_text()
     check(build.count('enabled: 1') == 1 and 'Assets/Scenes/M0.unity' in build, 'Build scene')
