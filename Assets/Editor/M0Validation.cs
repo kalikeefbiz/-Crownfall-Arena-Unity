@@ -18,7 +18,7 @@ namespace Crownfall.Editor
             {
                 Sprite sprite = i == 0 ? art.idle : art.run[i - 1];
                 string expected = "Assets/Art/Characters/Kit/" +
-                    (i == 0 ? "Idle/idle.png" : "Run/" + (i - 1).ToString("000") + ".png");
+                    (i == 0 ? "Idle/Front/idle.png" : "Run/" + (i - 1).ToString("000") + ".png");
                 string path = AssetDatabase.GetAssetPath(sprite);
                 Require(sprite != null && path == expected && paths.Add(path), "Kit order/duplicate: " + expected);
                 var importer = AssetImporter.GetAtPath(path) as TextureImporter;
