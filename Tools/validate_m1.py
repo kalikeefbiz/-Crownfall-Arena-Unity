@@ -39,14 +39,14 @@ def main():
     stripped = scene.replace('  - component: {fileID: 103}\n', '')
     stripped = re.sub(r'--- !u!114 &103\n.*?(?=--- !u!1660057539)', '', stripped, flags=re.S)
     require(stripped == old_scene, 'Scene modification beyond M1 fixture attachment')
-    require('  kitHealth: 650\n  targetHealth: 1800\n  targetRadius: 0.52\n' in scene, 'Authored fixture health/radius')
+    require('  kitHealth: 950\n  targetHealth: 1000\n  targetRadius: 0.52\n' in scene, 'Authored fixture health/radius')
     manifest = json.loads((ROOT/'Docs/KitBasicSourceManifest.json').read_text())
     rows = manifest['images']+[manifest['finalFrame']]
     require(len(rows) == 6, 'Logical frame count')
     guids = []
-    idle_meta = (ROOT/'Assets/Art/Characters/Kit/Idle/idle.png.meta').read_text()
+    idle_meta = (ROOT/'Assets/Art/Characters/Kit/Idle/Front/idle.png.meta').read_text()
     for i,row in enumerate(rows):
-        expected = 'Assets/Art/Characters/Kit/'+('Idle/idle.png' if i == 5 else f'Basic/{i:03}.png')
+        expected = 'Assets/Art/Characters/Kit/'+('Idle/Front/idle.png' if i == 5 else f'Basic/{i:03}.png')
         require(row['source'] == f'kit-asher/basic/{i:03}.png.PNG' and row['asset'] == expected, 'Exact source mapping')
         data = (ROOT/expected).read_bytes()
         require(data[:8] == b'\x89PNG\r\n\x1a\n', 'PNG signature')
@@ -68,7 +68,7 @@ def main():
     clip = (ROOT/'Assets/Crownfall/Configuration/KitBasicSprites.asset').read_text()
     require(re.findall(r'fileID: 21300000, guid: (\w+)',clip) == guids and 'framesPerSecond: 12' in clip, 'Six frame cadence/order/idle reference')
     attack = (ROOT/'Assets/Crownfall/Configuration/KitBasicAttack.asset').read_text()
-    require('  range: 2.8\n  coneDegrees: 117\n  cooldown: 0.55\n  comboWindow: 1.25\n  comboDamage:\n  - 110\n  - 150\n  hitTimes:\n  - 0\n' in attack, 'Authoritative V21 definition')
+    require('  range: 2.6\n  coneDegrees: 117\n  cooldown: 0.85\n  comboWindow: 1.25\n  comboDamage:\n  - 85\n  - 105\n  hitTimes:\n  - 0\n' in attack, 'Current first-roster Kit definition')
     for file in (ROOT/'Assets/Crownfall/Combat').rglob('*.cs'):
         code = file.read_text()
         require(not any(word in code for word in ('SpriteRenderer','AnimationEvent','BasicSpriteSet','KitSpritePresentation','Rigidbody','AddForce','Input.Get')), 'Rendering/input authority leaked into combat')
