@@ -36,7 +36,7 @@ namespace Crownfall.Editor
                 locomotion != null && art.frames[5] == locomotion.idle, "Six logical frames with reused idle");
             for (int i = 0; i < 6; i++)
             {
-                string path = "Assets/Art/Characters/Kit/" + (i == 5 ? "Idle/idle.png" : "Basic/" + i.ToString("000") + ".png");
+                string path = "Assets/Art/Characters/Kit/" + (i == 5 ? "Idle/Front/idle.png" : "Basic/" + i.ToString("000") + ".png");
                 Require(art.frames[i] != null && AssetDatabase.GetAssetPath(art.frames[i]) == path, "Basic frame order");
                 var importer = AssetImporter.GetAtPath(path) as TextureImporter;
                 Require(importer != null && importer.textureType == TextureImporterType.Sprite &&
