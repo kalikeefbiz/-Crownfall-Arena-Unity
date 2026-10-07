@@ -23,6 +23,13 @@ namespace Crownfall.Editor
                 Mathf.Approximately(definition.cooldown, .85f) && Mathf.Approximately(definition.comboWindow, 1.25f) &&
                 spec.ComboCount == 2 && spec.Damage(0) == 85 && spec.Damage(1) == 105 &&
                 spec.HitCount == 1 && spec.HitTime(0) == 0, "first-roster basic data drift");
+            var sceneText = System.IO.File.ReadAllText("Assets/Scenes/M0.unity");
+            Require(sceneText.Contains("  kitHealth: 950\n  targetHealth: 1000\n  targetRadius: 0.52\n"),
+                "M1 fixture health/radius drift");
+
+            var tuning = AssetDatabase.LoadAssetAtPath<SummonerTuning>("Assets/Crownfall/Configuration/M0SummonerTuning.asset");
+            Require(tuning != null && Mathf.Approximately(tuning.moveSpeed, 5.2f), "Kit movement tuning drift");
+
             var art = AssetDatabase.LoadAssetAtPath<BasicSpriteSet>("Assets/Crownfall/Configuration/KitBasicSprites.asset");
             var locomotion = AssetDatabase.LoadAssetAtPath<KitSpriteSet>("Assets/Crownfall/Configuration/KitSpriteSet.asset");
             Require(art != null && art.frames.Length == 6 && art.framesPerSecond == 12 &&
