@@ -63,8 +63,8 @@ MonoBehaviour:
   basicSprites: {fileID: 11400000, guid: 386886877e165873acb28cef14d44e27, type: 2}
   solidMaterial: {fileID: 2100000, guid: 2bdbb7a6212a572d3b3f23c9d4477be9, type: 2}
   previewMaterial: {fileID: 2100000, guid: 478119471b495af6b352cc8dcc260b2d, type: 2}
-  kitHealth: 650
-  targetHealth: 1800
+  kitHealth: 950
+  targetHealth: 1000
   targetRadius: 0.52
   targetPosition: {x: 2, y: 0.05, z: -4}
 --- !u!1660057539 &9223372036854775807
