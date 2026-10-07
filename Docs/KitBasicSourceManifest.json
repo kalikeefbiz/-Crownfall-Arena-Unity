@@ -4,31 +4,31 @@
   "images": [
     {
       "source": "kit-asher/basic/000.png.PNG",
-      "asset": "Assets/Art/Characters/Kit/Basic/000.png",
+      "asset": "Assets/Art/Characters/Kit/Basic/Front/000.png",
       "sha256": "d5918960e4f5341ec72ea3cbcf2798fdb97f104f519865521262826b11c07896",
       "guid": "8d9dc5fb673b5c5ba90f84d728b1ca3f"
     },
     {
       "source": "kit-asher/basic/001.png.PNG",
-      "asset": "Assets/Art/Characters/Kit/Basic/001.png",
+      "asset": "Assets/Art/Characters/Kit/Basic/Front/001.png",
       "sha256": "956f9cc4619f6135ecba9d4dc6f519418ec005eaca2f5cd1c03a621a0351ccfc",
       "guid": "8bd0d01d9dc55aaa9e9d551f0bb13ea1"
     },
     {
       "source": "kit-asher/basic/002.png.PNG",
-      "asset": "Assets/Art/Characters/Kit/Basic/002.png",
+      "asset": "Assets/Art/Characters/Kit/Basic/Front/002.png",
       "sha256": "dfb1f7b508cfa64c8a9729b87c529837773b4ebca279dd5cbe66bc2b3f5140fa",
       "guid": "46b0cdbeb9435470af4efdd996bb79e2"
     },
     {
       "source": "kit-asher/basic/003.png.PNG",
-      "asset": "Assets/Art/Characters/Kit/Basic/003.png",
+      "asset": "Assets/Art/Characters/Kit/Basic/Front/003.png",
       "sha256": "92100d6ed6cb41eee6a3c26fe7c770091b0851847f2d083a4b2063f9028b1cd8",
       "guid": "3637def6c98d5be0b79127a70f463dd4"
     },
     {
       "source": "kit-asher/basic/004.png.PNG",
-      "asset": "Assets/Art/Characters/Kit/Basic/004.png",
+      "asset": "Assets/Art/Characters/Kit/Basic/Front/004.png",
       "sha256": "2c38d635f7655bad152d3276623f3e8d6acee4f35fe003b3703fb1312dc55ecb",
       "guid": "6930be43b35150308ed40518b8b00666"
     }
