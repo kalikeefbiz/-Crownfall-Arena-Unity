@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 251bc91a34a859f6bdf5e8e9edc582ff, type: 3}
   m_Name: M0SummonerTuning
   m_EditorClassIdentifier:
-  moveSpeed: 5
+  moveSpeed: 5.2
   gravity: -24
   holdSeconds: 0.22
   previewRange: 5
