@@ -10,8 +10,8 @@ namespace Crownfall
         [SerializeField] BasicSpriteSet basicSprites;
         [SerializeField] Material solidMaterial;
         [SerializeField] Material previewMaterial;
-        [SerializeField, Min(1)] float kitHealth = 650;
-        [SerializeField, Min(1)] float targetHealth = 1800;
+        [SerializeField, Min(1)] float kitHealth = 950;
+        [SerializeField, Min(1)] float targetHealth = 1000;
         [SerializeField, Min(0.01f)] float targetRadius = 0.52f;
         [SerializeField] Vector3 targetPosition = new Vector3(2, 0.05f, -4);
         Combatant target;
