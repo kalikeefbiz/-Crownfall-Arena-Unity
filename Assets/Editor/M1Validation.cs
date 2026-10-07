@@ -19,10 +19,10 @@ namespace Crownfall.Editor
             var definition = AssetDatabase.LoadAssetAtPath<BasicAttackDefinition>("Assets/Crownfall/Configuration/KitBasicAttack.asset");
             Require(definition != null, "Missing Kit basic definition");
             var spec = definition.Snapshot();
-            Require(Mathf.Approximately((float)spec.Range, 2.8f) && Mathf.Approximately(definition.coneDegrees, 117) &&
-                Mathf.Approximately(definition.cooldown, .55f) && Mathf.Approximately(definition.comboWindow, 1.25f) &&
-                spec.ComboCount == 2 && spec.Damage(0) == 110 && spec.Damage(1) == 150 &&
-                spec.HitCount == 1 && spec.HitTime(0) == 0, "V21 basic data drift");
+            Require(Mathf.Approximately((float)spec.Range, 2.6f) && Mathf.Approximately(definition.coneDegrees, 117) &&
+                Mathf.Approximately(definition.cooldown, .85f) && Mathf.Approximately(definition.comboWindow, 1.25f) &&
+                spec.ComboCount == 2 && spec.Damage(0) == 85 && spec.Damage(1) == 105 &&
+                spec.HitCount == 1 && spec.HitTime(0) == 0, "first-roster basic data drift");
             var art = AssetDatabase.LoadAssetAtPath<BasicSpriteSet>("Assets/Crownfall/Configuration/KitBasicSprites.asset");
             var locomotion = AssetDatabase.LoadAssetAtPath<KitSpriteSet>("Assets/Crownfall/Configuration/KitSpriteSet.asset");
             Require(art != null && art.frames.Length == 6 && art.framesPerSecond == 12 &&
