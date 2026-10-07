@@ -46,7 +46,7 @@ def main():
     guids = []
     idle_meta = (ROOT/'Assets/Art/Characters/Kit/Idle/Front/idle.png.meta').read_text()
     for i,row in enumerate(rows):
-        expected = 'Assets/Art/Characters/Kit/'+('Idle/Front/idle.png' if i == 5 else f'Basic/{i:03}.png')
+        expected = 'Assets/Art/Characters/Kit/'+('Idle/Front/idle.png' if i == 5 else f'Basic/Front/{i:03}.png')
         require(row['source'] == f'kit-asher/basic/{i:03}.png.PNG' and row['asset'] == expected, 'Exact source mapping')
         data = (ROOT/expected).read_bytes()
         require(data[:8] == b'\x89PNG\r\n\x1a\n', 'PNG signature')
@@ -62,8 +62,8 @@ def main():
         scrub = lambda text: re.sub(r'(guid: |spriteID: )[a-f0-9]{32}', r'\1ID', text)
         require(scrub(meta) == scrub(idle_meta), 'Unexpected new import/pivot differences')
     require(len(set(guids)) == 6, 'Duplicate basic frame reference')
-    basic_dir = ROOT/'Assets/Art/Characters/Kit/Basic'
-    require(sorted(p.name for p in basic_dir.iterdir()) == sorted([f'{i:03}.png{s}' for i in range(5) for s in ('','.meta')]), 'Extra basic artwork/metadata')
+    basic_dir = ROOT/'Assets/Art/Characters/Kit/Basic/Front'
+    require(sorted(p.name for p in basic_dir.iterdir()) == sorted([f'{i:03}.png{s}' for i in range(5) for s in ('','.meta')]), 'Unexpected front basic artwork/metadata')
     require(len(list((ROOT/'Assets/Art/Characters/Kit').rglob('*.png'))) == 10, 'Only five additional textures permitted')
     clip = (ROOT/'Assets/Crownfall/Configuration/KitBasicSprites.asset').read_text()
     require(re.findall(r'fileID: 21300000, guid: (\w+)',clip) == guids and 'framesPerSecond: 12' in clip, 'Six frame cadence/order/idle reference')
