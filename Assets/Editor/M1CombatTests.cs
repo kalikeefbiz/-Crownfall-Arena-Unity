@@ -24,13 +24,13 @@ namespace Crownfall.Tests
             public DamageResult Receive(DamageRequest request) { return Health.Receive(request); }
         }
         static BasicAttackSpec Kit()
-        { return new BasicAttackSpec(2.8, Math.PI * .65, .55, 1.25, new double[] { 110, 150 }, new double[] { 0 }); }
+        { return new BasicAttackSpec(2.6, Math.PI * .65, .85, 1.25, new double[] { 85, 105 }, new double[] { 0 }); }
 
         public static int Run()
         {
             checks = 0;
             var spec = Kit();
-            Equal(spec.Range, 2.8, "Kit range"); Equal(spec.Arc, Math.PI * .65, "Kit arc");
+            Equal(spec.Range, 2.6, "Kit range"); Equal(spec.Arc, Math.PI * .65, "Kit arc");
             Check(spec.ComboCount == 2 && spec.HitCount == 1, "Two CAST combo, one event per cast");
             var east = new GroundPoint(1, 0); var origin = new GroundPoint(0, 0);
             Func<double, double, double, bool> inside = (x, z, r) =>
@@ -40,28 +40,28 @@ namespace Crownfall.Tests
             Check(!inside(0, 2, .1), "Outside cone");
             Check(!inside(-2, 0, .52), "Behind source");
             Check(inside(-.2, 0, .52), "Overlapping target circle includes origin as in V21");
-            Check(inside(3.3, 0, .52), "Target radius expands range");
-            Check(!inside(3.321, 0, .52), "Beyond expanded boundary");
+            Check(inside(3.1, 0, .52), "Target radius expands range");
+            Check(!inside(3.121, 0, .52), "Beyond expanded boundary");
             double edge = spec.Arc / 2 + .08;
             Check(inside(Math.Cos(edge) * 2, Math.Sin(edge) * 2, .2), "Cone edge circle overlap");
             Check(!inside(Math.Cos(edge) * 2, Math.Sin(edge) * 2, .05), "Outside cone edge circle");
             Check(ConeHitQuery.Contains(new GroundPoint(10, -3), new GroundPoint(10, -5), .2,
-                new GroundPoint(0, -1), 2.8, spec.Arc), "Translated and rotated query");
+                new GroundPoint(0, -1), 2.6, spec.Arc), "Translated and rotated query");
 
-            var enemy = new Target(2, 2, 260, 2, 0);
-            var self = new Target(1, 1, 650, 0, 0);
-            var ally = new Target(3, 1, 650, 1, 0);
-            var disabled = new Target(4, 2, 650, 1, 0) { Enabled = false };
-            var outside = new Target(5, 2, 650, 5, 0);
-            var behind = new Target(6, 2, 650, -2, 0);
+            var enemy = new Target(2, 2, 190, 2, 0);
+            var self = new Target(1, 1, 950, 0, 0);
+            var ally = new Target(3, 1, 950, 1, 0);
+            var disabled = new Target(4, 2, 950, 1, 0) { Enabled = false };
+            var outside = new Target(5, 2, 950, 5, 0);
+            var behind = new Target(6, 2, 950, -2, 0);
             var candidates = new ICombatTarget[] { enemy, self, ally, enemy, null, disabled, outside, behind, enemy };
-            var request = new DamageRequest(1, 1, 7, 0, 110);
-            Check(ConeHitQuery.Resolve(candidates, origin, east, 2.8, spec.Arc, request) == 1, "One unique enemy damage transaction");
-            Equal(enemy.Health.Current, 150, "Duplicate candidates cannot multiply hit");
+            var request = new DamageRequest(1, 1, 7, 0, 85);
+            Check(ConeHitQuery.Resolve(candidates, origin, east, 2.6, spec.Arc, request) == 1, "One unique enemy damage transaction");
+            Equal(enemy.Health.Current, 105, "Duplicate candidates cannot multiply hit");
             foreach (var untouched in new[] { self, ally, disabled, outside, behind })
-                Equal(untouched.Health.Current, 650, "Filtered target unchanged");
+                Equal(untouched.Health.Current, 950, "Filtered target unchanged");
             var lethal = enemy.Receive(new DamageRequest(1, 1, 8, 0, 999));
-            Equal(lethal.Applied, 150, "Damage capped at remaining health");
+            Equal(lethal.Applied, 105, "Damage capped at remaining health");
             Check(lethal.Defeated && !enemy.Health.Alive && !enemy.Targetable, "Defeat and eligibility");
             Equal(enemy.Health.Current, 0, "No negative health");
             Check(ConeHitQuery.Resolve(candidates, origin, east, 2.8, spec.Arc, request) == 0, "Dead target rejected");
@@ -81,20 +81,20 @@ namespace Crownfall.Tests
             Check(timeline.TryStart(0, origin, east, true), "First cast accepted");
             timeline.Advance(0, hit);
             Check(events == 1 && timeline.ExecutedHits == 1 && timeline.ComboStep == 0, "Immediate first strike");
-            Equal(total, 110, "First combo damage");
+            Equal(total, 85, "First combo damage");
             Check(timeline.Phase == AttackPhase.Recovery && timeline.Active, "Immediate hit followed by recovery");
             timeline.Advance(.1, hit); timeline.Advance(.1, hit);
             Check(events == 1 && !timeline.TryStart(.1, origin, east, true), "Repeat tick / cooldown protected");
             Equal(timeline.Direction.X, 1, "Attack aim captured");
             Equal(timeline.Origin.X, 0, "Attack origin captured");
-            timeline.Advance(.55, hit);
-            Check(!timeline.Active && timeline.Phase == AttackPhase.Complete, "Completion .55");
-            Check(timeline.TryStart(.55, origin, new GroundPoint(-3, 0), true), "Second cast accepted");
-            timeline.Advance(.55, hit);
+            timeline.Advance(.85, hit);
+            Check(!timeline.Active && timeline.Phase == AttackPhase.Complete, "Completion .85");
+            Check(timeline.TryStart(.85, origin, new GroundPoint(-3, 0), true), "Second cast accepted");
+            timeline.Advance(.85, hit);
             Check(timeline.ComboStep == 1 && events == 2, "Second cast is second combo strike");
-            Equal(total, 260, "110 plus 150"); Equal(timeline.Direction.X, -1, "Captured direction normalized");
-            timeline.Advance(1.1, hit);
-            Check(timeline.TryStart(1.1, origin, east, true), "Third cast accepted"); timeline.Advance(1.1, hit);
+            Equal(total, 190, "85 plus 105"); Equal(timeline.Direction.X, -1, "Captured direction normalized");
+            timeline.Advance(1.7, hit);
+            Check(timeline.TryStart(1.7, origin, east, true), "Third cast accepted"); timeline.Advance(1.7, hit);
             Check(timeline.ComboStep == 0 && events == 3, "Combo wraps to first");
             timeline.Advance(3, hit); Check(timeline.TryStart(3, origin, east, true), "After combo expiry");
             timeline.Advance(3, hit); Check(timeline.ComboStep == 0, "Expired combo resets");
@@ -128,10 +128,10 @@ namespace Crownfall.Tests
             Check(rejected, "Registry ID collision rejected");
             world.Unregister(self); count = 0; foreach (var t in world.Targets) count++;
             Check(count == 1, "Registry unregister");
-            var damages = new double[] { 110, 150 }; var schedule = new double[] { 0 };
-            var snapshot = new BasicAttackSpec(2.8, 1, .55, 1.25, damages, schedule);
+            var damages = new double[] { 85, 105 }; var schedule = new double[] { 0 };
+            var snapshot = new BasicAttackSpec(2.6, 1, .85, 1.25, damages, schedule);
             damages[0] = 999; schedule[0] = .4;
-            Equal(snapshot.Damage(0), 110, "Immutable authored snapshot damage");
+            Equal(snapshot.Damage(0), 85, "Immutable authored snapshot damage");
             Equal(snapshot.HitTime(0), 0, "Immutable authored snapshot schedule");
             rejected = false;
             try { new BasicAttackSpec(1, 1, 1, 1, damages, new double[] { 2 }); } catch (ArgumentException) { rejected = true; }
