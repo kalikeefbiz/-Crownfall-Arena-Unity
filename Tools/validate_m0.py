@@ -22,7 +22,10 @@ def main():
         check(target.exists(), 'Orphan meta: '+str(meta))
         guids[guid] = target
     for path in ASSETS.rglob('*'):
-        if path.suffix != '.meta': check(Path(str(path)+'.meta').exists(), 'Missing meta: '+str(path))
+        # Empty art-staging folders and .gitkeep placeholders are allowed to let Unity
+        # generate folder metadata. Real imported asset files must keep committed metas.
+        if path.is_file() and path.suffix != '.meta' and path.name != '.gitkeep':
+            check(Path(str(path)+'.meta').exists(), 'Missing meta: '+str(path))
     kit_files = list((ASSETS/'Art/Characters/Kit').rglob('*'))
     check(not any(p.suffix.lower() in ('.jpeg', '.jpg') for p in kit_files), 'Stale Kit JPEG')
     # M1 adds a separately validated Basic folder. Keep the exact M0 locomotion count.
