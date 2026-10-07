@@ -35,7 +35,7 @@
   ],
   "finalFrame": {
     "source": "kit-asher/basic/005.png.PNG",
-    "asset": "Assets/Art/Characters/Kit/Idle/idle.png",
+    "asset": "Assets/Art/Characters/Kit/Idle/Front/idle.png",
     "guid": "758e511d31cd5603b36cbb2a8901d37e",
     "sha256": "4f3410f8cb66d8b3a4bcc48502092fcff9c8accf19160a3fea7eb7a4d47bc243"
   },
