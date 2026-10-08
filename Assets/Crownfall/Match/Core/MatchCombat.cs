@@ -202,7 +202,7 @@ namespace Crownfall.Match
             {
                 p.Returning=true;
                 foreach(var s in Projectiles)if(s.Persistent&&s.Owner==p)
-                {s.Phase=3;s.Speed=17;s.Damage=50*(1+Math.Min(p.OutgoingHits,6)*.25);s.Hits.Clear();}
+                {s.Phase=3;s.Speed=17;s.Damage=(50/1.5)*(1+Math.Min(p.OutgoingHits,6)*.25);s.Hits.Clear();}
             }
         }
         void AdvanceProjectiles(double dt)
