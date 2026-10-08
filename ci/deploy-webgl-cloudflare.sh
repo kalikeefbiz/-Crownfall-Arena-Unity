@@ -173,33 +173,7 @@ OVERSIZED_FILES=""
 while IFS= read -r -d '' candidate; do
   size_bytes="$(wc -c < "$candidate" | tr -d '[:space:]')"
   if [[ "$size_bytes" =~ ^[0-9]+$ ]] && (( size_bytes > PAGES_MAX_BYTES )); then
-    OVERSIZED_FILES+="$candidate ($size_bytes bytes)"
-echo "[Crownfall Arena] Verifying Cloudflare Pages access..."
-if ! PROJECTS_JSON="$(run_wrangler pages project list --json)"; then
-  echo "WARNING: Cloudflare access check failed. Unity export remains successful; skipping deployment."
-  exit 0
-fi
-
-if ! printf '%s\n' "$PROJECTS_JSON" | grep -Eq "\"name\"[[:space:]]*:[[:space:]]*\"$CLOUDFLARE_PAGES_PROJECT\""; then
-  echo "[Crownfall Arena] Pages project does not exist; creating $CLOUDFLARE_PAGES_PROJECT..."
-  if ! run_wrangler pages project create "$CLOUDFLARE_PAGES_PROJECT" --production-branch main; then
-    echo "WARNING: Cloudflare Pages project creation failed. Unity export remains successful; skipping deployment."
-    exit 0
-  fi
-else
-  echo "[Crownfall Arena] Existing Pages project found."
-fi
-
-echo "[Crownfall Arena] Deploying WebGL output to Cloudflare Pages..."
-if ! run_wrangler pages deploy "$PLAYER_PATH" \
-  --project-name "$CLOUDFLARE_PAGES_PROJECT" \
-  --branch main; then
-  echo "WARNING: Cloudflare Pages deployment failed. Unity export remains successful and artifacts should be preserved."
-  exit 0
-fi
-
-echo "[Crownfall Arena] Cloudflare Pages deployment complete."
-\n'
+    OVERSIZED_FILES+="$candidate ($size_bytes bytes)"$'\n'
   fi
 done < <(find "$UNITY_PLAYER_PATH" -type f -print0)
 
