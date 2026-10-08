@@ -6,6 +6,45 @@ from validate_current_build import documents, guid_for, require
 
 ROOT=Path(__file__).resolve().parents[1]
 
+# Imported PNGs are external assets (3), not native serialized assets (2).
+BRAND_TEXTURES={
+    'arena':('Assets/Art/Production/Environment/Arena.PNG','6e491fb1106141f7a962c62344f50714'),
+    'lane':('Assets/Art/Production/Environment/Lane pov.PNG','c60fb46f31e5477cb4abd468dcc8c3a3'),
+    'title':('Assets/Art/Production/UI/Title Logo.PNG','c3ee7635015148919eecd28d1da3bf0e'),
+}
+
+def validate_brand_texture_references(asset):
+    for field,(path,guid) in BRAND_TEXTURES.items():
+        require(guid_for(path)==guid,'Intended production Texture2D GUID changed: '+field)
+        require('TextureImporter' in documents(path+'.meta')[0],'Production PNG must use TextureImporter: '+field)
+        require(asset.get(field)=={'fileID':2800000,'guid':guid,'type':3},
+                'Production Texture2D external reference must match GUID/fileID/type 3: '+field)
+
+def brand_reference_regressions(asset):
+    # Exercise the same gate against every component of each reference, including
+    # the exact type:2 defect and the original broken catalog, without writing files.
+    cases=[]
+    for field in BRAND_TEXTURES:
+        for key,value in (('type',2),('fileID',21300000),('guid','0'*32)):
+            cases.append({**asset,field:{**asset[field],key:value}})
+        cases.append({**asset,field:{'fileID':0}})
+    original=documents('Assets/Crownfall/Configuration/ProductionArt.asset')[0]['MonoBehaviour']
+    original={**original,**{f:{**original[f],'type':2} for f in BRAND_TEXTURES}}
+    cases.append(original)
+    for broken in cases:
+        try:validate_brand_texture_references(broken)
+        except AssertionError:pass
+        else:raise AssertionError('Production Texture2D gate accepted malformed reference')
+    editor=(ROOT/'Assets/Editor/ProductionArtValidation.cs').read_text()
+    for field,(path,guid) in BRAND_TEXTURES.items():
+        require(f'ValidateTexture(art.{field},"{field}","{path}","{guid}");' in editor,'Native Texture2D field validation missing: '+field)
+    for token in ('AssetDatabase.LoadAssetAtPath<Texture2D>(path)','imported!=null',
+                  'texture!=null&&texture==imported&&AssetDatabase.GetAssetPath(texture)==path',
+                  'AssetDatabase.TryGetGUIDAndLocalFileIdentifier(texture,out string guid,out long fileId)',
+                  'guid==expectedGuid&&fileId==2800000','AssetImporter.GetAtPath(path) is TextureImporter'):
+        require(token in editor,'Native Texture2D import/identity guard missing: '+token)
+    print(f'PASS: arena/lane/title exact imported Texture2D references and native import-validation wiring; {len(cases)} malformed/null reference regressions rejected. Native Unity execution still required.')
+
 def main():
     from validate_ui_dependencies import main as validate_ui_dependencies
     validate_ui_dependencies()
@@ -35,6 +74,8 @@ def main():
         resident+=round(w*scale)*round(h*scale)*4
     require(resident<90*1024*1024,'Texture budget exceeds 90 MiB')
     asset=documents('Assets/Crownfall/Configuration/ProductionArt.asset')[0]['MonoBehaviour']
+    validate_brand_texture_references(asset)
+    brand_reference_regressions(asset)
     lookup={row['staging'].split('Crownfall/',1)[1]:row['runtime'] for row in mapping}
     expected={
         'kit':{'idle':'Kit/Idle','run':'Kit/Run','sideRun':'Kit/Side-Run','basicSide':'Kit/Side-Basic','basicBack':'Kit/Back-Basic'},
