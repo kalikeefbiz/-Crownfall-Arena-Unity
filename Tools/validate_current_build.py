@@ -113,8 +113,8 @@ def integration_checks(guid_to_asset):
                 "Default importer compression/size: " + relative)
         web = platforms.get("WebGL")
         if web and web["overridden"]:
-            require(web["textureCompression"] == 0 and web["maxTextureSize"] >= 1254 and
-                    web["textureFormat"] == -1,
+            require(web["textureCompression"] == 0 and web["maxTextureSize"] == 512 and
+                    web["textureFormat"] == 4,
                     "WebGL importer override: " + relative)
 
     scene_path = "Assets/Scenes/M0.unity"
@@ -184,6 +184,9 @@ def main():
         "com.unity.modules.imgui": "1.0.0",
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.physics": "1.0.0",
+        "com.unity.modules.audio": "1.0.0",
+        "com.unity.modules.ui": "1.0.0",
+        "com.unity.modules.uielements": "1.0.0",
     }, "Unity package manifest drift")
     require(text("ProjectSettings/ProjectVersion.txt").strip() == "m_EditorVersion: 6000.3.10f1",
             "Unity editor version drift")

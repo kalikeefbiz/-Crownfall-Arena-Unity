@@ -10,7 +10,7 @@ namespace Crownfall.Match
         {
             camp.RespawnAt=Now+(camp.CampType=="damage"?100:45);
             if(source.Kind!=EntityKind.Summoner)return;
-            Rewards++;Log(source.Name+" secured "+camp.Name);
+            Rewards++;Present(camp,PresentationPhase.Objective,source.Id);Log(source.Name+" secured "+camp.Name);
             if(camp.CampType=="damage")
             {
                 teamDamageUntil[source.Team]=Now+25;

@@ -6,21 +6,24 @@ namespace Crownfall.Match
     // Poll legacy Unity input so touch IDs remain independent; UI GUI events cannot commit casts.
     public sealed class MatchTouchInput
     {
-        public readonly AbilityGesture Gesture=new AbilityGesture();
-        public readonly List<CastCommand> Queued=new List<CastCommand>();
-        public V2 Movement, Aim=new V2(1,0);
-        public bool Aiming, BasicHeld;
-        public int MoveId=-1,AimId=-1,AbilityId=-1;
+        readonly MatchInputState state=new MatchInputState();
+        public AbilityGesture Gesture=>state.Gesture;
+        public List<CastCommand> Queued=>state.Queued;
+        public V2 Movement {get=>state.Movement;set=>state.Movement=value;}
+        public V2 Aim {get=>state.Aim;set=>state.Aim=value;}
+        public bool Aiming {get=>state.Aiming;set=>state.Aiming=value;}
+        public bool BasicHeld {get=>state.BasicHeld;set=>state.BasicHeld=value;}
+        public int MoveId {get=>state.MoveId;set=>state.MoveId=value;}
+        public int AimId {get=>state.AimId;set=>state.AimId=value;}
+        public int AbilityId {get=>state.AbilityId;set=>state.AbilityId=value;}
+        int keyboardSlot {get=>state.KeyboardSlot;set=>state.KeyboardSlot=value;}
         Vector2 moveStart,aimStart,abilityStart;
-        int keyboardSlot=-1;
         int width,height;
+        readonly int[] liveTouches=new int[16];
+        static readonly KeyCode[] keys={KeyCode.Space,KeyCode.Q,KeyCode.E,KeyCode.R,KeyCode.F};
         public Rect MoveRect,AimRect;
         public readonly Rect[] AbilityRects=new Rect[5];
-        public void Reset(MatchEntity p)
-        {
-            MoveId=AimId=AbilityId=keyboardSlot=-1;Movement=new V2();Aiming=BasicHeld=false;Gesture.Cancel();Queued.Clear();
-            if(p!=null)p.PendingSecond=false;
-        }
+        public void Reset(MatchEntity p)=>state.Reset(p);
         static Vector2 GuiPoint(Vector2 point) => new Vector2(point.x,Screen.height-point.y);
         static V2 WorldOffset(Vector2 delta,float scale) => new V2(delta.x/scale,-delta.y/scale);
         public void Sample(MatchSimulation match,float scale,Rect pauseRect,System.Action pause)
@@ -28,22 +31,27 @@ namespace Crownfall.Match
             var p=match.Human;
             if(width!=Screen.width||height!=Screen.height){Reset(p);width=Screen.width;height=Screen.height;}
             if(!p.Alive||p.StunnedUntil>match.Now){Reset(p);return;}
-            foreach(var touch in Input.touches)
+            for(int touchIndex=0;touchIndex<Input.touchCount;touchIndex++)
             {
+                var touch=Input.GetTouch(touchIndex);
                 var position=GuiPoint(touch.position)/scale;
                 if(touch.phase==TouchPhase.Began)
                 {
-                    if(pauseRect.Contains(position)){Reset(p);pause();return;}
+                    if(pauseRect.Contains(position)){Reset(p);return;}
                     Begin(touch.fingerId,position,p,match);
                 }
                 else if(touch.phase==TouchPhase.Ended)End(touch.fingerId,match);
                 else if(touch.phase==TouchPhase.Canceled)Cancel(touch.fingerId,p);
                 else Drag(touch.fingerId,position,match);
             }
+            int liveCount=0;
+            for(int i=0;i<Input.touchCount&&liveCount<liveTouches.Length;i++)
+            {var touch=Input.GetTouch(i);if(touch.phase!=TouchPhase.Canceled&&touch.phase!=TouchPhase.Ended)liveTouches[liveCount++]=touch.fingerId;}
+            state.CancelMissing(liveTouches,liveCount,p);
             if(Input.touchCount==0)
             {
                 var position=GuiPoint(Input.mousePosition)/scale;
-                if(Input.GetMouseButtonDown(0))Begin(-2,position,p,match);
+                if(Input.GetMouseButtonDown(0)){if(pauseRect.Contains(position)){Reset(p);return;}Begin(-2,position,p,match);}
                 if(Input.GetMouseButton(0))Drag(-2,position,match);
                 if(Input.GetMouseButtonUp(0))End(-2,match);
                 if(Input.GetMouseButton(1))
@@ -56,7 +64,6 @@ namespace Crownfall.Match
                 float x=(Input.GetKey(KeyCode.D)||Input.GetKey(KeyCode.RightArrow)?1:0)-(Input.GetKey(KeyCode.A)||Input.GetKey(KeyCode.LeftArrow)?1:0);
                 float z=(Input.GetKey(KeyCode.W)||Input.GetKey(KeyCode.UpArrow)?1:0)-(Input.GetKey(KeyCode.S)||Input.GetKey(KeyCode.DownArrow)?1:0);
                 if(MoveId==-1)Movement=new V2(x,z);
-                KeyCode[] keys={KeyCode.Space,KeyCode.Q,KeyCode.E,KeyCode.R,KeyCode.F};
                 for(int i=0;i<5;i++)
                 {
                     if(Input.GetKeyDown(keys[i])&&!Gesture.Active){keyboardSlot=i;Press((AbilitySlot)i,p,match);}
@@ -107,12 +114,7 @@ namespace Crownfall.Match
             if(AimId==id){AimId=-1;Aiming=Gesture.Active;}
             if(AbilityId==id){Release(match);AbilityId=-1;}
         }
-        void Cancel(int id,MatchEntity p)
-        {
-            if(MoveId==id){MoveId=-1;Movement=new V2();}
-            if(AimId==id){AimId=-1;Aiming=false;}
-            if(AbilityId==id){AbilityId=-1;Gesture.Cancel();BasicHeld=false;p.PendingSecond=false;}
-        }
+        void Cancel(int id,MatchEntity p)=>state.Cancel(id,p);
         public MatchCommand Read(bool consume)
         {
             var command=new MatchCommand{Move=Movement,Aim=Gesture.Active&&!Gesture.Cancelled?Gesture.Direction:Aim,Aiming=Aiming||Gesture.Active,BasicHeld=BasicHeld};

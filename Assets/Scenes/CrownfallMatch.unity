@@ -41,9 +41,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4ddb3aab152489384e2d02e8c8537d1, type: 3}
   m_Name:
   m_EditorClassIdentifier:
+  productionArt: {fileID: 11400000, guid: 7a2d68d1ec994e28b77154b85e0328e2, type: 2}
   kit: {fileID: 11400000, guid: b96cbb81e99250f8b0e20459edd96b0d, type: 2}
   kitBasic: {fileID: 11400000, guid: e218a1839a635b61a60761d7b9b40b10, type: 2}
   kitBasicSprites: {fileID: 11400000, guid: 386886877e165873acb28cef14d44e27, type: 2}
+  productionStone: {fileID: 2100000, guid: f6d42309291a49c59358d024d6428483, type: 2}
   solidMaterial: {fileID: 2100000, guid: 2bdbb7a6212a572d3b3f23c9d4477be9, type: 2}
   spriteMaterial: {fileID: 2100000, guid: 3d285676187f529a9c78529c4cbea14e, type: 2}
   effectMaterial: {fileID: 2100000, guid: b5faca0811f948c6bf29ef5770943c64, type: 2}

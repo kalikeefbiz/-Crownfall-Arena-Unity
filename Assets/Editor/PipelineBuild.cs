@@ -12,6 +12,7 @@ public sealed class PipelineBuild : IPreprocessBuildWithReport
         Configure(report.summary.platform);
         Crownfall.Editor.M0Validation.Validate();
         Crownfall.Editor.CompleteMatchValidation.Validate();
+        Crownfall.Editor.ProductionArtValidation.Validate();
     }
 
     private static void Configure(BuildTarget target)

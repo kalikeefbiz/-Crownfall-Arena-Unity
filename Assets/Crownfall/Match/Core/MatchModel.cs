@@ -45,6 +45,7 @@ namespace Crownfall.Match
         public double DamageDealt, PressureSeconds, ComboAt = double.NegativeInfinity;
         public double CastAt = double.NegativeInfinity, PendingSecondAt, BlastUntil, ThinkAt, RetreatUntil, NextRetreat, NextStance;
         public AbilitySlot LastCast;
+        public long PresentationActionId; // Output metadata only.
         public V2 CastAim, PendingDirection;
         public bool PendingSecond, Returning;
         public readonly double[] ReadyAt = new double[5];
@@ -104,6 +105,9 @@ namespace Crownfall.Match
         public V2 Position, Direction;
         public double Remaining, Speed, Width, Damage;
         public bool Active = true, Piercing, SummonersOnly, Lethal, Grant, Persistent;
+        public AbilitySlot PresentationAbility;
+        public bool PresentationPulse;
+        public long PresentationActionId;
         public int Phase, OrbitIndex; // orbit=0, outbound=1, parked=2, return=3
         public readonly HashSet<int> Hits = new HashSet<int>();
         public readonly HashSet<int> Summoners = new HashSet<int>();

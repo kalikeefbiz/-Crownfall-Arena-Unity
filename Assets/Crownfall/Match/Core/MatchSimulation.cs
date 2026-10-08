@@ -14,6 +14,10 @@ namespace Crownfall.Match
         public readonly List<Projectile> Projectiles = new List<Projectile>();
         public readonly List<TimedAction> Actions = new List<TimedAction>();
         public readonly List<MatchEffect> Effects = new List<MatchEffect>();
+        public readonly PresentationJournal Presentation = new PresentationJournal();
+        long presentationAction;
+        void Present(MatchEntity actor,PresentationPhase phase,int target=0,int detail=0,long actionId=-1,AbilitySlot? ability=null,V2? position=null)
+        {Presentation.Publish(new PresentationEvent{ActionId=actionId>=0?actionId:actor==null?presentationAction:actor.PresentationActionId,ActorId=actor==null?0:actor.Id,TargetId=target,Ability=ability??(actor==null?AbilitySlot.Basic:actor.LastCast),Phase=phase,Detail=detail,Position=position??(actor==null?new V2():actor.Position),Direction=actor==null?new V2():actor.CastAim,Time=Now});}
         public readonly List<string> Feed = new List<string>();
         public readonly int[] Tickets = {0,15,15};
         public readonly double[] CP = new double[3];
@@ -129,15 +133,17 @@ namespace Crownfall.Match
             p.Position=p.Previous=p.Spawn;p.Aim=new V2(p.Team==1?1:-1,0);p.Reserved=false;
             p.ProtectedUntil=Now+2;p.Pulse=false;p.StunnedUntil=0;p.ComboAt=double.NegativeInfinity;
             p.Recovery=new CombatRecoveryState();
+            Present(p,PresentationPhase.Respawn);
             if(p.Roster==FirstRosterSummoner.Riven)ResetWeapons(p);
         }
-        public double Damage(MatchEntity source,MatchEntity target,double amount,bool lethal=false)
+        public double Damage(MatchEntity source,MatchEntity target,double amount,bool lethal=false,long presentationActionId=-1,AbilitySlot? presentationAbility=null)
         {
             if(!Active||!HealthState.Finite(amount)||amount<0||!Valid(source,target))return 0;
             double adjusted=lethal?target.Health.Current:amount*source.Factor(Now,0)*target.Factor(Now,1)*AuraFactor(target);
             var hit=target.Health.Receive(new DamageRequest(source.Id,source.Team,Tick,0,adjusted));
             if(hit.Applied<=0)return 0;
             target.LastHit=Now;
+            Present(source,PresentationPhase.Hit,target.Id,0,presentationActionId,presentationAbility,target.Position);
             if(source.Kind==EntityKind.Summoner){if(target.Kind==EntityKind.Summoner)source.DamageDealt+=hit.Applied;source.Recovery.MarkDamagingInteraction(Now);}
             if(target.Kind==EntityKind.Summoner)
             {
@@ -154,7 +160,7 @@ namespace Crownfall.Match
             {
                 if(target.Kind==EntityKind.Summoner)Defeat(target,source);
                 else if(target.Kind==EntityKind.Camp)RewardCamp(target,source);
-                else {Surge.DestroyCanal();Log("Aether Canal destroyed");}
+                else {Surge.DestroyCanal();Log("Aether Canal destroyed");Present(target,PresentationPhase.Objective,source.Id);}
             }
             return hit.Applied;
         }
@@ -172,6 +178,7 @@ namespace Crownfall.Match
         }
         void Defeat(MatchEntity p,MatchEntity source)
         {
+            Present(p,PresentationPhase.Death,source.Id);
             p.Deaths++;if(source.Kind==EntityKind.Summoner)source.Kills++;
             foreach(var kv in p.Contributors)if(kv.Key!=source.Id&&Now-kv.Value<=8)foreach(var ally in Actors)if(ally.Id==kv.Key)ally.Assists++;
             p.Contributors.Clear();
@@ -216,6 +223,7 @@ namespace Crownfall.Match
         }
         void SpawnCanals(int team)
         {
+            Present(null,PresentationPhase.Surge,0,team);
             Canals.Clear();
             for(int i=0;i<3;i++)
             {
@@ -226,7 +234,7 @@ namespace Crownfall.Match
             Log((team==1?"Blue":"Red")+" Surge — destroy all three Canals to end it");
         }
         bool Viable(int team){foreach(var p in Actors)if(p.Team==team&&(p.Alive||p.Reserved))return true;return false;}
-        void Finish(int winner,string reason){Result=new MatchResult{Winner=winner,Reason=reason,Duration=Now};Phase=MatchPhase.Results;}
+        void Finish(int winner,string reason){Result=new MatchResult{Winner=winner,Reason=reason,Duration=Now};Phase=MatchPhase.Results;Present(null,PresentationPhase.Result,0,winner);}
         void ResolveResult(double dt)
         {
             if(Front>=28){Finish(1,"total control");return;}if(Front<=-28){Finish(2,"total control");return;}

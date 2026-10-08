@@ -71,7 +71,7 @@ def main():
         check(not parser.parse(path.read_bytes()).root_node.has_error, 'C# syntax error: '+str(path))
     for path in (ASSETS/'Crownfall').rglob('*.cs'):
         code = path.read_text()
-        check(not any(t in code for t in ('UNITY_WEBGL', 'DllImport', 'Application.External', 'UnityEngine.UI')), 'Platform/HUD coupling: '+str(path))
+        check(not any(t in code for t in ('UNITY_WEBGL', 'DllImport', 'Application.External', 'UnityEngine.UI;')), 'Platform/HUD coupling: '+str(path))
         if 'Presentation' in path.parts:
             check(not any(t in code for t in ('CharacterController', 'UnityEngine.Input', 'motor.Move', 'transform.parent.position', 'transform.root.')), 'Presentation authority leak: '+str(path))
     root = (ASSETS/'Crownfall/Gameplay/SummonerRoot.cs').read_text()
@@ -83,7 +83,7 @@ def main():
     check('Mathf.Repeat' in sprite and 'art.run.Length' in sprite, 'Loop missing')
     build = (ROOT/'ProjectSettings/EditorBuildSettings.asset').read_text()
     check(build.count('enabled: 1') == 1 and 'Assets/Scenes/CrownfallMatch.unity' in build, 'Build scene')
-    check(json.loads((ROOT/'Packages/manifest.json').read_text())['dependencies'] == {'com.unity.modules.imgui':'1.0.0','com.unity.modules.jsonserialize':'1.0.0','com.unity.modules.physics':'1.0.0'}, 'Match package manifest changed')
+    check(json.loads((ROOT/'Packages/manifest.json').read_text())['dependencies'] == {'com.unity.modules.imgui':'1.0.0','com.unity.modules.jsonserialize':'1.0.0','com.unity.modules.physics':'1.0.0','com.unity.modules.audio':'1.0.0','com.unity.modules.ui':'1.0.0','com.unity.modules.uielements':'1.0.0'}, 'Match package manifest changed')
     check((ROOT/'ProjectSettings/ProjectVersion.txt').read_text().strip() == 'm_EditorVersion: 6000.3.10f1', 'Editor version changed')
     ET.parse(ASSETS/'Crownfall/link.xml')
     print(f'PASS: {len(sources)} C# files parsed; {len(guids)} unique GUIDs; 5 PNG source hashes; ordered sprites; import/pivots; references; architecture guards; package/editor pins.')

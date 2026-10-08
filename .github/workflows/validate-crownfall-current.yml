@@ -34,6 +34,8 @@ jobs:
           python -m pip install -r Tools/requirements-m1-static.txt
           python Tools/validate_m1.py
           python Tools/validate_current_build.py
+          python Tools/validate_production.py
+          for file in ci/*.sh; do bash -n "$file"; done
           git diff --check
 
       - name: Verify current combat configuration
@@ -47,6 +49,9 @@ jobs:
               "com.unity.modules.imgui": "1.0.0",
               "com.unity.modules.jsonserialize": "1.0.0",
               "com.unity.modules.physics": "1.0.0",
+              "com.unity.modules.audio": "1.0.0",
+              "com.unity.modules.ui": "1.0.0",
+              "com.unity.modules.uielements": "1.0.0",
           }, manifest
           attack = (root/"Assets/Crownfall/Configuration/KitBasicAttack.asset").read_text()
           for needle in (
@@ -118,3 +123,23 @@ jobs:
 
       - name: Compile and exercise complete 3v3 matches
         run: python Tools/run_complete_match_tests.py
+
+      - name: Type-check full runtime against verified Unity module references
+        shell: bash
+        run: |
+          set -euo pipefail
+          REFERENCE_DIR="$RUNNER_TEMP/unity-references"
+          mkdir -p "$REFERENCE_DIR"
+          curl -fsSL --retry 3 https://api.nuget.org/v3-flatcontainer/unityengine.modules/2021.3.33/unityengine.modules.2021.3.33.nupkg -o "$REFERENCE_DIR/modules.zip"
+          python - "$REFERENCE_DIR" <<'PY'
+          import hashlib,json,sys,zipfile
+          from pathlib import Path
+          directory=Path(sys.argv[1])
+          manifest=json.loads(Path('Tools/unity_reference_2021_3_33.json').read_text())
+          assert hashlib.sha256((directory/'modules.zip').read_bytes()).hexdigest()==manifest['packageSha256']
+          with zipfile.ZipFile(directory/'modules.zip') as archive: archive.extractall(directory)
+          PY
+          export CROWNFALL_UNITY_REFERENCE_DIR="$REFERENCE_DIR/lib/netstandard2.0"
+          export CROWNFALL_UNITY_REFERENCE_VERSION=2021.3.33
+          python Tools/compile_match_runtime.py
+          # This is a real API compile, not a Unity 6000 Editor/player execution claim.

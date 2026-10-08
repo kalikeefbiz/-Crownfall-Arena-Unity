@@ -1,0 +1,1145 @@
+{
+  "platform": "WebGL / iPhone Safari",
+  "assumptions": "Uncompressed RGBA32; no mips or CPU readable copy; imported dimensions estimated by preserving aspect ratio. Native importer/driver allocation and final gzip export require Unity/device measurement.",
+  "textures": [
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Back/000.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Back/001.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Back/002.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Back/003.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Front/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Front/001.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Front/002.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Front/003.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Front/004.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Side/000.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Side/001.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Basic/Side/002.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Idle/Front/idle.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Run/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Run/001.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Run/002.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Characters/Kit/Run/003.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Environment/Aether Mound.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        1024
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 4194304
+    },
+    {
+      "runtime": "Assets/Art/Production/Environment/Arena Center Floor Logo.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        1024
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 4194304
+    },
+    {
+      "runtime": "Assets/Art/Production/Environment/Arena.PNG",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        576
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 2359296
+    },
+    {
+      "runtime": "Assets/Art/Production/Environment/Lane pov.PNG",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        576
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 2359296
+    },
+    {
+      "runtime": "Assets/Art/Production/Environment/Mountain - Waterfall.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        1024
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 4194304
+    },
+    {
+      "runtime": "Assets/Art/Production/Environment/Mountain-Forest.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        1024
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 4194304
+    },
+    {
+      "runtime": "Assets/Art/Production/Environment/Saint Rose.PNG",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        1024
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 4194304
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Abilities/ember-step-trail.png",
+      "sourceDimensions": [
+        1774,
+        887
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        256
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 524288
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Abilities/expellant-blast.png",
+      "sourceDimensions": [
+        1923,
+        818
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        218
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 446464
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Abilities/expellant-cast.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Abilities/last-flame.png",
+      "sourceDimensions": [
+        1672,
+        941
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        288
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 589824
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Abilities/solar-ring.png",
+      "sourceDimensions": [
+        1024,
+        1024
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Idle/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/001.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/002.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/003.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/004.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/005.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/006.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Kit/Run/007.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Idle/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/001.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/002.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/003.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/004.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/005.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/006.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Run/007.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Scream/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Scream/001.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Scythes/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Scythes/001.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Riven/Scythes/002.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Basic/000.png",
+      "sourceDimensions": [
+        1223,
+        1286
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        487,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 997376
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Basic/001.png",
+      "sourceDimensions": [
+        1223,
+        1286
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        487,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 997376
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Basic/002.png",
+      "sourceDimensions": [
+        1223,
+        1286
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        487,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 997376
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Basic/003.png",
+      "sourceDimensions": [
+        1223,
+        1286
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        487,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 997376
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/PanthersFist/000.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/PanthersFist/001.png",
+      "sourceDimensions": [
+        1254,
+        1254
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        512,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1048576
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/000.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/001.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/002.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/003.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/004.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/005.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/006.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/Run/007.png",
+      "sourceDimensions": [
+        437,
+        431
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        437,
+        431
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 753388
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/WarCry/000.png",
+      "sourceDimensions": [
+        1223,
+        1286
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        487,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 997376
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/WarCry/002.png",
+      "sourceDimensions": [
+        1223,
+        1286
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        487,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 997376
+    },
+    {
+      "runtime": "Assets/Art/Production/Set/WarCry/003.png",
+      "sourceDimensions": [
+        1223,
+        1286
+      ],
+      "maxSize": 512,
+      "estimatedRuntimeDimensions": [
+        487,
+        512
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 997376
+    },
+    {
+      "runtime": "Assets/Art/Production/UI/Title Logo.PNG",
+      "sourceDimensions": [
+        2172,
+        724
+      ],
+      "maxSize": 1024,
+      "estimatedRuntimeDimensions": [
+        1024,
+        341
+      ],
+      "format": "RGBA32",
+      "mips": false,
+      "readable": false,
+      "estimatedResidentBytes": 1396736
+    }
+  ],
+  "estimatedResidentBytes": 87793504,
+  "baselineApproximateTextureBytesWithMips": 142574784,
+  "estimatedRawTextureContentDeltaBytes": -54781280,
+  "actualCompressedWebGLBuildDelta": "Pending Unity export; no build executed.",
+  "limits": {
+    "vfxSlots": 128,
+    "cosmeticsStopAdmissionAtOccupiedSlots": 80,
+    "reservedAvailableForProjectilesAndTelegraphs": 48,
+    "particles": 0,
+    "audioSfxUiVoices": 12,
+    "musicSources": 1,
+    "listeners": 1,
+    "structuralCombinedMeshGroups": 3,
+    "sharedGeneratedMeshes": 5,
+    "maximumGeneratedStructuralVerticesPerMesh": 2048
+  },
+  "materials": "Approximately 14 match-owned shared tint/flow/shadow materials plus two existing shared sprite/overlay templates; no per-actor/per-effect material instances.",
+  "drawGroups": "Three combined decorative meshes plus existing opaque map/territory/objectives; sprite groups by texture and sorting, contact shadows/status lines, bounded combat VFX, one retained UI panel. Actual draw calls require Unity Frame Debugger.",
+  "transparency": "No transparent full-map reference planes. One center medallion, 21 scenic billboard instances, six actor sprites/shadows/status lines; short ability-local sprites and rings. Broad rings only for their actual short ability phases; terrain ownership is opaque."
+}

@@ -52,6 +52,7 @@ namespace Crownfall.Match
             bool contact=p.Roster==FirstRosterSummoner.Set&&c.Slot==AbilitySlot.Skill2;
             if(!contact)p.ReadyAt[slot]=Now+Cooldown(p,c.Slot)*(c.Slot==AbilitySlot.Skill1||c.Slot==AbilitySlot.Skill2?p.Factor(Now,3):1);
             p.LastCast=c.Slot;p.CastAt=Now;p.CastAim=dir;
+            p.PresentationActionId=++presentationAction;Present(p,PresentationPhase.Cast);
             Effect(p.Position,dir,.3,Math.Max(1,Range(p,c.Slot)),p.Team,"cast");
             if(p.Roster==FirstRosterSummoner.Kit)
             {
@@ -114,7 +115,7 @@ namespace Crownfall.Match
         }
         Projectile Shot(MatchEntity p,V2 dir,double range,double speed,double width,double damage,bool piercing,bool only=false,bool lethal=false,bool grant=false)
         {
-            var s=new Projectile{Owner=p,Position=p.Position,Direction=dir,Remaining=range,Speed=speed,Width=width,Damage=damage,Piercing=piercing,SummonersOnly=only,Lethal=lethal,Grant=grant};Projectiles.Add(s);return s;
+            var s=new Projectile{Owner=p,Position=p.Position,Direction=dir,Remaining=range,Speed=speed,Width=width,Damage=damage,Piercing=piercing,SummonersOnly=only,Lethal=lethal,Grant=grant,PresentationAbility=p.LastCast,PresentationPulse=p.Pulse,PresentationActionId=p.PresentationActionId};Projectiles.Add(s);return s;
         }
         void FinishDash(MatchEntity p,MatchEntity target=null)
         {
@@ -162,6 +163,7 @@ namespace Crownfall.Match
                     int index=q.Index++;
                     foreach(var t in Targets())if(t.Id==q.Target&&Valid(p,t)&&ConeHitQuery.Contains(p.Position.Ground,t.Position.Ground,t.Radius,q.Direction.Ground,1.75,Math.PI*.6))Damage(p,t,damage[index]);
                     p.CastAt=Now;p.LastCast=AbilitySlot.Basic;p.CastAim=q.Direction;
+                    p.PresentationActionId=++presentationAction;Present(p,PresentationPhase.Cast);
                 }
                 if(q.Index>=3)p.Sequence=null;
             }
@@ -195,14 +197,15 @@ namespace Crownfall.Match
             if(p.WeaponNext<2)
             {
                 foreach(var s in Projectiles)if(s.Persistent&&s.Owner==p&&s.OrbitIndex==p.WeaponNext)
-                {s.Phase=1;s.Position=p.Position;s.Direction=dir;s.Remaining=5.2;s.Speed=13;s.Damage=38;s.Hits.Clear();break;}
+                {s.Phase=1;s.PresentationActionId=p.PresentationActionId;s.PresentationAbility=AbilitySlot.Basic;s.Position=p.Position;s.Direction=dir;s.Remaining=5.2;s.Speed=13;s.Damage=38;s.Hits.Clear();break;}
+                Present(p,PresentationPhase.Blade,0,1);
                 p.WeaponNext++;
             }
             else
             {
-                p.Returning=true;
+                p.Returning=true;Present(p,PresentationPhase.Blade,0,3);
                 foreach(var s in Projectiles)if(s.Persistent&&s.Owner==p)
-                {s.Phase=3;s.Speed=17;s.Damage=(50/1.5)*(1+Math.Min(p.OutgoingHits,6)*.25);s.Hits.Clear();}
+                {s.Phase=3;s.PresentationActionId=p.PresentationActionId;s.PresentationAbility=AbilitySlot.Basic;s.Speed=17;s.Damage=(50/1.5)*(1+Math.Min(p.OutgoingHits,6)*.25);s.Hits.Clear();}
             }
         }
         void AdvanceProjectiles(double dt)
@@ -226,7 +229,7 @@ namespace Crownfall.Match
                 foreach(var t in candidates)
                 {
                     if(!Valid(p,t,s.SummonersOnly))continue;
-                    s.Hits.Add(t.Id);Damage(p,t,s.Damage,s.Lethal);
+                    s.Hits.Add(t.Id);Damage(p,t,s.Damage,s.Lethal,s.PresentationActionId,s.PresentationAbility);
                     if(s.Persistent&&s.Phase==1)p.OutgoingHits++;
                     if(t.Kind==EntityKind.Summoner)s.Summoners.Add(t.Id);
                     if(s.Grant&&s.Summoners.Count>=2&&p.Alive){p.BlastUntil=Now+15;s.Grant=false;Log("Expellant Blast earned");}
@@ -237,10 +240,10 @@ namespace Crownfall.Match
                     if(!s.Persistent)s.Active=false;
                     else if(s.Phase==3)
                     {
-                        s.Phase=0;bool all=true;foreach(var other in Projectiles)if(other.Owner==p&&other.Persistent&&other.Phase!=0)all=false;
+                        s.Phase=0;Present(p,PresentationPhase.Blade,0,0);bool all=true;foreach(var other in Projectiles)if(other.Owner==p&&other.Persistent&&other.Phase!=0)all=false;
                         if(all){p.WeaponNext=p.OutgoingHits=0;p.Returning=false;}
                     }
-                    else s.Phase=2;
+                    else {s.Phase=2;Present(p,PresentationPhase.Blade,0,2);}
                 }
             }
         }

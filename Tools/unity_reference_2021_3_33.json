@@ -1,0 +1,21 @@
+{
+  "package": "UnityEngine.Modules",
+  "version": "2021.3.33",
+  "packageSha256": "d32d34526d89958c63220d3a5ce26c5c44c11bfd411a2e1fbc3200088ef160c4",
+  "assemblies": {
+    "UnityEngine.AudioModule.dll": "95ccdaaf0138591de7c1b62d59c25fd4e8e0208969a1fca0ca6bd459bc2ae048",
+    "UnityEngine.CoreModule.dll": "3cbe147e5c2d5c8d32c1065671ca02035700a0a329607ad5baf689312b0aaad7",
+    "UnityEngine.IMGUIModule.dll": "3fe2afaf000557ec559b485ba664d7de7c3f9190e1747518dc35cdd980b092b4",
+    "UnityEngine.InputLegacyModule.dll": "303b7e4089e85fb9794f1e88a74c652ef85ce0ffa3e2da0b839a7a59ea42858e",
+    "UnityEngine.InputModule.dll": "efb4e04efcc36bc60fae310d53c0d2248d532ff8aa26112fd23ee8ada8ce8679",
+    "UnityEngine.JSONSerializeModule.dll": "c69ae3ea6da0fc4633e912b7c3d79018672b11be022d109e65ba58013cc80ca1",
+    "UnityEngine.PhysicsModule.dll": "426af91674144c44d0acaf67b4fb94c3e2f61d1f145051dd017e7af6044e4887",
+    "UnityEngine.SharedInternalsModule.dll": "06961e809cf13c50c6e6b771dcabbb85d762d6d8baf9aef1c310e91dcefe0706",
+    "UnityEngine.TextCoreFontEngineModule.dll": "ce2936bb553118faacd6be2e12d664fde83318729d135b464007b55915e6db9d",
+    "UnityEngine.TextCoreTextEngineModule.dll": "d648211c80a0de024e1a9a616a62a089caca2d8e6ca2de1804c3c6fd9f875e12",
+    "UnityEngine.TextRenderingModule.dll": "16f4576102de45eac5f03726a0d421e044a6e22a186eb770428e47b59b6668b1",
+    "UnityEngine.UIElementsModule.dll": "d0bdc0001a9e469e876f7752741a2c99cce8d7a97d0af4e916b595c97cecd0c9",
+    "UnityEngine.UIElementsNativeModule.dll": "54eb3151a3e2aa1605fb61cbe882ab43913cdf95aa92d684f61a6c6304e48ebf",
+    "UnityEngine.UIModule.dll": "db53612da48afe1a9bc665ecb88a5a3ee0e5af051ee15b6222170d740f20da99"
+  }
+}
