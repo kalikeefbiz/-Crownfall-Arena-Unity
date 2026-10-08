@@ -55,3 +55,13 @@ No Unity Editor executable or licensed player runtime is installed in this Codex
 Next verification: open `CrownfallMatch.unity`, select each Summoner and **play a complete match**, using simultaneous movement/aim and every ability, contesting camps/Major and Canals, dying through ticket/final-life transitions, then replaying and returning to menu. On iPhone, also check landscape safe areas, touch cancellation/focus loss, per-slot layout Save/Cancel/confirmed Reset/collapse, readability, texture memory and sustained frame rate. Unity Cloud may be used later if explicitly requested; **no Unity Cloud Build was started** in this task.
 
 There is no identified remaining gameplay implementation blocker preventing the complete local 3v3 loop. Missing authored Set/Riven/ability binaries prevent production-art parity. The missing Unity runtime prevents asserting that the integrated scene has actually been played successfully here; runtime/device bugs remain possible until the complete-match play check.
+
+## WebGL build #11 compiler correction
+
+The supplied `20067657599128-crownfall-arena-default-webgl-11.log` reports four CS0103 errors in `MatchHud.cs`: `JsonUtility` was unavailable. Build/export failure followed the script compilation failure; prebuild gameplay assertions had not run. The project used `JsonUtility` for control preferences without declaring `com.unity.modules.jsonserialize`.
+
+Added the built-in JSON serialization module at version `1.0.0`, and updated the exact package guards in local validation and CI. Runtime type-checking now selects reference assemblies from the declared modules instead of all available UnityEngine DLLs, so an undeclared module cannot silently satisfy compilation. `CROWNFALL_PACKAGE_MANIFEST` can select a separate manifest for a dependency regression check.
+
+Verified in Codex: the old two-module manifest reproduces all four reported CS0103 errors; the corrected three-module manifest compiles all 35 runtime files with zero warnings/errors using the same real UnityEngine 2021.3.33 references. `validate_m1.py` (including M0/current-build checks), `validate_current_build.py`, the complete-match suite (127,037 plus 122 existing assertions), and `git diff --check` pass. Gameplay code and production assets are unchanged. The earlier unrestricted assembly type-check was insufficient to detect this missing module; the dependency-aware check supersedes it.
+
+No new Unity Cloud Build was started. The corrected commit still needs an actual Unity 6000.3.10f1 build/runtime check; Codex's reference-assembly compilation does not claim that Cloud export has passed.

@@ -182,6 +182,7 @@ def main():
     manifest = json.loads(text("Packages/manifest.json"))
     require(manifest["dependencies"] == {
         "com.unity.modules.imgui": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.physics": "1.0.0",
     }, "Unity package manifest drift")
     require(text("ProjectSettings/ProjectVersion.txt").strip() == "m_EditorVersion: 6000.3.10f1",
