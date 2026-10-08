@@ -1,5 +1,5 @@
 {
-  "status": "UPLOAD_PENDING",
+  "status": "UPLOAD_COMPLETE_VERIFIED",
   "repository": "kalikeefbiz/-Crownfall-Arena-Unity",
   "branch": "browser-parity-unity",
   "source_archive": "Crownfall Arena.zip",
@@ -68,7 +68,7 @@
     {
       "bundle": "Crownfall-Art-07-Environment.zip",
       "source_path": "Environment/Arena Center Floor Logo .PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Environment/Arena Center Floor Logo .PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Environment/Arena Center Floor Logo.PNG",
       "size_bytes": 2642667,
       "sha256": "4aa45168e2929403cb800c9a531863d463624bc6575c5e0a8e2c6fe82446dff7",
       "git_blob_sha1": "9b90f23309b015665b95c635031313c582de6e3e"
@@ -92,7 +92,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/idle/000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Idle/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Idle/000.png",
       "size_bytes": 1363323,
       "sha256": "615239ced8446dbbdd600ccf2aee82b48185a5ff066cf7846438b2bcc2725513",
       "git_blob_sha1": "b476187b77a318cb86d581186518973b880920f1"
@@ -100,7 +100,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/002.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/002.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/002.png",
       "size_bytes": 1536764,
       "sha256": "9c25d02ac5d21841c3518357068f649d1876b1892882ae7eef3d8d6b27ff2b34",
       "git_blob_sha1": "88970885f2afee5bd1327ef7637d058e9ccd4936"
@@ -108,7 +108,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/007.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/007.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/007.png",
       "size_bytes": 1534445,
       "sha256": "19ddf4a9bd38ab4bb1ee28e4d5fc282cea4b14fdebaf9b977324379a76c5dee6",
       "git_blob_sha1": "3e677b24681532ac260376f6982ac8d2f16d6a91"
@@ -116,7 +116,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/006.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/006.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/006.png",
       "size_bytes": 1635142,
       "sha256": "849ea0a88316158c95808dfa7ca2026fb4e0d77d99d038fee4a04f1769cf2076",
       "git_blob_sha1": "2a2f81a7385f568958eb545ae63fcede186bb4b0"
@@ -124,7 +124,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/005.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/005.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/005.png",
       "size_bytes": 1515013,
       "sha256": "c7a164c2f424ed586415021308a3d2fe1e1c0c10103415cb7d827dcd2cf088dc",
       "git_blob_sha1": "a02f2ca1d4a2d4102451ef5cd0e579a242e0453a"
@@ -132,7 +132,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/000.png",
       "size_bytes": 1215559,
       "sha256": "360e168982343a191c9746a489b36abbf1362e2309d34c6fc3979a7d8909ae64",
       "git_blob_sha1": "90fb0a214e033a8aff73e81543c8cdedd64d9fad"
@@ -140,7 +140,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/001.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/001.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/001.png",
       "size_bytes": 1465371,
       "sha256": "adfc97a16f6a505d351206db0782e0083d11a12ebd94936045f434e39784c26a",
       "git_blob_sha1": "0e6b634a764b7655c06dbf342c7cd74449048d4e"
@@ -148,7 +148,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/003.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/003.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/003.png",
       "size_bytes": 1544270,
       "sha256": "726ef12c5253ac6520e240aba5656eef92774473ef83313e7e681a042df01465",
       "git_blob_sha1": "ea2462453d67781cce232f2f3b71102f6dd0db2a"
@@ -156,7 +156,7 @@
     {
       "bundle": "Crownfall-Art-01-Kit-Animation.zip",
       "source_path": "Characters /kit-asher/run/004.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/004.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Run/004.png",
       "size_bytes": 1399425,
       "sha256": "77077e2ac3e131578c53a49446b361648355146326acda1afa663d734ed6a9d8",
       "git_blob_sha1": "a6a9b631ac06303dac0bd24ca34e52c2e86af735"
@@ -164,7 +164,7 @@
     {
       "bundle": "Crownfall-Art-02-Kit-VFX.zip",
       "source_path": "Characters /kit-asher/abilities /last-flame.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/last-flame.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/last-flame.png",
       "size_bytes": 1342520,
       "sha256": "9d90e444c3aa321db1f63f5d524eb2e82c550ccc0c6af6ec6cc036cb637f2a49",
       "git_blob_sha1": "764e1d50dc8b810a9a1c8587d3c746194297e9f9"
@@ -172,7 +172,7 @@
     {
       "bundle": "Crownfall-Art-02-Kit-VFX.zip",
       "source_path": "Characters /kit-asher/abilities /ember-step-trail.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/ember-step-trail.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/ember-step-trail.png",
       "size_bytes": 1161480,
       "sha256": "ca458b5eb99a326dfdec0eccb0911b345de759a62e634cc68a377722222c7b20",
       "git_blob_sha1": "19e136658944664aea9d624552b39603c0742747"
@@ -180,7 +180,7 @@
     {
       "bundle": "Crownfall-Art-02-Kit-VFX.zip",
       "source_path": "Characters /kit-asher/abilities /solar-ring.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/solar-ring.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/solar-ring.png",
       "size_bytes": 2509948,
       "sha256": "f51262474d8c3d18774b0aa78e8cadc7e0089679b327bae158c0993ddcee9422",
       "git_blob_sha1": "8f37279155e39f4bffa24f46863fb7d5329074c2"
@@ -188,7 +188,7 @@
     {
       "bundle": "Crownfall-Art-02-Kit-VFX.zip",
       "source_path": "Characters /kit-asher/abilities /expellant-cast.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/expellant-cast.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/expellant-cast.png",
       "size_bytes": 1771704,
       "sha256": "96f0bfede9a139bd3733deda1f112d17895246c9f17b46e99a7de57e6b11df82",
       "git_blob_sha1": "994951a84de669d6da62ffd9db8d878e81c5ccd5"
@@ -196,7 +196,7 @@
     {
       "bundle": "Crownfall-Art-02-Kit-VFX.zip",
       "source_path": "Characters /kit-asher/abilities /expellant-blast.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/expellant-blast.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Kit/Abilities/expellant-blast.png",
       "size_bytes": 1728900,
       "sha256": "f3f7f9342a7ff34332bec5d7628f53ac44f50ff8bb2e61d96a6dc9b117ae9de1",
       "git_blob_sha1": "194f0d6be5dc258bfd660f4859c695d9d5e6cb7b"
@@ -204,7 +204,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/002.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/002.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/002.png",
       "size_bytes": 1475923,
       "sha256": "059cf48b8d2937ebf1d16429b99984ccac59b10c6e24a8e7ea4eec8e45261966",
       "git_blob_sha1": "a27706182fa7c68a80f922a8537e9d42ef151423"
@@ -212,7 +212,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/007.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/007.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/007.png",
       "size_bytes": 1572609,
       "sha256": "80f57b888c380b30c3913453f137bc5df3b98b9ab38bedc8e136039c899eaf4f",
       "git_blob_sha1": "f73bd341999843e87b6b6f60cc865a414cec399a"
@@ -220,7 +220,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/006.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/006.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/006.png",
       "size_bytes": 1551604,
       "sha256": "39a7198bb574d7a8b44be070292aec82bb94e0609770d3ef4aaacb3ebf37ae3e",
       "git_blob_sha1": "16cc3d747c9ca72d9da665c887a1366016f897d9"
@@ -228,7 +228,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/005.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/005.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/005.png",
       "size_bytes": 1618025,
       "sha256": "7c3faf90061ff7d6ebc60b508895545b5eb1ef92c03d7cbf6a0e734cc286f7d4",
       "git_blob_sha1": "460ab1045afc8e513d9a64dd4db52b5a83c57fe6"
@@ -236,7 +236,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/000.png",
       "size_bytes": 1208160,
       "sha256": "2f237b5ced1496e893b77186dfd927285767237e7a851d9bd619c01be640239f",
       "git_blob_sha1": "6ebde484b0fc7294d740e83f6811e9a66c0fbf65"
@@ -244,7 +244,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/001.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/001.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/001.png",
       "size_bytes": 1488328,
       "sha256": "2a783764302e57f12602decc144d1a389cdd9f1720d75f0af07b510bf291fcd4",
       "git_blob_sha1": "3ee78281758193538bf1b3d4661c3278528268c6"
@@ -252,7 +252,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/003.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/003.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/003.png",
       "size_bytes": 1472680,
       "sha256": "dad78a7603c2fd8673df14c3ebf6bd841d992b26b4d7e61a72298be74f646050",
       "git_blob_sha1": "82c635e69fca927932208b261198538d1723673a"
@@ -260,7 +260,7 @@
     {
       "bundle": "Crownfall-Art-05-Riven-Run.zip",
       "source_path": "Characters /riven/run/004.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/004.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Run/004.png",
       "size_bytes": 1592500,
       "sha256": "8b987f8d8047966da15ee8871a688051c6aca143c5ea2c61a1797fc1090a5222",
       "git_blob_sha1": "2f85f582d68f533bc7149131e659a13a2451d261"
@@ -268,7 +268,7 @@
     {
       "bundle": "Crownfall-Art-06-Riven-Ability-Idle.zip",
       "source_path": "Characters /riven/idle /000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Idle/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Idle/000.png",
       "size_bytes": 1133920,
       "sha256": "288e799212303999804a5b33053fcf08f7cfab9642dc7569d800f15e64083712",
       "git_blob_sha1": "4cf5279f8d626d10e7c6ce287b0e74021d5034a6"
@@ -276,7 +276,7 @@
     {
       "bundle": "Crownfall-Art-06-Riven-Ability-Idle.zip",
       "source_path": "Characters /riven/scream /000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Scream/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Scream/000.png",
       "size_bytes": 2077888,
       "sha256": "f08785d1dfeb62e7d50a2dc21041bb88f9dcde55cd9da2e30883c62bbff96152",
       "git_blob_sha1": "0ae5b2a97a0ab39a32099bef1437940e72f73c9e"
@@ -284,7 +284,7 @@
     {
       "bundle": "Crownfall-Art-06-Riven-Ability-Idle.zip",
       "source_path": "Characters /riven/scream /001.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Scream/001.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Scream/001.png",
       "size_bytes": 3408020,
       "sha256": "396aed994e7845c49c7f0637e99f5924d9ff87394db0a0e66a28449e7afb719c",
       "git_blob_sha1": "224ce5af4748e29f6ae74c969d1a30ffe03d95dd"
@@ -292,7 +292,7 @@
     {
       "bundle": "Crownfall-Art-06-Riven-Ability-Idle.zip",
       "source_path": "Characters /riven/scythes/002.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Scythes/002.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Scythes/002.png",
       "size_bytes": 1946402,
       "sha256": "350ea81e4601d40eea10b540b4f29721dfd7c1d37df6451572324e85a0337495",
       "git_blob_sha1": "0d8d07f760d0d7243a4572705bde5411d53794db"
@@ -300,7 +300,7 @@
     {
       "bundle": "Crownfall-Art-06-Riven-Ability-Idle.zip",
       "source_path": "Characters /riven/scythes/000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Scythes/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Scythes/000.png",
       "size_bytes": 1526390,
       "sha256": "a5f2b1ca767a190b2cda17caaaab2f4e7b72c2c0a132ef922c7bc0769f34677a",
       "git_blob_sha1": "6c4f649fb9e7833dbda8d42d4f22730c4e26ab0f"
@@ -308,7 +308,7 @@
     {
       "bundle": "Crownfall-Art-06-Riven-Ability-Idle.zip",
       "source_path": "Characters /riven/scythes/001.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Riven/Scythes/001.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Riven/Scythes/001.png",
       "size_bytes": 1273385,
       "sha256": "95125d7082375145f20fac596992ff4774e547fa1104539b4b92e00cdd68cbc3",
       "git_blob_sha1": "caaafb0909bec5ac64c962b7979ff9e058aa2603"
@@ -316,7 +316,7 @@
     {
       "bundle": "Crownfall-Art-04-Set-WarCry-Run.zip",
       "source_path": "Characters /set/war-cry/002.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/WarCry/002.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/WarCry/002.png",
       "size_bytes": 2321319,
       "sha256": "a3f3294c640425480501f7176b295f0c96f95e373c59cf7f9e8481e50382026c",
       "git_blob_sha1": "9b95435aebfc47f3c8c4a75db515ec1afe280a6f"
@@ -324,7 +324,7 @@
     {
       "bundle": "Crownfall-Art-04-Set-WarCry-Run.zip",
       "source_path": "Characters /set/war-cry/000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/WarCry/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/WarCry/000.png",
       "size_bytes": 1595818,
       "sha256": "33d7cd2309b9f93d09ca7e93ba92c884aad215a237155fef5903169ab5b807bb",
       "git_blob_sha1": "7104c2029e315c65e993edf50f6368e7843e3390"
@@ -332,7 +332,7 @@
     {
       "bundle": "Crownfall-Art-04-Set-WarCry-Run.zip",
       "source_path": "Characters /set/war-cry/003.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/WarCry/003.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/WarCry/003.png",
       "size_bytes": 3138959,
       "sha256": "be75c2ece361d8ee3e8245368430131e5823fc928feac45aff1b347b97af51ce",
       "git_blob_sha1": "0734e57e60f7bec2f6ed979d0ab09470e28ad156"
@@ -340,7 +340,7 @@
     {
       "bundle": "Crownfall-Art-03-Set-Basic-Panther.zip",
       "source_path": "Characters /set/panthers-fist /000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/PanthersFist/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/PanthersFist/000.png",
       "size_bytes": 2544470,
       "sha256": "2211d2e3fc374b779c0db8a247a4f14af0a732eb91ba4dd5bef3815bb1818146",
       "git_blob_sha1": "69ce472072b10c917b8c2e970521ae0881ab4931"
@@ -348,7 +348,7 @@
     {
       "bundle": "Crownfall-Art-03-Set-Basic-Panther.zip",
       "source_path": "Characters /set/panthers-fist /001.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/PanthersFist/001.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/PanthersFist/001.png",
       "size_bytes": 1632704,
       "sha256": "a3b26037330c356b7c039e918f22115980a4726d0e424b3053b1da66d186bcb2",
       "git_blob_sha1": "257cd1da718e42b114151fee223fcff07c01b81c"
@@ -420,7 +420,7 @@
     {
       "bundle": "Crownfall-Art-03-Set-Basic-Panther.zip",
       "source_path": "Characters /set/basic/002.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/002.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/002.png",
       "size_bytes": 2295747,
       "sha256": "e0be2d9803eda350586b65a62f533c734ed489b45038d855e012464d8470175f",
       "git_blob_sha1": "7250e04ddf95435204138e32def9bdb1bf923600"
@@ -428,7 +428,7 @@
     {
       "bundle": "Crownfall-Art-03-Set-Basic-Panther.zip",
       "source_path": "Characters /set/basic/000.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/000.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/000.png",
       "size_bytes": 1702482,
       "sha256": "9fba3a2afd8062e8d336286679d2b8c7bf5ae72d860dc422cb89a00a8955fd4d",
       "git_blob_sha1": "b504aedc109e21cea0c11d7609ba6d8425f0c418"
@@ -436,7 +436,7 @@
     {
       "bundle": "Crownfall-Art-03-Set-Basic-Panther.zip",
       "source_path": "Characters /set/basic/001.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/001.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/001.png",
       "size_bytes": 2394544,
       "sha256": "9caa45bebecd6bea44b4a4f375c902e60cb81e8349d0f5389bce89f15083e9af",
       "git_blob_sha1": "b0c579fcebf24193151aacff4aa03ce71d8ecc57"
@@ -444,10 +444,13 @@
     {
       "bundle": "Crownfall-Art-03-Set-Basic-Panther.zip",
       "source_path": "Characters /set/basic/003.png.PNG",
-      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/003.png.PNG",
+      "target_path": "ProductionArtStaging/Crownfall/Set/Basic/003.png",
       "size_bytes": 2164376,
       "sha256": "d39c836416a69e8046343127780ca7c45aa8f5f9264974585bea4acaea1c93e9",
       "git_blob_sha1": "12b98736adf52f1433330eec0a6b0f29a09532e6"
     }
-  ]
+  ],
+  "verified_at_head": "ba27ac9edcaecedf46b3a4546cc2e3b6bac1e2ac",
+  "verified_file_count": 53,
+  "naming_cleanup": "Removed duplicated .png.PNG suffixes and stray space before Arena Center Floor Logo extension; source bytes unchanged."
 }
