@@ -2,7 +2,7 @@ name: Validate Crownfall Current
 
 on:
   push:
-    branches: [main]
+    branches: [main, browser-parity-unity]
     paths:
       - 'Assets/**'
       - 'Docs/Kit*Manifest.json'
@@ -114,3 +114,6 @@ jobs:
           </Project>
           XML
           dotnet run --project "$TMP/FrameworkTests.csproj" --configuration Release
+
+      - name: Compile and exercise complete 3v3 matches
+        run: python Tools/run_complete_match_tests.py

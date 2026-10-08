@@ -141,8 +141,21 @@ def integration_checks(guid_to_asset):
     require(scene_docs[-1]["SceneRoots"]["m_Roots"] == [{"fileID": 101}], "M0 scene root drift")
 
     build = documents("ProjectSettings/EditorBuildSettings.asset")[0]["EditorBuildSettings"]
-    require(build["m_Scenes"] == [{"enabled": 1, "path": scene_path, "guid": guid_for(scene_path)}],
+    require(build["m_Scenes"] == [{"enabled": 1, "path": "Assets/Scenes/CrownfallMatch.unity", "guid": guid_for("Assets/Scenes/CrownfallMatch.unity")}],
             "Build scene path/GUID drift")
+    match_docs = documents("Assets/Scenes/CrownfallMatch.unity")
+    match_components = [d["MonoBehaviour"] for d in match_docs if "MonoBehaviour" in d]
+    require(len(match_components) == 1, "Complete match must have one composition root")
+    match_root = match_components[0]
+    reference(match_root["m_Script"], "Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs", 11500000)
+    require(match_root["m_Enabled"] == 1 and match_root["m_GameObject"] == {"fileID": 100}, "Complete match root disabled or detached")
+    for field, asset in (("kit", "KitSpriteSet"), ("kitBasic", "KitBasicAttack"), ("kitBasicSprites", "KitBasicSprites")):
+        reference(match_root[field], f"Assets/Crownfall/Configuration/{asset}.asset", 11400000)
+    for field, path in (("solidMaterial", "Assets/Materials/PipelineCube.mat"), ("spriteMaterial", "Assets/Crownfall/Presentation/KitSprite.mat"), ("effectMaterial", "Assets/Crownfall/Match/Runtime/MatchOverlay.mat"), ("territoryMaterial", "Assets/Crownfall/Match/Runtime/TerritoryFlow.mat")):
+        reference(match_root[field], path, 2100000)
+    require(match_docs[0]["GameObject"]["m_Component"] == [{"component": {"fileID": i}} for i in (101, 102)], "Complete match scene contains fixture scaffolding")
+    pipeline = text("Assets/Editor/PipelineBuild.cs")
+    require(pipeline.count('"Assets/Scenes/CrownfallMatch.unity"') == 2 and 'CompleteMatchValidation.Validate()' in pipeline, "Build hook must launch and validate complete match")
     settings = documents("ProjectSettings/ProjectSettings.asset")[0]["PlayerSettings"]
     for key, value in {"activeInputHandler": 0, "stripEngineCode": 1,
                        "webGLTemplate": "PROJECT:PipelineTest", "webGLCompressionFormat": 1,
@@ -175,8 +188,8 @@ def main():
             "Unity editor version drift")
 
     build_settings = text("ProjectSettings/EditorBuildSettings.asset")
-    require(build_settings.count("enabled: 1") == 1 and "Assets/Scenes/M0.unity" in build_settings,
-            "M0 must remain the sole enabled build scene")
+    require(build_settings.count("enabled: 1") == 1 and "Assets/Scenes/CrownfallMatch.unity" in build_settings,
+            "The complete match must be the sole enabled build scene")
     require((ROOT / "Assets/WebGLTemplates/PipelineTest/index.html").is_file(),
             "PipelineTest WebGL template missing")
 

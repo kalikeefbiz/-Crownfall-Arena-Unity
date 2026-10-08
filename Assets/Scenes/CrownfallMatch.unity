@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 101}
+  - component: {fileID: 102}
+  m_Layer: 0
+  m_Name: Complete Crownfall 3v3 Match
+  m_TagString: Untagged
+  m_IsActive: 1
+--- !u!4 &101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4ddb3aab152489384e2d02e8c8537d1, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  kit: {fileID: 11400000, guid: b96cbb81e99250f8b0e20459edd96b0d, type: 2}
+  kitBasic: {fileID: 11400000, guid: e218a1839a635b61a60761d7b9b40b10, type: 2}
+  kitBasicSprites: {fileID: 11400000, guid: 386886877e165873acb28cef14d44e27, type: 2}
+  solidMaterial: {fileID: 2100000, guid: 2bdbb7a6212a572d3b3f23c9d4477be9, type: 2}
+  spriteMaterial: {fileID: 2100000, guid: 3d285676187f529a9c78529c4cbea14e, type: 2}
+  effectMaterial: {fileID: 2100000, guid: b5faca0811f948c6bf29ef5770943c64, type: 2}
+  territoryMaterial: {fileID: 2100000, guid: 3a7e35a63c7043ffa7a3161c81590d72, type: 2}
+--- !u!1660057539 &9223372036854775807
+SceneRoots:
+  m_ObjectHideFlags: 0
+  m_Roots:
+  - {fileID: 101}

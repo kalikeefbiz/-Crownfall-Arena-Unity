@@ -116,3 +116,7 @@ InitTestScene*.unity*
 *.key
 *.pem
 .DS_Store
+
+# Python validation caches
+__pycache__/
+*.pyc

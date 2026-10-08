@@ -11,6 +11,7 @@ public sealed class PipelineBuild : IPreprocessBuildWithReport
     {
         Configure(report.summary.platform);
         Crownfall.Editor.M0Validation.Validate();
+        Crownfall.Editor.CompleteMatchValidation.Validate();
     }
 
     private static void Configure(BuildTarget target)
@@ -34,7 +35,7 @@ public sealed class PipelineBuild : IPreprocessBuildWithReport
             PlayerSettings.SetManagedStrippingLevel(NamedBuildTarget.WebGL, ManagedStrippingLevel.High);
         }
         EditorBuildSettings.scenes = new[] {
-            new EditorBuildSettingsScene("Assets/Scenes/M0.unity", true)
+            new EditorBuildSettingsScene("Assets/Scenes/CrownfallMatch.unity", true)
         };
     }
 
@@ -43,12 +44,12 @@ public sealed class PipelineBuild : IPreprocessBuildWithReport
     {
         Configure(BuildTarget.WebGL);
         BuildReport report = BuildPipeline.BuildPlayer(new BuildPlayerOptions {
-            scenes = new[] { "Assets/Scenes/M0.unity" },
+            scenes = new[] { "Assets/Scenes/CrownfallMatch.unity" },
             locationPathName = "Builds/Web",
             target = BuildTarget.WebGL,
             options = BuildOptions.None
         });
         if (report.summary.result != BuildResult.Succeeded)
-            throw new BuildFailedException("Crownfall M0 Web build failed.");
+            throw new BuildFailedException("Crownfall match Web build failed.");
     }
 }

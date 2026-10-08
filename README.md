@@ -1,119 +1,28 @@
-# Crownfall Arena: production Unity M0
+# Crownfall Arena — complete Unity 3v3 match
 
-Unity **6000.3.10f1**, built-in render pipeline. Starting point: `main` at
-`da70f7285e9bb6507a2f44e0426328b3ca83c999`. This is the production Unity codebase;
-Web is a temporary device-validation build target. The browser reference is untouched.
+Open **Assets/Scenes/CrownfallMatch.unity** in Unity **6000.3.10f1** and press Play. This is the only enabled shipping scene. The existing project uses the built-in render pipeline, true X/Z gameplay, native CharacterControllers and an orthographic MOBA camera.
 
-Open **Assets/Scenes/M0.unity**. Its serialized composition root references the
-Kit sprite set, Summoner tuning and materials. On play it creates the temporary
-3D battlefield, Summoner and presentation fixtures. M0 is the sole enabled build
-scene. The earlier PipelineTest scene is retained as a checkpoint and excluded
-from the build.
+Menu → Kit/Set/Riven selection → countdown → human Blue Summoner plus five bots → Crownfall match → victory/defeat/draw → results → replay or menu.
 
-## Implemented scope
+Move with WASD/arrows or the left touch pad. Aim independently with the right touch pad or right mouse. Space is basic, Q/E are skills, R ultimate, and F Riven stance/Kit's earned Expellant Blast. Aim an ability by holding/dragging; release commits and dragging beyond the cancellation radius cancels. Kit/Set basics repeat while held; Riven basics commit on release and preserve the confirmed direction for the cadence-driven second blade. Escape/Pause opens pause and the control-layout editor.
 
-- True X/Z world, 28 x 36 ground, four boundaries and three collision obstacles.
-- CharacterController root: 1.8 height, 0.4 radius, 0.25 step offset, 45-degree slope
-  limit, 0.04 skin width. Movement is 5 units/second with gravity; diagonal input
-  is normalized. Actual collision-resolved horizontal displacement drives animation.
-- Orthographic MOBA camera: 50-degree elevation, size 8.5, smooth follow.
-- Device-independent `ISummonerInput` interface and read-only `ISummonerViewState`.
-- Native Unity touch/mouse/keyboard adapter with independent pointer capture,
-  movement dead zone, aim-drag threshold, safe-area control layout, cancellation
-  on focus loss, pause, pointer loss, and display/safe-area changes.
-- Gameplay-owned aim, explicit presentation-facing state, and selection state machine.
-  Movement never sets aim. M0 facing follows horizontal aim, retains its last side
-  for near-vertical aim, and can be replaced by future gameplay facing rules.
-- Directional/radial previews only. No damage, attacks, ability execution or target hits.
-- Approved Kit idle and four chronological side-facing run images, configurable looping playback,
-  visual-only mirroring, and a collider-free primitive 3D proxy.
-- A temporary Unity IMGUI diagnostic overlay, not a production HUD.
+The 68×64 arena includes the Crownfall Lane, Wilderness islands, six minor camp sites and Major Damage. Territory, retained CP, tickets, personal final respawns, protection, camps, buffs and one-time 70% Surges run under one fixed-step local authority. Canals never attack or grant rewards. The HUD includes a minimap, timer, score, team life states, health, ultimate meter, cooldowns, stance and buffs.
 
-No other Summoners, combat, health, bots, territory, tickets, Wilderness, camps,
-match rules, multiplayer, production map, final VFX or final lighting were added.
+Current Unity combat/economy/roster/Surge decisions take precedence over V21 tuning. See [migration map](Docs/BROWSER_PARITY_MIGRATION_MAP.md) for explicit choices and [validation report](Docs/COMPLETE_MATCH_VALIDATION.md) for executed checks and runtime limits.
 
-## Device controls
+Kit uses the unchanged supplied idle/run and front/back/side basic artwork. Set/Riven authored image bytes and Kit ability artwork are absent from this checkout and all its archives; distinct temporary native visuals and geometric effects keep their complete kits playable. No production PNGs are altered.
 
-- Drag the **MOVE** pad with one finger. Drag direction is camera-relative on X/Z.
-- With another finger, press **DIRECTION** or **RADIAL** and drag to aim independently.
-- Quick tap: confirms the aim captured at press. Initial radial distance is half range.
-- Hold: previews without confirming. Drag changes direction; radial drag also changes
-  center distance, clamped to five units. Directional length stays five units.
-- Release: records one non-damaging selection and displays it for 0.65 seconds.
-- Drag the aiming finger onto **CANCEL**, or tap CANCEL with another finger: discard.
-- **SWAP PRESENTATION** toggles Kit/proxy immediately, including while moving/aiming.
-- Desktop: WASD/arrows move; mouse operates the same targeting pads; Escape cancels;
-  Tab swaps presentation. No Input Manager axis configuration is needed.
+Validation:
 
-The debug counter increases only on a valid release. Preview geometry does not
-resolve line of sight, target eligibility or combat collision in M0.
+```sh
+python3 -m pip install -r Tools/requirements-m1-static.txt
+python3 Tools/validate_current_build.py
+python3 Tools/validate_m0.py
+python3 Tools/validate_m1.py
+# .NET 8 SDK (or CROWNFALL_DOTNET=/path/to/dotnet):
+python3 Tools/run_complete_match_tests.py
+# Actual UnityEngine reference assemblies; type-check only, no engine execution:
+CROWNFALL_UNITY_REFERENCE_DIR=/path/to/Unity/Managed python3 Tools/compile_match_runtime.py
+```
 
-## Tuning and presentation
-
-`Assets/Crownfall/Configuration/M0SummonerTuning.asset`: speed, gravity, 0.22-second
-hold threshold, five-unit range, confirmation duration.
-
-`Assets/Crownfall/Configuration/KitSpriteSet.asset`: idle reference, ordered four-frame run
-array, **12 FPS**, **0.12 units/second** run threshold, stop hysteresis ratio 0.65.
-The temporary four-frame loop is 0.3333 seconds at 12 FPS. Animation time is independent of
-movement authority. Time advances normally at the rendering rate; a slow frame
-may skip displaying an intermediate animation sample.
-
-All source images are copied byte-for-byte. Doubled archive extensions are normalized to .png without altering bytes. All five
-use **500 pixels/unit**, full-rectangle sprite geometry, manual custom pivots,
-2048 maximum import size, no NPOT resizing, uncompressed default import, mipmaps,
-trilinear filtering, clamp wrapping, and CPU readback disabled. No platform quality
-overrides or duplicate left-facing assets. Texture memory/quality tuning remains
-revisable after profiling. Source file bytes and any supplied transparency are untouched.
-
-Pivots use an estimated pelvis x-coordinate and the lowest boot contact y-coordinate
-in each original 1254 x 1254 canvas. Values are recorded in
-`Docs/KitSourceManifest.json`. There is no per-frame bounds rescaling or runtime
-root offset. The sprite child aligns its plane to the camera and uses
-`SpriteRenderer.flipX` for left-facing. The gameplay root never flips or rotates.
-Visual foot stability, idle/run body scale and transparency still need actual rendering
-and device review; no background correction has been attempted.
-
-The primitive view reads the same root state, rotates its own child to aim, and has
-no active collider. Switching only changes child activation. A later 3D model can
-consume `ISummonerViewState` without changing `SummonerRoot`.
-
-For the M0.1 PNG correction, use `Docs/M01_KIT_DELIVERY.md`; the original M0
-delivery notes below are historical.
-
-## Build and delivery
-
-Keep the existing Unity Cloud target/editor/hosting configuration. The ordinary
-pre-build hook selects M0 and runs `M0Validation`. Web compression/template settings
-remain from the proven pipeline. Native targets are no longer rejected; iOS signing
-and deployment setup are outside this milestone. The package manifest fix on main
-is preserved unchanged. No new Unity packages are required.
-
-For the phone-only ZIP import steps, see `Docs/M0_DELIVERY.md`. The updated GitHub
-Action imports sources and runs static validation. It does not run Unity or rebuild
-cloud infrastructure. After importing, trigger the existing Unity Cloud build using
-its normal workflow. Check that the cloud job builds the imported commit.
-
-Optional existing batch entry point:
-
-    Unity -batchmode -quit -projectPath /path/to/project -buildTarget WebGL -executeMethod PipelineBuild.BuildWeb -logFile build.log
-
-## Validation status
-
-Local checks passed: all five original SHA-256 matches, unique/reachable GUIDs,
-ordered sprite references, import/pivot data, scene/material/config links, C# syntax
-parsing, architecture guards, package/editor pins and whitespace checks.
-
-Reproduce static checks:
-
-    python -m pip install -r Tools/requirements-static.txt
-    python Tools/validate_m0.py
-
-These are syntax/structure checks, not C# type checking or Unity compilation.
-Unity Editor was **not executed** locally. The Editor gate contains tests against
-the real TargetingSession for tap snapshot, hold, drag, cancellation, duplicate and
-stray release, wrong channel, radial clamp and feedback timeout. Those tests are
-pending until Unity runs the gate during the first cloud build or via
-**Crownfall > Validate M0** in the Editor.
-
-Cloud/device checklist: `Docs/M0_DELIVERY.md`. No visual or runtime acceptance is claimed.
+The Unity prebuild hook also runs the complete-match assertions. `Crownfall/Validate Complete Match` runs them locally in the Editor. M0 and PipelineTest scenes remain available as historical regression fixtures, outside the shipping scene list. No Cloud Build or deployment is required by these scripts.

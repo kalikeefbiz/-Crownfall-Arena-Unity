@@ -82,7 +82,7 @@ def main():
     check('visual.flipX = facing == PresentationFacing.Left' in sprite and 'localScale' not in sprite, 'Mirror/scale invariant')
     check('Mathf.Repeat' in sprite and 'art.run.Length' in sprite, 'Loop missing')
     build = (ROOT/'ProjectSettings/EditorBuildSettings.asset').read_text()
-    check(build.count('enabled: 1') == 1 and 'Assets/Scenes/M0.unity' in build, 'Build scene')
+    check(build.count('enabled: 1') == 1 and 'Assets/Scenes/CrownfallMatch.unity' in build, 'Build scene')
     check(json.loads((ROOT/'Packages/manifest.json').read_text())['dependencies'] == {'com.unity.modules.imgui':'1.0.0','com.unity.modules.physics':'1.0.0'}, 'Proven package manifest changed')
     check((ROOT/'ProjectSettings/ProjectVersion.txt').read_text().strip() == 'm_EditorVersion: 6000.3.10f1', 'Editor version changed')
     ET.parse(ASSETS/'Crownfall/link.xml')
