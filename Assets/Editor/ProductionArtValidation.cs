@@ -10,6 +10,7 @@ namespace Crownfall.Editor
         [MenuItem("Crownfall/Validate Production Art")]
         public static void Validate()
         {
+            ProductionUiDependencies.Validate();
             var art=AssetDatabase.LoadAssetAtPath<RosterPresentationCatalog>("Assets/Crownfall/Configuration/ProductionArt.asset");
             Require(art!=null,"Missing production catalog");
             foreach(var roster in new[]{art.kit,art.set,art.riven})

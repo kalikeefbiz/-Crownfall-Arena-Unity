@@ -7,6 +7,8 @@ from validate_current_build import documents, guid_for, require
 ROOT=Path(__file__).resolve().parents[1]
 
 def main():
+    from validate_ui_dependencies import main as validate_ui_dependencies
+    validate_ui_dependencies()
     mapping=json.loads((ROOT/'Docs/PRODUCTION_ASSET_MAP.json').read_text())['assets']
     transfer=json.loads((ROOT/'ProductionArtStaging/Crownfall/TRANSFER_MAP.json').read_text())
     for row in transfer['files']:
@@ -69,6 +71,18 @@ def main():
     require('new CastCommand' not in ui and 'match.Cast(' not in ui,'Duplicate UI input authority')
     bootstrap=(ROOT/'Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs').read_text()
     require('collider.enabled=false;Destroy(collider)' in bootstrap,'Immediate decorative collider disable')
+    require('controls.PreviewCancelled+=HideTargetPreview;' in bootstrap,'Reset/cancel preview subscription missing')
+    hidden=bootstrap.split('void HideTargetPreview()',1)[1].split('void TogglePause()',1)[0]
+    require('preview.enabled=false;preview.positionCount=0;preview.loop=false;' in hidden,'Preview must hide and clear geometry synchronously')
+    require(bootstrap.index('if(!controls.PreviewVisible(')<bootstrap.index('if(paused||editing){'),'Preview cleanup must run before pause/editor early return')
+    require('preview.enabled=controls.PreviewVisible(match.Human,match.Now,paused||editing||!match.Active);' in bootstrap,'Death/stun/cancellation preview visibility gate')
+    state=(ROOT/'Assets/Crownfall/Match/Core/MatchInputState.cs').read_text()
+    require(state.count('PreviewCancelled?.Invoke();')==2,'Both reset and ability cancellation must notify presentation')
+    require('state.PreviewCancelled+=value' in touch,'Input adapter must forward synchronous cancellation')
+    for path in ('ArenaPresentation','ProductionVfx'):
+        require('GroundSpritePlacement.Center(' in (ROOT/f'Assets/Crownfall/Match/Runtime/{path}.cs').read_text(),'Ground art must share centered placement: '+path)
+    placement=(ROOT/'Assets/Crownfall/Match/Runtime/GroundSpritePlacement.cs').read_text()
+    require('PresentationMath.GroundSpriteOrigin(' in placement and 'image.bounds.center.x,image.bounds.center.y' in placement,'Imported pivot compensation missing')
     require('vfx.Reset()' in bootstrap and 'arenaPresentation.Dispose()' in bootstrap and 'audioDirector.ResetMatch()' in bootstrap and 'tints.Clear()' in bootstrap,'Rematch cleanup')
     template=(ROOT/'Assets/WebGLTemplates/PipelineTest/index.html').read_text()
     for token in ('visibilitychange','pagehide','touchcancel','orientationchange','visualViewport','SetBrowserInsets','SuspendBrowserInput'):

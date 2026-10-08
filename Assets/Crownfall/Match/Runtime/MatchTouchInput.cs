@@ -24,6 +24,8 @@ namespace Crownfall.Match
         public Rect MoveRect,AimRect;
         public readonly Rect[] AbilityRects=new Rect[5];
         public void Reset(MatchEntity p)=>state.Reset(p);
+        public event System.Action PreviewCancelled {add=>state.PreviewCancelled+=value;remove=>state.PreviewCancelled-=value;}
+        public bool PreviewVisible(MatchEntity p,double now,bool blocked)=>state.PreviewVisible(p,now,blocked);
         static Vector2 GuiPoint(Vector2 point) => new Vector2(point.x,Screen.height-point.y);
         static V2 WorldOffset(Vector2 delta,float scale) => new V2(delta.x/scale,-delta.y/scale);
         public void Sample(MatchSimulation match,float scale,Rect pauseRect,System.Action pause)

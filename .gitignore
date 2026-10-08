@@ -120,3 +120,7 @@ InitTestScene*.unity*
 # Python validation caches
 __pycache__/
 *.pyc
+
+# Native UI assets generated and verified by ProductionUiDependencies before builds.
+/Assets/Crownfall/GeneratedUI/
+/Assets/Crownfall/GeneratedUI.meta

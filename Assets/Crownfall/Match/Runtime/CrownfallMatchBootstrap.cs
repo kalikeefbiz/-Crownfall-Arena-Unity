@@ -38,6 +38,7 @@ namespace Crownfall.Match
         static Color TeamColor(int team) => team==1?new Color(.24f,.61f,1):team==2?new Color(1,.34f,.37f):new Color(.8f,.72f,.3f);
         void Awake()
         {
+            controls.PreviewCancelled+=HideTargetPreview;
             Application.targetFrameRate=60;
             Physics.IgnoreLayerCollision(8,8,true);
             LoadLayout();
@@ -86,6 +87,7 @@ namespace Crownfall.Match
                 AddView(c);var ring=Ring(c.Name+" home",Tint(new Color(.34f,.39f,.25f)));Circle(ring,c.Spawn,c.Radius+1,.045f);
             }
             preview=Ring("Ability targeting preview",effectMaterial);
+            HideTargetPreview();
             follow.Bind(actors[0].transform);follow.Present(match.Human,false,false);Physics.SyncTransforms();
         }
         void AddView(MatchEntity p)
@@ -112,10 +114,11 @@ namespace Crownfall.Match
             if(Screen.width<Screen.height&&screen=="match"&&match!=null){paused=true;controls.Reset(match.Human);}
             bool active=screen=="match"&&!paused&&!editing&&match!=null&&match.Active;
             Input.simulateMouseWithTouches=!active;
-            if(screen!="match"||match==null)return;
+            if(screen!="match"||match==null){HideTargetPreview();return;}
             if(screenSize.x!=Screen.width||screenSize.y!=Screen.height){controls.Reset(match.Human);screenSize=new Vector2(Screen.width,Screen.height);}
             if(active)controls.Sample(match,UiScale,PauseRect,TogglePause);
             else controls.Reset(match.Human);
+            if(!controls.PreviewVisible(match.Human,match.Now,paused||editing||!match.Active))HideTargetPreview();
             follow.Frozen=paused||editing;
             if(paused||editing){accumulator=0;follow.Present(match.Human,false,controls.Gesture.Active&&!controls.Gesture.Cancelled);return;}
             accumulator+=Mathf.Min(Time.deltaTime,.1f);
@@ -154,7 +157,8 @@ namespace Crownfall.Match
         void UpdateCombatPresentation()
         {
             vfx.Sync(match);
-            preview.enabled=controls.Gesture.Active&&!paused&&!editing&&match.Active;
+            preview.enabled=controls.PreviewVisible(match.Human,match.Now,paused||editing||!match.Active);
+            if(!preview.enabled)HideTargetPreview();
             if(preview.enabled)
             {
                 var g=controls.Gesture;var p=match.Human;double range=match.Range(p,g.Slot);var kind=match.Targeting(p,g.Slot);
@@ -166,6 +170,11 @@ namespace Crownfall.Match
                     preview.loop=false;preview.positionCount=2;preview.SetPosition(0,MatchActorView.Ground(p.Position)+Vector3.up*.08f);preview.SetPosition(1,MatchActorView.Ground(p.Position+g.Direction*range)+Vector3.up*.08f);
                 }
             }
+        }
+        void HideTargetPreview()
+        {
+            if(preview==null)return;
+            preview.enabled=false;preview.positionCount=0;preview.loop=false;preview.startColor=preview.endColor=Color.white;
         }
         void TogglePause(){paused=!paused;controls.Reset(match.Human);accumulator=0;}
         void ClearWorld()

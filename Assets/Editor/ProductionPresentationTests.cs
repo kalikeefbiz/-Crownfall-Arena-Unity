@@ -89,7 +89,90 @@ namespace Crownfall.Tests
                 {var q=p+d;if(MatchMap.Blocked(q,.5))continue;string key=q.X+","+q.Z;if(seen.Add(key))queue.Enqueue(q);}
             }
             foreach(var camp in simulation.Camps)Check(seen.Contains(camp.Position.X+","+camp.Position.Z),"camp route reachable");foreach(var actor in simulation.Actors)Check(seen.Contains(actor.Spawn.X+","+actor.Spawn.Z),"spawn route reachable");
+            GroundArtCentering();PreviewCancellation();DelayedProvenance();
             return checks;
+        }
+        static void GroundArtCentering()
+        {
+            foreach(double pivotX in new[]{0,.5,1})foreach(double pivotY in new[]{0,.04,.5,1})
+            foreach(double height in new[]{2.0,4.0,7.0})foreach(double width in new[]{6.0,8.0,8.4})
+            foreach(var target in new[]{new V2(),new V2(-13,7)})
+            {
+                const double nativeWidth=4;double scale=width/nativeWidth;
+                var origin=PresentationMath.GroundSpriteOrigin(target,new V2((.5-pivotX)*nativeWidth,(.5-pivotY)*height),scale);
+                // Independently transform the four rectangle edges by +90 degrees about X.
+                double left=origin.X-pivotX*nativeWidth*scale,right=origin.X+(1-pivotX)*nativeWidth*scale;
+                double near=origin.Z-pivotY*height*scale,far=origin.Z+(1-pivotY)*height*scale;
+                Check(Math.Abs((left+right)/2-target.X)<1e-9&&Math.Abs((near+far)/2-target.Z)<1e-9,"ground art rectangle centered despite authored foot pivot");
+                Check(Math.Abs(left-(target.X-width/2))<1e-9&&Math.Abs(right-(target.X+width/2))<1e-9,"sprite width agrees with authoritative diameter/line ring");
+            }
+        }
+        static void PreviewCancellation()
+        {
+            var input=new MatchInputState();var actor=new MatchSimulation(FirstRosterSummoner.Kit).Human;
+            bool visible=false;int notifications=0;input.PreviewCancelled+=()=>{visible=false;notifications++;};
+            foreach(string reason in new[]{"pause","control editor","focus","resize","orientation","death","stun"})
+            {
+                input.Gesture.Press(AbilitySlot.Ultimate,new V2(1,0),1,14);visible=true;
+                input.Reset(actor);Check(!visible&&!input.PreviewVisible(actor,1,false),"immediate preview reset: "+reason);
+                CastCommand command;Check(!input.Gesture.Release(2,out command),"reset cannot accept delayed cast: "+reason);
+            }
+            Check(notifications==7,"every reset notifies before Update can return");
+            input.AbilityId=15;input.Gesture.Press(AbilitySlot.Ultimate,new V2(1,0),1,14);visible=true;
+            input.Cancel(15,actor);Check(!visible&&notifications==8,"explicit touch cancellation hides preview synchronously");
+            input.AbilityId=16;input.Gesture.Press(AbilitySlot.Ultimate,new V2(1,0),1,14);visible=true;
+            input.CancelMissing(new[]{9,11},2,actor);Check(!visible&&notifications==9,"missing finger hides preview synchronously");
+            input.Gesture.Press(AbilitySlot.Ultimate,new V2(1,0),1,14);
+            Check(input.PreviewVisible(actor,1,false)&&!input.PreviewVisible(actor,1,true),"pause/editor/phase visibility gate");
+            actor.StunnedUntil=2;Check(!input.PreviewVisible(actor,1,false),"stun in fixed-step catch-up hides preview");actor.StunnedUntil=0;
+            actor.Health.Receive(new DamageRequest(99,2,0,0,99999));Check(!input.PreviewVisible(actor,1,false),"death in fixed-step catch-up hides preview");
+            input.Gesture.Drag(new V2(151,0),14);Check(!input.PreviewVisible(new MatchSimulation(FirstRosterSummoner.Kit).Human,1,false),"cancel-boundary preview hidden");
+        }
+        static MatchSimulation Active(FirstRosterSummoner roster,double enemyX)
+        {
+            var m=new MatchSimulation(roster);foreach(var p in m.Actors)p.Bot=false;
+            for(int i=0;i<190;i++)m.Step(null);
+            m.Human.Position=new V2();m.Actors[3].Position=new V2(enemyX,0);
+            foreach(var p in m.Actors)p.ProtectedUntil=0;
+            return m;
+        }
+        static void DelayedProvenance()
+        {
+            var fist=Active(FirstRosterSummoner.Set,4);var p=fist.Human;p.UltimateMeter=100;
+            Check(fist.Cast(p,new CastCommand(AbilitySlot.Ultimate,new V2(1,0),new V2(4,0))),"fist committed");
+            long committed=p.PresentationActionId;double impact=fist.Actions[0].At;
+            Check(fist.Cast(p,new CastCommand(AbilitySlot.Skill1,new V2(0,1))),"later War Cry accepted during fist wind-up");
+            for(int i=0;i<45;i++)fist.Step(null);
+            long cursor=0;PresentationEvent ev;int hits=0;
+            while(fist.Presentation.Read(ref cursor,out ev))if(ev.Phase==PresentationPhase.Hit&&ev.ActorId==p.Id)
+            {hits++;Check(ev.ActionId==committed&&ev.Ability==AbilitySlot.Ultimate&&ev.Direction.X==1&&ev.Direction.Z==0&&ev.Time+1e-9>=impact,"delayed fist preserves committed action/ability/direction and impact time");}
+            Check(hits==1,"fist emits exactly one target hit");
+
+            var combo=Active(FirstRosterSummoner.Set,1.2);p=combo.Human;
+            Check(combo.Cast(p,new CastCommand(AbilitySlot.Skill2,new V2(1,0))),"contact combo committed");
+            committed=p.PresentationActionId;for(int i=0;i<40;i++)combo.Step(null);
+            cursor=0;var casts=new Dictionary<long,PresentationEvent>();hits=0;
+            while(combo.Presentation.Read(ref cursor,out ev))
+            {
+                if(ev.Phase==PresentationPhase.Cast)casts[ev.ActionId]=ev;
+                if(ev.Phase==PresentationPhase.Hit&&ev.ActorId==p.Id)
+                {hits++;Check(ev.ActionId!=committed&&casts.ContainsKey(ev.ActionId),"follow-up cast identity published before damage hit");var cast=casts[ev.ActionId];Check(ev.Ability==AbilitySlot.Basic&&cast.Ability==AbilitySlot.Basic&&cast.Time==ev.Time&&cast.Sequence<ev.Sequence&&ev.Direction.X==1,"follow-up provenance/order");}
+            }
+            Check(hits==3&&p.DamageDealt==105,"three original combo strikes/damage preserved");
+
+            var barrage=Active(FirstRosterSummoner.Riven,3);p=barrage.Human;
+            Check(barrage.Cast(p,new CastCommand(AbilitySlot.Skill1,new V2(1,0))),"barrage committed");committed=p.PresentationActionId;
+            Check(barrage.Cast(p,new CastCommand(AbilitySlot.Skill2,new V2(0,1)))&&barrage.Cast(p,new CastCommand(AbilitySlot.Special,new V2(0,1))),"later buff/stance casts accepted");
+            var shots=new HashSet<Projectile>();
+            for(int i=0;i<45;i++)
+            {
+                barrage.Step(null);foreach(var shot in barrage.Projectiles)if(!shot.Persistent&&shot.Owner==p)
+                {shots.Add(shot);Check(shot.PresentationActionId==committed&&shot.PresentationAbility==AbilitySlot.Skill1&&!shot.PresentationPulse&&shot.PresentationDirection.X==1&&shot.PresentationDirection.Z==0,"each delayed shot preserves original identity despite later stance/casts");}
+            }
+            Check(shots.Count==5,"original five-shot barrage preserved");cursor=0;hits=0;
+            while(barrage.Presentation.Read(ref cursor,out ev))if(ev.Phase==PresentationPhase.Hit&&ev.ActorId==p.Id)
+            {hits++;Check(ev.ActionId==committed&&ev.Ability==AbilitySlot.Skill1&&ev.Direction.X==1&&ev.Direction.Z==0,"delayed projectile hit direction/provenance stable");}
+            Check(hits==5,"five original barrage hits preserved");
         }
     }
 }

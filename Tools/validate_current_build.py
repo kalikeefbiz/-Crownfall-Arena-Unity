@@ -284,6 +284,8 @@ def main():
             "M1 scene validator must resolve from the project, not the process working directory")
 
     integration_checks(guid_to_asset)
+    from validate_ui_dependencies import main as validate_ui_dependencies
+    validate_ui_dependencies()
 
     # Include all Editor sources, so a newly added validator cannot evade path checks.
     for source_file in (ASSETS / "Editor").rglob("*.cs"):

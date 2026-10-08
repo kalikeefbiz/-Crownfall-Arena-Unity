@@ -12,6 +12,16 @@ namespace Crownfall.Match
         public V2 Position, Direction;
         public double Time;
     }
+    // Output-only identity captured when an authoritative action is committed.
+    public readonly struct PresentationIdentity
+    {
+        public readonly long ActionId;
+        public readonly AbilitySlot Ability;
+        public readonly V2 Direction;
+        public readonly bool Pulse;
+        public PresentationIdentity(MatchEntity actor)
+        {ActionId=actor.PresentationActionId;Ability=actor.LastCast;Direction=actor.CastAim;Pulse=actor.Pulse;}
+    }
     // Bounded output journal. Each reader owns its cursor; neither consumption nor
     // overflow can affect the simulation. No renderer subscription lives in core.
     public sealed class PresentationJournal
@@ -41,6 +51,10 @@ namespace Crownfall.Match
         { return extent>=halfMap?0:Math.Max(-halfMap+extent,Math.Min(halfMap-extent,desired)); }
         public static double GroundDepth(double orthoHalfHeight,double pitchRadians)
         { return orthoHalfHeight/Math.Sin(pitchRadians); }
+        // A sprite's local X/Y plane becomes world X/Z after a +90 degree X rotation.
+        // Compensate the imported pivot in presentation, never in authoritative positions.
+        public static V2 GroundSpriteOrigin(V2 center,V2 boundsCenter,double scale)
+        { return center-boundsCenter*scale; }
     }
     // Handles missing end states without turning a lost/canceled finger into a cast.
     public static class TouchOwnership

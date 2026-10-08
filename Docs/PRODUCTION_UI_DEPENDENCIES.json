@@ -1,0 +1,14 @@
+{
+  "unityVersion": "6000.3.10f1",
+  "panelResource": "CrownfallProductionPanel",
+  "themeSource": "@import url(\"unity-theme://default\");",
+  "shaders": [
+    { "field": "m_AtlasBlitShader", "name": "Hidden/Internal-UIRAtlasBlitCopy" },
+    { "field": "m_DefaultShader", "name": "Hidden/Internal-UIRDefault" },
+    { "field": "m_RuntimeGaussianBlurShader", "name": "Hidden/UIR/GaussianBlur" },
+    { "field": "m_RuntimeColorEffectShader", "name": "Hidden/UIR/ColorEffect" },
+    { "field": "m_SDFShader", "name": "Hidden/TextCore/Distance Field SSD" },
+    { "field": "m_BitmapShader", "name": "Hidden/Internal-GUITextureClipText" },
+    { "field": "m_SpriteShader", "name": "Hidden/TextCore/Sprite" }
+  ]
+}

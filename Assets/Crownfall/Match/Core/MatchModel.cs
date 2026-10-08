@@ -88,6 +88,7 @@ namespace Crownfall.Match
     }
     public sealed class DashMotion
     {
+        public PresentationIdentity Presentation;
         public V2 Direction;
         public double Remaining, Speed, Width, Damage;
         public bool Contact, Empowered;
@@ -108,12 +109,14 @@ namespace Crownfall.Match
         public AbilitySlot PresentationAbility;
         public bool PresentationPulse;
         public long PresentationActionId;
+        public V2 PresentationDirection;
         public int Phase, OrbitIndex; // orbit=0, outbound=1, parked=2, return=3
         public readonly HashSet<int> Hits = new HashSet<int>();
         public readonly HashSet<int> Summoners = new HashSet<int>();
     }
     public sealed class TimedAction
     {
+        public PresentationIdentity Presentation;
         public MatchEntity Owner;
         public V2 Position, Direction;
         public double At, Until;

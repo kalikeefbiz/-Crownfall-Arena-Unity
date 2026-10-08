@@ -10,7 +10,7 @@ namespace Crownfall.Match
     {
         readonly UIDocument document;
         readonly PanelSettings panel;
-        readonly ThemeStyleSheet theme;
+        public const string PanelResource="CrownfallProductionPanel";
         readonly VisualElement root;
         readonly RosterPresentationCatalog art;
         readonly Font font;
@@ -27,8 +27,11 @@ namespace Crownfall.Match
         public ProductionHud(GameObject owner,RosterPresentationCatalog catalog)
         {
             art=catalog;font=Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
-            theme=ScriptableObject.CreateInstance<ThemeStyleSheet>();theme.name="Crownfall retained HUD theme";
-            panel=ScriptableObject.CreateInstance<PanelSettings>();panel.themeStyleSheet=theme;panel.scaleMode=PanelScaleMode.ConstantPixelSize;panel.sortingOrder=10;
+            var shippingPanel=Resources.Load<PanelSettings>(PanelResource);
+            if(shippingPanel==null||shippingPanel.themeStyleSheet==null)
+                throw new InvalidOperationException("Shipping UI dependencies missing. Run Crownfall/Prepare Production UI Dependencies in the required Editor.");
+            // Clone only mutable per-session settings; share the imported, retained theme/shaders.
+            panel=UnityEngine.Object.Instantiate(shippingPanel);
             document=owner.AddComponent<UIDocument>();document.panelSettings=panel;root=document.rootVisualElement;
             root.pickingMode=PickingMode.Ignore;root.style.unityFont=font;root.style.color=new Color(.93f,.9f,.82f);
             root.style.fontSize=16;
@@ -102,7 +105,7 @@ namespace Crownfall.Match
             Skin(button,new Color(.12f,.14f,.19f,.97f));Place(button,rect);return button;
         }
         static VisualElement Block(VisualElement parent,Rect rect,Color color){var e=new VisualElement{pickingMode=PickingMode.Ignore};parent.Add(e);e.style.backgroundColor=color;Place(e,rect);return e;}
-        public static void Place(VisualElement e,Rect rect){e.style.position=Position.Absolute;e.style.left=rect.x;e.style.top=rect.y;e.style.width=rect.width;e.style.height=rect.height;}
+        public static void Place(VisualElement e,Rect rect){e.style.marginLeft=e.style.marginRight=e.style.marginTop=e.style.marginBottom=0;e.style.position=Position.Absolute;e.style.left=rect.x;e.style.top=rect.y;e.style.width=rect.width;e.style.height=rect.height;}
         public static void Show(VisualElement e,bool show){e.style.display=show?DisplayStyle.Flex:DisplayStyle.None;}
         public void BindAbilityIcon(AbilitySlot slot,Sprite suppliedIcon)
         {var icon=AbilityIconSlots[(int)slot];icon.sprite=suppliedIcon;Show(icon,suppliedIcon!=null);}
@@ -119,6 +122,6 @@ namespace Crownfall.Match
             Place(Feedback,new Rect(center-245,safe.y+111,490,65));Place(Countdown,new Rect(center-180,safe.center.y-45,360,90));
             for(int i=0;i<6;i++)Place(Roster[i],new Rect(safe.x+12,safe.y+153+i*19,172,19));
         }
-        public void Dispose(){UnityEngine.Object.Destroy(document);UnityEngine.Object.Destroy(panel);UnityEngine.Object.Destroy(theme);}
+        public void Dispose(){UnityEngine.Object.Destroy(document);UnityEngine.Object.Destroy(panel);}
     }
 }

@@ -6,6 +6,7 @@ on:
     paths:
       - 'Assets/**'
       - 'Docs/Kit*Manifest.json'
+      - 'Docs/PRODUCTION_UI_DEPENDENCIES.json'
       - 'Packages/**'
       - 'ProjectSettings/**'
       - 'Tools/**'

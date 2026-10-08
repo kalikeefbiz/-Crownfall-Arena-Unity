@@ -10,6 +10,7 @@ public sealed class PipelineBuild : IPreprocessBuildWithReport
     public void OnPreprocessBuild(BuildReport report)
     {
         Configure(report.summary.platform);
+        Crownfall.Editor.ProductionUiDependencies.Prepare();
         Crownfall.Editor.M0Validation.Validate();
         Crownfall.Editor.CompleteMatchValidation.Validate();
         Crownfall.Editor.ProductionArtValidation.Validate();

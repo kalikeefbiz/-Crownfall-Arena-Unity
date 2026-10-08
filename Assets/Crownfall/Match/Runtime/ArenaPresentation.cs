@@ -64,7 +64,7 @@ namespace Crownfall.Match
         }
         public SpriteRenderer GroundArt(string name,Sprite image,Vector3 position,float width)
         {
-            var r=Billboard(name,image,position,width,-210);r.transform.rotation=Quaternion.Euler(90,0,0);return r;
+            var r=Billboard(name,image,position,width,-210);GroundSpritePlacement.Center(r.transform,image,position,width);return r;
         }
         SpriteRenderer Billboard(string name,Sprite image,Vector3 position,float width,int sort)
         {

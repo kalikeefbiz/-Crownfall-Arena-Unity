@@ -16,8 +16,8 @@ namespace Crownfall.Match
         public readonly List<MatchEffect> Effects = new List<MatchEffect>();
         public readonly PresentationJournal Presentation = new PresentationJournal();
         long presentationAction;
-        void Present(MatchEntity actor,PresentationPhase phase,int target=0,int detail=0,long actionId=-1,AbilitySlot? ability=null,V2? position=null)
-        {Presentation.Publish(new PresentationEvent{ActionId=actionId>=0?actionId:actor==null?presentationAction:actor.PresentationActionId,ActorId=actor==null?0:actor.Id,TargetId=target,Ability=ability??(actor==null?AbilitySlot.Basic:actor.LastCast),Phase=phase,Detail=detail,Position=position??(actor==null?new V2():actor.Position),Direction=actor==null?new V2():actor.CastAim,Time=Now});}
+        void Present(MatchEntity actor,PresentationPhase phase,int target=0,int detail=0,long actionId=-1,AbilitySlot? ability=null,V2? position=null,V2? direction=null)
+        {Presentation.Publish(new PresentationEvent{ActionId=actionId>=0?actionId:actor==null?presentationAction:actor.PresentationActionId,ActorId=actor==null?0:actor.Id,TargetId=target,Ability=ability??(actor==null?AbilitySlot.Basic:actor.LastCast),Phase=phase,Detail=detail,Position=position??(actor==null?new V2():actor.Position),Direction=direction??(actor==null?new V2():actor.CastAim),Time=Now});}
         public readonly List<string> Feed = new List<string>();
         public readonly int[] Tickets = {0,15,15};
         public readonly double[] CP = new double[3];
@@ -136,14 +136,14 @@ namespace Crownfall.Match
             Present(p,PresentationPhase.Respawn);
             if(p.Roster==FirstRosterSummoner.Riven)ResetWeapons(p);
         }
-        public double Damage(MatchEntity source,MatchEntity target,double amount,bool lethal=false,long presentationActionId=-1,AbilitySlot? presentationAbility=null)
+        public double Damage(MatchEntity source,MatchEntity target,double amount,bool lethal=false,long presentationActionId=-1,AbilitySlot? presentationAbility=null,V2? presentationDirection=null)
         {
             if(!Active||!HealthState.Finite(amount)||amount<0||!Valid(source,target))return 0;
             double adjusted=lethal?target.Health.Current:amount*source.Factor(Now,0)*target.Factor(Now,1)*AuraFactor(target);
             var hit=target.Health.Receive(new DamageRequest(source.Id,source.Team,Tick,0,adjusted));
             if(hit.Applied<=0)return 0;
             target.LastHit=Now;
-            Present(source,PresentationPhase.Hit,target.Id,0,presentationActionId,presentationAbility,target.Position);
+            Present(source,PresentationPhase.Hit,target.Id,0,presentationActionId,presentationAbility,target.Position,presentationDirection);
             if(source.Kind==EntityKind.Summoner){if(target.Kind==EntityKind.Summoner)source.DamageDealt+=hit.Applied;source.Recovery.MarkDamagingInteraction(Now);}
             if(target.Kind==EntityKind.Summoner)
             {

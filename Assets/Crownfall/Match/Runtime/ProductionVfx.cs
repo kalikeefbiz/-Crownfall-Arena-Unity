@@ -56,6 +56,7 @@ namespace Crownfall.Match
             v.Sprite.sprite=image;v.Sprite.enabled=true;v.Root.transform.position=MatchActorView.Ground(pos)+Vector3.up*(ground?.08f:.8f);
             v.Root.transform.rotation=ground?Quaternion.Euler(90,0,0):camera.transform.rotation;
             v.Root.transform.localScale=Vector3.one*(size/Mathf.Max(.01f,image.bounds.size.x));
+            if(ground)GroundSpritePlacement.Center(v.Root.transform,image,MatchActorView.Ground(pos)+Vector3.up*.08f,size);
         }
         void Ring(Visual v,V2 pos,double radius,Color color)
         {
@@ -88,7 +89,7 @@ namespace Crownfall.Match
             foreach(var a in match.Actions)if(a.Type==0)
             {
                 var v=Acquire(a);Ring(v,a.Position,3,Team(a.Owner.Team));
-                if(v!=null){v.OwnerId=a.Owner.Id;v.Line.startWidth=v.Line.endWidth=.08f+.04f*Mathf.Sin((float)match.Now*12);}
+                if(v!=null){v.OwnerId=a.Owner.Id;v.ActionId=a.Presentation.ActionId;v.Line.startWidth=v.Line.endWidth=.08f+.04f*Mathf.Sin((float)match.Now*12);}
             }
             foreach(var e in match.Effects)
             {

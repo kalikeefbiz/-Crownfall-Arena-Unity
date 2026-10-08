@@ -62,7 +62,7 @@ namespace Crownfall.Match
                         p.Combo=Now-p.ComboAt<=kitBasic.ComboWindow?(p.Combo+1)%kitBasic.ComboCount:0;p.ComboAt=Now;
                         Cone(p,dir,kitBasic.Range,kitBasic.Arc,kitBasic.Damage(p.Combo));break;
                     case AbilitySlot.Skill1:
-                        p.Dash=new DashMotion{Direction=dir,Remaining=3,Speed=24,Width=.65,Damage=45,Empowered=p.Streak>=2};break;
+                        p.Dash=new DashMotion{Presentation=new PresentationIdentity(p),Direction=dir,Remaining=3,Speed=24,Width=.65,Damage=45,Empowered=p.Streak>=2};break;
                     case AbilitySlot.Skill2:Radial(p,p.Position,4.2,135);break;
                     case AbilitySlot.Ultimate:Shot(p,dir,23,16,1.15,200,true,true,false,true);break;
                     case AbilitySlot.Special:p.BlastUntil=0;Shot(p,dir,26,32,.85,0,false,true,true);break;
@@ -74,11 +74,11 @@ namespace Crownfall.Match
                 {
                     case AbilitySlot.Basic:p.Combo=Now-p.ComboAt<=1.15?(p.Combo+1)%3:0;p.ComboAt=Now;Cone(p,dir,1.65,Math.PI*.55,new double[]{55,60,70}[p.Combo]);break;
                     case AbilitySlot.Skill1:p.Buffs["warcry"]=new Modifier{Until=Now+3,Damage=.1,Mitigation=.15};break;
-                    case AbilitySlot.Skill2:p.Dash=new DashMotion{Direction=dir,Remaining=3.6,Speed=16,Width=.5,Contact=true};break;
+                    case AbilitySlot.Skill2:p.Dash=new DashMotion{Presentation=new PresentationIdentity(p),Direction=dir,Remaining=3.6,Speed=16,Width=.5,Contact=true};break;
                     case AbilitySlot.Ultimate:
                         V2 offset=c.Offset.Length>.001?c.Offset:dir*14*.65;
                         if(offset.Length>14)offset=offset.Normal*14;
-                        Actions.Add(new TimedAction{Owner=p,Position=p.Position+offset,At=Now+.7,Type=0});break;
+                        Actions.Add(new TimedAction{Presentation=new PresentationIdentity(p),Owner=p,Position=p.Position+offset,At=Now+.7,Type=0});break;
                 }
             }
             else
@@ -94,8 +94,8 @@ namespace Crownfall.Match
                         }
                         break;
                     case AbilitySlot.Skill1:
-                        if(p.Pulse){Radial(p,p.Position,3.8,120);Actions.Add(new TimedAction{Owner=p,At=Now,Until=Now+1.5,Type=2});}
-                        else Actions.Add(new TimedAction{Owner=p,Direction=dir,At=Now,Type=1});break;
+                        if(p.Pulse){Radial(p,p.Position,3.8,120);Actions.Add(new TimedAction{Presentation=new PresentationIdentity(p),Owner=p,At=Now,Until=Now+1.5,Type=2});}
+                        else Actions.Add(new TimedAction{Presentation=new PresentationIdentity(p),Owner=p,Direction=dir,At=Now,Type=1});break;
                     case AbilitySlot.Skill2:p.Buffs["amp"]=new Modifier{Until=Now+3,Damage=.1};break;
                     case AbilitySlot.Ultimate:Radial(p,p.Position,6,160,true,1.3);break;
                     case AbilitySlot.Special:p.Pulse=!p.Pulse;p.PendingSecond=false;break;
@@ -107,15 +107,16 @@ namespace Crownfall.Match
         {
             foreach(var t in Targets())if(Valid(p,t)&&ConeHitQuery.Contains(p.Position.Ground,t.Position.Ground,t.Radius,direction.Ground,range,arc))Damage(p,t,damage);
         }
-        void Radial(MatchEntity p,V2 origin,double radius,double damage,bool summonersOnly=false,double stun=0)
+        void Radial(MatchEntity p,V2 origin,double radius,double damage,bool summonersOnly=false,double stun=0,PresentationIdentity? presentation=null)
         {
             foreach(var t in Targets())if(Valid(p,t,summonersOnly)&&V2.Distance(origin,t.Position)<=radius+t.Radius)
-            {Damage(p,t,damage);if(t.Alive&&stun>0){t.StunnedUntil=Math.Max(t.StunnedUntil,Now+stun);t.PendingSecond=false;Interrupt(t);}}
+            {Damage(p,t,damage,false,presentation?.ActionId??-1,presentation?.Ability,presentation?.Direction);if(t.Alive&&stun>0){t.StunnedUntil=Math.Max(t.StunnedUntil,Now+stun);t.PendingSecond=false;Interrupt(t);}}
             Effect(origin,p.Aim,.45,radius,p.Team,"radial");
         }
-        Projectile Shot(MatchEntity p,V2 dir,double range,double speed,double width,double damage,bool piercing,bool only=false,bool lethal=false,bool grant=false)
+        Projectile Shot(MatchEntity p,V2 dir,double range,double speed,double width,double damage,bool piercing,bool only=false,bool lethal=false,bool grant=false,PresentationIdentity? presentation=null)
         {
-            var s=new Projectile{Owner=p,Position=p.Position,Direction=dir,Remaining=range,Speed=speed,Width=width,Damage=damage,Piercing=piercing,SummonersOnly=only,Lethal=lethal,Grant=grant,PresentationAbility=p.LastCast,PresentationPulse=p.Pulse,PresentationActionId=p.PresentationActionId};Projectiles.Add(s);return s;
+            var identity=presentation??new PresentationIdentity(p);
+            var s=new Projectile{Owner=p,Position=p.Position,Direction=dir,Remaining=range,Speed=speed,Width=width,Damage=damage,Piercing=piercing,SummonersOnly=only,Lethal=lethal,Grant=grant,PresentationAbility=identity.Ability,PresentationPulse=identity.Pulse,PresentationActionId=identity.ActionId,PresentationDirection=identity.Direction};Projectiles.Add(s);return s;
         }
         void FinishDash(MatchEntity p,MatchEntity target=null)
         {
@@ -145,7 +146,7 @@ namespace Crownfall.Match
                         if(d.Contact){double distance=V2.Distance(from,t.Position);if(distance<closest){closest=distance;nearest=t;}}
                         else if(d.Hits.Add(t.Id))
                         {
-                            Damage(p,t,d.Damage);
+                            Damage(p,t,d.Damage,false,d.Presentation.ActionId,d.Presentation.Ability,d.Presentation.Direction);
                             if(d.Empowered&&t.Alive){t.StunnedUntil=Math.Max(t.StunnedUntil,Now+1.5);t.PendingSecond=false;Interrupt(t);}
                         }
                     }
@@ -161,9 +162,10 @@ namespace Crownfall.Match
                 while(q.Index<3&&Now+1e-9>=q.Started+times[q.Index])
                 {
                     int index=q.Index++;
-                    foreach(var t in Targets())if(t.Id==q.Target&&Valid(p,t)&&ConeHitQuery.Contains(p.Position.Ground,t.Position.Ground,t.Radius,q.Direction.Ground,1.75,Math.PI*.6))Damage(p,t,damage[index]);
+                    p.PresentationActionId=++presentationAction;
+                    Present(p,PresentationPhase.Cast,actionId:p.PresentationActionId,ability:AbilitySlot.Basic,direction:q.Direction);
+                    foreach(var t in Targets())if(t.Id==q.Target&&Valid(p,t)&&ConeHitQuery.Contains(p.Position.Ground,t.Position.Ground,t.Radius,q.Direction.Ground,1.75,Math.PI*.6))Damage(p,t,damage[index],false,p.PresentationActionId,AbilitySlot.Basic,q.Direction);
                     p.CastAt=Now;p.LastCast=AbilitySlot.Basic;p.CastAim=q.Direction;
-                    p.PresentationActionId=++presentationAction;Present(p,PresentationPhase.Cast);
                 }
                 if(q.Index>=3)p.Sequence=null;
             }
@@ -174,10 +176,10 @@ namespace Crownfall.Match
             {
                 if(a.Done)continue;
                 if(!a.Owner.Alive||a.Owner.StunnedUntil>Now){a.Done=true;continue;}
-                if(a.Type==0 && Now+1e-9>=a.At){Radial(a.Owner,a.Position,3,150);a.Done=true;}
+                if(a.Type==0 && Now+1e-9>=a.At){Radial(a.Owner,a.Position,3,150,presentation:a.Presentation);a.Done=true;}
                 else if(a.Type==1)
                 {
-                    while(a.Index<5&&Now+1e-9>=a.At+a.Index*.085){Shot(a.Owner,a.Direction,5.2,16,.35,24,true);a.Index++;}
+                    while(a.Index<5&&Now+1e-9>=a.At+a.Index*.085){Shot(a.Owner,a.Direction,5.2,16,.35,24,true,presentation:a.Presentation);a.Index++;}
                     if(a.Index>=5)a.Done=true;
                 }
                 else if(a.Type==2)
@@ -197,7 +199,7 @@ namespace Crownfall.Match
             if(p.WeaponNext<2)
             {
                 foreach(var s in Projectiles)if(s.Persistent&&s.Owner==p&&s.OrbitIndex==p.WeaponNext)
-                {s.Phase=1;s.PresentationActionId=p.PresentationActionId;s.PresentationAbility=AbilitySlot.Basic;s.Position=p.Position;s.Direction=dir;s.Remaining=5.2;s.Speed=13;s.Damage=38;s.Hits.Clear();break;}
+                {s.Phase=1;s.PresentationActionId=p.PresentationActionId;s.PresentationAbility=AbilitySlot.Basic;s.PresentationDirection=dir;s.Position=p.Position;s.Direction=dir;s.Remaining=5.2;s.Speed=13;s.Damage=38;s.Hits.Clear();break;}
                 Present(p,PresentationPhase.Blade,0,1);
                 p.WeaponNext++;
             }
@@ -205,7 +207,7 @@ namespace Crownfall.Match
             {
                 p.Returning=true;Present(p,PresentationPhase.Blade,0,3);
                 foreach(var s in Projectiles)if(s.Persistent&&s.Owner==p)
-                {s.Phase=3;s.PresentationActionId=p.PresentationActionId;s.PresentationAbility=AbilitySlot.Basic;s.Speed=17;s.Damage=(50/1.5)*(1+Math.Min(p.OutgoingHits,6)*.25);s.Hits.Clear();}
+                {s.Phase=3;s.PresentationActionId=p.PresentationActionId;s.PresentationAbility=AbilitySlot.Basic;s.PresentationDirection=dir;s.Speed=17;s.Damage=(50/1.5)*(1+Math.Min(p.OutgoingHits,6)*.25);s.Hits.Clear();}
             }
         }
         void AdvanceProjectiles(double dt)
@@ -229,7 +231,7 @@ namespace Crownfall.Match
                 foreach(var t in candidates)
                 {
                     if(!Valid(p,t,s.SummonersOnly))continue;
-                    s.Hits.Add(t.Id);Damage(p,t,s.Damage,s.Lethal,s.PresentationActionId,s.PresentationAbility);
+                    s.Hits.Add(t.Id);Damage(p,t,s.Damage,s.Lethal,s.PresentationActionId,s.PresentationAbility,s.PresentationDirection);
                     if(s.Persistent&&s.Phase==1)p.OutgoingHits++;
                     if(t.Kind==EntityKind.Summoner)s.Summoners.Add(t.Id);
                     if(s.Grant&&s.Summoners.Count>=2&&p.Alive){p.BlastUntil=Now+15;s.Grant=false;Log("Expellant Blast earned");}
@@ -240,10 +242,10 @@ namespace Crownfall.Match
                     if(!s.Persistent)s.Active=false;
                     else if(s.Phase==3)
                     {
-                        s.Phase=0;Present(p,PresentationPhase.Blade,0,0);bool all=true;foreach(var other in Projectiles)if(other.Owner==p&&other.Persistent&&other.Phase!=0)all=false;
+                        s.Phase=0;Present(p,PresentationPhase.Blade,0,0,s.PresentationActionId,s.PresentationAbility,direction:s.PresentationDirection);bool all=true;foreach(var other in Projectiles)if(other.Owner==p&&other.Persistent&&other.Phase!=0)all=false;
                         if(all){p.WeaponNext=p.OutgoingHits=0;p.Returning=false;}
                     }
-                    else {s.Phase=2;Present(p,PresentationPhase.Blade,0,2);}
+                    else {s.Phase=2;Present(p,PresentationPhase.Blade,0,2,s.PresentationActionId,s.PresentationAbility,direction:s.PresentationDirection);}
                 }
             }
         }
