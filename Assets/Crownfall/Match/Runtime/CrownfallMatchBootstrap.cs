@@ -117,7 +117,7 @@ namespace Crownfall.Match
             if(active)controls.Sample(match,UiScale,PauseRect,TogglePause);
             else controls.Reset(match.Human);
             follow.Frozen=paused||editing;
-            if(paused||editing){accumulator=0;follow.Present(match.Human,false,controls.Gesture.Active);return;}
+            if(paused||editing){accumulator=0;follow.Present(match.Human,false,controls.Gesture.Active&&!controls.Gesture.Cancelled);return;}
             accumulator+=Mathf.Min(Time.deltaTime,.1f);
             bool consume=true;
             while(accumulator>=MatchSimulation.StepSeconds)
@@ -129,7 +129,7 @@ namespace Crownfall.Match
             // Old destroyed Canals remain hidden; fresh Surge actors get their own views.
             foreach(var v in actors)v.Sync(Time.deltaTime);
             UpdateTerritory();UpdateCombatPresentation();
-            follow.Present(match.Human,match.Result!=null,controls.Gesture.Active);
+            follow.Present(match.Human,match.Result!=null,controls.Gesture.Active&&!controls.Gesture.Cancelled);
             if(match.Result!=null)
             {
                 if(victoryAt<0){victoryAt=Time.unscaledTime;controls.Reset(match.Human);}

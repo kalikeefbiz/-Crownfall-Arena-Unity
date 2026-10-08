@@ -22,6 +22,7 @@ namespace Crownfall.Match
         public readonly VisualElement Minimap,Front,Hp,Health;
         public readonly VisualElement MoveKnob,AimKnob;
         public readonly Button[] Choices=new Button[3];
+        public readonly Image[] AbilityIconSlots=new Image[5];
         public Button PauseButton;
         public ProductionHud(GameObject owner,RosterPresentationCatalog catalog)
         {
@@ -60,6 +61,11 @@ namespace Crownfall.Match
             {
                 Controls[i]=Text(Match,"",new Rect(),14,true);
                 if(i<2){Controls[i].style.borderTopLeftRadius=Controls[i].style.borderTopRightRadius=Controls[i].style.borderBottomLeftRadius=Controls[i].style.borderBottomRightRadius=80;Controls[i].style.unityTextAlign=TextAnchor.UpperCenter;Controls[i].style.paddingTop=4;}
+                else
+                {
+                    var icon=new Image{scaleMode=ScaleMode.ScaleToFit,pickingMode=PickingMode.Ignore};
+                    Controls[i].Add(icon);Place(icon,new Rect(5,5,18,18));Show(icon,false);AbilityIconSlots[i-2]=icon;
+                }
             }
             MoveKnob=Block(Controls[0],new Rect(46,46,20,20),new Color(.62f,.82f,1,.65f));
             AimKnob=Block(Controls[1],new Rect(46,46,20,20),new Color(1,.78f,.34f,.65f));
@@ -98,6 +104,8 @@ namespace Crownfall.Match
         static VisualElement Block(VisualElement parent,Rect rect,Color color){var e=new VisualElement{pickingMode=PickingMode.Ignore};parent.Add(e);e.style.backgroundColor=color;Place(e,rect);return e;}
         public static void Place(VisualElement e,Rect rect){e.style.position=Position.Absolute;e.style.left=rect.x;e.style.top=rect.y;e.style.width=rect.width;e.style.height=rect.height;}
         public static void Show(VisualElement e,bool show){e.style.display=show?DisplayStyle.Flex:DisplayStyle.None;}
+        public void BindAbilityIcon(AbilitySlot slot,Sprite suppliedIcon)
+        {var icon=AbilityIconSlots[(int)slot];icon.sprite=suppliedIcon;Show(icon,suppliedIcon!=null);}
         public void Layout(float scale,float width,float height,Rect safe)
         {
             panel.scale=scale;

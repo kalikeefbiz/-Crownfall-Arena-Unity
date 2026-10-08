@@ -1,6 +1,6 @@
 {
   "platform": "WebGL / iPhone Safari",
-  "assumptions": "Uncompressed RGBA32; no mips or CPU readable copy; imported dimensions estimated by preserving aspect ratio. Native importer/driver allocation and final gzip export require Unity/device measurement.",
+  "assumptions": "Uncompressed RGBA32; no mips or CPU readable copy; imported dimensions estimated by preserving aspect ratio. Native importer/driver allocation and final gzip export require Unity/device measurement. Dynamic font atlases, framebuffers and engine overhead are excluded from this art-only estimate and require runtime measurement.",
   "textures": [
     {
       "runtime": "Assets/Art/Characters/Kit/Basic/Back/000.PNG",
