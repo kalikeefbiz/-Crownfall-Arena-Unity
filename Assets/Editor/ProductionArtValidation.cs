@@ -28,6 +28,12 @@ namespace Crownfall.Editor
             foreach(string id in AssetDatabase.FindAssets("t:Texture2D",new[]{"Assets/Art"}))
             {
                 var path=AssetDatabase.GUIDToAssetPath(id);var importer=AssetImporter.GetAtPath(path) as TextureImporter;
+                if(path.StartsWith("Assets/Art/Environment/External/",System.StringComparison.Ordinal))
+                {
+                    // 3D mipmapped materials have a separate strict contract; legacy sprite rules remain unchanged.
+                    Crownfall.EnvironmentLab.Editor.WildernessBuildPreparation.ValidateTextureImport(path);
+                    continue;
+                }
                 Require(importer!=null&&!importer.isReadable&&!importer.mipmapEnabled&&importer.npotScale==TextureImporterNPOTScale.None,"Texture residency policy "+path);
                 var web=importer.GetPlatformTextureSettings("WebGL");
                 Require(web.overridden&&web.maxTextureSize<=1024&&web.format==TextureImporterFormat.RGBA32,"Explicit mobile WebGL policy "+path);

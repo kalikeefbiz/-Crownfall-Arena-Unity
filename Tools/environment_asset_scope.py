@@ -1,4 +1,4 @@
-"""Explicit scope for prepared, unreferenced environment inputs awaiting native import.
+"""Explicit scope for prepared environment inputs and shipping generation awaiting native import.
 Legacy sprite checks stay strict for their shipping assets. The environment has
 its own source/hash/dependency gate and must never count toward sprite residency.
 """

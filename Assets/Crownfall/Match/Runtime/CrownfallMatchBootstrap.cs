@@ -88,6 +88,7 @@ namespace Crownfall.Match
             }
             preview=Ring("Ability targeting preview",effectMaterial);
             HideTargetPreview();
+            arenaPresentation.BindVisibilitySubjects(actors.GetRange(0,6).ConvertAll(actor=>actor.transform).ToArray());
             follow.Bind(actors[0].transform);follow.Present(match.Human,false,false);Physics.SyncTransforms();
         }
         void AddView(MatchEntity p)

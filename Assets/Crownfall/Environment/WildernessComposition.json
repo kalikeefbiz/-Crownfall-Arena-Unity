@@ -1,0 +1,3630 @@
+{
+  "schemaVersion": 1,
+  "compositionVersion": 1,
+  "requiredUnityVersion": "6000.3.10f1",
+  "startingHead": "a2a9165606425e2c52090e2133e1ca55088c76f9",
+  "textureTier": "Mobile",
+  "layers": [
+    "NEAR",
+    "MID",
+    "FAR"
+  ],
+  "placements": [
+    {
+      "name": "near_000_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        -12,
+        0.75,
+        -18
+      ],
+      "scale": [
+        0.47001,
+        0.47001,
+        0.47001
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_001_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        -12,
+        0.75,
+        -18
+      ],
+      "scale": [
+        0.76449,
+        0.86889,
+        0.76449
+      ],
+      "yaw": 40,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_002_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        12,
+        0.75,
+        -18
+      ],
+      "scale": [
+        0.42422,
+        0.42422,
+        0.42422
+      ],
+      "yaw": -26,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_003_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        12,
+        0.75,
+        -18
+      ],
+      "scale": [
+        0.93537,
+        0.73015,
+        0.93537
+      ],
+      "yaw": -3,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_004_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        -12,
+        0.75,
+        18
+      ],
+      "scale": [
+        0.45174,
+        0.45174,
+        0.45174
+      ],
+      "yaw": 41,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_005_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        -12,
+        0.75,
+        18
+      ],
+      "scale": [
+        0.64161,
+        1.25201,
+        0.64161
+      ],
+      "yaw": 64,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_006_Pine_5",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        12,
+        0.75,
+        18
+      ],
+      "scale": [
+        0.35302,
+        0.35302,
+        0.35302
+      ],
+      "yaw": -13,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_007_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        12,
+        0.75,
+        18
+      ],
+      "scale": [
+        0.99299,
+        1.52714,
+        0.99299
+      ],
+      "yaw": 10,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_008_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        -28,
+        0.75,
+        -25
+      ],
+      "scale": [
+        1.03456,
+        0.78451,
+        1.03456
+      ],
+      "yaw": 24,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_009_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        -28,
+        0.75,
+        -25
+      ],
+      "scale": [
+        0.67265,
+        0.73015,
+        0.67265
+      ],
+      "yaw": 47,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_010_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        28,
+        0.75,
+        -25
+      ],
+      "scale": [
+        0.51212,
+        0.51212,
+        0.51212
+      ],
+      "yaw": -18,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_011_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        28,
+        0.75,
+        -25
+      ],
+      "scale": [
+        0.79514,
+        0.71235,
+        0.79514
+      ],
+      "yaw": 5,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_012_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        -28,
+        0.75,
+        25
+      ],
+      "scale": [
+        0.40299,
+        0.40299,
+        0.40299
+      ],
+      "yaw": -31,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_013_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        -28,
+        0.75,
+        25
+      ],
+      "scale": [
+        0.8769,
+        1.52714,
+        0.8769
+      ],
+      "yaw": -8,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_014_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "NEAR",
+      "role": "island enclosure",
+      "position": [
+        28,
+        0.75,
+        25
+      ],
+      "scale": [
+        0.6061,
+        1.32327,
+        0.6061
+      ],
+      "yaw": 12,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_015_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "raised rock shelf",
+      "position": [
+        28,
+        0.75,
+        25
+      ],
+      "scale": [
+        0.67717,
+        1.2833,
+        0.67717
+      ],
+      "yaw": 35,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_016_DoorFrame_Round_Brick",
+      "model": "qm:DoorFrame_Round_Brick",
+      "layer": "NEAR",
+      "role": "buried northern arch",
+      "position": [
+        12,
+        2.4,
+        18
+      ],
+      "scale": [
+        1.99525,
+        1.89469,
+        1.99525
+      ],
+      "yaw": 8,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_017_Wall_UnevenBrick_Straight",
+      "model": "qm:Wall_UnevenBrick_Straight",
+      "layer": "NEAR",
+      "role": "broken northern masonry",
+      "position": [
+        -12,
+        1.1,
+        18
+      ],
+      "scale": [
+        1.77213,
+        1.05678,
+        1.77213
+      ],
+      "yaw": -17,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_018_Stairs_Exterior_Straight",
+      "model": "qm:Stairs_Exterior_Straight",
+      "layer": "NEAR",
+      "role": "ruin stair remnant",
+      "position": [
+        -28,
+        0.75,
+        -25
+      ],
+      "scale": [
+        1.10957,
+        1.12155,
+        1.10957
+      ],
+      "yaw": 12,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_019_statue_columnDamaged",
+      "model": "kn:statue_columnDamaged",
+      "layer": "NEAR",
+      "role": "eroded marker",
+      "position": [
+        28,
+        0.75,
+        -25
+      ],
+      "scale": [
+        1.20831,
+        1.35714,
+        1.20831
+      ],
+      "yaw": -11,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_020_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "shelf undergrowth",
+      "position": [
+        -11.7,
+        1.3,
+        -17.9
+      ],
+      "scale": [
+        0.70375,
+        1.38849,
+        0.70375
+      ],
+      "yaw": 31,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_021_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "shelf undergrowth",
+      "position": [
+        12.3,
+        1.3,
+        -17.9
+      ],
+      "scale": [
+        0.70375,
+        1.38849,
+        0.70375
+      ],
+      "yaw": 31,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_022_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "shelf undergrowth",
+      "position": [
+        -27.7,
+        1.3,
+        25.1
+      ],
+      "scale": [
+        0.70375,
+        1.38849,
+        0.70375
+      ],
+      "yaw": 31,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_023_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "shelf undergrowth",
+      "position": [
+        28.3,
+        1.3,
+        25.1
+      ],
+      "scale": [
+        0.70375,
+        1.38849,
+        0.70375
+      ],
+      "yaw": 31,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_024_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "southern broken retaining shelf",
+      "position": [
+        0,
+        0.65,
+        -30
+      ],
+      "scale": [
+        0.25388,
+        0.275,
+        0.25388
+      ],
+      "yaw": 0,
+      "castShadows": false,
+      "zone": "island"
+    },
+    {
+      "name": "near_025_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "Major backdrop shelf",
+      "position": [
+        0,
+        0.65,
+        30
+      ],
+      "scale": [
+        0.25388,
+        0.6375,
+        0.25388
+      ],
+      "yaw": 0,
+      "castShadows": true,
+      "zone": "island"
+    },
+    {
+      "name": "near_046_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken boundary cliff band",
+      "position": [
+        -25,
+        -2,
+        -40
+      ],
+      "scale": [
+        2,
+        1.1,
+        1.7
+      ],
+      "yaw": -8,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_047_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken boundary cliff band",
+      "position": [
+        -4,
+        -2,
+        -40
+      ],
+      "scale": [
+        2,
+        1.1,
+        1.7
+      ],
+      "yaw": 11,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_048_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken boundary cliff band",
+      "position": [
+        20,
+        -2,
+        -40
+      ],
+      "scale": [
+        2,
+        1.1,
+        1.7
+      ],
+      "yaw": -19,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_126_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -31,
+        0,
+        -48
+      ],
+      "scale": [
+        1.8599999999999999,
+        3.12,
+        1.7000000000000002
+      ],
+      "yaw": 535,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_129_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -27,
+        4,
+        -44
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 660,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_130_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -10,
+        0,
+        -50
+      ],
+      "scale": [
+        2.09,
+        2.0,
+        1.3
+      ],
+      "yaw": 572,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_133_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -6,
+        4,
+        -46
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 703,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_137_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        17,
+        4,
+        -45
+      ],
+      "scale": [
+        1.68,
+        1.68,
+        1.68
+      ],
+      "yaw": 746,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_138_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        34,
+        0,
+        -48
+      ],
+      "scale": [
+        1.63,
+        2.56,
+        1.7000000000000002
+      ],
+      "yaw": 646,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_222_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -29,
+        -0.15,
+        15.6
+      ],
+      "scale": [
+        0.53527,
+        0.99566,
+        0.53527
+      ],
+      "yaw": 11,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_223_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -28.8,
+        0.65,
+        15.799999999999999
+      ],
+      "scale": [
+        0.69397,
+        0.81066,
+        0.69397
+      ],
+      "yaw": 21,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_224_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "edge undergrowth",
+      "position": [
+        -29.35,
+        0.55,
+        15.45
+      ],
+      "scale": [
+        0.36131,
+        1.28931,
+        0.36131
+      ],
+      "yaw": 29,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_225_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -24,
+        -0.15,
+        15.3
+      ],
+      "scale": [
+        0.38222,
+        1.18485,
+        0.38222
+      ],
+      "yaw": 48,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_226_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -23.8,
+        0.65,
+        15.5
+      ],
+      "scale": [
+        0.40004,
+        0.85004,
+        0.40004
+      ],
+      "yaw": 64,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_227_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -10,
+        -0.15,
+        14.6
+      ],
+      "scale": [
+        0.32345,
+        0.97139,
+        0.32345
+      ],
+      "yaw": 85,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_228_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -9.8,
+        0.65,
+        14.799999999999999
+      ],
+      "scale": [
+        0.49438,
+        0.49438,
+        0.49438
+      ],
+      "yaw": 107,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_229_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -6.5,
+        -0.15,
+        15.2
+      ],
+      "scale": [
+        0.30099,
+        0.99566,
+        0.30099
+      ],
+      "yaw": 122,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_230_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -6.3,
+        0.65,
+        15.399999999999999
+      ],
+      "scale": [
+        0.4217,
+        0.4217,
+        0.4217
+      ],
+      "yaw": 150,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_231_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "edge undergrowth",
+      "position": [
+        -6.85,
+        0.55,
+        15.049999999999999
+      ],
+      "scale": [
+        0.41095,
+        1.28931,
+        0.41095
+      ],
+      "yaw": 80,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_232_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        7.1,
+        -0.15,
+        14.8
+      ],
+      "scale": [
+        0.35222,
+        1.18485,
+        0.35222
+      ],
+      "yaw": 159,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_233_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        7.3,
+        0.65,
+        15.0
+      ],
+      "scale": [
+        0.53504,
+        0.53504,
+        0.53504
+      ],
+      "yaw": 193,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_234_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        11.4,
+        -0.15,
+        15.5
+      ],
+      "scale": [
+        0.37347,
+        0.97139,
+        0.37347
+      ],
+      "yaw": 196,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_235_Pine_5",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        11.6,
+        0.65,
+        15.7
+      ],
+      "scale": [
+        0.30675,
+        0.30675,
+        0.30675
+      ],
+      "yaw": 236,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_236_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        25,
+        -0.15,
+        14.8
+      ],
+      "scale": [
+        0.32003,
+        0.99566,
+        0.32003
+      ],
+      "yaw": 233,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_237_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        25.2,
+        0.65,
+        15.0
+      ],
+      "scale": [
+        0.56455,
+        1.04602,
+        0.56455
+      ],
+      "yaw": 279,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_238_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "edge undergrowth",
+      "position": [
+        24.65,
+        0.55,
+        14.65
+      ],
+      "scale": [
+        0.34421,
+        1.28931,
+        0.34421
+      ],
+      "yaw": 131,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_239_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        30.5,
+        -0.15,
+        15.7
+      ],
+      "scale": [
+        0.656,
+        1.18485,
+        0.656
+      ],
+      "yaw": 270,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_240_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        30.7,
+        0.65,
+        15.899999999999999
+      ],
+      "scale": [
+        0.50487,
+        1.06555,
+        0.50487
+      ],
+      "yaw": 322,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_241_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -30,
+        -0.15,
+        -14.6
+      ],
+      "scale": [
+        0.26952,
+        0.56124,
+        0.26952
+      ],
+      "yaw": 307,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_242_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -29.8,
+        0.65,
+        -14.4
+      ],
+      "scale": [
+        0.40518,
+        0.40518,
+        0.40518
+      ],
+      "yaw": 365,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_243_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -27,
+        -0.15,
+        -15.4
+      ],
+      "scale": [
+        0.47843,
+        0.57527,
+        0.47843
+      ],
+      "yaw": 344,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_244_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -26.8,
+        0.65,
+        -15.200000000000001
+      ],
+      "scale": [
+        0.298,
+        0.298,
+        0.298
+      ],
+      "yaw": 408,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_245_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "edge undergrowth",
+      "position": [
+        -27.35,
+        0.55,
+        -15.55
+      ],
+      "scale": [
+        0.48496,
+        1.28931,
+        0.48496
+      ],
+      "yaw": 182,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_246_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -14,
+        -0.15,
+        -14.7
+      ],
+      "scale": [
+        0.35222,
+        0.68458,
+        0.35222
+      ],
+      "yaw": 381,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_247_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -13.8,
+        0.65,
+        -14.5
+      ],
+      "scale": [
+        0.45622,
+        0.45622,
+        0.45622
+      ],
+      "yaw": 451,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_248_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        -11,
+        -0.15,
+        -15.5
+      ],
+      "scale": [
+        0.37955,
+        0.56124,
+        0.37955
+      ],
+      "yaw": 418,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_249_Pine_5",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        -10.8,
+        0.65,
+        -15.3
+      ],
+      "scale": [
+        0.2237,
+        0.2237,
+        0.2237
+      ],
+      "yaw": 494,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_250_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        0,
+        -0.15,
+        -14.8
+      ],
+      "scale": [
+        0.31669,
+        0.57527,
+        0.31669
+      ],
+      "yaw": 455,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_251_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        0.2,
+        0.65,
+        -14.600000000000001
+      ],
+      "scale": [
+        0.46158,
+        0.45763,
+        0.46158
+      ],
+      "yaw": 537,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_252_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "edge undergrowth",
+      "position": [
+        -0.35,
+        0.55,
+        -14.950000000000001
+      ],
+      "scale": [
+        0.34597,
+        1.28931,
+        0.34597
+      ],
+      "yaw": 233,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_253_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        3,
+        -0.15,
+        -15.6
+      ],
+      "scale": [
+        0.43318,
+        0.68458,
+        0.43318
+      ],
+      "yaw": 492,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_254_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        3.2,
+        0.65,
+        -15.4
+      ],
+      "scale": [
+        0.42251,
+        0.46094,
+        0.42251
+      ],
+      "yaw": 580,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_255_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        14,
+        -0.15,
+        -15
+      ],
+      "scale": [
+        0.36902,
+        0.56124,
+        0.36902
+      ],
+      "yaw": 529,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_256_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        14.2,
+        0.65,
+        -14.8
+      ],
+      "scale": [
+        0.41347,
+        0.41347,
+        0.41347
+      ],
+      "yaw": 623,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_257_Rock_Medium_1",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        17,
+        -0.15,
+        -15.6
+      ],
+      "scale": [
+        0.43898,
+        0.57527,
+        0.43898
+      ],
+      "yaw": 566,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_258_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        17.2,
+        0.65,
+        -15.4
+      ],
+      "scale": [
+        0.29994,
+        0.29994,
+        0.29994
+      ],
+      "yaw": 666,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_259_Fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "edge undergrowth",
+      "position": [
+        16.65,
+        0.55,
+        -15.75
+      ],
+      "scale": [
+        0.39394,
+        1.28931,
+        0.39394
+      ],
+      "yaw": 284,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_260_Rock_Medium_2",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        29,
+        -0.15,
+        -14.7
+      ],
+      "scale": [
+        0.31234,
+        0.68458,
+        0.31234
+      ],
+      "yaw": 603,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_261_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        29.2,
+        0.65,
+        -14.5
+      ],
+      "scale": [
+        0.40499,
+        0.40499,
+        0.40499
+      ],
+      "yaw": 709,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_262_Rock_Medium_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eroded lane-edge shelf",
+      "position": [
+        32,
+        -0.15,
+        -15.7
+      ],
+      "scale": [
+        0.4532,
+        0.56124,
+        0.4532
+      ],
+      "yaw": 640,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_263_Pine_5",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "camera-visible forest pocket",
+      "position": [
+        32.2,
+        0.65,
+        -15.5
+      ],
+      "scale": [
+        0.23045,
+        0.23045,
+        0.23045
+      ],
+      "yaw": 752,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_264_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        -10,
+        -0.1,
+        24.3
+      ],
+      "scale": [
+        0.6,
+        1.5,
+        0.5
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_265_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        -10,
+        4.0,
+        24.3
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 11,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_266_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        -5.8,
+        -0.1,
+        24
+      ],
+      "scale": [
+        0.6,
+        1.5,
+        0.5
+      ],
+      "yaw": 46,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_267_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        -5.8,
+        4.0,
+        24
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "yaw": 48,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_268_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        8.1,
+        -0.1,
+        23.4
+      ],
+      "scale": [
+        0.6,
+        1.5,
+        0.5
+      ],
+      "yaw": 75,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_269_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        8.1,
+        4.0,
+        23.4
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 85,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_270_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        12.6,
+        -0.1,
+        26.5
+      ],
+      "scale": [
+        0.6,
+        1.5,
+        0.5
+      ],
+      "yaw": 104,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_271_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        12.6,
+        4.0,
+        26.5
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 122,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_272_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        -31,
+        -0.1,
+        22
+      ],
+      "scale": [
+        0.6,
+        1.5,
+        0.5
+      ],
+      "yaw": 133,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_273_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        -31,
+        4.0,
+        22
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "yaw": 159,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_274_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        30,
+        -0.1,
+        22.1
+      ],
+      "scale": [
+        0.6,
+        1.5,
+        0.5
+      ],
+      "yaw": 162,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_275_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        30,
+        4.0,
+        22.1
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 196,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_276_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        -13,
+        -0.1,
+        -24.5
+      ],
+      "scale": [
+        0.6,
+        1.2,
+        0.5
+      ],
+      "yaw": 191,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_277_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        -13,
+        4.0,
+        -24.5
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 233,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_278_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        -16,
+        -0.1,
+        -27.5
+      ],
+      "scale": [
+        0.6,
+        1.2,
+        0.5
+      ],
+      "yaw": 220,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_279_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        -16,
+        4.0,
+        -27.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "yaw": 270,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_280_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        0,
+        -0.1,
+        -24.5
+      ],
+      "scale": [
+        0.6,
+        1.2,
+        0.5
+      ],
+      "yaw": 249,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_281_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        0,
+        4.0,
+        -24.5
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 307,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_282_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        13,
+        -0.1,
+        -24
+      ],
+      "scale": [
+        0.6,
+        1.2,
+        0.5
+      ],
+      "yaw": 278,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_283_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        13,
+        4.0,
+        -24
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 344,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_284_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        16,
+        -0.1,
+        -28.5
+      ],
+      "scale": [
+        0.6,
+        1.2,
+        0.5
+      ],
+      "yaw": 307,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_285_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        16,
+        4.0,
+        -28.5
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "yaw": 381,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_286_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "interior elevated rock tier",
+      "position": [
+        30.8,
+        -0.1,
+        -21
+      ],
+      "scale": [
+        0.6,
+        1.2,
+        0.5
+      ],
+      "yaw": 336,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_287_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "interior forest depth",
+      "position": [
+        30.8,
+        4.0,
+        -21
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 418,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_288_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "substantial southern mountain crown",
+      "position": [
+        -26,
+        -2,
+        -51
+      ],
+      "scale": [
+        1.2,
+        4.8,
+        1.1
+      ],
+      "yaw": 9,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_291_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "substantial southern mountain crown",
+      "position": [
+        -14,
+        -2,
+        -54
+      ],
+      "scale": [
+        1.2,
+        5.05,
+        1.1
+      ],
+      "yaw": 40,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_294_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "substantial southern mountain crown",
+      "position": [
+        1,
+        -2,
+        -53
+      ],
+      "scale": [
+        1.2,
+        5.3,
+        1.1
+      ],
+      "yaw": 71,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_297_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "substantial southern mountain crown",
+      "position": [
+        16,
+        -2,
+        -55
+      ],
+      "scale": [
+        1.2,
+        4.8,
+        1.1
+      ],
+      "yaw": 102,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_300_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "substantial southern mountain crown",
+      "position": [
+        29,
+        -2,
+        -52
+      ],
+      "scale": [
+        1.2,
+        5.05,
+        1.1
+      ],
+      "yaw": 133,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_303_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -29.2,
+        -0.15,
+        15.8
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 13,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_304_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -28.2,
+        -0.15,
+        17.5
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 56,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_305_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -29.5,
+        -0.15,
+        19.3
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 99,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_306_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -26.099999999999998,
+        -0.15,
+        15.950000000000001
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 44,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_307_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -25.099999999999998,
+        -0.15,
+        17.65
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 87,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_308_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -26.4,
+        -0.15,
+        19.45
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 130,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_309_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -11.3,
+        -0.15,
+        16.1
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 75,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_310_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -10.3,
+        -0.15,
+        17.8
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 118,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_311_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -11.6,
+        -0.15,
+        19.6
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 161,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_312_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -7.300000000000001,
+        -0.15,
+        15.8
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 106,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_313_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -6.300000000000001,
+        -0.15,
+        17.5
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 149,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_314_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        -7.6000000000000005,
+        -0.15,
+        19.3
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 192,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_315_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        7.3999999999999995,
+        -0.15,
+        15.950000000000001
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 137,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_316_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        8.4,
+        -0.15,
+        17.65
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 180,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_317_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        7.1,
+        -0.15,
+        19.45
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 223,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_318_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        11.299999999999999,
+        -0.15,
+        16.1
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 168,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_319_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        12.299999999999999,
+        -0.15,
+        17.8
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 211,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_320_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        11.0,
+        -0.15,
+        19.6
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 254,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_321_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        25.900000000000002,
+        -0.15,
+        15.8
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 199,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_322_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        26.900000000000002,
+        -0.15,
+        17.5
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 242,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_323_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        25.6,
+        -0.15,
+        19.3
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 285,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_324_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        30.0,
+        -0.15,
+        15.950000000000001
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ],
+      "yaw": 230,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_325_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        31.0,
+        -0.15,
+        17.65
+      ],
+      "scale": [
+        0.76,
+        0.76,
+        0.76
+      ],
+      "yaw": 273,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_326_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense near northern grove",
+      "position": [
+        29.7,
+        -0.15,
+        19.45
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": 316,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_327_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -30.25,
+        -0.15,
+        -15.2
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 21,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_328_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -29.5,
+        -0.15,
+        -16.8
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 82,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_329_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -27.55,
+        -0.15,
+        -15.33
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 58,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_330_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -26.8,
+        -0.15,
+        -16.93
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 119,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_331_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -14.25,
+        -0.15,
+        -15.459999999999999
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 95,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_332_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -13.5,
+        -0.15,
+        -17.060000000000002
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 156,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_333_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -11.45,
+        -0.15,
+        -15.2
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 132,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_334_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -10.7,
+        -0.15,
+        -16.8
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 193,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_335_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        -0.25,
+        -0.15,
+        -15.33
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 169,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_336_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        0.5,
+        -0.15,
+        -16.93
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 230,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_337_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        2.85,
+        -0.15,
+        -15.459999999999999
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 206,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_338_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        3.6,
+        -0.15,
+        -17.060000000000002
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 267,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_339_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        12.85,
+        -0.15,
+        -15.2
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 243,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_340_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        13.6,
+        -0.15,
+        -16.8
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 304,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_341_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        16.25,
+        -0.15,
+        -15.33
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 280,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_342_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        17.0,
+        -0.15,
+        -16.93
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 341,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_343_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        28.95,
+        -0.15,
+        -15.459999999999999
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 317,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_344_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        29.7,
+        -0.15,
+        -17.060000000000002
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 378,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_345_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        31.75,
+        -0.15,
+        -15.2
+      ],
+      "scale": [
+        0.44,
+        0.44,
+        0.44
+      ],
+      "yaw": 354,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "near_346_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "dense southern edge grove",
+      "position": [
+        32.5,
+        -0.15,
+        -16.8
+      ],
+      "scale": [
+        0.51,
+        0.51,
+        0.51
+      ],
+      "yaw": 415,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_visible_150_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "MID",
+      "role": "southern boundary buttress",
+      "position": [
+        0,
+        -1,
+        -32.8
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.4
+      ],
+      "yaw": 0,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_visible_151_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "MID",
+      "role": "broken corner retaining cliff",
+      "position": [
+        31,
+        -1,
+        -31
+      ],
+      "scale": [
+        1.8,
+        1.8,
+        1.8
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_visible_152_TwistedTree_1",
+      "model": "qn:TwistedTree_1",
+      "layer": "MID",
+      "role": "single Aether-scar hero landmark",
+      "position": [
+        -27,
+        1,
+        -33
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": -24,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_visible_153_tower-square-arch",
+      "model": "kc:tower-square-arch",
+      "layer": "MID",
+      "role": "embedded ancient ruin silhouette",
+      "position": [
+        -30,
+        1,
+        24
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 19,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_visible_154_tower-hexagon-top",
+      "model": "kc:tower-hexagon-top",
+      "layer": "MID",
+      "role": "embedded ancient ruin silhouette",
+      "position": [
+        -30,
+        5.45,
+        24
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": 19,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_visible_155_wall-corner-half-tower",
+      "model": "kc:wall-corner-half-tower",
+      "layer": "MID",
+      "role": "embedded ancient ruin silhouette",
+      "position": [
+        29,
+        1,
+        -27
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.65
+      ],
+      "yaw": -31,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "mid_visible_156_wall-half-modular",
+      "model": "kc:wall-half-modular",
+      "layer": "MID",
+      "role": "embedded ancient ruin silhouette",
+      "position": [
+        -29,
+        1,
+        -28
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "yaw": 67,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_157_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -30.55,
+        1.2,
+        28.8
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 13,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_158_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -29.4,
+        1.2,
+        29.7
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 42,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_159_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -25.55,
+        1.2,
+        29.5
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 50,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_160_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -24.4,
+        1.2,
+        30.4
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 79,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_161_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -11.55,
+        1.2,
+        28.7
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 87,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_162_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -10.4,
+        1.2,
+        29.599999999999998
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 116,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_163_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -6.55,
+        1.2,
+        30.5
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 124,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_164_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -5.4,
+        1.2,
+        31.4
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 153,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_165_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        6.45,
+        1.2,
+        29.2
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 161,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_166_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        7.6,
+        1.2,
+        30.099999999999998
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 190,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_167_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        11.45,
+        1.2,
+        29.5
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 198,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_168_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        12.6,
+        1.2,
+        30.4
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 227,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_169_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        24.45,
+        1.2,
+        29.7
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 235,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_170_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        25.6,
+        1.2,
+        30.599999999999998
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 264,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_171_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        29.45,
+        1.2,
+        28.4
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 272,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_172_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        30.6,
+        1.2,
+        29.299999999999997
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 301,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_173_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -31.55,
+        1.2,
+        -29.8
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 309,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_174_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -30.4,
+        1.2,
+        -28.900000000000002
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 338,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_175_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -13.55,
+        1.2,
+        -29.5
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 346,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_176_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -12.4,
+        1.2,
+        -28.6
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 375,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_177_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        -0.55,
+        1.2,
+        -29.3
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 383,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_178_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        0.6,
+        1.2,
+        -28.400000000000002
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 412,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_179_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        12.45,
+        1.2,
+        -29.2
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 420,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_180_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        13.6,
+        1.2,
+        -28.3
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 449,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_181_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        30.45,
+        1.2,
+        -29.6
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 457,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_182_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant interior forest cluster",
+      "position": [
+        31.6,
+        1.2,
+        -28.700000000000003
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 486,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_183_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "distant rock skyline",
+      "position": [
+        -30,
+        -0.2,
+        30
+      ],
+      "scale": [
+        0.7,
+        1.3,
+        0.55
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_184_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "distant rock skyline",
+      "position": [
+        -10,
+        -0.2,
+        30
+      ],
+      "scale": [
+        0.7,
+        1.3,
+        0.55
+      ],
+      "yaw": 48,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_185_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "distant rock skyline",
+      "position": [
+        10,
+        -0.2,
+        30
+      ],
+      "scale": [
+        0.7,
+        1.3,
+        0.55
+      ],
+      "yaw": 79,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_186_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "distant rock skyline",
+      "position": [
+        30,
+        -0.2,
+        30
+      ],
+      "scale": [
+        0.7,
+        1.3,
+        0.55
+      ],
+      "yaw": 110,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_187_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "distant rock skyline",
+      "position": [
+        -30,
+        -0.2,
+        -31
+      ],
+      "scale": [
+        0.7,
+        1.3,
+        0.55
+      ],
+      "yaw": 141,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_188_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "distant rock skyline",
+      "position": [
+        0,
+        -0.2,
+        -31
+      ],
+      "scale": [
+        0.7,
+        1.3,
+        0.55
+      ],
+      "yaw": 172,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "far_visible_189_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "distant rock skyline",
+      "position": [
+        30,
+        -0.2,
+        -31
+      ],
+      "scale": [
+        0.7,
+        1.3,
+        0.55
+      ],
+      "yaw": 203,
+      "castShadows": false,
+      "zone": "pocket"
+    }
+  ],
+  "notes": [
+    "No gameplay collision. Pocket geometry lies outside the lane and protected camp/Canal/Surge approaches; island/exterior geometry preserves existing clearance.",
+    "Pocket dressing is traversable presentation. A six-Summoner shader cutaway preserves visibility without changing gameplay or camera behavior.",
+    "Southern crowns capped and island trees do not cast lane-crossing shadows.",
+    "Rich near assets retain LOD0; cheap approved meshes provide distance tiers."
+  ]
+}

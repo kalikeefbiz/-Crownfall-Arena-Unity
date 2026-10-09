@@ -1,0 +1,537 @@
+{
+  "status": "PASS_STATIC_COMPOSITION",
+  "startingHead": "a2a9165606425e2c52090e2133e1ca55088c76f9",
+  "compositionVersion": 1,
+  "compositionSha256": "ed0bfef7869a8ec5ee8923a36200bfa38aae87b4f2152e92a2387a8a9e5eb4ea",
+  "nativeUnityValidation": "PENDING",
+  "objectCount": 190,
+  "additionalDirectionalLights": 1,
+  "layers": {
+    "NEAR": 115,
+    "MID": 37,
+    "FAR": 38
+  },
+  "islandNearCount": 26,
+  "pocketCount": 150,
+  "fixedCameraPotentialVisibility": "All shipping AABBs intersect at least one existing clamped camera state; permanently invisible outer layout excluded",
+  "uniqueModelCount": 25,
+  "uniqueMeshesNative": "PENDING (25 glTF reference mesh objects; native FBX mesh subdivision unverified)",
+  "instantiatedTriangles": 312770,
+  "typicalVisibleTriangleRange": [
+    73223,
+    120607
+  ],
+  "visibleEstimates": [
+    {
+      "actor": [
+        -25,
+        -6
+      ],
+      "cameraCenter": [
+        -14.444444444444443,
+        -6
+      ],
+      "visibleObjects": 38,
+      "triangles": 96600,
+      "layers": {
+        "NEAR": 30,
+        "MID": 7,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        -12,
+        -6
+      ],
+      "cameraCenter": [
+        -12,
+        -6
+      ],
+      "visibleObjects": 38,
+      "triangles": 96600,
+      "layers": {
+        "NEAR": 30,
+        "MID": 7,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        0,
+        -6
+      ],
+      "cameraCenter": [
+        0,
+        -6
+      ],
+      "visibleObjects": 43,
+      "triangles": 91871,
+      "layers": {
+        "NEAR": 32,
+        "MID": 9,
+        "FAR": 2
+      }
+    },
+    {
+      "actor": [
+        12,
+        -6
+      ],
+      "cameraCenter": [
+        12,
+        -6
+      ],
+      "visibleObjects": 41,
+      "triangles": 89073,
+      "layers": {
+        "NEAR": 31,
+        "MID": 9,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        25,
+        -6
+      ],
+      "cameraCenter": [
+        14.444444444444443,
+        -6
+      ],
+      "visibleObjects": 41,
+      "triangles": 89073,
+      "layers": {
+        "NEAR": 31,
+        "MID": 9,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        -25,
+        0
+      ],
+      "cameraCenter": [
+        -14.444444444444443,
+        0
+      ],
+      "visibleObjects": 35,
+      "triangles": 110515,
+      "layers": {
+        "NEAR": 33,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        -12,
+        0
+      ],
+      "cameraCenter": [
+        -12,
+        0
+      ],
+      "visibleObjects": 38,
+      "triangles": 117769,
+      "layers": {
+        "NEAR": 36,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        0,
+        0
+      ],
+      "cameraCenter": [
+        0,
+        0
+      ],
+      "visibleObjects": 39,
+      "triangles": 120607,
+      "layers": {
+        "NEAR": 36,
+        "MID": 3
+      }
+    },
+    {
+      "actor": [
+        12,
+        0
+      ],
+      "cameraCenter": [
+        12,
+        0
+      ],
+      "visibleObjects": 39,
+      "triangles": 109126,
+      "layers": {
+        "NEAR": 35,
+        "MID": 4
+      }
+    },
+    {
+      "actor": [
+        25,
+        0
+      ],
+      "cameraCenter": [
+        14.444444444444443,
+        0
+      ],
+      "visibleObjects": 38,
+      "triangles": 105179,
+      "layers": {
+        "NEAR": 34,
+        "MID": 4
+      }
+    },
+    {
+      "actor": [
+        -25,
+        6
+      ],
+      "cameraCenter": [
+        -14.444444444444443,
+        6
+      ],
+      "visibleObjects": 26,
+      "triangles": 75312,
+      "layers": {
+        "NEAR": 26
+      }
+    },
+    {
+      "actor": [
+        -12,
+        6
+      ],
+      "cameraCenter": [
+        -12,
+        6
+      ],
+      "visibleObjects": 30,
+      "triangles": 88831,
+      "layers": {
+        "NEAR": 30
+      }
+    },
+    {
+      "actor": [
+        0,
+        6
+      ],
+      "cameraCenter": [
+        0,
+        6
+      ],
+      "visibleObjects": 27,
+      "triangles": 80168,
+      "layers": {
+        "NEAR": 27
+      }
+    },
+    {
+      "actor": [
+        12,
+        6
+      ],
+      "cameraCenter": [
+        12,
+        6
+      ],
+      "visibleObjects": 30,
+      "triangles": 84065,
+      "layers": {
+        "NEAR": 30
+      }
+    },
+    {
+      "actor": [
+        25,
+        6
+      ],
+      "cameraCenter": [
+        14.444444444444443,
+        6
+      ],
+      "visibleObjects": 26,
+      "triangles": 73223,
+      "layers": {
+        "NEAR": 26
+      }
+    }
+  ],
+  "materialCount": 20,
+  "materialFamilies": 6,
+  "uniqueTextures": 25,
+  "textureTier": "Mobile",
+  "estimatedASTC6x6MipBytes": 15189344,
+  "estimatedRGBA8FallbackMipBytes": 135615796,
+  "textureEstimates": [
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves_NormalTree_C.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves_TwistedTree_C.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaf_Pine_C.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Rocks_Diffuse.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_ORM.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Roughness.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Roughness.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_ORM.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_Roughness.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/colormap.png",
+      "importDimensions": [
+        512,
+        512
+      ],
+      "astc6x6MipBytes": 158432,
+      "rgba8MipBytes": 1398100
+    }
+  ],
+  "alphaTestedInstances": 73,
+  "shadowCastingInstances": 8,
+  "shadowCastingRendererCountNative": "PENDING; glTF reference has one mesh object per placement",
+  "shadowCastingMaterialSlots": 11,
+  "totalMaterialSlotInstances": 361,
+  "repeatedModels": {
+    "qn:CommonTree_1": 22,
+    "qn:Rock_Medium_2": 9,
+    "qn:Pine_1": 23,
+    "qn:Rock_Medium_1": 9,
+    "qn:CommonTree_3": 13,
+    "qn:Rock_Medium_3": 8,
+    "qn:Pine_5": 4,
+    "kn:tree_pineTallA": 24,
+    "kn:tree_default_dark": 2,
+    "qm:DoorFrame_Round_Brick": 1,
+    "qm:Wall_UnevenBrick_Straight": 1,
+    "qm:Stairs_Exterior_Straight": 1,
+    "kn:statue_columnDamaged": 1,
+    "qn:Fern_1": 10,
+    "kn:cliff_large_rock": 5,
+    "kn:rock_tallG": 21,
+    "kn:tree_pineTallC": 23,
+    "kn:rock_tallA": 6,
+    "kn:cliff_block_rock": 1,
+    "kn:cliff_cornerLarge_rock": 1,
+    "qn:TwistedTree_1": 1,
+    "kc:tower-square-arch": 1,
+    "kc:tower-hexagon-top": 1,
+    "kc:wall-corner-half-tower": 1,
+    "kc:wall-half-modular": 1
+  },
+  "heroInstances": 63,
+  "farFillerCount": 38,
+  "clearance": "All conservative XZ bounds outside lane and protected camp/Major approach areas; pockets are traversable presentation with no added collision",
+  "gameplayCollisionCameraScenePackages": "Byte-identical to starting HEAD; ArenaPresentation plus one verified presentation-only transform binding changed in protected scopes",
+  "estimatesNotDeviceMeasurements": true,
+  "readyForBuild15NativeAndVisualAcceptance": "PENDING"
+}

@@ -64,7 +64,7 @@ def main():
         web=next(p for p in meta['platformSettings'] if p['buildTarget']=='WebGL')
         require(web['overridden']==1 and web['maxTextureSize']==row['maxSize'] and web['textureFormat']==4,'WebGL importer policy')
         require(meta['isReadable']==0 and meta['mipmaps']['enableMipMap']==0 and meta['nPOTScale']==0,'Residency policy')
-    # The unreferenced 3D library is independently budgeted by validate_environment_library.
+    # The shipping 3D library is independently budgeted by validate_environment_library/validate_wilderness.
     # This existing 90 MiB contract remains the shipping sprite/brand texture budget.
     all_png=[p for p in (ROOT/'Assets/Art').rglob('*') if p.suffix.lower()=='.png' and not environment_owned(p)]
     hashes={};resident=0

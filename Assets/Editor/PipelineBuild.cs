@@ -13,6 +13,7 @@ public sealed class PipelineBuild : IPreprocessBuildWithReport
         Crownfall.Editor.ProductionUiDependencies.Prepare();
         Crownfall.Editor.M0Validation.Validate();
         Crownfall.Editor.CompleteMatchValidation.Validate();
+        Crownfall.EnvironmentLab.Editor.WildernessBuildPreparation.PrepareAndValidate();
         Crownfall.Editor.ProductionArtValidation.Validate();
     }
 

@@ -1,0 +1,3749 @@
+{
+  "status": "REFERENCE_ONLY_NOT_INSTANTIATED",
+  "reason": "Outside every sampled state of the fixed, clamped gameplay camera. Retained as composition research, not shipping geometry.",
+  "placements": [
+    {
+      "name": "near_026_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        -41,
+        -2,
+        -26
+      ],
+      "scale": [
+        1.3,
+        0.86,
+        1.15
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_027_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        -42,
+        2,
+        -23
+      ],
+      "scale": [
+        1.6,
+        0.86,
+        1.6
+      ],
+      "yaw": 48,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_028_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        -42,
+        -2,
+        -7
+      ],
+      "scale": [
+        1.3,
+        1.2,
+        1.15
+      ],
+      "yaw": -8,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_029_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        -43,
+        2,
+        -4
+      ],
+      "scale": [
+        1.6,
+        1.2,
+        1.6
+      ],
+      "yaw": 23,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_030_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        -41,
+        -2,
+        14
+      ],
+      "scale": [
+        1.3,
+        1.35,
+        1.15
+      ],
+      "yaw": 29,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_031_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        -42,
+        2,
+        17
+      ],
+      "scale": [
+        1.6,
+        1.35,
+        1.6
+      ],
+      "yaw": 60,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_032_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        -42,
+        -2,
+        31
+      ],
+      "scale": [
+        1.3,
+        1.6,
+        1.15
+      ],
+      "yaw": -19,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_033_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        -43,
+        2,
+        34
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 12,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_034_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        41,
+        -2,
+        -28
+      ],
+      "scale": [
+        1.3,
+        0.8,
+        1.15
+      ],
+      "yaw": -27,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_035_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        42,
+        2,
+        -25
+      ],
+      "scale": [
+        1.6,
+        0.8,
+        1.6
+      ],
+      "yaw": 4,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_036_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        42,
+        -2,
+        -9
+      ],
+      "scale": [
+        1.3,
+        1,
+        1.15
+      ],
+      "yaw": 13,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_037_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        43,
+        2,
+        -6
+      ],
+      "scale": [
+        1.6,
+        1,
+        1.6
+      ],
+      "yaw": 44,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_038_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        41,
+        -2,
+        12
+      ],
+      "scale": [
+        1.3,
+        1.4,
+        1.15
+      ],
+      "yaw": -21,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_039_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        42,
+        2,
+        15
+      ],
+      "scale": [
+        1.6,
+        1.4,
+        1.6
+      ],
+      "yaw": 10,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_040_cliff_block_rock",
+      "model": "kn:cliff_block_rock",
+      "layer": "NEAR",
+      "role": "boundary cliff backing",
+      "position": [
+        42,
+        -2,
+        31
+      ],
+      "scale": [
+        1.3,
+        1.8,
+        1.15
+      ],
+      "yaw": 7,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_041_cliff_cornerLarge_rock",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "NEAR",
+      "role": "rock shelf crest",
+      "position": [
+        43,
+        2,
+        34
+      ],
+      "scale": [
+        1.6,
+        1.8,
+        1.6
+      ],
+      "yaw": 38,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_042_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken boundary cliff band",
+      "position": [
+        -26,
+        -2,
+        40
+      ],
+      "scale": [
+        2,
+        1.9,
+        1.7
+      ],
+      "yaw": 9,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_043_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken boundary cliff band",
+      "position": [
+        -8,
+        -2,
+        39
+      ],
+      "scale": [
+        2,
+        1.9,
+        1.7
+      ],
+      "yaw": -5,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_044_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken boundary cliff band",
+      "position": [
+        11,
+        -2,
+        40
+      ],
+      "scale": [
+        2,
+        1.9,
+        1.7
+      ],
+      "yaw": 13,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_045_cliff_large_rock",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken boundary cliff band",
+      "position": [
+        29,
+        -2,
+        40
+      ],
+      "scale": [
+        2,
+        1.9,
+        1.7
+      ],
+      "yaw": -12,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_049_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        -22,
+        5,
+        42
+      ],
+      "scale": [
+        1.15,
+        1.15,
+        1.15
+      ],
+      "yaw": 17,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_050_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        -16,
+        7,
+        44
+      ],
+      "scale": [
+        1.12,
+        1.12,
+        1.12
+      ],
+      "yaw": -22,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_051_Pine_5",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        -29,
+        4,
+        45
+      ],
+      "scale": [
+        1.17,
+        1.17,
+        1.17
+      ],
+      "yaw": 43,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_052_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        19,
+        7,
+        43
+      ],
+      "scale": [
+        1.25,
+        1.25,
+        1.25
+      ],
+      "yaw": -13,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_053_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        28,
+        8,
+        46
+      ],
+      "scale": [
+        0.95,
+        0.95,
+        0.95
+      ],
+      "yaw": 71,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_054_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        8,
+        8,
+        44
+      ],
+      "scale": [
+        1.18,
+        1.18,
+        1.18
+      ],
+      "yaw": 29,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_055_Pine_5",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        -40,
+        4,
+        13
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": -18,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_056_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        40,
+        2,
+        -2
+      ],
+      "scale": [
+        1.02,
+        1.02,
+        1.02
+      ],
+      "yaw": 38,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_057_CommonTree_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        -40,
+        0,
+        -20
+      ],
+      "scale": [
+        0.85,
+        0.85,
+        0.85
+      ],
+      "yaw": 61,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_058_CommonTree_3",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        41,
+        6,
+        25
+      ],
+      "scale": [
+        1.1,
+        1.1,
+        1.1
+      ],
+      "yaw": -33,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_059_Pine_5",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        -18,
+        -1,
+        -42
+      ],
+      "scale": [
+        0.82,
+        0.82,
+        0.82
+      ],
+      "yaw": 27,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "near_060_Pine_1",
+      "model": "qn:Pine_1",
+      "layer": "NEAR",
+      "role": "hero rim grove",
+      "position": [
+        26,
+        -2,
+        -43
+      ],
+      "scale": [
+        0.72,
+        0.72,
+        0.72
+      ],
+      "yaw": -9,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_061_TwistedTree_1",
+      "model": "qn:TwistedTree_1",
+      "layer": "MID",
+      "role": "Aether scar landmark",
+      "position": [
+        -43,
+        6,
+        46
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": -24,
+      "castShadows": true,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_062_Wall_UnevenBrick_Straight",
+      "model": "qm:Wall_UnevenBrick_Straight",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        -30,
+        6,
+        38
+      ],
+      "scale": [
+        2.2,
+        2.2,
+        2.2
+      ],
+      "yaw": 27,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_063_DoorFrame_Round_Brick",
+      "model": "qm:DoorFrame_Round_Brick",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        25,
+        8,
+        38
+      ],
+      "scale": [
+        2.1,
+        2.1,
+        2.1
+      ],
+      "yaw": -18,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_064_Stairs_Exterior_Straight",
+      "model": "qm:Stairs_Exterior_Straight",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        33,
+        4,
+        39
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 11,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_065_tower-square-arch",
+      "model": "kc:tower-square-arch",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        -40,
+        6,
+        35
+      ],
+      "scale": [
+        1.7,
+        1.7,
+        1.7
+      ],
+      "yaw": 19,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_066_wall-corner-half-tower",
+      "model": "kc:wall-corner-half-tower",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        37,
+        7,
+        41
+      ],
+      "scale": [
+        1.4,
+        1.4,
+        1.4
+      ],
+      "yaw": -31,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_067_wall-half-modular",
+      "model": "kc:wall-half-modular",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        -35,
+        6,
+        42
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 67,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_068_tower-hexagon-top",
+      "model": "kc:tower-hexagon-top",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        -40,
+        12.8,
+        35
+      ],
+      "scale": [
+        1.7,
+        1.7,
+        1.7
+      ],
+      "yaw": 19,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_069_statue_columnDamaged",
+      "model": "kn:statue_columnDamaged",
+      "layer": "MID",
+      "role": "embedded ancient skyline",
+      "position": [
+        15,
+        7,
+        38
+      ],
+      "scale": [
+        1.3,
+        1.3,
+        1.3
+      ],
+      "yaw": -21,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_070_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -50,
+        0,
+        0
+      ],
+      "scale": [
+        1.4,
+        2.0,
+        1.3
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_071_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -53,
+        5,
+        2
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 0,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_072_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -48,
+        8,
+        0
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 29,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_073_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -46,
+        4,
+        4
+      ],
+      "scale": [
+        1.68,
+        1.68,
+        1.68
+      ],
+      "yaw": 58,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_074_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -51,
+        0,
+        16
+      ],
+      "scale": [
+        1.63,
+        2.2800000000000002,
+        1.5
+      ],
+      "yaw": 54,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_075_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -54,
+        5,
+        18
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 43,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_076_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -49,
+        8,
+        16
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 72,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_077_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -47,
+        4,
+        20
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 101,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_078_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -50,
+        0,
+        31
+      ],
+      "scale": [
+        1.8599999999999999,
+        2.56,
+        1.7000000000000002
+      ],
+      "yaw": 91,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_079_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -53,
+        5,
+        33
+      ],
+      "scale": [
+        1.68,
+        1.68,
+        1.68
+      ],
+      "yaw": 86,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_080_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -48,
+        8,
+        31
+      ],
+      "scale": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "yaw": 115,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_081_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -46,
+        4,
+        35
+      ],
+      "scale": [
+        1.52,
+        1.52,
+        1.52
+      ],
+      "yaw": 144,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_082_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -47,
+        0,
+        47
+      ],
+      "scale": [
+        2.09,
+        2.84,
+        1.3
+      ],
+      "yaw": 128,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_083_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -50,
+        5,
+        49
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 129,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_084_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -45,
+        8,
+        47
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 158,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_085_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -43,
+        4,
+        51
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 187,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_086_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -30,
+        0,
+        52
+      ],
+      "scale": [
+        1.4,
+        3.12,
+        1.5
+      ],
+      "yaw": 165,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_087_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -33,
+        5,
+        54
+      ],
+      "scale": [
+        1.52,
+        1.52,
+        1.52
+      ],
+      "yaw": 172,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_088_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -28,
+        8,
+        52
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 201,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_089_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -26,
+        4,
+        56
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 230,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_090_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -16,
+        0,
+        54
+      ],
+      "scale": [
+        1.63,
+        2.0,
+        1.7000000000000002
+      ],
+      "yaw": 202,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_091_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -19,
+        5,
+        56
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 215,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_092_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -14,
+        8,
+        54
+      ],
+      "scale": [
+        1.68,
+        1.68,
+        1.68
+      ],
+      "yaw": 244,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_093_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -12,
+        4,
+        58
+      ],
+      "scale": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "yaw": 273,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_094_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        0,
+        0,
+        53
+      ],
+      "scale": [
+        1.8599999999999999,
+        2.2800000000000002,
+        1.3
+      ],
+      "yaw": 239,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_095_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -3,
+        5,
+        55
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 258,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_096_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        2,
+        8,
+        53
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 287,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_097_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        4,
+        4,
+        57
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 316,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_098_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        17,
+        0,
+        55
+      ],
+      "scale": [
+        2.09,
+        2.56,
+        1.5
+      ],
+      "yaw": 276,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_099_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        14,
+        5,
+        57
+      ],
+      "scale": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "yaw": 301,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_100_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        19,
+        8,
+        55
+      ],
+      "scale": [
+        1.52,
+        1.52,
+        1.52
+      ],
+      "yaw": 330,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_101_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        21,
+        4,
+        59
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 359,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_102_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        33,
+        0,
+        54
+      ],
+      "scale": [
+        1.4,
+        2.84,
+        1.7000000000000002
+      ],
+      "yaw": 313,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_103_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        30,
+        5,
+        56
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 344,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_104_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        35,
+        8,
+        54
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 373,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_105_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        37,
+        4,
+        58
+      ],
+      "scale": [
+        1.68,
+        1.68,
+        1.68
+      ],
+      "yaw": 402,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_106_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        49,
+        0,
+        45
+      ],
+      "scale": [
+        1.63,
+        3.12,
+        1.3
+      ],
+      "yaw": 350,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_107_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        46,
+        5,
+        47
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 387,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_108_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        51,
+        8,
+        45
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 416,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_109_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        53,
+        4,
+        49
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 445,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_110_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        51,
+        0,
+        29
+      ],
+      "scale": [
+        1.8599999999999999,
+        2.0,
+        1.5
+      ],
+      "yaw": 387,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_111_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        48,
+        5,
+        31
+      ],
+      "scale": [
+        1.68,
+        1.68,
+        1.68
+      ],
+      "yaw": 430,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_112_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        53,
+        8,
+        29
+      ],
+      "scale": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "yaw": 459,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_113_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        55,
+        4,
+        33
+      ],
+      "scale": [
+        1.52,
+        1.52,
+        1.52
+      ],
+      "yaw": 488,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_114_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        50,
+        0,
+        9
+      ],
+      "scale": [
+        2.09,
+        2.2800000000000002,
+        1.7000000000000002
+      ],
+      "yaw": 424,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_115_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        47,
+        5,
+        11
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 473,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_116_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        52,
+        8,
+        9
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 502,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_117_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        54,
+        4,
+        13
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 531,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_118_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        48,
+        0,
+        -12
+      ],
+      "scale": [
+        1.4,
+        2.56,
+        1.3
+      ],
+      "yaw": 461,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_119_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        45,
+        5,
+        -10
+      ],
+      "scale": [
+        1.52,
+        1.52,
+        1.52
+      ],
+      "yaw": 516,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_120_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        50,
+        8,
+        -12
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 545,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_121_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        52,
+        4,
+        -8
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 574,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_122_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        -48,
+        0,
+        -24
+      ],
+      "scale": [
+        1.63,
+        2.84,
+        1.5
+      ],
+      "yaw": 498,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_123_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -51,
+        5,
+        -22
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 559,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_124_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -46,
+        8,
+        -24
+      ],
+      "scale": [
+        1.68,
+        1.68,
+        1.68
+      ],
+      "yaw": 588,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_125_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -44,
+        4,
+        -20
+      ],
+      "scale": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "yaw": 617,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_127_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -34,
+        5,
+        -46
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 602,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_128_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -29,
+        8,
+        -48
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 631,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_131_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -13,
+        5,
+        -48
+      ],
+      "scale": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "yaw": 645,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_132_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -8,
+        8,
+        -50
+      ],
+      "scale": [
+        1.52,
+        1.52,
+        1.52
+      ],
+      "yaw": 674,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_134_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        13,
+        0,
+        -49
+      ],
+      "scale": [
+        1.4,
+        2.2800000000000002,
+        1.5
+      ],
+      "yaw": 609,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_135_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        10,
+        5,
+        -47
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 688,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_136_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        15,
+        8,
+        -49
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 717,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_139_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        31,
+        5,
+        -46
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 731,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_140_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        36,
+        8,
+        -48
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 760,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "mid_141_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        38,
+        4,
+        -44
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 789,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_142_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -63,
+        -2,
+        18
+      ],
+      "scale": [
+        2.1,
+        3.3,
+        2.0
+      ],
+      "yaw": 11,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_143_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -69,
+        7,
+        19
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 0,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_144_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -65,
+        7,
+        21
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 19,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_145_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -60,
+        7,
+        18
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 38,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_146_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -57,
+        7,
+        22
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 57,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_147_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -62,
+        -2,
+        39
+      ],
+      "scale": [
+        2.45,
+        3.6999999999999997,
+        2.3
+      ],
+      "yaw": 40,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_148_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -68,
+        9,
+        40
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 47,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_149_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -64,
+        9,
+        42
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 66,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_150_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -59,
+        9,
+        39
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 85,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_151_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -56,
+        9,
+        43
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 104,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_152_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -54,
+        -2,
+        62
+      ],
+      "scale": [
+        2.8,
+        4.1,
+        2.6
+      ],
+      "yaw": 69,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_153_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -60,
+        11,
+        63
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 94,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_154_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -56,
+        11,
+        65
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 113,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_155_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -51,
+        11,
+        62
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 132,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_156_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -48,
+        11,
+        66
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 151,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_157_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -36,
+        -2,
+        68
+      ],
+      "scale": [
+        2.1,
+        4.5,
+        2.0
+      ],
+      "yaw": 98,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_158_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -42,
+        7,
+        69
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 141,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_159_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -38,
+        7,
+        71
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 160,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_160_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -33,
+        7,
+        68
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 179,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_161_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -30,
+        7,
+        72
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 198,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_162_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -11,
+        -2,
+        69
+      ],
+      "scale": [
+        2.45,
+        3.3,
+        2.3
+      ],
+      "yaw": 127,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_163_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -17,
+        9,
+        70
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 188,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_164_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -13,
+        9,
+        72
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 207,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_165_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -8,
+        9,
+        69
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 226,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_166_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -5,
+        9,
+        73
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 245,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_167_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        13,
+        -2,
+        70
+      ],
+      "scale": [
+        2.8,
+        3.6999999999999997,
+        2.6
+      ],
+      "yaw": 156,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_168_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        7,
+        11,
+        71
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 235,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_169_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        11,
+        11,
+        73
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 254,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_170_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        16,
+        11,
+        70
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 273,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_171_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        19,
+        11,
+        74
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 292,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_172_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        36,
+        -2,
+        67
+      ],
+      "scale": [
+        2.1,
+        4.1,
+        2.0
+      ],
+      "yaw": 185,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_173_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        30,
+        7,
+        68
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 282,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_174_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        34,
+        7,
+        70
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 301,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_175_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        39,
+        7,
+        67
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 320,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_176_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        42,
+        7,
+        71
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 339,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_177_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        57,
+        -2,
+        59
+      ],
+      "scale": [
+        2.45,
+        4.5,
+        2.3
+      ],
+      "yaw": 214,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_178_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        51,
+        9,
+        60
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 329,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_179_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        55,
+        9,
+        62
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 348,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_180_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        60,
+        9,
+        59
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 367,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_181_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        63,
+        9,
+        63
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 386,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_182_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        63,
+        -2,
+        35
+      ],
+      "scale": [
+        2.8,
+        3.3,
+        2.6
+      ],
+      "yaw": 243,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_183_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        57,
+        11,
+        36
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 376,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_184_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        61,
+        11,
+        38
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 395,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_185_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        66,
+        11,
+        35
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 414,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_186_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        69,
+        11,
+        39
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 433,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_187_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        62,
+        -2,
+        9
+      ],
+      "scale": [
+        2.1,
+        3.6999999999999997,
+        2.0
+      ],
+      "yaw": 272,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_188_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        56,
+        7,
+        10
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 423,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_189_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        60,
+        7,
+        12
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 442,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_190_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        65,
+        7,
+        9
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 461,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_191_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        68,
+        7,
+        13
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 480,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_192_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        58,
+        -2,
+        -24
+      ],
+      "scale": [
+        2.45,
+        4.1,
+        2.3
+      ],
+      "yaw": 301,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_193_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        52,
+        9,
+        -23
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 470,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_194_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        56,
+        9,
+        -21
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 489,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_195_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        61,
+        9,
+        -24
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 508,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_196_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        64,
+        9,
+        -20
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 527,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_197_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -59,
+        -2,
+        -19
+      ],
+      "scale": [
+        2.8,
+        4.5,
+        2.6
+      ],
+      "yaw": 330,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_198_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -65,
+        11,
+        -18
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 517,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_199_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -61,
+        11,
+        -16
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 536,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_200_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -56,
+        11,
+        -19
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 555,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_201_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -53,
+        11,
+        -15
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 574,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_202_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -42,
+        -2,
+        -63
+      ],
+      "scale": [
+        2.1,
+        3.3,
+        2.0
+      ],
+      "yaw": 359,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_203_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -48,
+        7,
+        -62
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 564,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_204_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -44,
+        7,
+        -60
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 583,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_205_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -39,
+        7,
+        -63
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 602,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_206_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -36,
+        7,
+        -59
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 621,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_207_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -17,
+        -2,
+        -67
+      ],
+      "scale": [
+        2.45,
+        3.6999999999999997,
+        2.3
+      ],
+      "yaw": 388,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_208_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -23,
+        9,
+        -66
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 611,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_209_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -19,
+        9,
+        -64
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 630,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_210_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -14,
+        9,
+        -67
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 649,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_211_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -11,
+        9,
+        -63
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 668,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_212_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        12,
+        -2,
+        -66
+      ],
+      "scale": [
+        2.8,
+        4.1,
+        2.6
+      ],
+      "yaw": 417,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_213_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        6,
+        11,
+        -65
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 658,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_214_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        10,
+        11,
+        -63
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 677,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_215_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        15,
+        11,
+        -66
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 696,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_216_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        18,
+        11,
+        -62
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 715,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_217_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        40,
+        -2,
+        -62
+      ],
+      "scale": [
+        2.1,
+        4.5,
+        2.0
+      ],
+      "yaw": 446,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_218_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        34,
+        7,
+        -61
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 705,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_219_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        38,
+        7,
+        -59
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 724,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_220_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        43,
+        7,
+        -62
+      ],
+      "scale": [
+        1.84,
+        1.84,
+        1.84
+      ],
+      "yaw": 743,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_221_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        46,
+        7,
+        -58
+      ],
+      "scale": [
+        1.96,
+        1.96,
+        1.96
+      ],
+      "yaw": 762,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_289_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -28,
+        31,
+        -51
+      ],
+      "scale": [
+        1.85,
+        1.85,
+        1.85
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_290_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -24,
+        30,
+        -49
+      ],
+      "scale": [
+        2.1,
+        2.1,
+        2.1
+      ],
+      "yaw": 29,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_292_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -16,
+        31,
+        -54
+      ],
+      "scale": [
+        1.9700000000000002,
+        1.9700000000000002,
+        1.9700000000000002
+      ],
+      "yaw": 58,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_293_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -12,
+        30,
+        -52
+      ],
+      "scale": [
+        2.23,
+        2.23,
+        2.23
+      ],
+      "yaw": 48,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_295_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -1,
+        31,
+        -53
+      ],
+      "scale": [
+        2.09,
+        2.09,
+        2.09
+      ],
+      "yaw": 99,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_296_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        3,
+        30,
+        -51
+      ],
+      "scale": [
+        2.1,
+        2.1,
+        2.1
+      ],
+      "yaw": 67,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_298_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        14,
+        31,
+        -55
+      ],
+      "scale": [
+        1.85,
+        1.85,
+        1.85
+      ],
+      "yaw": 140,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_299_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        18,
+        30,
+        -53
+      ],
+      "scale": [
+        2.23,
+        2.23,
+        2.23
+      ],
+      "yaw": 86,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_301_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        27,
+        31,
+        -52
+      ],
+      "scale": [
+        1.9700000000000002,
+        1.9700000000000002,
+        1.9700000000000002
+      ],
+      "yaw": 181,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "far_302_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        31,
+        30,
+        -50
+      ],
+      "scale": [
+        2.1,
+        2.1,
+        2.1
+      ],
+      "yaw": 105,
+      "castShadows": false,
+      "zone": "exterior"
+    }
+  ]
+}

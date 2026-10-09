@@ -1,0 +1,196 @@
+{
+  "startingHead": "a2a9165606425e2c52090e2133e1ca55088c76f9",
+  "shippingAndEditorPaths": [
+    "Assets/Crownfall/Environment/ArenaWildernessPresentation.cs",
+    "Assets/Crownfall/Environment/Shaders/EnvironmentCutout.shader",
+    "Assets/Crownfall/Environment/Shaders/EnvironmentLit.shader",
+    "Assets/Crownfall/Environment/Shaders/WildernessVisibility.cginc",
+    "Assets/Crownfall/Environment/WildernessComposition.json",
+    "Assets/Crownfall/Environment/WildernessLibrary.cs",
+    "Assets/Crownfall/Match/Runtime/ArenaPresentation.cs",
+    "Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs",
+    "Assets/Editor/CrownfallEnvironment/WildernessBuildPreparation.cs",
+    "Assets/Editor/PipelineBuild.cs",
+    "Assets/Editor/ProductionArtValidation.cs"
+  ],
+  "newAssetsSourceBytes": 98951,
+  "netAssetsByteDelta": 99489,
+  "modelOrTexturePayloadBytesAdded": 0,
+  "files": [
+    {
+      "path": "Assets/Crownfall/Environment/ArenaWildernessPresentation.cs",
+      "status": "ADDED",
+      "bytes": 3977,
+      "netByteDelta": 3977
+    },
+    {
+      "path": "Assets/Crownfall/Environment/Shaders/EnvironmentCutout.shader",
+      "status": "MODIFIED",
+      "bytes": 1149,
+      "netByteDelta": 119
+    },
+    {
+      "path": "Assets/Crownfall/Environment/Shaders/EnvironmentLit.shader",
+      "status": "MODIFIED",
+      "bytes": 1710,
+      "netByteDelta": 119
+    },
+    {
+      "path": "Assets/Crownfall/Environment/Shaders/WildernessVisibility.cginc",
+      "status": "ADDED",
+      "bytes": 932,
+      "netByteDelta": 932
+    },
+    {
+      "path": "Assets/Crownfall/Environment/WildernessComposition.json",
+      "status": "ADDED",
+      "bytes": 69530,
+      "netByteDelta": 69530
+    },
+    {
+      "path": "Assets/Crownfall/Environment/WildernessLibrary.cs",
+      "status": "ADDED",
+      "bytes": 412,
+      "netByteDelta": 412
+    },
+    {
+      "path": "Assets/Crownfall/Match/Runtime/ArenaPresentation.cs",
+      "status": "MODIFIED",
+      "bytes": 5052,
+      "netByteDelta": -305
+    },
+    {
+      "path": "Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs",
+      "status": "MODIFIED",
+      "bytes": 13445,
+      "netByteDelta": 121
+    },
+    {
+      "path": "Assets/Editor/CrownfallEnvironment/WildernessBuildPreparation.cs",
+      "status": "ADDED",
+      "bytes": 24100,
+      "netByteDelta": 24100
+    },
+    {
+      "path": "Assets/Editor/PipelineBuild.cs",
+      "status": "MODIFIED",
+      "bytes": 2536,
+      "netByteDelta": 89
+    },
+    {
+      "path": "Assets/Editor/ProductionArtValidation.cs",
+      "status": "MODIFIED",
+      "bytes": 4066,
+      "netByteDelta": 395
+    },
+    {
+      "path": "Docs/CROWNFALL_3D_WILDERNESS_INTEGRATION.md",
+      "status": "ADDED",
+      "bytes": 22254,
+      "netByteDelta": 22254
+    },
+    {
+      "path": "Docs/CROWNFALL_WILDERNESS_COMPOSITION_VALIDATION.json",
+      "status": "ADDED",
+      "bytes": 11818,
+      "netByteDelta": 11818
+    },
+    {
+      "path": "Docs/CROWNFALL_WILDERNESS_GAMEPLAY_PRESERVATION.json",
+      "status": "ADDED",
+      "bytes": 141943,
+      "netByteDelta": 141943
+    },
+    {
+      "path": "Docs/CROWNFALL_WILDERNESS_OFFCAMERA_PLAN.json",
+      "status": "ADDED",
+      "bytes": 70457,
+      "netByteDelta": 70457
+    },
+    {
+      "path": "Docs/ENVIRONMENT_ASSET_INTEGRATION_VALIDATION.json",
+      "status": "MODIFIED",
+      "bytes": 971,
+      "netByteDelta": 58
+    },
+    {
+      "path": "Docs/WildernessPreviews/BLENDER_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 721,
+      "netByteDelta": 721
+    },
+    {
+      "path": "Docs/WildernessPreviews/lane-center.png",
+      "status": "ADDED",
+      "bytes": 880739,
+      "netByteDelta": 880739
+    },
+    {
+      "path": "Docs/WildernessPreviews/lane-north.png",
+      "status": "ADDED",
+      "bytes": 918377,
+      "netByteDelta": 918377
+    },
+    {
+      "path": "Docs/WildernessPreviews/lane-south.png",
+      "status": "ADDED",
+      "bytes": 957862,
+      "netByteDelta": 957862
+    },
+    {
+      "path": "Docs/WildernessPreviews/major.png",
+      "status": "ADDED",
+      "bytes": 1083172,
+      "netByteDelta": 1083172
+    },
+    {
+      "path": "Docs/WildernessPreviews/overview.png",
+      "status": "ADDED",
+      "bytes": 1015297,
+      "netByteDelta": 1015297
+    },
+    {
+      "path": "Tools/environment_asset_scope.py",
+      "status": "MODIFIED",
+      "bytes": 1048,
+      "netByteDelta": 10
+    },
+    {
+      "path": "Tools/render_wilderness_preview.py",
+      "status": "ADDED",
+      "bytes": 6357,
+      "netByteDelta": 6357
+    },
+    {
+      "path": "Tools/run_wilderness_unity_validation.py",
+      "status": "ADDED",
+      "bytes": 1286,
+      "netByteDelta": 1286
+    },
+    {
+      "path": "Tools/test_wilderness_validation.py",
+      "status": "ADDED",
+      "bytes": 1486,
+      "netByteDelta": 1486
+    },
+    {
+      "path": "Tools/validate_environment_library.py",
+      "status": "MODIFIED",
+      "bytes": 8232,
+      "netByteDelta": 402
+    },
+    {
+      "path": "Tools/validate_production.py",
+      "status": "MODIFIED",
+      "bytes": 11403,
+      "netByteDelta": 16
+    },
+    {
+      "path": "Tools/validate_wilderness.py",
+      "status": "ADDED",
+      "bytes": 12339,
+      "netByteDelta": 12339
+    }
+  ],
+  "self": "Docs/CROWNFALL_WILDERNESS_CHANGED_FILES.json"
+}

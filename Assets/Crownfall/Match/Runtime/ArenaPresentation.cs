@@ -9,48 +9,34 @@ namespace Crownfall.Match
         readonly Transform root;
         readonly Camera camera;
         readonly Material sprite;
+        readonly Crownfall.EnvironmentPresentation.ArenaWildernessPresentation wildernessPresentation;
         readonly List<Mesh> owned=new List<Mesh>();
         public readonly Mesh RingMesh,ShadowMesh;
         public ArenaPresentation(Transform parent,Camera view,Material spriteMaterial,Material stone,Material gold,Material moss,RosterPresentationCatalog art)
         {
             root=parent;camera=view;sprite=spriteMaterial;
             RingMesh=Disc(new DiscGeometry());ShadowMesh=Disc(new DiscGeometry(32,0,1));
-            // One combined mesh per shared material for structural dressing.
-            var walls=new BoxGeometry();var seams=new BoxGeometry();var wilderness=new BoxGeometry();
-            for(int i=0;i<18;i++)
-            {
-                float x=-34+i*4;
-                for(int side=-1;side<=1;side+=2)
-                {
-                    Box(walls,new Vector3(x,4.5f,side*35),new Vector3(3.4f,9,2));
-                    Box(walls,new Vector3(x,10,side*35),new Vector3(4.1f,1.5f,3));
-                    Box(seams,new Vector3(x,4,side*33.94f),new Vector3(.12f,7,.08f));
-                    Box(wilderness,new Vector3(x,-.1f,side*21),new Vector3(3.4f,.08f,5));
-                }
-            }
-            for(int i=0;i<16;i++)for(int side=-1;side<=1;side+=2)
-            {
-                float z=-30+i*4;
-                Box(walls,new Vector3(side*37,4,z),new Vector3(3,8,3.4f));
-                Box(seams,new Vector3(side*35.45f,3.5f,z),new Vector3(.08f,6,.1f));
-            }
+            var seams=new BoxGeometry();
+            wildernessPresentation=new Crownfall.EnvironmentPresentation.ArenaWildernessPresentation(root,camera);
             for(int x=-26;x<=26;x+=4)
             {
                 Box(seams,new Vector3(x,.032f,0),new Vector3(.035f,.012f,23.5f));
                 for(int z=-10;z<=10;z+=4)Box(seams,new Vector3(x,.032f,z),new Vector3(3.9f,.012f,.035f));
             }
             foreach(int side in new[]{-1,1})Box(seams,new Vector3(0,.034f,side*11.9f),new Vector3(56,.02f,.09f));
-            Combine("Monumental dark stone colonnade",walls,stone);Combine("Warm Aether inlay",seams,gold);Combine("Wilderness terraces",wilderness,moss);
+            Combine("Warm Aether inlay",seams,gold);
             GroundArt("Crownfall center medallion",art.centerLogo,new Vector3(0,.06f,0),8);
-            for(int i=0;i<8;i++)
-            {
-                float x=-28+i*8;
-                Billboard("Forest boundary",art.forest,new Vector3(x,0,31.5f),8, -250);
-                if(i%2==0)Billboard("Waterfall cliff",art.waterfall,new Vector3(x,0,-31.5f),7,-240);
-                Billboard("Saint Rose accent",art.saintRose,new Vector3(x,0,i%2==0?19:-19),2.5f,-230);
-            }
+            // Source Crownfall art extends the interior skyline; true 3D groves/cliffs supply its depth.
+            Billboard("Forest west extension",art.forest,new Vector3(-25,1,27.5f),10,-250);
+            Billboard("Forest center extension",art.forest,new Vector3(-7,0,28),11,-250);
+            Billboard("Forest east extension",art.forest,new Vector3(25,1,26.5f),10,-250);
+            Billboard("Waterfall west accent",art.waterfall,new Vector3(-30,3,29),9,-240);
+            Billboard("Waterfall east accent",art.waterfall,new Vector3(28,3,29.5f),9,-240);
+            foreach(var position in new[]{new Vector3(-26,0,20),new Vector3(24,0,-20),new Vector3(9,0,28)})
+                Billboard("Saint Rose accent",art.saintRose,position,2.5f,-230);
             Billboard("Major Aether landmark",art.aetherMound,new Vector3(0,0,29.5f),4,-200);
         }
+        public void BindVisibilitySubjects(Transform[] subjects) { wildernessPresentation.BindVisibilitySubjects(subjects); }
         Mesh Disc(DiscGeometry data)
         {
             var mesh=new Mesh{name="Shared finite ground disc"};var vertices=new Vector3[data.Vertices.Length];
@@ -80,7 +66,7 @@ namespace Crownfall.Match
             mesh.vertices=vertices;mesh.SetTriangles(boxes.Indices,0);mesh.RecalculateNormals();mesh.RecalculateBounds();owned.Add(mesh);
             go.AddComponent<MeshFilter>().sharedMesh=mesh;go.AddComponent<MeshRenderer>().sharedMaterial=material;
         }
-        public void Dispose(){foreach(var mesh in owned)Object.Destroy(mesh);owned.Clear();}
+        public void Dispose(){wildernessPresentation.Dispose();foreach(var mesh in owned)Object.Destroy(mesh);owned.Clear();}
         static void Box(BoxGeometry boxes,Vector3 position,Vector3 size)
         {boxes.Box(position.x,position.y,position.z,size.x,size.y,size.z);}
     }

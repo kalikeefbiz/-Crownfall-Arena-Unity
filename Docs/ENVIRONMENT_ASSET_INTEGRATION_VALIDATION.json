@@ -13,12 +13,12 @@
   "originalsHashVerified": 419,
   "productionCopiesVerified": 58,
   "sourcePayloadBytes": 67624322,
-  "totalAddedAssetsBytes": 67732072,
-  "cSharpFilesSyntaxParsed": 4,
+  "totalAddedAssetsBytes": 67831261,
+  "cSharpFilesSyntaxParsed": 5,
   "unityEditorCompilation": "PENDING",
   "shaderCompilation": "PENDING",
   "generatedNativeScenePrefabsMaterials": "PENDING",
-  "gameplayShippingScenesCameraTopologyPackagesSettings": "UNCHANGED",
+  "gameplayShippingScenesCameraTopologyPackagesSettings": "UNCHANGED (dedicated shipping presentation is separately validated)",
   "colliderPolicy": "Importer false + generator strips + native asserts; native execution PENDING",
   "readyForArenaComposition": false
 }

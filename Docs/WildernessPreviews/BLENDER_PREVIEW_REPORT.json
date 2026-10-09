@@ -1,0 +1,21 @@
+{
+  "engine": "Blender 4.3.2",
+  "unityExecuted": false,
+  "source": "Preserved glTF references; native FBX scale/orientation validation remains pending",
+  "uniqueSourceMeshObjects": 25,
+  "instantiatedMeshObjects": 190,
+  "shadowEligibleMeshObjects": 8,
+  "views": [
+    "overview",
+    "lane-center",
+    "lane-north",
+    "lane-south",
+    "major"
+  ],
+  "limitations": [
+    "No shipping Unity sprite artwork/HUD/VFX reproduced",
+    "Reference geometry and approximate palette; Unity shader/alpha/shadow behavior not certified",
+    "Six-Summoner Unity shader cutaway not simulated",
+    "Reference ground uses fixed color without realtime shadows, approximating ProductionStone; native floor shader differs"
+  ]
+}

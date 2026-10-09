@@ -16,14 +16,16 @@ Shader "Crownfall/Environment/Lit"
         Cull [_Cull]
         CGPROGRAM
         #pragma surface surf Standard fullforwardshadows addshadow
+        #include "WildernessVisibility.cginc"
         #pragma target 3.0
         #pragma multi_compile_instancing
         sampler2D _MainTex, _BumpMap, _SurfaceMap;
         fixed4 _Color;
         half _SurfaceMode, _Glossiness;
-        struct Input { float2 uv_MainTex; float2 uv_BumpMap; float2 uv_SurfaceMap; float facing : VFACE; };
+        struct Input { float3 worldPos; float2 uv_MainTex; float2 uv_BumpMap; float2 uv_SurfaceMap; float facing : VFACE; };
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
+            CrownfallWildernessVisibility(IN.worldPos);
             o.Albedo = tex2D(_MainTex, IN.uv_MainTex).rgb * _Color.rgb;
             o.Normal = UnpackNormal(tex2D(_BumpMap, IN.uv_BumpMap));
             o.Normal *= IN.facing >= 0 ? 1 : -1;
