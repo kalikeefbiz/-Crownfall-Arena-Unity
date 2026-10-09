@@ -60,7 +60,13 @@ def main():
  from tree_sitter import Language,Parser
  import tree_sitter_c_sharp
  parser=Parser(Language(tree_sitter_c_sharp.language()))
- for path in list((ROOT/'Assets/Crownfall/Environment').glob('*.cs'))+list((ROOT/'Assets/Editor/CrownfallEnvironment').glob('*.cs')):require(not parser.parse(path.read_bytes()).root_node.has_error,'C# syntax '+str(path))
+ for path in list((ROOT/'Assets/Crownfall/Environment').glob('*.cs'))+list((ROOT/'Assets/Editor/CrownfallEnvironment').glob('*.cs')):
+  tree=parser.parse(path.read_bytes());errors=[];nodes=[tree.root_node]
+  while nodes and len(errors)<8:
+   node=nodes.pop()
+   if node.type=='ERROR' or node.is_missing:errors.append(f'{node.type} at {node.start_point}..{node.end_point}')
+   else:nodes.extend(reversed(node.children))
+  require(not tree.root_node.has_error,'C# syntax '+str(path)+'; '+', '.join(errors))
  counts=collections.Counter(r['model'] for r in p);materials={b['materialKey'] for id in counts for b in models[id]['bindings']};specs={m['key']:m for m in cat['materials']};textures={specs[k][f] for k in materials for f in ('baseTexture','normalTexture','surfaceTexture') if specs[k][f]}|{'Assets/Art/Environment/External/SharedTextures/T_ForestGround04_Color.jpg','Assets/Art/Environment/External/SharedTextures/T_RockFace03_Color.jpg'};alpha={k for k in materials if specs[k]['family']=='alpha-cutout foliage'}
  triangles=sum(models[r['model']]['sourceTriangles'] for r in p)
  views=[]

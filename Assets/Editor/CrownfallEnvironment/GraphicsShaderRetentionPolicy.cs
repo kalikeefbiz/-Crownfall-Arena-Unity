@@ -46,17 +46,17 @@ namespace Crownfall.EnvironmentLab.Editor
                 throw new InvalidOperationException("Malformed shader list");
             return new Section { prefix = string.Join("\n", lines.Take(start)), suffix = string.Join("\n", lines.Skip(end)), references = refs.ToArray() };
         }
-        public static void Validate(byte[] before, byte[] after, RetainedShaderReference[] required)
+        public static void Validate(byte[] before, byte[] after, RetainedShaderReference[] expectedShaders)
         {
             var strictUtf8 = new UTF8Encoding(false, true);
             var a = Parse(strictUtf8.GetString(before)); var b = Parse(strictUtf8.GetString(after));
             if (a.prefix != b.prefix || a.suffix != b.suffix)
                 throw new InvalidOperationException("UI shader retention changed another GraphicsSettings field");
-            if (required == null || required.Length != 7 || required.Any(r => r == null || r.guid != BuiltinGuid || r.fileId == 0) ||
-                required.Select(r => r.Key).Distinct(StringComparer.Ordinal).Count() != 7)
+            if (expectedShaders == null || expectedShaders.Length != 7 || expectedShaders.Any(r => r == null || r.guid != BuiltinGuid || r.fileId == 0) ||
+                expectedShaders.Select(r => r.Key).Distinct(StringComparer.Ordinal).Count() != 7)
                 throw new InvalidOperationException("Expected seven distinct native built-in UI shader identities; native verification required");
             var expected = a.references.ToList();
-            foreach (var reference in required) if (!expected.Contains(reference.Key)) expected.Add(reference.Key);
+            foreach (var reference in expectedShaders) if (!expected.Contains(reference.Key)) expected.Add(reference.Key);
             if (!expected.SequenceEqual(b.references))
                 throw new InvalidOperationException("UI shader retention removed/reordered references or added an unapproved shader");
         }

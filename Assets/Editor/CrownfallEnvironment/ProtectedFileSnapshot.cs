@@ -156,24 +156,24 @@ namespace Crownfall.EnvironmentLab.Editor
             if (!folder && !path.EndsWith(".unity.meta", StringComparison.Ordinal)) return false;
             var mapping = MetadataMapping(File.ReadAllText(Absolute(path)));
             if (mapping == null) return false;
-            var required = new Dictionary<string, string>(StringComparer.Ordinal) {
+            var schema = new Dictionary<string, string>(StringComparer.Ordinal) {
                 {"fileFormatVersion", "2"}, {"guid", expected}, {"DefaultImporter", ""}, {"DefaultImporter/externalObjects", "{}"} };
-            if (folder) required.Add("folderAsset", "yes");
-            foreach (var entry in required)
+            if (folder) schema.Add("folderAsset", "yes");
+            foreach (var entry in schema)
             { string value; if (!mapping.TryGetValue(entry.Key, out value) || value != entry.Value) return false; }
-            foreach (var entry in mapping.Where(p => !required.ContainsKey(p.Key)))
+            foreach (var entry in mapping.Where(p => !schema.ContainsKey(p.Key)))
                 if (!(entry.Key == "DefaultImporter/userData" || entry.Key == "DefaultImporter/assetBundleName" ||
                     entry.Key == "DefaultImporter/assetBundleVariant") || entry.Value != "") return false;
             return true;
         }
-        public ProtectionDiffReport AdmitUiShaderRetention(byte[] before, byte[] after, RetainedShaderReference[] required, string phase)
+        public ProtectionDiffReport AdmitUiShaderRetention(byte[] before, byte[] after, RetainedShaderReference[] expectedShaders, string phase)
         {
             const string path = GraphicsShaderRetentionPolicy.Path;
             string baseline;
             string previous = HashBytes(before), current = HashBytes(after);
             if (!files.TryGetValue(path, out baseline) || baseline != previous || Hash(Absolute(path)) != current)
                 throw new InvalidOperationException("GraphicsSettings ownership evidence does not match the original protected baseline");
-            GraphicsShaderRetentionPolicy.Validate(before, after, required);
+            GraphicsShaderRetentionPolicy.Validate(before, after, expectedShaders);
             var admitted = Change(path, "Modified", previous, current, phase,
                 "Only seven validated built-in UI shader identities appended; all other serialized settings byte-identical", false);
             admitted.allowedOwnedSettings = true;

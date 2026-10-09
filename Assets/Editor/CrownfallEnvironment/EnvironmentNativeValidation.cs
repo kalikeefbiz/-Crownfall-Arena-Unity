@@ -74,7 +74,7 @@ namespace Crownfall.EnvironmentLab.Editor
         }
         internal static void CompareActiveProtection(string phase)
         { foreach (var snapshot in activeSnapshots) AssertProtected(snapshot, phase); }
-        internal static void SaveUiGraphicsSettings(UnityEngine.Object settings, RetainedShaderReference[] required)
+        internal static void SaveUiGraphicsSettings(UnityEngine.Object settings, RetainedShaderReference[] expectedShaders)
         {
             EnvironmentPaths.Require(activeSnapshots.Count != 0, "UI graphics saving requires an early protection scope");
             foreach (var snapshot in activeSnapshots) AssertProtected(snapshot, "before UI graphics targeted save");
@@ -85,7 +85,7 @@ namespace Crownfall.EnvironmentLab.Editor
             var after = File.ReadAllBytes(path);
             foreach (var snapshot in activeSnapshots)
             {
-                try { RecordProtection(snapshot.AdmitUiShaderRetention(before, after, required, "UI owned graphics shader retention")); }
+                try { RecordProtection(snapshot.AdmitUiShaderRetention(before, after, expectedShaders, "UI owned graphics shader retention")); }
                 catch (ProtectedFilesChangedException error) { RecordProtection(error.report); throw; }
             }
         }
