@@ -7,6 +7,7 @@ on:
       - 'Assets/**'
       - 'Docs/Kit*Manifest.json'
       - 'Docs/PRODUCTION_UI_DEPENDENCIES.json'
+      - 'Docs/CROWNFALL_BUILD18_AUDIT_REMEDIATION.md'
       - 'Packages/**'
       - 'ProjectSettings/**'
       - 'Tools/**'

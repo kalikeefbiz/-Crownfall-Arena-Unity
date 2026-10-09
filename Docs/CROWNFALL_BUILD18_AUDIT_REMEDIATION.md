@@ -74,6 +74,28 @@ The existing manifest validation, M1/current-build/production checks, environmen
 
 The first GitHub execution exposed an obsolete wilderness source contract requiring a direct statement and generic BuildFailedException wrapper. That gate now requires the protected shipping call, wilderness lifecycle, failure report and original-exception rethrow; a sixth negative caller fixture removes the shipping preparation call. Composition/clearance assertions remain unchanged.
 
+## Verified execution results
+
+The implementation commit `cc4cb4c00d137909006f44c0b90a5c9e43130b1a` passed the existing GitHub Actions preflight: [run 37969380748](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/37969380748). Its actual job logs were retrieved and inspected.
+
+| Gate | Verified result |
+| --- | --- |
+| Production protection fixtures | 34 PASS, including all three Astra bypasses and malformed YAML delimiter |
+| Protection/admission compiled mutants | 5 detected |
+| Exceptional lifecycle fixtures | 8 PASS |
+| Native shader-reference / owned-settings fixtures | 13 PASS |
+| Lifecycle/settings compiled mutants | 4 detected |
+| Editor caller source contracts | 6 negative mutations detected |
+| Build #16 saved-scene contract | PASS, both negative fixtures retained |
+| Protected-source manifest | 311 paths, including 172 metadata files, PASS |
+| M1/current-build/production + environment integrity | PASS |
+| Wilderness composition | PASS, all 9 negative fixtures rejected |
+| Complete 3v3 matches | PASS; 127,037 complete-match, 86,645 presentation and 2,152 camera/terrain assertions |
+| Runtime API type-check | 51 files, 0 warnings / 0 errors; verified UnityEngine 2021.3.33 references |
+| Source integrity / diff | Protected/art/staging Git blobs unchanged; original Build #15 repair unchanged; diff checks PASS |
+
+The sparse working tree and remote branch were verified at the implementation commit with no outstanding changes. A following documentation/workflow-filter commit records these results and includes this exact audit report in the same preflight trigger; its final run is verified separately in the delivery. Native Unity execution remains PENDING.
+
 ## Native-only uncertainties and Build #18 risks
 
 Unity 6000.3.10f1 was not found in the available executor. Native import, exact UnityEditor API compilation, GraphicsSettings targeted persistence/serialized reference shape, scene restoration and pre-export execution are **PENDING**. Runtime reference compilation uses the existing verified UnityEngine 2021.3.33 assemblies and does not prove Unity 6000 Editor compatibility.
