@@ -3,6 +3,7 @@ from pathlib import Path
 import hashlib, json, re, subprocess, struct
 import yaml
 from validate_current_build import documents, guid_for, require
+from environment_asset_scope import environment_owned
 
 ROOT=Path(__file__).resolve().parents[1]
 
@@ -63,7 +64,9 @@ def main():
         web=next(p for p in meta['platformSettings'] if p['buildTarget']=='WebGL')
         require(web['overridden']==1 and web['maxTextureSize']==row['maxSize'] and web['textureFormat']==4,'WebGL importer policy')
         require(meta['isReadable']==0 and meta['mipmaps']['enableMipMap']==0 and meta['nPOTScale']==0,'Residency policy')
-    all_png=[p for p in (ROOT/'Assets/Art').rglob('*') if p.suffix.lower()=='.png']
+    # The unreferenced 3D library is independently budgeted by validate_environment_library.
+    # This existing 90 MiB contract remains the shipping sprite/brand texture budget.
+    all_png=[p for p in (ROOT/'Assets/Art').rglob('*') if p.suffix.lower()=='.png' and not environment_owned(p)]
     hashes={};resident=0
     for path in all_png:
         digest=hashlib.sha256(path.read_bytes()).hexdigest()

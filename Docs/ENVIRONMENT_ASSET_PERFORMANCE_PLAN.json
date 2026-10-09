@@ -1,0 +1,80 @@
+{
+  "sourceTrianglesOneEach": 30327,
+  "oneEachBaseMaterialSlots": 42,
+  "oneEachShadowCastingMaterialSlots": 29,
+  "texturePayloads": 25,
+  "alphaTestedModels": 6,
+  "textureResidencyBytes": {
+    "fullRGBA8WithMipmaps": 504714548,
+    "mobileRGBA8WithMipmaps": 135615796,
+    "fullASTC6x6WithMipmaps": 56360672,
+    "mobileASTC6x6WithMipmaps": 15189344
+  },
+  "scenarios": [
+    {
+      "name": "Layered enclosure planning case",
+      "simultaneouslyVisibleInstances": {
+        "qn:CommonTree_1": 20,
+        "qn:CommonTree_3": 16,
+        "qn:TwistedTree_1": 4,
+        "qn:Pine_1": 24,
+        "qn:Pine_5": 24,
+        "qn:Fern_1": 80,
+        "qn:Rock_Medium_1": 50,
+        "qn:Rock_Medium_2": 50,
+        "qn:Rock_Medium_3": 50,
+        "kn:cliff_large_rock": 40,
+        "kn:cliff_block_rock": 40,
+        "kn:cliff_cornerLarge_rock": 40,
+        "kn:rock_tallA": 60,
+        "kn:rock_tallG": 60,
+        "kn:tree_pineTallA": 300,
+        "kn:tree_pineTallC": 300,
+        "kn:tree_default_dark": 300,
+        "kn:statue_columnDamaged": 1,
+        "qm:Wall_UnevenBrick_Straight": 1,
+        "qm:DoorFrame_Round_Brick": 1,
+        "qm:Stairs_Exterior_Straight": 1,
+        "kc:tower-square-arch": 1,
+        "kc:tower-hexagon-top": 1,
+        "kc:wall-corner-half-tower": 1,
+        "kc:wall-half-modular": 1
+      },
+      "lod0TriangleEstimate": 536888,
+      "unbatchedBaseMaterialSubmissionEstimate": 2738
+    },
+    {
+      "name": "Dense enclosure planning case",
+      "simultaneouslyVisibleInstances": {
+        "qn:CommonTree_1": 80,
+        "qn:CommonTree_3": 64,
+        "qn:TwistedTree_1": 16,
+        "qn:Pine_1": 96,
+        "qn:Pine_5": 96,
+        "qn:Fern_1": 320,
+        "qn:Rock_Medium_1": 200,
+        "qn:Rock_Medium_2": 200,
+        "qn:Rock_Medium_3": 200,
+        "kn:cliff_large_rock": 160,
+        "kn:cliff_block_rock": 160,
+        "kn:cliff_cornerLarge_rock": 160,
+        "kn:rock_tallA": 240,
+        "kn:rock_tallG": 240,
+        "kn:tree_pineTallA": 1200,
+        "kn:tree_pineTallC": 1200,
+        "kn:tree_default_dark": 1200,
+        "kn:statue_columnDamaged": 1,
+        "qm:Wall_UnevenBrick_Straight": 1,
+        "qm:DoorFrame_Round_Brick": 1,
+        "qm:Stairs_Exterior_Straight": 1,
+        "kc:tower-square-arch": 1,
+        "kc:tower-hexagon-top": 1,
+        "kc:wall-corner-half-tower": 1,
+        "kc:wall-half-modular": 1
+      },
+      "lod0TriangleEstimate": 2137172,
+      "unbatchedBaseMaterialSubmissionEstimate": 10916
+    }
+  ],
+  "measurementStatus": "Source geometry plus explicit planning assumptions; no Unity frame time, actual draw-call or device-residency measurement"
+}

@@ -1,0 +1,1727 @@
+{
+  "blender_version": "4.3.2",
+  "native_unity_executed": false,
+  "models": [
+    {
+      "id": "qn:CommonTree_1",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/CommonTree_1.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 6132,
+      "triangles": 6265,
+      "gltf_reference_triangles": 6265,
+      "normalized_y_up_bounds_size": [
+        4.311422824859619,
+        7.264785259962082,
+        4.577713966369629
+      ],
+      "max_bounds_delta_from_gltf": 4.740037917727591e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "CommonTree_1",
+          "materials": [
+            "Bark_NormalTree",
+            "Leaves_NormalTree"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Bark_NormalTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Bark_NormalTree.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Bark_NormalTree_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree_Normal.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "Leaves_NormalTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Leaves_NormalTree_C.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaves_NormalTree_C.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Leaves_NormalTree_C.png.001",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaves_NormalTree_C.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "CommonTree_1",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:CommonTree_3",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/CommonTree_3.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 4699,
+      "triangles": 3505,
+      "gltf_reference_triangles": 3505,
+      "normalized_y_up_bounds_size": [
+        4.0628461837768555,
+        9.425189942121506,
+        4.241077423095703
+      ],
+      "max_bounds_delta_from_gltf": 3.816223144603725e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "CommonTree_3",
+          "materials": [
+            "Bark_NormalTree",
+            "Leaves_NormalTree"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Bark_NormalTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Bark_NormalTree.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Bark_NormalTree_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree_Normal.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "Leaves_NormalTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Leaves_NormalTree_C.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaves_NormalTree_C.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Leaves_NormalTree_C.png.001",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaves_NormalTree_C.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "CommonTree_3",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:Fern_1",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Fern_1.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 234,
+      "triangles": 288,
+      "gltf_reference_triangles": 288,
+      "normalized_y_up_bounds_size": [
+        9.046188354492188,
+        2.688777834177017,
+        8.48742389678955
+      ],
+      "max_bounds_delta_from_gltf": 6.219258354492188,
+      "mesh_material_slots": [
+        {
+          "mesh": "Fern_1",
+          "materials": [
+            "Leaves"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Leaves",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Leaves.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Stylized Nature Remaster/Leaves.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Leaves.png.001",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Stylized Nature Remaster/Leaves.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Fern_1",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:Pine_1",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Pine_1.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 2350,
+      "triangles": 3947,
+      "gltf_reference_triangles": 3947,
+      "normalized_y_up_bounds_size": [
+        4.944698095321655,
+        7.316917702555656,
+        4.538403272628784
+      ],
+      "max_bounds_delta_from_gltf": 3.2726287839679458e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "Pine_1",
+          "materials": [
+            "Bark_NormalTree",
+            "Leaves_Pine"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Bark_NormalTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Bark_NormalTree.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Bark_NormalTree_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree_Normal.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "Leaves_Pine",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Leaf_Pine_C.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaf_Pine_C.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Leaf_Pine_C.png.001",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaf_Pine_C.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Pine_1",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:Pine_5",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Pine_5.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 1278,
+      "triangles": 1646,
+      "gltf_reference_triangles": 1646,
+      "normalized_y_up_bounds_size": [
+        6.420140743255615,
+        8.723807662725449,
+        6.222001552581787
+      ],
+      "max_bounds_delta_from_gltf": 2.3372745516780924e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "Pine_5",
+          "materials": [
+            "Bark_NormalTree",
+            "Leaves_Pine"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Bark_NormalTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Bark_NormalTree.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Bark_NormalTree_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_NormalTree_Normal.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "Leaves_Pine",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Leaf_Pine_C.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaf_Pine_C.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Leaf_Pine_C.png.001",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaf_Pine_C.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Pine_5",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:Rock_Medium_1",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rock_Medium_1.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 173,
+      "triangles": 342,
+      "gltf_reference_triangles": 342,
+      "normalized_y_up_bounds_size": [
+        3.2251484394073486,
+        2.2597970068454742,
+        2.989136576652527
+      ],
+      "max_bounds_delta_from_gltf": 3.423347473052729e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "Rock_Medium_1",
+          "materials": [
+            "Rocks"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Rocks",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Rocks_Diffuse.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rocks_Diffuse.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Rock_Medium_1",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:Rock_Medium_2",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rock_Medium_2.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 124,
+      "triangles": 244,
+      "gltf_reference_triangles": 244,
+      "normalized_y_up_bounds_size": [
+        3.048760414123535,
+        1.8989745005965233,
+        2.4790714979171753
+      ],
+      "max_bounds_delta_from_gltf": 4.500596523238087e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "Rock_Medium_2",
+          "materials": [
+            "Rocks"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Rocks",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Rocks_Diffuse.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rocks_Diffuse.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Rock_Medium_2",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:Rock_Medium_3",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rock_Medium_3.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 263,
+      "triangles": 522,
+      "gltf_reference_triangles": 522,
+      "normalized_y_up_bounds_size": [
+        3.4200847148895264,
+        2.316282331943512,
+        3.4761099815368652
+      ],
+      "max_bounds_delta_from_gltf": 4.714889526358235e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "Rock_Medium_3",
+          "materials": [
+            "Rocks"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Rocks",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Rocks_Diffuse.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rocks_Diffuse.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Rock_Medium_3",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qn:TwistedTree_1",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/TwistedTree_1.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 8495,
+      "triangles": 9564,
+      "gltf_reference_triangles": 9564,
+      "normalized_y_up_bounds_size": [
+        13.515754699707031,
+        16.725495874881744,
+        11.549364566802979
+      ],
+      "max_bounds_delta_from_gltf": 4.699707030653144e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "TwistedTree_1",
+          "materials": [
+            "Bark_TwistedTree",
+            "Leaves_TwistedTree"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "Bark_TwistedTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Bark_TwistedTree.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_TwistedTree.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Bark_TwistedTree_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bark_TwistedTree_Normal.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "Leaves_TwistedTree",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "Leaves_TwistedTree_C.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaves_TwistedTree_C.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "Leaves_TwistedTree_C.png.001",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Leaves_TwistedTree_C.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "TwistedTree_1",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qm:DoorFrame_Round_Brick",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/DoorFrame_Round_Brick.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 1077,
+      "triangles": 2046,
+      "gltf_reference_triangles": 2046,
+      "normalized_y_up_bounds_size": [
+        1.6031200289726257,
+        2.5861714102793485,
+        0.47716961801052094
+      ],
+      "max_bounds_delta_from_gltf": 1.4102793484127574e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "DoorFrame_Round_Brick",
+          "materials": [
+            "MI_RockTrim"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "MI_RockTrim",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "T_RockTrim_BaseColor.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_RockTrim_BaseColor.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "T_RockTrim_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_RockTrim_Normal.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "DoorFrame_Round_Brick",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qm:Stairs_Exterior_Straight",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/Stairs_Exterior_Straight.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 62,
+      "triangles": 62,
+      "gltf_reference_triangles": 62,
+      "normalized_y_up_bounds_size": [
+        2.000000476837158,
+        1.203687608242035,
+        2.077917456626892
+      ],
+      "max_bounds_delta_from_gltf": 2.5433731081214717e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "Stairs_Exterior_Straight",
+          "materials": [
+            "MI_RockTrim",
+            "MI_Brick"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "MI_Brick",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "T_Brick_BaseColor.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_Brick_BaseColor.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "T_Brick_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_Brick_Normal.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.002",
+              "image_name": "T_Brick_Roughness.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_Brick_Roughness.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "MI_RockTrim",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "T_RockTrim_BaseColor.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_RockTrim_BaseColor.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "T_RockTrim_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_RockTrim_Normal.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Stairs_Exterior_Straight",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "qm:Wall_UnevenBrick_Straight",
+      "source_fbx": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/Wall_UnevenBrick_Straight.fbx",
+      "fbx_version": 7400,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 50,
+      "triangles": 56,
+      "gltf_reference_triangles": 56,
+      "normalized_y_up_bounds_size": [
+        2.0000001192092896,
+        3.12268880287834,
+        0.4064817652106285
+      ],
+      "max_bounds_delta_from_gltf": 1.7652106285015456e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "Wall_UnevenBrick_Straight",
+          "materials": [
+            "MI_WoodTrim",
+            "MI_Plaster",
+            "MI_UnevenBrick"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "MI_Plaster",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "T_Plaster_BaseColor.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_Plaster_BaseColor.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "T_Plaster_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_Plaster_Normal.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "MI_UnevenBrick",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "T_UnevenBrick_BaseColor.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_UnevenBrick_BaseColor.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "T_UnevenBrick_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_UnevenBrick_Normal.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.002",
+              "image_name": "T_UnevenBrick_Roughness.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_UnevenBrick_Roughness.png",
+              "packed": false
+            }
+          ]
+        },
+        {
+          "name": "MI_WoodTrim",
+          "diffuse_rgba": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "T_WoodTrim_BaseColor.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_WoodTrim_BaseColor.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.001",
+              "image_name": "T_WoodTrim_Normal.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_WoodTrim_Normal.png",
+              "packed": false
+            },
+            {
+              "node": "Image Texture.002",
+              "image_name": "T_WoodTrim_Roughness.png",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/C:/Users/Usuario/Desktop/Work/Blender/_FreeModels/_Unfinished/Medieval Village/Textures/T_WoodTrim_Roughness.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "Wall_UnevenBrick_Straight",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "kn:cliff_block_rock",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/cliff_block_rock.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 24,
+      "triangles": 12,
+      "gltf_reference_triangles": 12,
+      "normalized_y_up_bounds_size": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "max_bounds_delta_from_gltf": 0.0,
+      "mesh_material_slots": [
+        {
+          "mesh": "cliff_block_rock",
+          "materials": [
+            "grass",
+            "dirt"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "grass",
+          "diffuse_rgba": [
+            0.172549,
+            0.8470588,
+            0.7215686,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "dirt",
+          "diffuse_rgba": [
+            0.8862745,
+            0.5137255,
+            0.3411765,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:cliff_cornerLarge_rock",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/cliff_cornerLarge_rock.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 24,
+      "triangles": 12,
+      "gltf_reference_triangles": 12,
+      "normalized_y_up_bounds_size": [
+        0.41850001,
+        1.0,
+        0.41849999000000004
+      ],
+      "max_bounds_delta_from_gltf": 9.999999994736442e-09,
+      "mesh_material_slots": [
+        {
+          "mesh": "cliff_cornerLarge_rock",
+          "materials": [
+            "dirt"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "dirt",
+          "diffuse_rgba": [
+            0.8862745,
+            0.5137255,
+            0.3411765,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:cliff_large_rock",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/cliff_large_rock.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 54,
+      "triangles": 32,
+      "gltf_reference_triangles": 32,
+      "normalized_y_up_bounds_size": [
+        1.0,
+        1.0,
+        0.41850001
+      ],
+      "max_bounds_delta_from_gltf": 9.999999994736442e-09,
+      "mesh_material_slots": [
+        {
+          "mesh": "cliff_large_rock",
+          "materials": [
+            "dirt"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "dirt",
+          "diffuse_rgba": [
+            0.8862745,
+            0.5137255,
+            0.3411765,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:rock_tallA",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/rock_tallA.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 254,
+      "triangles": 136,
+      "gltf_reference_triangles": 136,
+      "normalized_y_up_bounds_size": [
+        0.9830688000000001,
+        0.9959259,
+        0.6832107999999999
+      ],
+      "max_bounds_delta_from_gltf": 4.099999999951365e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "rock_tallA",
+          "materials": [
+            "dirt",
+            "grass",
+            "_defaultMat"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "dirt",
+          "diffuse_rgba": [
+            0.8862745,
+            0.5137255,
+            0.3411765,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "grass",
+          "diffuse_rgba": [
+            0.172549,
+            0.8470588,
+            0.7215686,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "_defaultMat",
+          "diffuse_rgba": [
+            1.0,
+            1.0,
+            1.0,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:rock_tallG",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/rock_tallG.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 116,
+      "triangles": 62,
+      "gltf_reference_triangles": 62,
+      "normalized_y_up_bounds_size": [
+        0.42494820000000005,
+        0.782936,
+        0.490688
+      ],
+      "max_bounds_delta_from_gltf": 4.000000000004e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "rock_tallG",
+          "materials": [
+            "dirt",
+            "_defaultMat",
+            "grass"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "dirt",
+          "diffuse_rgba": [
+            0.8862745,
+            0.5137255,
+            0.3411765,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "_defaultMat",
+          "diffuse_rgba": [
+            1.0,
+            1.0,
+            1.0,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "grass",
+          "diffuse_rgba": [
+            0.172549,
+            0.8470588,
+            0.7215686,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:statue_columnDamaged",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/statue_columnDamaged.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 176,
+      "triangles": 108,
+      "gltf_reference_triangles": 108,
+      "normalized_y_up_bounds_size": [
+        0.3,
+        0.7,
+        0.3
+      ],
+      "max_bounds_delta_from_gltf": 0.0,
+      "mesh_material_slots": [
+        {
+          "mesh": "statue_columnDamaged",
+          "materials": [
+            "stoneDark",
+            "stone"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "stoneDark",
+          "diffuse_rgba": [
+            0.6039216,
+            0.7098039,
+            0.7294118,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "stone",
+          "diffuse_rgba": [
+            0.7215686,
+            0.8862745,
+            0.9098039,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:tree_default_dark",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/tree_default_dark.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 192,
+      "triangles": 114,
+      "gltf_reference_triangles": 114,
+      "normalized_y_up_bounds_size": [
+        0.755,
+        1.7078869999999997,
+        0.653849
+      ],
+      "max_bounds_delta_from_gltf": 3.0000000001972893e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "tree_default_dark",
+          "materials": [
+            "woodBarkDark",
+            "leafsDark"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "woodBarkDark",
+          "diffuse_rgba": [
+            0.8,
+            0.4627451,
+            0.3686275,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "leafsDark",
+          "diffuse_rgba": [
+            0.1686275,
+            0.6509804,
+            0.6666667,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:tree_pineTallA",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/tree_pineTallA.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 136,
+      "triangles": 78,
+      "gltf_reference_triangles": 78,
+      "normalized_y_up_bounds_size": [
+        0.38627290000000003,
+        1.529606,
+        0.39195
+      ],
+      "max_bounds_delta_from_gltf": 3.999999999892978e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "tree_pineTallA",
+          "materials": [
+            "woodBarkDark",
+            "leafsDark"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "woodBarkDark",
+          "diffuse_rgba": [
+            0.8,
+            0.4627451,
+            0.3686275,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "leafsDark",
+          "diffuse_rgba": [
+            0.1686275,
+            0.6509804,
+            0.6666667,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kn:tree_pineTallC",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/tree_pineTallC.fbx",
+      "fbx_version": 7300,
+      "global_settings": {
+        "UpAxis": 1.0,
+        "UpAxisSign": 1.0,
+        "FrontAxis": 2.0,
+        "FrontAxisSign": 1.0,
+        "CoordAxis": 0.0,
+        "CoordAxisSign": 1.0,
+        "UnitScaleFactor": 10.0,
+        "OriginalUnitScaleFactor": 10.0
+      },
+      "mesh_count": 1,
+      "source_control_point_count": 156,
+      "triangles": 98,
+      "gltf_reference_triangles": 98,
+      "normalized_y_up_bounds_size": [
+        0.48038439999999993,
+        1.6704989999999997,
+        0.5547
+      ],
+      "max_bounds_delta_from_gltf": 4.3999999999599915e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "tree_pineTallC",
+          "materials": [
+            "leafsDark",
+            "woodBarkDark"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "leafsDark",
+          "diffuse_rgba": [
+            0.1686275,
+            0.6509804,
+            0.6666667,
+            1
+          ],
+          "image_nodes": []
+        },
+        {
+          "name": "woodBarkDark",
+          "diffuse_rgba": [
+            0.8,
+            0.4627451,
+            0.3686275,
+            1
+          ],
+          "image_nodes": []
+        }
+      ],
+      "status": "ASCII FBX source arrays inspected; Blender does not support this FBX format; Unity import PENDING"
+    },
+    {
+      "id": "kc:tower-hexagon-top",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/tower-hexagon-top.fbx",
+      "fbx_version": 7700,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 84,
+      "triangles": 168,
+      "gltf_reference_triangles": 168,
+      "normalized_y_up_bounds_size": [
+        0.8639999032020569,
+        0.13000005327944741,
+        0.748245894908905
+      ],
+      "max_bounds_delta_from_gltf": 4.105091094941393e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "tower-hexagon-top",
+          "materials": [
+            "colormap"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "colormap",
+          "diffuse_rgba": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "DiffuseColor_Texture",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/Textures/colormap.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "tower-hexagon-top",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "kc:tower-square-arch",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/tower-square-arch.fbx",
+      "fbx_version": 7700,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 156,
+      "triangles": 308,
+      "gltf_reference_triangles": 308,
+      "normalized_y_up_bounds_size": [
+        0.9300000071525574,
+        1.0100000255697772,
+        0.9300000965595245
+      ],
+      "max_bounds_delta_from_gltf": 9.6559524487283e-08,
+      "mesh_material_slots": [
+        {
+          "mesh": "tower-square-arch",
+          "materials": [
+            "colormap"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "colormap",
+          "diffuse_rgba": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "DiffuseColor_Texture",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/Textures/colormap.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "tower-square-arch",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "kc:wall-corner-half-tower",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/wall-corner-half-tower.fbx",
+      "fbx_version": 7700,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 336,
+      "triangles": 632,
+      "gltf_reference_triangles": 632,
+      "normalized_y_up_bounds_size": [
+        1.5,
+        1.440000094969406,
+        1.5000001192092896
+      ],
+      "max_bounds_delta_from_gltf": 1.1920928955078125e-07,
+      "mesh_material_slots": [
+        {
+          "mesh": "wall-corner-half-tower",
+          "materials": [
+            "colormap"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "colormap",
+          "diffuse_rgba": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "DiffuseColor_Texture",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/Textures/colormap.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "wall-corner-half-tower",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    },
+    {
+      "id": "kc:wall-half-modular",
+      "source_fbx": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/wall-half-modular.fbx",
+      "fbx_version": 7700,
+      "global_settings": {
+        "UpAxis": 1,
+        "UpAxisSign": 1,
+        "FrontAxis": 2,
+        "FrontAxisSign": 1,
+        "CoordAxis": 0,
+        "CoordAxisSign": 1,
+        "UnitScaleFactor": 1.0,
+        "OriginalUnitScaleFactor": 1.0
+      },
+      "mesh_count": 1,
+      "blender_vertices": 42,
+      "triangles": 80,
+      "gltf_reference_triangles": 80,
+      "normalized_y_up_bounds_size": [
+        0.6045821933075786,
+        1.309999980528488,
+        1.0000001192092896
+      ],
+      "max_bounds_delta_from_gltf": 2.193307578557402e-06,
+      "mesh_material_slots": [
+        {
+          "mesh": "wall-half-modular",
+          "materials": [
+            "colormap"
+          ]
+        }
+      ],
+      "materials": [
+        {
+          "name": "colormap",
+          "diffuse_rgba": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "image_nodes": [
+            {
+              "node": "Image Texture",
+              "image_name": "DiffuseColor_Texture",
+              "reference": "/workspace/crownfall/ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/Textures/colormap.png",
+              "packed": false
+            }
+          ]
+        }
+      ],
+      "objects": [
+        {
+          "name": "wall-half-modular",
+          "type": "MESH"
+        }
+      ],
+      "status": "Blender FBX import completed; Unity import PENDING"
+    }
+  ]
+}

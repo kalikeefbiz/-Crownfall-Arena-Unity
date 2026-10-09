@@ -1,0 +1,19 @@
+{
+  "id": "kc",
+  "name": "Castle Kit 2.0",
+  "official_page": "https://kenney.nl/assets/castle-kit",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "acquired_utc_date": "2026-10-09",
+  "status": "acquired",
+  "archive_sha256": "921f3f73927bb23106cae34bc21d5ab4b033a9fc120475e96f714a406e3169df",
+  "archive_bytes": 2232589,
+  "archive_model_count_single_format": 76,
+  "staged_unique_model_count": 29,
+  "staging_path": "ExternalArtStaging/Environment/Kenney/Castle",
+  "license_files": [
+    "ExternalArtStaging/Environment/Kenney/Castle/Original/License.txt"
+  ],
+  "download_url": "https://kenney.nl/media/pages/assets/castle-kit/a395102d20-1711543616/kenney_castle-kit.zip",
+  "original_archive_name": "kenney_castle-kit.zip"
+}

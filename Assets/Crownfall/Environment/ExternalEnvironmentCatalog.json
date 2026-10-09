@@ -1,0 +1,1923 @@
+{
+  "schemaVersion": 1,
+  "requiredUnityVersion": "6000.3.10f1",
+  "startingHead": "ef735e9d1407a1dd9104f071226ebfd9fff1c3d3",
+  "nativeValidationStatus": "PENDING",
+  "models": [
+    {
+      "id": "qn:CommonTree_1",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/CommonTree_1.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        4.31142,
+        7.26479,
+        4.57771
+      ],
+      "sourceFbxSize": [
+        4.311422824859619,
+        7.264785259962082,
+        4.577713966369629
+      ],
+      "sourceTriangles": 6265,
+      "bindings": [
+        {
+          "sourceName": "Bark_NormalTree",
+          "materialKey": "qn_Bark_NormalTree"
+        },
+        {
+          "sourceName": "Leaves_NormalTree",
+          "materialKey": "qn_Leaves_NormalTree"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "planned, silhouette-preserving derived LODs pending",
+      "lodCandidate": true,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:CommonTree_3",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/CommonTree_3.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        4.06285,
+        9.42519,
+        4.24108
+      ],
+      "sourceFbxSize": [
+        4.0628461837768555,
+        9.425189942121506,
+        4.241077423095703
+      ],
+      "sourceTriangles": 3505,
+      "bindings": [
+        {
+          "sourceName": "Bark_NormalTree",
+          "materialKey": "qn_Bark_NormalTree"
+        },
+        {
+          "sourceName": "Leaves_NormalTree",
+          "materialKey": "qn_Leaves_NormalTree"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "planned, silhouette-preserving derived LODs pending",
+      "lodCandidate": true,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:TwistedTree_1",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/TwistedTree_1.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        13.51575,
+        16.7255,
+        11.54936
+      ],
+      "sourceFbxSize": [
+        13.515754699707031,
+        16.725495874881744,
+        11.549364566802979
+      ],
+      "sourceTriangles": 9564,
+      "bindings": [
+        {
+          "sourceName": "Bark_TwistedTree",
+          "materialKey": "qn_Bark_TwistedTree"
+        },
+        {
+          "sourceName": "Leaves_TwistedTree",
+          "materialKey": "qn_Leaves_TwistedTree"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "planned, silhouette-preserving derived LODs pending",
+      "lodCandidate": true,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:Pine_1",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Pine_1.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        4.9447,
+        7.31692,
+        4.5384
+      ],
+      "sourceFbxSize": [
+        4.944698095321655,
+        7.316917702555656,
+        4.538403272628784
+      ],
+      "sourceTriangles": 3947,
+      "bindings": [
+        {
+          "sourceName": "Bark_NormalTree",
+          "materialKey": "qn_Bark_NormalTree"
+        },
+        {
+          "sourceName": "Leaves_Pine",
+          "materialKey": "qn_Leaves_Pine"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "planned, silhouette-preserving derived LODs pending",
+      "lodCandidate": true,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:Pine_5",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Pine_5.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        6.42014,
+        8.72381,
+        6.222
+      ],
+      "sourceFbxSize": [
+        6.420140743255615,
+        8.723807662725449,
+        6.222001552581787
+      ],
+      "sourceTriangles": 1646,
+      "bindings": [
+        {
+          "sourceName": "Bark_NormalTree",
+          "materialKey": "qn_Bark_NormalTree"
+        },
+        {
+          "sourceName": "Leaves_Pine",
+          "materialKey": "qn_Leaves_Pine"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "planned, silhouette-preserving derived LODs pending",
+      "lodCandidate": true,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:Fern_1",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Fern_1.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 0.3125,
+      "presentationScale": 0.6,
+      "expectedSize": [
+        2.82693,
+        0.84024,
+        2.65232
+      ],
+      "sourceFbxSize": [
+        9.046188354492188,
+        2.688777834177017,
+        8.48742389678955
+      ],
+      "sourceTriangles": 288,
+      "bindings": [
+        {
+          "sourceName": "Leaves",
+          "materialKey": "qn_Leaves"
+        }
+      ],
+      "castShadows": false,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:Rock_Medium_1",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Rock_Medium_1.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        3.22515,
+        2.2598,
+        2.98914
+      ],
+      "sourceFbxSize": [
+        3.2251484394073486,
+        2.2597970068454742,
+        2.989136576652527
+      ],
+      "sourceTriangles": 342,
+      "bindings": [
+        {
+          "sourceName": "Rocks",
+          "materialKey": "qn_Rocks"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:Rock_Medium_2",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Rock_Medium_2.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        3.04876,
+        1.89897,
+        2.47907
+      ],
+      "sourceFbxSize": [
+        3.048760414123535,
+        1.8989745005965233,
+        2.4790714979171753
+      ],
+      "sourceTriangles": 244,
+      "bindings": [
+        {
+          "sourceName": "Rocks",
+          "materialKey": "qn_Rocks"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:Rock_Medium_3",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Rock_Medium_3.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        3.42008,
+        2.31628,
+        3.47611
+      ],
+      "sourceFbxSize": [
+        3.4200847148895264,
+        2.316282331943512,
+        3.4761099815368652
+      ],
+      "sourceTriangles": 522,
+      "bindings": [
+        {
+          "sourceName": "Rocks",
+          "materialKey": "qn_Rocks"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:cliff_large_rock",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/cliff_large_rock.fbx",
+      "group": "MIDGROUND",
+      "importScale": 1,
+      "presentationScale": 8,
+      "expectedSize": [
+        1.0,
+        1.0,
+        0.4185
+      ],
+      "sourceFbxSize": [
+        1.0,
+        1.0,
+        0.41850001
+      ],
+      "sourceTriangles": 32,
+      "bindings": [
+        {
+          "sourceName": "dirt",
+          "materialKey": "kn_dirt"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:cliff_block_rock",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/cliff_block_rock.fbx",
+      "group": "MIDGROUND",
+      "importScale": 1,
+      "presentationScale": 8,
+      "expectedSize": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceFbxSize": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "sourceTriangles": 12,
+      "bindings": [
+        {
+          "sourceName": "grass",
+          "materialKey": "kn_grass"
+        },
+        {
+          "sourceName": "dirt",
+          "materialKey": "kn_dirt"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:cliff_cornerLarge_rock",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/cliff_cornerLarge_rock.fbx",
+      "group": "MIDGROUND",
+      "importScale": 1,
+      "presentationScale": 8,
+      "expectedSize": [
+        0.4185,
+        1.0,
+        0.4185
+      ],
+      "sourceFbxSize": [
+        0.41850001,
+        1.0,
+        0.41849999000000004
+      ],
+      "sourceTriangles": 12,
+      "bindings": [
+        {
+          "sourceName": "dirt",
+          "materialKey": "kn_dirt"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:rock_tallA",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/rock_tallA.fbx",
+      "group": "DISTANT",
+      "importScale": 1,
+      "presentationScale": 8,
+      "expectedSize": [
+        0.98307,
+        0.99593,
+        0.68321
+      ],
+      "sourceFbxSize": [
+        0.9830688000000001,
+        0.9959259,
+        0.6832107999999999
+      ],
+      "sourceTriangles": 136,
+      "bindings": [
+        {
+          "sourceName": "dirt",
+          "materialKey": "kn_dirt"
+        },
+        {
+          "sourceName": "grass",
+          "materialKey": "kn_grass"
+        },
+        {
+          "sourceName": "_defaultMat",
+          "materialKey": "kn__defaultMat"
+        }
+      ],
+      "castShadows": false,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:rock_tallG",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/rock_tallG.fbx",
+      "group": "DISTANT",
+      "importScale": 1,
+      "presentationScale": 8,
+      "expectedSize": [
+        0.42495,
+        0.78294,
+        0.49069
+      ],
+      "sourceFbxSize": [
+        0.42494820000000005,
+        0.782936,
+        0.490688
+      ],
+      "sourceTriangles": 62,
+      "bindings": [
+        {
+          "sourceName": "dirt",
+          "materialKey": "kn_dirt"
+        },
+        {
+          "sourceName": "_defaultMat",
+          "materialKey": "kn__defaultMat"
+        },
+        {
+          "sourceName": "grass",
+          "materialKey": "kn_grass"
+        }
+      ],
+      "castShadows": false,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:tree_pineTallA",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/tree_pineTallA.fbx",
+      "group": "DISTANT",
+      "importScale": 1,
+      "presentationScale": 5,
+      "expectedSize": [
+        0.38627,
+        1.52961,
+        0.39195
+      ],
+      "sourceFbxSize": [
+        0.38627290000000003,
+        1.529606,
+        0.39195
+      ],
+      "sourceTriangles": 78,
+      "bindings": [
+        {
+          "sourceName": "woodBarkDark",
+          "materialKey": "kn_woodBarkDark"
+        },
+        {
+          "sourceName": "leafsDark",
+          "materialKey": "kn_leafsDark"
+        }
+      ],
+      "castShadows": false,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:tree_pineTallC",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/tree_pineTallC.fbx",
+      "group": "DISTANT",
+      "importScale": 1,
+      "presentationScale": 5,
+      "expectedSize": [
+        0.48038,
+        1.6705,
+        0.5547
+      ],
+      "sourceFbxSize": [
+        0.48038439999999993,
+        1.6704989999999997,
+        0.5547
+      ],
+      "sourceTriangles": 98,
+      "bindings": [
+        {
+          "sourceName": "leafsDark",
+          "materialKey": "kn_leafsDark"
+        },
+        {
+          "sourceName": "woodBarkDark",
+          "materialKey": "kn_woodBarkDark"
+        }
+      ],
+      "castShadows": false,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:tree_default_dark",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/tree_default_dark.fbx",
+      "group": "DISTANT",
+      "importScale": 1,
+      "presentationScale": 5,
+      "expectedSize": [
+        0.755,
+        1.70789,
+        0.65385
+      ],
+      "sourceFbxSize": [
+        0.755,
+        1.7078869999999997,
+        0.653849
+      ],
+      "sourceTriangles": 114,
+      "bindings": [
+        {
+          "sourceName": "woodBarkDark",
+          "materialKey": "kn_woodBarkDark"
+        },
+        {
+          "sourceName": "leafsDark",
+          "materialKey": "kn_leafsDark"
+        }
+      ],
+      "castShadows": false,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kn:statue_columnDamaged",
+      "path": "Assets/Art/Environment/External/Kenney/Nature/Models/statue_columnDamaged.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 4,
+      "expectedSize": [
+        0.3,
+        0.7,
+        0.3
+      ],
+      "sourceFbxSize": [
+        0.3,
+        0.7,
+        0.3
+      ],
+      "sourceTriangles": 108,
+      "bindings": [
+        {
+          "sourceName": "stoneDark",
+          "materialKey": "kn_stoneDark"
+        },
+        {
+          "sourceName": "stone",
+          "materialKey": "kn_stone"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qm:Wall_UnevenBrick_Straight",
+      "path": "Assets/Art/Environment/External/Quaternius/Medieval/Models/Wall_UnevenBrick_Straight.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        2.0,
+        3.12269,
+        0.40648
+      ],
+      "sourceFbxSize": [
+        2.0000001192092896,
+        3.12268880287834,
+        0.4064817652106285
+      ],
+      "sourceTriangles": 56,
+      "bindings": [
+        {
+          "sourceName": "MI_Plaster",
+          "materialKey": "qm_MI_Plaster"
+        },
+        {
+          "sourceName": "MI_UnevenBrick",
+          "materialKey": "qm_MI_UnevenBrick"
+        },
+        {
+          "sourceName": "MI_WoodTrim",
+          "materialKey": "qm_MI_WoodTrim"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qm:DoorFrame_Round_Brick",
+      "path": "Assets/Art/Environment/External/Quaternius/Medieval/Models/DoorFrame_Round_Brick.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        1.60312,
+        2.58617,
+        0.47717
+      ],
+      "sourceFbxSize": [
+        1.6031200289726257,
+        2.5861714102793485,
+        0.47716961801052094
+      ],
+      "sourceTriangles": 2046,
+      "bindings": [
+        {
+          "sourceName": "MI_RockTrim",
+          "materialKey": "qm_MI_RockTrim"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "planned, silhouette-preserving derived LODs pending",
+      "lodCandidate": true,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qm:Stairs_Exterior_Straight",
+      "path": "Assets/Art/Environment/External/Quaternius/Medieval/Models/Stairs_Exterior_Straight.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        2.0,
+        1.20369,
+        2.07792
+      ],
+      "sourceFbxSize": [
+        2.000000476837158,
+        1.203687608242035,
+        2.077917456626892
+      ],
+      "sourceTriangles": 62,
+      "bindings": [
+        {
+          "sourceName": "MI_Brick",
+          "materialKey": "qm_MI_Brick"
+        },
+        {
+          "sourceName": "MI_RockTrim",
+          "materialKey": "qm_MI_RockTrim"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kc:tower-square-arch",
+      "path": "Assets/Art/Environment/External/Kenney/Castle/Models/tower-square-arch.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 4,
+      "expectedSize": [
+        0.93,
+        1.01,
+        0.93
+      ],
+      "sourceFbxSize": [
+        0.9300000071525574,
+        1.0100000255697772,
+        0.9300000965595245
+      ],
+      "sourceTriangles": 308,
+      "bindings": [
+        {
+          "sourceName": "colormap",
+          "materialKey": "kc_colormap"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kc:tower-hexagon-top",
+      "path": "Assets/Art/Environment/External/Kenney/Castle/Models/tower-hexagon-top.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 4,
+      "expectedSize": [
+        0.864,
+        0.13,
+        0.74825
+      ],
+      "sourceFbxSize": [
+        0.8639999032020569,
+        0.13000005327944741,
+        0.748245894908905
+      ],
+      "sourceTriangles": 168,
+      "bindings": [
+        {
+          "sourceName": "colormap",
+          "materialKey": "kc_colormap"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kc:wall-corner-half-tower",
+      "path": "Assets/Art/Environment/External/Kenney/Castle/Models/wall-corner-half-tower.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 4,
+      "expectedSize": [
+        1.5,
+        1.44,
+        1.5
+      ],
+      "sourceFbxSize": [
+        1.5,
+        1.440000094969406,
+        1.5000001192092896
+      ],
+      "sourceTriangles": 632,
+      "bindings": [
+        {
+          "sourceName": "colormap",
+          "materialKey": "kc_colormap"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "kc:wall-half-modular",
+      "path": "Assets/Art/Environment/External/Kenney/Castle/Models/wall-half-modular.fbx",
+      "group": "STRUCTURAL",
+      "importScale": 1,
+      "presentationScale": 4,
+      "expectedSize": [
+        0.60458,
+        1.31,
+        1.0
+      ],
+      "sourceFbxSize": [
+        0.6045821933075786,
+        1.309999980528488,
+        1.0000001192092896
+      ],
+      "sourceTriangles": 80,
+      "bindings": [
+        {
+          "sourceName": "colormap",
+          "materialKey": "kc_colormap"
+        }
+      ],
+      "castShadows": true,
+      "lodDecision": "LOD0 only; inexpensive or small role; no redundant LOD chain",
+      "lodCandidate": false,
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    }
+  ],
+  "textures": [
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "f36e94fdd73255347325b998e02a0b2575fdf714b0315bfe5e8ff34bc8e13603",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree_Normal.png",
+      "kind": "normal",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "852f6155404b8c39e100e41e26970e02a6a5c81b482d3726618dab28e3ad03a2",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves_NormalTree_C.png",
+      "kind": "cutout",
+      "width": 1024,
+      "height": 1024,
+      "sha256": "998612bdf0b76a22f5f54d65cd7a457815d2842d89653fa4348a4ebb42933ad3",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": true,
+      "wrap": "Clamp"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "01608a96c42954eb725b32824530b51e67a2f3d85432d21a8d8adff958d2084a",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree_Normal.png",
+      "kind": "normal",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "692da2f58909263f074cb17b36defd09f56bf89ab7efda567a9a3e59261747b3",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves_TwistedTree_C.png",
+      "kind": "cutout",
+      "width": 1024,
+      "height": 1024,
+      "sha256": "0e459b56b14c0e81b1b7cf3d1e8c6f0bb71790eb6c46bb02a76a922d8df646ea",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": true,
+      "wrap": "Clamp"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaf_Pine_C.png",
+      "kind": "cutout",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "86f7ff7a214f5424de48d269568f36a15485e61c80677e426c7be9f45181eef9",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": true,
+      "wrap": "Clamp"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves.png",
+      "kind": "cutout",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "23248cebe28a24e78add32db3c2ee2f4d7b9219e9d2467279722f0197a7b6bd5",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": true,
+      "wrap": "Clamp"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Rocks_Diffuse.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "b813696df6081f469a127092eb0ce45cc39d56f3ccc0699152bfcd3804810b48",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_BaseColor.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "98547ca83888307e3ffa96384ce058b7622affe0a42add3b36d0b48618c5eda4",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_Normal.png",
+      "kind": "normal",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "da129ede879d0ebe7cc21d092242667ca82514959709cfd1565569898b358bda",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_ORM.png",
+      "kind": "data",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "7be9d64a6154ba12bb7086e1d6774a7d5bbbc95775efb614f6ff40a4787fe0c7",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_BaseColor.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "ee0f096df6110e943cd9739680b61bc0ffd6fe00db752c5c3797941057a95ebc",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Normal.png",
+      "kind": "normal",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "71b1f5a3707be38e729b0e2c5c09c6841ccb8836cab4f62043c455cfdb5a8c56",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Roughness.png",
+      "kind": "data",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "da170cb92ac5479b93ca0c0002b783f1186a146e6e3124891ce7bfe6e1a8a942",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_BaseColor.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "a59f410b07a9bc5f0664df3ba7a2c1e37acffc7979795911f3fc8730ab60e33e",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Normal.png",
+      "kind": "normal",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "a2aa15d79245ba1bbdf82c0aa722a6453bb908fa115c4f5bdfb725d45bf6a641",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Roughness.png",
+      "kind": "data",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "e888464fd4199d458d8cf39e00fa07d56f8a0bcb658aa03b4a7c95d466ceefa3",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_BaseColor.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "aa571cd612091a8f4c95393f8f938bd6e5d47a8cdfd9c896b60a4b37903e2c7c",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_Normal.png",
+      "kind": "normal",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "381fc15a3555008dbd281ad475969d373d999b17d70da34496c28861cea831fa",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_ORM.png",
+      "kind": "data",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "5287dd9a4e9fb7423af8d8440a8de8bdb8910f9f37ba148f619a6eddf58d5bc8",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_BaseColor.png",
+      "kind": "color",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "5515f57e61767838f53f4b9e25aa83b1382ad345ff6b446482718b5140c33813",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_Normal.png",
+      "kind": "normal",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "eb9a0c76b019cd490995fa92d63c375d9c66b05e16cc73aba5cc8c6f1ff3421a",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_Roughness.png",
+      "kind": "data",
+      "width": 2048,
+      "height": 2048,
+      "sha256": "981e7a4f8e3119749b2fb3d557e3d0ba0551e75a39b467cff0a3a948a9392716",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/colormap.png",
+      "kind": "color",
+      "width": 512,
+      "height": 512,
+      "sha256": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+      "maxSize": 2048,
+      "webglFullMaxSize": 2048,
+      "webglMobileMaxSize": 1024,
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Clamp"
+    }
+  ],
+  "materials": [
+    {
+      "key": "qn_Bark_NormalTree",
+      "family": "bark",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree.png",
+      "normalTexture": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree_Normal.png",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "qn_Leaves_NormalTree",
+      "family": "alpha-cutout foliage",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/Leaves_NormalTree_C.png",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qn_Bark_TwistedTree",
+      "family": "bark",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree.png",
+      "normalTexture": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree_Normal.png",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "qn_Leaves_TwistedTree",
+      "family": "alpha-cutout foliage",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/Leaves_TwistedTree_C.png",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qn_Leaves_Pine",
+      "family": "alpha-cutout foliage",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/Leaf_Pine_C.png",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qn_Leaves",
+      "family": "alpha-cutout foliage",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/Leaves.png",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qn_Rocks",
+      "family": "stone",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/Rocks_Diffuse.png",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "kn_dirt",
+      "family": "stone",
+      "baseTexture": "",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        0.8862745,
+        0.5137255,
+        0.34117648,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "kn_grass",
+      "family": "opaque foliage",
+      "baseTexture": "",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        0.172549024,
+        0.847058833,
+        0.721568644,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "kn__defaultMat",
+      "family": "stone",
+      "baseTexture": "",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "kn_woodBarkDark",
+      "family": "bark",
+      "baseTexture": "",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        0.8,
+        0.4627451,
+        0.368627459,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "kn_leafsDark",
+      "family": "distant vegetation",
+      "baseTexture": "",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        0.168627456,
+        0.6509804,
+        0.6666667,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "kn_stoneDark",
+      "family": "masonry",
+      "baseTexture": "",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        0.6039216,
+        0.709803939,
+        0.7294118,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "kn_stone",
+      "family": "masonry",
+      "baseTexture": "",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        0.721568644,
+        0.8862745,
+        0.9098039,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 2,
+      "enableInstancing": true
+    },
+    {
+      "key": "qm_MI_Plaster",
+      "family": "masonry",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/T_Plaster_BaseColor.png",
+      "normalTexture": "Assets/Art/Environment/External/SharedTextures/T_Plaster_Normal.png",
+      "surfaceTexture": "Assets/Art/Environment/External/SharedTextures/T_Plaster_ORM.png",
+      "surfaceMode": 2,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qm_MI_UnevenBrick",
+      "family": "masonry",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_BaseColor.png",
+      "normalTexture": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Normal.png",
+      "surfaceTexture": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Roughness.png",
+      "surfaceMode": 1,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qm_MI_WoodTrim",
+      "family": "bark",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_BaseColor.png",
+      "normalTexture": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Normal.png",
+      "surfaceTexture": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Roughness.png",
+      "surfaceMode": 1,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qm_MI_RockTrim",
+      "family": "masonry",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_BaseColor.png",
+      "normalTexture": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_Normal.png",
+      "surfaceTexture": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_ORM.png",
+      "surfaceMode": 2,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "qm_MI_Brick",
+      "family": "masonry",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/T_Brick_BaseColor.png",
+      "normalTexture": "Assets/Art/Environment/External/SharedTextures/T_Brick_Normal.png",
+      "surfaceTexture": "Assets/Art/Environment/External/SharedTextures/T_Brick_Roughness.png",
+      "surfaceMode": 1,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    },
+    {
+      "key": "kc_colormap",
+      "family": "masonry",
+      "baseTexture": "Assets/Art/Environment/External/SharedTextures/colormap.png",
+      "normalTexture": "",
+      "surfaceTexture": "",
+      "surfaceMode": 0,
+      "color": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "cutoff": 0.2,
+      "smoothness": 0.1,
+      "metallic": 0.0,
+      "cull": 0,
+      "enableInstancing": true
+    }
+  ],
+  "productionCopies": [
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/CommonTree_1.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/CommonTree_1.fbx",
+      "bytes": 365068,
+      "sha256": "fdddc50c46eb286a68cedacecef5ccf937837d2bd9326ff9b4ab2b030c7d842b",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Bark_NormalTree.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree.png",
+      "bytes": 3894788,
+      "sha256": "f36e94fdd73255347325b998e02a0b2575fdf714b0315bfe5e8ff34bc8e13603",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Bark_NormalTree_Normal.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree_Normal.png",
+      "bytes": 4384496,
+      "sha256": "852f6155404b8c39e100e41e26970e02a6a5c81b482d3726618dab28e3ad03a2",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Leaves_NormalTree_C.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Leaves_NormalTree_C.png",
+      "bytes": 158796,
+      "sha256": "998612bdf0b76a22f5f54d65cd7a457815d2842d89653fa4348a4ebb42933ad3",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/CommonTree_3.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/CommonTree_3.fbx",
+      "bytes": 232284,
+      "sha256": "fce1c6ec64dacc5887c98dd6ced4b08737381c14927717ce7a49403d0d23a86e",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/TwistedTree_1.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/TwistedTree_1.fbx",
+      "bytes": 526716,
+      "sha256": "825fa484dfb7802755310b98ee74c666411cf6b58a7646aba6c73e341e9c6b49",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Bark_TwistedTree.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree.png",
+      "bytes": 4630805,
+      "sha256": "01608a96c42954eb725b32824530b51e67a2f3d85432d21a8d8adff958d2084a",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Bark_TwistedTree_Normal.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree_Normal.png",
+      "bytes": 5728199,
+      "sha256": "692da2f58909263f074cb17b36defd09f56bf89ab7efda567a9a3e59261747b3",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Leaves_TwistedTree_C.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Leaves_TwistedTree_C.png",
+      "bytes": 70353,
+      "sha256": "0e459b56b14c0e81b1b7cf3d1e8c6f0bb71790eb6c46bb02a76a922d8df646ea",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Pine_1.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/Pine_1.fbx",
+      "bytes": 222204,
+      "sha256": "298ce6f57d0c8f5419a5f3d1011762937392061fe73f2c05c6956da6c50a97f8",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Leaf_Pine_C.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Leaf_Pine_C.png",
+      "bytes": 70055,
+      "sha256": "86f7ff7a214f5424de48d269568f36a15485e61c80677e426c7be9f45181eef9",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Pine_5.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/Pine_5.fbx",
+      "bytes": 112124,
+      "sha256": "97f238589a028768757f9864c7df76f6b9b3b6508408a0f6b70f8e61d8b9ce4b",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Fern_1.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/Fern_1.fbx",
+      "bytes": 31884,
+      "sha256": "cdcec5aeb0f1faf854f6a524c62a51196a83acd472831b99f08e91c05c8733b4",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Leaves.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Leaves.png",
+      "bytes": 2586432,
+      "sha256": "23248cebe28a24e78add32db3c2ee2f4d7b9219e9d2467279722f0197a7b6bd5",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rock_Medium_1.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/Rock_Medium_1.fbx",
+      "bytes": 30572,
+      "sha256": "428d46fcd894115070ba323212e443249bb98d6a21fa3be933891124d0480787",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/glTF/Rocks_Diffuse.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/Rocks_Diffuse.png",
+      "bytes": 2517398,
+      "sha256": "b813696df6081f469a127092eb0ce45cc39d56f3ccc0699152bfcd3804810b48",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rock_Medium_2.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/Rock_Medium_2.fbx",
+      "bytes": 27164,
+      "sha256": "178576f884fdcc3a5c3cd824dbdceb54c8b96c791d06a69045d6553bf65cc526",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Rock_Medium_3.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/Rock_Medium_3.fbx",
+      "bytes": 37052,
+      "sha256": "f904be29181f09fb783be55b3ce412e4afb92919c02e291db570641ef0c3e986",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/cliff_large_rock.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/cliff_large_rock.fbx",
+      "bytes": 14699,
+      "sha256": "b0669e2186507fe7a4a12640c064b1670b80a4303944794726890b8ee07c3d7b",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/cliff_block_rock.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/cliff_block_rock.fbx",
+      "bytes": 12317,
+      "sha256": "cab387bf1bebe62816f14eea116f3717c964df08fb12695dc27ca6c5f8ad0aed",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/cliff_cornerLarge_rock.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/cliff_cornerLarge_rock.fbx",
+      "bytes": 12379,
+      "sha256": "37c5567f51eb84b5062652449698a0bf7bea5e41c1fe6d8e8c2fb6ab1ee0dd49",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/rock_tallA.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/rock_tallA.fbx",
+      "bytes": 35573,
+      "sha256": "7b9a9aab017af1f2cfa8acff5c891e621821ae61ff17b85c90558fd7b9119048",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/rock_tallG.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/rock_tallG.fbx",
+      "bytes": 22535,
+      "sha256": "0b78ec87ebadb3b20fbcc84920a0d454b2326d1a8624ce679bc861d5e882f74e",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/tree_pineTallA.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/tree_pineTallA.fbx",
+      "bytes": 22995,
+      "sha256": "46ba9b870e1845890d0c4d24422f0df12a25f5be6eae464b34a2c52993c17084",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/tree_pineTallC.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/tree_pineTallC.fbx",
+      "bytes": 28831,
+      "sha256": "5d333c7a72ba088924044ad6c05c388a0a28ca63fa55973a49ca3c40ebc8e292",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/tree_default_dark.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/tree_default_dark.fbx",
+      "bytes": 30974,
+      "sha256": "c2f2454d9f41ab66df2bcb7e6fe1d9b076b6d718e09875246af420535612c289",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/Models/FBX format/statue_columnDamaged.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Nature/Models/statue_columnDamaged.fbx",
+      "bytes": 21600,
+      "sha256": "96db23be02de61e205b51369c63c30c7a99f8e12ff0fb5b138b3a9ce3b99e2e1",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/Wall_UnevenBrick_Straight.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Medieval/Models/Wall_UnevenBrick_Straight.fbx",
+      "bytes": 32396,
+      "sha256": "f4c7d302a46042931e7d69f9e439a2e4a50506f82bbdb8f5b5cdac42bde9cbf6",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_Plaster_BaseColor.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_Plaster_BaseColor.png",
+      "bytes": 3316410,
+      "sha256": "98547ca83888307e3ffa96384ce058b7622affe0a42add3b36d0b48618c5eda4",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/Textures/Normals Godot-Unity/T_Plaster_Normal.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_Plaster_Normal.png",
+      "bytes": 4575580,
+      "sha256": "da129ede879d0ebe7cc21d092242667ca82514959709cfd1565569898b358bda",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_Plaster_ORM.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_Plaster_ORM.png",
+      "bytes": 2381579,
+      "sha256": "7be9d64a6154ba12bb7086e1d6774a7d5bbbc95775efb614f6ff40a4787fe0c7",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_UnevenBrick_BaseColor.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_BaseColor.png",
+      "bytes": 2945342,
+      "sha256": "ee0f096df6110e943cd9739680b61bc0ffd6fe00db752c5c3797941057a95ebc",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/Textures/Normals Godot-Unity/T_UnevenBrick_Normal.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Normal.png",
+      "bytes": 3868581,
+      "sha256": "71b1f5a3707be38e729b0e2c5c09c6841ccb8836cab4f62043c455cfdb5a8c56",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_UnevenBrick_Roughness.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Roughness.png",
+      "bytes": 1246162,
+      "sha256": "da170cb92ac5479b93ca0c0002b783f1186a146e6e3124891ce7bfe6e1a8a942",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_WoodTrim_BaseColor.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_BaseColor.png",
+      "bytes": 2082310,
+      "sha256": "a59f410b07a9bc5f0664df3ba7a2c1e37acffc7979795911f3fc8730ab60e33e",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/Textures/Normals Godot-Unity/T_WoodTrim_Normal.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Normal.png",
+      "bytes": 3613847,
+      "sha256": "a2aa15d79245ba1bbdf82c0aa722a6453bb908fa115c4f5bdfb725d45bf6a641",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_WoodTrim_Roughness.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Roughness.png",
+      "bytes": 1697111,
+      "sha256": "e888464fd4199d458d8cf39e00fa07d56f8a0bcb658aa03b4a7c95d466ceefa3",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/DoorFrame_Round_Brick.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Medieval/Models/DoorFrame_Round_Brick.fbx",
+      "bytes": 75884,
+      "sha256": "c74a995d4c5f74e5c69b01240a3dfbcccb86951dec3845863fc9fcccfc9fc68a",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_RockTrim_BaseColor.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_BaseColor.png",
+      "bytes": 1908835,
+      "sha256": "aa571cd612091a8f4c95393f8f938bd6e5d47a8cdfd9c896b60a4b37903e2c7c",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/Textures/Normals Godot-Unity/T_RockTrim_Normal.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_Normal.png",
+      "bytes": 3921997,
+      "sha256": "381fc15a3555008dbd281ad475969d373d999b17d70da34496c28861cea831fa",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_RockTrim_ORM.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_ORM.png",
+      "bytes": 1625807,
+      "sha256": "5287dd9a4e9fb7423af8d8440a8de8bdb8910f9f37ba148f619a6eddf58d5bc8",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/FBX/Stairs_Exterior_Straight.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Medieval/Models/Stairs_Exterior_Straight.fbx",
+      "bytes": 27020,
+      "sha256": "e923936e2a81fa95829da0187ee7071aafaf6611092568f0cfc734e2d8c630e8",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_Brick_BaseColor.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_Brick_BaseColor.png",
+      "bytes": 2447169,
+      "sha256": "5515f57e61767838f53f4b9e25aa83b1382ad345ff6b446482718b5140c33813",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/Textures/Normals Godot-Unity/T_Brick_Normal.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_Brick_Normal.png",
+      "bytes": 5199854,
+      "sha256": "eb9a0c76b019cd490995fa92d63c375d9c66b05e16cc73aba5cc8c6f1ff3421a",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/glTF/T_Brick_Roughness.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_Brick_Roughness.png",
+      "bytes": 689204,
+      "sha256": "981e7a4f8e3119749b2fb3d557e3d0ba0551e75a39b467cff0a3a948a9392716",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/tower-square-arch.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Castle/Models/tower-square-arch.fbx",
+      "bytes": 29968,
+      "sha256": "eea3751274647b4e478c61adb0b68a22b2abddebe6b6a42c4743a4498b2dd286",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/GLB format/Textures/colormap.png",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/colormap.png",
+      "bytes": 7529,
+      "sha256": "66fd49be148f32e88f6c8cace67120250d1943a7856601158ad0ff24651db0b0",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/tower-hexagon-top.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Castle/Models/tower-hexagon-top.fbx",
+      "bytes": 26880,
+      "sha256": "f68ee7720a7786ca754f622fa452baae51cd561aca6093b59c637090b8c267b5",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/wall-corner-half-tower.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Castle/Models/wall-corner-half-tower.fbx",
+      "bytes": 43008,
+      "sha256": "60c72acec9839dcf42d6bd75804ec2a4df499e07adc6f47d90e3934634d92f80",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Castle/Original/Models/FBX format/wall-half-modular.fbx",
+      "productionPath": "Assets/Art/Environment/External/Kenney/Castle/Models/wall-half-modular.fbx",
+      "bytes": 27056,
+      "sha256": "9d7bdf01903bf40f8c8fdadbbac3be719306751bb821eac12ae6783c6ecf67a6",
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/License_Standard.txt",
+      "productionPath": "Assets/Art/Environment/External/Licenses/qn-License.txt",
+      "bytes": 852,
+      "sha256": "120710e542c3ebaf83856c4eb55b4a1e680593b39302eba7fdc5d942dfe78c58",
+      "kind": "license"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Provenance/source.json",
+      "productionPath": "Assets/Art/Environment/External/Provenance/qn-source.json",
+      "bytes": 937,
+      "sha256": "b8392654e97179b4dc3e4cd53aa53fd388fcf4710ed49ce13dcc399f3c4b1981",
+      "kind": "provenance"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/License_Standard.txt",
+      "productionPath": "Assets/Art/Environment/External/Licenses/qm-License.txt",
+      "bytes": 840,
+      "sha256": "ec6fd5004514cb0515a7dc1065f474644d31698861597b32e1745945ffec71de",
+      "kind": "license"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Medieval/Provenance/source.json",
+      "productionPath": "Assets/Art/Environment/External/Provenance/qm-source.json",
+      "bytes": 981,
+      "sha256": "c7f9d712d18798f8b999c5b2bd0db4bba6d12fd2d35ee63cc7c6a83de98aaf36",
+      "kind": "provenance"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Original/License.txt",
+      "productionPath": "Assets/Art/Environment/External/Licenses/kn-License.txt",
+      "bytes": 611,
+      "sha256": "cb96b75e3560ac78d7a53ce6f083f4cdb5c53faea6141b62d63458dcfe1e4b9d",
+      "kind": "license"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Nature/Provenance/source.json",
+      "productionPath": "Assets/Art/Environment/External/Provenance/kn-source.json",
+      "bytes": 784,
+      "sha256": "302165f28356fec41b4454f780cdff5a601f7c7969d51f277865438fbdf7b1f1",
+      "kind": "provenance"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Castle/Original/License.txt",
+      "productionPath": "Assets/Art/Environment/External/Licenses/kc-License.txt",
+      "bytes": 713,
+      "sha256": "aac944f18106b3a3e29c6fdeec02523d4cab4c735abc01f5a8fa88a79ae173ef",
+      "kind": "license"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Kenney/Castle/Provenance/source.json",
+      "productionPath": "Assets/Art/Environment/External/Provenance/kc-source.json",
+      "bytes": 782,
+      "sha256": "f85b048a20be42dc1b1b0e348b4f5a463b8cec54e28dabf7f4f3012bcad0319c",
+      "kind": "provenance"
+    }
+  ],
+  "textureDependencyReferences": 41,
+  "duplicateTextureReferencesEliminated": 16,
+  "totalSourceTriangles": 30327,
+  "sourcePayloadBytes": 67624322,
+  "foliageAlphaTestedModels": 6
+}

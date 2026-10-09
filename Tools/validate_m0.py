@@ -4,6 +4,7 @@ import hashlib, json, re, struct, zlib
 import xml.etree.ElementTree as ET
 from tree_sitter import Language, Parser
 import tree_sitter_c_sharp
+from environment_asset_scope import pending_environment_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'Assets'
@@ -12,6 +13,10 @@ def check(ok, message):
     if not ok: raise AssertionError(message)
 
 def main():
+    # Metadata exceptions are covered by the exact 25-model preparation gate.
+    if (ASSETS/'Crownfall/Environment/ExternalEnvironmentCatalog.json').is_file():
+        from validate_environment_library import main as validate_environment
+        validate_environment()
     images = json.loads((ROOT/'Docs/KitSourceManifest.json').read_text())['images']
     check(len(images) == 5, 'Five approved images required')
     guids = {}
@@ -25,9 +30,9 @@ def main():
         # Empty staging folders may generate metas; populated folders need stable GUIDs.
         if path.is_dir() and any(p.is_file() and p.suffix != '.meta' and
                                  not p.name.startswith('.') for p in path.rglob('*')):
-            check(Path(str(path)+'.meta').exists(), 'Missing populated folder meta: '+str(path))
-        if path.is_file() and path.suffix != '.meta' and path.name != '.gitkeep':
-            check(Path(str(path)+'.meta').exists(), 'Missing meta: '+str(path))
+            check(Path(str(path)+'.meta').exists() or pending_environment_metadata(path), 'Missing populated folder meta: '+str(path))
+        if path.is_file() and path.suffix != '.meta' and not path.name.startswith('.'):
+            check(Path(str(path)+'.meta').exists() or pending_environment_metadata(path), 'Missing meta: '+str(path))
     kit_files = list((ASSETS/'Art/Characters/Kit').rglob('*'))
     check(not any(p.suffix.lower() in ('.jpeg', '.jpg') for p in kit_files), 'Stale Kit JPEG')
     # Additional directional production art may coexist with the original M0 locomotion set.
