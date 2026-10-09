@@ -1,4 +1,4 @@
-name: Materialize Crownfall Unity Build 14
+name: Materialize Crownfall Unity Build 18
 
 on:
   workflow_dispatch:
@@ -19,14 +19,15 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Resolve Build 14 artifact
+      - name: Resolve Build 18 artifact
         id: artifact
         shell: bash
         run: |
           set -euo pipefail
-          SHARE_ID="tqpNTIdyzwranIKedNWaUKv4CH1xo6W7PDsbow1O4nw"
+          SHARE_ID="VJvgjjPj-sKY3oJ2MPeAH6v4CH1xo6W7PDsbow1O4nw"
           API="https://build-automation.services.api.unity.com/v2/shares/$SHARE_ID"
           curl -fsSL --retry 3 "$API" -o /tmp/share.json
+          jq -e '.build == 18 and .buildStatus == "success" and .platform == "webgl" and .lastBuiltRevision == "a8939536c6372d8744ab65d5c24180f86a276ad3"' /tmp/share.json >/dev/null
           URL="$(jq -r '([.links.artifacts[]? | select(.primary == true) | .files[0].href][0] // .links.download_primary.href // empty)' /tmp/share.json)"
           if [ -z "$URL" ]; then
             echo "Unity share metadata did not expose a primary artifact URL." >&2
@@ -41,20 +42,20 @@ jobs:
           ARTIFACT_URL: ${{ steps.artifact.outputs.url }}
         run: |
           set -euo pipefail
-          curl -fL --retry 3 --retry-all-errors "$ARTIFACT_URL" -o /tmp/crownfall-build14.zip
-          ls -lh /tmp/crownfall-build14.zip
-          unzip -t /tmp/crownfall-build14.zip >/dev/null
-          unzip -l /tmp/crownfall-build14.zip | tail -n 40
+          curl -fL --retry 3 --retry-all-errors "$ARTIFACT_URL" -o /tmp/crownfall-build18.zip
+          ls -lh /tmp/crownfall-build18.zip
+          unzip -t /tmp/crownfall-build18.zip >/dev/null
+          unzip -l /tmp/crownfall-build18.zip | tail -n 40
 
       - name: Extract WebGL build
         shell: bash
         run: |
           set -euo pipefail
-          rm -rf /tmp/crownfall-build14
-          mkdir -p /tmp/crownfall-build14
-          unzip -q /tmp/crownfall-build14.zip -d /tmp/crownfall-build14
+          rm -rf /tmp/crownfall-build18
+          mkdir -p /tmp/crownfall-build18
+          unzip -q /tmp/crownfall-build18.zip -d /tmp/crownfall-build18
 
-          INDEX="$(find /tmp/crownfall-build14 -type f -name index.html -print -quit)"
+          INDEX="$(find /tmp/crownfall-build18 -type f -name index.html -print -quit)"
           if [ -z "$INDEX" ]; then
             echo "No index.html found in Unity artifact." >&2
             exit 1
@@ -117,7 +118,7 @@ jobs:
             exit 2
           fi
 
-      - name: Commit hosted Build 14
+      - name: Commit hosted Build 18
         shell: bash
         run: |
           set -euo pipefail
@@ -125,8 +126,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A webgl-hosted
           if git diff --cached --quiet; then
-            echo "Build 14 is already materialized."
+            echo "Build 18 is already materialized."
             exit 0
           fi
-          git commit -m "Materialize Crownfall Unity Build 14 for static hosting"
+          git commit -m "Materialize Crownfall Unity Build 18 for static hosting"
           git push origin HEAD:main
