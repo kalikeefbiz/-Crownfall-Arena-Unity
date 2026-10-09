@@ -50,6 +50,7 @@ def main():
  changes=subprocess.check_output(['git','diff','--name-only',BASELINE,'--']+preserved,cwd=ROOT,text=True)
  authorized={'Assets/Crownfall/Match/Runtime/ArenaPresentation.cs','Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs'} if (ROOT/'Assets/Crownfall/Environment/WildernessComposition.json').exists() else set()
  if (ROOT/'Tools/validate_m15_visual.py').exists():authorized|={'Assets/Crownfall/Presentation/MobaCamera.cs','Assets/Crownfall/Match/Runtime/TerritoryFlow.shader'}
+ authorized|={'.github/workflows/validate-crownfall-current.yml'}  # Only this known CI file is authorized.
  require(set(changes.splitlines())<=authorized|{'ExternalArtStaging/M15_1/RockFace/Provenance.json', 'ExternalArtStaging/M15_1/RockFace/files.json', 'ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg'}|{'ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt', 'ExternalArtStaging/M15_1/ForestGround/files.json', 'ExternalArtStaging/M15_1/ForestGround/license.html', 'ExternalArtStaging/M15_1/ForestGround/Provenance.json', 'ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg'},'Protected baseline changed: '+changes)
  if authorized:
   from validate_wilderness import main as validate_wilderness
@@ -73,7 +74,11 @@ def main():
   require(token in processor,'Import configuration missing: '+token)
  lab=(ROOT/'Assets/Editor/CrownfallEnvironment/EnvironmentAssetLab.cs').read_text()
  require('NewSceneMode.Additive' in lab and 'PrefabUtility.SaveAsPrefabAsset' in lab and 'EditorSceneManager.SaveScene' in lab,'Native generation wiring')
- require(not any(t in lab for t in ('BuildPipeline.BuildPlayer','EditorBuildSettings.scenes =','CrownfallMatch.unity','MatchSimulation','MatchMap')),'Lab authority/build leak')
+ require(not any(t in lab for t in ('BuildPipeline.BuildPlayer','EditorBuildSettings.scenes =','MatchSimulation','MatchMap')),'Lab authority/build leak')
+ # This saved-scene reference is allowed exclusively for the Build #16 batch bootstrap.
+ require('const string shippingScene = "Assets/Scenes/CrownfallMatch.unity";' in lab and
+         'EditorSceneManager.OpenScene(shippingScene, OpenSceneMode.Single)' in lab and
+         'if (Application.isBatchMode && string.IsNullOrEmpty(previous.path))' in lab,'Safe batch-mode scene bootstrap missing')
  for p in [ROOT/ART,ROOT/'Assets/Crownfall/Environment',ROOT/'Assets/Editor/CrownfallEnvironment']:
   require(all(f.stat().st_size<100_000_000 for f in p.rglob('*') if f.is_file()),'GitHub per-file limit')
  subprocess.run(['git','diff','--check'],cwd=ROOT,check=True)

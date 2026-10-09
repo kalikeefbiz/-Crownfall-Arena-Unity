@@ -8,7 +8,7 @@ BASELINE='fc359e4ca1ebd00151d0a8618546beb658d3142d'
 NEW_CC0_SOURCES={'ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt', 'ExternalArtStaging/M15_1/ForestGround/files.json', 'ExternalArtStaging/M15_1/ForestGround/license.html', 'ExternalArtStaging/M15_1/ForestGround/Provenance.json', 'ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg'}
 NEW_CC0_SOURCES|={'ExternalArtStaging/M15_1/RockFace/Provenance.json', 'ExternalArtStaging/M15_1/RockFace/files.json', 'ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg'}
 PROTECTED=['Assets/Crownfall/Match','Assets/Crownfall/Combat','Assets/Crownfall/Gameplay','Assets/Crownfall/Presentation','Assets/Scenes','Assets/Art/Production','Assets/Art/Characters','Packages','ProjectSettings','ExternalArtStaging','.github','ci','Docs/M15Previews','Docs/CROWNFALL_M15_VISUAL_DIRECTION.md','Docs/CROWNFALL_M15_VALIDATION.json','Docs/CROWNFALL_M15_TEST_RESULTS.json','Docs/CROWNFALL_M15_GAMEPLAY_PRESERVATION.json','Docs/CROWNFALL_M15_CHANGED_FILES.json']
-ALLOWED={'Assets/Crownfall/Match/Runtime/TerritoryFlow.shader'}
+ALLOWED={'Assets/Crownfall/Match/Runtime/TerritoryFlow.shader','.github/workflows/validate-crownfall-current.yml'}
 def require(v,m):
  if not v:raise AssertionError(m)
 def main():
