@@ -28,18 +28,25 @@ namespace Crownfall.EnvironmentPresentation
         readonly WildernessLibrary library;
         readonly Color previousAmbient;
         readonly AmbientMode previousAmbientMode;
+        readonly Color previousSky,previousEquator,previousGround,previousFogColor;
+        readonly bool previousFog;
+        readonly FogMode previousFogMode;
+        readonly float previousFogStart,previousFogEnd;
         Transform[] subjects = new Transform[0];
         readonly Vector4[] visibilityCenters = new Vector4[6];
         public ArenaWildernessPresentation(Transform parent, Camera camera)
         {
             view = camera;
             library = Resources.Load<WildernessLibrary>(ResourcePath);
-            if (library == null || library.compositionVersion != WildernessLibrary.Version || library.presentationPrefab == null || library.worldSurface == null || library.laneStone == null || library.laneNormal == null)
+            if (library == null || library.compositionVersion != WildernessLibrary.Version || library.presentationPrefab == null || library.worldSurface == null || library.retainingStone == null || library.laneStone == null || library.laneNormal == null || library.groundDetail == null || library.forestFloor == null)
                 throw new InvalidOperationException("Crownfall wilderness is not generated. Run Crownfall/Wilderness/Prepare and validate in Unity 6000.3.10f1.");
             root = UnityEngine.Object.Instantiate(library.presentationPrefab,parent,false);
             root.name = "Crownfall 3D wilderness (presentation only)";
             previousAmbient=RenderSettings.ambientLight;previousAmbientMode=RenderSettings.ambientMode;
-            RenderSettings.ambientMode=AmbientMode.Flat;RenderSettings.ambientLight=new Color(.30f,.34f,.37f);
+            previousSky=RenderSettings.ambientSkyColor;previousEquator=RenderSettings.ambientEquatorColor;previousGround=RenderSettings.ambientGroundColor;
+            previousFog=RenderSettings.fog;previousFogMode=RenderSettings.fogMode;previousFogColor=RenderSettings.fogColor;previousFogStart=RenderSettings.fogStartDistance;previousFogEnd=RenderSettings.fogEndDistance;
+            RenderSettings.ambientMode=AmbientMode.Trilight;RenderSettings.ambientSkyColor=new Color(.27f,.36f,.40f);RenderSettings.ambientEquatorColor=new Color(.17f,.23f,.22f);RenderSettings.ambientGroundColor=new Color(.10f,.12f,.085f);
+            RenderSettings.fog=true;RenderSettings.fogMode=FogMode.Linear;RenderSettings.fogColor=new Color(.12f,.19f,.21f);RenderSettings.fogStartDistance=38;RenderSettings.fogEndDistance=105;
             Camera.onPreCull += PrepareVisibility;
             // Defense in depth: the prebuild gate rejects these, even when disabled.
             foreach (var collider in root.GetComponentsInChildren<Collider>(true))
@@ -57,20 +64,34 @@ namespace Crownfall.EnvironmentPresentation
         public void BindGround(Renderer floor,Renderer lane)
         {
             floor.sharedMaterial=library.worldSurface;lane.sharedMaterial=library.worldSurface;
+            floor.enabled=false; // Its collider is unchanged; a renderer-only sheet removes the box side faces.
             floor.shadowCastingMode=ShadowCastingMode.Off;lane.shadowCastingMode=ShadowCastingMode.Off;
-            // Re-skin engineering boundary/island renderers; their transforms/colliders remain authoritative.
+            // Preserve a visible marker for every authoritative wall; all transforms/colliders remain unchanged.
             foreach(Transform node in floor.transform.parent)
-                if(node.name.EndsWith("boundary",StringComparison.Ordinal)||node.name=="Wilderness island")
+            {
+                var backdrop=node.GetComponent<SpriteRenderer>();
+                if(backdrop!=null&&(node.name.StartsWith("Forest ",StringComparison.Ordinal)||node.name.StartsWith("Waterfall ",StringComparison.Ordinal)))
+                    backdrop.color=new Color(.75f,.80f,.76f,1);
+                if(node.name=="Wilderness island")
                 {
                     var renderer=node.GetComponent<MeshRenderer>();if(renderer==null)continue;
-                    renderer.sharedMaterial=library.worldSurface;renderer.shadowCastingMode=ShadowCastingMode.Off;
+                    renderer.sharedMaterial=library.retainingStone;renderer.shadowCastingMode=ShadowCastingMode.Off;
                 }
+                else if(node.name.EndsWith("boundary",StringComparison.Ordinal))
+                {
+                    var renderer=node.GetComponent<MeshRenderer>();if(renderer==null)continue;
+                    renderer.enabled=false; // Replace engineering cubes visually; their original colliders remain active.
+                }
+            }
         }
         public void BindStone(Material territory)
-        {territory.SetTexture("_StoneTex",library.laneStone);territory.SetTexture("_StoneNormal",library.laneNormal);}
+        {territory.SetTexture("_StoneTex",library.laneStone);territory.SetTexture("_StoneNormal",library.laneNormal);territory.SetTexture("_GroundTex",library.groundDetail);territory.SetTexture("_ForestTex",library.forestFloor);}
         public void BindVisibilitySubjects(Transform[] presentationRoots)
         {
             subjects=presentationRoots;
+            foreach(Transform node in root.transform.parent)
+                if(node.name=="Blue territory"||node.name=="Red territory"||node.name=="Authoritative territorial front")
+                {var groundRenderer=node.GetComponent<MeshRenderer>();if(groundRenderer!=null)groundRenderer.shadowCastingMode=ShadowCastingMode.Off;}
             foreach(var subject in subjects)
             {
                 // Existing overlay discs were below the opaque territory top (Y=.02).
@@ -103,6 +124,8 @@ namespace Crownfall.EnvironmentPresentation
             Camera.onPreCull -= PrepareVisibility;
             Shader.SetGlobalFloat("_CrownfallWildernessCount",0);
             RenderSettings.ambientLight=previousAmbient;RenderSettings.ambientMode=previousAmbientMode;
+            RenderSettings.ambientSkyColor=previousSky;RenderSettings.ambientEquatorColor=previousEquator;RenderSettings.ambientGroundColor=previousGround;
+            RenderSettings.fog=previousFog;RenderSettings.fogMode=previousFogMode;RenderSettings.fogColor=previousFogColor;RenderSettings.fogStartDistance=previousFogStart;RenderSettings.fogEndDistance=previousFogEnd;
             if (root != null) { root.SetActive(false); UnityEngine.Object.Destroy(root); }
         }
     }

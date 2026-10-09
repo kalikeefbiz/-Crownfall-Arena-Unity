@@ -54,9 +54,9 @@ namespace Crownfall.EnvironmentLab.Editor
         public static EnvironmentCatalog Read()
         {
             var result = JsonUtility.FromJson<EnvironmentCatalog>(File.ReadAllText(Absolute(Catalog)));
-            Require(result != null && result.schemaVersion == 1 && result.models != null && result.models.Length == 25,
-                "Expected the prepared 25-model catalog");
-            Require(result.models.Select(m => m.id).Distinct().Count() == 25, "Duplicate model ID");
+            Require(result != null && result.schemaVersion == 1 && result.models != null && result.models.Length == 26,
+                "Expected the prepared 26-model catalog (25 baseline + CC0 understory)");
+            Require(result.models.Select(m => m.id).Distinct().Count() == 26, "Duplicate model ID");
             return result;
         }
         public static void Require(bool condition, string message)

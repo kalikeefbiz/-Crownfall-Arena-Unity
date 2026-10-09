@@ -1,0 +1,150 @@
+{
+  "schemaVersion": 1,
+  "startingHead": "fc359e4ca1ebd00151d0a8618546beb658d3142d",
+  "branch": "browser-parity-unity",
+  "checks": [
+    {
+      "name": "m1",
+      "command": "python Tools/validate_m1.py",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "621c0ae2613c43dcb223c6a68d1baebb22b3ab1fcf1640aec709136414ef9039",
+      "evidence": [
+        "PASS: 161 placements, 25 approved models, 247,652 instantiated triangles; [53512, 121709] camera-frustum estimate; 27 unique textures; native PENDING",
+        "PASS: 73 C# files parsed; 213 unique GUIDs; 5 PNG source hashes; ordered sprites; import/pivots; references; architecture guards; package/editor pins.",
+        "PASS: seven exact Unity 6000 UI shader bindings, imported default theme, native Resources panel generation, Always Included retention, shipping/prebuild wiring; 12 fail-closed negative checks. Native Editor execution still required.",
+        "PASS: current Unity Cloud prebuild contract, serialized balance, asset paths, GUIDs, and WebGL template.",
+        "PASS: M1 source hashes/alpha/pivots, six front logical frames, current data, directional references, and combat/presentation separation."
+      ]
+    },
+    {
+      "name": "currentBuild",
+      "command": "python Tools/validate_current_build.py",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "598fac58f5b2bb2e981be7d0a8774ef294c959fd52ccfa90064b5a69af5550b9",
+      "evidence": [
+        "PASS: seven exact Unity 6000 UI shader bindings, imported default theme, native Resources panel generation, Always Included retention, shipping/prebuild wiring; 12 fail-closed negative checks. Native Editor execution still required.",
+        "PASS: current Unity Cloud prebuild contract, serialized balance, asset paths, GUIDs, and WebGL template."
+      ]
+    },
+    {
+      "name": "production",
+      "command": "python Tools/validate_production.py",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "66737a73cf623a2691f7462b867188d6448c5ecedadbe4270df029aa6cc4893b",
+      "evidence": [
+        "PASS: seven exact Unity 6000 UI shader bindings, imported default theme, native Resources panel generation, Always Included retention, shipping/prebuild wiring; 12 fail-closed negative checks. Native Editor execution still required.",
+        "PASS: arena/lane/title exact imported Texture2D references and native import-validation wiring; 13 malformed/null reference regressions rejected. Native Unity execution still required.",
+        "PASS: 53 transfer files, 65 staging mappings, 64 unique mapped textures, 70 runtime textures, 83.73 MiB RGBA32 residency; all catalog frames ordered and source bytes preserved.",
+        "PASS: JSON/YAML, GUID-linked catalog, shell syntax, presentation authority, bounded pool reset, touch lifecycle, safe-area/browser wiring and rematch cleanup guards."
+      ]
+    },
+    {
+      "name": "environmentAndPreservation",
+      "command": "python Tools/validate_m15_1_visual.py",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "75718734e29af1dcb4abbf19b7e814921114798dcd3b090b7a89c06c27ed386d",
+      "evidence": [
+        "PASS: 161 placements, 25 approved models, 247,652 instantiated triangles; [53512, 121709] camera-frustum estimate; 27 unique textures; native PENDING",
+        "PASS M15.1 locked sources, original M15 evidence, camera/aim semantics, surfaces, presentation-only banks and native gates"
+      ]
+    },
+    {
+      "name": "runtimeTypeCheck",
+      "command": "python Tools/compile_match_runtime.py",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "11b446c23a850846e80216b7d26c49766f7e0c5258ba48a0d90b72174ea92736",
+      "evidence": [
+        "    0 Warning(s)",
+        "    0 Error(s)",
+        "PASS: 51 runtime C# files type-checked against actual manifest-enabled UnityEngine reference assemblies. No Editor, rendering, physics or player execution claimed."
+      ]
+    },
+    {
+      "name": "completeMatches",
+      "command": "python Tools/run_complete_match_tests.py",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "acba9c7f78cacd409dea1bff38b58c462a1a24afc111ebdf53166393dcfa2c59",
+      "evidence": [
+        "M1: 75",
+        "Economy: 13",
+        "Roster: 16",
+        "Surge: 18",
+        "Full match totals: rotations=33, rewards=2, deaths=46, major-attempt ticks=3691",
+        "Complete match: 127037",
+        "Presentation: 86645",
+        "M15 camera/terrain: 2152"
+      ]
+    },
+    {
+      "name": "tickParity",
+      "command": "python Tools/compare_gameplay_baseline.py --baseline fc359e4ca1ebd00151d0a8618546beb658d3142d",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "ce436d99c640a22e4a7b73923482964a2a71e31608457582293c266027b38cf6",
+      "evidence": [
+        "PASS: all public gameplay authority state at every tick matches starting HEAD for three complete bot matches. Only output journal/action metadata excluded.",
+        "Kit ticks=9537 authority SHA256=21d58305a65aeeca2d9f926676953ba0d0450e58f120dcb108663d984da50cc5",
+        "Set ticks=2716 authority SHA256=fbf2a2d5118d91fce125628bfe45c64bd294d78305190c1b1789961a3052394c",
+        "Riven ticks=8900 authority SHA256=1abe9d8e3df5d6ef35b671b54540dbe2a4258ef41fe7add78d7e9ab5dc7bd1a6"
+      ]
+    },
+    {
+      "name": "negativeCompositionFixtures",
+      "command": "python Tools/test_wilderness_validation.py",
+      "status": "PASS",
+      "exitCode": 0,
+      "logSha256": "e82881ac927722e1911b0163b5b28b3ab71e8ec39638c79fbd344868b463dca1",
+      "evidence": [
+        "PASS rejected: all near scenery moved to the perimeter",
+        "PASS rejected: island tree moved into playable lane",
+        "PASS rejected: permanently invisible perimeter scenery",
+        "PASS rejected: negative model scale",
+        "PASS rejected: unapproved model dependency",
+        "PASS rejected: missing distant world",
+        "PASS rejected: southern crown obscures lane",
+        "PASS rejected: stale generated composition version",
+        "PASS rejected: rotation variation collapses to stamped rows",
+        "PASS: 161 placements, 25 approved models, 247,652 instantiated triangles; [53512, 121709] camera-frustum estimate; 27 unique textures; native PENDING"
+      ]
+    },
+    {
+      "name": "diffWhitespace",
+      "command": "git diff --check; git diff --cached --check",
+      "status": "PASS",
+      "exitCode": 0,
+      "sourceArtifactException": "Only original Poly Haven license.html space-before-tab indentation; bytes and SHA-256 unchanged"
+    }
+  ],
+  "dotnetEnvironment": {
+    "CROWNFALL_DOTNET": "/workspace/shared/crownfall-dotnet/dotnet",
+    "DOTNET_CLI_HOME": "/workspace/shared/crownfall-dotnet-home",
+    "NUGET_PACKAGES": "/workspace/shared/crownfall-nuget",
+    "CROWNFALL_UNITY_REFERENCE_DIR": "/workspace/shared/crownfall-unityengine/lib/netstandard2.0",
+    "CROWNFALL_UNITY_REFERENCE_VERSION": "2021.3.33"
+  },
+  "runtimeReferenceDisclaimer": "Actual UnityEngine reference DLLs, not a Unity 6000 Editor/runtime or shader compilation",
+  "nativeUnity": {
+    "requestedVersion": "6000.3.10f1",
+    "available": false,
+    "executed": false,
+    "command": "python Tools/run_wilderness_unity_validation.py",
+    "exitCode": 1,
+    "availabilityMessage": "Unity 6000.3.10f1 unavailable: shipping native validation PENDING. No build executed.",
+    "status": "PENDING"
+  },
+  "visualReview": "Docs/CROWNFALL_M15_1_VISUAL_REVIEW.json",
+  "visualIterations": 8,
+  "knownImplementationBlockers": [],
+  "sourceReadyForManualBuild15": true,
+  "nativeAndDeviceAcceptance": "PENDING",
+  "cloudBuildStarted": false,
+  "playerExported": false,
+  "deployed": false,
+  "mainTouched": false
+}

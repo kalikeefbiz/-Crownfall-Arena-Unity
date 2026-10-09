@@ -1,0 +1,25 @@
+{
+  "source": "Poly Haven",
+  "asset": "rock_face_03",
+  "sourceUrl": "https://polyhaven.com/a/rock_face_03",
+  "filesApi": "https://api.polyhaven.com/files/rock_face_03",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "licenseSnapshot": "ExternalArtStaging/M15_1/ForestGround/license.html",
+  "legalText": "ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt",
+  "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_face_03/rock_face_03_diff_1k.jpg",
+  "acquiredUtc": "2026-10-09",
+  "role": "Shared weathered near-cliff triplanar detail; one color texture only",
+  "sourceFiles": [
+    {
+      "path": "ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg",
+      "sha256": "ea48e0e47ad42c8bd312476178b1248ec66f0eb19156a26a1c222f2a40caaf2d",
+      "bytes": 927082
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/RockFace/files.json",
+      "sha256": "c351a9a3b30b6d31ff05383890906fd974e9546b6eb1cf01f0cd1f4554c2a2bf",
+      "bytes": 32457
+    }
+  ]
+}

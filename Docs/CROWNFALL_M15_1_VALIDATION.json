@@ -1,0 +1,608 @@
+{
+  "status": "PASS_STATIC_M15_1",
+  "startingHead": "fc359e4ca1ebd00151d0a8618546beb658d3142d",
+  "compositionVersion": 3,
+  "compositionSha256": "b23e11078fc68b94b021f5abfaa79b10e433f25f6f6ad5bac8e1a2adb00e6cf6",
+  "nativeUnityValidation": "PENDING",
+  "objectCount": 161,
+  "additionalDirectionalLights": 1,
+  "layers": {
+    "NEAR": 135,
+    "MID": 13,
+    "FAR": 13
+  },
+  "islandNearCount": 0,
+  "pocketCount": 152,
+  "fixedCameraPotentialVisibility": "All shipping AABBs intersect at least one bounded M15.1 gameplay camera state; unchanged far clip 150",
+  "uniqueModelCount": 25,
+  "uniqueMeshesNative": "PENDING (25 shipping glTF reference mesh objects; native FBX mesh subdivision unverified)",
+  "instantiatedTriangles": 247652,
+  "typicalVisibleTriangleRange": [
+    53512,
+    121709
+  ],
+  "visibleEstimates": [
+    {
+      "actor": [
+        -25,
+        -6
+      ],
+      "cameraCenter": [
+        -18.444444444444446,
+        0.5
+      ],
+      "visibleObjects": 69,
+      "triangles": 109252,
+      "layers": {
+        "NEAR": 67,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        -12,
+        -6
+      ],
+      "cameraCenter": [
+        -12,
+        0.5
+      ],
+      "visibleObjects": 70,
+      "triangles": 121709,
+      "layers": {
+        "NEAR": 68,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        0,
+        -6
+      ],
+      "cameraCenter": [
+        0,
+        0.5
+      ],
+      "visibleObjects": 57,
+      "triangles": 102974,
+      "layers": {
+        "NEAR": 55,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        12,
+        -6
+      ],
+      "cameraCenter": [
+        12,
+        0.5
+      ],
+      "visibleObjects": 65,
+      "triangles": 119890,
+      "layers": {
+        "NEAR": 63,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        25,
+        -6
+      ],
+      "cameraCenter": [
+        18.444444444444446,
+        0.5
+      ],
+      "visibleObjects": 68,
+      "triangles": 120620,
+      "layers": {
+        "NEAR": 66,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        -25,
+        0
+      ],
+      "cameraCenter": [
+        -18.444444444444446,
+        6.5
+      ],
+      "visibleObjects": 67,
+      "triangles": 105334,
+      "layers": {
+        "NEAR": 64,
+        "MID": 2,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        -12,
+        0
+      ],
+      "cameraCenter": [
+        -12,
+        6.5
+      ],
+      "visibleObjects": 67,
+      "triangles": 117729,
+      "layers": {
+        "NEAR": 65,
+        "MID": 2
+      }
+    },
+    {
+      "actor": [
+        0,
+        0
+      ],
+      "cameraCenter": [
+        0,
+        6.5
+      ],
+      "visibleObjects": 54,
+      "triangles": 96389,
+      "layers": {
+        "NEAR": 53,
+        "MID": 1
+      }
+    },
+    {
+      "actor": [
+        12,
+        0
+      ],
+      "cameraCenter": [
+        12,
+        6.5
+      ],
+      "visibleObjects": 62,
+      "triangles": 111383,
+      "layers": {
+        "NEAR": 61,
+        "MID": 1
+      }
+    },
+    {
+      "actor": [
+        25,
+        0
+      ],
+      "cameraCenter": [
+        18.444444444444446,
+        6.5
+      ],
+      "visibleObjects": 65,
+      "triangles": 111275,
+      "layers": {
+        "NEAR": 63,
+        "MID": 1,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        -25,
+        6
+      ],
+      "cameraCenter": [
+        -18.444444444444446,
+        12.5
+      ],
+      "visibleObjects": 48,
+      "triangles": 60784,
+      "layers": {
+        "NEAR": 42,
+        "MID": 5,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        -12,
+        6
+      ],
+      "cameraCenter": [
+        -12,
+        12.5
+      ],
+      "visibleObjects": 50,
+      "triangles": 74367,
+      "layers": {
+        "NEAR": 45,
+        "MID": 5
+      }
+    },
+    {
+      "actor": [
+        0,
+        6
+      ],
+      "cameraCenter": [
+        0,
+        12.5
+      ],
+      "visibleObjects": 35,
+      "triangles": 53512,
+      "layers": {
+        "NEAR": 30,
+        "MID": 5
+      }
+    },
+    {
+      "actor": [
+        12,
+        6
+      ],
+      "cameraCenter": [
+        12,
+        12.5
+      ],
+      "visibleObjects": 44,
+      "triangles": 69264,
+      "layers": {
+        "NEAR": 39,
+        "MID": 4,
+        "FAR": 1
+      }
+    },
+    {
+      "actor": [
+        25,
+        6
+      ],
+      "cameraCenter": [
+        18.444444444444446,
+        12.5
+      ],
+      "visibleObjects": 46,
+      "triangles": 68868,
+      "layers": {
+        "NEAR": 40,
+        "MID": 4,
+        "FAR": 2
+      }
+    }
+  ],
+  "materialCount": 20,
+  "materialFamilies": 6,
+  "uniqueTextures": 27,
+  "textureTier": "Mobile",
+  "estimatedASTC6x6MipBytes": 16441920,
+  "estimatedRGBA8FallbackMipBytes": 146800604,
+  "textureEstimates": [
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_NormalTree_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves_NormalTree_C.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Bark_TwistedTree_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves_TwistedTree_C.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaf_Pine_C.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Leaves.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/Rocks_Diffuse.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Plaster_ORM.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_UnevenBrick_Roughness.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_WoodTrim_Roughness.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockTrim_ORM.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_BaseColor.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_Normal.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_Brick_Roughness.png",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/colormap.png",
+      "importDimensions": [
+        512,
+        512
+      ],
+      "astc6x6MipBytes": 158432,
+      "rgba8MipBytes": 1398100
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_ForestGround04_Color.jpg",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockFace03_Color.jpg",
+      "importDimensions": [
+        1024,
+        1024
+      ],
+      "astc6x6MipBytes": 626288,
+      "rgba8MipBytes": 5592404
+    }
+  ],
+  "alphaTestedInstances": 109,
+  "shadowCastingInstances": 23,
+  "shadowCastingRendererCountNative": "PENDING; glTF reference has one mesh object per placement",
+  "shadowCastingMaterialSlots": 36,
+  "totalMaterialSlotInstances": 258,
+  "repeatedModels": {
+    "qn:Rock_Medium_1": 10,
+    "qn:Rock_Medium_2": 10,
+    "qn:Rock_Medium_3": 10,
+    "qn:CommonTree_3": 10,
+    "qn:Pine_5": 6,
+    "qn:CommonTree_1": 19,
+    "qn:Bush_Common": 40,
+    "qn:Fern_1": 30,
+    "qm:DoorFrame_Round_Brick": 2,
+    "qm:Wall_UnevenBrick_Straight": 1,
+    "qm:Stairs_Exterior_Straight": 1,
+    "qn:TwistedTree_1": 1,
+    "qn:Pine_1": 3,
+    "kc:tower-square-arch": 1,
+    "kc:tower-hexagon-top": 1,
+    "kc:wall-corner-half-tower": 1,
+    "kc:wall-half-modular": 1,
+    "kn:statue_columnDamaged": 1,
+    "kn:cliff_large_rock": 1,
+    "kn:cliff_cornerLarge_rock": 1,
+    "kn:rock_tallA": 1,
+    "kn:rock_tallG": 2,
+    "kn:tree_pineTallA": 3,
+    "kn:tree_pineTallC": 3,
+    "kn:tree_default_dark": 2
+  },
+  "heroInstances": 39,
+  "farFillerCount": 13,
+  "clearance": "All conservative XZ bounds outside lane and protected camp/Major approach areas; pockets are traversable presentation with no added collision",
+  "gameplayCollisionCameraScenePackages": "Topology, collision, controls, gameplay, scenes, artwork and packages byte-identical; explicitly authorized camera/surface presentation changes checked against fc359e4",
+  "estimatesNotDeviceMeasurements": true,
+  "readyForBuild15NativeAndVisualAcceptance": "PENDING",
+  "camera": {
+    "pitch": 34.0,
+    "orthographicSize": 11.0,
+    "height": 20.0,
+    "focusNorth": 6.5,
+    "presentationPadding": [
+      4.0,
+      8.0
+    ],
+    "yaw": 0,
+    "farClip": 150,
+    "acceptedFallback": [
+      50,
+      11,
+      15
+    ]
+  },
+  "protectedFilesByteIdentical": 806,
+  "newTexturePayloads": 2,
+  "addedStagedModels": [
+    "qn:Bush_Common"
+  ],
+  "internetResources": [
+    "Poly Haven forest_ground_04 Diffuse 1K, CC0-1.0",
+    "Poly Haven rock_face_03 Diffuse 1K, CC0-1.0"
+  ],
+  "nativeUnityExecuted": false,
+  "terrain": {
+    "meshCount": 1,
+    "vertices": 16807,
+    "triangles": 32256,
+    "collisionComponents": 0,
+    "region": "Banks outside protected +/-12.5m lane and below-floor flat render sheet; original floor collider unchanged; flat protected approaches"
+  },
+  "surface": "Shared source stone/geological textures, complementary staggered flags/cobble, damage, soil/moss, irregular edges; existing territory shader remains authoritative",
+  "retainedAuthoritativeWallVisuals": {
+    "count": 10,
+    "triangles": 120,
+    "additionalMaterials": 0,
+    "physicsChanged": false
+  },
+  "environmentAndTerrainTriangles": 280028,
+  "environmentAndTerrainSharedMaterials": 21,
+  "visibleRangeIncludingWholeTerrainUpperBound": [
+    85888,
+    154085
+  ],
+  "sourceModelTriangles": 31227
+}

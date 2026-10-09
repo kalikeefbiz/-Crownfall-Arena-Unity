@@ -1,0 +1,432 @@
+{
+  "schemaVersion": 1,
+  "startingHead": "fc359e4ca1ebd00151d0a8618546beb658d3142d",
+  "renderer": "Blender 4.3.2 offline approximation",
+  "unityExecuted": false,
+  "iterationsCompleted": 8,
+  "acceptanceBasis": "Qualitative review of opened images, not an object/triangle score; comparative offline acceptance only",
+  "iterations": [
+    {
+      "number": 1,
+      "folder": "Docs/M15_1Previews/Iteration1",
+      "implemented": "Reconstructed geological gardens, procedural flags, forest banks and a 40 degree/11 camera.",
+      "criticalReview": "Near banks/crowns were too high; dark vegetation and weak rock detail remained.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Iteration1/blue-combat.png",
+          "sha256": "2f1640bb4ca9142a1b3e59af406887faeabb008ff381a6d2d9d8b123e02e1828",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Iteration1/center-lane.png",
+          "sha256": "fd878d0d51e7d0a4366bbaa8d09108aaf4ee1020f890b548ada97948099c4866",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Iteration1/red-combat.png",
+          "sha256": "9c6b32d6bc3207baac2ce6c3d778aa1dd1cbd7fa6e60582a85e3cd7436506ec5",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Iteration1/objective.png",
+          "sha256": "10ee5ed9ac3a70e6f56a03b4e4a9be7f1e22fcbc2ee6f9480bd0b613775aaf3e",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          5.0
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -18.8350718518842
+        ],
+        "pitch": 40.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    },
+    {
+      "number": 2,
+      "folder": "Docs/M15_1Previews/Iteration2",
+      "implemented": "Lowered banks and brought crowns and masonry toward the visible band; reduced side-cone exposure and tile regularity.",
+      "criticalReview": "Formation bases still felt disconnected; terrain lacked forest-floor detail.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Iteration2/blue-combat.png",
+          "sha256": "4e7dfe94850ca4d361a8fbe04b889c52d0e3dc20d60b9f454ea7e3af5ba3c239",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Iteration2/center-lane.png",
+          "sha256": "28a8ec0ae6b03793ec47c626f2ec9a6e098c4eccf257763bdcc764f4fccd1a02",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Iteration2/red-combat.png",
+          "sha256": "8f1ba0c7bb7a7cb05ab4ac4ead001ab52550ba83e421c75fd3fb076d644a0933",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Iteration2/objective.png",
+          "sha256": "cb938cd731f4a1256090acd01b98fe43ada7c2e51dec57b0716be43ef636c44a",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          5.0
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -18.8350718518842
+        ],
+        "pitch": 40.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    },
+    {
+      "number": 3,
+      "folder": "Docs/M15_1Previews/Iteration3",
+      "implemented": "Refined northern focus and organic paving/tint transition, muted backdrops, retired oversized box cliff and tested fog.",
+      "criticalReview": "Paving still dominated; foreground rock faces needed detail and landmarks needed better framing.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Iteration3/blue-combat.png",
+          "sha256": "bc17f90a11c965a1adbd69e4e60c4295d47f9267931b93db89fe4ccba351ecaf",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Iteration3/center-lane.png",
+          "sha256": "194d79899c6c1f60f1ca7e23667c4141d51e16fee2584cc7d222f04f39aeb541",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Iteration3/red-combat.png",
+          "sha256": "cccff0d56528cfcc96439727b3f1ba8023039f61a858e140803ca9d2bdc82950",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Iteration3/objective.png",
+          "sha256": "468cb81d3ffadf69513ce0be4669ed8aa3000dc5333a24cbc9a9d3300297a2b4",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          6.5
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -17.3350718518842
+        ],
+        "pitch": 40.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    },
+    {
+      "number": 4,
+      "folder": "Docs/M15_1Previews/Iteration4",
+      "implemented": "Added one CC0 forest-floor color map, richer upright rock formations and a near Aether twisted-tree landmark.",
+      "criticalReview": "High elevation still emphasized broad surfaces; camera-visible foreground needed stronger dimension.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Iteration4/blue-combat.png",
+          "sha256": "0747ec99d3cc72a1b1a6bb18b5973a274c85bd0ec601f84442a1cb1f6fe980ac",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Iteration4/center-lane.png",
+          "sha256": "f7275638e45df33b7566b7bfa3c1af9e84c21a378b7eae0c633cc71b5a0dc5c8",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Iteration4/red-combat.png",
+          "sha256": "c9fa9e53765f180806f1c21310d73c1d1c2e0db0d5046e09d4422816869299a5",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Iteration4/objective.png",
+          "sha256": "788192f489559db36f1e3df0351a87258ddd22493666c0740a9b0648335f76c4",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          6.5
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -17.3350718518842
+        ],
+        "pitch": 40.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    },
+    {
+      "number": 5,
+      "folder": "Docs/M15_1Previews/Iteration5",
+      "implemented": "Tested 34 degree elevation, added narrow inner groves and an east foreground formation.",
+      "criticalReview": "Rock UV detail remained weak; offline fog incorrectly covered foliage transparency.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Iteration5/blue-combat.png",
+          "sha256": "249381b7665b0d76a7daf3f4fa5f4de5b41f480fc35a28157317b0076fd38a45",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Iteration5/center-lane.png",
+          "sha256": "7810642d90d095459791ab74ccc8f579788dc663cc4a0b0eb65285ad3130fc44",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Iteration5/red-combat.png",
+          "sha256": "c9c9f820bdcf7dc98b50e7de1001a96927d4a73ee26d53107f85d7045be5171a",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Iteration5/objective.png",
+          "sha256": "f31de0c3de0ab5d2397b71e0af5941e9dbc47c4485595d32b13da98e62138243",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          6.5
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -23.1512193702548
+        ],
+        "pitch": 34.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    },
+    {
+      "number": 6,
+      "folder": "Docs/M15_1Previews/Iteration6",
+      "implemented": "Added one CC0 rock-face map shared through world-axis projection and corrected offline fog alpha coverage.",
+      "criticalReview": "Old engineering-floor seam and box side geometry still exposed the rectangular construction.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Iteration6/blue-combat.png",
+          "sha256": "ae17d4d450c0c8c06d69bfc389d824f6db481443031a5f412066ae25e3fafe87",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Iteration6/center-lane.png",
+          "sha256": "d8234de2f538f662cb914886dc50e70dcff232bcedb1872b8253b499de10a914",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Iteration6/red-combat.png",
+          "sha256": "02e5b6284b26bfaa29ece7370521424998549a93b5c73dce1beece1db9b4e504",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Iteration6/objective.png",
+          "sha256": "6acbd08ebbb08d11c3bdde0c6bf6c3b265c6d67916662526063186885ff52839",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          6.5
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -23.1512193702548
+        ],
+        "pitch": 34.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    },
+    {
+      "number": 7,
+      "folder": "Docs/M15_1Previews/Iteration7",
+      "implemented": "Replaced only the floor renderer with a below-collision flat sheet and lowered shoulder seams.",
+      "criticalReview": "Final safety audit found hidden original wall markers could make fixed collision less legible.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Iteration7/blue-combat.png",
+          "sha256": "2a8c2f3e3feea44622ffc61dc97ac6530d79d6f745f87bcec6daaa9caf602879",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Iteration7/center-lane.png",
+          "sha256": "1050c7a68dd495ca4dbf34af5212596db39f042fd95bf338f029c0d76796f179",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Iteration7/red-combat.png",
+          "sha256": "b4b08cd824134d9705bccf3d5ca63a6d7b00da374b3d82a3e5708930e2218c89",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Iteration7/objective.png",
+          "sha256": "91c5c0d1d0c46266408b21126d8645952fe73f049e605280d9541950af44813e",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          6.5
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -23.1512193702548
+        ],
+        "pitch": 34.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    },
+    {
+      "number": 8,
+      "folder": "Docs/M15_1Previews/Final",
+      "implemented": "Retained the ten original wall renderers with shared rock treatment; fixed native floor cutaway and surplus material-slot handling.",
+      "criticalReview": "Protected approach gaps, paving repetition and compressed crowns remain; native cutaway/HUD/texture behavior is unverified.",
+      "views": {
+        "blue-combat": {
+          "path": "Docs/M15_1Previews/Final/blue-combat.png",
+          "sha256": "6f4ccb655de70e9b34e50651de666aaf19be815fb2aa1d97edb46123d4d428b9",
+          "openedAndReviewed": true
+        },
+        "center-lane": {
+          "path": "Docs/M15_1Previews/Final/center-lane.png",
+          "sha256": "f6291b01ae88a1b18cd7e009fbbffbf6fdded0fc782f1edefb2377b7d307bf2d",
+          "openedAndReviewed": true
+        },
+        "red-combat": {
+          "path": "Docs/M15_1Previews/Final/red-combat.png",
+          "sha256": "75f1805acb2dafc32cda9d8824da1ddd81321018d150f58b89d4526a0b6fad46",
+          "openedAndReviewed": true
+        },
+        "objective": {
+          "path": "Docs/M15_1Previews/Final/objective.png",
+          "sha256": "ecaacc362508c2e88778dd0b4cb56368b282d6146c48755fd7d13b29b760bf73",
+          "openedAndReviewed": true
+        }
+      },
+      "camera": {
+        "name": "blue-combat",
+        "actor": [
+          -25,
+          0
+        ],
+        "cameraGroundCenter": [
+          -18.444444444444446,
+          6.5
+        ],
+        "cameraPositionUnity": [
+          -18.444444444444446,
+          20.0,
+          -23.1512193702548
+        ],
+        "pitch": 34.0,
+        "orthographicSize": 11.0,
+        "aspect": 1.7777777777777777
+      }
+    }
+  ],
+  "beforeAfter": [
+    {
+      "view": "blue-combat",
+      "before": "Docs/M15Previews/blue-combat.png",
+      "beforeSha256": "dc65e277dd25b2b16560c771dfa8dd69c8abf5b8da5ea064d7252e3150cb9153",
+      "after": "Docs/M15_1Previews/Final/blue-combat.png",
+      "immediatelyRecognizableOfflineImprovement": true,
+      "judgment": "Textured upright formations and soil replace scattered pale filler and gray apron; readable characters.",
+      "remainingDeficiency": "Large clear shoulder areas and some crop of upper crowns remain."
+    },
+    {
+      "view": "center-lane",
+      "before": "Docs/M15Previews/center-lane.png",
+      "beforeSha256": "99ecc4ce11a674d88fdb352dd0c87a236f07e7daa990b541320e776188951954",
+      "after": "Docs/M15_1Previews/Final/center-lane.png",
+      "immediatelyRecognizableOfflineImprovement": true,
+      "judgment": "Unequal overgrown masonry and Aether bedrock frame the medallion; surface and lighting are more varied.",
+      "remainingDeficiency": "Paving remains broad and visibly repeated; the forest is not a continuous canopy."
+    },
+    {
+      "view": "red-combat",
+      "before": "Docs/M15Previews/red-combat.png",
+      "beforeSha256": "518f1c6c14868bd0aa842de03de7f8e3b20d8fbedc461c2db6d0248624ab8b4a",
+      "after": "Docs/M15_1Previews/Final/red-combat.png",
+      "immediatelyRecognizableOfflineImprovement": true,
+      "judgment": "Rock faces, organic shoulders and richer trees create stronger local enclosure with less primitive close filler.",
+      "remainingDeficiency": "Southern formations are cropped; protected approach spaces remain open."
+    },
+    {
+      "view": "objective",
+      "before": "Docs/M15Previews/objective.png",
+      "beforeSha256": "48ff4257815d3c3346d899c7166bd55fc2c2d7865dfe49a127b6c401f684fa4f",
+      "after": "Docs/M15_1Previews/Final/objective.png",
+      "immediatelyRecognizableOfflineImprovement": true,
+      "judgment": "Major art is framed by textured geology, more coherent vegetation and subdued skyline rather than pale cone/pillar filler.",
+      "remainingDeficiency": "Some inexpensive distant silhouettes remain; source PNG world accents are still flat far extensions."
+    }
+  ],
+  "offlineComparativeAcceptance": "PASS: all four approximations improve over M15; native visual acceptance PENDING",
+  "nativeDeviceAcceptance": "PENDING: no exact Unity Editor, GPU import/render or iPhone measurement executed",
+  "limitations": [
+    "Offline translation corrected shared tint/source palette; native improvement may differ",
+    "No gameplay HUD/VFX/live input or native foliage mip compression",
+    "Six-Summoner cutaway and runtime camera tracking not simulated",
+    "Long-term premium reference quality and continuous forest canopy not achieved"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "id": "qn:Bush_Common",
+  "source_fbx": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bush_Common.fbx",
+  "normalized_y_up_bounds_size": [
+    1.9148447513580322,
+    1.5817857384681702,
+    1.96514093875885
+  ],
+  "triangles": 900,
+  "materials": [
+    "Material",
+    "Leaves_TwistedTree"
+  ],
+  "nativeUnityExecuted": false
+}

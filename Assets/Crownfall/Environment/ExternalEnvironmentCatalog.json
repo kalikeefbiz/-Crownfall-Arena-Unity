@@ -796,6 +796,39 @@
       "lodCandidate": false,
       "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
       "scaleStatus": "source normalization measured; presentation scale is a lab proposal; native Unity scale/orientation PENDING"
+    },
+    {
+      "id": "qn:Bush_Common",
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Bush_Common.fbx",
+      "group": "HERO / NEAR",
+      "importScale": 1,
+      "presentationScale": 1,
+      "expectedSize": [
+        1.91484,
+        1.58179,
+        1.96514
+      ],
+      "sourceFbxSize": [
+        1.91484,
+        1.58179,
+        1.96514
+      ],
+      "sourceTriangles": 900,
+      "bindings": [
+        {
+          "sourceName": "Leaves_TwistedTree",
+          "materialKey": "qn_Leaves_TwistedTree"
+        },
+        {
+          "sourceName": "Material",
+          "materialKey": "qn_Leaves_TwistedTree"
+        }
+      ],
+      "castShadows": false,
+      "lodCandidate": false,
+      "lodDecision": "Understory; LOD0, distance culling in future profile",
+      "colliders": "presentation only: importer disabled, prefab stripped and asserted empty",
+      "scaleStatus": "FBX source measured in Blender; native Unity PENDING"
     }
   ],
   "textures": [
@@ -1123,6 +1156,32 @@
       "alphaCutoff": 0.2,
       "hasAlpha": false,
       "wrap": "Clamp"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_ForestGround04_Color.jpg",
+      "kind": "color",
+      "width": 1024,
+      "height": 1024,
+      "maxSize": 1024,
+      "webglFullMaxSize": 1024,
+      "webglMobileMaxSize": 1024,
+      "sha256": "50a4dda30875020c64385261aa7e00e2155b592302fa6794165f58fae73cbd2c",
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockFace03_Color.jpg",
+      "kind": "color",
+      "width": 1024,
+      "height": 1024,
+      "maxSize": 1024,
+      "webglFullMaxSize": 1024,
+      "webglMobileMaxSize": 1024,
+      "sha256": "ea48e0e47ad42c8bd312476178b1248ec66f0eb19156a26a1c222f2a40caaf2d",
+      "alphaCutoff": 0.2,
+      "hasAlpha": false,
+      "wrap": "Repeat"
     }
   ],
   "materials": [
@@ -1913,11 +1972,124 @@
       "bytes": 782,
       "sha256": "f85b048a20be42dc1b1b0e348b4f5a463b8cec54e28dabf7f4f3012bcad0319c",
       "kind": "provenance"
+    },
+    {
+      "source": "ExternalArtStaging/Environment/Quaternius/Nature/Original/FBX/Bush_Common.fbx",
+      "productionPath": "Assets/Art/Environment/External/Quaternius/Nature/Models/Bush_Common.fbx",
+      "sha256": "88d06836c90d6ea9ea135de0e977996e4a46f99aa2886b0d9f68c1d869101eca",
+      "bytes": 81580,
+      "kind": "model"
+    },
+    {
+      "source": "ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_ForestGround04_Color.jpg",
+      "bytes": 1113899,
+      "sha256": "50a4dda30875020c64385261aa7e00e2155b592302fa6794165f58fae73cbd2c",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt",
+      "productionPath": "Assets/Art/Environment/External/Licenses/ph-CC0-1.0.txt",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+      "kind": "license"
+    },
+    {
+      "source": "ExternalArtStaging/M15_1/ForestGround/Provenance.json",
+      "productionPath": "Assets/Art/Environment/External/Provenance/ph-forest-ground-04.json",
+      "bytes": 1463,
+      "sha256": "fec082eb83b2b298891ac9e81df37bc1fd2008ae9cd4f56566603246289c4080",
+      "kind": "provenance"
+    },
+    {
+      "source": "ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg",
+      "productionPath": "Assets/Art/Environment/External/SharedTextures/T_RockFace03_Color.jpg",
+      "bytes": 927082,
+      "sha256": "ea48e0e47ad42c8bd312476178b1248ec66f0eb19156a26a1c222f2a40caaf2d",
+      "kind": "texture"
+    },
+    {
+      "source": "ExternalArtStaging/M15_1/RockFace/Provenance.json",
+      "productionPath": "Assets/Art/Environment/External/Provenance/ph-rock-face-03.json",
+      "bytes": 1014,
+      "sha256": "34797cffa2fca456f657c20ea65ed042cc0fa723c371db4bbbae83496ff51503",
+      "kind": "provenance"
     }
   ],
   "textureDependencyReferences": 41,
   "duplicateTextureReferencesEliminated": 16,
-  "totalSourceTriangles": 30327,
-  "sourcePayloadBytes": 67624322,
-  "foliageAlphaTestedModels": 6
+  "totalSourceTriangles": 31227,
+  "sourcePayloadBytes": 69756408,
+  "foliageAlphaTestedModels": 7,
+  "m15_1Additions": [
+    {
+      "id": "qn:Bush_Common",
+      "source": "Quaternius Stylized Nature MegaKit",
+      "license": "CC0-1.0",
+      "purpose": "Low understory connects geological banks and canopy",
+      "newTextures": 0
+    }
+  ],
+  "m15_1Resources": [
+    {
+      "source": "Poly Haven",
+      "asset": "forest_ground_04",
+      "sourceUrl": "https://polyhaven.com/a/forest_ground_04",
+      "filesApi": "https://api.polyhaven.com/files/forest_ground_04",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://polyhaven.com/license",
+      "licenseQuote": "Our assets are all licensed as CC0, which is effectively Public Domain even in jurisdictions that do not support the Public Domain.",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/forest_ground_04/forest_ground_04_diff_1k.jpg",
+      "acquiredUtc": "2026-10-09",
+      "role": "Shared forest-floor litter, dirt and roots; one color texture only",
+      "nativeUnityValidation": "PENDING",
+      "sourceFiles": [
+        {
+          "path": "ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg",
+          "sha256": "50a4dda30875020c64385261aa7e00e2155b592302fa6794165f58fae73cbd2c",
+          "bytes": 1113899
+        },
+        {
+          "path": "ExternalArtStaging/M15_1/ForestGround/files.json",
+          "sha256": "2d591a0413dbbff2d2aa87d7a4fae00bd5c353edb4923aedd443efbc4c691156",
+          "bytes": 27232
+        },
+        {
+          "path": "ExternalArtStaging/M15_1/ForestGround/license.html",
+          "sha256": "6f4f617c936d14d5a80db6a2ebec145c79277a760672501eef51bff7a0d4cbba",
+          "bytes": 72324
+        },
+        {
+          "path": "ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt",
+          "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499",
+          "bytes": 7048
+        }
+      ]
+    },
+    {
+      "source": "Poly Haven",
+      "asset": "rock_face_03",
+      "sourceUrl": "https://polyhaven.com/a/rock_face_03",
+      "filesApi": "https://api.polyhaven.com/files/rock_face_03",
+      "license": "CC0-1.0",
+      "licenseUrl": "https://polyhaven.com/license",
+      "licenseSnapshot": "ExternalArtStaging/M15_1/ForestGround/license.html",
+      "legalText": "ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt",
+      "downloadUrl": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/rock_face_03/rock_face_03_diff_1k.jpg",
+      "acquiredUtc": "2026-10-09",
+      "role": "Shared weathered near-cliff triplanar detail; one color texture only",
+      "sourceFiles": [
+        {
+          "path": "ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg",
+          "sha256": "ea48e0e47ad42c8bd312476178b1248ec66f0eb19156a26a1c222f2a40caaf2d",
+          "bytes": 927082
+        },
+        {
+          "path": "ExternalArtStaging/M15_1/RockFace/files.json",
+          "sha256": "c351a9a3b30b6d31ff05383890906fd974e9546b6eb1cf01f0cd1f4554c2a2bf",
+          "bytes": 32457
+        }
+      ]
+    }
+  ]
 }

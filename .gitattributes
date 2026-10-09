@@ -1,0 +1,2 @@
+# Preserve downloaded license evidence verbatim, including its upstream HTML indentation.
+ExternalArtStaging/M15_1/ForestGround/license.html whitespace=-space-before-tab

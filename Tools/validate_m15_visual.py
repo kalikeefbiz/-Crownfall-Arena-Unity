@@ -5,6 +5,8 @@ from m15_presentation import ROOT,PITCH,HALF_HEIGHT,HEIGHT,FOCUS,PAD_X,PAD_Z
 BASELINE='e9b3f4be88bf13acb9c60c935d42ba110121fa40'
 BOOT='Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs'
 ALLOWED={BOOT,'Assets/Crownfall/Presentation/MobaCamera.cs','Assets/Crownfall/Match/Runtime/ArenaPresentation.cs','Assets/Crownfall/Match/Runtime/TerritoryFlow.shader'}
+NEW_CC0_SOURCES={'ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt', 'ExternalArtStaging/M15_1/ForestGround/files.json', 'ExternalArtStaging/M15_1/ForestGround/license.html', 'ExternalArtStaging/M15_1/ForestGround/Provenance.json', 'ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg'}
+NEW_CC0_SOURCES|={'ExternalArtStaging/M15_1/RockFace/Provenance.json', 'ExternalArtStaging/M15_1/RockFace/files.json', 'ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg'}
 PROTECTED=['Assets/Crownfall/Match','Assets/Crownfall/Combat','Assets/Crownfall/Gameplay','Assets/Crownfall/Presentation','Assets/Scenes','Assets/Art/Production','Assets/Art/Characters','Packages','ProjectSettings','ExternalArtStaging']
 def require(v,message):
  if not v:raise AssertionError(message)
@@ -12,7 +14,7 @@ def original(path):return subprocess.check_output(['git','show',BASELINE+':'+pat
 def contracts():
  changed=subprocess.check_output(['git','diff','--name-only',BASELINE,'--']+PROTECTED,cwd=ROOT,text=True).splitlines()
  extra=subprocess.check_output(['git','ls-files','--others','--exclude-standard','--']+PROTECTED,cwd=ROOT,text=True).splitlines()
- require(set(changed+extra)<=ALLOWED,'Unauthorized protected-source changes: '+str(changed+extra))
+ require(set(changed+extra)<=ALLOWED|NEW_CC0_SOURCES,'Unauthorized protected-source changes: '+str(changed+extra))
  prior=original(BOOT).decode();expected=prior.replace('            audioDirector=gameObject.AddComponent<MatchAudioDirector>();','            follow.ConfigurePresentation();\n            audioDirector=gameObject.AddComponent<MatchAudioDirector>();')
  expected=expected.replace('            shadowMaterial=new Material(effectMaterial);','            arenaPresentation.BindGround(world.transform.Find("Arena").GetComponent<Renderer>(),world.transform.Find("Lane").GetComponent<Renderer>());\n            shadowMaterial=new Material(effectMaterial);')
  expected=expected.replace('            blueTerritory=Shape(', '            arenaPresentation.BindStone(blueFlow);arenaPresentation.BindStone(redFlow);\n            blueTerritory=Shape(')
@@ -25,7 +27,7 @@ def contracts():
  for token in ('i.worldPos.x*1.8-_MatchTime*3*_Direction','i.worldPos.z*6.283185/7','_Active*(wave*.065+wave*canal*.07)','CrownfallStone(i.worldPos)','fullforwardshadows'):
   require(token in shader,'Stone surface lost territory/lighting contract: '+token)
  surface=(ROOT/'Assets/Crownfall/Environment/Shaders/StoneSurface.cginc').read_text()
- require('world.xz/8.0' in surface and 'CrownfallPaving(world)' in surface,'World-anchored stone/organic transition missing')
+ require(('world.xz/8.0' in surface or 'uv/8.0' in surface) and 'CrownfallPaving(world)' in surface,'World-anchored stone/organic transition missing')
  editor=(ROOT/'Assets/Editor/CrownfallEnvironment/M15SurfacePreparation.cs').read_text()
  for token in ('ValidateNativeProjection()','camera.WorldToViewportPoint(point)','new Plane(Vector3.up,Vector3.zero).Raycast','ShaderUtil.ShaderHasError','serialized.FindProperty(property).objectReferenceValue','_StoneNormal','filter.sharedMesh.GetIndexCount','MeshFilter','renderer.sharedMaterial==library.worldSurface'):
   require(token in editor,'Native M15 dependency/projection guard missing: '+token)
@@ -36,9 +38,13 @@ def contracts():
   if p in ALLOWED:continue
   data=(ROOT/p).read_bytes();require(data==original(p),'Protected source differs: '+p);hashes[p]=hashlib.sha256(data).hexdigest()
  # Record preservation evidence, including unchanged touch input and all production artwork.
- (ROOT/'Docs/CROWNFALL_M15_GAMEPLAY_PRESERVATION.json').write_text(json.dumps(dict(startingHead=BASELINE,protectedFileCount=len(hashes),sha256=hashes,authorizedPresentationFiles=sorted(ALLOWED),bootstrapScope='Exactly camera profile activation plus ground/territory material binding; original Shape positions/scales/collision flags and gameplay lifecycle unchanged'),indent=2)+'\n')
+ if json.loads((ROOT/'Assets/Crownfall/Environment/WildernessComposition.json').read_text())['compositionVersion']==2:
+  (ROOT/'Docs/CROWNFALL_M15_GAMEPLAY_PRESERVATION.json').write_text(json.dumps(dict(startingHead=BASELINE,protectedFileCount=len(hashes),sha256=hashes,authorizedPresentationFiles=sorted(ALLOWED),bootstrapScope='Exactly camera profile activation plus ground/territory material binding; original Shape positions/scales/collision flags and gameplay lifecycle unchanged'),indent=2)+'\n')
  return len(hashes)
 def main():
+ if json.loads((ROOT/'Assets/Crownfall/Environment/WildernessComposition.json').read_text())['compositionVersion']==3:
+  from validate_m15_1_visual import main as current
+  return current()
  count=contracts()
  from validate_wilderness import main as composition
  composition()

@@ -8,6 +8,8 @@ Shader "Crownfall/Territory Flow"
         _MatchTime ("Simulation time", Float) = 0
         _StoneTex ("Shared weathered stone", 2D) = "white" {}
         _StoneNormal ("Shared stone normal", 2D) = "bump" {}
+        _GroundTex ("Shared geological detail", 2D) = "white" {}
+        _ForestTex ("Shared CC0 forest litter", 2D) = "white" {}
     }
     SubShader
     {
@@ -23,7 +25,7 @@ Shader "Crownfall/Territory Flow"
                 float wave=pow(saturate(.5+.5*sin(i.worldPos.x*1.8-_MatchTime*3*_Direction)),8);
                 float canal=pow(saturate(.5+.5*cos(i.worldPos.z*6.283185/7)),24);
                 // World UVs stay fixed when authoritative territory meshes expand/contract.
-                o.Albedo=CrownfallStone(i.worldPos)*lerp(half3(1,1,1),_Color.rgb*3.5,.42);
+                o.Albedo=CrownfallStone(i.worldPos)*lerp(half3(1,1,1),_Color.rgb*3.5,.42*CrownfallPaving(i.worldPos));
                 o.Normal=CrownfallStoneNormal(i.worldPos);
                 o.Emission=_Active*(wave*.065+wave*canal*.07);
                 o.Metallic=0;o.Smoothness=.06;o.Occlusion=1;o.Alpha=1;

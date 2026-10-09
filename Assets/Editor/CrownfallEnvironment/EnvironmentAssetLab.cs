@@ -138,7 +138,15 @@ namespace Crownfall.EnvironmentLab.Editor
                         UnityEngine.Object.DestroyImmediate(component);
                 foreach (var renderer in visual.GetComponentsInChildren<MeshRenderer>(true))
                 {
-                    renderer.sharedMaterials = renderer.sharedMaterials.Select(material =>
+                    var filter = renderer.GetComponent<MeshFilter>();
+                    EnvironmentPaths.Require(filter != null && filter.sharedMesh != null && filter.sharedMesh.subMeshCount > 0,
+                        "Missing rendered mesh: " + row.id);
+                    var sourceMaterials = renderer.sharedMaterials;
+                    EnvironmentPaths.Require(sourceMaterials.Length >= filter.sharedMesh.subMeshCount,
+                        "FBX has fewer material slots than submeshes: " + row.id);
+                    // Some FBX importers retain an unused default slot. Extra slots redraw the last submesh;
+                    // discard only that surplus, never invent a material for a required submesh.
+                    renderer.sharedMaterials = sourceMaterials.Take(filter.sharedMesh.subMeshCount).Select(material =>
                     {
                         EnvironmentPaths.Require(material != null, "Null source material: " + row.id);
                         var mapped = row.bindings.FirstOrDefault(b => b.materialKey == material.name ||

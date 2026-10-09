@@ -1,0 +1,3073 @@
+{
+  "schemaVersion": 1,
+  "compositionVersion": 3,
+  "requiredUnityVersion": "6000.3.10f1",
+  "textureTier": "Mobile",
+  "startingHead": "fc359e4ca1ebd00151d0a8618546beb658d3142d",
+  "artDirection": "Overgrown cloister / ancient forest / Aether bedrock. Authored interrupted geological gardens; no physics.",
+  "placements": [
+    {
+      "name": "westgrove_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -31.6,
+        0.137,
+        14.100000000000001
+      ],
+      "scale": [
+        2.0,
+        1.9,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -29.7,
+        0.721,
+        15.9
+      ],
+      "scale": [
+        1.2,
+        2.25,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "westgrove_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -32.1,
+        0.579,
+        18.400000000000002
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_canopy_0",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -32.1,
+        0.073,
+        13.9
+      ],
+      "scale": [
+        1.2,
+        0.7,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "westgrove_canopy_1",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -29.6,
+        0.765,
+        16.1
+      ],
+      "scale": [
+        1.15,
+        0.54,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -30.650000000000002,
+        0.688,
+        18.1
+      ],
+      "scale": [
+        1.08,
+        0.58,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -32.7,
+        0.186,
+        14.450000000000001
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -30.400000000000002,
+        0.446,
+        15.0
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -28.8,
+        0.883,
+        16.5
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -31.8,
+        0.574,
+        19.3
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -32.8,
+        -0.051,
+        13.350000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -30.6,
+        -0.028,
+        13.350000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "westgrove_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "westgrove",
+      "zone": "pocket",
+      "position": [
+        -28.6,
+        -0.011,
+        13.350000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -11.5,
+        0.29,
+        14.3
+      ],
+      "scale": [
+        2.0,
+        1.9,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -9.6,
+        0.922,
+        16.1
+      ],
+      "scale": [
+        1.2,
+        2.25,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "rosecloister_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -12.0,
+        1.219,
+        18.6
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_canopy_0",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -12.0,
+        0.145,
+        13.9
+      ],
+      "scale": [
+        1.2,
+        0.7,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "rosecloister_canopy_1",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -9.5,
+        0.971,
+        16.3
+      ],
+      "scale": [
+        1.15,
+        0.54,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -10.549999999999999,
+        1.189,
+        18.3
+      ],
+      "scale": [
+        1.08,
+        0.58,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -12.6,
+        0.331,
+        14.65
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -10.299999999999999,
+        0.631,
+        15.2
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -8.7,
+        0.983,
+        16.7
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -11.7,
+        1.205,
+        19.5
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -12.7,
+        -0.011,
+        13.55
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -10.5,
+        0.019,
+        13.55
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -8.5,
+        -0.005,
+        13.55
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        9.6,
+        0.517,
+        14.600000000000001
+      ],
+      "scale": [
+        2.0,
+        1.9,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        11.5,
+        1.155,
+        16.400000000000002
+      ],
+      "scale": [
+        1.2,
+        2.25,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "aetherwood_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        9.1,
+        1.393,
+        18.900000000000002
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_canopy_0",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        9.1,
+        0.203,
+        13.9
+      ],
+      "scale": [
+        1.2,
+        0.7,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "aetherwood_canopy_1",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        11.6,
+        1.19,
+        16.6
+      ],
+      "scale": [
+        1.15,
+        0.54,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        10.55,
+        1.35,
+        18.6
+      ],
+      "scale": [
+        1.08,
+        0.58,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        8.5,
+        0.731,
+        14.950000000000001
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        10.8,
+        0.887,
+        15.5
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        12.4,
+        1.032,
+        17.0
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        9.4,
+        1.403,
+        19.8
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        8.4,
+        0.194,
+        13.850000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        10.6,
+        0.151,
+        13.850000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        12.600000000000001,
+        0.055,
+        13.850000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        29.8,
+        0.365,
+        14.9
+      ],
+      "scale": [
+        2.0,
+        1.9,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        31.700000000000003,
+        0.749,
+        16.7
+      ],
+      "scale": [
+        1.2,
+        2.25,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "eastcrag_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        29.3,
+        0.726,
+        19.2
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_canopy_0",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        29.3,
+        0.086,
+        13.9
+      ],
+      "scale": [
+        1.2,
+        0.7,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "eastcrag_canopy_1",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        31.8,
+        0.756,
+        16.9
+      ],
+      "scale": [
+        1.15,
+        0.54,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        30.75,
+        0.702,
+        18.9
+      ],
+      "scale": [
+        1.08,
+        0.58,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        28.700000000000003,
+        0.452,
+        15.25
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        31.0,
+        0.609,
+        15.799999999999999
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        32.6,
+        0.79,
+        17.3
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        29.6,
+        0.745,
+        20.1
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        28.6,
+        0.15,
+        14.15
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        30.8,
+        0.169,
+        14.15
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "eastcrag_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "eastcrag",
+      "zone": "pocket",
+      "position": [
+        32.800000000000004,
+        0.214,
+        14.15
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -32.199999999999996,
+        0.154,
+        -14.8
+      ],
+      "scale": [
+        2.0,
+        1.55,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -30.299999999999997,
+        0.587,
+        -16.6
+      ],
+      "scale": [
+        1.2,
+        1.6,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "westforeground_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -32.699999999999996,
+        0.516,
+        -19.1
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_canopy_0",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -32.699999999999996,
+        0.247,
+        -15.3
+      ],
+      "scale": [
+        1.2,
+        0.41600000000000004,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "westforeground_canopy_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -30.2,
+        0.615,
+        -16.8
+      ],
+      "scale": [
+        1.15,
+        0.35100000000000003,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -31.25,
+        0.606,
+        -18.8
+      ],
+      "scale": [
+        1.08,
+        0.377,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -33.3,
+        0.211,
+        -15.15
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -31.0,
+        0.384,
+        -15.7
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -29.4,
+        0.699,
+        -17.2
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -32.4,
+        0.541,
+        -20.0
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -33.4,
+        0.011,
+        -14.05
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -31.2,
+        0.022,
+        -14.05
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "westforeground_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "westforeground",
+      "zone": "pocket",
+      "position": [
+        -29.2,
+        0.056,
+        -14.05
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -14.3,
+        0.054,
+        -14.200000000000001
+      ],
+      "scale": [
+        2.0,
+        1.55,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -12.4,
+        0.305,
+        -16.0
+      ],
+      "scale": [
+        1.2,
+        1.6,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "southroots_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -14.8,
+        0.353,
+        -18.5
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_canopy_0",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -14.8,
+        0.147,
+        -14.700000000000001
+      ],
+      "scale": [
+        1.2,
+        0.41600000000000004,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "southroots_canopy_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -12.3,
+        0.318,
+        -16.2
+      ],
+      "scale": [
+        1.15,
+        0.35100000000000003,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -13.35,
+        0.36,
+        -18.2
+      ],
+      "scale": [
+        1.08,
+        0.377,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -15.4,
+        0.137,
+        -14.55
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -13.1,
+        0.183,
+        -15.1
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -11.5,
+        0.129,
+        -16.6
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -14.5,
+        0.357,
+        -19.4
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -15.5,
+        -0.051,
+        -13.450000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -13.3,
+        -0.065,
+        -13.450000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "southroots_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "southroots",
+      "zone": "pocket",
+      "position": [
+        -11.3,
+        -0.108,
+        -13.450000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        12.6,
+        0.237,
+        -14.5
+      ],
+      "scale": [
+        2.0,
+        1.55,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        14.5,
+        0.454,
+        -16.3
+      ],
+      "scale": [
+        1.2,
+        1.6,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "southruin_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        12.1,
+        0.524,
+        -18.8
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_canopy_0",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        12.1,
+        0.334,
+        -15.0
+      ],
+      "scale": [
+        1.2,
+        0.41600000000000004,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "southruin_canopy_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        14.6,
+        0.456,
+        -16.5
+      ],
+      "scale": [
+        1.15,
+        0.35100000000000003,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        13.55,
+        0.488,
+        -18.5
+      ],
+      "scale": [
+        1.08,
+        0.377,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        11.5,
+        0.119,
+        -14.85
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        13.8,
+        0.389,
+        -15.399999999999999
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        15.4,
+        0.4,
+        -16.9
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        12.4,
+        0.55,
+        -19.7
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        11.4,
+        -0.051,
+        -13.75
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        13.6,
+        0.03,
+        -13.75
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        15.600000000000001,
+        -0.003,
+        -13.75
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -24.816,
+        0.253,
+        14.100000000000001
+      ],
+      "scale": [
+        1.04,
+        1.9,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -23.828,
+        0.92,
+        15.9
+      ],
+      "scale": [
+        0.624,
+        2.25,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "watchglen_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -25.075999999999997,
+        1.079,
+        18.400000000000002
+      ],
+      "scale": [
+        0.7020000000000001,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_canopy_0",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -25.075999999999997,
+        0.177,
+        13.9
+      ],
+      "scale": [
+        0.624,
+        0.7,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "watchglen_canopy_1",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -23.776,
+        0.957,
+        16.1
+      ],
+      "scale": [
+        0.598,
+        0.54,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -24.322,
+        1.097,
+        18.1
+      ],
+      "scale": [
+        0.5616000000000001,
+        0.58,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -25.387999999999998,
+        0.397,
+        14.450000000000001
+      ],
+      "scale": [
+        0.468,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -24.192,
+        0.622,
+        15.0
+      ],
+      "scale": [
+        0.598,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -23.36,
+        0.782,
+        16.5
+      ],
+      "scale": [
+        0.41600000000000004,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -24.919999999999998,
+        1.084,
+        19.3
+      ],
+      "scale": [
+        0.676,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -25.439999999999998,
+        -0.003,
+        13.350000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -24.296,
+        -0.005,
+        13.350000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "watchglen_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "watchglen",
+      "zone": "pocket",
+      "position": [
+        -23.256,
+        -0.047,
+        13.350000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        23.784,
+        0.205,
+        14.3
+      ],
+      "scale": [
+        1.04,
+        1.9,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        24.772,
+        0.739,
+        16.1
+      ],
+      "scale": [
+        0.624,
+        2.25,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "brokenarcade_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        23.524,
+        0.74,
+        18.6
+      ],
+      "scale": [
+        0.7020000000000001,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_canopy_0",
+      "model": "qn:CommonTree_3",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        23.524,
+        0.065,
+        13.9
+      ],
+      "scale": [
+        0.624,
+        0.7,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "brokenarcade_canopy_1",
+      "model": "qn:Pine_5",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        24.823999999999998,
+        0.778,
+        16.3
+      ],
+      "scale": [
+        0.598,
+        0.54,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        24.278,
+        0.875,
+        18.3
+      ],
+      "scale": [
+        0.5616000000000001,
+        0.58,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        23.212,
+        0.173,
+        14.65
+      ],
+      "scale": [
+        0.468,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        24.407999999999998,
+        0.501,
+        15.2
+      ],
+      "scale": [
+        0.598,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        25.24,
+        0.82,
+        16.7
+      ],
+      "scale": [
+        0.41600000000000004,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        23.68,
+        0.809,
+        19.5
+      ],
+      "scale": [
+        0.676,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        23.16,
+        -0.045,
+        13.55
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        24.304,
+        0.006,
+        13.55
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "brokenarcade_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "brokenarcade",
+      "zone": "pocket",
+      "position": [
+        25.344,
+        0.004,
+        13.55
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_bedrock_0",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        30.4,
+        0.315,
+        -14.600000000000001
+      ],
+      "scale": [
+        2.0,
+        1.55,
+        0.52
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_bedrock_1",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        32.3,
+        0.758,
+        -16.400000000000002
+      ],
+      "scale": [
+        1.2,
+        1.6,
+        0.8
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "eastforeground_bedrock_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        29.9,
+        0.862,
+        -18.900000000000002
+      ],
+      "scale": [
+        1.35,
+        1.15,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_canopy_0",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        29.9,
+        0.486,
+        -15.100000000000001
+      ],
+      "scale": [
+        1.2,
+        0.41600000000000004,
+        0.55
+      ],
+      "yaw": 4,
+      "castShadows": true
+    },
+    {
+      "name": "eastforeground_canopy_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        32.4,
+        0.774,
+        -16.6
+      ],
+      "scale": [
+        1.15,
+        0.35100000000000003,
+        0.57
+      ],
+      "yaw": -6,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_canopy_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        31.349999999999998,
+        0.806,
+        -18.6
+      ],
+      "scale": [
+        1.08,
+        0.377,
+        0.68
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_understory_0",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        29.3,
+        0.432,
+        -14.950000000000001
+      ],
+      "scale": [
+        0.9,
+        0.65,
+        0.63
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_understory_1",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        31.599999999999998,
+        0.59,
+        -15.5
+      ],
+      "scale": [
+        1.15,
+        0.65,
+        0.8049999999999999
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_understory_2",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        33.2,
+        0.747,
+        -17.0
+      ],
+      "scale": [
+        0.8,
+        0.65,
+        0.5599999999999999
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_understory_3",
+      "model": "qn:Bush_Common",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        30.2,
+        0.833,
+        -19.8
+      ],
+      "scale": [
+        1.3,
+        0.65,
+        0.9099999999999999
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_fern_0",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        29.2,
+        0.076,
+        -13.850000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 14,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_fern_1",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        31.4,
+        0.079,
+        -13.850000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 55,
+      "castShadows": false
+    },
+    {
+      "name": "eastforeground_fern_2",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "eastforeground",
+      "zone": "pocket",
+      "position": [
+        33.4,
+        0.069,
+        -13.850000000000001
+      ],
+      "scale": [
+        0.65,
+        0.65,
+        0.45
+      ],
+      "yaw": 96,
+      "castShadows": false
+    },
+    {
+      "name": "rosecloister_arch",
+      "model": "qm:DoorFrame_Round_Brick",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -10.6,
+        0.35,
+        14.5
+      ],
+      "scale": [
+        2.4,
+        1.65,
+        1.6
+      ],
+      "yaw": -9,
+      "castShadows": true
+    },
+    {
+      "name": "rosecloister_wall",
+      "model": "qm:Wall_UnevenBrick_Straight",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -12.3,
+        1.128,
+        19.2
+      ],
+      "scale": [
+        2.0,
+        1.05,
+        1.3
+      ],
+      "yaw": 12,
+      "castShadows": true
+    },
+    {
+      "name": "rosecloister_stair",
+      "model": "qm:Stairs_Exterior_Straight",
+      "layer": "NEAR",
+      "role": "rosecloister",
+      "zone": "pocket",
+      "position": [
+        -10.8,
+        1.095,
+        22
+      ],
+      "scale": [
+        1.2,
+        0.9,
+        1.1
+      ],
+      "yaw": -5,
+      "castShadows": false
+    },
+    {
+      "name": "southruin_arch",
+      "model": "qm:DoorFrame_Round_Brick",
+      "layer": "NEAR",
+      "role": "southruin",
+      "zone": "pocket",
+      "position": [
+        13.3,
+        0.561,
+        -16.5
+      ],
+      "scale": [
+        1.7,
+        1.1,
+        1.1
+      ],
+      "yaw": 8,
+      "castShadows": false
+    },
+    {
+      "name": "aetherwood_twisted_landmark",
+      "model": "qn:TwistedTree_1",
+      "layer": "NEAR",
+      "role": "aetherwood",
+      "zone": "pocket",
+      "position": [
+        10.4,
+        0.678,
+        15.0
+      ],
+      "scale": [
+        0.5,
+        0.28,
+        0.3
+      ],
+      "yaw": 0,
+      "castShadows": true
+    },
+    {
+      "name": "foresttier_0",
+      "model": "qn:CommonTree_3",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        -31,
+        0.555,
+        24
+      ],
+      "scale": [
+        1.0,
+        0.82,
+        0.85
+      ],
+      "yaw": 17,
+      "castShadows": false
+    },
+    {
+      "name": "foresttier_1",
+      "model": "qn:CommonTree_3",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        -11,
+        0.939,
+        24
+      ],
+      "scale": [
+        1.12,
+        0.79,
+        0.85
+      ],
+      "yaw": -28,
+      "castShadows": false
+    },
+    {
+      "name": "foresttier_2",
+      "model": "qn:Pine_1",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        11,
+        1.25,
+        28
+      ],
+      "scale": [
+        1.15,
+        1.0,
+        0.85
+      ],
+      "yaw": 47,
+      "castShadows": false
+    },
+    {
+      "name": "foresttier_3",
+      "model": "qn:CommonTree_3",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        31,
+        1.073,
+        25
+      ],
+      "scale": [
+        1.2,
+        0.88,
+        0.85
+      ],
+      "yaw": 83,
+      "castShadows": false
+    },
+    {
+      "name": "foresttier_4",
+      "model": "qn:Pine_1",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        -30,
+        0.714,
+        -24
+      ],
+      "scale": [
+        1,
+        0.55,
+        0.85
+      ],
+      "yaw": -9,
+      "castShadows": false
+    },
+    {
+      "name": "foresttier_5",
+      "model": "qn:CommonTree_3",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        -13,
+        0.53,
+        -24
+      ],
+      "scale": [
+        0.85,
+        0.5,
+        0.85
+      ],
+      "yaw": 68,
+      "castShadows": false
+    },
+    {
+      "name": "foresttier_6",
+      "model": "qn:Pine_1",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        13,
+        0.515,
+        -24
+      ],
+      "scale": [
+        1.1,
+        0.6,
+        0.85
+      ],
+      "yaw": 104,
+      "castShadows": false
+    },
+    {
+      "name": "foresttier_7",
+      "model": "qn:CommonTree_1",
+      "layer": "MID",
+      "role": "foresttier",
+      "zone": "pocket",
+      "position": [
+        30,
+        0.711,
+        -24
+      ],
+      "scale": [
+        1.1,
+        0.55,
+        0.85
+      ],
+      "yaw": 192,
+      "castShadows": false
+    },
+    {
+      "name": "ruinskyline_0",
+      "model": "kc:tower-square-arch",
+      "layer": "MID",
+      "role": "ruinskyline",
+      "zone": "pocket",
+      "position": [
+        -29,
+        0.967,
+        29
+      ],
+      "scale": [
+        0.75,
+        0.75,
+        0.75
+      ],
+      "yaw": 15,
+      "castShadows": false
+    },
+    {
+      "name": "ruinskyline_1",
+      "model": "kc:tower-hexagon-top",
+      "layer": "MID",
+      "role": "ruinskyline",
+      "zone": "pocket",
+      "position": [
+        -10,
+        0.588,
+        31
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": -8,
+      "castShadows": false
+    },
+    {
+      "name": "ruinskyline_2",
+      "model": "kc:wall-corner-half-tower",
+      "layer": "MID",
+      "role": "ruinskyline",
+      "zone": "pocket",
+      "position": [
+        29,
+        1.362,
+        29
+      ],
+      "scale": [
+        0.7,
+        0.7,
+        0.7
+      ],
+      "yaw": 67,
+      "castShadows": false
+    },
+    {
+      "name": "ruinskyline_3",
+      "model": "kc:wall-half-modular",
+      "layer": "MID",
+      "role": "ruinskyline",
+      "zone": "pocket",
+      "position": [
+        11,
+        1.035,
+        32
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": -18,
+      "castShadows": false
+    },
+    {
+      "name": "ruinskyline_4",
+      "model": "kn:statue_columnDamaged",
+      "layer": "MID",
+      "role": "ruinskyline",
+      "zone": "pocket",
+      "position": [
+        -9,
+        0.729,
+        28
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": 27,
+      "castShadows": false
+    },
+    {
+      "name": "geological_horizon_0",
+      "model": "kn:cliff_large_rock",
+      "layer": "FAR",
+      "role": "geological",
+      "zone": "exterior",
+      "position": [
+        -31,
+        2.533,
+        35
+      ],
+      "scale": [
+        1.1,
+        0.7,
+        0.8
+      ],
+      "yaw": -4,
+      "castShadows": false
+    },
+    {
+      "name": "geological_horizon_1",
+      "model": "kn:cliff_cornerLarge_rock",
+      "layer": "FAR",
+      "role": "geological",
+      "zone": "exterior",
+      "position": [
+        8,
+        3.728,
+        37
+      ],
+      "scale": [
+        1.2,
+        0.9,
+        1.2
+      ],
+      "yaw": 28,
+      "castShadows": false
+    },
+    {
+      "name": "geological_horizon_2",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "geological",
+      "zone": "exterior",
+      "position": [
+        30,
+        2.974,
+        36
+      ],
+      "scale": [
+        0.85,
+        1.15,
+        0.8
+      ],
+      "yaw": -16,
+      "castShadows": false
+    },
+    {
+      "name": "geological_horizon_3",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "geological",
+      "zone": "exterior",
+      "position": [
+        -37,
+        2.58,
+        22
+      ],
+      "scale": [
+        0.85,
+        1.5,
+        0.85
+      ],
+      "yaw": 12,
+      "castShadows": false
+    },
+    {
+      "name": "geological_horizon_4",
+      "model": "kn:rock_tallG",
+      "layer": "FAR",
+      "role": "geological",
+      "zone": "exterior",
+      "position": [
+        37,
+        2.635,
+        21
+      ],
+      "scale": [
+        1,
+        1.2,
+        1
+      ],
+      "yaw": 53,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_0",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "pocket",
+      "position": [
+        -29,
+        1.015,
+        32
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": 11,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_1",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "pocket",
+      "position": [
+        -24,
+        1.962,
+        33
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 42,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_2",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "exterior",
+      "position": [
+        -12,
+        2.211,
+        34
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": -13,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_3",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "exterior",
+      "position": [
+        -7,
+        2.185,
+        34
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": 37,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_4",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "exterior",
+      "position": [
+        3,
+        2.185,
+        34
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 80,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_5",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "exterior",
+      "position": [
+        14,
+        2.305,
+        34
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "yaw": 63,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_6",
+      "model": "kn:tree_default_dark",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "pocket",
+      "position": [
+        23,
+        0.736,
+        32
+      ],
+      "scale": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "yaw": -22,
+      "castShadows": false
+    },
+    {
+      "name": "farforest_7",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "farforest",
+      "zone": "pocket",
+      "position": [
+        31,
+        1.45,
+        32
+      ],
+      "scale": [
+        0.9,
+        0.9,
+        0.9
+      ],
+      "yaw": 44,
+      "castShadows": false
+    }
+  ],
+  "retiredShippingCandidates": [
+    "kn:cliff_block_rock"
+  ],
+  "qualitySelection": "Rich textured near formations; Kenney cones/fortifications confined to skyline; oversized box-shaped cliff retired"
+}

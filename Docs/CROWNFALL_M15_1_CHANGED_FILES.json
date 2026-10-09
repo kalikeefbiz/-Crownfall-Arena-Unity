@@ -1,0 +1,683 @@
+{
+  "schemaVersion": 1,
+  "startingHead": "fc359e4ca1ebd00151d0a8618546beb658d3142d",
+  "branch": "browser-parity-unity",
+  "fileCount": 107,
+  "addedUnderAssetsBytes": 2132086,
+  "netAssetsByteDelta": 2115925,
+  "newProductionModelAndTextureBytes": 2122561,
+  "shippingAssetsPaths": [
+    "Assets/Art/Environment/External/Licenses/ph-CC0-1.0.txt",
+    "Assets/Art/Environment/External/Provenance/ph-forest-ground-04.json",
+    "Assets/Art/Environment/External/Provenance/ph-rock-face-03.json",
+    "Assets/Art/Environment/External/Quaternius/Nature/Models/Bush_Common.fbx",
+    "Assets/Art/Environment/External/SharedTextures/T_ForestGround04_Color.jpg",
+    "Assets/Art/Environment/External/SharedTextures/T_RockFace03_Color.jpg",
+    "Assets/Crownfall/Environment/ArenaWildernessPresentation.cs",
+    "Assets/Crownfall/Environment/CameraFraming.cs",
+    "Assets/Crownfall/Environment/ExternalEnvironmentCatalog.json",
+    "Assets/Crownfall/Environment/Shaders/EnvironmentLit.shader",
+    "Assets/Crownfall/Environment/Shaders/StoneSurface.cginc",
+    "Assets/Crownfall/Environment/Shaders/WorldSurface.shader",
+    "Assets/Crownfall/Environment/WildernessComposition.json",
+    "Assets/Crownfall/Environment/WildernessLibrary.cs",
+    "Assets/Crownfall/Environment/WorldContinuation.cs",
+    "Assets/Crownfall/Match/Runtime/TerritoryFlow.shader",
+    "Assets/Editor/CrownfallEnvironment/EnvironmentAssetLab.cs",
+    "Assets/Editor/CrownfallEnvironment/EnvironmentCatalog.cs",
+    "Assets/Editor/CrownfallEnvironment/M15PresentationTests.cs",
+    "Assets/Editor/CrownfallEnvironment/M15SurfacePreparation.cs",
+    "Assets/Editor/CrownfallEnvironment/WildernessBuildPreparation.cs"
+  ],
+  "existingFilesDeleted": false,
+  "newDependencies": [
+    "qn:Bush_Common (staged CC0)",
+    "Poly Haven forest_ground_04 Diffuse 1K (CC0-1.0)",
+    "Poly Haven rock_face_03 Diffuse 1K (CC0-1.0)"
+  ],
+  "allChangedFilesBelowGitHub100MiB": true,
+  "maximumChangedFileBytes": 1717525,
+  "files": [
+    {
+      "path": ".gitattributes",
+      "status": "ADDED",
+      "bytes": 170,
+      "sha256": "b7832b636d8d16e5396ced644b67aeaa8ccf73eb0667314a8e44c9d99a8f4090"
+    },
+    {
+      "path": "Assets/Art/Environment/External/Licenses/ph-CC0-1.0.txt",
+      "status": "ADDED",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "Assets/Art/Environment/External/Provenance/ph-forest-ground-04.json",
+      "status": "ADDED",
+      "bytes": 1463,
+      "sha256": "fec082eb83b2b298891ac9e81df37bc1fd2008ae9cd4f56566603246289c4080"
+    },
+    {
+      "path": "Assets/Art/Environment/External/Provenance/ph-rock-face-03.json",
+      "status": "ADDED",
+      "bytes": 1014,
+      "sha256": "34797cffa2fca456f657c20ea65ed042cc0fa723c371db4bbbae83496ff51503"
+    },
+    {
+      "path": "Assets/Art/Environment/External/Quaternius/Nature/Models/Bush_Common.fbx",
+      "status": "ADDED",
+      "bytes": 81580,
+      "sha256": "88d06836c90d6ea9ea135de0e977996e4a46f99aa2886b0d9f68c1d869101eca"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_ForestGround04_Color.jpg",
+      "status": "ADDED",
+      "bytes": 1113899,
+      "sha256": "50a4dda30875020c64385261aa7e00e2155b592302fa6794165f58fae73cbd2c"
+    },
+    {
+      "path": "Assets/Art/Environment/External/SharedTextures/T_RockFace03_Color.jpg",
+      "status": "ADDED",
+      "bytes": 927082,
+      "sha256": "ea48e0e47ad42c8bd312476178b1248ec66f0eb19156a26a1c222f2a40caaf2d"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/ArenaWildernessPresentation.cs",
+      "status": "MODIFIED",
+      "bytes": 8921,
+      "sha256": "d8eb0bd89fa2ba6a4ca5398200b2f2c368c5e2832e2ccfd61406b488697030cd"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/CameraFraming.cs",
+      "status": "MODIFIED",
+      "bytes": 1671,
+      "sha256": "a47ccaa9a87ab6aafbd878f967cfb33554e259d06fbf47b5da55b5fba08c4766"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/ExternalEnvironmentCatalog.json",
+      "status": "MODIFIED",
+      "bytes": 72188,
+      "sha256": "477ffe7388bbf1d58485c2e05c6b884cba3cd075f529080bcdce84c28cebe6a3"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/Shaders/EnvironmentLit.shader",
+      "status": "MODIFIED",
+      "bytes": 2979,
+      "sha256": "8dd2789e62f8d7a950470e61bd108497342244a3227b66efa177d77ac7125597"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/Shaders/StoneSurface.cginc",
+      "status": "MODIFIED",
+      "bytes": 2203,
+      "sha256": "041c10b8ea0cb6aa5a3589b509a5d30b3789bbde6ffd3a8322383f9380c24267"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/Shaders/WorldSurface.shader",
+      "status": "MODIFIED",
+      "bytes": 1148,
+      "sha256": "968357beddca8202ea74b0e94522c8025ddc765587e7834751401291b99b31a2"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/WildernessComposition.json",
+      "status": "MODIFIED",
+      "bytes": 56792,
+      "sha256": "b23e11078fc68b94b021f5abfaa79b10e433f25f6f6ad5bac8e1a2adb00e6cf6"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/WildernessLibrary.cs",
+      "status": "MODIFIED",
+      "bytes": 540,
+      "sha256": "2237e6c077e879b59e16b4bcf8474f00f97c58493aca74d9129584747f653fde"
+    },
+    {
+      "path": "Assets/Crownfall/Environment/WorldContinuation.cs",
+      "status": "MODIFIED",
+      "bytes": 2828,
+      "sha256": "8effb4a5d8af1ffce99a42dec0aea2f4cfb338ab45dbb19f603ab6676379f7ae"
+    },
+    {
+      "path": "Assets/Crownfall/Match/Runtime/TerritoryFlow.shader",
+      "status": "MODIFIED",
+      "bytes": 1586,
+      "sha256": "c1ded39f73cbe05f68d5908481dd2a57dfc43b771e7907b8f75ded0ac4634858"
+    },
+    {
+      "path": "Assets/Editor/CrownfallEnvironment/EnvironmentAssetLab.cs",
+      "status": "MODIFIED",
+      "bytes": 16040,
+      "sha256": "d9fed85436216d64dd8cce2746002d9aab734929f640593f792b5ca6ebe8a486"
+    },
+    {
+      "path": "Assets/Editor/CrownfallEnvironment/EnvironmentCatalog.cs",
+      "status": "MODIFIED",
+      "bytes": 3612,
+      "sha256": "fe1d36375220a04ad793023c819ec970d93b1cb62fbcc637db9e3753bf21d7e0"
+    },
+    {
+      "path": "Assets/Editor/CrownfallEnvironment/M15PresentationTests.cs",
+      "status": "MODIFIED",
+      "bytes": 3439,
+      "sha256": "6e97f6ddd7e16d94c8ee0af295d41e832cb0865e0d5bf5034a038fe9f256c61f"
+    },
+    {
+      "path": "Assets/Editor/CrownfallEnvironment/M15SurfacePreparation.cs",
+      "status": "MODIFIED",
+      "bytes": 12421,
+      "sha256": "060edfbf6cb86ba093d1b5a7ed1c80ce5d277c82c04905176dc8062cbeaf3a4b"
+    },
+    {
+      "path": "Assets/Editor/CrownfallEnvironment/WildernessBuildPreparation.cs",
+      "status": "MODIFIED",
+      "bytes": 25190,
+      "sha256": "245e28e2cf2165d5b8114e30366f81dfe911034d1d752e10595f8cf4352df456"
+    },
+    {
+      "path": "Docs/CROWNFALL_M15_1_BUSH_INSPECTION.json",
+      "status": "ADDED",
+      "bytes": 350,
+      "sha256": "9e456f32d778df54ab31d39e64f5e7ee5806505345a1e788d1daf4be1ab6b2ad"
+    },
+    {
+      "path": "Docs/CROWNFALL_M15_1_CHANGED_FILES.json",
+      "status": "ADDED",
+      "selfReference": "Own size/hash omitted to avoid recursive checksum"
+    },
+    {
+      "path": "Docs/CROWNFALL_M15_1_GAMEPLAY_PRESERVATION.json",
+      "status": "ADDED",
+      "bytes": 120292,
+      "sha256": "d491005c35908c1a9c91a145be8ba1200c79d0fe3801c9da3a401b6d75202dcb"
+    },
+    {
+      "path": "Docs/CROWNFALL_M15_1_TEST_RESULTS.json",
+      "status": "ADDED",
+      "bytes": 7704,
+      "sha256": "b8a9adf44022f5430dac963455dc51a4c0082b95c0fcba57bf948aa5ef8c1e2a"
+    },
+    {
+      "path": "Docs/CROWNFALL_M15_1_VALIDATION.json",
+      "status": "ADDED",
+      "bytes": 13756,
+      "sha256": "3687a633cefc4f273041c657442ac15c240d2d17f2c434588e6c5ac171f294a2"
+    },
+    {
+      "path": "Docs/CROWNFALL_M15_1_VISUAL_REVIEW.json",
+      "status": "ADDED",
+      "bytes": 16484,
+      "sha256": "7559e6b7733543c6f9e3fed8863daef62bfc2cf5f1568c95d6e1f2deed73c7fd"
+    },
+    {
+      "path": "Docs/CROWNFALL_M15_1_VISUAL_TRANSFORMATION.md",
+      "status": "ADDED",
+      "bytes": 23781,
+      "sha256": "457ee6dc62bb47a8b0ca96ec8a857c48ea7a3cafdea9ae511d619e69562f90c8"
+    },
+    {
+      "path": "Docs/CROWNFALL_WILDERNESS_COMPOSITION_VALIDATION.json",
+      "status": "MODIFIED",
+      "bytes": 12427,
+      "sha256": "722188daae01ed9781c97583bb2cf2c02611547f45887a5430007dfa7b0bd489"
+    },
+    {
+      "path": "Docs/ENVIRONMENT_ASSET_INTEGRATION_VALIDATION.json",
+      "status": "MODIFIED",
+      "bytes": 1184,
+      "sha256": "dd926461632b8f1d7edd17cdeb55e9c4cc7546d8f19431f9fea48f84b7c7ce77"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/CAMERA_SNAPSHOT.cs",
+      "status": "ADDED",
+      "bytes": 1671,
+      "sha256": "a47ccaa9a87ab6aafbd878f967cfb33554e259d06fbf47b5da55b5fba08c4766"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/COMPOSITION_SNAPSHOT.json",
+      "status": "ADDED",
+      "bytes": 56792,
+      "sha256": "b23e11078fc68b94b021f5abfaa79b10e433f25f6f6ad5bac8e1a2adb00e6cf6"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/MATERIAL_SNAPSHOT.shader",
+      "status": "ADDED",
+      "bytes": 2979,
+      "sha256": "8dd2789e62f8d7a950470e61bd108497342244a3227b66efa177d77ac7125597"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "444b982979e05debb80f7d901ea44296a7fdfb00cc2d65400fbe8d97d08c2467"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/SURFACE_SNAPSHOT.cginc",
+      "status": "ADDED",
+      "bytes": 2203,
+      "sha256": "041c10b8ea0cb6aa5a3589b509a5d30b3789bbde6ffd3a8322383f9380c24267"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1631203,
+      "sha256": "6f4ccb655de70e9b34e50651de666aaf19be815fb2aa1d97edb46123d4d428b9"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1623350,
+      "sha256": "f6291b01ae88a1b18cd7e009fbbffbf6fdded0fc782f1edefb2377b7d307bf2d"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/objective.png",
+      "status": "ADDED",
+      "bytes": 1708736,
+      "sha256": "ecaacc362508c2e88778dd0b4cb56368b282d6146c48755fd7d13b29b760bf73"
+    },
+    {
+      "path": "Docs/M15_1Previews/Final/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1630673,
+      "sha256": "75f1805acb2dafc32cda9d8824da1ddd81321018d150f58b89d4526a0b6fad46"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration1/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "443b5d393536bb8bfb1faff1e81cae1abef20ccdd7ab4950ea6d473e76812d83"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration1/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1497717,
+      "sha256": "2f1640bb4ca9142a1b3e59af406887faeabb008ff381a6d2d9d8b123e02e1828"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration1/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1497088,
+      "sha256": "fd878d0d51e7d0a4366bbaa8d09108aaf4ee1020f890b548ada97948099c4866"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration1/objective.png",
+      "status": "ADDED",
+      "bytes": 1612866,
+      "sha256": "10ee5ed9ac3a70e6f56a03b4e4a9be7f1e22fcbc2ee6f9480bd0b613775aaf3e"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration1/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1497846,
+      "sha256": "9c6b32d6bc3207baac2ce6c3d778aa1dd1cbd7fa6e60582a85e3cd7436506ec5"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration2/COMPOSITION_SNAPSHOT.json",
+      "status": "ADDED",
+      "bytes": 43005,
+      "sha256": "b4f9978e3dc95da9f977bd93addd8c88740c18426ac852e78f1a28f099c7d0ed"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration2/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "2ceae75d9039968c89a771c58a2046b8441e9b29e0b73562e47ce32da049ddc1"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration2/SURFACE_SNAPSHOT.cginc",
+      "status": "ADDED",
+      "bytes": 2171,
+      "sha256": "d1fd674d07b7a07ca425b39a53c5800032590a75eb69c02adc78194cb8086268"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration2/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1497399,
+      "sha256": "4e7dfe94850ca4d361a8fbe04b889c52d0e3dc20d60b9f454ea7e3af5ba3c239"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration2/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1516990,
+      "sha256": "28a8ec0ae6b03793ec47c626f2ec9a6e098c4eccf257763bdcc764f4fccd1a02"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration2/objective.png",
+      "status": "ADDED",
+      "bytes": 1612877,
+      "sha256": "cb938cd731f4a1256090acd01b98fe43ada7c2e51dec57b0716be43ef636c44a"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration2/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1499021,
+      "sha256": "8f1ba0c7bb7a7cb05ab4ac4ead001ab52550ba83e421c75fd3fb076d644a0933"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration3/COMPOSITION_SNAPSHOT.json",
+      "status": "ADDED",
+      "bytes": 42600,
+      "sha256": "d1784f9ecae475ab3d5e9430eb0891da4851f1bbce08815363b9ef49558cb37f"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration3/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "67fbe4be80b6773b89cfd648ea2154613210dcb1c4f533b1bf18a9c663909d2b"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration3/SURFACE_SNAPSHOT.cginc",
+      "status": "ADDED",
+      "bytes": 2219,
+      "sha256": "850cd2f817e2bf788f7213e5ab659f21cb06debc938ed0a702fbc870cd30c1b5"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration3/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1480115,
+      "sha256": "bc17f90a11c965a1adbd69e4e60c4295d47f9267931b93db89fe4ccba351ecaf"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration3/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1504242,
+      "sha256": "194d79899c6c1f60f1ca7e23667c4141d51e16fee2584cc7d222f04f39aeb541"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration3/objective.png",
+      "status": "ADDED",
+      "bytes": 1578550,
+      "sha256": "468cb81d3ffadf69513ce0be4669ed8aa3000dc5333a24cbc9a9d3300297a2b4"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration3/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1480656,
+      "sha256": "cccff0d56528cfcc96439727b3f1ba8023039f61a858e140803ca9d2bdc82950"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration4/COMPOSITION_SNAPSHOT.json",
+      "status": "ADDED",
+      "bytes": 42773,
+      "sha256": "965fd37c45130fc6afd095d9e8556a90f25cd628aa91d9dc939ba6ae92c81085"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration4/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "d5c1b6893308b7a4a08a2586f5dbf21e5e45cd7ada77bdbd18d64330110eb53d"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration4/SURFACE_SNAPSHOT.cginc",
+      "status": "ADDED",
+      "bytes": 2203,
+      "sha256": "041c10b8ea0cb6aa5a3589b509a5d30b3789bbde6ffd3a8322383f9380c24267"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration4/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1603180,
+      "sha256": "0747ec99d3cc72a1b1a6bb18b5973a274c85bd0ec601f84442a1cb1f6fe980ac"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration4/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1594933,
+      "sha256": "f7275638e45df33b7566b7bfa3c1af9e84c21a378b7eae0c633cc71b5a0dc5c8"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration4/objective.png",
+      "status": "ADDED",
+      "bytes": 1717525,
+      "sha256": "788192f489559db36f1e3df0351a87258ddd22493666c0740a9b0648335f76c4"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration4/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1598903,
+      "sha256": "c9fa9e53765f180806f1c21310d73c1d1c2e0db0d5046e09d4422816869299a5"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration5/COMPOSITION_SNAPSHOT.json",
+      "status": "ADDED",
+      "bytes": 56793,
+      "sha256": "8ddf14211a2430e5fb22d6adde2fad6fe2626aed060f18157ea0ad2c83110ffa"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration5/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "4a29a5d55a254f191dc73cc21c46de0f973e0ec051043c9d82a472827e1f85e0"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration5/SURFACE_SNAPSHOT.cginc",
+      "status": "ADDED",
+      "bytes": 2203,
+      "sha256": "041c10b8ea0cb6aa5a3589b509a5d30b3789bbde6ffd3a8322383f9380c24267"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration5/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1620845,
+      "sha256": "249381b7665b0d76a7daf3f4fa5f4de5b41f480fc35a28157317b0076fd38a45"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration5/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1611669,
+      "sha256": "7810642d90d095459791ab74ccc8f579788dc663cc4a0b0eb65285ad3130fc44"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration5/objective.png",
+      "status": "ADDED",
+      "bytes": 1703270,
+      "sha256": "f31de0c3de0ab5d2397b71e0af5941e9dbc47c4485595d32b13da98e62138243"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration5/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1622386,
+      "sha256": "c9c9f820bdcf7dc98b50e7de1001a96927d4a73ee26d53107f85d7045be5171a"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/CAMERA_SNAPSHOT.cs",
+      "status": "ADDED",
+      "bytes": 1671,
+      "sha256": "a47ccaa9a87ab6aafbd878f967cfb33554e259d06fbf47b5da55b5fba08c4766"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/COMPOSITION_SNAPSHOT.json",
+      "status": "ADDED",
+      "bytes": 56793,
+      "sha256": "8ddf14211a2430e5fb22d6adde2fad6fe2626aed060f18157ea0ad2c83110ffa"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/MATERIAL_SNAPSHOT.shader",
+      "status": "ADDED",
+      "bytes": 2979,
+      "sha256": "8dd2789e62f8d7a950470e61bd108497342244a3227b66efa177d77ac7125597"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "4a29a5d55a254f191dc73cc21c46de0f973e0ec051043c9d82a472827e1f85e0"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/SURFACE_SNAPSHOT.cginc",
+      "status": "ADDED",
+      "bytes": 2203,
+      "sha256": "041c10b8ea0cb6aa5a3589b509a5d30b3789bbde6ffd3a8322383f9380c24267"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1630901,
+      "sha256": "ae17d4d450c0c8c06d69bfc389d824f6db481443031a5f412066ae25e3fafe87"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1620197,
+      "sha256": "d8234de2f538f662cb914886dc50e70dcff232bcedb1872b8253b499de10a914"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/objective.png",
+      "status": "ADDED",
+      "bytes": 1707024,
+      "sha256": "6acbd08ebbb08d11c3bdde0c6bf6c3b265c6d67916662526063186885ff52839"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration6/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1631798,
+      "sha256": "02e5b6284b26bfaa29ece7370521424998549a93b5c73dce1beece1db9b4e504"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/CAMERA_SNAPSHOT.cs",
+      "status": "ADDED",
+      "bytes": 1671,
+      "sha256": "a47ccaa9a87ab6aafbd878f967cfb33554e259d06fbf47b5da55b5fba08c4766"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/COMPOSITION_SNAPSHOT.json",
+      "status": "ADDED",
+      "bytes": 56792,
+      "sha256": "b23e11078fc68b94b021f5abfaa79b10e433f25f6f6ad5bac8e1a2adb00e6cf6"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/MATERIAL_SNAPSHOT.shader",
+      "status": "ADDED",
+      "bytes": 2979,
+      "sha256": "8dd2789e62f8d7a950470e61bd108497342244a3227b66efa177d77ac7125597"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/OFFLINE_PREVIEW_REPORT.json",
+      "status": "ADDED",
+      "bytes": 2328,
+      "sha256": "444b982979e05debb80f7d901ea44296a7fdfb00cc2d65400fbe8d97d08c2467"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/SURFACE_SNAPSHOT.cginc",
+      "status": "ADDED",
+      "bytes": 2203,
+      "sha256": "041c10b8ea0cb6aa5a3589b509a5d30b3789bbde6ffd3a8322383f9380c24267"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/blue-combat.png",
+      "status": "ADDED",
+      "bytes": 1630172,
+      "sha256": "2a8c2f3e3feea44622ffc61dc97ac6530d79d6f745f87bcec6daaa9caf602879"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/center-lane.png",
+      "status": "ADDED",
+      "bytes": 1619531,
+      "sha256": "1050c7a68dd495ca4dbf34af5212596db39f042fd95bf338f029c0d76796f179"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/objective.png",
+      "status": "ADDED",
+      "bytes": 1707769,
+      "sha256": "91c5c0d1d0c46266408b21126d8645952fe73f049e605280d9541950af44813e"
+    },
+    {
+      "path": "Docs/M15_1Previews/Iteration7/red-combat.png",
+      "status": "ADDED",
+      "bytes": 1630167,
+      "sha256": "b4b08cd824134d9705bccf3d5ca63a6d7b00da374b3d82a3e5708930e2218c89"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt",
+      "status": "ADDED",
+      "bytes": 7048,
+      "sha256": "a2010f343487d3f7618affe54f789f5487602331c0a8d03f49e9a7c547cf0499"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/ForestGround/Provenance.json",
+      "status": "ADDED",
+      "bytes": 1463,
+      "sha256": "fec082eb83b2b298891ac9e81df37bc1fd2008ae9cd4f56566603246289c4080"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/ForestGround/files.json",
+      "status": "ADDED",
+      "bytes": 27232,
+      "sha256": "2d591a0413dbbff2d2aa87d7a4fae00bd5c353edb4923aedd443efbc4c691156"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg",
+      "status": "ADDED",
+      "bytes": 1113899,
+      "sha256": "50a4dda30875020c64385261aa7e00e2155b592302fa6794165f58fae73cbd2c"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/ForestGround/license.html",
+      "status": "ADDED",
+      "bytes": 72324,
+      "sha256": "6f4f617c936d14d5a80db6a2ebec145c79277a760672501eef51bff7a0d4cbba"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/RockFace/Provenance.json",
+      "status": "ADDED",
+      "bytes": 1014,
+      "sha256": "34797cffa2fca456f657c20ea65ed042cc0fa723c371db4bbbae83496ff51503"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/RockFace/files.json",
+      "status": "ADDED",
+      "bytes": 32457,
+      "sha256": "c351a9a3b30b6d31ff05383890906fd974e9546b6eb1cf01f0cd1f4554c2a2bf"
+    },
+    {
+      "path": "ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg",
+      "status": "ADDED",
+      "bytes": 927082,
+      "sha256": "ea48e0e47ad42c8bd312476178b1248ec66f0eb19156a26a1c222f2a40caaf2d"
+    },
+    {
+      "path": "Tools/compose_m15_1.py",
+      "status": "ADDED",
+      "bytes": 5982,
+      "sha256": "9377d1ea762ab83af5bca0f4b869d77e48b7affb9351c1b754961570ee9b8266"
+    },
+    {
+      "path": "Tools/m15_presentation.py",
+      "status": "MODIFIED",
+      "bytes": 2059,
+      "sha256": "115b5018abf98cfea424e46f1c81fce33e7d9d5682ac45bb2aaf5f0c0073a1df"
+    },
+    {
+      "path": "Tools/render_m15_1_preview.py",
+      "status": "ADDED",
+      "bytes": 23755,
+      "sha256": "391af51d43d324557cb357db47eaaf0b692d266e02b4cdc2e3b3862dfcfafdf9"
+    },
+    {
+      "path": "Tools/test_wilderness_validation.py",
+      "status": "MODIFIED",
+      "bytes": 1571,
+      "sha256": "44e89ba896b864cc7b7dcaa45b6ab13dbb685f72516ae71ed11776de8f4732b9"
+    },
+    {
+      "path": "Tools/validate_environment_library.py",
+      "status": "MODIFIED",
+      "bytes": 9333,
+      "sha256": "976a0534870e4c60b30c707f5e734b38fe6ee3e0d58736587694312dcb542d6b"
+    },
+    {
+      "path": "Tools/validate_m15_1_visual.py",
+      "status": "ADDED",
+      "bytes": 6860,
+      "sha256": "3609fbf3cedca9ebacaf685b8a396d05afc558617d0432662e1eb919d954f7c9"
+    },
+    {
+      "path": "Tools/validate_m15_visual.py",
+      "status": "MODIFIED",
+      "bytes": 7334,
+      "sha256": "45995699287dc3823fb740e04cd1efe15a3660dd66d6902623550d1f5b87bf0b"
+    },
+    {
+      "path": "Tools/validate_wilderness.py",
+      "status": "MODIFIED",
+      "bytes": 11116,
+      "sha256": "8795ccfb2dfafafa13f4091c6b5d97a98636fa6999c086f1b8349f81351ef791"
+    }
+  ]
+}

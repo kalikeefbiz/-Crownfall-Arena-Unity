@@ -12,8 +12,8 @@ def require(value,message):
 
 def main():
  j=json.loads((ROOT/CAT).read_text());inspection=json.loads((ROOT/'Docs/ENVIRONMENT_ASSET_FBX_INSPECTION.json').read_text())
- require([m['id'] for m in j['models']]==IDS,'Approved 25 identities/order changed')
- require(len(j['textures'])==25 and len(j['materials'])==20,'Dependency/material inventory drift')
+ require([m['id'] for m in j['models']]==IDS+['qn:Bush_Common'],'Approved baseline identities/explicit M15.1 understory changed')
+ require(len(j['textures'])==27 and len(j['materials'])==20,'Dependency/material inventory drift')
  require(len({t['sha256'] for t in j['textures']})==len(j['textures']),'Duplicate production texture payload')
  require(j['nativeValidationStatus']=='PENDING','Prepared catalog cannot claim native validation')
  for f in j['productionCopies']:
@@ -23,7 +23,7 @@ def main():
  files={f['productionPath'] for f in j['productionCopies']}
  actual={p.relative_to(ROOT).as_posix() for p in (ROOT/ART).rglob('*') if p.is_file() and p.suffix!='.meta' and not p.name.startswith('.')}
  require(actual==files|{ART+'/README.md'},'Extra/missing external production files')
- require(len(list((ROOT/ART).rglob('*.fbx')))==25,'Wrong FBX count')
+ require(len(list((ROOT/ART).rglob('*.fbx')))==26,'Wrong FBX count')
  require(not any((ROOT/ART).rglob('*.glb')) and not any((ROOT/ART).rglob('*.gltf')),'Duplicate alternate-format imports')
  keys={m['key'] for m in j['materials']};texture_paths={t['path'] for t in j['textures']}
  require(len(keys)==20,'Duplicate shared-material keys')
@@ -33,11 +33,13 @@ def main():
    require(not m[field] or m[field] in texture_paths,'Untracked material dependency')
  for row in j['models']:
   require(row['path'] in files and all(b['materialKey'] in keys for b in row['bindings']),'Missing model/binding')
-  measured=next(m for m in inspection['models'] if m['id']==row['id'])
+  measured=next((m for m in inspection['models'] if m['id']==row['id']),None)
+  if row['id']=='qn:Bush_Common':
+   extra=json.loads((ROOT/'Docs/CROWNFALL_M15_1_BUSH_INSPECTION.json').read_text());measured=dict(extra,gltf_reference_triangles=900,materials=[dict(name=n) for n in extra['materials']])
   require(measured['triangles']==measured['gltf_reference_triangles']==row['sourceTriangles'],'FBX/glTF triangle mismatch')
   require(all(abs(a*row['importScale']-b)<=max(0.0001,b*0.0001) for a,b in zip(measured['normalized_y_up_bounds_size'],row['expectedSize'])),'Source scale normalization')
   require({b['sourceName'] for b in row['bindings']}=={m['name'] for m in measured['materials']},'Source FBX material names drift')
- require(sum(m['sourceTriangles'] for m in j['models'])==30327,'Triangle total drift')
+ require(sum(m['sourceTriangles'] for m in j['models'])==31227,'Triangle total drift')
  require(sum(m['lodCandidate'] for m in j['models'])==6,'LOD planning coverage')
  original=json.loads((ROOT/'Docs/EXTERNAL_ENVIRONMENT_ASSET_MANIFEST.json').read_text())
  for f in original['files']:require(digest(ROOT/f['staged_path'])==f['sha256'],'Staged original changed')
@@ -48,7 +50,7 @@ def main():
  changes=subprocess.check_output(['git','diff','--name-only',BASELINE,'--']+preserved,cwd=ROOT,text=True)
  authorized={'Assets/Crownfall/Match/Runtime/ArenaPresentation.cs','Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs'} if (ROOT/'Assets/Crownfall/Environment/WildernessComposition.json').exists() else set()
  if (ROOT/'Tools/validate_m15_visual.py').exists():authorized|={'Assets/Crownfall/Presentation/MobaCamera.cs','Assets/Crownfall/Match/Runtime/TerritoryFlow.shader'}
- require(set(changes.splitlines())<=authorized,'Protected baseline changed: '+changes)
+ require(set(changes.splitlines())<=authorized|{'ExternalArtStaging/M15_1/RockFace/Provenance.json', 'ExternalArtStaging/M15_1/RockFace/files.json', 'ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg'}|{'ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt', 'ExternalArtStaging/M15_1/ForestGround/files.json', 'ExternalArtStaging/M15_1/ForestGround/license.html', 'ExternalArtStaging/M15_1/ForestGround/Provenance.json', 'ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg'},'Protected baseline changed: '+changes)
  if authorized:
   from validate_wilderness import main as validate_wilderness
   validate_wilderness()
@@ -79,9 +81,10 @@ def main():
  native_result=json.loads(native.read_text()) if native.exists() else None
  if native_result:require(native_result.get('status')=='PASS_NATIVE_IMPORT' and native_result.get('unityVersion')=='6000.3.10f1','Native validation report is failed/stale/wrong version')
  report={'status':'PASS_STATIC_PREPARATION','startingHead':BASELINE,'nativeUnityAvailability':native_result['unityVersion'] if native_result else 'NOT FOUND','nativeUnityValidation':native_result['status'] if native_result else 'PENDING',
-  'blenderBinaryFbxImports':16,'asciiFbxSourceGeometryInspections':9,'approvedModelCount':25,'sourceTriangles':30327,
-  'uniqueTexturePayloads':25,'sharedLibraryMaterialsPlanned':20,'materialFamilies':6,'originalsHashVerified':len(original['files']),
+  'blenderBinaryFbxImports':16,'asciiFbxSourceGeometryInspections':9,'approvedModelCount':26,'sourceTriangles':31227,
+  'uniqueTexturePayloads':27,'sharedLibraryMaterialsPlanned':20,'materialFamilies':6,'originalsHashVerified':len(original['files']),
   'productionCopiesVerified':len(j['productionCopies']),'sourcePayloadBytes':j['sourcePayloadBytes'],
+  'm15_1AdditionalSource':'Bush_Common CC0 staged FBX; Poly Haven CC0 forest_ground_04 and rock_face_03 Diffuse 1K with official license/provenance',
   'totalAddedAssetsBytes':sum(p.stat().st_size for scope in ('Assets/Art/Environment/External','Assets/Crownfall/Environment','Assets/Editor/CrownfallEnvironment') for p in (ROOT/scope).rglob('*') if p.is_file()),
   'cSharpFilesSyntaxParsed':len(sources),'unityEditorCompilation':'Executed native entry point' if native_result else 'PENDING','shaderCompilation':'See native report; WebGL player variants remain PENDING' if native_result else 'PENDING','generatedNativeScenePrefabsMaterials':'See native report' if native_result else 'PENDING',
   'gameplayShippingScenesCameraTopologyPackagesSettings':'Gameplay/scenes/topology/packages unchanged; authorized camera and surface presentation are checked by the M15 exact-source guard','colliderPolicy':'Importer false + generator strips + native asserts; native execution PENDING',

@@ -107,8 +107,8 @@ namespace Crownfall.EnvironmentLab.Editor
                 // Textured materials use multipliers. Kenney untextured colors are explicit replacements of its cyan/orange PBR palette.
                 Color color = new Color(.69f,.73f,.76f,1);
                 if (spec.family == "bark") color = new Color(.70f,.65f,.60f,1);
-                if (spec.family == "alpha-cutout foliage") color = new Color(.66f,.77f,.66f,1);
-                if (spec.key == "qn_Leaves_TwistedTree") color = new Color(.53f,.64f,.72f,1);
+                if (spec.family == "alpha-cutout foliage") color = new Color(.76f,.86f,.66f,1);
+                if (spec.key == "qn_Leaves_TwistedTree") color = new Color(.62f,.76f,.66f,1);
                 if (spec.key == "kn_dirt") color = new Color(.28f,.30f,.28f,1);
                 if (spec.key == "kn_grass") color = new Color(.20f,.29f,.24f,1);
                 if (spec.key == "kn_woodBarkDark") color = new Color(.23f,.21f,.20f,1);
@@ -116,6 +116,12 @@ namespace Crownfall.EnvironmentLab.Editor
                 if (spec.key == "kn_stone" || spec.key == "kn_stoneDark" || spec.key == "kn__defaultMat") color = new Color(.38f,.43f,.46f,1);
                 material.color = color; material.enableInstancing = true;
                 if (material.HasProperty("_Glossiness")) material.SetFloat("_Glossiness",.08f);
+                if (material.HasProperty("_GeoTex"))
+                {
+                    material.SetTexture("_GeoTex",AssetDatabase.LoadAssetAtPath<Texture2D>(M15SurfacePreparation.Ground));
+                    material.SetFloat("_GeoDetail",spec.key=="qn_Rocks"?.82f:spec.key.StartsWith("kn_",StringComparison.Ordinal)&&spec.family!="distant vegetation"&&spec.family!="bark"?.8f:0);
+                    material.SetFloat("_AetherStrength",spec.key=="qn_Rocks"?.32f:0);
+                }
                 if (material.HasProperty("_Saturation")) material.SetFloat("_Saturation",spec.key=="kc_colormap"?.35f:.75f);
                 EditorUtility.SetDirty(material);
             }
@@ -147,9 +153,9 @@ namespace Crownfall.EnvironmentLab.Editor
                 }
                 var surface=M15SurfacePreparation.Generate(root.transform);
                 var lighting = new GameObject("Wilderness directional key");lighting.transform.SetParent(root.transform,false);
-                lighting.transform.localRotation = Quaternion.Euler(42,-35,0);
-                var light = lighting.AddComponent<Light>();light.type=LightType.Directional;light.color=new Color(1,.94f,.84f);
-                light.intensity=1.05f;light.shadows=LightShadows.Hard;light.shadowStrength=.60f;
+                lighting.transform.localRotation = Quaternion.Euler(36,-48,0);
+                var light = lighting.AddComponent<Light>();light.type=LightType.Directional;light.color=new Color(1,.88f,.70f);
+                light.intensity=1.18f;light.shadows=LightShadows.Hard;light.shadowStrength=.68f;
                 EnvironmentPaths.Require(PrefabUtility.SaveAsPrefabAsset(root,PrefabPath) != null, "Could not save shipping environment prefab");
                 Directory.CreateDirectory(Path.GetDirectoryName(EnvironmentPaths.Absolute(ResourceAsset)));
                 AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);

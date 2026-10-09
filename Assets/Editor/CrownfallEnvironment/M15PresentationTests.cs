@@ -31,12 +31,15 @@ namespace Crownfall.Tests
             Require(CameraFraming.BaselinePitch==50&&CameraFraming.BaselineHalfHeight==11&&CameraFraming.BaselineHeight==15,"Accepted camera fallback drift");
             Require(CameraFraming.HalfHeight<=CameraFraming.BaselineHalfHeight*1.12,"Character projected height reduced excessively");
             Require(WorldContinuation.ContactShadowHeight>.06&&WorldContinuation.ContactShadowHeight<.1,"Contact disc must clear territory/insignia without floating above combat");
-            for(int side=0;side<4;side++)
+            for(int side=0;side<WorldContinuation.StripCount;side++)
             {
                 var strip=WorldContinuation.Strip(side);
-                Require(strip[0][0]>=34||strip[1][0]<=-34||strip[0][1]>=32||strip[1][1]<=-32,"Exterior terrain overlaps authoritative floor");
-                foreach(var point in strip)Require(WorldContinuation.Height(point[0],point[1])>=2,"Terrain exposes rectangular retaining wall");
+                if(side==6)Require(strip[0][0]==-34&&strip[0][1]==-32&&strip[1][0]==34&&strip[1][1]==32&&WorldContinuation.Height(side,0,0)==-.06,"Flat renderer-only floor sheet must match the original footprint and stay below collision");
+                else Require(strip[0][0]>=34||strip[1][0]<=-34||strip[0][1]>=12.5||strip[1][1]<=-12.5,"Decorative banks enter protected lane");
+                foreach(var point in strip)Require(WorldContinuation.Height(side,point[0],point[1])>=-.061,"Invalid decorative ground height");
             }
+            foreach(var point in new[]{new[]{-22.0,-22},new[]{22.0,-22},new[]{-18.0,24},new[]{18.0,24},new[]{-7.0,-27},new[]{7.0,-27},new[]{0.0,26},new[]{0.0,19}})
+                Require(Math.Abs(WorldContinuation.Height(point[0],point[1])+.025)<1e-9,"Terrain raises objective/approach clearance");
             return checks;
         }
     }

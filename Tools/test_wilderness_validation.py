@@ -16,7 +16,7 @@ reject('permanently invisible perimeter scenery',lambda j:j['placements'][0].upd
 reject('negative model scale',lambda j:j['placements'][0].update(scale=[-1,1,1]))
 reject('unapproved model dependency',lambda j:j['placements'][0].update(model='qn:Unapproved'))
 reject('missing distant world',lambda j:[r.update(layer='MID') for r in j['placements'] if r['layer']=='FAR'])
-reject('southern crown obscures lane',lambda j:j['placements'][0].update(scale=[.1,3,.1]))
+reject('southern crown obscures lane',lambda j:next(r for r in j['placements'] if r['layer']=='NEAR' and r['position'][2]<0 and 'canopy' in r['name']).update(scale=[.1,3,.1]))
 reject('stale generated composition version',lambda j:j.update(compositionVersion=0))
 reject('rotation variation collapses to stamped rows',lambda j:[r.update(yaw=0) for r in j['placements']])
 assert path.read_bytes()==original
