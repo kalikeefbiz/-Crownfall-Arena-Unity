@@ -77,7 +77,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          dotnet run --project Tools/EditorPreflight/EditorPreflight.csproj --configuration Release --no-launch-profile
+          (cd Tools/EditorPreflight && dotnet run --project EditorPreflight.csproj --configuration Release --no-launch-profile -- ../..)
 
       - name: Environment and wilderness static regression gates
         shell: bash
