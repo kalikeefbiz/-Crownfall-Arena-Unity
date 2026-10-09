@@ -72,8 +72,8 @@ namespace Crownfall.EnvironmentLab.Editor
             EnvironmentPaths.Require(library.retainingStone!=null&&AssetDatabase.GetAssetPath(library.retainingStone)==EnvironmentPaths.MaterialPath("qn_Rocks")&&library.retainingStone.shader!=null&&!ShaderUtil.ShaderHasError(library.retainingStone.shader)&&library.retainingStone.GetTexture("_GeoTex")==library.groundDetail,"M15.1 authoritative wall visual material missing/invalid; regenerate wilderness");
             EnvironmentPaths.Require(library.groundDetail!=null&&AssetDatabase.GetAssetPath(library.groundDetail)==Ground&&library.worldSurface.GetTexture("_GroundTex")==library.groundDetail,"M15.1 geological surface dependency invalid");
             EnvironmentPaths.Require(library.forestFloor!=null&&AssetDatabase.GetAssetPath(library.forestFloor)==Forest&&library.worldSurface.GetTexture("_ForestTex")==library.forestFloor,"M15.1 CC0 forest-floor dependency missing: "+Forest);
-            foreach(var renderer in library.presentationPrefab.GetComponentsInChildren<MeshRenderer>(true))
-                foreach(var material in renderer.sharedMaterials)
+            foreach(var prefabRenderer in library.presentationPrefab.GetComponentsInChildren<MeshRenderer>(true))
+                foreach(var material in prefabRenderer.sharedMaterials)
                     if(material!=null&&material.HasProperty("_GeoTex"))
                         EnvironmentPaths.Require(material.GetTexture("_GeoTex")==library.groundDetail,"M15.1 missing geological/Aether material dependency: "+material.name);
             var shader=Shader.Find("Crownfall/Territory Flow");
