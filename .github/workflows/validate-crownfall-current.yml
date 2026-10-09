@@ -73,7 +73,7 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      - name: License-free Unity Editor preflight (Roslyn and native-scene contracts)
+      - name: License-free Editor preflight (Roslyn, scenes and protected-file regressions)
         shell: bash
         run: |
           set -euo pipefail
@@ -83,6 +83,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          python Tools/validate_protection_manifest.py
           python Tools/validate_environment_library.py
           python Tools/validate_wilderness.py
           python Tools/test_wilderness_validation.py

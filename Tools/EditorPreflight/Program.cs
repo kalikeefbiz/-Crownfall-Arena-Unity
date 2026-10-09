@@ -66,6 +66,14 @@ internal static class EditorPreflight
             var lab = File.ReadAllText(Path.Combine(root, "Assets/Editor/CrownfallEnvironment/EnvironmentAssetLab.cs"));
             var generator = File.ReadAllText(Path.Combine(root, "Assets/Editor/CrownfallEnvironment/WildernessBuildPreparation.cs"));
             CheckSceneContract(lab, generator);
+            Require(!lab.Contains("AssetDatabase.SaveAssets()", StringComparison.Ordinal) && !generator.Contains("AssetDatabase.SaveAssets()", StringComparison.Ordinal),
+                "Environment generation must not flush unrelated dirty protected assets.");
+            Require(lab.Contains("AssetDatabase.SaveAssetIfDirty(asset)", StringComparison.Ordinal) &&
+                generator.Contains("AssetDatabase.SaveAssetIfDirty(library)", StringComparison.Ordinal), "Owned generated saves missing");
+            Require(lab.Contains("AssertProtected(preserved, \"lab saved-scene bootstrap\")", StringComparison.Ordinal) &&
+                generator.Contains("AssertProtected(preserved, \"wilderness composition save\")", StringComparison.Ordinal),
+                "Protection checkpoints missing around scene bootstrap/shipping composition");
+            ProtectionRegressionTests.Run(root);
             // Mutation test: make sure the batch bootstrap contract actually rejects the old error.
             var brokenLab = lab.Replace("EditorSceneManager.OpenScene(shippingScene, OpenSceneMode.Single)",
                                         "EditorSceneManager.OpenScene(shippingScene, OpenSceneMode.Additive)", StringComparison.Ordinal);

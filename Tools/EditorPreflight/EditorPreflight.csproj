@@ -9,6 +9,7 @@
   </PropertyGroup>
   <!-- Use the SDK's bundled Roslyn; no NuGet restore/download or Unity license required. -->
   <ItemGroup>
+    <Compile Include="../../Assets/Editor/CrownfallEnvironment/ProtectedFileSnapshot.cs" Link="Protection/ProtectedFileSnapshot.cs" />
     <Reference Include="Microsoft.CodeAnalysis">
       <HintPath>$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.dll</HintPath>
     </Reference>

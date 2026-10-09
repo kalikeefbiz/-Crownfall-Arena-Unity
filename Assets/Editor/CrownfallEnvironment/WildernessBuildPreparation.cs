@@ -42,6 +42,7 @@ namespace Crownfall.EnvironmentLab.Editor
         [MenuItem("Crownfall/Wilderness/Prepare and validate")]
         public static void PrepareAndValidate()
         {
+            EnvironmentNativeValidation.BeginProtectionReporting();
             var messages = new List<string>(); bool errors = false;
             Application.LogCallback logger = (message,stack,type) => {
                 if (type == LogType.Warning || type == LogType.Error || type == LogType.Exception || type == LogType.Assert) messages.Add(type + ": " + message);
@@ -50,6 +51,7 @@ namespace Crownfall.EnvironmentLab.Editor
             Application.logMessageReceived += logger;
             try
             {
+                var preserved = EnvironmentNativeValidation.ProtectedHashes();
                 var layout = ReadLayout();
                 EnvironmentPaths.Require(Application.unityVersion == layout.requiredUnityVersion, "Wilderness requires Unity " + layout.requiredUnityVersion);
                 EnvironmentPaths.Require(GraphicsSettings.currentRenderPipeline == null, "Wilderness requires Built-in Render Pipeline");
@@ -57,9 +59,13 @@ namespace Crownfall.EnvironmentLab.Editor
                 if (layout.textureTier == "Mobile") EnvironmentAssetLab.GenerateAndValidateMobile();
                 else if (layout.textureTier == "Full") EnvironmentAssetLab.GenerateAndValidate();
                 else throw new InvalidOperationException("Unknown wilderness texture tier " + layout.textureTier);
+                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness lab completed");
                 ApplyPalette(EnvironmentPaths.Read());
+                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness palette save");
                 GenerateComposition(layout);
+                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness composition save");
                 Validate();
+                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness native validation");
                 EnvironmentPaths.Require(!errors, "Unity logged errors during wilderness generation; inspect " + ReportPath);
                 WriteReport("PASS_NATIVE_DEPENDENCIES", null, messages.ToArray());
                 Debug.Log("Crownfall wilderness prepared and validated. No player build performed. Visual/device acceptance remains pending.");
@@ -75,7 +81,7 @@ namespace Crownfall.EnvironmentLab.Editor
         {
             var result = new NativeReport { status=status,error=error,unityVersion=Application.unityVersion,
                 compositionHash=File.Exists(EnvironmentPaths.Absolute(CompositionPath))?CompositionHash():"MISSING",utc=DateTime.UtcNow.ToString("o"),unityExecuted=true,playerBuildExecuted=false,
-                compositionVersion=WildernessLibrary.Version,gpuShaderSupportChecked=SystemInfo.graphicsDeviceType!=GraphicsDeviceType.Null,graphicsDevice=SystemInfo.graphicsDeviceType.ToString(),warningsAndErrors=messages };
+                compositionVersion=WildernessLibrary.Version,gpuShaderSupportChecked=SystemInfo.graphicsDeviceType!=GraphicsDeviceType.Null,graphicsDevice=SystemInfo.graphicsDeviceType.ToString(),warningsAndErrors=messages,protectedFileChecks=EnvironmentNativeValidation.ProtectionChecks };
             var generated=AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
             if(generated!=null)
             {
@@ -97,6 +103,7 @@ namespace Crownfall.EnvironmentLab.Editor
             public long instantiatedTriangles;
             public bool unityExecuted,playerBuildExecuted,gpuShaderSupportChecked,visualRenderApproved;
             public string[] warningsAndErrors;
+            public ProtectionDiffReport[] protectedFileChecks;
         }
         static void ApplyPalette(EnvironmentCatalog catalog)
         {
@@ -125,7 +132,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 if (material.HasProperty("_Saturation")) material.SetFloat("_Saturation",spec.key=="kc_colormap"?.35f:.75f);
                 EditorUtility.SetDirty(material);
             }
-            AssetDatabase.SaveAssets();
+            EnvironmentAssetLab.SaveGeneratedAssets();
         }
         static void GenerateComposition(WildernessLayout layout)
         {
@@ -164,7 +171,8 @@ namespace Crownfall.EnvironmentLab.Editor
                 library.compositionVersion=layout.compositionVersion;library.compositionHash=CompositionHash();
                 library.presentationPrefab=AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
                 M15SurfacePreparation.Bind(library,surface);
-                EditorUtility.SetDirty(library);AssetDatabase.SaveAssets();
+                EditorUtility.SetDirty(library);AssetDatabase.SaveAssetIfDirty(library);
+                EnvironmentAssetLab.SaveGeneratedAssets();
             }
             finally
             {

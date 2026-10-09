@@ -19,6 +19,7 @@ namespace Crownfall.EnvironmentLab.Editor
         public long importedTriangles;
         public string[] warningsAndErrors;
         public EnvironmentNativeModelResult[] models;
+        public ProtectionDiffReport[] protectedFileChecks;
     }
     [Serializable] public sealed class EnvironmentNativeModelResult
     {
@@ -31,21 +32,46 @@ namespace Crownfall.EnvironmentLab.Editor
     {
         static string Hash(byte[] data)
         { using (var hash = SHA256.Create()) return BitConverter.ToString(hash.ComputeHash(data)).Replace("-", "").ToLowerInvariant(); }
-        internal static Dictionary<string,string> ProtectedHashes()
+        [Serializable] sealed class SourceProtectionManifest
         {
-            string[] roots = {"Assets/Scenes", "Assets/Crownfall/Match", "Assets/Crownfall/Presentation", "Assets/Crownfall/Gameplay",
-                "Assets/Art/Characters", "Assets/Art/Production", "Packages", "ProjectSettings"};
-            var hashes = new Dictionary<string,string>();
-            foreach (var root in roots)
-                foreach (var path in Directory.GetFiles(EnvironmentPaths.Absolute(root), "*", SearchOption.AllDirectories))
-                    hashes[path] = Hash(File.ReadAllBytes(path));
-            return hashes;
+            public int schemaVersion;
+            public string[] roots, committedPaths;
         }
-        internal static void AssertProtected(Dictionary<string,string> before)
+        static readonly string[] ProtectedRoots = {
+            "Assets/Scenes", "Assets/Crownfall/Match", "Assets/Crownfall/Presentation", "Assets/Crownfall/Gameplay",
+            "Assets/Crownfall/Combat", "Assets/Art/Characters", "Assets/Art/Production", "Packages", "ProjectSettings" };
+        static readonly List<ProtectionDiffReport> protectionChecks = new List<ProtectionDiffReport>();
+        internal static ProtectionDiffReport[] ProtectionChecks { get { return protectionChecks.ToArray(); } }
+        internal static void BeginProtectionReporting() { protectionChecks.Clear(); }
+        internal static ProtectedFileSnapshot ProtectedHashes()
         {
-            var after = ProtectedHashes();
-            EnvironmentPaths.Require(before.Count == after.Count && before.All(p => after.ContainsKey(p.Key) && after[p.Key] == p.Value),
-                "Protected gameplay, shipping art/scenes, camera, packages or settings changed");
+            const string manifestPath = "Docs/CROWNFALL_PROTECTED_SOURCE_PATHS.json";
+            EnvironmentPaths.Require(File.Exists(EnvironmentPaths.Absolute(manifestPath)), "Missing source protection manifest: " + manifestPath);
+            var manifest = JsonUtility.FromJson<SourceProtectionManifest>(File.ReadAllText(EnvironmentPaths.Absolute(manifestPath)));
+            EnvironmentPaths.Require(manifest != null && manifest.schemaVersion == 1 &&
+                manifest.roots != null && manifest.roots.SequenceEqual(ProtectedRoots) && manifest.committedPaths != null,
+                "Invalid protected source manifest; run Tools/validate_protection_manifest.py");
+            try
+            {
+                return ProtectedFileSnapshot.Capture(EnvironmentPaths.Absolute(""), ProtectedRoots, manifest.committedPaths,
+                    assetPath => AssetDatabase.AssetPathToGUID(assetPath));
+            }
+            catch (ProtectedFilesChangedException error) { RecordProtection(error.report); throw; }
+        }
+        internal static void AssertProtected(ProtectedFileSnapshot before, string phase)
+        {
+            try { RecordProtection(before.AssertUnchanged(phase)); }
+            catch (ProtectedFilesChangedException error) { RecordProtection(error.report); throw; }
+        }
+        static void RecordProtection(ProtectionDiffReport report)
+        {
+            protectionChecks.Add(report);
+            Debug.Log("Crownfall source protection: phase=" + report.phase + ", changes=" + report.totalChanges +
+                ", rejected=" + report.rejectedCount + ", permittedMetadata=" + report.allowedMetadataCount +
+                ", omitted=" + report.omittedChanges);
+            // Rejections precede admitted additions; at most 64 records per fixed checkpoint, with hashes only.
+            foreach (var change in report.changes)
+                Debug.Log("Crownfall protected file: " + JsonUtility.ToJson(change));
         }
         public static Bounds LocalBounds(GameObject root, bool includeRootTransform = false)
         {
@@ -197,6 +223,6 @@ namespace Crownfall.EnvironmentLab.Editor
         internal static void WriteFailure(string error, string[] messages)
         { Write(new EnvironmentNativeResult {status="FAIL_NATIVE_IMPORT",unityExecuted=true,unityVersion=Application.unityVersion,utc=DateTime.UtcNow.ToString("o"),error=error,warningsAndErrors=messages}); }
         static void Write(EnvironmentNativeResult result)
-        { File.WriteAllText(EnvironmentPaths.Absolute(EnvironmentPaths.NativeReport),JsonUtility.ToJson(result,true)+"\n"); }
+        { result.protectedFileChecks = ProtectionChecks; File.WriteAllText(EnvironmentPaths.Absolute(EnvironmentPaths.NativeReport),JsonUtility.ToJson(result,true)+"\n"); }
     }
 }
