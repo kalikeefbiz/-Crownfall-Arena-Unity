@@ -34,4 +34,4 @@ jobs:
           force_orphan: true
           enable_jekyll: false
 
-# Triggered after Build 14 materialization
+# Publish verified Unity WebGL Build 18 from webgl-hosted; source revision a8939536c6372d8744ab65d5c24180f86a276ad3
