@@ -162,6 +162,7 @@ internal static class ProtectionRegressionTests
             ("unapproved DefaultImporter setting", Metadata() + "  executionOrder: 99\n"),
             ("duplicate importer key", Metadata() + "  externalObjects : {}\n"),
             ("metadata alias", Metadata() + "  userData: *alias\n"),
+            ("malformed YAML delimiter", Metadata().Replace("guid: ","guid:",StringComparison.Ordinal)),
         }) Run(probe.Item1, f => {
             f.Set(Orphan, "unchanged source"); f.registry[Orphan] = Identity; var snapshot = f.Capture();
             f.Set(Orphan + ".meta", probe.Item2);

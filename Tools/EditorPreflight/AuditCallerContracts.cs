@@ -15,7 +15,7 @@ internal static class AuditCallerContracts
         Require(Calls(pipeline,"EnvironmentNativeValidation.RunProtected"),"Prebuild early protection scope missing");
         Require(pipeline.IndexOf("RunProtected(\"player prebuild\"",StringComparison.Ordinal)<pipeline.IndexOf("Configure(report.summary.platform)",StringComparison.Ordinal),"Configuration precedes early protection");
         Require(Calls(ui,"EnvironmentNativeValidation.RunProtected")&&Calls(ui,"AssetDatabase.SaveAssetIfDirty")&&
-            Calls(ui,"EnvironmentNativeValidation.SaveUiGraphicsSettings"),"UI owned protected saves missing");
+            Calls(ui,"EnvironmentNativeValidation.SaveUiGraphicsSettings")&&Calls(ui,"GraphicsShaderRetentionPolicy.ReadPanelReference"),"UI owned protected saves missing");
         Require(!Calls(ui,"AssetDatabase.SaveAssets"),"Global UI saving reintroduced");
         Require(native.IndexOf("baseline = ProtectedHashes()",StringComparison.Ordinal)>=0 && native.IndexOf("baseline = ProtectedHashes()",StringComparison.Ordinal)<native.IndexOf("operation(guard)",StringComparison.Ordinal),"Caller recaptures baseline after operation");
         Require(Calls(native,"guard.Run")&&Calls(native,"snapshot.AdmitUiShaderRetention")&&Calls(native,"AssetDatabase.SaveAssetIfDirty"),"Tested lifecycle/owned-settings policy not bound to native caller");

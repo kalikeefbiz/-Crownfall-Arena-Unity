@@ -95,15 +95,26 @@ internal static class AuditRegressionTests
         return count;
     }
     static byte[] Bytes(string value) => Encoding.UTF8.GetBytes(value);
+    const string FixtureGuid = "11111111111111111111111111111111";
     static readonly RetainedShaderReference[] Required = Enumerable.Range(1,7)
-        .Select(id=>new RetainedShaderReference(GraphicsShaderRetentionPolicy.BuiltinGuid,id)).ToArray();
+        .Select(id=>new RetainedShaderReference(FixtureGuid,id)).ToArray();
     static string Graphics(IEnumerable<int> ids, bool dirty=false) => "%YAML 1.1\nGraphicsSettings:\n  m_Fog: "+(dirty?"1":"0")+"\n  m_AlwaysIncludedShaders:\n"+
-        string.Concat(ids.Select(id=>"  - {fileID: "+id+", guid: "+GraphicsShaderRetentionPolicy.BuiltinGuid+", type: 0}\n"))+"  m_Lights: 1\n";
+        string.Concat(ids.Select(id=>"  - {fileID: "+id+", guid: "+FixtureGuid+", type: 0}\n"))+"  m_Lights: 1\n";
     static void Rejected(Action operation, string name)
     { bool rejected=false;try{operation();}catch(InvalidOperationException){rejected=true;}Require(rejected,"Settings policy accepted "+name); }
     static int SettingsCases()
     {
         int count=0; void Case(string name,Action test){test();count++;Console.WriteLine("PASS audit settings: "+name);}
+        Case("native panel-derived shader reference type",()=>{
+            const string field="m_DefaultShader";
+            var identity=new RetainedShaderReference(FixtureGuid,123);
+            var reference=GraphicsShaderRetentionPolicy.ReadPanelReference(Bytes("PanelSettings:\n  "+field+": {fileID: 123, guid: "+FixtureGuid+", type: 3}\n"),field,identity);
+            Require(reference.referenceType==3&&reference.guid==identity.guid&&reference.fileId==identity.fileId,"Native reference type not preserved");
+        });
+        Case("panel reference mismatching actual shader rejected",()=>Rejected(()=>GraphicsShaderRetentionPolicy.ReadPanelReference(
+            Bytes("PanelSettings:\n  m_DefaultShader: {fileID: 999, guid: "+FixtureGuid+", type: 3}\n"),"m_DefaultShader",new RetainedShaderReference(FixtureGuid,123)),"mismatched panel reference"));
+        Case("duplicate native panel shader field rejected",()=>Rejected(()=>GraphicsShaderRetentionPolicy.ReadPanelReference(
+            Bytes(string.Concat(Enumerable.Repeat("  m_DefaultShader: {fileID: 123, guid: "+FixtureGuid+", type: 3}\n",2))),"m_DefaultShader",new RetainedShaderReference(FixtureGuid,123)),"duplicate panel binding"));
         Case("exact seven UI shader additions",()=>GraphicsShaderRetentionPolicy.Validate(Bytes(Graphics(new[]{8})),Bytes(Graphics(new[]{8,1,2,3,4,5,6,7})),Required));
         Case("idempotent required shaders",()=>GraphicsShaderRetentionPolicy.Validate(Bytes(Graphics(Enumerable.Range(1,7))),Bytes(Graphics(Enumerable.Range(1,7))),Required));
         Case("unrelated dirty graphics field rejected",()=>Rejected(()=>GraphicsShaderRetentionPolicy.Validate(Bytes(Graphics(new[]{8})),Bytes(Graphics(new[]{8,1,2,3,4,5,6,7},true)),Required),"unrelated field"));
@@ -162,7 +173,7 @@ internal static class AuditRegressionTests
         Mutant(graphics,"if (a.prefix != b.prefix || a.suffix != b.suffix)","if (false)",type=>{
             bool rejected=false;
             var refType=type.Assembly.GetType(typeof(RetainedShaderReference).FullName!)!;var refs=Array.CreateInstance(refType,7);
-            for(int i=0;i<7;i++)refs.SetValue(Activator.CreateInstance(refType,GraphicsShaderRetentionPolicy.BuiltinGuid,(long)i+1),i);
+            for(int i=0;i<7;i++)refs.SetValue(Activator.CreateInstance(refType,FixtureGuid,(long)i+1),i);
             rejected=false;try{Invoke(type.GetMethod("Validate")!,null,Bytes(Graphics(new[]{8})),Bytes(Graphics(new[]{8,1,2,3,4,5,6,7},true)),refs);}catch(InvalidOperationException){rejected=true;}
             Require(rejected,"Unrelated setting bypass accepted");
         },"graphics unrelated fields ignored",typeof(GraphicsShaderRetentionPolicy).FullName!);

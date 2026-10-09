@@ -135,7 +135,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 int indent = raw.TakeWhile(c => c == ' ').Count();
                 if (indent != 0 && indent != 2) return null;
                 string line = raw.Substring(indent); int colon = line.IndexOf(':');
-                if (colon < 1) return null;
+                if (colon < 1 || colon + 1 < line.Length && line[colon + 1] != ' ') return null;
                 string key = line.Substring(0, colon).TrimEnd(' '), value = line.Substring(colon + 1).Trim(' ');
                 if (!Regex.IsMatch(key, @"\A[A-Za-z][A-Za-z0-9]*\z")) return null;
                 if (indent == 2 && !importer || indent == 0 && importer) return null;
@@ -175,7 +175,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 throw new InvalidOperationException("GraphicsSettings ownership evidence does not match the original protected baseline");
             GraphicsShaderRetentionPolicy.Validate(before, after, expectedShaders);
             var admitted = Change(path, "Modified", previous, current, phase,
-                "Only seven validated built-in UI shader identities appended; all other serialized settings byte-identical", false);
+                "Only seven validated native UI shader identities appended; all other serialized settings byte-identical", false);
             admitted.allowedOwnedSettings = true;
             return Compare(phase, previous == current ? null : admitted);
         }
@@ -210,7 +210,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 { changes.Add(admitted); continue; }
                 bool allowed = !existed && exists && PermittedMetadata(path);
                 changes.Add(Change(path, !existed ? "Added" : !exists ? "Removed" : "Modified", previousHash, currentHash, phase,
-                    allowed ? "New uncommitted metadata for a pre-existing asset/folder; registered pre-generation GUID and header verified" :
+                    allowed ? "New uncommitted metadata for a pre-existing asset/folder; registered pre-generation GUID and restricted DefaultImporter schema verified" :
                     "Protected source/metadata changed; no generated-output exception applies", allowed));
             }
             foreach (string directory in directories.Except(currentDirectories, StringComparer.Ordinal))

@@ -38,12 +38,12 @@ The only settings exception is **existing `ProjectSettings/GraphicsSettings.asse
 
 1. Every active protection baseline is checked before saving.
 2. Exact before/after file bytes are retained. The previous SHA must match each original snapshot; late recapture cannot conceal an earlier mutation.
-3. The seven shader identities come from the native `Shader.Find` bindings and `TryGetGUIDAndLocalFileIdentifier`; they must be distinct nonzero built-in references.
+3. The seven shader identities come from the native `Shader.Find` bindings and `TryGetGUIDAndLocalFileIdentifier`; they must be distinct nonzero references. GUID/file ID are checked against each saved native PanelSettings shader field; the reference type comes from that native serialization, with no guessed built-in GUID/type literal.
 4. The existing Always Included sequence is preserved in order. Only missing required shader references may be appended, in specification order.
 5. All bytes outside that single shader-list section must remain identical. Other fields, arbitrary shader additions, removals, reorderings, duplicate sections and unsupported serialization fail.
 6. The operation compares all other protected files before adopting the one authorized change. It cannot adopt unrelated dirty source/settings changes.
 
-The authorized change appears in the same path/hash/phase report with `allowedOwnedSettings` and a specific reason. Subsequent unauthorized changes remain protected. Missing initial graphics settings or unsupported native shader identities/serialization fail with a native-verification instruction. ProjectSettings is never broadly excluded.
+The authorized change appears in the same path/hash/phase report with `allowedOwnedSettings` and a specific reason. Subsequent unauthorized changes remain protected. Missing initial graphics settings or unsupported native shader reference serialization fail with a native-verification instruction. ProjectSettings is never broadly excluded.
 
 ## C — Exceptional exits and scene cleanup
 
@@ -63,10 +63,10 @@ Secondary errors are retained in `secondaryReportingFailures` and Unity logs. A 
 
 The existing `.github/workflows/validate-crownfall-current.yml` remains the only workflow. Its existing Roslyn preflight links the real protection, lifecycle and settings-policy sources; no Unity license, parser dependency or rendering package is added.
 
-- 33 protected-file fixtures retain the existing tracked/source/deletion/metadata coverage and add Astra's three bypasses, unsupported importer data, aliases and duplicate importer keys.
+- 34 protected-file fixtures retain the existing tracked/source/deletion/metadata coverage and add Astra's three bypasses, unsupported importer data, aliases and duplicate importer keys.
 - Five compiled protection/admission mutants cover disabled enforcement, ignoring tracked metadata, ignoring duplicate keys, admitting malformed data and bypassing the importer schema.
 - Eight lifecycle fixtures cover successful preparation, early mutation before UI, mutation followed by an import exception, restoration mutation, cleanup failure, report-write failure, broken primary recording and cleanup mutation plus failure.
-- Ten settings fixtures cover exact/idempotent shader retention, unrelated fields, unauthorized/reordered shaders, unsupported identities, duplicate sections, actual snapshot adoption, unrelated dirty source rejection and late-baseline rejection.
+- Thirteen settings fixtures cover exact/idempotent shader retention, unrelated fields, unauthorized/reordered shaders, unsupported identities, duplicate sections, actual snapshot adoption, unrelated dirty source rejection, late-baseline rejection, native panel-derived reference types, mismatched identities and duplicate panel shader fields.
 - Four compiled audit mutants remove final comparison, replace the primary exception, remove exceptional comparison and ignore unrelated graphics fields.
 - Native caller contracts have six negative source mutations proving the actual Editor callers bind the tested helpers. The existing UI source gate replaces the obsolete global-save requirement with stronger targeted-save/protection requirements and retains shader/theme behavior checks.
 
@@ -78,7 +78,7 @@ The first GitHub execution exposed an obsolete wilderness source contract requir
 
 Unity 6000.3.10f1 was not found in the available executor. Native import, exact UnityEditor API compilation, GraphicsSettings targeted persistence/serialized reference shape, scene restoration and pre-export execution are **PENDING**. Runtime reference compilation uses the existing verified UnityEngine 2021.3.33 assemblies and does not prove Unity 6000 Editor compatibility.
 
-The workspace proxy prevented normal Git clone. A genuine sparse source working tree was reconstructed from GitHub data, verifying the original commit, every tree object and selected source blob SHA identities. Full asset/gameplay tests execute in the existing GitHub Actions checkout. Source/art preservation is independently checked against the full remote Git tree.
+The workspace proxy prevented normal Git clone. A genuine sparse source working tree was reconstructed from GitHub data, verifying the original commit, every tree object and selected source blob SHA identities. Full asset/gameplay tests execute in the existing GitHub Actions checkout. The workflow also caught a graphics GUID literal error; reference identities/types are now obtained from the actual saved native panel and verified against Shader.Find, rather than hard-coded. Source/art preservation is independently checked against the full remote Git tree.
 
 Unsupported metadata/settings serialization intentionally fails closed. If the manual native run identifies one, inspect its exact evidence and establish a narrow schema; do not permit all importer metadata or all settings writes. The historical Build #17 mutation cannot be declared solved without native evidence.
 

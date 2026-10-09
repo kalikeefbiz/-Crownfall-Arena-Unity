@@ -70,6 +70,9 @@ namespace Crownfall.Editor
             }
             serializedPanel.ApplyModifiedPropertiesWithoutUndo();graphics.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(panel);AssetDatabase.SaveAssetIfDirty(panel);
+            var panelBytes=File.ReadAllBytes(PanelPath);
+            for(int i=0;i<spec.shaders.Length;i++)
+                retained[i]=GraphicsShaderRetentionPolicy.ReadPanelReference(panelBytes,spec.shaders[i].field,retained[i]);
             EditorUtility.SetDirty(graphics.targetObject);
             EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray());
             Validate();
