@@ -47,6 +47,7 @@ namespace Crownfall.Match
             viewCamera.orthographic=true;viewCamera.orthographicSize=11;viewCamera.nearClipPlane=.1f;viewCamera.farClipPlane=150;
             viewCamera.backgroundColor=new Color(.035f,.055f,.075f);follow=cameraObject.AddComponent<MobaCamera>();
             cameraObject.transform.position=new Vector3(0,35,-28);cameraObject.transform.rotation=Quaternion.Euler(50,0,0);
+            follow.ConfigurePresentation();
             audioDirector=gameObject.AddComponent<MatchAudioDirector>();audioDirector.Initialize(cameraObject);
             productionHud=new ProductionHud(gameObject,productionArt);
             ConfigureProductionUi();
@@ -72,11 +73,13 @@ namespace Crownfall.Match
             var wallMat=Tint(new Color(.19f,.2f,.19f));
             foreach(var w in MatchMap.Walls)Shape("Wilderness island",PrimitiveType.Cube,new Vector3((float)w.X,(float)w.Height/2,(float)w.Z),new Vector3((float)w.Width,(float)w.Height,(float)w.Depth),wallMat,true);
             arenaPresentation=new ArenaPresentation(world.transform,viewCamera,spriteMaterial,boundary,Tint(new Color(.65f,.48f,.23f)),Tint(new Color(.11f,.17f,.12f)),productionArt);
+            arenaPresentation.BindGround(world.transform.Find("Arena").GetComponent<Renderer>(),world.transform.Find("Lane").GetComponent<Renderer>());
             shadowMaterial=new Material(effectMaterial);shadowMaterial.color=new Color(.015f,.015f,.02f,.25f);materials.Add(shadowMaterial);
             vfx=new ProductionVfx(world.transform,viewCamera,spriteMaterial,effectMaterial,productionArt);
             // Native X/Z territory surface uses restrained tint and an authoritative front marker.
             blueFlow=new Material(territoryMaterial);blueFlow.color=new Color(.22f,.255f,.27f);materials.Add(blueFlow);
             redFlow=new Material(territoryMaterial);redFlow.color=new Color(.275f,.23f,.225f);materials.Add(redFlow);
+            arenaPresentation.BindStone(blueFlow);arenaPresentation.BindStone(redFlow);
             blueTerritory=Shape("Blue territory",PrimitiveType.Cube,Vector3.zero,Vector3.one,blueFlow).transform;
             redTerritory=Shape("Red territory",PrimitiveType.Cube,Vector3.zero,Vector3.one,redFlow).transform;
             front=Shape("Authoritative territorial front",PrimitiveType.Cube,Vector3.zero,new Vector3(.09f,.035f,24),Tint(new Color(.83f,.78f,.57f))).transform;

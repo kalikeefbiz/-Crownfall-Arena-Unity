@@ -1,0 +1,92 @@
+{
+  "engine": "Blender 4.3.2",
+  "unityExecuted": false,
+  "compositionSha256": "1f651e3f0b56d5201aed6f271f86478955076c58fe0fe9bfaf98c15111105639",
+  "cameraSource": "Assets/Crownfall/Environment/CameraFraming.cs",
+  "coordinateMapping": "Unity (X,Y,Z) to Blender (X,Z,Y); source glTF reference mesh Y reflected; authored yaw sign converted",
+  "projectionAssertions": 16,
+  "views": [
+    {
+      "name": "blue-combat",
+      "actor": [
+        -25,
+        0
+      ],
+      "cameraGroundCenter": [
+        -16.222222222222225,
+        3.5
+      ],
+      "cameraPositionUnity": [
+        -16.222222222222225,
+        20.0,
+        -18.712250296583857
+      ],
+      "pitch": 42.0,
+      "orthographicSize": 12.25,
+      "aspect": 1.7777777777777777
+    },
+    {
+      "name": "center-lane",
+      "actor": [
+        0,
+        0
+      ],
+      "cameraGroundCenter": [
+        0,
+        3.5
+      ],
+      "cameraPositionUnity": [
+        0,
+        20.0,
+        -18.712250296583857
+      ],
+      "pitch": 42.0,
+      "orthographicSize": 12.25,
+      "aspect": 1.7777777777777777
+    },
+    {
+      "name": "red-combat",
+      "actor": [
+        25,
+        0
+      ],
+      "cameraGroundCenter": [
+        16.222222222222225,
+        3.5
+      ],
+      "cameraPositionUnity": [
+        16.222222222222225,
+        20.0,
+        -18.712250296583857
+      ],
+      "pitch": 42.0,
+      "orthographicSize": 12.25,
+      "aspect": 1.7777777777777777
+    },
+    {
+      "name": "objective",
+      "actor": [
+        0,
+        26
+      ],
+      "cameraGroundCenter": [
+        0,
+        21.692662264158546
+      ],
+      "cameraPositionUnity": [
+        0,
+        20.0,
+        -0.519588032425311
+      ],
+      "pitch": 42.0,
+      "orthographicSize": 12.25,
+      "aspect": 1.7777777777777777
+    }
+  ],
+  "limitations": [
+    "Not Unity rendering or live gameplay; preserved glTF references approximate native FBX meshes",
+    "Built-in shader, alpha mip coverage, ASTC fallback and GPU shadows remain native/device PENDING",
+    "Approximate stone/lighting and static original character PNG scale references; no HUD or combat effects",
+    "Bounded six-Summoner Unity cutaway not simulated; geometry overlap is conservatively visible"
+  ]
+}

@@ -106,8 +106,8 @@ namespace Crownfall.EnvironmentLab.Editor
                 EnvironmentPaths.Require(material != null, "Missing wilderness material " + spec.key);
                 // Textured materials use multipliers. Kenney untextured colors are explicit replacements of its cyan/orange PBR palette.
                 Color color = new Color(.69f,.73f,.76f,1);
-                if (spec.family == "bark") color = new Color(.56f,.53f,.49f,1);
-                if (spec.family == "alpha-cutout foliage") color = new Color(.54f,.68f,.59f,1);
+                if (spec.family == "bark") color = new Color(.70f,.65f,.60f,1);
+                if (spec.family == "alpha-cutout foliage") color = new Color(.66f,.77f,.66f,1);
                 if (spec.key == "qn_Leaves_TwistedTree") color = new Color(.53f,.64f,.72f,1);
                 if (spec.key == "kn_dirt") color = new Color(.28f,.30f,.28f,1);
                 if (spec.key == "kn_grass") color = new Color(.20f,.29f,.24f,1);
@@ -116,6 +116,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 if (spec.key == "kn_stone" || spec.key == "kn_stoneDark" || spec.key == "kn__defaultMat") color = new Color(.38f,.43f,.46f,1);
                 material.color = color; material.enableInstancing = true;
                 if (material.HasProperty("_Glossiness")) material.SetFloat("_Glossiness",.08f);
+                if (material.HasProperty("_Saturation")) material.SetFloat("_Saturation",spec.key=="kc_colormap"?.35f:.75f);
                 EditorUtility.SetDirty(material);
             }
             AssetDatabase.SaveAssets();
@@ -144,10 +145,11 @@ namespace Crownfall.EnvironmentLab.Editor
                         renderer.allowOcclusionWhenDynamic = true;
                     }
                 }
+                var surface=M15SurfacePreparation.Generate(root.transform);
                 var lighting = new GameObject("Wilderness directional key");lighting.transform.SetParent(root.transform,false);
-                lighting.transform.localRotation = Quaternion.Euler(48,-30,0);
-                var light = lighting.AddComponent<Light>();light.type=LightType.Directional;light.color=new Color(.88f,.92f,1);
-                light.intensity=.85f;light.shadows=LightShadows.Hard;light.shadowStrength=.65f;
+                lighting.transform.localRotation = Quaternion.Euler(42,-35,0);
+                var light = lighting.AddComponent<Light>();light.type=LightType.Directional;light.color=new Color(1,.94f,.84f);
+                light.intensity=1.05f;light.shadows=LightShadows.Hard;light.shadowStrength=.60f;
                 EnvironmentPaths.Require(PrefabUtility.SaveAsPrefabAsset(root,PrefabPath) != null, "Could not save shipping environment prefab");
                 Directory.CreateDirectory(Path.GetDirectoryName(EnvironmentPaths.Absolute(ResourceAsset)));
                 AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
@@ -155,6 +157,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 if(library==null){library=ScriptableObject.CreateInstance<WildernessLibrary>();AssetDatabase.CreateAsset(library,ResourceAsset);}
                 library.compositionVersion=layout.compositionVersion;library.compositionHash=CompositionHash();
                 library.presentationPrefab=AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
+                M15SurfacePreparation.Bind(library,surface);
                 EditorUtility.SetDirty(library);AssetDatabase.SaveAssets();
             }
             finally
@@ -211,11 +214,12 @@ namespace Crownfall.EnvironmentLab.Editor
                 ValidateClearance(row,b);
                 EnvironmentPaths.Require(PotentiallyVisible(b),"Placement permanently outside fixed camera bounds: "+row.name);bounds.Add(row.name,b);
             }
-            EnvironmentPaths.Require(prefab.transform.childCount==layout.placements.Length+1,"Unexpected/missing shipping environment nodes");
+            EnvironmentPaths.Require(prefab.transform.childCount==layout.placements.Length+2,"Unexpected/missing shipping environment nodes");
             var lights=prefab.GetComponentsInChildren<Light>(true);
             EnvironmentPaths.Require(lights.Length==1&&lights[0].type==LightType.Directional,"Wilderness lighting must use one directional key");
-            foreach(var c in prefab.GetComponentsInChildren<Component>(true))EnvironmentPaths.Require(c is Transform||c is MeshFilter||c is MeshRenderer||c is Light,"Unexpected presentation component "+c.GetType().Name);
+            foreach(var c in prefab.GetComponentsInChildren<Component>(true))EnvironmentPaths.Require(c is Transform||c is MeshFilter||c is MeshRenderer||c is Light,"Unexpected/missing presentation component "+(c==null?"Missing script":c.GetType().Name));
             ValidateLayers(layout,bounds);
+            M15SurfacePreparation.Validate(library);
         }
         public static void ValidateTextureImport(string path)
         {
@@ -259,12 +263,14 @@ namespace Crownfall.EnvironmentLab.Editor
         }
         static bool PotentiallyVisible(Bounds b)
         {
-            float s=Mathf.Sin(50*Mathf.Deg2Rad),c=Mathf.Cos(50*Mathf.Deg2Rad),offset=15/Mathf.Tan(50*Mathf.Deg2Rad);
-            foreach(float x in new[]{-14.44f,0,14.44f})foreach(float z in new[]{-17.64f,-12,-6,0,6,12,17.64f})
+            float pitch=(float)CameraFraming.Pitch,h=(float)CameraFraming.HalfHeight,height=(float)CameraFraming.Height;
+            float s=Mathf.Sin(pitch*Mathf.Deg2Rad),c=Mathf.Cos(pitch*Mathf.Deg2Rad),offset=height/Mathf.Tan(pitch*Mathf.Deg2Rad);
+            foreach(float actorX in new[]{-30f,0,30f})foreach(float actorZ in new[]{-27f,-12,-6,0,6,12,26f})
             {
+                float x=(float)CameraFraming.CenterX(actorX,16.0/9),z=(float)CameraFraming.CenterZ(actorZ);
                 float lo=(b.min.z-z)*s+b.min.y*c,hi=(b.max.z-z)*s+b.max.y*c;
-                float near=(b.min.z-z+offset)*c-(b.max.y-15)*s,far=(b.max.z-z+offset)*c-(b.min.y-15)*s;
-                if(b.min.x<x+19.56f&&b.max.x>x-19.56f&&lo<11&&hi>-11&&near<150&&far>.1f)return true;
+                float near=(b.min.z-z+offset)*c-(b.max.y-height)*s,far=(b.max.z-z+offset)*c-(b.min.y-height)*s;
+                if(b.min.x<x+h*16/9&&b.max.x>x-h*16/9&&lo<h&&hi>-h&&near<150&&far>.1f)return true;
             }
             return false;
         }
@@ -275,11 +281,11 @@ namespace Crownfall.EnvironmentLab.Editor
             {
                 var near=layout.placements.Where(p=>p.layer=="NEAR"&&(p.zone=="island"||p.zone=="pocket")&&Math.Sign(p.position[2])==side).ToArray();
                 EnvironmentPaths.Require(near.Length>=6&&near.Count(p=>bounds[p.name].size.y>=3)>=2,"Near vertical wilderness missing on lane side "+side);
-                // Fixed 50-degree camera at representative +/-6 lane positions, rather than extreme perimeter-only scenery.
-                float center=side*6;float s=Mathf.Sin(50*Mathf.Deg2Rad),c=Mathf.Cos(50*Mathf.Deg2Rad);
-                EnvironmentPaths.Require(near.Count(p=>bounds[p.name].min.x<19.56f&&bounds[p.name].max.x>-19.56f&&
-                    (bounds[p.name].min.z-center)*s+bounds[p.name].min.y*c<11&&
-                    (bounds[p.name].max.z-center)*s+bounds[p.name].max.y*c>-11)>=2,"Near wilderness outside ordinary camera-visible band on side "+side);
+                float center=(float)CameraFraming.CenterZ(side*6),h=(float)CameraFraming.HalfHeight;
+                float s=Mathf.Sin((float)CameraFraming.Pitch*Mathf.Deg2Rad),c=Mathf.Cos((float)CameraFraming.Pitch*Mathf.Deg2Rad);
+                EnvironmentPaths.Require(near.Count(p=>bounds[p.name].min.x<h*16/9&&bounds[p.name].max.x>-h*16/9&&
+                    (bounds[p.name].min.z-center)*s+bounds[p.name].min.y*c<h&&
+                    (bounds[p.name].max.z-center)*s+bounds[p.name].max.y*c>-h)>=2,"Near wilderness outside ordinary camera-visible band on side "+side);
             }
             EnvironmentPaths.Require(layout.placements.Select(p=>p.yaw).Distinct().Count()>=20,"Wilderness rotation variation collapsed");
         }

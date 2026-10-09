@@ -18,12 +18,9 @@ namespace Crownfall.Match
             RingMesh=Disc(new DiscGeometry());ShadowMesh=Disc(new DiscGeometry(32,0,1));
             var seams=new BoxGeometry();
             wildernessPresentation=new Crownfall.EnvironmentPresentation.ArenaWildernessPresentation(root,camera);
-            for(int x=-26;x<=26;x+=4)
-            {
-                Box(seams,new Vector3(x,.032f,0),new Vector3(.035f,.012f,23.5f));
-                for(int z=-10;z<=10;z+=4)Box(seams,new Vector3(x,.032f,z),new Vector3(3.9f,.012f,.035f));
-            }
-            foreach(int side in new[]{-1,1})Box(seams,new Vector3(0,.034f,side*11.9f),new Vector3(56,.02f,.09f));
+            // Broken ancient inlay accents, rather than a grid outlining the engineering rectangle.
+            foreach(var p in new[]{new Vector3(-17,.032f,8.7f),new Vector3(9,.032f,-8.3f),new Vector3(23,.032f,9.2f)})
+                Box(seams,p,new Vector3(2.7f,.012f,.035f));
             Combine("Warm Aether inlay",seams,gold);
             GroundArt("Crownfall center medallion",art.centerLogo,new Vector3(0,.06f,0),8);
             // Source Crownfall art extends the interior skyline; true 3D groves/cliffs supply its depth.
@@ -37,6 +34,8 @@ namespace Crownfall.Match
             Billboard("Major Aether landmark",art.aetherMound,new Vector3(0,0,29.5f),4,-200);
         }
         public void BindVisibilitySubjects(Transform[] subjects) { wildernessPresentation.BindVisibilitySubjects(subjects); }
+        public void BindGround(Renderer floor,Renderer lane) { wildernessPresentation.BindGround(floor,lane); }
+        public void BindStone(Material territory) { wildernessPresentation.BindStone(territory); }
         Mesh Disc(DiscGeometry data)
         {
             var mesh=new Mesh{name="Shared finite ground disc"};var vertices=new Vector3[data.Vertices.Length];

@@ -6,31 +6,29 @@ Shader "Crownfall/Territory Flow"
         _Active ("Surge active", Float) = 0
         _Direction ("Forward direction", Float) = 1
         _MatchTime ("Simulation time", Float) = 0
+        _StoneTex ("Shared weathered stone", 2D) = "white" {}
+        _StoneNormal ("Shared stone normal", 2D) = "bump" {}
     }
     SubShader
     {
         Tags { "RenderType"="Opaque" }
-        Pass
-        {
             CGPROGRAM
-            #pragma vertex vert
-            #pragma fragment frag
-            #include "UnityCG.cginc"
+            #pragma surface surf Standard fullforwardshadows
+            #pragma target 3.0
+            #include "../../Environment/Shaders/StoneSurface.cginc"
             fixed4 _Color; float _Active,_Direction,_MatchTime;
-            struct Input {float4 vertex : POSITION;};
-            struct Output {float4 position : SV_POSITION;float3 world : TEXCOORD0;};
-            Output vert(Input v){Output o;o.position=UnityObjectToClipPos(v.vertex);o.world=mul(unity_ObjectToWorld,v.vertex).xyz;return o;}
-            fixed4 frag(Output i) : SV_Target
+            struct Input {float3 worldPos;};
+            void surf(Input i,inout SurfaceOutputStandard o)
             {
-                float wave=pow(saturate(.5+.5*sin(i.world.x*1.8-_MatchTime*3*_Direction)),8);
-                float canal=pow(saturate(.5+.5*cos(i.world.z*6.283185/7)),24);
-                float2 tile=floor(i.world.xz*1.1);
-                float grain=frac(sin(dot(tile,float2(12.9898,78.233)))*43758.5453);
-                float2 joints=abs(frac(i.world.xz*.5)-.5);
-                float seam=step(.485,max(joints.x,joints.y));
-                return fixed4(_Color.rgb*(.92+grain*.13-seam*.08)+_Active*(wave*.065+wave*canal*.07),1);
+                float wave=pow(saturate(.5+.5*sin(i.worldPos.x*1.8-_MatchTime*3*_Direction)),8);
+                float canal=pow(saturate(.5+.5*cos(i.worldPos.z*6.283185/7)),24);
+                // World UVs stay fixed when authoritative territory meshes expand/contract.
+                o.Albedo=CrownfallStone(i.worldPos)*lerp(half3(1,1,1),_Color.rgb*3.5,.42);
+                o.Normal=CrownfallStoneNormal(i.worldPos);
+                o.Emission=_Active*(wave*.065+wave*canal*.07);
+                o.Metallic=0;o.Smoothness=.06;o.Occlusion=1;o.Alpha=1;
             }
             ENDCG
-        }
     }
+    Fallback "Diffuse"
 }

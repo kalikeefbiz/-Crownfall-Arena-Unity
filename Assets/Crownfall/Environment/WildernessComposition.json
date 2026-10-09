@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "compositionVersion": 1,
+  "compositionVersion": 2,
   "requiredUnityVersion": "6000.3.10f1",
-  "startingHead": "a2a9165606425e2c52090e2133e1ca55088c76f9",
+  "startingHead": "e9b3f4be88bf13acb9c60c935d42ba110121fa40",
   "textureTier": "Mobile",
   "layers": [
     "NEAR",
@@ -701,7 +701,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -28.8,
-        0.65,
+        0,
         15.799999999999999
       ],
       "scale": [
@@ -720,7 +720,7 @@
       "role": "edge undergrowth",
       "position": [
         -29.35,
-        0.55,
+        0.015,
         15.45
       ],
       "scale": [
@@ -758,7 +758,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -23.8,
-        0.65,
+        0,
         15.5
       ],
       "scale": [
@@ -796,7 +796,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -9.8,
-        0.65,
+        0,
         14.799999999999999
       ],
       "scale": [
@@ -834,7 +834,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -6.3,
-        0.65,
+        0,
         15.399999999999999
       ],
       "scale": [
@@ -853,7 +853,7 @@
       "role": "edge undergrowth",
       "position": [
         -6.85,
-        0.55,
+        0.015,
         15.049999999999999
       ],
       "scale": [
@@ -891,7 +891,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         7.3,
-        0.65,
+        0,
         15.0
       ],
       "scale": [
@@ -929,7 +929,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         11.6,
-        0.65,
+        0,
         15.7
       ],
       "scale": [
@@ -967,7 +967,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         25.2,
-        0.65,
+        0,
         15.0
       ],
       "scale": [
@@ -986,7 +986,7 @@
       "role": "edge undergrowth",
       "position": [
         24.65,
-        0.55,
+        0.015,
         14.65
       ],
       "scale": [
@@ -1024,7 +1024,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         30.7,
-        0.65,
+        0,
         15.899999999999999
       ],
       "scale": [
@@ -1062,7 +1062,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -29.8,
-        0.65,
+        0,
         -14.4
       ],
       "scale": [
@@ -1100,7 +1100,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -26.8,
-        0.65,
+        0,
         -15.200000000000001
       ],
       "scale": [
@@ -1119,7 +1119,7 @@
       "role": "edge undergrowth",
       "position": [
         -27.35,
-        0.55,
+        0.015,
         -15.55
       ],
       "scale": [
@@ -1157,7 +1157,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -13.8,
-        0.65,
+        0,
         -14.5
       ],
       "scale": [
@@ -1195,7 +1195,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         -10.8,
-        0.65,
+        0,
         -15.3
       ],
       "scale": [
@@ -1233,7 +1233,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         0.2,
-        0.65,
+        0,
         -14.600000000000001
       ],
       "scale": [
@@ -1252,7 +1252,7 @@
       "role": "edge undergrowth",
       "position": [
         -0.35,
-        0.55,
+        0.015,
         -14.950000000000001
       ],
       "scale": [
@@ -1290,7 +1290,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         3.2,
-        0.65,
+        0,
         -15.4
       ],
       "scale": [
@@ -1328,7 +1328,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         14.2,
-        0.65,
+        0,
         -14.8
       ],
       "scale": [
@@ -1366,7 +1366,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         17.2,
-        0.65,
+        0,
         -15.4
       ],
       "scale": [
@@ -1385,7 +1385,7 @@
       "role": "edge undergrowth",
       "position": [
         16.65,
-        0.55,
+        0.015,
         -15.75
       ],
       "scale": [
@@ -1423,7 +1423,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         29.2,
-        0.65,
+        0,
         -14.5
       ],
       "scale": [
@@ -1461,7 +1461,7 @@
       "role": "camera-visible forest pocket",
       "position": [
         32.2,
-        0.65,
+        0,
         -15.5
       ],
       "scale": [
@@ -2031,7 +2031,7 @@
       "role": "dense near northern grove",
       "position": [
         -29.2,
-        -0.15,
+        0,
         15.8
       ],
       "scale": [
@@ -2050,7 +2050,7 @@
       "role": "dense near northern grove",
       "position": [
         -28.2,
-        -0.15,
+        0,
         17.5
       ],
       "scale": [
@@ -2069,7 +2069,7 @@
       "role": "dense near northern grove",
       "position": [
         -29.5,
-        -0.15,
+        0,
         19.3
       ],
       "scale": [
@@ -2088,7 +2088,7 @@
       "role": "dense near northern grove",
       "position": [
         -26.099999999999998,
-        -0.15,
+        0,
         15.950000000000001
       ],
       "scale": [
@@ -2107,7 +2107,7 @@
       "role": "dense near northern grove",
       "position": [
         -25.099999999999998,
-        -0.15,
+        0,
         17.65
       ],
       "scale": [
@@ -2126,7 +2126,7 @@
       "role": "dense near northern grove",
       "position": [
         -26.4,
-        -0.15,
+        0,
         19.45
       ],
       "scale": [
@@ -2145,7 +2145,7 @@
       "role": "dense near northern grove",
       "position": [
         -11.3,
-        -0.15,
+        0,
         16.1
       ],
       "scale": [
@@ -2164,7 +2164,7 @@
       "role": "dense near northern grove",
       "position": [
         -10.3,
-        -0.15,
+        0,
         17.8
       ],
       "scale": [
@@ -2183,7 +2183,7 @@
       "role": "dense near northern grove",
       "position": [
         -11.6,
-        -0.15,
+        0,
         19.6
       ],
       "scale": [
@@ -2202,7 +2202,7 @@
       "role": "dense near northern grove",
       "position": [
         -7.300000000000001,
-        -0.15,
+        0,
         15.8
       ],
       "scale": [
@@ -2221,7 +2221,7 @@
       "role": "dense near northern grove",
       "position": [
         -6.300000000000001,
-        -0.15,
+        0,
         17.5
       ],
       "scale": [
@@ -2240,7 +2240,7 @@
       "role": "dense near northern grove",
       "position": [
         -7.6000000000000005,
-        -0.15,
+        0,
         19.3
       ],
       "scale": [
@@ -2259,7 +2259,7 @@
       "role": "dense near northern grove",
       "position": [
         7.3999999999999995,
-        -0.15,
+        0,
         15.950000000000001
       ],
       "scale": [
@@ -2278,7 +2278,7 @@
       "role": "dense near northern grove",
       "position": [
         8.4,
-        -0.15,
+        0,
         17.65
       ],
       "scale": [
@@ -2297,7 +2297,7 @@
       "role": "dense near northern grove",
       "position": [
         7.1,
-        -0.15,
+        0,
         19.45
       ],
       "scale": [
@@ -2316,7 +2316,7 @@
       "role": "dense near northern grove",
       "position": [
         11.299999999999999,
-        -0.15,
+        0,
         16.1
       ],
       "scale": [
@@ -2335,7 +2335,7 @@
       "role": "dense near northern grove",
       "position": [
         12.299999999999999,
-        -0.15,
+        0,
         17.8
       ],
       "scale": [
@@ -2354,7 +2354,7 @@
       "role": "dense near northern grove",
       "position": [
         11.0,
-        -0.15,
+        0,
         19.6
       ],
       "scale": [
@@ -2373,7 +2373,7 @@
       "role": "dense near northern grove",
       "position": [
         25.900000000000002,
-        -0.15,
+        0,
         15.8
       ],
       "scale": [
@@ -2392,7 +2392,7 @@
       "role": "dense near northern grove",
       "position": [
         26.900000000000002,
-        -0.15,
+        0,
         17.5
       ],
       "scale": [
@@ -2411,7 +2411,7 @@
       "role": "dense near northern grove",
       "position": [
         25.6,
-        -0.15,
+        0,
         19.3
       ],
       "scale": [
@@ -2430,7 +2430,7 @@
       "role": "dense near northern grove",
       "position": [
         30.0,
-        -0.15,
+        0,
         15.950000000000001
       ],
       "scale": [
@@ -2449,7 +2449,7 @@
       "role": "dense near northern grove",
       "position": [
         31.0,
-        -0.15,
+        0,
         17.65
       ],
       "scale": [
@@ -2468,7 +2468,7 @@
       "role": "dense near northern grove",
       "position": [
         29.7,
-        -0.15,
+        0,
         19.45
       ],
       "scale": [
@@ -2487,7 +2487,7 @@
       "role": "dense southern edge grove",
       "position": [
         -30.25,
-        -0.15,
+        0,
         -15.2
       ],
       "scale": [
@@ -2506,7 +2506,7 @@
       "role": "dense southern edge grove",
       "position": [
         -29.5,
-        -0.15,
+        0,
         -16.8
       ],
       "scale": [
@@ -2525,7 +2525,7 @@
       "role": "dense southern edge grove",
       "position": [
         -27.55,
-        -0.15,
+        0,
         -15.33
       ],
       "scale": [
@@ -2544,7 +2544,7 @@
       "role": "dense southern edge grove",
       "position": [
         -26.8,
-        -0.15,
+        0,
         -16.93
       ],
       "scale": [
@@ -2563,7 +2563,7 @@
       "role": "dense southern edge grove",
       "position": [
         -14.25,
-        -0.15,
+        0,
         -15.459999999999999
       ],
       "scale": [
@@ -2582,7 +2582,7 @@
       "role": "dense southern edge grove",
       "position": [
         -13.5,
-        -0.15,
+        0,
         -17.060000000000002
       ],
       "scale": [
@@ -2601,7 +2601,7 @@
       "role": "dense southern edge grove",
       "position": [
         -11.45,
-        -0.15,
+        0,
         -15.2
       ],
       "scale": [
@@ -2620,7 +2620,7 @@
       "role": "dense southern edge grove",
       "position": [
         -10.7,
-        -0.15,
+        0,
         -16.8
       ],
       "scale": [
@@ -2639,7 +2639,7 @@
       "role": "dense southern edge grove",
       "position": [
         -0.25,
-        -0.15,
+        0,
         -15.33
       ],
       "scale": [
@@ -2658,7 +2658,7 @@
       "role": "dense southern edge grove",
       "position": [
         0.5,
-        -0.15,
+        0,
         -16.93
       ],
       "scale": [
@@ -2677,7 +2677,7 @@
       "role": "dense southern edge grove",
       "position": [
         2.85,
-        -0.15,
+        0,
         -15.459999999999999
       ],
       "scale": [
@@ -2696,7 +2696,7 @@
       "role": "dense southern edge grove",
       "position": [
         3.6,
-        -0.15,
+        0,
         -17.060000000000002
       ],
       "scale": [
@@ -2715,7 +2715,7 @@
       "role": "dense southern edge grove",
       "position": [
         12.85,
-        -0.15,
+        0,
         -15.2
       ],
       "scale": [
@@ -2734,7 +2734,7 @@
       "role": "dense southern edge grove",
       "position": [
         13.6,
-        -0.15,
+        0,
         -16.8
       ],
       "scale": [
@@ -2753,7 +2753,7 @@
       "role": "dense southern edge grove",
       "position": [
         16.25,
-        -0.15,
+        0,
         -15.33
       ],
       "scale": [
@@ -2772,7 +2772,7 @@
       "role": "dense southern edge grove",
       "position": [
         17.0,
-        -0.15,
+        0,
         -16.93
       ],
       "scale": [
@@ -2791,7 +2791,7 @@
       "role": "dense southern edge grove",
       "position": [
         28.95,
-        -0.15,
+        0,
         -15.459999999999999
       ],
       "scale": [
@@ -2810,7 +2810,7 @@
       "role": "dense southern edge grove",
       "position": [
         29.7,
-        -0.15,
+        0,
         -17.060000000000002
       ],
       "scale": [
@@ -2829,7 +2829,7 @@
       "role": "dense southern edge grove",
       "position": [
         31.75,
-        -0.15,
+        0,
         -15.2
       ],
       "scale": [
@@ -2848,7 +2848,7 @@
       "role": "dense southern edge grove",
       "position": [
         32.5,
-        -0.15,
+        0,
         -16.8
       ],
       "scale": [
@@ -2924,7 +2924,7 @@
       "role": "embedded ancient ruin silhouette",
       "position": [
         -30,
-        1,
+        0,
         24
       ],
       "scale": [
@@ -2943,7 +2943,7 @@
       "role": "embedded ancient ruin silhouette",
       "position": [
         -30,
-        5.45,
+        4.44,
         24
       ],
       "scale": [
@@ -2962,7 +2962,7 @@
       "role": "embedded ancient ruin silhouette",
       "position": [
         29,
-        1,
+        0,
         -27
       ],
       "scale": [
@@ -2981,7 +2981,7 @@
       "role": "embedded ancient ruin silhouette",
       "position": [
         -29,
-        1,
+        0,
         -28
       ],
       "scale": [
@@ -3000,7 +3000,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -30.55,
-        1.2,
+        0,
         28.8
       ],
       "scale": [
@@ -3019,7 +3019,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -29.4,
-        1.2,
+        0,
         29.7
       ],
       "scale": [
@@ -3038,7 +3038,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -25.55,
-        1.2,
+        0,
         29.5
       ],
       "scale": [
@@ -3057,7 +3057,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -24.4,
-        1.2,
+        0,
         30.4
       ],
       "scale": [
@@ -3076,7 +3076,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -11.55,
-        1.2,
+        0,
         28.7
       ],
       "scale": [
@@ -3095,7 +3095,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -10.4,
-        1.2,
+        0,
         29.599999999999998
       ],
       "scale": [
@@ -3114,7 +3114,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -6.55,
-        1.2,
+        0,
         30.5
       ],
       "scale": [
@@ -3133,7 +3133,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -5.4,
-        1.2,
+        0,
         31.4
       ],
       "scale": [
@@ -3152,7 +3152,7 @@
       "role": "distant interior forest cluster",
       "position": [
         6.45,
-        1.2,
+        0,
         29.2
       ],
       "scale": [
@@ -3171,7 +3171,7 @@
       "role": "distant interior forest cluster",
       "position": [
         7.6,
-        1.2,
+        0,
         30.099999999999998
       ],
       "scale": [
@@ -3190,7 +3190,7 @@
       "role": "distant interior forest cluster",
       "position": [
         11.45,
-        1.2,
+        0,
         29.5
       ],
       "scale": [
@@ -3209,7 +3209,7 @@
       "role": "distant interior forest cluster",
       "position": [
         12.6,
-        1.2,
+        0,
         30.4
       ],
       "scale": [
@@ -3228,7 +3228,7 @@
       "role": "distant interior forest cluster",
       "position": [
         24.45,
-        1.2,
+        0,
         29.7
       ],
       "scale": [
@@ -3247,7 +3247,7 @@
       "role": "distant interior forest cluster",
       "position": [
         25.6,
-        1.2,
+        0,
         30.599999999999998
       ],
       "scale": [
@@ -3266,7 +3266,7 @@
       "role": "distant interior forest cluster",
       "position": [
         29.45,
-        1.2,
+        0,
         28.4
       ],
       "scale": [
@@ -3285,7 +3285,7 @@
       "role": "distant interior forest cluster",
       "position": [
         30.6,
-        1.2,
+        0,
         29.299999999999997
       ],
       "scale": [
@@ -3304,7 +3304,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -31.55,
-        1.2,
+        0,
         -29.8
       ],
       "scale": [
@@ -3323,7 +3323,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -30.4,
-        1.2,
+        0,
         -28.900000000000002
       ],
       "scale": [
@@ -3342,7 +3342,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -13.55,
-        1.2,
+        0,
         -29.5
       ],
       "scale": [
@@ -3361,7 +3361,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -12.4,
-        1.2,
+        0,
         -28.6
       ],
       "scale": [
@@ -3380,7 +3380,7 @@
       "role": "distant interior forest cluster",
       "position": [
         -0.55,
-        1.2,
+        0,
         -29.3
       ],
       "scale": [
@@ -3399,7 +3399,7 @@
       "role": "distant interior forest cluster",
       "position": [
         0.6,
-        1.2,
+        0,
         -28.400000000000002
       ],
       "scale": [
@@ -3418,7 +3418,7 @@
       "role": "distant interior forest cluster",
       "position": [
         12.45,
-        1.2,
+        0,
         -29.2
       ],
       "scale": [
@@ -3437,7 +3437,7 @@
       "role": "distant interior forest cluster",
       "position": [
         13.6,
-        1.2,
+        0,
         -28.3
       ],
       "scale": [
@@ -3456,7 +3456,7 @@
       "role": "distant interior forest cluster",
       "position": [
         30.45,
-        1.2,
+        0,
         -29.6
       ],
       "scale": [
@@ -3475,7 +3475,7 @@
       "role": "distant interior forest cluster",
       "position": [
         31.6,
-        1.2,
+        0,
         -28.700000000000003
       ],
       "scale": [
@@ -3619,12 +3619,1114 @@
       "yaw": 203,
       "castShadows": false,
       "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_00",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken natural retaining ledge",
+      "position": [
+        -30.7,
+        -0.65,
+        13.6
+      ],
+      "scale": [
+        0.25,
+        0.19,
+        0.2
+      ],
+      "yaw": 12,
+      "castShadows": true,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_moss_00",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "vegetation invading retaining stone",
+      "position": [
+        -30.349999999999998,
+        0.02,
+        13.95
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.65
+      ],
+      "yaw": 51,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_01",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -26.5,
+        -0.16,
+        13.7
+      ],
+      "scale": [
+        0.71,
+        0.7,
+        0.3
+      ],
+      "yaw": -19,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_02",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -13.7,
+        -0.16,
+        13.9
+      ],
+      "scale": [
+        0.77,
+        0.8,
+        0.3
+      ],
+      "yaw": 7,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_03",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -10.4,
+        -0.16,
+        13.8
+      ],
+      "scale": [
+        0.65,
+        0.9,
+        0.3
+      ],
+      "yaw": -11,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_moss_03",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "vegetation invading retaining stone",
+      "position": [
+        -10.05,
+        0.02,
+        14.15
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.65
+      ],
+      "yaw": 28,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_04",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -6.6,
+        -0.16,
+        13.7
+      ],
+      "scale": [
+        0.71,
+        0.6,
+        0.3
+      ],
+      "yaw": 21,
+      "castShadows": true,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_05",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken natural retaining ledge",
+      "position": [
+        7.1,
+        -0.65,
+        13.7
+      ],
+      "scale": [
+        0.32,
+        0.215,
+        0.2
+      ],
+      "yaw": -8,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_06",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        10.9,
+        -0.16,
+        13.9
+      ],
+      "scale": [
+        0.65,
+        0.8,
+        0.3
+      ],
+      "yaw": 15,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_moss_06",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "vegetation invading retaining stone",
+      "position": [
+        11.25,
+        0.02,
+        14.25
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.65
+      ],
+      "yaw": 54,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_07",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        13.8,
+        -0.16,
+        13.8
+      ],
+      "scale": [
+        0.71,
+        0.9,
+        0.3
+      ],
+      "yaw": -17,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_08",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        25.5,
+        -0.16,
+        13.8
+      ],
+      "scale": [
+        0.77,
+        0.6,
+        0.3
+      ],
+      "yaw": 9,
+      "castShadows": true,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_09",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        30,
+        -0.16,
+        13.7
+      ],
+      "scale": [
+        0.65,
+        0.7,
+        0.3
+      ],
+      "yaw": -14,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_moss_09",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "vegetation invading retaining stone",
+      "position": [
+        30.35,
+        0.02,
+        14.049999999999999
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.65
+      ],
+      "yaw": 25,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_10",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken natural retaining ledge",
+      "position": [
+        -30.7,
+        -0.65,
+        -13.8
+      ],
+      "scale": [
+        0.28500000000000003,
+        0.24,
+        0.2
+      ],
+      "yaw": -9,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_11",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -26.3,
+        -0.16,
+        -13.9
+      ],
+      "scale": [
+        0.77,
+        0.9,
+        0.3
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_12",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -14.7,
+        -0.16,
+        -13.9
+      ],
+      "scale": [
+        0.65,
+        0.6,
+        0.3
+      ],
+      "yaw": 12,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_moss_12",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "vegetation invading retaining stone",
+      "position": [
+        -14.35,
+        0.02,
+        -14.25
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.65
+      ],
+      "yaw": 51,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_13",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -10.8,
+        -0.16,
+        -13.8
+      ],
+      "scale": [
+        0.71,
+        0.7,
+        0.3
+      ],
+      "yaw": -16,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_14",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        -0.5,
+        -0.16,
+        -13.7
+      ],
+      "scale": [
+        0.77,
+        0.8,
+        0.3
+      ],
+      "yaw": 6,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_15",
+      "model": "kn:cliff_large_rock",
+      "layer": "NEAR",
+      "role": "broken natural retaining ledge",
+      "position": [
+        2,
+        -0.65,
+        -13.8
+      ],
+      "scale": [
+        0.25,
+        0.265,
+        0.2
+      ],
+      "yaw": -12,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_moss_15",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "vegetation invading retaining stone",
+      "position": [
+        2.35,
+        0.02,
+        -14.15
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.65
+      ],
+      "yaw": 27,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_16",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        13.6,
+        -0.16,
+        -13.9
+      ],
+      "scale": [
+        0.71,
+        0.6,
+        0.3
+      ],
+      "yaw": 22,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_17",
+      "model": "qn:Rock_Medium_3",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        16.7,
+        -0.16,
+        -13.8
+      ],
+      "scale": [
+        0.77,
+        0.7,
+        0.3
+      ],
+      "yaw": 4,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_18",
+      "model": "qn:Rock_Medium_1",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        26.7,
+        -0.16,
+        -13.9
+      ],
+      "scale": [
+        0.65,
+        0.8,
+        0.3
+      ],
+      "yaw": -7,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_moss_18",
+      "model": "qn:Fern_1",
+      "layer": "NEAR",
+      "role": "vegetation invading retaining stone",
+      "position": [
+        27.05,
+        0.02,
+        -14.25
+      ],
+      "scale": [
+        0.65,
+        0.75,
+        0.65
+      ],
+      "yaw": 32,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ledge_19",
+      "model": "qn:Rock_Medium_2",
+      "layer": "NEAR",
+      "role": "weathered natural rock toe at lane transition",
+      "position": [
+        30.9,
+        -0.16,
+        -13.8
+      ],
+      "scale": [
+        0.71,
+        0.9,
+        0.3
+      ],
+      "yaw": 13,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_outer_mid_127_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -34,
+        5.33874,
+        -46
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 602,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_128_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -29,
+        5.22969,
+        -48
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 631,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_131_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -13,
+        4.16274,
+        -48
+      ],
+      "scale": [
+        1.28,
+        1.28,
+        1.28
+      ],
+      "yaw": 645,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_132_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        -8,
+        4.29112,
+        -50
+      ],
+      "scale": [
+        1.52,
+        1.52,
+        1.52
+      ],
+      "yaw": 674,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_134_rock_tallG",
+      "model": "kn:rock_tallG",
+      "layer": "MID",
+      "role": "rock spire tier",
+      "position": [
+        13,
+        5.40548,
+        -49
+      ],
+      "scale": [
+        1.4,
+        2.2800000000000002,
+        1.5
+      ],
+      "yaw": 609,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_135_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        10,
+        5.65089,
+        -47
+      ],
+      "scale": [
+        1.2,
+        1.2,
+        1.2
+      ],
+      "yaw": 688,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_136_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        15,
+        5.4884,
+        -49
+      ],
+      "scale": [
+        1.44,
+        1.44,
+        1.44
+      ],
+      "yaw": 717,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_139_tree_default_dark",
+      "model": "kn:tree_default_dark",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        31,
+        4.92554,
+        -46
+      ],
+      "scale": [
+        1.76,
+        1.76,
+        1.76
+      ],
+      "yaw": 731,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_140_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        36,
+        4.81223,
+        -48
+      ],
+      "scale": [
+        1.3599999999999999,
+        1.3599999999999999,
+        1.3599999999999999
+      ],
+      "yaw": 760,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_mid_141_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "MID",
+      "role": "elevated forest cluster",
+      "position": [
+        38,
+        4.81508,
+        -44
+      ],
+      "scale": [
+        1.6,
+        1.6,
+        1.6
+      ],
+      "yaw": 789,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_202_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        -42,
+        4.44447,
+        -63
+      ],
+      "scale": [
+        2.1,
+        3.3,
+        2.0
+      ],
+      "yaw": 359,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_206_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        -36,
+        4.03861,
+        -59
+      ],
+      "scale": [
+        2.08,
+        2.08,
+        2.08
+      ],
+      "yaw": 621,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_217_rock_tallA",
+      "model": "kn:rock_tallA",
+      "layer": "FAR",
+      "role": "mountain silhouette",
+      "position": [
+        40,
+        4.89216,
+        -62
+      ],
+      "scale": [
+        2.1,
+        4.5,
+        2.0
+      ],
+      "yaw": 446,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_219_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "distant forest mass",
+      "position": [
+        38,
+        4.90856,
+        -59
+      ],
+      "scale": [
+        1.7200000000000002,
+        1.7200000000000002,
+        1.7200000000000002
+      ],
+      "yaw": 724,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_289_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -28,
+        4.83858,
+        -51
+      ],
+      "scale": [
+        1.85,
+        1.85,
+        1.85
+      ],
+      "yaw": 17,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_290_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -24,
+        5.03383,
+        -49
+      ],
+      "scale": [
+        2.1,
+        2.1,
+        2.1
+      ],
+      "yaw": 29,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_292_tree_pineTallC",
+      "model": "kn:tree_pineTallC",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -16,
+        5.01882,
+        -54
+      ],
+      "scale": [
+        1.9700000000000002,
+        1.9700000000000002,
+        1.9700000000000002
+      ],
+      "yaw": 58,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_outer_far_293_tree_pineTallA",
+      "model": "kn:tree_pineTallA",
+      "layer": "FAR",
+      "role": "southern raised forest skyline",
+      "position": [
+        -12,
+        4.57443,
+        -52
+      ],
+      "scale": [
+        2.23,
+        2.23,
+        2.23
+      ],
+      "yaw": 48,
+      "castShadows": false,
+      "zone": "exterior"
+    },
+    {
+      "name": "m15_near_crown_0",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "low spreading hero crown connecting shelf and forest",
+      "position": [
+        -12.9,
+        0,
+        13.85
+      ],
+      "scale": [
+        0.48,
+        0.56,
+        0.4
+      ],
+      "yaw": 18,
+      "castShadows": true,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_near_crown_1",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "low spreading hero crown connecting shelf and forest",
+      "position": [
+        -6.7,
+        0,
+        13.9
+      ],
+      "scale": [
+        0.48,
+        0.56,
+        0.4
+      ],
+      "yaw": -25,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_near_crown_2",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "low spreading hero crown connecting shelf and forest",
+      "position": [
+        10.8,
+        0,
+        13.9
+      ],
+      "scale": [
+        0.48,
+        0.56,
+        0.4
+      ],
+      "yaw": 31,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_near_crown_3",
+      "model": "qn:CommonTree_1",
+      "layer": "NEAR",
+      "role": "low spreading hero crown connecting shelf and forest",
+      "position": [
+        26.5,
+        0,
+        13.9
+      ],
+      "scale": [
+        0.48,
+        0.56,
+        0.4
+      ],
+      "yaw": -14,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ancient_fragment_0",
+      "model": "qm:Wall_UnevenBrick_Straight",
+      "layer": "NEAR",
+      "role": "aged masonry fragment embedded in wilderness",
+      "position": [
+        -11.2,
+        0,
+        15.4
+      ],
+      "scale": [
+        1.0,
+        0.9,
+        1.0
+      ],
+      "yaw": -12,
+      "castShadows": true,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ancient_fragment_1",
+      "model": "qm:Wall_UnevenBrick_Straight",
+      "layer": "NEAR",
+      "role": "aged masonry fragment embedded in wilderness",
+      "position": [
+        13.1,
+        0,
+        16.6
+      ],
+      "scale": [
+        1.1,
+        1,
+        1
+      ],
+      "yaw": 29,
+      "castShadows": true,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ancient_fragment_2",
+      "model": "qm:Wall_UnevenBrick_Straight",
+      "layer": "NEAR",
+      "role": "aged masonry fragment embedded in wilderness",
+      "position": [
+        15.2,
+        0,
+        -17.0
+      ],
+      "scale": [
+        1.1,
+        0.7,
+        1
+      ],
+      "yaw": 40,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_ancient_fragment_3",
+      "model": "qm:DoorFrame_Round_Brick",
+      "layer": "NEAR",
+      "role": "aged masonry fragment embedded in wilderness",
+      "position": [
+        -26,
+        0,
+        15.9
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "yaw": -18,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_retaining_crest_0",
+      "model": "qn:Rock_Medium_3",
+      "layer": "MID",
+      "role": "textured rock crest absorbing northern engineering boundary",
+      "position": [
+        -28,
+        -0.5,
+        32.7
+      ],
+      "scale": [
+        3.8,
+        1.7,
+        0.75
+      ],
+      "yaw": -3,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_retaining_crest_1",
+      "model": "qn:Rock_Medium_3",
+      "layer": "MID",
+      "role": "textured rock crest absorbing northern engineering boundary",
+      "position": [
+        -13,
+        -0.5,
+        32.8
+      ],
+      "scale": [
+        4,
+        2.1,
+        0.75
+      ],
+      "yaw": 1,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_retaining_crest_2",
+      "model": "qn:Rock_Medium_3",
+      "layer": "MID",
+      "role": "textured rock crest absorbing northern engineering boundary",
+      "position": [
+        1,
+        -0.5,
+        32.6
+      ],
+      "scale": [
+        3.8,
+        2.5,
+        0.75
+      ],
+      "yaw": -2,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_retaining_crest_3",
+      "model": "qn:Rock_Medium_3",
+      "layer": "MID",
+      "role": "textured rock crest absorbing northern engineering boundary",
+      "position": [
+        15,
+        -0.5,
+        32.7
+      ],
+      "scale": [
+        3.6,
+        2,
+        0.75
+      ],
+      "yaw": 4,
+      "castShadows": false,
+      "zone": "pocket"
+    },
+    {
+      "name": "m15_retaining_crest_4",
+      "model": "qn:Rock_Medium_3",
+      "layer": "MID",
+      "role": "textured rock crest absorbing northern engineering boundary",
+      "position": [
+        29,
+        -0.5,
+        32.9
+      ],
+      "scale": [
+        3.9,
+        1.9,
+        0.75
+      ],
+      "yaw": -1,
+      "castShadows": false,
+      "zone": "pocket"
     }
   ],
   "notes": [
-    "No gameplay collision. Pocket geometry lies outside the lane and protected camp/Canal/Surge approaches; island/exterior geometry preserves existing clearance.",
-    "Pocket dressing is traversable presentation. A six-Summoner shader cutaway preserves visibility without changing gameplay or camera behavior.",
-    "Southern crowns capped and island trees do not cast lane-crossing shadows.",
-    "Rich near assets retain LOD0; cheap approved meshes provide distance tiers."
+    "M15 presentation-only stone lane, organic weathering and connected exterior terrain. No authoritative map/collision changes.",
+    "42-degree orthographic framing; accepted 50-degree camera remains available. Authored scenery is tested against gameplay camera states.",
+    "Grounded pocket vegetation; rock shelves and broken retaining fragments close to the lane; exterior tree bases match renderer-only terrain.",
+    "Six-Summoner bounded cutaway protects combat; silhouettes use LOD0 near and approved inexpensive meshes farther out."
   ]
 }

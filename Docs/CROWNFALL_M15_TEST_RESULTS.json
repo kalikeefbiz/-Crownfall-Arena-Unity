@@ -1,0 +1,69 @@
+{
+  "startingHead": "e9b3f4be88bf13acb9c60c935d42ba110121fa40",
+  "status": "PASS_AVAILABLE_CHECKS_NATIVE_PENDING",
+  "gameplay": {
+    "combatAssertions": 75,
+    "economyAssertions": 13,
+    "rosterAssertions": 16,
+    "surgeAssertions": 18,
+    "completeMatchAssertions": 127037,
+    "productionPresentationAssertions": 86645,
+    "m15CameraTerrainAssertions": 2135,
+    "completeMatchRotations": 33,
+    "completeMatchRewards": 2,
+    "completeMatchDeaths": 46,
+    "majorAttemptTicks": 3691,
+    "authorityBaselines": [
+      "c7b681efd36fc0ad4ace7fe6f9d4e0d2a9133498",
+      "e9b3f4be88bf13acb9c60c935d42ba110121fa40"
+    ],
+    "perTickAuthoritySha256": {
+      "Kit": "21d58305a65aeeca2d9f926676953ba0d0450e58f120dcb108663d984da50cc5",
+      "Set": "fbf2a2d5118d91fce125628bfe45c64bd294d78305190c1b1789961a3052394c",
+      "Riven": "1abe9d8e3df5d6ef35b671b54540dbe2a4258ef41fe7add78d7e9ab5dc7bd1a6"
+    }
+  },
+  "static": {
+    "m1": "PASS",
+    "currentBuild": "PASS (included by validate_m1)",
+    "production": "PASS",
+    "externalLibrary": "PASS (included by validate_m1)",
+    "compositionNegativeFixturesRejected": 9,
+    "sourceOriginalsHashVerified": 419,
+    "productionCopiesHashVerified": 58,
+    "protectedFilesByteIdentical": 783,
+    "gitDiffCheck": "PASS"
+  },
+  "runtimeTypeCheck": {
+    "status": "PASS",
+    "files": 51,
+    "referencePackageVersion": "2021.3.33",
+    "warnings": 0,
+    "errors": 0,
+    "nativeUnityExecuted": false
+  },
+  "nativeUnity": {
+    "requiredVersion": "6000.3.10f1",
+    "availability": "NOT FOUND",
+    "importCompilationShaderRenderValidation": "PENDING",
+    "playerBuildExecuted": false
+  },
+  "logSha256": {
+    "completeMatches": "4464ac0a1bce68e2b0608d4ed5ee9b3e2350458c96cc93ed5309c6903066f790",
+    "runtimeReferences": "0e426b85292770b0645dbfcacc686b6501ad1a7c04f9bb34bd04c36e5d87d666",
+    "m1Static": "7aa0423533b70ea27df0d53de6e88eb199702a3261174f64e5c66bc5f308d8fd",
+    "productionStatic": "66737a73cf623a2691f7462b867188d6448c5ecedadbe4270df029aa6cc4893b",
+    "compositionNegativeFixtures": "86484da1e426be61852173212991e39e9b2c25597e6271f3d9ef445d7441adc6",
+    "historicAuthority": "ce436d99c640a22e4a7b73923482964a2a71e31608457582293c266027b38cf6",
+    "startingHeadAuthority": "ce436d99c640a22e4a7b73923482964a2a71e31608457582293c266027b38cf6",
+    "m15PresentationStatic": "f2321e155b235e9d1bd7e80a5942f4e0e9458daacb77367267143ccdeebce7c8",
+    "offlinePreview": "c7b62f22e8d0a2f5f5dd1f602d1465110c42669f4bf68f608e86bbe960f66893"
+  },
+  "offlinePreview": {
+    "status": "PASS_OFFLINE_APPROXIMATION",
+    "views": 4,
+    "projectionAssertions": 16,
+    "compositionSha256": "1f651e3f0b56d5201aed6f271f86478955076c58fe0fe9bfaf98c15111105639",
+    "unityExecuted": false
+  }
+}

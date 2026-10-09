@@ -3,10 +3,12 @@ The baseline is extracted read-only into a temporary directory, never checked ou
 """
 from pathlib import Path
 from xml.sax.saxutils import escape
-import json, os, shutil, subprocess, tempfile
+import argparse, json, os, shutil, subprocess, tempfile
 
 ROOT=Path(__file__).resolve().parents[1]
-BASELINE='c7b681efd36fc0ad4ace7fe6f9d4e0d2a9133498'
+parser=argparse.ArgumentParser()
+parser.add_argument('--baseline',default='c7b681efd36fc0ad4ace7fe6f9d4e0d2a9133498')
+BASELINE=parser.parse_args().baseline
 DOTNET=os.environ.get('CROWNFALL_DOTNET') or shutil.which('dotnet')
 if not DOTNET:raise SystemExit('Requires .NET 8 SDK')
 runner=r'''

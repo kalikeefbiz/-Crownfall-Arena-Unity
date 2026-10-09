@@ -2,21 +2,17 @@
 from pathlib import Path
 import collections,hashlib,json,math,re,subprocess
 ROOT=Path(__file__).resolve().parents[1]
-BASELINE='a2a9165606425e2c52090e2133e1ca55088c76f9'
+BASELINE='e9b3f4be88bf13acb9c60c935d42ba110121fa40'
 LAYOUT='Assets/Crownfall/Environment/WildernessComposition.json'
 ISLANDS=[(-12,-18,4,3),(12,-18,4,3),(-12,18,4,3),(12,18,4,3),(-28,-25,3,6),(28,-25,3,6),(-28,25,3,6),(28,25,3,6),(0,30,8,1),(0,-30,18,1)]
 def require(ok,message):
  if not ok:raise AssertionError(message)
 def bounds(row,models):
  m=models[row['model']];size=[a*m['presentationScale']*b for a,b in zip(m['expectedSize'],row['scale'])];theta=math.radians(row['yaw']);cs=abs(math.cos(theta));sn=abs(math.sin(theta));dx=(size[0]*cs+size[2]*sn)/2;dz=(size[0]*sn+size[2]*cs)/2;x,y,z=row['position'];return [x-dx,y,z-dz,x+dx,y+size[1],z+dz]
-def visible(b,x,z,aspect=16/9):
- s=math.sin(math.radians(50));c=math.cos(math.radians(50));lo=(b[2]-z)*s+b[1]*c;hi=(b[5]-z)*s+b[4]*c
- # Same fixed ortho camera and far clip. Conservative AABB test, without occlusion/HUD masking.
- groundoffset=15/math.tan(math.radians(50));near=(b[2]-z+groundoffset)*c-(b[4]-15)*s;far=(b[5]-z+groundoffset)*c-(b[1]-15)*s
- return b[0]<x+11*aspect and b[3]>x-11*aspect and lo<11 and hi>-11 and near<150 and far>.1
+from m15_presentation import visible,center,HALF_HEIGHT,PITCH
 def main():
  cat=json.loads((ROOT/'Assets/Crownfall/Environment/ExternalEnvironmentCatalog.json').read_text());j=json.loads((ROOT/LAYOUT).read_text());models={m['id']:m for m in cat['models']};p=j['placements'];bm={r['name']:bounds(r,models) for r in p}
- require(j['schemaVersion']==j['compositionVersion']==1 and j['requiredUnityVersion']=='6000.3.10f1','Composition version drift')
+ require(j['schemaVersion']==1 and j['compositionVersion']==2 and j['requiredUnityVersion']=='6000.3.10f1','Composition version drift')
  require(j['textureTier'] in ('Mobile','Full'),'Invalid texture tier')
  require(len({r['name'] for r in p})==len(p),'Duplicate placement identity')
  require(set(r['model'] for r in p)==set(models),'Approved dependency set drift')
@@ -28,7 +24,7 @@ def main():
   pocket=r['zone']=='pocket' and (b[5]<=-12.5 or b[2]>=12.5)
   require((r['zone']=='island' and island) or (r['zone']=='exterior' and outside) or pocket,'Invalid presentation placement clearance: '+r['name']+' '+str(b))
   require(b[5]<=-12 or b[2]>=12 or b[3]<=-34 or b[0]>=34,'Enters lane '+r['name'])
-  require(any(visible(b,x,z) for x in (-14.44,0,14.44) for z in (-17.64,-12,-6,0,6,12,17.64)),'Permanently outside fixed camera bounds '+r['name'])
+  require(any(visible(b,*center(x,z)) for x in (-30,0,30) for z in (-27,-12,-6,0,6,12,26)),'Permanently outside fixed camera bounds '+r['name'])
   for cx,cz,radius in [(-22,-22,2.4),(22,-22,2.4),(-18,24,2.4),(18,24,2.4),(-7,-27,2.4),(7,-27,2.4),(0,26,3.5)]:
    dx=max(b[0]-cx,0,cx-b[3]);dz=max(b[2]-cz,0,cz-b[5]);require(dx*dx+dz*dz>=radius*radius,'Camp/Major clearance '+r['name'])
   for rx,rz,w,d in [(-22,-17,5,10),(22,-17,5,10),(-18,18,5,12),(18,18,5,12),(-7,-19.5,4,15),(7,-19.5,4,15),(0,19,8,14)]:
@@ -40,19 +36,14 @@ def main():
  for side in (-1,1):
   near=[r for r in p if r['layer']=='NEAR' and r['zone'] in ('island','pocket') and r['position'][2]*side>0]
   require(len(near)>=6 and sum(bm[r['name']][4]-bm[r['name']][1]>=3 for r in near)>=2,'Near height/coverage missing')
-  require(sum(visible(bm[r['name']],0,side*6) for r in near)>=2,'Perimeter-only regression on lane side '+str(side))
+  require(sum(visible(bm[r['name']],*center(0,side*6)) for r in near)>=2,'Perimeter-only regression on lane side '+str(side))
  require(len({r['yaw'] for r in p})>=20,'Rotation variation collapsed')
  # No reflected pairs of identical models/transforms are allowed across lane sides.
  signature={(r['model'],tuple(r['position']),tuple(r['scale']),r['yaw']) for r in p}
  mirrored=sum((r['model'],(r['position'][0],r['position'][1],-r['position'][2]),tuple(r['scale']),r['yaw']) in signature for r in p if r['position'][2]!=0)
  require(mirrored==0,'Mirrored scenery rows')
- roots=['Assets/Crownfall/Match','Assets/Crownfall/Combat','Assets/Crownfall/Gameplay','Assets/Crownfall/Presentation','Assets/Scenes','Assets/Art/Production','Assets/Art/Characters','Packages','ProjectSettings','ExternalArtStaging']
- changed=subprocess.check_output(['git','diff','--name-only',BASELINE,'--']+roots,cwd=ROOT,text=True).splitlines()
- require(set(changed)<= {'Assets/Crownfall/Match/Runtime/ArenaPresentation.cs','Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs'},'Protected gameplay/camera/scene/source drift '+str(changed))
- bootstrap_path='Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs'
- previous_bootstrap=subprocess.check_output(['git','show',BASELINE+':'+bootstrap_path],cwd=ROOT,text=True)
- expected_bootstrap=previous_bootstrap.replace('            follow.Bind(actors[0].transform);','            arenaPresentation.BindVisibilitySubjects(actors.GetRange(0,6).ConvertAll(actor=>actor.transform).ToArray());\n            follow.Bind(actors[0].transform);')
- require((ROOT/bootstrap_path).read_text()==expected_bootstrap,'Bootstrap changed beyond presentation-only transform binding')
+ from validate_m15_visual import contracts
+ contracts()
  code=(ROOT/'Assets/Crownfall/Environment/ArenaWildernessPresentation.cs').read_text();arena=(ROOT/'Assets/Crownfall/Match/Runtime/ArenaPresentation.cs').read_text();editor=(ROOT/'Assets/Editor/CrownfallEnvironment/WildernessBuildPreparation.cs').read_text();pipeline=(ROOT/'Assets/Editor/PipelineBuild.cs').read_text()
  require('new Crownfall.EnvironmentPresentation.ArenaWildernessPresentation(root,camera)' in arena and 'wildernessPresentation.Dispose()' in arena,'Missing shipping integration/lifecycle')
  require('Monumental dark stone colonnade' not in arena,'Old board perimeter composition remains')
@@ -74,8 +65,8 @@ def main():
  for z in (-6,0,6):
   for x in (-25,-12,0,12,25):
    # Match camera clamps the ground center to arena dimensions; landscape 16:9 case.
-   cx=max(-34+11*16/9,min(34-11*16/9,x));v=[r for r in p if visible(bm[r['name']],cx,z)]
-   views.append(dict(actor=[x,z],cameraCenter=[cx,z],visibleObjects=len(v),triangles=sum(models[r['model']]['sourceTriangles'] for r in v),layers=dict(collections.Counter(r['layer'] for r in v))))
+   cx,cz=center(x,z);v=[r for r in p if visible(bm[r['name']],cx,cz)]
+   views.append(dict(actor=[x,z],cameraCenter=[cx,cz],visibleObjects=len(v),triangles=sum(models[r['model']]['sourceTriangles'] for r in v),layers=dict(collections.Counter(r['layer'] for r in v))))
  texture_stats=[]
  for t in cat['textures']:
   if t['path'] not in textures:continue
@@ -89,7 +80,7 @@ def main():
  native=ROOT/'Docs/CROWNFALL_WILDERNESS_NATIVE_VALIDATION.json'
  if native.exists():
   n=json.loads(native.read_text());require(n['status']=='PASS_NATIVE_DEPENDENCIES' and n['unityVersion']=='6000.3.10f1' and n['compositionHash']==hashlib.sha256((ROOT/LAYOUT).read_bytes()).hexdigest(),'Native report failed/stale')
- report=dict(status='PASS_STATIC_COMPOSITION',startingHead=BASELINE,compositionVersion=1,compositionSha256=hashlib.sha256((ROOT/LAYOUT).read_bytes()).hexdigest(),nativeUnityValidation='PENDING' if not native.exists() else 'PASS_NATIVE_DEPENDENCIES',objectCount=len(p),additionalDirectionalLights=1,layers=dict(layers),islandNearCount=sum(r['zone']=='island' for r in p),pocketCount=sum(r['zone']=='pocket' for r in p),fixedCameraPotentialVisibility='All shipping AABBs intersect at least one existing clamped camera state; permanently invisible outer layout excluded',uniqueModelCount=len(counts),uniqueMeshesNative='PENDING (25 glTF reference mesh objects; native FBX mesh subdivision unverified)',instantiatedTriangles=triangles,typicalVisibleTriangleRange=[min(v['triangles'] for v in views),max(v['triangles'] for v in views)],visibleEstimates=views,materialCount=len(materials),materialFamilies=len({specs[k]['family'] for k in materials}),uniqueTextures=len(textures),textureTier=j['textureTier'],estimatedASTC6x6MipBytes=sum(t['astc6x6MipBytes'] for t in texture_stats),estimatedRGBA8FallbackMipBytes=sum(t['rgba8MipBytes'] for t in texture_stats),textureEstimates=texture_stats,alphaTestedInstances=sum(any(b['materialKey'] in alpha for b in models[r['model']]['bindings']) for r in p),shadowCastingInstances=sum(r['castShadows'] for r in p),shadowCastingRendererCountNative='PENDING; glTF reference has one mesh object per placement',shadowCastingMaterialSlots=sum(len(models[r['model']]['bindings']) for r in p if r['castShadows']),totalMaterialSlotInstances=sum(len(models[r['model']]['bindings']) for r in p),repeatedModels=dict(counts),heroInstances=sum(r['model'].startswith('qn:') and 'Tree' in r['model'] or r['model'] in ('qn:Pine_1','qn:Pine_5') for r in p),farFillerCount=layers['FAR'],clearance='All conservative XZ bounds outside lane and protected camp/Major approach areas; pockets are traversable presentation with no added collision',gameplayCollisionCameraScenePackages='Byte-identical to starting HEAD; ArenaPresentation plus one verified presentation-only transform binding changed in protected scopes',estimatesNotDeviceMeasurements=True,readyForBuild15NativeAndVisualAcceptance='PENDING')
+ report=dict(status='PASS_STATIC_COMPOSITION',startingHead=BASELINE,compositionVersion=2,compositionSha256=hashlib.sha256((ROOT/LAYOUT).read_bytes()).hexdigest(),nativeUnityValidation='PENDING' if not native.exists() else 'PASS_NATIVE_DEPENDENCIES',objectCount=len(p),additionalDirectionalLights=1,layers=dict(layers),islandNearCount=sum(r['zone']=='island' for r in p),pocketCount=sum(r['zone']=='pocket' for r in p),fixedCameraPotentialVisibility='All shipping AABBs intersect at least one bounded M15 gameplay camera state; unchanged far clip 150',uniqueModelCount=len(counts),uniqueMeshesNative='PENDING (25 glTF reference mesh objects; native FBX mesh subdivision unverified)',instantiatedTriangles=triangles,typicalVisibleTriangleRange=[min(v['triangles'] for v in views),max(v['triangles'] for v in views)],visibleEstimates=views,materialCount=len(materials),materialFamilies=len({specs[k]['family'] for k in materials}),uniqueTextures=len(textures),textureTier=j['textureTier'],estimatedASTC6x6MipBytes=sum(t['astc6x6MipBytes'] for t in texture_stats),estimatedRGBA8FallbackMipBytes=sum(t['rgba8MipBytes'] for t in texture_stats),textureEstimates=texture_stats,alphaTestedInstances=sum(any(b['materialKey'] in alpha for b in models[r['model']]['bindings']) for r in p),shadowCastingInstances=sum(r['castShadows'] for r in p),shadowCastingRendererCountNative='PENDING; glTF reference has one mesh object per placement',shadowCastingMaterialSlots=sum(len(models[r['model']]['bindings']) for r in p if r['castShadows']),totalMaterialSlotInstances=sum(len(models[r['model']]['bindings']) for r in p),repeatedModels=dict(counts),heroInstances=sum(r['model'].startswith('qn:') and 'Tree' in r['model'] or r['model'] in ('qn:Pine_1','qn:Pine_5') for r in p),farFillerCount=layers['FAR'],clearance='All conservative XZ bounds outside lane and protected camp/Major approach areas; pockets are traversable presentation with no added collision',gameplayCollisionCameraScenePackages='Topology, collision, controls, gameplay, scenes, artwork and packages byte-identical; explicitly authorized camera/surface presentation changes checked against e9b3f4b',estimatesNotDeviceMeasurements=True,readyForBuild15NativeAndVisualAcceptance='PENDING')
  (ROOT/'Docs/CROWNFALL_WILDERNESS_COMPOSITION_VALIDATION.json').write_text(json.dumps(report,indent=2)+'\n')
  print(f"PASS: {len(p)} placements, {len(counts)} approved models, {triangles:,} instantiated triangles; {report['typicalVisibleTriangleRange']} camera-frustum estimate; {len(textures)} unique textures; native PENDING" if not native.exists() else 'PASS static + native report')
 if __name__=='__main__':main()

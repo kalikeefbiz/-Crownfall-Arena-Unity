@@ -47,6 +47,7 @@ def main():
             'Docs/EXTERNAL_ENVIRONMENT_ASSET_INVENTORY.md','Docs/EXTERNAL_ENVIRONMENT_ASSET_MANIFEST.json']
  changes=subprocess.check_output(['git','diff','--name-only',BASELINE,'--']+preserved,cwd=ROOT,text=True)
  authorized={'Assets/Crownfall/Match/Runtime/ArenaPresentation.cs','Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs'} if (ROOT/'Assets/Crownfall/Environment/WildernessComposition.json').exists() else set()
+ if (ROOT/'Tools/validate_m15_visual.py').exists():authorized|={'Assets/Crownfall/Presentation/MobaCamera.cs','Assets/Crownfall/Match/Runtime/TerritoryFlow.shader'}
  require(set(changes.splitlines())<=authorized,'Protected baseline changed: '+changes)
  if authorized:
   from validate_wilderness import main as validate_wilderness
@@ -83,7 +84,7 @@ def main():
   'productionCopiesVerified':len(j['productionCopies']),'sourcePayloadBytes':j['sourcePayloadBytes'],
   'totalAddedAssetsBytes':sum(p.stat().st_size for scope in ('Assets/Art/Environment/External','Assets/Crownfall/Environment','Assets/Editor/CrownfallEnvironment') for p in (ROOT/scope).rglob('*') if p.is_file()),
   'cSharpFilesSyntaxParsed':len(sources),'unityEditorCompilation':'Executed native entry point' if native_result else 'PENDING','shaderCompilation':'See native report; WebGL player variants remain PENDING' if native_result else 'PENDING','generatedNativeScenePrefabsMaterials':'See native report' if native_result else 'PENDING',
-  'gameplayShippingScenesCameraTopologyPackagesSettings':'UNCHANGED (dedicated shipping presentation is separately validated)','colliderPolicy':'Importer false + generator strips + native asserts; native execution PENDING',
+  'gameplayShippingScenesCameraTopologyPackagesSettings':'Gameplay/scenes/topology/packages unchanged; authorized camera and surface presentation are checked by the M15 exact-source guard','colliderPolicy':'Importer false + generator strips + native asserts; native execution PENDING',
   'readyForArenaComposition':False}
  (ROOT/'Docs/ENVIRONMENT_ASSET_INTEGRATION_VALIDATION.json').write_text(json.dumps(report,indent=2)+'\n')
  print(json.dumps(report,indent=2))

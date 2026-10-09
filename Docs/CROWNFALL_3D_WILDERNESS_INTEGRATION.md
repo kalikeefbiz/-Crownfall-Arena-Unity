@@ -1,3 +1,5 @@
+> Historical e9b3f4b integration snapshot. The current M15 camera, surface, composition and costs are documented in [CROWNFALL_M15_VISUAL_DIRECTION.md](CROWNFALL_M15_VISUAL_DIRECTION.md).
+
 # Crownfall 3D wilderness integration
 
 Starting HEAD: `a2a9165606425e2c52090e2133e1ca55088c76f9`. Branch: `browser-parity-unity`.

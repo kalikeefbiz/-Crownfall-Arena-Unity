@@ -1,5 +1,5 @@
 {
-  "status": "PASS_STATIC_COMPOSITION",
+  "status": "PASS_STATIC_M15",
   "startingHead": "e9b3f4be88bf13acb9c60c935d42ba110121fa40",
   "compositionVersion": 2,
   "compositionSha256": "1f651e3f0b56d5201aed6f271f86478955076c58fe0fe9bfaf98c15111105639",
@@ -543,5 +543,44 @@
   "clearance": "All conservative XZ bounds outside lane and protected camp/Major approach areas; pockets are traversable presentation with no added collision",
   "gameplayCollisionCameraScenePackages": "Topology, collision, controls, gameplay, scenes, artwork and packages byte-identical; explicitly authorized camera/surface presentation changes checked against e9b3f4b",
   "estimatesNotDeviceMeasurements": true,
-  "readyForBuild15NativeAndVisualAcceptance": "PENDING"
+  "readyForBuild15NativeAndVisualAcceptance": "PENDING",
+  "camera": {
+    "pitch": 42.0,
+    "orthographicSize": 12.25,
+    "height": 20.0,
+    "focusNorth": 3.5,
+    "presentationPadding": [
+      4.0,
+      8.0
+    ],
+    "yaw": 0,
+    "farClip": 150,
+    "acceptedFallback": [
+      50,
+      11,
+      15
+    ]
+  },
+  "protectedFilesByteIdentical": 783,
+  "newTexturePayloads": 0,
+  "additionalCC0Resources": [],
+  "nativeUnityExecuted": false,
+  "nativeImportShaderRenderValidation": "PENDING",
+  "aiming": "Unchanged touch input file; pure profile tests and native ground-ray round-trip gate",
+  "terrain": {
+    "meshCount": 1,
+    "triangles": 4608,
+    "collisionComponents": 0,
+    "region": "Strictly outside original 68x64 floor"
+  },
+  "surface": "World-space shared stone/normal maps integrated into original territory shader; no opaque overlay",
+  "environmentAndApronTriangles": 356922,
+  "environmentAndApronSharedMaterials": 21,
+  "environmentAndApronRendererEstimate": 249,
+  "visibleRangeIncludingWholeApronUpperBound": [
+    104627,
+    225030
+  ],
+  "countsScope": "External placements plus renderer-only apron; original ten Crownfall sprites, inlay, territory surfaces, gameplay primitives, characters, UI/VFX excluded",
+  "sourceModelTriangles": 30327
 }
