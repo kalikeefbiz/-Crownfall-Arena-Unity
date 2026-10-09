@@ -35,7 +35,7 @@ def check(spec,code):
     assert prepare in code['pipeline'] and code['pipeline'].index(prepare)<code['pipeline'].index('Crownfall.Editor.ProductionArtValidation.Validate()')
     assert 'ProductionUiDependencies.Validate();' in code['validator']
     assert 'AssetDatabase.SaveAssets()' not in code['builder'], 'UI must not globally save protected dirty assets'
-    for token in ('EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray())', 'EnvironmentNativeValidation.RunProtected', 'AssetDatabase.CreateAsset(panel,PanelPath)', 'ImportAssetOptions.ForceSynchronousImport',
+    for token in ('EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray(),()=>', 'EnvironmentNativeValidation.RunProtected', 'AssetDatabase.CreateAsset(panel,PanelPath)', 'ImportAssetOptions.ForceSynchronousImport',
                   'AssetDatabase.LoadAssetAtPath<ThemeStyleSheet>(ThemePath)',
                   'panel.themeStyleSheet=theme', 'Property(serializedPanel,binding.field).objectReferenceValue=shader',
                   'Property(graphics,"m_AlwaysIncludedShaders")', 'included.GetArrayElementAtIndex(included.arraySize++).objectReferenceValue=shader',
@@ -61,7 +61,7 @@ def main():
                       ('Property(serializedPanel,binding.field).objectReferenceValue=shader','builder'),
                       ('included.GetArrayElementAtIndex(included.arraySize++).objectReferenceValue=shader','builder'),
                       ('AssetDatabase.SaveAssetIfDirty(panel)','builder'),
-                      ('EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray())','builder'),
+                      ('EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray(),()=>','builder'),
                       ('EnvironmentNativeValidation.RunProtected','builder'),
                       ('shader.name==binding.name&&Contains(included,shader)','builder')]:
         broken=code.copy();broken[key]=broken[key].replace(token,'')

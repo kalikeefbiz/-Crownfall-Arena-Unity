@@ -19,6 +19,8 @@ internal static class AuditCallerContracts
         Require(!Calls(ui,"AssetDatabase.SaveAssets"),"Global UI saving reintroduced");
         Require(native.IndexOf("baseline = ProtectedHashes()",StringComparison.Ordinal)>=0 && native.IndexOf("baseline = ProtectedHashes()",StringComparison.Ordinal)<native.IndexOf("operation(guard)",StringComparison.Ordinal),"Caller recaptures baseline after operation");
         Require(Calls(native,"guard.Run")&&Calls(native,"snapshot.AdmitUiShaderRetention")&&Calls(native,"AssetDatabase.SaveAssetIfDirty"),"Tested lifecycle/owned-settings policy not bound to native caller");
+        Require(Calls(native,"applyChanges") && native.IndexOf("var before = File.ReadAllBytes(path)",StringComparison.Ordinal)<native.IndexOf("applyChanges();",StringComparison.Ordinal) &&
+            native.IndexOf("applyChanges();",StringComparison.Ordinal)<native.IndexOf("var after = File.ReadAllBytes(path)",StringComparison.Ordinal),"Graphics apply occurs outside captured ownership evidence");
         Require(native.Contains("foreach (var snapshot in activeSnapshots) AssertProtected(snapshot, \"before UI graphics targeted save\")",StringComparison.Ordinal),"UI ignores early outer snapshot");
         foreach(var name in new[]{"EnvironmentAssetLab.cs","WildernessBuildPreparation.cs"})
             Require(Calls(code[name],"EnvironmentNativeValidation.RunProtected")&&Calls(code[name],"guard.Step"),"Exceptional-exit lifecycle missing: "+name);
@@ -39,6 +41,7 @@ internal static class AuditCallerContracts
             ("PipelineBuild.cs","WildernessBuildPreparation.PrepareAndValidate"),
             ("ProductionUiDependencies.cs","EnvironmentNativeValidation.SaveUiGraphicsSettings"),
             ("EnvironmentNativeValidation.cs","baseline = ProtectedHashes()"),
+            ("EnvironmentNativeValidation.cs","applyChanges();"),
             ("EnvironmentAssetLab.cs","EnvironmentNativeValidation.RunProtected"),
             ("WildernessBuildPreparation.cs","EnvironmentNativeValidation.RunProtected")})
         {

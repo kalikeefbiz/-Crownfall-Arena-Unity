@@ -74,13 +74,15 @@ namespace Crownfall.EnvironmentLab.Editor
         }
         internal static void CompareActiveProtection(string phase)
         { foreach (var snapshot in activeSnapshots) AssertProtected(snapshot, phase); }
-        internal static void SaveUiGraphicsSettings(UnityEngine.Object settings, RetainedShaderReference[] expectedShaders)
+        internal static void SaveUiGraphicsSettings(UnityEngine.Object settings, RetainedShaderReference[] expectedShaders, Action applyChanges)
         {
             EnvironmentPaths.Require(activeSnapshots.Count != 0, "UI graphics saving requires an early protection scope");
             foreach (var snapshot in activeSnapshots) AssertProtected(snapshot, "before UI graphics targeted save");
             string path = EnvironmentPaths.Absolute(GraphicsShaderRetentionPolicy.Path);
             EnvironmentPaths.Require(File.Exists(path), "GraphicsSettings must exist before UI preparation; native initialization required");
             var before = File.ReadAllBytes(path);
+            // Some settings objects persist during ApplyModifiedProperties; capture before that operation too.
+            applyChanges();
             AssetDatabase.SaveAssetIfDirty(settings);
             var after = File.ReadAllBytes(path);
             foreach (var snapshot in activeSnapshots)

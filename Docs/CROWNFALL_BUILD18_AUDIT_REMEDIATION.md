@@ -37,7 +37,7 @@ Production UI still imports the default theme, creates/binds the same Resources 
 The only settings exception is **existing `ProjectSettings/GraphicsSettings.asset`**, during the UI-owned targeted save:
 
 1. Every active protection baseline is checked before saving.
-2. Exact before/after file bytes are retained. The previous SHA must match each original snapshot; late recapture cannot conceal an earlier mutation.
+2. Exact before/after file bytes are retained. Capture precedes both ApplyModifiedProperties and SaveAssetIfDirty, so settings that serialize immediately on Apply are covered by the same validated operation. The previous SHA must match each original snapshot; late recapture cannot conceal an earlier mutation.
 3. The seven shader identities come from the native `Shader.Find` bindings and `TryGetGUIDAndLocalFileIdentifier`; they must be distinct nonzero references. GUID/file ID are checked against each saved native PanelSettings shader field; the reference type comes from that native serialization, with no guessed built-in GUID/type literal.
 4. The existing Always Included sequence is preserved in order. Only missing required shader references may be appended, in specification order.
 5. All bytes outside that single shader-list section must remain identical. Other fields, arbitrary shader additions, removals, reorderings, duplicate sections and unsupported serialization fail.
@@ -68,11 +68,11 @@ The existing `.github/workflows/validate-crownfall-current.yml` remains the only
 - Eight lifecycle fixtures cover successful preparation, early mutation before UI, mutation followed by an import exception, restoration mutation, cleanup failure, report-write failure, broken primary recording and cleanup mutation plus failure.
 - Thirteen settings fixtures cover exact/idempotent shader retention, unrelated fields, unauthorized/reordered shaders, unsupported identities, duplicate sections, actual snapshot adoption, unrelated dirty source rejection, late-baseline rejection, native panel-derived reference types, mismatched identities and duplicate panel shader fields.
 - Four compiled audit mutants remove final comparison, replace the primary exception, remove exceptional comparison and ignore unrelated graphics fields.
-- Native caller contracts have six negative source mutations proving the actual Editor callers bind the tested helpers. The existing UI source gate replaces the obsolete global-save requirement with stronger targeted-save/protection requirements and retains shader/theme behavior checks.
+- Native caller contracts have seven negative source mutations proving the actual Editor callers bind the tested helpers. The existing UI source gate replaces the obsolete global-save requirement with stronger targeted-save/protection requirements and retains shader/theme behavior checks.
 
 The existing manifest validation, M1/current-build/production checks, environment source integrity, composition and nine negative fixtures, complete 3v3 matches, runtime UnityEngine reference compilation and diff checks remain required. The final delivery reports the actual GitHub run URL/result after execution; counts here describe the implemented suite, not a fabricated local PASS.
 
-The first GitHub execution exposed an obsolete wilderness source contract requiring a direct statement and generic BuildFailedException wrapper. That gate now requires the protected shipping call, wilderness lifecycle, failure report and original-exception rethrow; a sixth negative caller fixture removes the shipping preparation call. Composition/clearance assertions remain unchanged.
+The first GitHub execution exposed an obsolete wilderness source contract requiring a direct statement and generic BuildFailedException wrapper. That gate now requires the protected shipping call, wilderness lifecycle, failure report and original-exception rethrow; a shipping-call negative caller fixture removes the shipping preparation call. Composition/clearance assertions remain unchanged.
 
 ## Verified execution results
 
@@ -85,7 +85,7 @@ The implementation commit `cc4cb4c00d137909006f44c0b90a5c9e43130b1a` passed the 
 | Exceptional lifecycle fixtures | 8 PASS |
 | Native shader-reference / owned-settings fixtures | 13 PASS |
 | Lifecycle/settings compiled mutants | 4 detected |
-| Editor caller source contracts | 6 negative mutations detected |
+| Editor caller source contracts | 7 negative mutations detected |
 | Build #16 saved-scene contract | PASS, both negative fixtures retained |
 | Protected-source manifest | 311 paths, including 172 metadata files, PASS |
 | M1/current-build/production + environment integrity | PASS |
@@ -94,7 +94,7 @@ The implementation commit `cc4cb4c00d137909006f44c0b90a5c9e43130b1a` passed the 
 | Runtime API type-check | 51 files, 0 warnings / 0 errors; verified UnityEngine 2021.3.33 references |
 | Source integrity / diff | Protected/art/staging Git blobs unchanged; original Build #15 repair unchanged; diff checks PASS |
 
-The sparse working tree and remote branch were verified at the implementation commit with no outstanding changes. A following documentation/workflow-filter commit records these results and includes this exact audit report in the same preflight trigger; its final run is verified separately in the delivery. Native Unity execution remains PENDING.
+The sparse working tree and remote branch were verified at the implementation commit with no outstanding changes. A final caller-boundary check also wraps graphics ApplyModifiedProperties inside the captured owned-save operation; its seventh negative contract removes that callback. A following documentation/workflow-filter commit records these results and includes this exact audit report in the same preflight trigger; its final run is verified separately in the delivery. Native Unity execution remains PENDING.
 
 ## Native-only uncertainties and Build #18 risks
 

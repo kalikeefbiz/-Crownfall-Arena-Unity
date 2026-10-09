@@ -68,13 +68,14 @@ namespace Crownfall.Editor
                 Property(serializedPanel,binding.field).objectReferenceValue=shader;
                 if(!Contains(included,shader))included.GetArrayElementAtIndex(included.arraySize++).objectReferenceValue=shader;
             }
-            serializedPanel.ApplyModifiedPropertiesWithoutUndo();graphics.ApplyModifiedPropertiesWithoutUndo();
+            serializedPanel.ApplyModifiedPropertiesWithoutUndo();
             EditorUtility.SetDirty(panel);AssetDatabase.SaveAssetIfDirty(panel);
             var panelBytes=File.ReadAllBytes(PanelPath);
             for(int i=0;i<spec.shaders.Length;i++)
                 retained[i]=GraphicsShaderRetentionPolicy.ReadPanelReference(panelBytes,spec.shaders[i].field,retained[i]);
-            EditorUtility.SetDirty(graphics.targetObject);
-            EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray());
+            EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray(),()=>{
+                graphics.ApplyModifiedPropertiesWithoutUndo();EditorUtility.SetDirty(graphics.targetObject);
+            });
             Validate();
         }
         public static void Validate()
