@@ -35,22 +35,23 @@ namespace Crownfall.EnvironmentLab.Editor
                 if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert) hasErrors = true;
             };
             Application.logMessageReceived += logger;
-            // Cloud Build starts in an untitled scene. Unity 6 rejects additive scenes until
-            // that scene is replaced with a saved scene; never discard a user's Editor scene.
-            if (Application.isBatchMode && string.IsNullOrEmpty(SceneManager.GetActiveScene().path))
-            {
-                const string shippingScene = "Assets/Scenes/CrownfallMatch.unity";
-                EnvironmentPaths.Require(SceneManager.sceneCount == 1 &&
-                    AssetDatabase.LoadAssetAtPath<SceneAsset>(shippingScene) != null,
-                    "Batch environment preparation requires a single untitled scene and the saved Crownfall match scene");
-                var opened = EditorSceneManager.OpenScene(shippingScene, OpenSceneMode.Single);
-                EnvironmentPaths.Require(opened.IsValid() && opened.isLoaded && opened.path == shippingScene,
-                    "Could not establish saved shipping scene before additive environment generation");
-            }
             var previous = SceneManager.GetActiveScene();
             Scene lab = default(Scene);
             try
             {
+                // Cloud Build starts in an untitled scene. Unity 6 rejects additive scenes until
+                // that scene is replaced with a saved scene; never discard a user's Editor scene.
+                if (Application.isBatchMode && string.IsNullOrEmpty(previous.path))
+                {
+                    const string shippingScene = "Assets/Scenes/CrownfallMatch.unity";
+                    EnvironmentPaths.Require(SceneManager.sceneCount == 1 &&
+                        AssetDatabase.LoadAssetAtPath<SceneAsset>(shippingScene) != null,
+                        "Batch environment preparation requires a single untitled scene and the saved Crownfall match scene");
+                    var opened = EditorSceneManager.OpenScene(shippingScene, OpenSceneMode.Single);
+                    EnvironmentPaths.Require(opened.IsValid() && opened.isLoaded && opened.path == shippingScene,
+                        "Could not establish saved shipping scene before additive environment generation");
+                    previous = opened;
+                }
                 EditorPrefs.SetString(EnvironmentPaths.TierKey, tier);
                 Directory.CreateDirectory(EnvironmentPaths.Absolute(EnvironmentPaths.Generated + "Materials"));
                 Directory.CreateDirectory(EnvironmentPaths.Absolute(EnvironmentPaths.Generated + "Prefabs"));
