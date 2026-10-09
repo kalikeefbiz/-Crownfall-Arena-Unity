@@ -10,6 +10,8 @@
   <!-- Use the SDK's bundled Roslyn; no NuGet restore/download or Unity license required. -->
   <ItemGroup>
     <Compile Include="../../Assets/Editor/CrownfallEnvironment/ProtectedFileSnapshot.cs" Link="Protection/ProtectedFileSnapshot.cs" />
+    <Compile Include="../../Assets/Editor/CrownfallEnvironment/PreparationSafety.cs" Link="Protection/PreparationSafety.cs" />
+    <Compile Include="../../Assets/Editor/CrownfallEnvironment/GraphicsShaderRetentionPolicy.cs" Link="Protection/GraphicsShaderRetentionPolicy.cs" />
     <Reference Include="Microsoft.CodeAnalysis">
       <HintPath>$(MSBuildSDKsPath)/../Roslyn/bincore/Microsoft.CodeAnalysis.dll</HintPath>
     </Reference>

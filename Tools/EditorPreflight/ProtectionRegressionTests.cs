@@ -9,7 +9,7 @@ internal static class ProtectionRegressionTests
 {
     const string Game = "Assets/Crownfall/Match/Game.cs";
     const string Scene = "Assets/Scenes/CrownfallMatch.unity";
-    const string Orphan = "Assets/Crownfall/Match/Orphan.asset";
+    const string Orphan = "Assets/Crownfall/Match/Orphan.unity";
     const string Identity = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
     static void Require(bool value, string message)
     { if (!value) throw new InvalidOperationException(message); }
@@ -21,7 +21,7 @@ internal static class ProtectionRegressionTests
         { ExceptionDispatchInfo.Capture(error.InnerException).Throw(); throw; }
     }
     static string Metadata(string guid = Identity, bool folder = false) =>
-        "fileFormatVersion: 2\nguid: " + guid + "\n" + (folder ? "folderAsset: yes\n" : "") + "DefaultImporter:\n  userData: \n";
+        "fileFormatVersion: 2\nguid: " + guid + "\n" + (folder ? "folderAsset: yes\n" : "") + "DefaultImporter:\n  externalObjects: {}\n  userData: \n";
     sealed class Fixture : IDisposable
     {
         public readonly string directory = Path.Combine(Path.GetTempPath(), "crownfall-protection-" + Guid.NewGuid().ToString("N"));
@@ -155,6 +155,23 @@ internal static class ProtectionRegressionTests
             f.Set(Orphan + ".meta", Metadata() + "guid: " + Identity + "\n");
             ExpectedFailure(() => f.Assert(snapshot), "Duplicate GUID");
         });
+        foreach (var probe in new[] {
+            ("Astra malformed YAML", Metadata() + "  invalid: [unterminated\n"),
+            ("Astra whitespace duplicate GUID", "fileFormatVersion: 2\nguid: " + Identity + "\nguid :    " + Identity + "\nDefaultImporter:\n  externalObjects: {}\n"),
+            ("Astra unapproved TextureImporter", "fileFormatVersion: 2\nguid: " + Identity + "\nTextureImporter:\n  isReadable: 1\n"),
+            ("unapproved DefaultImporter setting", Metadata() + "  executionOrder: 99\n"),
+            ("duplicate importer key", Metadata() + "  externalObjects : {}\n"),
+            ("metadata alias", Metadata() + "  userData: *alias\n"),
+        }) Run(probe.Item1, f => {
+            f.Set(Orphan, "unchanged source"); f.registry[Orphan] = Identity; var snapshot = f.Capture();
+            f.Set(Orphan + ".meta", probe.Item2);
+            CheckFailure(ExpectedFailure(() => f.Assert(snapshot), probe.Item1), Orphan + ".meta", "Added", "Assets/Crownfall/Match", false, true);
+        });
+        Run("unsupported native asset metadata", f => {
+            const string path = "Assets/Crownfall/Match/Unsupported.asset";
+            f.Set(path, "unchanged source"); f.registry[path] = Identity; var snapshot = f.Capture();
+            f.Set(path + ".meta", Metadata()); ExpectedFailure(() => f.Assert(snapshot), "Unsupported importer");
+        });
         Run("new source plus its metadata", f => {
             var snapshot = f.Capture(); f.Set(Orphan, "unexpected new source"); f.Set(Orphan + ".meta", Metadata());
             var report = ExpectedFailure(() => f.Assert(snapshot), "New source plus metadata");
@@ -211,15 +228,17 @@ internal static class ProtectionRegressionTests
         Require(Field<bool>(entry, "allowedGeneratedMetadata") && Field<string>(entry, "classification") == "Added", "Metadata exception not explicitly recorded");
         Require(Field<string?>(entry, "previousSha256") == null && Field<string>(entry, "currentSha256").Length == 64, "Metadata hash evidence missing");
     }
-    static void RejectMutant(string source, string expression, string name)
+    static string policySourcePath = "";
+    static void RejectMutant(string source, string expression, string name, string? selectedGuard = null)
     {
         const string guard = "if (report.rejectedCount != 0) throw new ProtectedFilesChangedException(report);";
-        string mutant = source.Replace(guard, expression, StringComparison.Ordinal);
+        string mutant = source.Replace(selectedGuard ?? guard, expression, StringComparison.Ordinal);
         Require(mutant != source, "Protection mutation did not change native implementation");
         var references = ((string)AppContext.GetData("TRUSTED_PLATFORM_ASSEMBLIES")!).Split(Path.PathSeparator)
             .Select(p => MetadataReference.CreateFromFile(p)).ToArray();
         var compilation = CSharpCompilation.Create("BrokenProtection" + Guid.NewGuid().ToString("N"),
-            new[] { CSharpSyntaxTree.ParseText(mutant, new CSharpParseOptions(LanguageVersion.CSharp9)) },
+            new[] { CSharpSyntaxTree.ParseText(mutant, new CSharpParseOptions(LanguageVersion.CSharp9)),
+                CSharpSyntaxTree.ParseText(File.ReadAllText(policySourcePath), new CSharpParseOptions(LanguageVersion.CSharp9)) },
             references, new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary));
         using var image = new MemoryStream(); var emitted = compilation.Emit(image);
         Require(emitted.Success, "Mutation compile failed: " + string.Join("; ", emitted.Diagnostics));
@@ -237,10 +256,14 @@ internal static class ProtectionRegressionTests
     }
     public static void Run(string root)
     {
+        policySourcePath = Path.Combine(root, "Assets/Editor/CrownfallEnvironment/GraphicsShaderRetentionPolicy.cs");
         int passed = Cases(typeof(ProtectedFileSnapshot));
         var source = File.ReadAllText(Path.Combine(root, "Assets/Editor/CrownfallEnvironment/ProtectedFileSnapshot.cs"));
         RejectMutant(source, "if (false) throw new ProtectedFilesChangedException(report);", "all enforcement disabled");
         RejectMutant(source, "if (report.rejectedCount != 0 && report.changes.Any(c => !c.relativePath.EndsWith(\".meta\", StringComparison.Ordinal))) throw new ProtectedFilesChangedException(report);", "all metadata changes ignored");
-        Console.WriteLine($"PASS: {passed} protected-file fixtures and two compiled enforcement mutation tests; real project assets never modified.");
+        RejectMutant(source, "if (result.ContainsKey(path)) continue;", "whitespace duplicate metadata keys ignored", "if (result.ContainsKey(path)) return null;");
+        RejectMutant(source, "if (mapping == null) return true;", "malformed metadata admitted", "if (mapping == null) return false;");
+        RejectMutant(source, "if (true) return true;", "unsupported importer section admitted", "if (mapping == null) return false;");
+        Console.WriteLine($"PASS: {passed} protected-file fixtures and five compiled enforcement/admission mutation tests; real project assets never modified.");
     }
 }

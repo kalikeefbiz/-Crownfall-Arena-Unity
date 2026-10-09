@@ -31,15 +31,16 @@ def check(spec,code):
                   'panel=UnityEngine.Object.Instantiate(shippingPanel)','document.panelSettings=panel'):
         assert token in code['hud'], 'Missing shipping UI binding: '+token
     assert 'CreateInstance<PanelSettings>' not in code['hud'] and 'CreateInstance<ThemeStyleSheet>' not in code['hud']
-    prepare='Crownfall.Editor.ProductionUiDependencies.Prepare();'
-    assert prepare in code['pipeline'] and code['pipeline'].index(prepare)<code['pipeline'].index('Crownfall.Editor.ProductionArtValidation.Validate();')
+    prepare='Crownfall.Editor.ProductionUiDependencies.Prepare()'
+    assert prepare in code['pipeline'] and code['pipeline'].index(prepare)<code['pipeline'].index('Crownfall.Editor.ProductionArtValidation.Validate()')
     assert 'ProductionUiDependencies.Validate();' in code['validator']
-    for token in ('AssetDatabase.CreateAsset(panel,PanelPath)', 'ImportAssetOptions.ForceSynchronousImport',
+    assert 'AssetDatabase.SaveAssets()' not in code['builder'], 'UI must not globally save protected dirty assets'
+    for token in ('EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray())', 'EnvironmentNativeValidation.RunProtected', 'AssetDatabase.CreateAsset(panel,PanelPath)', 'ImportAssetOptions.ForceSynchronousImport',
                   'AssetDatabase.LoadAssetAtPath<ThemeStyleSheet>(ThemePath)',
                   'panel.themeStyleSheet=theme', 'Property(serializedPanel,binding.field).objectReferenceValue=shader',
                   'Property(graphics,"m_AlwaysIncludedShaders")', 'included.GetArrayElementAtIndex(included.arraySize++).objectReferenceValue=shader',
                   'serializedPanel.ApplyModifiedPropertiesWithoutUndo()', 'graphics.ApplyModifiedPropertiesWithoutUndo()',
-                  'AssetDatabase.SaveAssets()', 'Validate();', 'Resources.Load<PanelSettings>(ProductionHud.PanelResource)==panel',
+                  'AssetDatabase.SaveAssetIfDirty(panel)', 'Validate();', 'Resources.Load<PanelSettings>(ProductionHud.PanelResource)==panel',
                   'panel.themeStyleSheet==theme', 'imports.arraySize==1', 'FindPropertyRelative("styleSheet").objectReferenceValue!=null',
                   'shader.name==binding.name&&Contains(included,shader)', 'throw new BuildFailedException',
                   'spec.unityVersion==Application.unityVersion'):
@@ -53,13 +54,15 @@ def main():
     # Negative checks exercise the same gate CI/current-build validation invokes.
     failures=0
     for token,key in [('document.panelSettings=panel','hud'),
-                      ('Crownfall.Editor.ProductionUiDependencies.Prepare();','pipeline'),
+                      ('Crownfall.Editor.ProductionUiDependencies.Prepare()','pipeline'),
                       ('ProductionUiDependencies.Validate();','validator'),
                       ('AssetDatabase.CreateAsset(panel,PanelPath)','builder'),
                       ('panel.themeStyleSheet=theme','builder'),
                       ('Property(serializedPanel,binding.field).objectReferenceValue=shader','builder'),
                       ('included.GetArrayElementAtIndex(included.arraySize++).objectReferenceValue=shader','builder'),
-                      ('AssetDatabase.SaveAssets()','builder'),
+                      ('AssetDatabase.SaveAssetIfDirty(panel)','builder'),
+                      ('EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray())','builder'),
+                      ('EnvironmentNativeValidation.RunProtected','builder'),
                       ('shader.name==binding.name&&Contains(included,shader)','builder')]:
         broken=code.copy();broken[key]=broken[key].replace(token,'')
         try:check(spec,broken)

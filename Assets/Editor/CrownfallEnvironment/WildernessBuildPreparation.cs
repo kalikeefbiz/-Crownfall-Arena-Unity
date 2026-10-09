@@ -42,49 +42,56 @@ namespace Crownfall.EnvironmentLab.Editor
         [MenuItem("Crownfall/Wilderness/Prepare and validate")]
         public static void PrepareAndValidate()
         {
-            EnvironmentNativeValidation.BeginProtectionReporting();
             var messages = new List<string>(); bool errors = false;
             Application.LogCallback logger = (message,stack,type) => {
                 if (type == LogType.Warning || type == LogType.Error || type == LogType.Exception || type == LogType.Assert) messages.Add(type + ": " + message);
                 if (type == LogType.Error || type == LogType.Exception || type == LogType.Assert) errors = true;
             };
             Application.logMessageReceived += logger;
-            try
+            EnvironmentNativeValidation.RunProtected("wilderness", guard =>
             {
-                var preserved = EnvironmentNativeValidation.ProtectedHashes();
-                var layout = ReadLayout();
+                WildernessLayout layout = null;
+                guard.Step("wilderness lab completed", () => {
+                layout = ReadLayout();
                 EnvironmentPaths.Require(Application.unityVersion == layout.requiredUnityVersion, "Wilderness requires Unity " + layout.requiredUnityVersion);
                 EnvironmentPaths.Require(GraphicsSettings.currentRenderPipeline == null, "Wilderness requires Built-in Render Pipeline");
                 // Reuse the native import/remap/sanitization pipeline. The additive lab never enters player scene settings.
                 if (layout.textureTier == "Mobile") EnvironmentAssetLab.GenerateAndValidateMobile();
                 else if (layout.textureTier == "Full") EnvironmentAssetLab.GenerateAndValidate();
                 else throw new InvalidOperationException("Unknown wilderness texture tier " + layout.textureTier);
-                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness lab completed");
-                ApplyPalette(EnvironmentPaths.Read());
-                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness palette save");
-                GenerateComposition(layout);
-                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness composition save");
-                Validate();
-                EnvironmentNativeValidation.AssertProtected(preserved, "wilderness native validation");
+                });
+                guard.Step("wilderness palette save", () => ApplyPalette(EnvironmentPaths.Read()));
+                guard.Step("wilderness composition save", () => GenerateComposition(layout));
+                guard.Step("wilderness native validation", () => Validate());
                 EnvironmentPaths.Require(!errors, "Unity logged errors during wilderness generation; inspect " + ReportPath);
-                WriteReport("PASS_NATIVE_DEPENDENCIES", null, messages.ToArray());
-                Debug.Log("Crownfall wilderness prepared and validated. No player build performed. Visual/device acceptance remains pending.");
-            }
-            catch (Exception error)
-            {
+            }, () => { Application.logMessageReceived -= logger; }, error => {
                 WriteReport("FAIL_NATIVE_DEPENDENCIES", error.ToString(), messages.ToArray());
-                throw new BuildFailedException("Crownfall wilderness pre-export validation failed: " + error.Message);
-            }
-            finally { Application.logMessageReceived -= logger; }
+            });
+            WriteReport("PASS_NATIVE_DEPENDENCIES", null, messages.ToArray());
+            Debug.Log("Crownfall wilderness prepared and validated. No player build performed. Visual/device acceptance remains pending.");
         }
         static void WriteReport(string status, string error, string[] messages)
         {
-            var result = new NativeReport { status=status,error=error,unityVersion=Application.unityVersion,
-                compositionHash=File.Exists(EnvironmentPaths.Absolute(CompositionPath))?CompositionHash():"MISSING",utc=DateTime.UtcNow.ToString("o"),unityExecuted=true,playerBuildExecuted=false,
-                compositionVersion=WildernessLibrary.Version,gpuShaderSupportChecked=SystemInfo.graphicsDeviceType!=GraphicsDeviceType.Null,graphicsDevice=SystemInfo.graphicsDeviceType.ToString(),warningsAndErrors=messages,protectedFileChecks=EnvironmentNativeValidation.ProtectionChecks };
-            var generated=AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
-            if(generated!=null)
-            {
+            if (error != null) DiagnosticSafety.Attempt("primary failure log", () =>
+                Debug.LogError("Crownfall wilderness primary failure: " + error), ignored => { });
+            var result = new NativeReport { status=status,error=error,unityExecuted=true,playerBuildExecuted=false,warningsAndErrors=messages };
+            var secondary = new List<string>();
+            Action<string> record = message => {
+                secondary.Add(message);
+                EnvironmentNativeValidation.RecordSecondary(message);
+            };
+            DiagnosticSafety.Attempt("wilderness report header", () => {
+                result.unityVersion=Application.unityVersion; result.utc=DateTime.UtcNow.ToString("o");
+                result.compositionVersion=WildernessLibrary.Version;
+                result.gpuShaderSupportChecked=SystemInfo.graphicsDeviceType!=GraphicsDeviceType.Null;
+                result.graphicsDevice=SystemInfo.graphicsDeviceType.ToString();
+                result.protectedFileChecks=EnvironmentNativeValidation.ProtectionChecks;
+            }, record);
+            DiagnosticSafety.Attempt("composition hash enrichment", () =>
+                result.compositionHash=File.Exists(EnvironmentPaths.Absolute(CompositionPath))?CompositionHash():"MISSING", record);
+            DiagnosticSafety.Attempt("generated prefab inspection", () => {
+                var generated=AssetDatabase.LoadAssetAtPath<GameObject>(PrefabPath);
+                if(generated==null)return;
                 var renderers=generated.GetComponentsInChildren<MeshRenderer>(true);
                 var meshes=generated.GetComponentsInChildren<MeshFilter>(true).Select(f=>f.sharedMesh).Where(m=>m!=null).ToArray();
                 result.uniqueMeshes=meshes.Distinct().Count();result.meshRendererCount=renderers.Length;
@@ -93,8 +100,10 @@ namespace Crownfall.EnvironmentLab.Editor
                 result.materialCount=materials.Length;
                 result.textureCount=materials.SelectMany(m=>m.GetTexturePropertyNames().Select(n=>m.GetTexture(n))).Where(t=>t!=null).Distinct().Count();
                 result.instantiatedTriangles=meshes.Sum(m=>Enumerable.Range(0,m.subMeshCount).Sum(i=>(long)m.GetIndexCount(i)/3));
-            }
-            File.WriteAllText(EnvironmentPaths.Absolute(ReportPath),JsonUtility.ToJson(result,true)+"\n");
+            }, record);
+            result.secondaryReportingFailures=secondary.Concat(EnvironmentNativeValidation.SecondaryDiagnostics).Distinct().Take(64).ToArray();
+            DiagnosticSafety.Attempt("wilderness report serialization/output", () =>
+                File.WriteAllText(EnvironmentPaths.Absolute(ReportPath),JsonUtility.ToJson(result,true)+"\n"), record);
         }
         [Serializable] sealed class NativeReport
         {
@@ -102,7 +111,7 @@ namespace Crownfall.EnvironmentLab.Editor
             public int compositionVersion,uniqueMeshes,meshRendererCount,shadowCastingRenderers,materialCount,textureCount;
             public long instantiatedTriangles;
             public bool unityExecuted,playerBuildExecuted,gpuShaderSupportChecked,visualRenderApproved;
-            public string[] warningsAndErrors;
+            public string[] warningsAndErrors, secondaryReportingFailures;
             public ProtectionDiffReport[] protectedFileChecks;
         }
         static void ApplyPalette(EnvironmentCatalog catalog)
@@ -140,7 +149,9 @@ namespace Crownfall.EnvironmentLab.Editor
             var scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene,NewSceneMode.Additive);
             SceneManager.SetActiveScene(scene);
             var root = new GameObject("ArenaWilderness");
-            try
+            var cleanupGuard = new PreparationSafety(phase => EnvironmentNativeValidation.CompareActiveProtection("composition scene: " + phase), message =>
+                DiagnosticSafety.Attempt("composition cleanup log", () => Debug.LogWarning(message), ignored => { }));
+            cleanupGuard.Run(() =>
             {
                 foreach (var row in layout.placements)
                 {
@@ -173,13 +184,11 @@ namespace Crownfall.EnvironmentLab.Editor
                 M15SurfacePreparation.Bind(library,surface);
                 EditorUtility.SetDirty(library);AssetDatabase.SaveAssetIfDirty(library);
                 EnvironmentAssetLab.SaveGeneratedAssets();
-            }
-            finally
-            {
+            }, () => {
                 UnityEngine.Object.DestroyImmediate(root);
                 if(previous.IsValid()&&previous.isLoaded)SceneManager.SetActiveScene(previous);
                 EditorSceneManager.CloseScene(scene,true);
-            }
+            }, error => { });
         }
         [MenuItem("Crownfall/Wilderness/Validate generated shipping composition")]
         public static void Validate()

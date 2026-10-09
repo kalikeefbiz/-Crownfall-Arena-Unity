@@ -5,18 +5,20 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace Crownfall.EnvironmentLab.Editor
 {
     [Serializable] public sealed class ProtectedFileChange
     {
         public string relativePath, classification, previousSha256, currentSha256, protectedRoot, phase, reason;
-        public bool allowedGeneratedMetadata;
+        public bool allowedGeneratedMetadata, allowedOwnedSettings;
+        public bool Allowed { get { return allowedGeneratedMetadata || allowedOwnedSettings; } }
     }
     [Serializable] public sealed class ProtectionDiffReport
     {
         public string phase;
-        public int previousFileCount, currentFileCount, totalChanges, rejectedCount, allowedMetadataCount, omittedChanges;
+        public int previousFileCount, currentFileCount, totalChanges, rejectedCount, allowedMetadataCount, allowedOwnedSettingsCount, omittedChanges;
         public ProtectedFileChange[] changes;
     }
     public sealed class ProtectedFilesChangedException : InvalidOperationException
@@ -25,7 +27,7 @@ namespace Crownfall.EnvironmentLab.Editor
         public ProtectedFilesChangedException(ProtectionDiffReport value) : base(Summary(value)) { report = value; }
         static string Summary(ProtectionDiffReport value)
         {
-            var first = value.changes.FirstOrDefault(c => !c.allowedGeneratedMetadata);
+            var first = value.changes.FirstOrDefault(c => !c.Allowed);
             return "Protected files changed in phase '" + value.phase + "': " + value.rejectedCount +
                 " rejected, " + value.allowedMetadataCount + " permitted new metadata. " +
                 (first == null ? "" : first.classification + " " + first.relativePath + " [root=" + first.protectedRoot +
@@ -120,16 +122,65 @@ namespace Crownfall.EnvironmentLab.Editor
                 }
             }
         }
+        // Restricted YAML block mappings only. No anchors, tags, flow data, aliases, multiline scalars,
+        // sequences, comments or importer schemas whose defaults have not been verified.
+        static Dictionary<string, string> MetadataMapping(string data)
+        {
+            if (data.Length > 16384 || data.IndexOf('\t') >= 0 || data.IndexOf('\0') >= 0) return null;
+            var result = new Dictionary<string, string>(StringComparer.Ordinal);
+            bool importer = false;
+            foreach (string raw in data.Replace("\r\n", "\n").Split('\n'))
+            {
+                if (raw.Length == 0) continue;
+                int indent = raw.TakeWhile(c => c == ' ').Count();
+                if (indent != 0 && indent != 2) return null;
+                string line = raw.Substring(indent); int colon = line.IndexOf(':');
+                if (colon < 1) return null;
+                string key = line.Substring(0, colon).TrimEnd(' '), value = line.Substring(colon + 1).Trim(' ');
+                if (!Regex.IsMatch(key, @"\A[A-Za-z][A-Za-z0-9]*\z")) return null;
+                if (indent == 2 && !importer || indent == 0 && importer) return null;
+                string path = (indent == 2 ? "DefaultImporter/" : "") + key;
+                if (result.ContainsKey(path)) return null; // Normalized keys catch whitespace-varied duplicates.
+                result.Add(path, value);
+                if (indent == 0 && key == "DefaultImporter")
+                { if (value != "") return null; importer = true; }
+            }
+            return result;
+        }
         bool PermittedMetadata(string path)
         {
             string expected;
             if (!eligibleGuids.TryGetValue(path, out expected)) return false;
-            string data = File.ReadAllText(Absolute(path));
-            var identities = Regex.Matches(data, @"^guid: ([0-9a-fA-F]{32})\r?$", RegexOptions.Multiline);
-            bool folder = Regex.IsMatch(data, @"^folderAsset: yes\r?$", RegexOptions.Multiline);
-            return Regex.IsMatch(data, @"\AfileFormatVersion: 2\r?\n") && identities.Count == 1 &&
-                identities[0].Groups[1].Value.ToLowerInvariant() == expected && folder == eligibleFolders.Contains(path);
+            bool folder = eligibleFolders.Contains(path);
+            // Only verified DefaultImporter scene/folder schemas. Texture/Mono/Native/Model additions fail closed.
+            if (!folder && !path.EndsWith(".unity.meta", StringComparison.Ordinal)) return false;
+            var mapping = MetadataMapping(File.ReadAllText(Absolute(path)));
+            if (mapping == null) return false;
+            var required = new Dictionary<string, string>(StringComparer.Ordinal) {
+                {"fileFormatVersion", "2"}, {"guid", expected}, {"DefaultImporter", ""}, {"DefaultImporter/externalObjects", "{}"} };
+            if (folder) required.Add("folderAsset", "yes");
+            foreach (var entry in required)
+            { string value; if (!mapping.TryGetValue(entry.Key, out value) || value != entry.Value) return false; }
+            foreach (var entry in mapping.Where(p => !required.ContainsKey(p.Key)))
+                if (!(entry.Key == "DefaultImporter/userData" || entry.Key == "DefaultImporter/assetBundleName" ||
+                    entry.Key == "DefaultImporter/assetBundleVariant") || entry.Value != "") return false;
+            return true;
         }
+        public ProtectionDiffReport AdmitUiShaderRetention(byte[] before, byte[] after, RetainedShaderReference[] required, string phase)
+        {
+            const string path = GraphicsShaderRetentionPolicy.Path;
+            string baseline;
+            string previous = HashBytes(before), current = HashBytes(after);
+            if (!files.TryGetValue(path, out baseline) || baseline != previous || Hash(Absolute(path)) != current)
+                throw new InvalidOperationException("GraphicsSettings ownership evidence does not match the original protected baseline");
+            GraphicsShaderRetentionPolicy.Validate(before, after, required);
+            var admitted = Change(path, "Modified", previous, current, phase,
+                "Only seven validated built-in UI shader identities appended; all other serialized settings byte-identical", false);
+            admitted.allowedOwnedSettings = true;
+            return Compare(phase, previous == current ? null : admitted);
+        }
+        static string HashBytes(byte[] data)
+        { using (var hash = SHA256.Create()) return BitConverter.ToString(hash.ComputeHash(data)).Replace("-", "").ToLowerInvariant(); }
         ProtectedFileChange Change(string path, string classification, string previous, string current, string phase, string reason, bool allowed)
         {
             return new ProtectedFileChange { relativePath = path, classification = classification, previousSha256 = previous,
@@ -137,13 +188,15 @@ namespace Crownfall.EnvironmentLab.Editor
         }
         ProtectionDiffReport Report(string phase, int currentCount, IEnumerable<ProtectedFileChange> values)
         {
-            var all = values.OrderBy(c => c.allowedGeneratedMetadata).ThenBy(c => c.relativePath, StringComparer.Ordinal).ToArray();
+            var all = values.OrderBy(c => c.Allowed).ThenBy(c => c.relativePath, StringComparer.Ordinal).ToArray();
             return new ProtectionDiffReport { phase = phase, previousFileCount = files.Count, currentFileCount = currentCount,
-                totalChanges = all.Length, rejectedCount = all.Count(c => !c.allowedGeneratedMetadata),
+                totalChanges = all.Length, rejectedCount = all.Count(c => !c.Allowed),
                 allowedMetadataCount = all.Count(c => c.allowedGeneratedMetadata),
+                allowedOwnedSettingsCount = all.Count(c => c.allowedOwnedSettings),
                 omittedChanges = Math.Max(0, all.Length - MaximumReportedChanges), changes = all.Take(MaximumReportedChanges).ToArray() };
         }
-        public ProtectionDiffReport AssertUnchanged(string phase)
+        public ProtectionDiffReport AssertUnchanged(string phase) { return Compare(phase, null); }
+        ProtectionDiffReport Compare(string phase, ProtectedFileChange admitted)
         {
             Dictionary<string, string> current; HashSet<string> currentDirectories;
             Scan(out current, out currentDirectories);
@@ -153,6 +206,8 @@ namespace Crownfall.EnvironmentLab.Editor
                 string previousHash, currentHash;
                 bool existed = files.TryGetValue(path, out previousHash), exists = current.TryGetValue(path, out currentHash);
                 if (existed && exists && previousHash == currentHash) continue;
+                if (admitted != null && path == admitted.relativePath && previousHash == admitted.previousSha256 && currentHash == admitted.currentSha256)
+                { changes.Add(admitted); continue; }
                 bool allowed = !existed && exists && PermittedMetadata(path);
                 changes.Add(Change(path, !existed ? "Added" : !exists ? "Removed" : "Modified", previousHash, currentHash, phase,
                     allowed ? "New uncommitted metadata for a pre-existing asset/folder; registered pre-generation GUID and header verified" :
@@ -164,6 +219,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 changes.Add(Change(directory, "Added", null, null, phase, "Unexpected protected directory added", false));
             var report = Report(phase, current.Count, changes);
             if (report.rejectedCount != 0) throw new ProtectedFilesChangedException(report);
+            if (admitted != null) files[admitted.relativePath] = admitted.currentSha256;
             // Adopt admitted metadata immediately: later modification/deletion must fail, even if its GUID stays unchanged.
             foreach (var pair in current.Where(p => !files.ContainsKey(p.Key)).ToArray())
             { files[pair.Key] = pair.Value; eligibleGuids.Remove(pair.Key); eligibleFolders.Remove(pair.Key); }

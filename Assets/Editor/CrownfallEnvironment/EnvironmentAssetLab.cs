@@ -25,7 +25,6 @@ namespace Crownfall.EnvironmentLab.Editor
             EnvironmentPaths.Require(Application.unityVersion == catalog.requiredUnityVersion, "Required Editor " + catalog.requiredUnityVersion);
             EnvironmentPaths.Require(GraphicsSettings.currentRenderPipeline == null, "Built-in Render Pipeline required");
             EnvironmentPaths.Require(!EditorApplication.isPlayingOrWillChangePlaymode, "Run in edit mode");
-            EnvironmentNativeValidation.BeginProtectionReporting();
             var messages = new List<string>();
             bool hasErrors = false;
             Application.LogCallback logger = (message, stack, type) =>
@@ -37,9 +36,9 @@ namespace Crownfall.EnvironmentLab.Editor
             Application.logMessageReceived += logger;
             var previous = SceneManager.GetActiveScene();
             Scene lab = default(Scene);
-            try
+            EnvironmentNativeValidation.RunProtected("environment lab", guard =>
             {
-                var preserved = EnvironmentNativeValidation.ProtectedHashes();
+                guard.Step("lab saved-scene bootstrap", () => {
                 // Cloud Build starts in an untitled scene. Unity 6 rejects additive scenes until
                 // that scene is replaced with a saved scene; never discard a user's Editor scene.
                 if (Application.isBatchMode && string.IsNullOrEmpty(previous.path))
@@ -53,19 +52,23 @@ namespace Crownfall.EnvironmentLab.Editor
                         "Could not establish saved shipping scene before additive environment generation");
                     previous = opened;
                 }
-                EnvironmentNativeValidation.AssertProtected(preserved, "lab saved-scene bootstrap");
+                });
+                guard.Step("lab synchronous refresh", () => {
                 EditorPrefs.SetString(EnvironmentPaths.TierKey, tier);
                 Directory.CreateDirectory(EnvironmentPaths.Absolute(EnvironmentPaths.Generated + "Materials"));
                 Directory.CreateDirectory(EnvironmentPaths.Absolute(EnvironmentPaths.Generated + "Prefabs"));
                 Directory.CreateDirectory(Path.GetDirectoryName(EnvironmentPaths.Absolute(EnvironmentPaths.Lab)));
                 AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
-                EnvironmentNativeValidation.AssertProtected(preserved, "lab synchronous refresh");
+                });
+                guard.Step("lab texture import", () => {
                 foreach (var texture in catalog.textures)
                     AssetDatabase.ImportAsset(texture.path, ImportAssetOptions.ForceUpdate | ImportAssetOptions.ForceSynchronousImport);
-                EnvironmentNativeValidation.AssertProtected(preserved, "lab texture import");
+                });
+                guard.Step("lab generated material save", () => {
                 foreach (var spec in catalog.materials) CreateMaterial(spec);
                 SaveGeneratedAssets();
-                EnvironmentNativeValidation.AssertProtected(preserved, "lab generated material save");
+                });
+                guard.Step("lab FBX remap/reimport", () => {
                 foreach (var row in catalog.models)
                 {
                     var importer = AssetImporter.GetAtPath(row.path) as ModelImporter;
@@ -75,7 +78,8 @@ namespace Crownfall.EnvironmentLab.Editor
                             AssetDatabase.LoadAssetAtPath<Material>(EnvironmentPaths.MaterialPath(binding.materialKey)));
                     importer.SaveAndReimport();
                 }
-                EnvironmentNativeValidation.AssertProtected(preserved, "lab FBX remap/reimport");
+                });
+                guard.Step("lab scene/prefab save", () => {
                 // All temporary objects live in an additive lab scene, never in the active shipping scene.
                 var existingLab = SceneManager.GetSceneByPath(EnvironmentPaths.Lab);
                 if (existingLab.IsValid() && existingLab.isLoaded) EditorSceneManager.CloseScene(existingLab, true);
@@ -88,23 +92,17 @@ namespace Crownfall.EnvironmentLab.Editor
                 EnvironmentPaths.Require(!EditorBuildSettings.scenes.Any(s => s.path == EnvironmentPaths.Lab), "Lab cannot enter build settings");
                 EnvironmentPaths.Require(EditorSceneManager.SaveScene(lab, EnvironmentPaths.Lab), "Could not save lab scene");
                 SaveGeneratedAssets();
-                EnvironmentNativeValidation.AssertProtected(preserved, "lab scene/prefab save");
+                });
+                guard.Step("lab native validation", () => {
                 EnvironmentPaths.Require(!hasErrors, "Import/generation errors; see native report");
                 EnvironmentNativeValidation.Validate(messages.ToArray());
-                EnvironmentNativeValidation.AssertProtected(preserved, "lab native validation");
+                });
                 Debug.Log("Environment lab generated and validated with " + tier + " texture limits. No player build executed.");
-            }
-            catch (Exception error)
-            {
-                EnvironmentNativeValidation.WriteFailure(error.ToString(), messages.ToArray());
-                throw;
-            }
-            finally
-            {
+            }, () => {
                 Application.logMessageReceived -= logger;
                 if (previous.IsValid() && previous.isLoaded) SceneManager.SetActiveScene(previous);
                 if (Application.isBatchMode && lab.IsValid() && lab.isLoaded) EditorSceneManager.CloseScene(lab, true);
-            }
+            }, error => EnvironmentNativeValidation.WriteFailure(error.ToString(), messages.ToArray()));
         }
 
         // Save only owned generated assets, never unrelated dirty gameplay/art/settings.
@@ -159,7 +157,9 @@ namespace Crownfall.EnvironmentLab.Editor
             var source = AssetDatabase.LoadAssetAtPath<GameObject>(row.path);
             EnvironmentPaths.Require(source != null, "Native FBX import failed: " + row.id);
             var root = new GameObject(row.id.Replace(':', '_'));
-            try
+            var temporary = new PreparationSafety(phase => EnvironmentNativeValidation.CompareActiveProtection("presentation prefab: " + phase), message =>
+                DiagnosticSafety.Attempt("prefab cleanup log", () => Debug.LogWarning(message), ignored => { }));
+            temporary.Run(() =>
             {
                 var scale = new GameObject("PresentationScale"); scale.transform.SetParent(root.transform, false);
                 var visual = (GameObject)PrefabUtility.InstantiatePrefab(source);
@@ -201,8 +201,7 @@ namespace Crownfall.EnvironmentLab.Editor
                 scale.transform.localScale = Vector3.one * row.presentationScale;
                 EnvironmentPaths.Require(root.GetComponentsInChildren<Collider>(true).Length == 0, "Collider survived presentation sanitization");
                 EnvironmentPaths.Require(PrefabUtility.SaveAsPrefabAsset(root, EnvironmentPaths.PrefabPath(row.id)) != null, "Prefab save failed");
-            }
-            finally { UnityEngine.Object.DestroyImmediate(root); }
+            }, () => UnityEngine.Object.DestroyImmediate(root), error => { });
         }
 
         static GameObject Primitive(string name, PrimitiveType type, Vector3 position, Vector3 scale, Material material)

@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 using Crownfall.Match;
+using Crownfall.EnvironmentLab.Editor;
 
 namespace Crownfall.Editor
 {
@@ -38,6 +39,12 @@ namespace Crownfall.Editor
         [MenuItem("Crownfall/Prepare Production UI Dependencies")]
         public static void Prepare()
         {
+            EnvironmentNativeValidation.RunProtected("production UI", guard => {
+                guard.Step("UI dependency imports and owned persistence", PrepareOwned);
+            }, () => { }, error => EnvironmentNativeValidation.WriteFailure(error.ToString(), new string[0]));
+        }
+        static void PrepareOwned()
+        {
             var spec=Read();Directory.CreateDirectory(Folder);
             if(!File.Exists(ThemePath)||File.ReadAllText(ThemePath)!=spec.themeSource)File.WriteAllText(ThemePath,spec.themeSource);
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
@@ -49,15 +56,22 @@ namespace Crownfall.Editor
             panel.themeStyleSheet=theme;panel.scaleMode=PanelScaleMode.ConstantPixelSize;panel.sortingOrder=10;
             var serializedPanel=new SerializedObject(panel);var graphics=Graphics();
             var included=Property(graphics,"m_AlwaysIncludedShaders");
+            var retained = new System.Collections.Generic.List<RetainedShaderReference>();
             foreach(var binding in spec.shaders)
             {
                 // Find resolves Editor built-ins; retention is the persisted references below.
                 var shader=Shader.Find(binding.name);Require(shader!=null,"Required production UI shader unavailable: "+binding.name);
+                string guid; long fileId;
+                Require(AssetDatabase.TryGetGUIDAndLocalFileIdentifier(shader,out guid,out fileId),
+                    "Could not establish native shader identity: "+binding.name);
+                retained.Add(new RetainedShaderReference(guid,fileId));
                 Property(serializedPanel,binding.field).objectReferenceValue=shader;
                 if(!Contains(included,shader))included.GetArrayElementAtIndex(included.arraySize++).objectReferenceValue=shader;
             }
             serializedPanel.ApplyModifiedPropertiesWithoutUndo();graphics.ApplyModifiedPropertiesWithoutUndo();
-            EditorUtility.SetDirty(panel);EditorUtility.SetDirty(graphics.targetObject);AssetDatabase.SaveAssets();
+            EditorUtility.SetDirty(panel);AssetDatabase.SaveAssetIfDirty(panel);
+            EditorUtility.SetDirty(graphics.targetObject);
+            EnvironmentNativeValidation.SaveUiGraphicsSettings(graphics.targetObject,retained.ToArray());
             Validate();
         }
         public static void Validate()

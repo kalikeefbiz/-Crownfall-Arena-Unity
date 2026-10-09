@@ -17,7 +17,7 @@ namespace Crownfall.EnvironmentLab.Editor
         public bool unityExecuted, playerBuildExecuted, visualRenderApproved, readyForArenaComposition;
         public int modelCount, textureCount, libraryMaterialCount;
         public long importedTriangles;
-        public string[] warningsAndErrors;
+        public string[] warningsAndErrors, secondaryReportingFailures;
         public EnvironmentNativeModelResult[] models;
         public ProtectionDiffReport[] protectedFileChecks;
     }
@@ -40,9 +40,55 @@ namespace Crownfall.EnvironmentLab.Editor
         static readonly string[] ProtectedRoots = {
             "Assets/Scenes", "Assets/Crownfall/Match", "Assets/Crownfall/Presentation", "Assets/Crownfall/Gameplay",
             "Assets/Crownfall/Combat", "Assets/Art/Characters", "Assets/Art/Production", "Packages", "ProjectSettings" };
+        static EnvironmentNativeResult latestResult;
         static readonly List<ProtectionDiffReport> protectionChecks = new List<ProtectionDiffReport>();
         internal static ProtectionDiffReport[] ProtectionChecks { get { return protectionChecks.ToArray(); } }
-        internal static void BeginProtectionReporting() { protectionChecks.Clear(); }
+        static readonly List<ProtectedFileSnapshot> activeSnapshots = new List<ProtectedFileSnapshot>();
+        static readonly List<string> secondaryDiagnostics = new List<string>();
+        internal static string[] SecondaryDiagnostics { get { return secondaryDiagnostics.ToArray(); } }
+        internal static void RecordSecondary(string message)
+        {
+            if (message.Length > 4096) message = message.Substring(0,4096) + " [truncated]";
+            if (secondaryDiagnostics.Count < 64) secondaryDiagnostics.Add(message);
+            string evidence = message;
+            DiagnosticSafety.Attempt("secondary log", () => Debug.LogWarning("Crownfall secondary failure: " + evidence), ignored => { });
+        }
+        internal static void BeginProtectionReporting()
+        { if (activeSnapshots.Count == 0) { protectionChecks.Clear(); secondaryDiagnostics.Clear(); } }
+        internal static void RunProtected(string name, Action<PreparationSafety> operation, Action cleanup, Action<Exception> failure)
+        {
+            BeginProtectionReporting();
+            ProtectedFileSnapshot baseline = null;
+            var guard = new PreparationSafety(phase => { if (baseline != null) AssertProtected(baseline, name + ": " + phase); },
+                RecordSecondary,
+                error => DiagnosticSafety.Attempt("primary failure log", () => Debug.LogError("Crownfall preparation primary failure: " + error), ignored => { }));
+            try
+            {
+                guard.Run(() => {
+                    baseline = ProtectedHashes(); activeSnapshots.Add(baseline);
+                    operation(guard);
+                }, cleanup, failure);
+                if (latestResult != null) Write(latestResult);
+            }
+            finally { if (baseline != null) activeSnapshots.Remove(baseline); }
+        }
+        internal static void CompareActiveProtection(string phase)
+        { foreach (var snapshot in activeSnapshots) AssertProtected(snapshot, phase); }
+        internal static void SaveUiGraphicsSettings(UnityEngine.Object settings, RetainedShaderReference[] required)
+        {
+            EnvironmentPaths.Require(activeSnapshots.Count != 0, "UI graphics saving requires an early protection scope");
+            foreach (var snapshot in activeSnapshots) AssertProtected(snapshot, "before UI graphics targeted save");
+            string path = EnvironmentPaths.Absolute(GraphicsShaderRetentionPolicy.Path);
+            EnvironmentPaths.Require(File.Exists(path), "GraphicsSettings must exist before UI preparation; native initialization required");
+            var before = File.ReadAllBytes(path);
+            AssetDatabase.SaveAssetIfDirty(settings);
+            var after = File.ReadAllBytes(path);
+            foreach (var snapshot in activeSnapshots)
+            {
+                try { RecordProtection(snapshot.AdmitUiShaderRetention(before, after, required, "UI owned graphics shader retention")); }
+                catch (ProtectedFilesChangedException error) { RecordProtection(error.report); throw; }
+            }
+        }
         internal static ProtectedFileSnapshot ProtectedHashes()
         {
             const string manifestPath = "Docs/CROWNFALL_PROTECTED_SOURCE_PATHS.json";
@@ -66,12 +112,12 @@ namespace Crownfall.EnvironmentLab.Editor
         static void RecordProtection(ProtectionDiffReport report)
         {
             protectionChecks.Add(report);
-            Debug.Log("Crownfall source protection: phase=" + report.phase + ", changes=" + report.totalChanges +
+            DiagnosticSafety.Attempt("protection log", () => Debug.Log("Crownfall source protection: phase=" + report.phase + ", changes=" + report.totalChanges +
                 ", rejected=" + report.rejectedCount + ", permittedMetadata=" + report.allowedMetadataCount +
-                ", omitted=" + report.omittedChanges);
+                ", ownedSettings=" + report.allowedOwnedSettingsCount + ", omitted=" + report.omittedChanges), RecordSecondary);
             // Rejections precede admitted additions; at most 64 records per fixed checkpoint, with hashes only.
             foreach (var change in report.changes)
-                Debug.Log("Crownfall protected file: " + JsonUtility.ToJson(change));
+                DiagnosticSafety.Attempt("protected-file log", () => Debug.Log("Crownfall protected file: " + JsonUtility.ToJson(change)), RecordSecondary);
         }
         public static Bounds LocalBounds(GameObject root, bool includeRootTransform = false)
         {
@@ -194,18 +240,19 @@ namespace Crownfall.EnvironmentLab.Editor
                 var previous = SceneManager.GetActiveScene();
                 var scene = SceneManager.GetSceneByPath(EnvironmentPaths.Lab); bool opened = !scene.isLoaded;
                 if (opened) scene = EditorSceneManager.OpenScene(EnvironmentPaths.Lab,OpenSceneMode.Additive);
-                try
+                var sceneCleanup = new PreparationSafety(phase => CompareActiveProtection("validation scene: " + phase), message =>
+                    DiagnosticSafety.Attempt("validation scene cleanup log", () => Debug.LogWarning(message), ignored => { }));
+                sceneCleanup.Run(() =>
                 {
                     EnvironmentPaths.Require(scene.IsValid() && scene.isLoaded, "Lab import/open failed");
                     foreach (var root in scene.GetRootGameObjects()) EnvironmentPaths.Require(root.GetComponentsInChildren<Collider>(true).Length == 0,"Collider in lab scene");
                     foreach (var row in catalog.models)
                         EnvironmentPaths.Require(scene.GetRootGameObjects().SelectMany(o => o.GetComponentsInChildren<Transform>(true)).Any(t => t.name == row.id.Replace(':','_')), "Lab model missing: " + row.id);
                 }
-                finally
-                {
+                , () => {
                     if (previous.IsValid() && previous.isLoaded) SceneManager.SetActiveScene(previous);
                     if (opened) EditorSceneManager.CloseScene(scene,true);
-                }
+                }, error => { });
                 Write(new EnvironmentNativeResult { status="PASS_NATIVE_IMPORT", unityExecuted=true,unityVersion=Application.unityVersion,
                     utc=DateTime.UtcNow.ToString("o"),textureTier=EditorPrefs.GetString(EnvironmentPaths.TierKey,"Full"),
                     modelCount=results.Count,textureCount=catalog.textures.Length,libraryMaterialCount=catalog.materials.Length,
@@ -221,8 +268,28 @@ namespace Crownfall.EnvironmentLab.Editor
                 "Material dependency mismatch: " + material.name + " " + property);
         }
         internal static void WriteFailure(string error, string[] messages)
-        { Write(new EnvironmentNativeResult {status="FAIL_NATIVE_IMPORT",unityExecuted=true,unityVersion=Application.unityVersion,utc=DateTime.UtcNow.ToString("o"),error=error,warningsAndErrors=messages}); }
-        static void Write(EnvironmentNativeResult result)
-        { result.protectedFileChecks = ProtectionChecks; File.WriteAllText(EnvironmentPaths.Absolute(EnvironmentPaths.NativeReport),JsonUtility.ToJson(result,true)+"\n"); }
+        {
+            // Original failure reaches the log before serialization, file paths or report enrichment.
+            DiagnosticSafety.Attempt("primary failure log", () => Debug.LogError("Crownfall native primary failure: " + error), ignored => { });
+            var result = new EnvironmentNativeResult { status="FAIL_NATIVE_IMPORT",unityExecuted=true,error=error,warningsAndErrors=messages };
+            var secondary = new List<string>();
+            DiagnosticSafety.Attempt("failure report header", () => {
+                result.unityVersion=Application.unityVersion; result.utc=DateTime.UtcNow.ToString("o");
+            }, message => { secondary.Add(message); RecordSecondary(message); });
+            Write(result, secondary);
+        }
+        static void Write(EnvironmentNativeResult result) { Write(result, new List<string>()); }
+        static void Write(EnvironmentNativeResult result, List<string> secondary)
+        {
+            latestResult = result;
+            Action<string> record = message => {
+                secondary.Add(message);
+                RecordSecondary(message);
+            };
+            DiagnosticSafety.Attempt("protection report enrichment", () => result.protectedFileChecks = ProtectionChecks, record);
+            result.secondaryReportingFailures = secondary.Concat(SecondaryDiagnostics).Distinct().Take(64).ToArray();
+            DiagnosticSafety.Attempt("native report serialization/output", () =>
+                File.WriteAllText(EnvironmentPaths.Absolute(EnvironmentPaths.NativeReport),JsonUtility.ToJson(result,true)+"\n"), record);
+        }
     }
 }
