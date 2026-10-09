@@ -1,0 +1,19 @@
+{
+  "id": "kn",
+  "name": "Nature Kit 2.1",
+  "official_page": "https://kenney.nl/assets/nature-kit",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "acquired_utc_date": "2026-10-09",
+  "status": "acquired",
+  "archive_sha256": "fa7974a0d342bfe63c38664ba9f8ec1a4aab8ea25f099bdc56870e33588c4d9d",
+  "archive_bytes": 10537521,
+  "archive_model_count_single_format": 329,
+  "staged_unique_model_count": 54,
+  "staging_path": "ExternalArtStaging/Environment/Kenney/Nature",
+  "license_files": [
+    "ExternalArtStaging/Environment/Kenney/Nature/Original/License.txt"
+  ],
+  "download_url": "https://kenney.nl/media/pages/assets/nature-kit/37ac38a37b-1677698939/kenney_nature-kit.zip",
+  "original_archive_name": "kenney_nature-kit.zip"
+}

@@ -1,0 +1,23 @@
+{
+  "result": "pass",
+  "baseline": "489e81588d1a9876132625ba65a180b749bb1d61",
+  "branch": "browser-parity-unity",
+  "original_files_sha256_verified": 419,
+  "original_files_compared_byte_for_byte_to_archives": 419,
+  "archive_hashes_verified": 4,
+  "unique_models_measured_and_dependencies_resolved": 144,
+  "canonical_format": "glTF/GLB; FBX preserved but not independently imported",
+  "shortlisted_models": 38,
+  "first_pass_models": 25,
+  "visually_rendered_candidates": 39,
+  "independent_blender_geometry_samples": 8,
+  "scope_check": "Only ExternalArtStaging/Environment and Docs/EXTERNAL_ENVIRONMENT_* differ from baseline",
+  "unity_editor_run": false,
+  "unity_build_started": false,
+  "shipping_asset_import_performed": false,
+  "limitations": [
+    "No Unity Built-in import/material/device validation",
+    "No independent FBX geometry or embedded collider inspection",
+    "Ruins download blocked by public Drive quota"
+  ]
+}

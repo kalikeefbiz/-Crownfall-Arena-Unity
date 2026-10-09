@@ -1,0 +1,21 @@
+{
+  "id": "qn",
+  "name": "Stylized Nature MegaKit \u2014 Standard",
+  "official_page": "https://quaternius.com/packs/stylizednaturemegakit.html",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "acquired_utc_date": "2026-10-09",
+  "status": "acquired",
+  "archive_sha256": "298f6732b872e4cf7b30e6e7abf9641c7f6dc6b326df37ac089533ed7e3d58c9",
+  "archive_bytes": 104088529,
+  "archive_model_count_single_format": 68,
+  "staged_unique_model_count": 40,
+  "staging_path": "ExternalArtStaging/Environment/Quaternius/Nature",
+  "license_files": [
+    "ExternalArtStaging/Environment/Quaternius/Nature/Original/License_Standard.txt"
+  ],
+  "landing": "https://quaternius.itch.io/stylized-nature-megakit",
+  "upload_id": "11055123",
+  "download_host": "itchio-mirror.cb031a832f44726753d6267436f3b414.r2.cloudflarestorage.com",
+  "original_archive_name": "Stylized Nature MegaKit[Standard].zip"
+}

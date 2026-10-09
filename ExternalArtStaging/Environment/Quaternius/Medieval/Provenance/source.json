@@ -1,0 +1,21 @@
+{
+  "id": "qm",
+  "name": "Medieval Village MegaKit \u2014 Standard",
+  "official_page": "https://quaternius.com/packs/medievalvillagemegakit.html",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "acquired_utc_date": "2026-10-09",
+  "status": "acquired",
+  "archive_sha256": "e60dea67c10f30dccccfbff92a7933f5ea5cfe99be0e2a0fa5118cceabeec5c4",
+  "archive_bytes": 161003471,
+  "archive_model_count_single_format": 176,
+  "staged_unique_model_count": 21,
+  "staging_path": "ExternalArtStaging/Environment/Quaternius/Medieval",
+  "license_files": [
+    "ExternalArtStaging/Environment/Quaternius/Medieval/Original/Medieval Village MegaKit[Standard]/License_Standard.txt"
+  ],
+  "landing": "https://quaternius.itch.io/medieval-village-megakit",
+  "upload_id": "12563480",
+  "download_host": "itchio-mirror.cb031a832f44726753d6267436f3b414.r2.cloudflarestorage.com",
+  "original_archive_name": "Medieval Village MegaKit[Standard].zip"
+}

@@ -1,0 +1,62 @@
+{
+  "blender_version": "4.3.2",
+  "checks": [
+    {
+      "id": "qn:CommonTree_1",
+      "blender_triangles": 6265,
+      "manifest_triangles": 6265,
+      "max_bounds_axis_error": 4.7996425625029815e-06,
+      "result": "pass"
+    },
+    {
+      "id": "qn:TwistedTree_5",
+      "blender_triangles": 10104,
+      "manifest_triangles": 10104,
+      "max_bounds_axis_error": 4.3297338478964775e-06,
+      "result": "pass"
+    },
+    {
+      "id": "qn:Rock_Medium_3",
+      "blender_triangles": 522,
+      "manifest_triangles": 522,
+      "max_bounds_axis_error": 4.714889526358235e-06,
+      "result": "pass"
+    },
+    {
+      "id": "qm:DoorFrame_Round_Brick",
+      "blender_triangles": 2046,
+      "manifest_triangles": 2046,
+      "max_bounds_axis_error": 1.3741905986464076e-06,
+      "result": "pass"
+    },
+    {
+      "id": "qm:Wall_UnevenBrick_Straight",
+      "blender_triangles": 56,
+      "manifest_triangles": 56,
+      "max_bounds_axis_error": 1.7279577255169265e-06,
+      "result": "pass"
+    },
+    {
+      "id": "kn:tree_detailed_dark",
+      "blender_triangles": 402,
+      "manifest_triangles": 402,
+      "max_bounds_axis_error": 4.960174560530994e-06,
+      "result": "pass"
+    },
+    {
+      "id": "kn:cliff_steps_rock",
+      "blender_triangles": 219,
+      "manifest_triangles": 219,
+      "max_bounds_axis_error": 1.1920928910669204e-08,
+      "result": "pass"
+    },
+    {
+      "id": "kc:wall-corner-half-tower",
+      "blender_triangles": 632,
+      "manifest_triangles": 632,
+      "max_bounds_axis_error": 6.198883029107094e-08,
+      "result": "pass"
+    }
+  ],
+  "result": "pass"
+}

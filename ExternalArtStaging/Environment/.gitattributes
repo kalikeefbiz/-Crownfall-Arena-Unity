@@ -1,0 +1,4 @@
+# Preserve downloaded bytes, including original CRLF licenses and source JSON.
+# Review geometry/provenance through the measured inventory rather than binary diffs.
+**/Original/** binary
+**/Provenance/*.html binary
