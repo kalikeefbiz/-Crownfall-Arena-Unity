@@ -76,7 +76,7 @@ The first GitHub execution exposed an obsolete wilderness source contract requir
 
 ## Verified execution results
 
-The implementation commit `cc4cb4c00d137909006f44c0b90a5c9e43130b1a` passed the existing GitHub Actions preflight: [run 37969380748](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/37969380748). Its actual job logs were retrieved and inspected.
+The implementation commit `9cb4ecbb4a9f9a492d6add4b55d363306b487c32` passed the existing GitHub Actions preflight: [run 37970173998](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/37970173998). Its actual job logs were retrieved and inspected.
 
 | Gate | Verified result |
 | --- | --- |
@@ -94,7 +94,7 @@ The implementation commit `cc4cb4c00d137909006f44c0b90a5c9e43130b1a` passed the 
 | Runtime API type-check | 51 files, 0 warnings / 0 errors; verified UnityEngine 2021.3.33 references |
 | Source integrity / diff | Protected/art/staging Git blobs unchanged; original Build #15 repair unchanged; diff checks PASS |
 
-The sparse working tree and remote branch were verified at the implementation commit with no outstanding changes. A final caller-boundary check also wraps graphics ApplyModifiedProperties inside the captured owned-save operation; its seventh negative contract removes that callback. A following documentation/workflow-filter commit records these results and includes this exact audit report in the same preflight trigger; its final run is verified separately in the delivery. Native Unity execution remains PENDING.
+The sparse working tree and remote branch were verified at the implementation commit with no outstanding changes. The final caller-boundary check wraps graphics ApplyModifiedProperties inside the captured owned-save operation; its seventh negative contract removes that callback and passed in this run. This documentation update records the inspected results and receives the same preflight trigger; its final run is verified separately in the delivery. Native Unity execution remains PENDING.
 
 ## Native-only uncertainties and Build #18 risks
 
