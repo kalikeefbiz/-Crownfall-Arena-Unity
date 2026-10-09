@@ -68,9 +68,11 @@ The existing `.github/workflows/validate-crownfall-current.yml` remains the only
 - Eight lifecycle fixtures cover successful preparation, early mutation before UI, mutation followed by an import exception, restoration mutation, cleanup failure, report-write failure, broken primary recording and cleanup mutation plus failure.
 - Ten settings fixtures cover exact/idempotent shader retention, unrelated fields, unauthorized/reordered shaders, unsupported identities, duplicate sections, actual snapshot adoption, unrelated dirty source rejection and late-baseline rejection.
 - Four compiled audit mutants remove final comparison, replace the primary exception, remove exceptional comparison and ignore unrelated graphics fields.
-- Native caller contracts have five negative source mutations proving the actual Editor callers bind the tested helpers. The existing UI source gate replaces the obsolete global-save requirement with stronger targeted-save/protection requirements and retains shader/theme behavior checks.
+- Native caller contracts have six negative source mutations proving the actual Editor callers bind the tested helpers. The existing UI source gate replaces the obsolete global-save requirement with stronger targeted-save/protection requirements and retains shader/theme behavior checks.
 
 The existing manifest validation, M1/current-build/production checks, environment source integrity, composition and nine negative fixtures, complete 3v3 matches, runtime UnityEngine reference compilation and diff checks remain required. The final delivery reports the actual GitHub run URL/result after execution; counts here describe the implemented suite, not a fabricated local PASS.
+
+The first GitHub execution exposed an obsolete wilderness source contract requiring a direct statement and generic BuildFailedException wrapper. That gate now requires the protected shipping call, wilderness lifecycle, failure report and original-exception rethrow; a sixth negative caller fixture removes the shipping preparation call. Composition/clearance assertions remain unchanged.
 
 ## Native-only uncertainties and Build #18 risks
 

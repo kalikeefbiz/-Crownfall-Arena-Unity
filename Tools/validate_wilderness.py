@@ -51,9 +51,11 @@ def main():
  for token in ('collider.enabled = false','Resources.Load<WildernessLibrary>','ShadowQuality.Disable'):require(token in code,'Runtime safety missing '+token)
  production_gate=(ROOT/'Assets/Editor/ProductionArtValidation.cs').read_text()
  require('WildernessBuildPreparation.ValidateTextureImport(path);' in production_gate and '!importer.mipmapEnabled' in production_gate and 'TextureImporterFormat.RGBA32' in production_gate,'Separate strict sprite and 3D texture contracts missing')
- require('WildernessBuildPreparation.PrepareAndValidate();' in pipeline,'Prebuild fail-closed wiring missing')
- for token in ('throw new BuildFailedException','CompositionHash()','ValidateClearance(row,b)','ValidateLayers(layout,bounds)','ShaderUtil.ShaderHasError','ValidateTexture','GetComponentsInChildren<Collider>(true).Length==0','GetComponentsInChildren<Rigidbody>(true).Length==0','library.presentationPrefab','AssetDatabase.LoadAssetAtPath<GameObject>(model.path)','renderer.sharedMaterials','renderer.enabled','EnvironmentAssetLab.GenerateAndValidateMobile()','Quaternion.Angle'):
+ require('WildernessBuildPreparation.PrepareAndValidate()' in pipeline and 'RunProtected("player prebuild"' in pipeline,'Prebuild fail-closed wiring missing')
+ for token in ('EnvironmentNativeValidation.RunProtected("wilderness"', 'guard.Step("wilderness native validation"', 'WriteReport("FAIL_NATIVE_DEPENDENCIES"', 'CompositionHash()','ValidateClearance(row,b)','ValidateLayers(layout,bounds)','ShaderUtil.ShaderHasError','ValidateTexture','GetComponentsInChildren<Collider>(true).Length==0','GetComponentsInChildren<Rigidbody>(true).Length==0','library.presentationPrefab','AssetDatabase.LoadAssetAtPath<GameObject>(model.path)','renderer.sharedMaterials','renderer.enabled','EnvironmentAssetLab.GenerateAndValidateMobile()','Quaternion.Angle'):
   require(token in editor,'Native prebuild guard missing '+token)
+ safety=(ROOT/'Assets/Editor/CrownfallEnvironment/PreparationSafety.cs').read_text()
+ require('ExceptionDispatchInfo.Capture(original).Throw();' in safety and 'final after cleanup/restoration' in safety and 'exceptional-exit comparison' in safety,'Original failure/exceptional protection lifecycle missing')
  require('BuildPipeline.BuildPlayer' not in editor and 'EditorBuildSettings.scenes =' not in editor,'Unauthorized build/scene-list changes')
  from tree_sitter import Language,Parser
  import tree_sitter_c_sharp

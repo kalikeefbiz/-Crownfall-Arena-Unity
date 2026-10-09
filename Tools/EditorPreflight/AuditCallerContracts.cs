@@ -11,6 +11,7 @@ internal static class AuditCallerContracts
         static bool Calls(string source,string name) => CSharpSyntaxTree.ParseText(source).GetRoot()
             .DescendantNodes().OfType<InvocationExpressionSyntax>().Any(i=>i.Expression.ToString().EndsWith(name,StringComparison.Ordinal));
         var pipeline=code["PipelineBuild.cs"];var ui=code["ProductionUiDependencies.cs"];var native=code["EnvironmentNativeValidation.cs"];
+        Require(Calls(pipeline,"WildernessBuildPreparation.PrepareAndValidate"),"Shipping native preparation call missing");
         Require(Calls(pipeline,"EnvironmentNativeValidation.RunProtected"),"Prebuild early protection scope missing");
         Require(pipeline.IndexOf("RunProtected(\"player prebuild\"",StringComparison.Ordinal)<pipeline.IndexOf("Configure(report.summary.platform)",StringComparison.Ordinal),"Configuration precedes early protection");
         Require(Calls(ui,"EnvironmentNativeValidation.RunProtected")&&Calls(ui,"AssetDatabase.SaveAssetIfDirty")&&
@@ -35,6 +36,7 @@ internal static class AuditCallerContracts
         foreach(var name in new[]{"PipelineBuild.cs","ProductionUiDependencies.cs"})code[name]=File.ReadAllText(Path.Combine(root,"Assets/Editor",name));
         Validate(code);int caught=0;
         foreach(var item in new[]{("PipelineBuild.cs","EnvironmentNativeValidation.RunProtected"),
+            ("PipelineBuild.cs","WildernessBuildPreparation.PrepareAndValidate"),
             ("ProductionUiDependencies.cs","EnvironmentNativeValidation.SaveUiGraphicsSettings"),
             ("EnvironmentNativeValidation.cs","baseline = ProtectedHashes()"),
             ("EnvironmentAssetLab.cs","EnvironmentNativeValidation.RunProtected"),
