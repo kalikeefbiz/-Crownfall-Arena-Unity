@@ -11,6 +11,7 @@ on:
       - 'ProjectSettings/**'
       - 'Tools/**'
       - '.github/workflows/validate-crownfall-current.yml'
+      - 'Tools/EditorPreflight/**'
   workflow_dispatch:
 
 permissions:
@@ -71,6 +72,20 @@ jobs:
       - uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
+
+      - name: License-free Unity Editor preflight (Roslyn and native-scene contracts)
+        shell: bash
+        run: |
+          set -euo pipefail
+          dotnet run --project Tools/EditorPreflight/EditorPreflight.csproj --configuration Release --no-launch-profile
+
+      - name: Environment and wilderness static regression gates
+        shell: bash
+        run: |
+          set -euo pipefail
+          python Tools/validate_environment_library.py
+          python Tools/validate_wilderness.py
+          python Tools/test_wilderness_validation.py
 
       - name: Compile and execute pure combat framework
         shell: bash
