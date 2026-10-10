@@ -34,4 +34,4 @@ jobs:
           force_orphan: true
           enable_jekyll: false
 
-# Publish verified Unity WebGL Build 18 from webgl-hosted; source revision a8939536c6372d8744ab65d5c24180f86a276ad3
+# Publish verified Unity WebGL Build 19 from webgl-hosted; source revision b082cf356494d532c2b8c0915849ec0fc61649d7
