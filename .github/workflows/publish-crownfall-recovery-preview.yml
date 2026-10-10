@@ -1,0 +1,92 @@
+name: Publish Crownfall Recovery Preview
+
+on:
+  workflow_dispatch:
+    inputs:
+      share_id:
+        description: "Unity Build #20 public share ID (not the dashboard URL)"
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crownfall-recovery-preview
+  cancel-in-progress: false
+
+jobs:
+  publish-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out existing GitHub Pages branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          fetch-depth: 0
+
+      - name: Retrieve and verify Unity Build 20
+        shell: bash
+        env:
+          SHARE_ID: ${{ inputs.share_id }}
+        run: |
+          set -euo pipefail
+          if ! [[ "$SHARE_ID" =~ ^[A-Za-z0-9_-]{20,120}$ ]]; then
+            echo "A public Unity share ID is required, not a dashboard URL." >&2
+            exit 1
+          fi
+          curl -fsSL --retry 3 "https://build-automation.services.api.unity.com/v2/shares/$SHARE_ID" -o /tmp/crownfall-recovery-share.json
+          jq -e '.build == 20 and .buildStatus == "success" and .platform == "webgl" and .lastBuiltRevision == "3a63d5ac729a05a03b9060a6a5ca37591b8908eb"' /tmp/crownfall-recovery-share.json >/dev/null
+          URL="$(jq -r '([.links.artifacts[]? | select(.primary == true) | .files[0].href][0] // .links.download_primary.href // empty)' /tmp/crownfall-recovery-share.json)"
+          if [ -z "$URL" ]; then
+            echo "Verified share has no primary WebGL artifact." >&2
+            exit 1
+          fi
+          case "$URL" in https://*) ;; *) echo "Artifact must use HTTPS" >&2; exit 1 ;; esac
+          curl -fL --retry 3 --retry-all-errors "$URL" -o /tmp/crownfall-recovery-build20.zip
+          unzip -t /tmp/crownfall-recovery-build20.zip >/dev/null
+
+      - name: Stage the isolated preview without touching the live game
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/crownfall-recovery-unpacked
+          unzip -q /tmp/crownfall-recovery-build20.zip -d /tmp/crownfall-recovery-unpacked
+          INDEX="$(find /tmp/crownfall-recovery-unpacked -type f -name index.html -print -quit)"
+          if [ -z "$INDEX" ]; then
+            echo "Unity ZIP does not contain a WebGL index.html" >&2
+            exit 1
+          fi
+          ROOT="$(dirname "$INDEX")"
+          test -d "$ROOT/Build"
+          test -f "$ROOT/index.html"
+          # Delete ONLY the recovery subtree, never gh-pages root or Build/.
+          rm -rf recovery-build14
+          mkdir -p recovery-build14
+          cp -a "$ROOT"/. recovery-build14/
+          rm -f recovery-build14/_worker.js
+          test -f recovery-build14/index.html
+          test -d recovery-build14/Build
+          MAX="$(find recovery-build14 -type f -printf '%s\n' | sort -n | tail -n 1)"
+          if [ "$MAX" -gt 100000000 ]; then
+            echo "GitHub's 100 MB single-file limit would be exceeded." >&2
+            exit 2
+          fi
+          # The existing game must remain present throughout preview publication.
+          test -f index.html
+          test -d Build
+          git status --short
+
+      - name: Publish isolated recovery files
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- recovery-build14
+          if git diff --cached --quiet; then
+            echo "Recovery Build 20 already published."
+            exit 0
+          fi
+          git commit -m "Publish Crownfall Build 20 isolated recovery diagnostic"
+          git push origin HEAD:gh-pages
