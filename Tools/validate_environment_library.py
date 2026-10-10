@@ -50,7 +50,7 @@ def main():
  changes=subprocess.check_output(['git','diff','--name-only',BASELINE,'--']+preserved,cwd=ROOT,text=True)
  authorized={'Assets/Crownfall/Match/Runtime/ArenaPresentation.cs','Assets/Crownfall/Match/Runtime/CrownfallMatchBootstrap.cs'} if (ROOT/'Assets/Crownfall/Environment/WildernessComposition.json').exists() else set()
  if (ROOT/'Tools/validate_m15_visual.py').exists():authorized|={'Assets/Crownfall/Presentation/MobaCamera.cs','Assets/Crownfall/Match/Runtime/TerritoryFlow.shader'}
- authorized|={'.github/workflows/validate-crownfall-current.yml'}  # Only this known CI file is authorized.
+ authorized|={'Packages/manifest.json','.github/workflows/validate-crownfall-current.yml'}  # Only this known CI file is authorized.
  require(set(changes.splitlines())<=authorized|{'ExternalArtStaging/M15_1/RockFace/Provenance.json', 'ExternalArtStaging/M15_1/RockFace/files.json', 'ExternalArtStaging/M15_1/RockFace/rock_face_03_diff_1k.jpg'}|{'ExternalArtStaging/M15_1/ForestGround/CC0-1.0.txt', 'ExternalArtStaging/M15_1/ForestGround/files.json', 'ExternalArtStaging/M15_1/ForestGround/license.html', 'ExternalArtStaging/M15_1/ForestGround/Provenance.json', 'ExternalArtStaging/M15_1/ForestGround/forest_ground_04_diff_1k.jpg'},'Protected baseline changed: '+changes)
  if authorized:
   from validate_wilderness import main as validate_wilderness

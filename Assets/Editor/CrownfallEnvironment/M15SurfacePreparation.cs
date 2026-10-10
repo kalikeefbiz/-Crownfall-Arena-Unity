@@ -113,26 +113,7 @@ namespace Crownfall.EnvironmentLab.Editor
         }
         static void ValidateNativeProjection()
         {
-            var node=new GameObject("Temporary M15 projection regression camera");var camera=node.AddComponent<Camera>();
-            var follow=node.AddComponent<Crownfall.MobaCamera>();var target=new GameObject("Temporary presentation target (no physics)");
-            try
-            {
-                camera.orthographic=true;camera.nearClipPlane=.1f;camera.farClipPlane=150;
-                foreach(bool baseline in new[]{false,true})foreach(float aspect in new[]{16f/9,19.5f/9})foreach(float x in new[]{-30f,0,30f})foreach(float z in new[]{-27f,0,26f})
-                {
-                    float pitch=(float)(baseline?CameraFraming.BaselinePitch:CameraFraming.Pitch),height=(float)(baseline?CameraFraming.BaselineHeight:CameraFraming.Height);
-                    camera.aspect=aspect;target.transform.position=new Vector3(x,0,z);
-                    follow.UseAcceptedBaseline(baseline);follow.Bind(target.transform);
-                    var expected=new Vector3((float)CameraFraming.CenterX(x,aspect,baseline),height,(float)CameraFraming.CenterZ(z,baseline)-height/Mathf.Tan(pitch*Mathf.Deg2Rad));
-                    EnvironmentPaths.Require(Vector3.Distance(node.transform.position,expected)<.002f&&Quaternion.Angle(node.transform.rotation,Quaternion.Euler(pitch,0,0))<.01f,"Runtime MobaCamera profile/clamping disagrees with projection contract");
-                    foreach(var point in new[]{new Vector3(x,0,z),new Vector3(x+3,0,z+4),new Vector3(x-4,0,z-2)})
-                    {
-                        var ray=camera.ViewportPointToRay(camera.WorldToViewportPoint(point));float distance;
-                        EnvironmentPaths.Require(new Plane(Vector3.up,Vector3.zero).Raycast(ray,out distance)&&Vector3.Distance(ray.GetPoint(distance),point)<.002f,"Camera screen-to-ground projection changed aiming coordinates: "+point);
-                    }
-                }
-            }
-            finally{UnityEngine.Object.DestroyImmediate(node);UnityEngine.Object.DestroyImmediate(target);}
+            CameraRecoveryValidation.Projection();
         }
     }
 }

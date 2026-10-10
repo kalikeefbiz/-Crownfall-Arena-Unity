@@ -26,10 +26,20 @@ package_modules={
 if 'com.unity.modules.uielements' in dependencies and 'com.unity.modules.ui' not in dependencies:
  raise SystemExit('UI Toolkit runtime requires declared com.unity.modules.ui dependency')
 for package in dependencies:
+ if package == 'com.unity.cinemachine':
+  if dependencies[package] != '3.1.7': raise SystemExit('Cinemachine package version must be 3.1.7')
+  continue
  if package not in package_modules:
   raise SystemExit('Unmapped package for runtime type-check: '+package)
  module_names.update(package_modules[package])
 dlls=[Path(reference)/(name+'.dll') for name in sorted(module_names)]
+if 'com.unity.cinemachine' in dependencies:
+ package_references=os.environ.get('CROWNFALL_CINEMACHINE_REFERENCE_DIR')
+ if not package_references:
+  raise SystemExit('Cinemachine 3.1.7 requires native compiled Unity.Cinemachine, Unity.Splines and Unity.Mathematics assemblies. Set CROWNFALL_CINEMACHINE_REFERENCE_DIR and include their SHA256 in the verified reference inventory. The historical Unity 2021 references cannot compile this package; fail closed, never substitute stubs.')
+ dlls += [Path(package_references)/(name+'.dll') for name in ('Unity.Cinemachine','Unity.Splines','Unity.Mathematics')]
+ if os.environ.get('CROWNFALL_UNITY_REFERENCE_VERSION') != '6000.3.10f1':
+  raise SystemExit('Cinemachine integration requires the supported Unity 6000.3.10f1 reference inventory; fail closed.')
 missing=[str(p) for p in dlls if not p.is_file()]
 if missing: raise SystemExit('Actual enabled UnityEngine reference assemblies missing: '+', '.join(missing))
 required_apis={'UnityEngine.UIElements':'com.unity.modules.uielements','AudioSource':'com.unity.modules.audio','AudioListener':'com.unity.modules.audio','ParticleSystem':'com.unity.modules.particlesystem','JsonUtility':'com.unity.modules.jsonserialize','CharacterController':'com.unity.modules.physics'}

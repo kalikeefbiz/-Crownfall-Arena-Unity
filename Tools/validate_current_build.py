@@ -182,6 +182,7 @@ def main():
     manifest = json.loads(text("Packages/manifest.json"))
     require(manifest["dependencies"] == {
         "com.unity.modules.imgui": "1.0.0",
+        "com.unity.cinemachine": "3.1.7",
         "com.unity.modules.jsonserialize": "1.0.0",
         "com.unity.modules.physics": "1.0.0",
         "com.unity.modules.audio": "1.0.0",

@@ -46,7 +46,6 @@ namespace Crownfall.Match
             var cameraObject=new GameObject("Crownfall MOBA camera");viewCamera=cameraObject.AddComponent<Camera>();cameraObject.tag="MainCamera";
             viewCamera.orthographic=true;viewCamera.orthographicSize=11;viewCamera.nearClipPlane=.1f;viewCamera.farClipPlane=150;
             viewCamera.backgroundColor=new Color(.035f,.055f,.075f);follow=cameraObject.AddComponent<MobaCamera>();
-            cameraObject.transform.position=new Vector3(0,35,-28);cameraObject.transform.rotation=Quaternion.Euler(50,0,0);
             follow.ConfigurePresentation();
             audioDirector=gameObject.AddComponent<MatchAudioDirector>();audioDirector.Initialize(cameraObject);
             productionHud=new ProductionHud(gameObject,productionArt);
@@ -92,7 +91,7 @@ namespace Crownfall.Match
             preview=Ring("Ability targeting preview",effectMaterial);
             HideTargetPreview();
             arenaPresentation.BindVisibilitySubjects(actors.GetRange(0,6).ConvertAll(actor=>actor.transform).ToArray());
-            follow.Bind(actors[0].transform);follow.Present(match.Human,false,false);Physics.SyncTransforms();
+            follow.Bind(actors.Find(actor=>actor.Actor==match.Human).transform);follow.Present(match.Human,false,false);Physics.SyncTransforms();
         }
         void AddView(MatchEntity p)
         {

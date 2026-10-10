@@ -2,9 +2,11 @@ using System;
 
 namespace Crownfall.EnvironmentPresentation
 {
-    // Presentation only. These extents do not define the playable map or its collision.
+    // Presentation only. Player constants configure Cinemachine, never gameplay collision.
+    // The older profile below is retained solely for historical environment estimates/tests.
     public static class CameraFraming
     {
+        public const double PlayerPitch = 40, PlayerHalfHeight = 10, PlayerDistance = 32;
         public const double Pitch = 34, HalfHeight = 11, Height = 20, FocusNorth = 6.5;
         public const double HorizontalPadding = 4, NorthSouthPadding = 8;
         public const double BaselinePitch = 50, BaselineHalfHeight = 11, BaselineHeight = 15;

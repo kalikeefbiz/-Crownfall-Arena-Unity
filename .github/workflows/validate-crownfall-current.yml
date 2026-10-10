@@ -50,6 +50,7 @@ jobs:
           manifest = json.loads((root/"Packages/manifest.json").read_text())
           assert manifest["dependencies"] == {
               "com.unity.modules.imgui": "1.0.0",
+              "com.unity.cinemachine": "3.1.7",
               "com.unity.modules.jsonserialize": "1.0.0",
               "com.unity.modules.physics": "1.0.0",
               "com.unity.modules.audio": "1.0.0",
@@ -160,4 +161,6 @@ jobs:
           export CROWNFALL_UNITY_REFERENCE_DIR="$REFERENCE_DIR/lib/netstandard2.0"
           export CROWNFALL_UNITY_REFERENCE_VERSION=2021.3.33
           python Tools/compile_match_runtime.py
-          # This is a real API compile, not a Unity 6000 Editor/player execution claim.
+          # Fail closed: Cinemachine requires exact 6000.3.10f1 module/package references.
+          # The historical 2021 bundle above is insufficient until CI is provisioned
+          # with the native inventory and CROWNFALL_CINEMACHINE_REFERENCE_DIR.

@@ -1,65 +1,88 @@
 using UnityEngine;
+using Unity.Cinemachine;
 using Crownfall.EnvironmentPresentation;
 
 namespace Crownfall
 {
+    // Match lifecycle adapter only. Cinemachine owns position, damping and projection.
+    [RequireComponent(typeof(Camera))]
     public sealed class MobaCamera : MonoBehaviour
     {
-        [SerializeField] bool acceptedBaselineCamera;
-        [SerializeField, Min(0.01f)] float followSharpness = 9f;
         Transform target;
-        Camera cameraComponent;
-        bool production,alive=true,wasAlive=true,results;
-        Vector3 look;
-        public bool Frozen {get;set;}
-        float Pitch {get{return (float)(acceptedBaselineCamera?CameraFraming.BaselinePitch:CameraFraming.Pitch);}}
-        float Height {get{return (float)(acceptedBaselineCamera?CameraFraming.BaselineHeight:CameraFraming.Height);}}
-        float Focus {get{return acceptedBaselineCamera?0:(float)CameraFraming.FocusNorth;}}
-        Vector3 Offset {get{return new Vector3(0,Height,-Height/Mathf.Tan(Pitch*Mathf.Deg2Rad)+Focus);}}
+        GameObject rig, resultsAnchor;
+        CinemachineBrain brain;
+        CinemachineCamera shot;
+        CinemachinePositionComposer composer;
+        bool alive=true, wasAlive=true, results;
+        public bool Frozen { get; set; }
+
         public void ConfigurePresentation()
         {
-            cameraComponent=GetComponent<Camera>();
-            cameraComponent.orthographicSize=(float)(acceptedBaselineCamera?CameraFraming.BaselineHalfHeight:CameraFraming.HalfHeight);
-            transform.rotation=Quaternion.Euler(Pitch,0,0);
+            if (shot != null) return;
+            var cameraComponent=GetComponent<Camera>();
+            cameraComponent.orthographic=true;
+            brain=gameObject.AddComponent<CinemachineBrain>();
+            // Simulation/motor sync happens in Update. A single manual LateUpdate lets
+            // pause and death hold the exact shot without moving the gameplay target.
+            brain.UpdateMethod=CinemachineBrain.UpdateMethods.ManualUpdate;
+            brain.DefaultBlend=new CinemachineBlendDefinition(CinemachineBlendDefinition.Styles.Cut,0);
+            brain.LensModeOverride=new CinemachineBrain.LensModeOverrideSettings
+            { Enabled=true, DefaultMode=LensSettings.OverrideModes.Orthographic };
+            rig=new GameObject("Crownfall Cinemachine player shot");
+            rig.transform.rotation=Quaternion.Euler((float)CameraFraming.PlayerPitch,0,0);
+            shot=rig.AddComponent<CinemachineCamera>();
+            shot.Lens.OrthographicSize=(float)CameraFraming.PlayerHalfHeight;
+            shot.Lens.NearClipPlane=.1f;shot.Lens.FarClipPlane=150;
+            shot.Lens.ModeOverride=LensSettings.OverrideModes.Orthographic;
+            composer=rig.AddComponent<CinemachinePositionComposer>();
+            composer.CameraDistance=(float)CameraFraming.PlayerDistance;
+            composer.TargetOffset=Vector3.up;
+            composer.Damping=new Vector3(.25f,.25f,.25f);
+            composer.Composition=new ScreenComposerSettings
+            {
+                ScreenPosition=Vector2.zero,
+                DeadZone=new ScreenComposerSettings.DeadZoneSettings { Enabled=false },
+                HardLimits=new ScreenComposerSettings.HardLimitSettings
+                { Enabled=true, Size=new Vector2(.6f,.6f), Offset=Vector2.zero }
+            };
+            composer.CenterOnActivate=true;
+            // The authoritative actor bounds already constrain the tracking target.
+            // Do not shrink them by viewport width: that immobilizes wide-phone shots.
+            resultsAnchor=new GameObject("Crownfall results focus");
+            shot.enabled=false;
         }
-        public void UseAcceptedBaseline(bool enabled)
-        {acceptedBaselineCamera=enabled;ConfigurePresentation();if(target!=null)transform.position=ClampPosition(target.position+Offset);}
-        [ContextMenu("Camera/Accepted Build 14 fallback")] void Baseline(){UseAcceptedBaseline(true);}
-        [ContextMenu("Camera/M15 wilderness framing")] void Wilderness(){UseAcceptedBaseline(false);}
+
         public void Bind(Transform follow)
         {
-            target = follow;look=Vector3.zero;Frozen=false;
-            if(target==null)return;
-            ConfigurePresentation();transform.position=ClampPosition(target.position+Offset);
+            ConfigurePresentation();
+            target=follow;alive=wasAlive=true;results=false;Frozen=false;
+            composer.TargetOffset=Vector3.up;
+            shot.Follow=target;shot.PreviousStateIsValid=false;
+            shot.enabled=target!=null;
         }
+
         public void Present(Match.MatchEntity actor,bool result,bool targeting)
         {
-            production=true;results=result;alive=actor.Alive;
-            Vector3 motion=new Vector3((float)(actor.Position.X-actor.Previous.X),0,(float)(actor.Position.Z-actor.Previous.Z));
-            Vector3 aim=new Vector3((float)actor.Aim.X,0,(float)actor.Aim.Z);
-            look=alive&&!results?Vector3.ClampMagnitude(motion*15,.6f)+(targeting?aim*.6f:Vector3.zero):Vector3.zero;
-            if(alive&&!wasAlive)look=Vector3.zero;wasAlive=alive;
+            alive=actor.Alive;results=result;
+            if(alive&&!wasAlive)shot.PreviousStateIsValid=false;
+            wasAlive=alive;
+            shot.Follow=results?resultsAnchor.transform:target;
+            // Preserve the small aiming lead, with Composer supplying its damping.
+            composer.TargetOffset=Vector3.up+(alive&&!results&&targeting?
+                new Vector3((float)actor.Aim.X,0,(float)actor.Aim.Z)*.6f:Vector3.zero);
         }
+
         void LateUpdate()
         {
-            if(target==null||Frozen)return;
-            Vector3 desired=target.position+Offset+look;
-            if(production)
-            {
-                if(!alive&&!results)return;
-                if(results)desired=new Vector3(0,Height,-Height/Mathf.Tan(Pitch*Mathf.Deg2Rad));
-                desired=ClampPosition(desired);
-            }
-            Vector3 next=Vector3.Lerp(transform.position, desired,1f-Mathf.Exp(-followSharpness*Time.deltaTime));
-            if(production)next=ClampPosition(next);
-            transform.position=next;
+            if(target==null||Frozen||(!alive&&!results))return;
+            brain.ManualUpdate();
         }
-        Vector3 ClampPosition(Vector3 position)
+
+        void OnDestroy()
         {
-            float groundOffset=Height/Mathf.Tan(Pitch*Mathf.Deg2Rad);
-            position.x=(float)CameraFraming.Clamp(position.x,cameraComponent.orthographicSize*cameraComponent.aspect,34+(acceptedBaselineCamera?0:CameraFraming.HorizontalPadding));
-            position.z=(float)CameraFraming.Clamp(position.z+groundOffset,cameraComponent.orthographicSize/Mathf.Sin(Pitch*Mathf.Deg2Rad),32+(acceptedBaselineCamera?0:CameraFraming.NorthSouthPadding))-groundOffset;
-            return position;
+            // The virtual camera must not be parented to the camera it drives.
+            if(rig!=null){rig.SetActive(false);if(Application.isPlaying)Destroy(rig);else DestroyImmediate(rig);}
+            if(resultsAnchor!=null){if(Application.isPlaying)Destroy(resultsAnchor);else DestroyImmediate(resultsAnchor);}
         }
     }
 }
