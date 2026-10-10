@@ -32,6 +32,7 @@ namespace Crownfall.Match
         FirstRosterSummoner selected;
         string screen="menu";
         bool paused,editing,resetConfirm,collapsed;
+        bool renderProbeActive;
         double accumulator;
         float victoryAt=-1;
         Vector2 screenSize;
@@ -47,6 +48,14 @@ namespace Crownfall.Match
             viewCamera.orthographic=true;viewCamera.orthographicSize=11;viewCamera.nearClipPlane=.1f;viewCamera.farClipPlane=150;
             viewCamera.backgroundColor=new Color(.035f,.055f,.075f);follow=cameraObject.AddComponent<MobaCamera>();
             cameraObject.transform.position=new Vector3(0,35,-28);cameraObject.transform.rotation=Quaternion.Euler(50,0,0);
+            // This is opt-in by URL and bypasses all simulation/menu startup.
+            // Normal Crownfall builds and matches are unchanged.
+            if(Build14RenderProbe.Requested)
+            {
+                renderProbeActive=true;
+                gameObject.AddComponent<Build14RenderProbe>().Initialize(viewCamera,productionArt,spriteMaterial,productionStone);
+                return;
+            }
             audioDirector=gameObject.AddComponent<MatchAudioDirector>();audioDirector.Initialize(cameraObject);
             productionHud=new ProductionHud(gameObject,productionArt);
             ConfigureProductionUi();
@@ -108,6 +117,7 @@ namespace Crownfall.Match
         }
         void Update()
         {
+            if(renderProbeActive)return;
             LayoutRects();
             UpdateProductionUi();
             if(audioDirector!=null)audioDirector.Sync(match,screen,paused||editing);
@@ -191,6 +201,10 @@ namespace Crownfall.Match
         void Menu(){ClearWorld();screen="menu";paused=editing=false;}
         void OnApplicationFocus(bool focus){if(!focus&&screen=="match"&&match!=null&&match.Result==null){paused=true;controls.Reset(match.Human);}}
         void OnApplicationPause(bool value){if(value)OnApplicationFocus(false);}
-        void OnDestroy(){ClearWorld();if(productionHud!=null)productionHud.Dispose();if(viewCamera!=null)Destroy(viewCamera.gameObject);}
+        void OnDestroy()
+        {
+            if(renderProbeActive){if(viewCamera!=null)Destroy(viewCamera.gameObject);return;}
+            ClearWorld();if(productionHud!=null)productionHud.Dispose();if(viewCamera!=null)Destroy(viewCamera.gameObject);
+        }
     }
 }
