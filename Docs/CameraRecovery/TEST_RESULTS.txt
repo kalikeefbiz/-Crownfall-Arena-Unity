@@ -1,0 +1,169 @@
+Executed in the cloud workspace after camera implementation; no Unity Editor available.
+Camera implementation commit: 096c0b7
+Runtime compile is BLOCKED/FAIL, not PASS. Native tests and GPU captures were not executed.
+
+=== match-tests ===
+M1: 75
+Economy: 13
+Roster: 16
+Surge: 18
+Kit match: winner=2, reason=Crownfall points, seconds=155.95, deaths=26, rotations=17, rewards=1
+Set match: winner=1, reason=total control, seconds=42.27, deaths=5, rotations=2, rewards=0
+Riven match: winner=1, reason=Crownfall points, seconds=145.33, deaths=15, rotations=14, rewards=1
+Full match totals: rotations=33, rewards=2, deaths=46, major-attempt ticks=3691
+Complete match: 127037
+Presentation: 86645
+M15 camera/terrain: 2152
+
+=== editor-preflight ===
+PASS: native protection/saving/diagnostic caller contracts and 7 negative source mutations.
+PASS protection fixture: unchanged files
+PASS protection fixture: modified gameplay
+PASS protection fixture: modified tracked metadata
+PASS protection fixture: deleted gameplay
+PASS protection fixture: deleted tracked metadata
+PASS protection fixture: new protected source
+PASS protection fixture: modified shipping scene
+PASS protection fixture: modified project settings
+PASS protection fixture: modified packages
+PASS protection fixture: valid registered new metadata
+PASS protection fixture: admitted metadata later modified
+PASS protection fixture: admitted metadata later deleted
+PASS protection fixture: wrong registered GUID
+PASS protection fixture: unregistered new metadata
+PASS protection fixture: malformed new metadata
+PASS protection fixture: duplicate GUID declaration
+PASS protection fixture: Astra malformed YAML
+PASS protection fixture: Astra whitespace duplicate GUID
+PASS protection fixture: Astra unapproved TextureImporter
+PASS protection fixture: unapproved DefaultImporter setting
+PASS protection fixture: duplicate importer key
+PASS protection fixture: metadata alias
+PASS protection fixture: malformed YAML delimiter
+PASS protection fixture: unsupported native asset metadata
+PASS protection fixture: new source plus its metadata
+PASS protection fixture: folder metadata
+PASS protection fixture: wrong folder/file metadata type
+PASS protection fixture: protected root metadata
+PASS protection fixture: already-existing untracked metadata
+PASS protection fixture: committed metadata missing before snapshot
+PASS protection fixture: metadata in settings never admitted
+PASS protection fixture: empty protected directory added
+PASS protection fixture: empty protected directory removed
+PASS protection fixture: bounded deterministic diagnostics
+PASS protection fixture: unchanged files
+PASS protection mutation detected: all enforcement disabled
+PASS protection fixture: unchanged files
+PASS protection fixture: modified gameplay
+PASS protection mutation detected: all metadata changes ignored
+PASS protection fixture: unchanged files
+PASS protection fixture: modified gameplay
+PASS protection fixture: modified tracked metadata
+PASS protection fixture: deleted gameplay
+PASS protection fixture: deleted tracked metadata
+PASS protection fixture: new protected source
+PASS protection fixture: modified shipping scene
+PASS protection fixture: modified project settings
+PASS protection fixture: modified packages
+PASS protection fixture: valid registered new metadata
+PASS protection fixture: admitted metadata later modified
+PASS protection fixture: admitted metadata later deleted
+PASS protection fixture: wrong registered GUID
+PASS protection fixture: unregistered new metadata
+PASS protection fixture: malformed new metadata
+PASS protection fixture: duplicate GUID declaration
+PASS protection fixture: Astra malformed YAML
+PASS protection mutation detected: whitespace duplicate metadata keys ignored
+PASS protection fixture: unchanged files
+PASS protection fixture: modified gameplay
+PASS protection fixture: modified tracked metadata
+PASS protection fixture: deleted gameplay
+PASS protection fixture: deleted tracked metadata
+PASS protection fixture: new protected source
+PASS protection fixture: modified shipping scene
+PASS protection fixture: modified project settings
+PASS protection fixture: modified packages
+PASS protection fixture: valid registered new metadata
+PASS protection fixture: admitted metadata later modified
+PASS protection fixture: admitted metadata later deleted
+PASS protection fixture: wrong registered GUID
+PASS protection fixture: unregistered new metadata
+PASS protection mutation detected: malformed metadata admitted
+PASS protection fixture: unchanged files
+PASS protection fixture: modified gameplay
+PASS protection fixture: modified tracked metadata
+PASS protection fixture: deleted gameplay
+PASS protection fixture: deleted tracked metadata
+PASS protection fixture: new protected source
+PASS protection fixture: modified shipping scene
+PASS protection fixture: modified project settings
+PASS protection fixture: modified packages
+PASS protection fixture: valid registered new metadata
+PASS protection fixture: admitted metadata later modified
+PASS protection fixture: admitted metadata later deleted
+PASS protection mutation detected: unsupported importer section admitted
+PASS: 34 protected-file fixtures and five compiled enforcement/admission mutation tests; real project assets never modified.
+PASS audit lifecycle: normal success and final comparison
+PASS audit lifecycle: mutation before UI preparation uses early baseline
+PASS audit lifecycle: mutation then import exception retains original and evidence
+PASS audit lifecycle: scene restoration mutation is detected
+PASS audit lifecycle: cleanup throw preserves prior operation failure
+PASS audit lifecycle: report write failure preserves original
+PASS audit lifecycle: primary recorder failure still rescans
+PASS audit lifecycle: cleanup mutation plus throw retains both
+PASS audit settings: native panel-derived shader reference type
+PASS audit settings: panel reference mismatching actual shader rejected
+PASS audit settings: duplicate native panel shader field rejected
+PASS audit settings: exact seven UI shader additions
+PASS audit settings: idempotent required shaders
+PASS audit settings: unrelated dirty graphics field rejected
+PASS audit settings: unapproved shader rejected
+PASS audit settings: removed or reordered original shaders rejected
+PASS audit settings: unsupported built-in identity rejected
+PASS audit settings: duplicate settings key rejected
+PASS audit settings: production snapshot adopts only validated owned settings
+PASS audit settings: owned settings admission cannot adopt another dirty source
+PASS audit settings: late recapture cannot authorize earlier graphics mutation
+PASS audit mutant detected: final cleanup phase removed
+PASS audit lifecycle: normal success and final comparison
+PASS audit mutant detected: primary exception replaced
+PASS audit lifecycle: normal success and final comparison
+PASS audit lifecycle: mutation before UI preparation uses early baseline
+PASS audit mutant detected: exceptional comparison removed
+PASS audit mutant detected: graphics unrelated fields ignored
+PASS: 8 audit lifecycle fixtures, 13 owned-settings fixtures, four compiled audit mutants.
+PASS: 78 C# files parsed at language version 9; CS0136/CS0128/CS0111/CS0102 absent.
+PASS: batch-mode saved-scene initialization order and two negative regression fixtures.
+LIMITATION: Exact Unity 6000.3.10f1 import, Editor API compilation, prebuild and WebGL are NOT tested.
+
+=== current-build ===
+PASS: seven exact Unity 6000 UI shader bindings, imported default theme, native Resources panel generation, Always Included retention, shipping/prebuild wiring; 14 fail-closed negative checks. Native Editor execution still required.
+PASS: current Unity Cloud prebuild contract, serialized balance, asset paths, GUIDs, and WebGL template.
+
+=== production ===
+PASS: seven exact Unity 6000 UI shader bindings, imported default theme, native Resources panel generation, Always Included retention, shipping/prebuild wiring; 14 fail-closed negative checks. Native Editor execution still required.
+PASS: arena/lane/title exact imported Texture2D references and native import-validation wiring; 13 malformed/null reference regressions rejected. Native Unity execution still required.
+PASS: 53 transfer files, 65 staging mappings, 64 unique mapped textures, 70 runtime textures, 83.73 MiB RGBA32 residency; all catalog frames ordered and source bytes preserved.
+PASS: JSON/YAML, GUID-linked catalog, shell syntax, presentation authority, bounded pool reset, touch lifecycle, safe-area/browser wiring and rematch cleanup guards.
+
+=== protection ===
+PASS: 311 committed protected paths, including 172 metadata files and protected-root metadata
+
+=== wilderness ===
+PASS: 161 placements, 25 approved models, 247,652 instantiated triangles; [53512, 121709] camera-frustum estimate; 27 unique textures; native PENDING
+
+=== wilderness-negative ===
+PASS rejected: all near scenery moved to the perimeter
+PASS rejected: island tree moved into playable lane
+PASS rejected: permanently invisible perimeter scenery
+PASS rejected: negative model scale
+PASS rejected: unapproved model dependency
+PASS rejected: missing distant world
+PASS rejected: southern crown obscures lane
+PASS rejected: stale generated composition version
+PASS rejected: rotation variation collapses to stamped rows
+PASS: 161 placements, 25 approved models, 247,652 instantiated triangles; [53512, 121709] camera-frustum estimate; 27 unique textures; native PENDING
+
+=== runtime-compile ===
+Cinemachine 3.1.7 requires native compiled Unity.Cinemachine, Unity.Splines and Unity.Mathematics assemblies. Set CROWNFALL_CINEMACHINE_REFERENCE_DIR and include their SHA256 in the verified reference inventory. The historical Unity 2021 references cannot compile this package; fail closed, never substitute stubs.
+
