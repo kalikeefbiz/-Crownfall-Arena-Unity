@@ -1,0 +1,10 @@
+.claude
+.agents
+public/ammo
+
+dist
+node_modules
+test-results
+playwright-report
+MIGRATION_CONTRACT.md
+CODEX_TASK_001.md
