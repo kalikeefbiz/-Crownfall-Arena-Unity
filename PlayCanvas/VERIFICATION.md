@@ -2,17 +2,17 @@
 
 Verified on 2026-10-17, Node 24.19.0, npm 11.9.0, Linux system Chromium.
 
-| Check | Result |
-| --- | --- |
-| Official scaffold | create-playcanvas 0.10.1, Engine + TypeScript + Vite |
-| npm test | PASS: 13 non-rendering tests |
-| npm run typecheck | PASS: application, tests and configuration |
-| npm run lint | PASS |
-| npm run fmt | PASS |
-| npm run build | PASS: static dist output |
-| CHROMIUM_PATH=/usr/bin/chromium npm run test:browser | PASS: 3 production-browser tests |
-| Unity/reference preservation | PASS: all 218 tracked files outside PlayCanvas matched original Git blob hashes byte-for-byte |
-| Contract/task preservation | PASS: both original Markdown files unchanged |
+| Check                                                | Result                                                                                        |
+| ---------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| Official scaffold                                    | create-playcanvas 0.10.1, Engine + TypeScript + Vite                                          |
+| npm test                                             | PASS: 13 non-rendering tests                                                                  |
+| npm run typecheck                                    | PASS: application, tests and configuration                                                    |
+| npm run lint                                         | PASS                                                                                          |
+| npm run fmt                                          | PASS                                                                                          |
+| npm run build                                        | PASS: static dist output                                                                      |
+| CHROMIUM_PATH=/usr/bin/chromium npm run test:browser | PASS: 3 production-browser tests                                                              |
+| Unity/reference preservation                         | PASS: all 218 tracked files outside PlayCanvas matched original Git blob hashes byte-for-byte |
+| Contract/task preservation                           | PASS: both original Markdown files unchanged                                                  |
 
 Browser checks cover a running 3D arena with no page exceptions, keyboard movement, independent aiming while moving, Left mirroring on the presentation child only, commit capture and lock, movement ownership afterward, idle facing persistence, viewport resize, obstruction collision, and simultaneous landscape mobile movement/aim plus touch release/cancellation. Desktop and mobile screenshots were generated and visually inspected. Screenshots and build output remain ignored generated artifacts.
 
