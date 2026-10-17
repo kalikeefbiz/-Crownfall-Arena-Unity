@@ -1,0 +1,59 @@
+name: Publish Crownfall PlayCanvas Preview
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [playcanvas-port]
+    paths:
+      - "PlayCanvas/**"
+      - ".github/workflows/publish-crownfall-playcanvas.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "crownfall-playcanvas-preview"
+  cancel-in-progress: true
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PlayCanvas port
+        uses: actions/checkout@v4
+        with:
+          ref: playcanvas-port
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: PlayCanvas/package-lock.json
+
+      - name: Install
+        working-directory: PlayCanvas
+        run: npm ci
+
+      - name: Test
+        working-directory: PlayCanvas
+        run: npm test
+
+      - name: Typecheck
+        working-directory: PlayCanvas
+        run: npm run typecheck
+
+      - name: Build
+        working-directory: PlayCanvas
+        run: npm run build
+
+      - name: Publish preview under existing GitHub Pages site
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./PlayCanvas/dist
+          publish_branch: gh-pages
+          destination_dir: playcanvas
+          keep_files: true
+          force_orphan: false
+          enable_jekyll: false
