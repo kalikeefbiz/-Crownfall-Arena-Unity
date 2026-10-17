@@ -1,6 +1,14 @@
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 type Snapshot = {
+    combat: {
+        name: string;
+        stance: string;
+        now: number;
+        player: { health: number; ultimateMeter: number };
+        targets: { id: string; health: number; dead: boolean; statuses: Record<string, number> }[];
+        cooldowns: Record<string, number>;
+    };
     position: { x: number; z: number };
     movement: { x: number; z: number };
     aim: { x: number; z: number };
@@ -68,7 +76,7 @@ test('landscape mobile supports two captured pointers and clears cancelled input
     page.on('pageerror', (error) => errors.push(error.message));
     await ready(page);
     const move = page.locator('#move'),
-        aim = page.locator('#aim');
+        aim = page.locator('.ability-whip');
     const m = (await move.boundingBox())!,
         a = (await aim.boundingBox())!;
     const session = await context.newCDPSession(page);
@@ -91,13 +99,13 @@ test('landscape mobile supports two captured pointers and clears cancelled input
     await session.send('Input.dispatchTouchEvent', { type: 'touchCancel', touchPoints: [] });
     await expect.poll(async () => (await snapshot(page)).movement.x).toBe(0);
     await expect.poll(async () => (await snapshot(page)).facing.owner).toBe('idle');
-    expect((await snapshot(page)).facing.facing).toBe('Left');
-    expect((await snapshot(page)).visualScaleX).toBe(-1);
+    expect((await snapshot(page)).facing.facing).toBe('Right');
+    expect((await snapshot(page)).visualScaleX).toBe(1);
     expect((await snapshot(page)).rootScaleX).toBe(1);
-    for (const name of ['Skill 1', 'Skill 2', 'Ultimate']) {
+    for (const name of ['Ember Step', 'Solar Ring', 'The Last Flame']) {
         const button = page.getByRole('button', { name, exact: true });
         await expect(button).toBeVisible();
-        await expect(button).toBeDisabled();
+        await expect(button).toBeEnabled();
     }
     expect(errors).toEqual([]);
     await context.close();
@@ -114,4 +122,79 @@ test('obstruction blocks movement in the rendered app', async ({ page }) => {
     const state = await snapshot(page);
     expect(state.position.z).toBeGreaterThanOrEqual(4.4);
     expect(state.position.z).toBeLessThan(4.5);
+});
+
+for (const [label, id, basic] of [
+    ['Kit', 'kit-asher', 'Solar Whip'],
+    ['Set', 'set', 'Panther Claw'],
+    ['Riven', 'riven', 'Reso Blades']
+]) {
+    test(`${label} selection and real Basic damage through HUD`, async ({ page }) => {
+        const errors: string[] = [];
+        page.on('pageerror', (e) => errors.push(e.message));
+        await ready(page);
+        await page.getByLabel('Summoner', { exact: true }).selectOption({ label });
+        await expect.poll(async () => (await snapshot(page)).combat.name).toBe(id);
+        const button = page.getByRole('button', { name: basic, exact: true });
+        const rect = (await button.boundingBox())!;
+        await page.mouse.move(rect.x + rect.width / 2, rect.y + rect.height / 2);
+        await page.mouse.down();
+        if (label === 'Riven') {
+            // Riven must never fire on pointer-down or while held.
+            await page.waitForTimeout(250);
+            expect((await snapshot(page)).combat.targets[0].health).toBe(5000);
+            await page.mouse.up();
+        }
+        await expect.poll(async () => (await snapshot(page)).combat.targets[0].health).toBeLessThan(5000);
+        if (label !== 'Riven') await page.mouse.up();
+        await expect(page.locator('#combat-diagnostics')).not.toContainText('near-a HP 5000');
+        expect(errors).toEqual([]);
+    });
+}
+
+test('aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics', async ({ page }) => {
+    await ready(page);
+    const step = page.getByRole('button', { name: 'Ember Step', exact: true });
+    const rect = (await step.boundingBox())!;
+    await page.mouse.move(rect.x + rect.width / 2, rect.y + rect.height / 2);
+    await page.mouse.down();
+    await page.mouse.move(rect.x + rect.width / 2, rect.y + rect.height / 2 - 45);
+    expect((await snapshot(page)).combat.targets[0].health).toBe(5000);
+    await page.mouse.up();
+    await expect.poll(async () => (await snapshot(page)).combat.cooldowns.step).toBeGreaterThan(0);
+    await expect.poll(async () => (await snapshot(page)).combat.targets[0].health).toBe(4900);
+    await expect.poll(async () => (await snapshot(page)).position.z).toBeLessThan(-1.9);
+    const before = (await snapshot(page)).combat.targets[2].health;
+    await page.getByRole('button', { name: 'Solar Ring', exact: true }).click();
+    await expect.poll(async () => (await snapshot(page)).combat.targets[2].health).toBe(before - 190);
+    await expect(page.getByRole('button', { name: 'Solar Ring', exact: true }).locator('.cooldown')).not.toBeEmpty();
+});
+
+test('Set ground ultimate consumes charged meter and impacts after commitment', async ({ page }) => {
+    await ready(page);
+    await page.getByLabel('Summoner', { exact: true }).selectOption({ label: 'Set' });
+    await page.getByRole('button', { name: 'Debug: charge ultimate', exact: true }).click();
+    await expect.poll(async () => (await snapshot(page)).combat.player.ultimateMeter).toBe(100);
+    await page.getByRole('button', { name: 'Panther Fist', exact: true }).click();
+    await expect.poll(async () => (await snapshot(page)).combat.cooldowns.fist).toBeGreaterThan(0);
+    await expect.poll(async () => (await snapshot(page)).combat.targets[3].health).toBe(4540);
+    expect((await snapshot(page)).combat.player.ultimateMeter).toBeLessThan(100);
+});
+
+test('Riven stance changes actions and SCREAM updates stun/ultimate diagnostics', async ({ page }) => {
+    await ready(page);
+    await page.getByLabel('Summoner', { exact: true }).selectOption({ label: 'Riven' });
+    await page.getByRole('button', { name: 'Switch Stance', exact: true }).click();
+    await expect.poll(async () => (await snapshot(page)).combat.stance).toBe('pulse');
+    await expect(page.getByRole('button', { name: 'Percussive Pulse', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Percussive Solo', exact: true })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Reso Blades', exact: true })).toHaveCount(0);
+    await page.getByRole('button', { name: 'Percussive Solo', exact: true }).click();
+    await expect.poll(async () => (await snapshot(page)).combat.targets[0].health).toBe(4870);
+    await expect(page.locator('#combat-diagnostics')).toContainText('slow');
+    await page.getByRole('button', { name: 'Debug: charge ultimate', exact: true }).click();
+    await page.getByRole('button', { name: 'Death Scream', exact: true }).click();
+    await expect.poll(async () => (await snapshot(page)).combat.targets[0].health).toBe(4815);
+    await expect(page.locator('#combat-diagnostics')).toContainText('stun');
+    expect((await snapshot(page)).combat.targets[4].health).toBe(5000);
 });

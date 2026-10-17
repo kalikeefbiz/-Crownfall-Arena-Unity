@@ -10,6 +10,8 @@ import {
     createGraphicsDevice
 } from 'playcanvas';
 
+import { AbilityInput } from './combat/ability-input.js';
+import { hasStatus } from './combat/combat-core.js';
 import { Simulation } from './gameplay/simulation';
 import { Controls } from './input/controls';
 import { createScene } from './presentation/scene';
@@ -34,12 +36,77 @@ try {
     const scene = createScene(app);
     const hud = createHud();
     const input = new Controls(hud.move, hud.aim, canvas, (x, y) => scene.screenAim(x, y, simulation));
+    const abilities = new AbilityInput(
+        { enabled: true },
+        () => simulation.combat.player.angle,
+        simulation.combat.definition
+    );
+    abilities.update(simulation.combat);
+    hud.onSelect((index) => {
+        simulation.select(index);
+        abilities.setDefinition(simulation.combat.definition);
+        abilities.update(simulation.combat);
+    });
+    document.querySelector('#reset-combat')!.addEventListener('click', () => {
+        const index = (document.querySelector('#summoner') as HTMLSelectElement).selectedIndex;
+        simulation.select(index);
+        abilities.clear();
+        abilities.update(simulation.combat);
+    });
+    document.querySelector('#charge')!.addEventListener('click', () => {
+        simulation.combat.player.ultimateMeter = 100;
+    });
+    document.querySelector('#damage-player')!.addEventListener('click', () => {
+        simulation.combat.damage(simulation.combat.player, 100, simulation.combat.targets[0]);
+    });
+    let accumulator = 0;
     let frames = 0,
         hudElapsed = 0,
         smoothedDt = 1 / 60;
     app.on('update', (elapsed: number) => {
-        const dt = Math.min(elapsed, 0.05);
-        simulation.update(input.sample(), dt);
+        const dt = Math.min(elapsed, 0.1);
+        const frame = input.sample();
+        const preview = abilities.preview;
+        if (preview) {
+            frame.aim = { x: Math.sin(preview.angle), z: Math.cos(preview.angle) };
+            frame.targeting = true;
+        }
+        const command = abilities.read();
+        accumulator += dt;
+        let actions = command.actions;
+        let accepted = false;
+        while (accumulator >= 1 / 60) {
+            const c = simulation.combat;
+            const before = c.actionSerial;
+            c.step({
+                moveX: frame.movement.x,
+                moveZ: frame.movement.z,
+                aimX: frame.aim.x,
+                aimZ: frame.aim.z,
+                aiming: frame.targeting,
+                actions,
+                attackHeld: command.attackHeld
+            });
+            accepted ||= c.actionSerial !== before;
+            actions = [];
+            accumulator -= 1 / 60;
+        }
+        // Commands survive frames shorter than one simulation tick.
+        if (actions.length) abilities.actions.unshift(...actions);
+        const c = simulation.combat;
+        simulation.update(
+            {
+                ...frame,
+                movement: c.player.dead || hasStatus(c.player, 'stun', c.now) ? { x: 0, z: 0 } : frame.movement,
+                aim: accepted ? { x: Math.sin(c.committedAngle), z: Math.cos(c.committedAngle) } : frame.aim,
+                commit: accepted || frame.commit
+            },
+            dt,
+            false
+        );
+        simulation.position = { x: c.player.x, z: c.player.z };
+        simulation.collisions = c.collisions;
+        abilities.update(c);
         scene.update(simulation, dt);
         frames++;
         smoothedDt += (Math.max(elapsed, 0.001) - smoothedDt) * 0.1;
@@ -51,6 +118,7 @@ try {
     });
     app.on('destroy', () => {
         input.destroy();
+        abilities.destroy();
         window.removeEventListener('resize', resize);
         window.visualViewport?.removeEventListener('resize', resize);
     });
@@ -60,6 +128,14 @@ try {
         value: {
             snapshot: () =>
                 structuredClone({
+                    combat: {
+                        name: simulation.combat.definition.id,
+                        stance: simulation.combat.stance,
+                        player: simulation.combat.player,
+                        targets: simulation.combat.targets,
+                        cooldowns: simulation.combat.cooldowns.ends,
+                        now: simulation.combat.now
+                    },
                     position: simulation.position,
                     movement: simulation.movement,
                     aim: simulation.aim,

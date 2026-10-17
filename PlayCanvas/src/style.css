@@ -150,3 +150,129 @@ button {
         top: 155px;
     }
 }
+#ability-bar {
+    position: absolute;
+    right: max(18px, var(--safe-right));
+    bottom: max(20px, var(--safe-bottom));
+    display: flex;
+    align-items: end;
+    gap: 9px;
+    pointer-events: auto;
+}
+.ability {
+    touch-action: none;
+    width: 74px;
+    height: 74px;
+    border-radius: 50%;
+    color: #ffe3a4;
+    background: #20394a;
+    border: 2px solid #d6ad64;
+    position: relative;
+}
+.ability strong,
+.ability span,
+.ability b {
+    display: block;
+    pointer-events: none;
+}
+.ability.unready {
+    border-color: #75818c;
+}
+.ability[hidden] {
+    display: none;
+}
+#summoner,
+#reset-combat,
+#charge,
+#damage-player {
+    position: absolute;
+    top: 55px;
+    pointer-events: auto;
+}
+#summoner {
+    left: 20px;
+}
+#reset-combat {
+    left: 100px;
+}
+#charge {
+    left: 220px;
+}
+#damage-player {
+    left: 410px;
+}
+#combat-diagnostics {
+    position: absolute;
+    right: 16px;
+    top: 80px;
+    font-size: 10px;
+    color: #eee;
+    pointer-events: none;
+}
+@media (max-height: 500px) {
+    #diagnostics {
+        font-size: 8px;
+        top: 80px;
+    }
+    .help {
+        display: none;
+    }
+    #combat-diagnostics {
+        font-size: 8px;
+    }
+    .ability {
+        width: 61px;
+        height: 61px;
+        font-size: 9px;
+    }
+}
+#diagnostics {
+    left: 20px;
+    right: auto;
+    top: 100px;
+}
+#combat-diagnostics {
+    top: 100px;
+}
+#reset-combat,
+#charge,
+#damage-player {
+    height: 30px;
+    width: auto;
+    border-radius: 6px;
+    padding: 0 10px;
+}
+#summoner {
+    height: 30px;
+}
+.help {
+    top: 78px;
+}
+.ability[data-slot='0'] {
+    order: 4;
+    width: 90px;
+    height: 90px;
+}
+.ability-stance {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+    width: 64px;
+    height: 48px;
+    border-radius: 10px;
+}
+@media (max-height: 500px) {
+    .ability[data-slot='0'] {
+        width: 76px;
+        height: 76px;
+    }
+    .ability-stance {
+        bottom: 86px;
+    }
+    #diagnostics {
+        top: 95px;
+    }
+    #combat-diagnostics {
+        top: 95px;
+    }
+}

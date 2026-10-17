@@ -12,6 +12,7 @@ That repository preserves the source from authoritative browser Version 21 commi
 `5a73918bf4cd56cd54bdc98ba2a9929f4d347753`
 
 Browser Version 21 recorded validation:
+
 - 186 automated checks passed
 - 0 failed
 - three complete bot matches passed
@@ -37,6 +38,7 @@ Unity remains preserved as an implementation/reference fallback and must not be 
 Port behavior, rules, state transitions, timing and tested edge cases.
 
 Do not literally port:
+
 - browser DOM/CSS architecture
 - custom WebGL renderer internals
 - browser-only projection hacks

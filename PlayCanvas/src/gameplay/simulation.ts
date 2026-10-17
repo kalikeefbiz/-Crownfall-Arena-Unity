@@ -1,3 +1,4 @@
+import { createCombat } from '../combat/sandbox.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import { resolveFacing } from '../presentation/facing';
 import type { FacingState } from '../presentation/facing';
@@ -6,6 +7,11 @@ import { clampVector, direction, length } from './vector';
 import type { Vec } from './vector';
 export type InputFrame = { movement: Vec; aim: Vec; targeting: boolean; commit: boolean };
 export class Simulation {
+    combat = createCombat();
+    select(index: number): void {
+        this.combat = createCombat(index);
+        this.position = { x: 0, z: 5 };
+    }
     position: Vec = { x: 0, z: 5 };
     movement: Vec = { x: 0, z: 0 };
     aim: Vec = { x: 0, z: -1 };
@@ -14,7 +20,7 @@ export class Simulation {
     committedFacing: FacingState['facing'] | null = null;
     commitRemaining = 0;
     collisions = 0;
-    update(input: InputFrame, dt: number): void {
+    update(input: InputFrame, dt: number, move = true): void {
         this.movement = clampVector(input.movement);
         if (length(input.aim) > 0.08) this.aim = direction(input.aim);
         this.targeting = input.targeting;
@@ -24,12 +30,12 @@ export class Simulation {
             this.commitRemaining = 0.65;
         }
         this.facing =
-            this.commitRemaining > 0 && this.committedFacing
+            !this.targeting && this.commitRemaining > 0 && this.committedFacing
                 ? { facing: this.committedFacing, owner: 'commit' }
                 : resolveFacing(this.movement, this.aim, this.targeting, this.facing.facing);
         // Small deterministic steps prevent tunnelling. Axis separation permits wall sliding.
         let remaining = Math.min(Math.max(dt, 0), 0.25);
-        while (remaining > 0) {
+        while (move && remaining > 0) {
             const step = Math.min(remaining, 1 / 120);
             this.moveAxis('x', this.movement.x * ARENA.speed * step);
             this.moveAxis('z', this.movement.z * ARENA.speed * step);

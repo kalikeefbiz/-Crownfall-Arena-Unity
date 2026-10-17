@@ -19,6 +19,7 @@ The preserved repository documents the original authoritative Version 21 source 
 `5a73918bf4cd56cd54bdc98ba2a9929f4d347753`
 
 Before implementation, inspect at minimum:
+
 - `CROWNFALL_UNITY_HANDOFF_V21.md`
 - `src/combat-data.js`
 - `src/combat-core.js`
@@ -47,6 +48,7 @@ This task should leave PlayCanvas with a real combat sandbox, not another target
 ## Required architecture
 
 Preserve the Task 001 separation:
+
 - authoritative gameplay/simulation independent from PlayCanvas rendering
 - input produces intentions/commands
 - presentation reads simulation state/events
@@ -62,6 +64,7 @@ Create a reusable combat layer rather than coding three one-off characters direc
 ## Combat foundation
 
 Implement and test:
+
 - combatant identity/team
 - max/current health
 - alive/defeated/targetable state
@@ -76,12 +79,12 @@ Implement and test:
 - timed buffs
 - action interruption on death/stun where reference specifies it
 - ultimate meter:
-  - starts 0
-  - caps 100
-  - 0.04 meter per point of enemy Summoner damage dealt
-  - 0.025 per point received
-  - successful ultimate consumes meter
-  - ultimate cooldown remains an additional gate
+    - starts 0
+    - caps 100
+    - 0.04 meter per point of enemy Summoner damage dealt
+    - 0.025 per point received
+    - successful ultimate consumes meter
+    - ultimate cooldown remains an additional gate
 - deterministic/non-rendering test seams wherever practical
 
 Do not implement tickets/respawns in this task. Defeat is sufficient for the combat sandbox.
@@ -89,6 +92,7 @@ Do not implement tickets/respawns in this task. Defeat is sufficient for the com
 ## Playable combat sandbox
 
 Add a simple debug/selection mechanism allowing the tester to control:
+
 - Kit
 - Set
 - Riven
@@ -96,6 +100,7 @@ Add a simple debug/selection mechanism allowing the tester to control:
 Use replaceable primitive/diagnostic presentation if production art is not already readily available in the repository. Do not regenerate artwork and do not block combat parity on visual polish.
 
 Spawn enough opposing target combatants to validate:
+
 - single-target hits
 - cone/radial multi-target hits
 - piercing projectiles
@@ -113,81 +118,81 @@ Expose readable health/status/cooldown/ultimate diagnostics for device testing.
 Preserve exact source behavior. Guardrail values from the handoff:
 
 - Inner Flame passive: +5% movement speed while in tagged Wilderness.
-  - Wilderness itself is out of scope, but structure the passive hook so the future tagged-Wilderness state can activate it; do not fake permanent +5%.
+    - Wilderness itself is out of scope, but structure the passive hook so the future tagged-Wilderness state can activate it; do not fake permanent +5%.
 - Solar Whip basic:
-  - two-step cone sequence
-  - 110 / 150 damage
-  - range 2.8
-  - cooldown 0.55 s
-  - combo window 1.25 s
-  - preserve held-repeat behavior from the reference
+    - two-step cone sequence
+    - 110 / 150 damage
+    - range 2.8
+    - cooldown 0.55 s
+    - combo window 1.25 s
+    - preserve held-repeat behavior from the reference
 - Ember Step:
-  - dash range 7
-  - speed 24
-  - width 0.65
-  - 100 damage
-  - cooldown 6 s
-  - two successful dashes prime the third to stun 1.5 s
-  - empowered success resets streak
-  - miss resets streak
+    - dash range 7
+    - speed 24
+    - width 0.65
+    - 100 damage
+    - cooldown 6 s
+    - two successful dashes prime the third to stun 1.5 s
+    - empowered success resets streak
+    - miss resets streak
 - Solar Ring:
-  - self-centered 360° radial
-  - radius 3.5
-  - 190 damage
-  - cooldown 4 s
+    - self-centered 360° radial
+    - radius 3.5
+    - 190 damage
+    - cooldown 4 s
 - The Last Flame:
-  - ultimate
-  - piercing
-  - enemy-Summoner-only
-  - 550 damage
-  - range 23
-  - speed 16
-  - width 1.15
-  - cooldown 18 s
+    - ultimate
+    - piercing
+    - enemy-Summoner-only
+    - 550 damage
+    - range 23
+    - speed 16
+    - width 1.15
+    - cooldown 18 s
 - Expellant Blast:
-  - hitting at least two distinct enemy Summoners with Last Flame grants a 15 s cast opportunity
-  - non-piercing
-  - enemy-Summoner-only
-  - lethal behavior, not an invented fixed damage number
-  - range 26
-  - speed 32
-  - width 0.85
-  - cast consumes grant
+    - hitting at least two distinct enemy Summoners with Last Flame grants a 15 s cast opportunity
+    - non-piercing
+    - enemy-Summoner-only
+    - lethal behavior, not an invented fixed damage number
+    - range 26
+    - speed 32
+    - width 0.85
+    - cast consumes grant
 
 ## Set — port Version 21 behavior
 
 - Protective Presence:
-  - nearby allied mitigation 2%
-  - radius 5
-  - exact eligibility from source
+    - nearby allied mitigation 2%
+    - radius 5
+    - exact eligibility from source
 - Panther Claw basic:
-  - 90 / 90 / 135
-  - range 1.65
-  - cooldown 0.5 s
-  - combo window 1.15 s
+    - 90 / 90 / 135
+    - range 1.65
+    - cooldown 0.5 s
+    - combo window 1.15 s
 - War Cry:
-  - 5 s self buff
-  - +25% damage
-  - 20% mitigation
-  - cooldown 10 s
+    - 5 s self buff
+    - +25% damage
+    - 20% mitigation
+    - cooldown 10 s
 - Predatory Combo:
-  - contact leap
-  - range 4
-  - speed 16
-  - width 0.5
-  - successful contact schedules 70 / 90 / 160 at 0 / 0.18 / 0.4 s
-  - strike range 1.75 with source cone validity rules
-  - cooldown 8 s begins on leap completion including miss
-  - leap/sequence locks ordinary movement/casting
-  - death/stun cancels
+    - contact leap
+    - range 4
+    - speed 16
+    - width 0.5
+    - successful contact schedules 70 / 90 / 160 at 0 / 0.18 / 0.4 s
+    - strike range 1.75 with source cone validity rules
+    - cooldown 8 s begins on leap completion including miss
+    - leap/sequence locks ordinary movement/casting
+    - death/stun cancels
 - Panther Fist:
-  - ground-targeted ultimate
-  - targeting range 14
-  - radius 3
-  - 460 damage
-  - impact delay 0.7 s
-  - cooldown 18 s
-  - committed target is clamped to range
+    - ground-targeted ultimate
+    - targeting range 14
+    - radius 3
+    - 460 damage
+    - impact delay 0.7 s
+    - cooldown 18 s
+    - committed target is clamped to range
 
 ## Riven — port Version 21 behavior
 
@@ -195,61 +200,66 @@ Riven starts in Reso Blades. Stance-switch cooldown is 3 s.
 Basic and first-skill cooldown channels are shared across stances.
 
 ### Reso Blades
+
 - two persistent orbiting scythes
 - each outbound:
-  - 75 damage
-  - range 8
-  - speed 13
-  - width 0.4
-  - piercing
-  - cadence/cooldown 0.48 s
+    - 75 damage
+    - range 8
+    - speed 13
+    - width 0.4
+    - piercing
+    - cadence/cooldown 0.48 s
 - accepted first launch schedules second through existing cadence using the same confirmed angle
 - after both launches, next basic command recalls them
 - recall:
-  - each scythe base damage = 95 × (1 + min(outgoingHits, 6) × 0.25)
-  - return speed 17
-  - return tracks Riven
-  - successful returns restore orbit/sequence
-  - preserve separate outbound/return hit tracking
+    - each scythe base damage = 95 × (1 + min(outgoingHits, 6) × 0.25)
+    - return speed 17
+    - return tracks Riven
+    - successful returns restore orbit/sequence
+    - preserve separate outbound/return hit tracking
 - Elf Dance:
-  - five piercing shots
-  - interval 0.085 s
-  - 48 damage each
-  - range 9
-  - speed 16
-  - width 0.35
-  - cooldown 4 s
+    - five piercing shots
+    - interval 0.085 s
+    - 48 damage each
+    - range 9
+    - speed 16
+    - width 0.35
+    - cooldown 4 s
 
 ### Percussive Pulse
+
 - basic:
-  - non-piercing wave
-  - 100 damage
-  - range 8
-  - speed 12
-  - width 0.7
-  - cooldown 0.6 s
+    - non-piercing wave
+    - 100 damage
+    - range 8
+    - speed 12
+    - width 0.7
+    - cooldown 0.6 s
 - Percussive Solo:
-  - radial 130 damage
-  - radius 3.8
-  - cooldown 6 s
-  - 1.5 s zone
-  - applies 35% slow
-  - slow duration refreshes to 0.6 s
+    - radial 130 damage
+    - radius 3.8
+    - cooldown 6 s
+    - 1.5 s zone
+    - applies 35% slow
+    - slow duration refreshes to 0.6 s
 
 ### Shared Riven actions
+
 - AMP'D:
-  - +30% damage for 3 s
-  - cooldown 6 s
+    - +30% damage for 3 s
+    - cooldown 6 s
 - Death Scream / SCREAM:
-  - ultimate
-  - 55 damage
-  - radius 6
-  - 1.3 s stun
-  - enemy Summoners only
-  - cooldown 18 s
+    - ultimate
+    - 55 damage
+    - radius 6
+    - 1.3 s stun
+    - enemy Summoners only
+    - cooldown 18 s
 
 ### Riven input contract
+
 Preserve Version 21 release-to-cast semantics:
+
 - press snapshots current facing and enters targeting
 - nothing fires on pointer-down
 - movement remains independent
@@ -264,6 +274,7 @@ Do not convert Riven to Kit/Set held-repeat behavior.
 Replace Task 001's non-damaging Basic mock with actual combat commands.
 
 Maintain the existing landscape mobile layout:
+
 - left movement
 - Basic
 - Skill 1
@@ -282,6 +293,7 @@ Desktop fallback controls may exist for automated/browser validation.
 Do not claim parity from compile success.
 
 Port/adapt enough browser-reference assertions to cover at minimum:
+
 - health/damage/defeat and target filtering
 - Kit two-step basic timing/damage
 - Ember Step streak/stun/miss reset
@@ -303,6 +315,7 @@ Port/adapt enough browser-reference assertions to cover at minimum:
 - action interruption edge cases
 
 Add production-browser tests that prove:
+
 - app starts without page exceptions
 - each of Kit, Set and Riven can be selected
 - Basic actually damages a target
@@ -312,6 +325,7 @@ Add production-browser tests that prove:
 - diagnostics update after damage/status/cooldown events
 
 Run:
+
 - unit/non-rendering tests
 - typecheck
 - lint
@@ -330,6 +344,7 @@ Do not replace or delete the Unity-hosted root build.
 ## Explicitly out of scope
 
 Do NOT implement in this task:
+
 - full 3v3 match orchestration
 - tickets
 - respawns/final personal respawn
@@ -351,6 +366,7 @@ Do not stop after implementing Kit or after proving one attack.
 Complete all three kits and the shared combat foundation, run the full verification set, commit the result to `playcanvas-port`, and ensure the deployment workflow is triggered.
 
 At completion report:
+
 1. final commit SHA
 2. files created/changed
 3. reference files/tests used

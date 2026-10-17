@@ -81,8 +81,52 @@ export function createScene(app: AppBase) {
     light.setEulerAngles(48, -25, 0);
     app.root.addChild(light);
     app.scene.ambientLight = new Color(0.45, 0.5, 0.6);
+    const targets = new Map<string, { body: Entity; health: Entity }>();
+    const shots: Entity[] = [];
+    const flashes: Entity[] = [];
+    const red = material(0xb54b5c),
+        green = material(0x42b8a0),
+        purple = material(0xba79f0);
     return {
         update(sim: Simulation, dt: number) {
+            const combat = sim.combat;
+            root.enabled = !combat.player.dead;
+            for (const t of combat.targets) {
+                let view = targets.get(t.id);
+                if (!view) {
+                    view = {
+                        body: primitive(t.id, 'cylinder', [t.x, 0.5, t.z], [0.7, 1, 0.7], t.team === 1 ? green : red),
+                        health: primitive(t.id + '-health', 'box', [t.x, 1.2, t.z], [1, 0.08, 0.08], green)
+                    };
+                    targets.set(t.id, view);
+                }
+                view.body.enabled = !t.dead;
+                view.body.setPosition(t.x, 0.5, t.z);
+                view.health.setPosition(t.x, 1.2, t.z);
+                view.health.setLocalScale(Math.max(0.01, t.health / t.maxHealth), 0.08, 0.08);
+                view.body.render!.meshInstances[0].material =
+                    (t.statuses.stun || 0) > combat.now ? purple : t.team === 1 ? green : red;
+            }
+            combat.projectiles.items.forEach((shot, index) => {
+                const view = (shots[index] ||= primitive(
+                    'combat-projectile',
+                    'sphere',
+                    [0, 0, 0],
+                    [0.3, 0.3, 0.3],
+                    gold
+                ));
+                view.enabled = shot.active;
+                if (shot.active) view.setPosition(shot.x, 0.65, shot.z);
+            });
+            combat.effects.items.forEach((effect, index) => {
+                const view = (flashes[index] ||= primitive('combat-effect', 'cylinder', [0, 0, 0], [1, 0.03, 1], gold));
+                view.enabled = effect.active && effect.type !== 'number';
+                if (view.enabled) {
+                    view.setPosition(effect.x, 0.06, effect.z);
+                    const size = (effect.range || 0.4) * 2;
+                    view.setLocalScale(size, 0.03, size);
+                }
+            });
             root.setPosition(sim.position.x, 0, sim.position.z);
             const facing = sim.facing.facing;
             const isSide = facing === 'Right' || facing === 'Left';
