@@ -1,8 +1,11 @@
 import { Color, Entity, StandardMaterial, Vec3, CULLFACE_NONE } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
+import type { PreviewIntent } from '../combat/ability-input';
 import { ARENA, OBSTACLES } from '../config/arena';
 import type { Simulation } from '../gameplay/simulation';
+
+import { createCombatOverlay } from './combat-overlay';
 
 function material(hex: number): StandardMaterial {
     const m = new StandardMaterial();
@@ -86,9 +89,33 @@ export function createScene(app: AppBase) {
     const flashes: Entity[] = [];
     const red = material(0xb54b5c),
         green = material(0x42b8a0),
-        purple = material(0xba79f0);
+        purple = material(0xba79f0),
+        hitMaterial = material(0xffee86);
+    const overlay = createCombatOverlay();
+    const project = (p: { x: number; z: number }, height = 0) =>
+        camera.camera!.worldToScreen(new Vec3(p.x, height, p.z));
+    const groundAt = (x: number, y: number) => {
+        const near = camera.camera!.screenToWorld(x, y, 0.1),
+            far = camera.camera!.screenToWorld(x, y, 100);
+        const t = -near.y / (far.y - near.y);
+        return { x: near.x + (far.x - near.x) * t, z: near.z + (far.z - near.z) * t };
+    };
     return {
-        update(sim: Simulation, dt: number) {
+        get preview() {
+            return overlay.preview;
+        },
+        destroy() {
+            overlay.destroy();
+        },
+        dragVector(dx: number, dy: number, sim: Simulation) {
+            const anchor = project(sim.position),
+                from = groundAt(anchor.x, anchor.y),
+                to = groundAt(anchor.x + dx, anchor.y + dy);
+            const length = Math.hypot(to.x - from.x, to.z - from.z) || 1,
+                scale = Math.hypot(dx, dy) / length;
+            return { x: (to.x - from.x) * scale, z: (to.z - from.z) * scale };
+        },
+        update(sim: Simulation, dt: number, intent: PreviewIntent | null = null) {
             const combat = sim.combat;
             root.enabled = !combat.player.dead;
             for (const t of combat.targets) {
@@ -104,8 +131,21 @@ export function createScene(app: AppBase) {
                 view.body.setPosition(t.x, 0.5, t.z);
                 view.health.setPosition(t.x, 1.2, t.z);
                 view.health.setLocalScale(Math.max(0.01, t.health / t.maxHealth), 0.08, 0.08);
-                view.body.render!.meshInstances[0].material =
-                    (t.statuses.stun || 0) > combat.now ? purple : t.team === 1 ? green : red;
+                view.body.render!.meshInstances[0].material = combat.journal.hits.some(
+                    (hit) => hit.targetId === t.id && combat.now - hit.time < 0.3
+                )
+                    ? hitMaterial
+                    : (t.statuses.stun || 0) > combat.now
+                      ? purple
+                      : t.id === 'mobile-test'
+                        ? gold
+                        : t.team === 1
+                          ? green
+                          : red;
+                const pulse = combat.journal.hits.some((hit) => hit.targetId === t.id && combat.now - hit.time < 0.15)
+                    ? 1.22
+                    : 1;
+                view.body.setLocalScale(0.7 * pulse, pulse, 0.7 * pulse);
             }
             combat.projectiles.items.forEach((shot, index) => {
                 const view = (shots[index] ||= primitive(
@@ -120,7 +160,7 @@ export function createScene(app: AppBase) {
             });
             combat.effects.items.forEach((effect, index) => {
                 const view = (flashes[index] ||= primitive('combat-effect', 'cylinder', [0, 0, 0], [1, 0.03, 1], gold));
-                view.enabled = effect.active && effect.type !== 'number';
+                view.enabled = effect.active && ['trail', 'pantherTrail', 'buffPulse'].includes(effect.type);
                 if (view.enabled) {
                     view.setPosition(effect.x, 0.06, effect.z);
                     const size = (effect.range || 0.4) * 2;
@@ -137,11 +177,21 @@ export function createScene(app: AppBase) {
             backMark.enabled = facing === 'Back';
             sideProfile.enabled = isSide;
             aimRoot.setLocalEulerAngles(0, (Math.atan2(-sim.aim.x, -sim.aim.z) * 180) / Math.PI, 0);
-            aimRoot.enabled = sim.targeting || sim.commitRemaining > 0;
+            aimRoot.enabled = false;
             const blend = 1 - Math.exp(-9 * dt);
             follow.x += (sim.position.x - follow.x) * blend;
             follow.z += (sim.position.z - follow.z) * blend;
             updateCamera();
+            const current =
+                intent ||
+                (sim.targeting
+                    ? {
+                          ability: combat.activeAbilities().find((a) => a.basic)!,
+                          angle: Math.atan2(sim.aim.x, sim.aim.z),
+                          cancel: false
+                      }
+                    : null);
+            overlay.update(combat, current, project);
         },
         screenAim(x: number, y: number, sim: Simulation) {
             const near = camera.camera!.screenToWorld(x, y, 0.1);

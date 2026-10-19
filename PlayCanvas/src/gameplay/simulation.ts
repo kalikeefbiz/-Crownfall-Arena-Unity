@@ -11,11 +11,18 @@ export class Simulation {
     select(index: number): void {
         this.combat = createCombat(index);
         this.position = { x: 0, z: 5 };
+        this.aim = { x: Math.sin(this.combat.player.angle), z: Math.cos(this.combat.player.angle) };
+        this.movement = { x: 0, z: 0 };
+        this.targeting = false;
+        this.committedFacing = null;
+        this.commitRemaining = 0;
+        this.facing = { facing: resolveFacing(this.movement, this.aim, true, 'Back').facing, owner: 'idle' };
+        this.collisions = 0;
     }
     position: Vec = { x: 0, z: 5 };
     movement: Vec = { x: 0, z: 0 };
     aim: Vec = { x: 0, z: -1 };
-    facing: FacingState = { facing: 'Front', owner: 'idle' };
+    facing: FacingState = { facing: 'Back', owner: 'idle' };
     targeting = false;
     committedFacing: FacingState['facing'] | null = null;
     commitRemaining = 0;

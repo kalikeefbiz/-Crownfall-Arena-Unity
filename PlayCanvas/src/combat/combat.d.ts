@@ -1,5 +1,6 @@
 export type Combatant = {
     id: string;
+    name?: string;
     team: number;
     kind: string;
     x: number;
@@ -26,8 +27,39 @@ export type Ability = {
     aim: string;
     range?: number;
     key: string;
+    width?: number;
+    radius?: number;
+    angle?: number;
 };
 export type Definition = { id: string; name?: string; health: number; abilities: Ability[]; bonus?: Ability };
+export type HitEvidence = {
+    id: number;
+    time: number;
+    castId: number | null;
+    targetId: string;
+    x: number;
+    z: number;
+    amount: number;
+    abilityId: string | null;
+    name: string;
+};
+export type CastEvidence = {
+    id: number;
+    abilityId: string;
+    name: string;
+    accepted: boolean;
+    reason: string;
+    time: number;
+    finished?: number;
+    result: string;
+    targetIds: string[];
+    damage: number;
+    ability: Ability;
+    origin: { x: number; z: number };
+    angle: number;
+    target: { x: number; z: number } | null;
+    pending: number;
+};
 export class CombatSimulation {
     constructor(definition?: unknown, training?: unknown, config?: unknown, map?: unknown);
     player: Combatant;
@@ -45,7 +77,22 @@ export class CombatSimulation {
         ready(id: string, now: number): boolean;
     };
     temporary: { available(id: string, now: number): boolean; grants: Map<string, { expires: number }> };
-    weapons: { next: number; returning: boolean };
+    journal: {
+        latestAttempt: CastEvidence | null;
+        latestAccepted: CastEvidence | null;
+        latestResolution: CastEvidence | null;
+        hits: HitEvidence[];
+        attempts: CastEvidence[];
+    };
+    transactions: {
+        time: number;
+        sourceId: string | null;
+        targetId: string;
+        amount: number;
+        abilityId: string | null;
+        defeated: boolean;
+    }[];
+    weapons: { next: number; returning: boolean; blades: { x: number; z: number; phase: string }[] };
     projectiles: { items: { active: boolean; x: number; z: number; persistent?: boolean; phase?: string }[] };
     effects: { items: { active: boolean; x: number; z: number; range?: number; type: string }[] };
     activeAbilities(): Ability[];

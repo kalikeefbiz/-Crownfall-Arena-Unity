@@ -3,7 +3,8 @@ import { hasStatus } from './combat-core.js';
 // Device-independent intentions. Coordinates are supplied by the input adapter;
 // neither gameplay commitment nor follow-up scheduling depends on DOM elements.
 export class AbilityCommands {
-    constructor(input, getFacing, definition) {
+    constructor(input, getFacing, definition, mapDrag = (x, z) => ({ x, z })) {
+        this.mapDrag = mapDrag;
         this.input = input;
         this.getFacing = getFacing;
         this.definition = definition;
@@ -41,11 +42,13 @@ export class AbilityCommands {
         p.cancel = distance > 150;
         if (distance > 12) {
             p.dragged = true;
-            p.angle = Math.atan2(dx, dz);
+            const world = this.mapDrag(dx, dz);
+            p.angle = Math.atan2(world.x, world.z);
         }
         if (a.aim === 'ground' && p.dragged) {
-            const vx = (dx / 90) * a.range,
-                vz = (dz / 90) * a.range;
+            const world = this.mapDrag(dx, dz);
+            const vx = (world.x / 90) * a.range,
+                vz = (world.z / 90) * a.range;
             const scale = Math.min(1, a.range / Math.hypot(vx, vz));
             p.targetOffset = { x: vx * scale, z: vz * scale };
         }
@@ -62,6 +65,7 @@ export class AbilityCommands {
         if (confirm && !p.cancel && this.input.enabled) {
             if (this.releaseBasic(p.ability))
                 this.commitBasic(p.ability, !p.dragged && time - p.started < 180 ? p.angle : this.preview.angle);
+            else if (p.ability.basic && !p.sampled) this.actions.push({ id: p.id, angle: p.angle });
             else if (!p.ability.basic)
                 this.actions.push({
                     id: p.id,
@@ -81,6 +85,7 @@ export class AbilityCommands {
         this.actions = [];
         this.pendingBasic = null;
         this.keyboardBasic = null;
+        this.heldKey = null;
     }
     commitBasic(ability, angle) {
         this.actions.push({ id: ability.id, angle });
@@ -100,19 +105,28 @@ export class AbilityCommands {
             this.pendingBasic = null;
             this.keyboardBasic = { ability, angle, started: time };
             this.preview = { ability, angle, cancel: false };
-        } else if (ability.basic) this.attackHeld = true;
-        else this.actions.push({ id: ability.id, angle });
+        } else if (ability.basic) {
+            this.heldKey = { id: ability.id, angle, sampled: false };
+            this.attackHeld = true;
+        } else this.actions.push({ id: ability.id, angle });
         return true;
     }
     keyUp(code, time) {
         if (code !== 'Space') return;
         const p = this.keyboardBasic;
         if (p && this.input.enabled) this.commitBasic(p.ability, time - p.started < 180 ? p.angle : this.preview.angle);
+        if (this.heldKey && !this.heldKey.sampled && this.input.enabled)
+            this.actions.push({ id: this.heldKey.id, angle: this.heldKey.angle });
+        this.heldKey = null;
         this.keyboardBasic = null;
         if (p) this.preview = null;
         this.attackHeld = false;
     }
     read() {
+        if (this.attackHeld) {
+            if (this.active) this.active.sampled = true;
+            if (this.heldKey) this.heldKey.sampled = true;
+        }
         const actions = this.actions.splice(0);
         if (this.pendingBasic && actions.some((a) => a.id === this.pendingBasic.id)) this.pendingBasic.submitted = true;
         return { actions, attackHeld: this.attackHeld };

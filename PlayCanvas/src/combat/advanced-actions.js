@@ -18,18 +18,21 @@ export class AdvancedActions {
     }
     cast(a, angle, target) {
         const s = this.sim,
-            p = s.player;
+            p = s.player,
+            trace = s.executingTrace;
         if (a.effect === 'buff') {
             addModifier(p, a.id, { damageBonus: a.damageBonus, mitigation: a.mitigation, expires: s.now + a.duration });
             s.lastEvent = `${a.name} active · ${a.duration}s`;
             s.effects.spawn({ type: 'buffPulse', x: p.x, z: p.z, range: 1.5, expires: s.now + 0.4 });
         }
         if (a.effect === 'barrage') {
-            this.barrages.push({ ability: a, angle, index: 0, at: s.now });
+            this.barrages.push({ ability: a, angle, index: 0, at: s.now, trace });
+            s.journal.reserve(trace);
             s.lastEvent = a.name;
         }
         if (a.effect === 'contactCombo') {
-            this.leap = { ability: a, angle, remaining: a.range };
+            this.leap = { ability: a, angle, remaining: a.range, trace };
+            s.journal.reserve(trace);
             s.lastEvent = a.name + ' · leap';
         }
         if (a.effect === 'groundImpact') {
@@ -38,26 +41,37 @@ export class AdvancedActions {
                 target || { x: p.x + Math.sin(angle) * a.range * 0.65, z: p.z + Math.cos(angle) * a.range * 0.65 },
                 a.range
             );
-            this.impacts.push({ ability: a, ...point, source: p, created: s.now, at: s.now + a.castTime });
+            this.impacts.push({ ability: a, ...point, source: p, created: s.now, at: s.now + a.castTime, trace });
+            s.journal.reserve(trace);
             s.lastEvent = a.name + ' · committed';
         }
     }
-    finishLeap(target = null) {
+    finishLeap(target = null, interrupted = false) {
         const s = this.sim,
             l = this.leap;
         if (!l) return;
         this.leap = null;
         s.cooldowns.start(l.ability.id, s.cooldownDuration(l.ability), s.now);
         if (target) {
-            this.sequence = { ability: l.ability, angle: l.angle, targetId: target.id, index: 0, started: s.now };
+            this.sequence = {
+                ability: l.ability,
+                angle: l.angle,
+                targetId: target.id,
+                index: 0,
+                started: s.now,
+                trace: l.trace
+            };
             s.lastEvent = l.ability.name + ' · contact';
         } else {
+            s.journal.end(l.trace, interrupted);
             s.lastEvent = l.ability.name + ' · no contact · cooldown';
             if (!s.player.dead) s.feedback?.emit({ type: 'miss', time: s.now, source: s.player, ability: l.ability });
         }
     }
     cancel() {
-        if (this.leap) this.finishLeap();
+        if (this.leap) this.finishLeap(null, true);
+        this.sim.journal.end(this.sequence?.trace, true);
+        for (const action of [...this.impacts, ...this.barrages]) this.sim.journal.end(action.trace, true);
         this.sequence = null;
         this.pose = null;
         this.impacts = [];
@@ -72,11 +86,12 @@ export class AdvancedActions {
         }
         for (const b of this.barrages) {
             while (b.index < b.ability.count && s.now + 1e-9 >= b.at + b.index * b.ability.interval) {
-                s.spawnProjectile(b.ability, b.angle, p);
+                s.spawnProjectile(b.ability, b.angle, p, b.ability.id, b.trace);
                 b.index++;
                 this.pose = { kind: 'strum', until: s.now + 0.15 };
             }
         }
+        for (const b of this.barrages) if (b.index >= b.ability.count) s.journal.end(b.trace);
         this.barrages = this.barrages.filter((b) => b.index < b.ability.count);
         if (this.leap) {
             const l = this.leap,
@@ -115,7 +130,7 @@ export class AdvancedActions {
                 const t = s.targets.find((t) => t.id === q.targetId),
                     index = q.index++;
                 if (t && s.valid(t) && inCone(p, t, q.angle, a.meleeRange, a.angle))
-                    s.damage(t, a.damage[index], p, { ability: a });
+                    s.damage(t, a.damage[index], p, { ability: a, trace: q.trace });
                 this.pose = {
                     kind: index === a.damage.length - 1 ? 'kick' : 'punch',
                     side: index % 2,
@@ -133,15 +148,19 @@ export class AdvancedActions {
                 });
                 s.lastEvent = `${a.name} · strike ${index + 1}/${a.damage.length}`;
             }
-            if (q.index >= a.damage.length) this.sequence = null;
+            if (q.index >= a.damage.length) {
+                s.journal.end(q.trace);
+                this.sequence = null;
+            }
         }
         for (const i of this.impacts) {
             if (s.now + 1e-9 < i.at) continue;
             for (const t of s.uniqueTargets())
                 if (s.valid(t, i.source.team) && inRadial(i, t, i.ability.radius))
-                    s.damage(t, i.ability.damage, i.source, { ability: i.ability });
+                    s.damage(t, i.ability.damage, i.source, { ability: i.ability, trace: i.trace });
             s.effects.spawn({ type: 'slam', x: i.x, z: i.z, range: i.ability.radius, expires: s.now + i.ability.vfx });
             s.lastEvent = i.ability.name + ' · IMPACT';
+            s.journal.end(i.trace);
             i.done = true;
         }
         this.impacts = this.impacts.filter((i) => !i.done);

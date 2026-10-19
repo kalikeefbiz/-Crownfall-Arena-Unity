@@ -276,3 +276,121 @@ button {
         top: 95px;
     }
 }
+#combat-world,
+#combat-labels {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+#combat-world {
+    z-index: 1;
+}
+#ability-preview {
+    fill: #efc86122;
+    stroke: #ffe093;
+    stroke-width: 2.5;
+    stroke-linejoin: round;
+}
+#ability-preview.cancelled {
+    stroke: #ff657c;
+    fill: #ff465533;
+    stroke-dasharray: 6 4;
+}
+#committed-shape {
+    fill: #ffca4722;
+    stroke: #ffce66;
+    stroke-width: 3;
+}
+#combat-labels {
+    z-index: 2;
+}
+#mobile-test-label,
+.damage-number {
+    position: absolute;
+    left: 0;
+    top: 0;
+    text-align: center;
+    white-space: pre;
+}
+#mobile-test-label {
+    color: #ffe69b;
+    font-size: 11px;
+    font-weight: 800;
+    text-shadow: 0 2px 3px #000;
+    background: #152331c9;
+    padding: 3px 5px;
+    border: 1px solid #d6ad64;
+    border-radius: 4px;
+}
+.damage-number {
+    font-size: 23px;
+    font-weight: 900;
+    color: #fff3a4;
+    text-shadow:
+        0 2px 2px #000,
+        1px 0 2px #000;
+}
+#preview-hint {
+    position: absolute;
+    left: 50%;
+    bottom: 105px;
+    transform: translateX(-50%);
+    color: #ffe69b;
+    background: #071321db;
+    padding: 5px 10px;
+    font-size: 12px;
+}
+#preview-hint:empty {
+    display: none;
+}
+main {
+    z-index: 3;
+}
+#combat-feedback {
+    position: absolute;
+    left: 50%;
+    top: 12px;
+    transform: translateX(-50%);
+    padding: 7px 12px;
+    background: #132d40eb;
+    border: 1px solid #8aa8b9;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 750;
+    max-width: 55%;
+    text-align: center;
+}
+#combat-feedback[data-outcome='HIT'] {
+    color: #fff3a4;
+    border-color: #ffe566;
+    background: #234635ed;
+}
+#combat-feedback[data-outcome='MISS'],
+#combat-feedback[data-outcome='REJECTED'] {
+    color: #ffb4c1;
+    border-color: #ef7286;
+}
+@media (max-height: 500px) {
+    #combat-feedback {
+        left: auto;
+        right: 12px;
+        transform: none;
+        top: 10px;
+        max-width: 65%;
+        font-size: 12px;
+    }
+    #mobile-test-label {
+        font-size: 9px;
+    }
+    #combat-diagnostics {
+        font-size: 8px;
+        line-height: 1.35;
+    }
+    #preview-hint {
+        font-size: 10px;
+        bottom: 100px;
+    }
+}

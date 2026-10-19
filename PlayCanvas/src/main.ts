@@ -12,6 +12,7 @@ import {
 
 import { AbilityInput } from './combat/ability-input.js';
 import { hasStatus } from './combat/combat-core.js';
+import { CommandStepper } from './combat/command-stepper.js';
 import { Simulation } from './gameplay/simulation';
 import { Controls } from './input/controls';
 import { createScene } from './presentation/scene';
@@ -39,7 +40,8 @@ try {
     const abilities = new AbilityInput(
         { enabled: true },
         () => simulation.combat.player.angle,
-        simulation.combat.definition
+        simulation.combat.definition,
+        (x: number, y: number) => scene.dragVector(x, y, simulation)
     );
     abilities.update(simulation.combat);
     hud.onSelect((index) => {
@@ -59,7 +61,7 @@ try {
     document.querySelector('#damage-player')!.addEventListener('click', () => {
         simulation.combat.damage(simulation.combat.player, 100, simulation.combat.targets[0]);
     });
-    let accumulator = 0;
+    const stepper = new CommandStepper();
     let frames = 0,
         hudElapsed = 0,
         smoothedDt = 1 / 60;
@@ -71,28 +73,7 @@ try {
             frame.aim = { x: Math.sin(preview.angle), z: Math.cos(preview.angle) };
             frame.targeting = true;
         }
-        const command = abilities.read();
-        accumulator += dt;
-        let actions = command.actions;
-        let accepted = false;
-        while (accumulator >= 1 / 60) {
-            const c = simulation.combat;
-            const before = c.actionSerial;
-            c.step({
-                moveX: frame.movement.x,
-                moveZ: frame.movement.z,
-                aimX: frame.aim.x,
-                aimZ: frame.aim.z,
-                aiming: frame.targeting,
-                actions,
-                attackHeld: command.attackHeld
-            });
-            accepted ||= c.actionSerial !== before;
-            actions = [];
-            accumulator -= 1 / 60;
-        }
-        // Commands survive frames shorter than one simulation tick.
-        if (actions.length) abilities.actions.unshift(...actions);
+        const accepted = stepper.advance(simulation.combat, abilities, frame, dt);
         const c = simulation.combat;
         simulation.update(
             {
@@ -107,16 +88,17 @@ try {
         simulation.position = { x: c.player.x, z: c.player.z };
         simulation.collisions = c.collisions;
         abilities.update(c);
-        scene.update(simulation, dt);
+        scene.update(simulation, dt, abilities.preview);
         frames++;
         smoothedDt += (Math.max(elapsed, 0.001) - smoothedDt) * 0.1;
         hudElapsed += elapsed;
         if (hudElapsed >= 0.1) {
-            hud.update(simulation, smoothedDt, frames);
+            hud.update(simulation, smoothedDt, frames, abilities.preview);
             hudElapsed = 0;
         }
     });
     app.on('destroy', () => {
+        scene.destroy();
         input.destroy();
         abilities.destroy();
         window.removeEventListener('resize', resize);
@@ -134,8 +116,18 @@ try {
                         player: simulation.combat.player,
                         targets: simulation.combat.targets,
                         cooldowns: simulation.combat.cooldowns.ends,
-                        now: simulation.combat.now
+                        now: simulation.combat.now,
+                        transactions: simulation.combat.transactions,
+                        journal: {
+                            latestAttempt: simulation.combat.journal.latestAttempt,
+                            latestAccepted: simulation.combat.journal.latestAccepted,
+                            latestResolution: simulation.combat.journal.latestResolution,
+                            hits: simulation.combat.journal.hits
+                        },
+                        weapons: simulation.combat.weapons.blades.map((b) => ({ x: b.x, z: b.z, phase: b.phase }))
                     },
+                    preview: scene.preview,
+                    input: { pointer: abilities.pointerState, cancel: !!abilities.preview?.cancel },
                     position: simulation.position,
                     movement: simulation.movement,
                     aim: simulation.aim,

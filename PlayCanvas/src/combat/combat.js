@@ -13,6 +13,7 @@ import {
     zoneTagged
 } from './combat-core.js';
 import { KIT, TRAINING } from './combat-data.js';
+import { CombatJournal } from './combat-journal.js';
 import { CONFIG, MAP } from './config.js';
 import { modifierTotals, expireModifiers, updateAlliedAura, addModifier } from './modifiers.js';
 import { MovementSimulation } from './movement.js';
@@ -39,6 +40,7 @@ export class CombatSimulation extends MovementSimulation {
         this.effects = new EffectPool();
         this.projectiles = new EffectPool(32);
         this.transactions = [];
+        this.journal = new CombatJournal(this);
         this.actionSerial = 0;
         this.committedAngle = this.player.angle;
         this.combo = 0;
@@ -147,6 +149,7 @@ export class CombatSimulation extends MovementSimulation {
             abilityId: options.ability?.id ?? null,
             defeated: target.dead
         });
+        this.journal.hit(options.trace || this.executingTrace, target, n, options.ability);
         if (this.transactions.length > 128) this.transactions.shift();
         if (source && source.team !== target.team && source.kind === 'summoner' && target.kind === 'summoner') {
             source.ultimateMeter = Math.min(100, (source.ultimateMeter || 0) + n * 0.04);
@@ -170,6 +173,7 @@ export class CombatSimulation extends MovementSimulation {
         return n;
     }
     onDefeated() {
+        this.journal.end(this.dash?.trace, true);
         this.dash = null;
         this.streak = 0;
         this.temporary = new TemporaryAbilities();
@@ -185,21 +189,29 @@ export class CombatSimulation extends MovementSimulation {
         );
     }
     cast(id, angle = this.player.angle, target = null) {
+        try {
+            return this.executeCast(id, angle, target);
+        } finally {
+            this.journal.seal(this.executingTrace);
+            this.executingTrace = null;
+        }
+    }
+    executeCast(id, angle, target) {
         const a = this.ability(id),
             p = this.player;
-        if (a?.ultimate && p.ultimateMeter < 100) return false;
-        if (
-            !a ||
-            (this.match && !this.match.allowCast(this, a)) ||
-            p.dead ||
-            this.dash ||
-            this.advanced.locksCasting ||
-            hasStatus(p, 'stun', this.now) ||
-            !this.cooldowns.ready(a.cooldownKey || id, this.now)
-        )
+        const reject = (reason) => {
+            this.journal.reject(id, a, reason);
             return false;
-        if (a.effect === 'weaponSequence' && !this.weapons.canAttack()) return false;
-        if (a.temporary && !this.temporary.consume(id, this.now)) return false;
+        };
+        if (a?.ultimate && p.ultimateMeter < 100) return reject('ultimate meter');
+        if (!a) return reject('unavailable ability');
+        if (this.match && !this.match.allowCast(this, a)) return reject('match gate');
+        if (p.dead) return reject('defeated');
+        if (this.dash || this.advanced.locksCasting) return reject('action locked');
+        if (hasStatus(p, 'stun', this.now)) return reject('stunned');
+        if (!this.cooldowns.ready(a.cooldownKey || id, this.now)) return reject('cooldown');
+        if (a.effect === 'weaponSequence' && !this.weapons.canAttack()) return reject('weapons returning');
+        if (a.temporary && !this.temporary.consume(id, this.now)) return reject('grant unavailable');
         if (a.ultimate) p.ultimateMeter = 0;
         if (this.match) this.match.onCast(this, a);
         if (a.effect !== 'contactCombo') this.cooldowns.start(a.cooldownKey || id, this.cooldownDuration(a), this.now);
@@ -207,6 +219,7 @@ export class CombatSimulation extends MovementSimulation {
         this.actionSerial++;
         this.committedAngle = p.angle;
         const origin = { x: p.x, z: p.z };
+        const trace = (this.executingTrace = this.journal.accept(a, origin, angle, target));
         this.feedback?.emit({ type: 'cast', time: this.now, source: p, ability: a });
         if (a.effect === 'stance') {
             const keys = Object.keys(this.definition.stances);
@@ -233,7 +246,7 @@ export class CombatSimulation extends MovementSimulation {
                 combo: this.combo,
                 expires: this.now + a.vfx
             });
-            this.lastEvent = `${a.name} · ${a.strikeNames?.[this.combo] || 'hit ' + (this.combo + 1)}`;
+            this.lastEvent = `${a.name} · ${a.strikeNames?.[this.combo] || 'strike ' + (this.combo + 1)}`;
             if (a.visual === 'panther')
                 this.advanced.pose = {
                     kind: this.combo === 2 ? 'kick' : 'punch',
@@ -260,8 +273,10 @@ export class CombatSimulation extends MovementSimulation {
                 angle,
                 remaining: a.range,
                 hits: new Set(),
+                trace,
                 empowered: this.streak >= a.streakThreshold - 1
             };
+            this.journal.reserve(trace);
         } else if (a.effect === 'projectile') {
             this.spawnProjectile(a, angle, p, id);
             this.lastEvent = a.name;
@@ -282,6 +297,7 @@ export class CombatSimulation extends MovementSimulation {
             this.streak = 0;
             this.lastEvent = 'Ember Step missed · streak reset';
         }
+        this.journal.end(d.trace);
         this.dash = null;
     }
     updateDash(dt) {
@@ -310,7 +326,7 @@ export class CombatSimulation extends MovementSimulation {
                     segmentDistance(t.x, t.z, ax, az, bx, bz) <= d.ability.width + t.radius
                 ) {
                     d.hits.add(t.id);
-                    this.damage(t, d.ability.damage, p, { ability: d.ability });
+                    this.damage(t, d.ability.damage, p, { ability: d.ability, trace: d.trace });
                     if (d.empowered) applyStatus(t, 'stun', d.ability.stun, this.now);
                 }
         }
@@ -319,8 +335,9 @@ export class CombatSimulation extends MovementSimulation {
         this.effects.spawn({ type: 'trail', x: p.x, z: p.z, range: 0.5, expires: this.now + d.ability.vfx });
         if (this.dash && d.remaining < 0.001) this.finishDash();
     }
-    spawnProjectile(a, angle, source = this.player, type = a.id) {
-        return this.projectiles.spawn({
+    spawnProjectile(a, angle, source = this.player, type = a.id, trace = this.executingTrace) {
+        const shot = this.projectiles.spawn({
+            trace,
             type,
             ability: a,
             x: source.x,
@@ -333,6 +350,8 @@ export class CombatSimulation extends MovementSimulation {
             summoners: new Set(),
             earned: false
         });
+        if (shot) this.journal.reserve(trace);
+        return shot;
     }
     updateProjectiles(dt) {
         for (const shot of this.projectiles.items) {
@@ -341,6 +360,7 @@ export class CombatSimulation extends MovementSimulation {
             if (shot.persistent) {
                 if (shot.source.dead) {
                     shot.active = false;
+                    this.finishProjectile(shot, true);
                     continue;
                 }
                 if (shot.phase === 'orbit') {
@@ -368,7 +388,11 @@ export class CombatSimulation extends MovementSimulation {
                     segmentDistance(t.x, t.z, ax, az, shot.x, shot.z) <= a.width + t.radius
                 ) {
                     shot.hits.add(t.id);
-                    this.damage(t, a.lethal ? t.health : a.damage, shot.source, { lethal: !!a.lethal, ability: a });
+                    this.damage(t, a.lethal ? t.health : a.damage, shot.source, {
+                        lethal: !!a.lethal,
+                        ability: a,
+                        trace: shot.trace
+                    });
                     shot.weaponController?.onHit(shot);
                     if (t.kind === 'summoner') shot.summoners.add(t.id);
                     if (a.grant && !shot.earned && shot.summoners.size >= a.grant.uniqueHits && !this.player.dead) {
@@ -389,7 +413,12 @@ export class CombatSimulation extends MovementSimulation {
                     } else shot.phase = 'parked';
                 } else shot.active = false;
             }
+            if (!shot.active || shot.phase === 'parked' || shot.phase === 'orbit') this.finishProjectile(shot);
         }
+    }
+    finishProjectile(shot, interrupted = false) {
+        this.journal.end(shot.trace, interrupted);
+        shot.trace = null;
     }
     updateZones() {
         this.zones = this.zones.filter((z) => z.expires > this.now && !z.source.dead);

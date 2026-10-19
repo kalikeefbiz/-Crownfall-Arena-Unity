@@ -18,7 +18,8 @@ export function createCombat(index = 0) {
             { id: 'line-a', name: 'Line A', team: 2, kind: 'summoner', x: 0, z: 0 },
             { id: 'line-b', name: 'Line B', team: 2, kind: 'summoner', x: 0, z: -5 },
             { id: 'ally', name: 'Ally', team: 1, kind: 'summoner', x: -1, z: 4 },
-            { id: 'object', name: 'Object', team: 2, kind: 'object', x: -2, z: 3 }
+            { id: 'object', name: 'Object', team: 2, kind: 'object', x: -2, z: 3 },
+            { id: 'mobile-test', name: 'MOBILE TEST · 1.11m from reset', team: 2, kind: 'summoner', x: 0.65, z: 4.1 }
         ]
     };
     const config = {

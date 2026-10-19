@@ -35,3 +35,13 @@ No intentional changes to the three kits' damage, ranges, cadence, cooldowns, hi
 ## Physical iPhone acceptance
 
 Automated Chromium desktop and landscape touch tests cannot establish Safari touch feel, notched safe-area behavior, orientation transitions, browser gesture conflicts, sustained GPU/frame pacing, thermal behavior or long-session memory use. Those remain physical-device acceptance items. Diagnostic primitives are replaceable and are not a production art pass.
+
+## Task 002A acceptance corrections
+
+Task 002A supersedes the original input/presentation limitations without changing combat values or hit queries. Kit/Set retain a one-shot initial attempt when no fixed tick sampled a valid press. Intention sampling now happens at the actual 60 Hz consumption boundary; held repeat and Riven's release/cadence remain distinct. Input cancellation discards an unconfirmed interaction, while ordinary post-release capture loss preserves a confirmed command.
+
+World aim dragging now uses the actual PlayCanvas camera's ground-plane projection. The 12 px drag threshold, 150 px cancellation threshold and source ability ranges stay unchanged. Reset/selection clears stale presentation locks and aligns visible facing with the simulation's initial north-facing cast direction.
+
+An observational journal attributes asynchronous hit/miss results to their originating cast. Damage numbers, target flash/pulse, explicit cast/HIT/MISS diagnostics and selected-ability world outlines read this evidence and the same ability data as simulation. The additional gold mobile acceptance Summoner is the only target-layout addition; all original targets are unchanged.
+
+The original 78 unit tests and nine browser tests remain intact. Additional tests cover sub-tick intention delivery and genuine touch DAMAGE assertions, including Riven hold/release and true capture loss. See [TASK_002A_VERIFICATION.md](TASK_002A_VERIFICATION.md).

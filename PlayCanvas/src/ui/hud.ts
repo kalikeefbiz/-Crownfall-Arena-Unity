@@ -1,14 +1,16 @@
+import type { PreviewIntent } from '../combat/ability-input';
 import type { Simulation } from '../gameplay/simulation';
 export function createHud() {
     const hud = document.createElement('main');
     hud.innerHTML = `
-      <header><strong>CROWNFALL</strong> <span>ARENA · COMBAT SANDBOX 002</span></header>
+      <header><strong>CROWNFALL</strong> <span>ARENA · TOUCH COMBAT 002A</span></header>
       <p class="help">WASD / arrows move · Space Basic · Q / E / R skills · F stance / Blast<br>Touch: left pad moves · drag abilities to aim · release casts</p>
+      <div id="combat-feedback" role="status" aria-live="polite">READY · Face gold MOBILE TEST target</div>
       <pre id="diagnostics" aria-label="Runtime diagnostics"></pre>
       <div id="move" class="pad" aria-label="Movement joystick"><span>MOVE</span><i>✥</i></div>
       <select id="summoner" aria-label="Summoner"><option>Kit</option><option>Set</option><option>Riven</option></select><button id="reset-combat">Reset sandbox</button><button id="charge">Debug: charge ultimate</button><button id="damage-player">Debug: receive 100 damage</button><div id="ability-bar"></div><pre id="combat-diagnostics"></pre>
       <div id="aim" hidden></div>
-      <div class="notice">Combat diagnostics · stationary enemies · F: stance / Blast</div>
+      <div class="notice">RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE</div>
     `;
     document.body.append(hud);
     hud.querySelector('#summoner')!.addEventListener('change', (e) =>
@@ -22,10 +24,56 @@ export function createHud() {
         },
         move: hud.querySelector<HTMLElement>('#move')!,
         aim: hud.querySelector<HTMLElement>('#aim')!,
-        update(sim: Simulation, dt: number, frames: number) {
+        update(sim: Simulation, dt: number, frames: number, intent: PreviewIntent | null = null) {
             const c = sim.combat;
+            const journal = c.journal,
+                attempt = journal.latestAttempt,
+                accepted = journal.latestAccepted,
+                result = journal.latestResolution;
+            const hit = journal.hits.at(-1),
+                transaction = c.transactions.at(-1);
+            const banner = hud.querySelector<HTMLElement>('#combat-feedback')!;
+            let outcome = 'READY',
+                message = 'Face gold MOBILE TEST target';
+            if (result && c.now - (result.finished ?? 0) < 1.8) {
+                outcome = result.result;
+                message = `${result.name} · ${result.targetIds.length} targets · ${Number(result.damage.toFixed(1))} damage`;
+            }
+            if (accepted && accepted.result === 'PENDING' && accepted.time > (result?.finished ?? -1)) {
+                outcome = 'ACCEPTED';
+                message = `${accepted.name} · awaiting hit`;
+            }
+            if (
+                hit &&
+                c.now - hit.time < 1.5 &&
+                hit.time >= (accepted?.time ?? -1) &&
+                hit.time >= (result?.finished ?? -1)
+            ) {
+                outcome = 'HIT';
+                message = `${hit.name} · −${Number(hit.amount.toFixed(1))} · ${hit.targetId}`;
+            }
+            if (outcome === 'READY' && attempt && !attempt.accepted && c.now - attempt.time < 1.8) {
+                outcome = 'REJECTED';
+                message = `${attempt.name} · ${attempt.reason}`;
+            }
+            if (outcome === 'READY' && intent) {
+                outcome = 'AIMING';
+                message =
+                    c.definition.id === 'riven' && intent.ability.basic
+                        ? 'RELEASE to launch'
+                        : 'Drag to aim · release to confirm';
+            }
+            if (intent?.cancel) {
+                outcome = 'CANCELLED';
+                message = 'Beyond 150px · return inside to aim';
+            }
+            banner.dataset.outcome = outcome;
+            banner.textContent = `${outcome} · ${message}`;
             hud.querySelector('#combat-diagnostics')!.textContent = [
                 `${c.definition.name || 'Kit'} · ${c.stance || ''} HP ${c.player.health.toFixed(0)}/${c.player.maxHealth} ULT ${c.player.ultimateMeter.toFixed(1)} · ${c.player.dead ? 'DEFEATED' : 'alive'}`,
+                `CAST ${attempt ? `${attempt.accepted ? 'ACCEPTED' : 'REJECTED ' + attempt.reason} · ${attempt.abilityId}` : 'none'}`,
+                `RESULT ${accepted ? `${accepted.abilityId} · ${accepted.result} · ${accepted.targetIds.length} targets` : 'none'}`,
+                `TX ${transaction ? `${transaction.abilityId || 'environment'} → ${transaction.targetId} −${Number(transaction.amount.toFixed(1))}` : 'none'}`,
                 c.lastEvent,
                 'SELF ' +
                     [

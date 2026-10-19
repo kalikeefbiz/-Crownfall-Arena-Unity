@@ -4,8 +4,8 @@ import { KIT } from './combat-data.js';
 // Browser adapter for the existing PlayCanvas HUD. Simulation-facing input lives
 // in AbilityCommands; this adapter only owns DOM lifetime, capture and labels.
 export class AbilityInput extends AbilityCommands {
-    constructor(input, getFacing, definition = KIT) {
-        super(input, getFacing, definition);
+    constructor(input, getFacing, definition = KIT, mapDrag) {
+        super(input, getFacing, definition, mapDrag);
         this.abort = new AbortController();
         this.buttons = new Map();
         this.capture = null;
@@ -40,13 +40,20 @@ export class AbilityInput extends AbilityCommands {
             this.listen(button, 'pointerdown', (event) => {
                 if (!this.begin(ability, event.pointerId, event.clientX, event.clientY, event.timeStamp)) return;
                 event.preventDefault();
+                this.pointerState = 'down';
                 this.capture = { button, pointer: event.pointerId };
                 button.setPointerCapture(event.pointerId);
             });
             this.listen(button, 'pointermove', (event) => this.drag(event.pointerId, event.clientX, event.clientY));
-            this.listen(button, 'pointerup', (event) => this.finish(event.pointerId, event.timeStamp));
+            this.listen(button, 'pointerup', (event) => {
+                this.pointerState = 'released';
+                this.finish(event.pointerId, event.timeStamp);
+            });
             for (const event of ['pointercancel', 'lostpointercapture'])
-                this.listen(button, event, (e) => this.finish(e.pointerId, e.timeStamp, false));
+                this.listen(button, event, (e) => {
+                    if (this.active?.pointer === e.pointerId) this.pointerState = event;
+                    this.finish(e.pointerId, e.timeStamp, false);
+                });
         });
     }
     release() {

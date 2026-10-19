@@ -49,3 +49,16 @@ CHROMIUM_PATH=/usr/bin/chromium npm run test:browser
 Alternatively install Playwright Chromium with `npx playwright install chromium` and omit `CHROMIUM_PATH`. Production-browser tests serve `dist/` at port 4173 and exercise actual DOM controls, including CDP multi-touch. Screenshots and browser traces/results remain ignored under `test-results/`.
 
 The existing `Publish Crownfall PlayCanvas Preview` workflow publishes this directory to `/playcanvas/` while preserving the Unity-hosted root. Physical iPhone Safari acceptance is still required for multi-touch feel, safe areas/orientation and sustained GPU performance.
+
+## Task 002A mobile acceptance
+
+Reset or select a Summoner, then face the gold **MOBILE TEST** enemy: its center is 1.11 m from reset spawn at `(0.65, 4.1)`. Other geometry targets stay in their original positions. No combat ranges or target health have been widened/reduced for this test.
+
+- Kit/Set: press Basic or hold to repeat. Even a press/release entirely between ticks retains one initial attempt. Unbuffed first hits are 110 / 90 respectively.
+- Riven: hold to preview, then **release**. Holding alone does not fire. Two outbound scythes deal 75 each to this target; another Basic recalls them. Pulse is also release-confirmed.
+- Try Kit Solar Ring / Ember Step, Set Predatory Combo / Panther Fist, and Riven Elf Dance. The touch tests verify these through real PointerEvents and authoritative transactions.
+- Target flash/pulse, floating damage numbers and the large HIT/MISS banner confirm actual results. ACCEPTED while travelling is distinct from HIT; MISS waits for the authoritative action/projectile to finish. Buff/stance actions report DONE rather than a false miss.
+- The HUD reports cast acceptance/rejection reason, latest ability, distinct target count and latest damage transaction. World previews use the selected ability's cone, width/range, radial radius, clamped ground point or recall paths. Drag direction is derived from the actual PlayCanvas camera.
+- The Version 21 150 px cancellation distance is unchanged; a cancelled preview turns red and explicitly says CANCELLED. Cancellation does not commit an action. An already accepted held-repeat attack cannot be undone retroactively.
+
+See [TASK_002A_VERIFICATION.md](TASK_002A_VERIFICATION.md) for reproduction evidence, tests and remaining physical Safari checks.
