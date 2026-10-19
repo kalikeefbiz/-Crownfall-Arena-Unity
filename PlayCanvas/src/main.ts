@@ -41,7 +41,7 @@ try {
     simulation.bots = !debug;
     simulation.select(0);
     document.body.classList.toggle('lifecycle', simulation.lifecycle);
-    const scene = createScene(app);
+    const scene = createScene(app, !debug);
     const hud = createHud();
     const stepper = new CommandStepper();
     const input = new Controls(hud.move, hud.aim, canvas, (x, y) => scene.screenAim(x, y, simulation));
@@ -57,6 +57,7 @@ try {
         select.replaceChildren(...(simulation.match?.entities || []).map((a) => new Option(`${a.id} ${a.name}`, a.id)));
     };
     hud.onSelect((index) => {
+        verificationPaused = false;
         simulation.select(index);
         stepper.accumulator = 0;
         abilities.clear();
@@ -66,6 +67,7 @@ try {
     });
     document.querySelector('#reset-combat')!.addEventListener('click', () => {
         const index = (document.querySelector('#summoner') as HTMLSelectElement).selectedIndex;
+        verificationPaused = false;
         simulation.select(index);
         stepper.accumulator = 0;
         abilities.clear();
@@ -104,6 +106,57 @@ try {
     document.querySelector('#damage-player')!.addEventListener('click', () => {
         simulation.combat.damage(simulation.combat.player, 100, simulation.combat.targets[0]);
     });
+    // Opt-in deterministic production verification; normal play exposes snapshots only.
+    let verificationPaused = false;
+    const verification =
+        new URLSearchParams(location.search).get('verify') === '1'
+            ? {
+                  arrange(name: string) {
+                      const m = simulation.match;
+                      if (
+                          !m ||
+                          !['pressure', 'neutral', 'red-pressure', 'total-control', 'points', 'combat'].includes(name)
+                      )
+                          throw new Error('Unknown verification fixture');
+                      verificationPaused = true;
+                      if (m.phase === 'prematch') {
+                          m.start();
+                          m.step(undefined, 3);
+                      }
+                      for (const [i, actor] of m.actors.entries()) {
+                          Object.assign(actor, { bot: null });
+                          const p = actor.sim.player;
+                          p.x = ((i % 3) - 1) * 8;
+                          p.z = p.team === 1 ? -4 : -8;
+                          Object.assign(p, { previous: { x: p.x, z: p.z } });
+                      }
+                      if (name === 'neutral') for (const p of m.entities) p.z = p.team === 1 ? 4 : -4;
+                      if (name === 'red-pressure') for (const p of m.entities) p.z = p.team === 1 ? 8 : 4;
+                      if (name === 'total-control')
+                          for (const p of m.entities) {
+                              p.x = p.team === 1 ? 0 : 13;
+                              p.z = p.team === 1 ? -28 : -30;
+                          }
+                      if (name === 'points') m.rules.cp[1] = 999;
+                      if (name === 'combat') {
+                          for (const p of m.entities) {
+                              p.x = 13 + (Number(p.id.at(-1)) || 0) * 3;
+                              p.z = p.team === 1 ? 4 : -4;
+                          }
+                          Object.assign(m.human.player, { x: 0, z: 4, angle: Math.PI });
+                          Object.assign(m.entities[3], { x: 0, z: 2.1 });
+                          verificationPaused = false;
+                      }
+                  },
+                  advance(seconds: number) {
+                      if (!verificationPaused || !Number.isFinite(seconds) || seconds < 0 || seconds > 300)
+                          throw new Error('Invalid verification advance');
+                      const m = simulation.match!;
+                      for (let remaining = seconds; remaining > 1e-9 && !m.rules.result; remaining -= 1 / 60)
+                          m.step(undefined, Math.min(remaining, 1 / 60));
+                  }
+              }
+            : undefined;
     let frames = 0,
         hudElapsed = 0,
         smoothedDt = 1 / 60;
@@ -115,7 +168,7 @@ try {
             frame.aim = { x: Math.sin(preview.angle), z: Math.cos(preview.angle) };
             frame.targeting = true;
         }
-        const accepted = stepper.advance(simulation.combat, abilities, frame, dt);
+        const accepted = !verificationPaused && stepper.advance(simulation.combat, abilities, frame, dt);
         const c = simulation.combat;
         simulation.update(
             {
@@ -150,6 +203,7 @@ try {
     Object.defineProperty(window, '__crownfall', {
         configurable: true,
         value: {
+            verification,
             snapshot: () =>
                 structuredClone({
                     match: simulation.match?.snapshot() ?? null,
@@ -170,6 +224,7 @@ try {
                         weapons: simulation.combat.weapons.blades.map((b) => ({ x: b.x, z: b.z, phase: b.phase }))
                     },
                     preview: scene.preview,
+                    territory: scene.territory,
                     input: { pointer: abilities.pointerState, cancel: !!abilities.preview?.cancel },
                     position: simulation.position,
                     movement: simulation.movement,

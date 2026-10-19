@@ -3,7 +3,7 @@ import { test, expect } from 'vitest';
 import { CrownfallMatch } from '../src/combat/match.js';
 
 function active(index = 0) {
-    const m = new CrownfallMatch(index);
+    const m = new CrownfallMatch(index, { diagnostic: true });
     m.start();
     m.debugAdvance(3);
     return m;
@@ -17,7 +17,7 @@ function cycle(m, id = '2-0') {
 }
 test('six unique independent actors, both complete rosters and selected human, exact durability', () => {
     for (let index = 0; index < 3; index++) {
-        const m = new CrownfallMatch(index);
+        const m = new CrownfallMatch(index, { diagnostic: true });
         expect(m.entities).toHaveLength(6);
         expect(new Set(m.entities.map((p) => p.id)).size).toBe(6);
         expect(m.human.definition.id).toBe(['kit-asher', 'set', 'riven'][index]);
@@ -38,7 +38,7 @@ test('six unique independent actors, both complete rosters and selected human, e
     }
 });
 test('prematch/countdown gate damage, movement and casts; exactly three seconds', () => {
-    const m = new CrownfallMatch();
+    const m = new CrownfallMatch(0, { diagnostic: true });
     const p = { ...m.human.player };
     m.step({ moveX: 1, moveZ: 0 });
     expect(m.human.player.x).toBe(p.x);
@@ -232,11 +232,11 @@ test('result freezes ticks, casts, damage, respawns and records; fresh rematch c
     m.human.step({ moveX: 1, moveZ: 0 });
     expect(JSON.stringify(m.snapshot())).toBe(snap);
     expect(JSON.stringify(m.human.journal.attempts)).toBe(journal);
-    const reset = new CrownfallMatch(2);
+    const reset = new CrownfallMatch(2, { diagnostic: true });
     expect(reset.phase).toBe('prematch');
     expect(reset.rules.tickets).toEqual({ 1: 15, 2: 15 });
     for (const { sim, record } of reset.actors) {
-        expect(record).toEqual({ kills: 0, deaths: 0, assists: 0, damage: 0 });
+        expect(record).toEqual({ kills: 0, deaths: 0, assists: 0, damage: 0, pressureSeconds: 0 });
         expect(sim.player.finalRespawnAvailable).toBe(true);
         expect(sim.player.dead).toBe(false);
         expect(sim.player.health).toBe(sim.player.maxHealth);

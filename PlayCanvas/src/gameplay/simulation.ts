@@ -13,7 +13,7 @@ export class Simulation {
     lifecycle = false;
     bots = false;
     select(index: number): void {
-        this.match = this.lifecycle ? new CrownfallMatch(index, { bots: this.bots }) : null;
+        this.match = this.lifecycle ? new CrownfallMatch(index, { bots: this.bots, diagnostic: !this.bots }) : null;
         this.combat = this.match ? this.match.human : createCombat(index);
         this.position = { x: 0, z: 5 };
         this.aim = { x: Math.sin(this.combat.player.angle), z: Math.cos(this.combat.player.angle) };

@@ -1,7 +1,9 @@
-import { Color, Entity, StandardMaterial, Vec3, CULLFACE_NONE } from 'playcanvas';
+import { Color, Entity, StandardMaterial, Vec3, CULLFACE_NONE, BLEND_NORMAL } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
 import type { PreviewIntent } from '../combat/ability-input';
+import { MATCH_LANE } from '../combat/match-data.js';
+import { MATCH_WORLD, CAMERA_OFFSET } from '../combat/match-space.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import type { Simulation } from '../gameplay/simulation';
 
@@ -14,7 +16,7 @@ function material(hex: number): StandardMaterial {
     m.update();
     return m;
 }
-export function createScene(app: AppBase) {
+export function createScene(app: AppBase, competitive = false) {
     const stone = material(0x334758),
         boundary = material(0x74b6ba),
         gold = material(0xd6ad64);
@@ -38,17 +40,38 @@ export function createScene(app: AppBase) {
         parent.addChild(e);
         return e;
     };
-    primitive('lane-floor', 'box', [0, -0.15, 0], [18, 0.3, 32], stone);
-    for (const x of [-ARENA.halfWidth, ARENA.halfWidth])
-        primitive('lane-boundary', 'box', [x, 0.15, 0], [0.12, 0.3, 32], boundary);
-    for (const z of [-ARENA.halfLength, ARENA.halfLength])
-        primitive('lane-end', 'box', [0, 0.15, z], [18, 0.3, 0.12], boundary);
-    for (let z = -14; z <= 14; z += 2) primitive('lane-guide', 'box', [0, 0.012, z], [0.07, 0.02, 0.7], boundary);
-    primitive('center-line', 'box', [0, 0.015, 0], [18, 0.025, 0.1], gold);
-    for (const o of OBSTACLES) {
-        primitive('obstruction', 'box', [o.x, 0.65, o.z], [o.halfX * 2, 1.3, o.halfZ * 2], dark);
-        primitive('obstruction-cap', 'box', [o.x, 1.32, o.z], [o.halfX * 2, 0.06, o.halfZ * 2], gold);
+    const geometry = competitive
+        ? MATCH_WORLD
+        : {
+              width: 18,
+              depth: 32,
+              walls: OBSTACLES.map((o) => ({ x: o.x, z: o.z, w: o.halfX * 2, d: o.halfZ * 2, h: 1.3 }))
+          };
+    primitive('lane-floor', 'box', [0, -0.15, 0], [geometry.width, 0.3, geometry.depth], stone);
+    const laneWidth = competitive ? MATCH_LANE.halfWidth * 2 : ARENA.halfWidth * 2;
+    const laneLength = competitive ? MATCH_LANE.goalB - MATCH_LANE.goalA : 32;
+    for (const x of [-laneWidth / 2, laneWidth / 2])
+        primitive('lane-boundary', 'box', [x, 0.04, 0], [0.12, 0.08, geometry.depth], boundary);
+    for (const z of [-geometry.depth / 2, geometry.depth / 2])
+        primitive('lane-end', 'box', [0, 0.15, z], [geometry.width, 0.3, 0.12], boundary);
+    for (let z = -laneLength / 2; z <= laneLength / 2; z += 2)
+        primitive('lane-guide', 'box', [0, 0.012, z], [0.07, 0.02, 0.7], boundary);
+    for (const o of geometry.walls) {
+        primitive('obstruction', 'box', [o.x, o.h / 2, o.z], [o.w, o.h, o.d], dark);
+        primitive('obstruction-cap', 'box', [o.x, o.h + 0.02, o.z], [o.w, 0.04, o.d], gold);
     }
+    const tint = (hex: number) => {
+        const m = material(hex);
+        m.blendType = BLEND_NORMAL;
+        m.opacity = 0.18;
+        m.depthWrite = false;
+        m.update();
+        return m;
+    };
+    const blueTerritory = primitive('blue-territory', 'box', [0, 0.018, 0], [laneWidth, 0.012, 1], tint(0x369bff));
+    const redTerritory = primitive('red-territory', 'box', [0, 0.02, 0], [laneWidth, 0.012, 1], tint(0xff425c));
+    const frontier = primitive('authoritative-frontier', 'box', [0, 0.07, 0], [laneWidth, 0.1, 0.18], gold);
+    blueTerritory.enabled = redTerritory.enabled = frontier.enabled = competitive;
     const root = new Entity('Kit-gameplay-root');
     app.root.addChild(root);
     primitive('Kit-collision-footprint', 'cylinder', [0, 0.04, 0], [0.8, 0.06, 0.8], boundary, root);
@@ -75,7 +98,7 @@ export function createScene(app: AppBase) {
     app.root.addChild(camera);
     const follow = new Vec3(0, 0, 5);
     const updateCamera = () => {
-        camera.setPosition(follow.x, 15, follow.z + 12.5865);
+        camera.setPosition(follow.x, CAMERA_OFFSET.y, follow.z + CAMERA_OFFSET.z);
         camera.lookAt(follow.x, 0, follow.z);
     };
     updateCamera();
@@ -106,6 +129,13 @@ export function createScene(app: AppBase) {
         return { x: near.x + (far.x - near.x) * t, z: near.z + (far.z - near.z) * t };
     };
     return {
+        get territory() {
+            return {
+                frontierZ: frontier.getPosition().z,
+                camera: { x: camera.getPosition().x, y: camera.getPosition().y, z: camera.getPosition().z },
+                follow: { x: follow.x, z: follow.z }
+            };
+        },
         get preview() {
             return overlay.preview;
         },
@@ -123,6 +153,15 @@ export function createScene(app: AppBase) {
         },
         update(sim: Simulation, dt: number, intent: PreviewIntent | null = null) {
             const combat = sim.combat;
+            if (competitive && sim.match) {
+                const z = -sim.match.rules.front;
+                frontier.setPosition(0, 0.07, z);
+                const half = laneLength / 2;
+                blueTerritory.setPosition(0, 0.018, (z + half) / 2);
+                blueTerritory.setLocalScale(laneWidth, 0.012, Math.max(0.001, half - z));
+                redTerritory.setPosition(0, 0.02, (z - half) / 2);
+                redTerritory.setLocalScale(laneWidth, 0.012, Math.max(0.001, z + half));
+            }
             const actors = sim.match?.actors || [];
             const actorIds = new Set(actors.map((a) => a.sim.player.id));
             for (const [id, label] of labelViews) if (!actorIds.has(id)) label.hidden = true;

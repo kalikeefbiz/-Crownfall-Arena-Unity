@@ -684,3 +684,78 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
         font-size: 8px;
     }
 }
+
+/* Territorial HUD and complete participant results. */
+#scoreboard {
+    white-space: pre-line;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.4;
+}
+#team-status {
+    top: calc(84px + var(--safe-top));
+}
+#kill-feed {
+    top: calc(155px + var(--safe-top));
+}
+#result-panel {
+    inset: 5% 12%;
+    overflow: auto;
+}
+#result-panel h1 {
+    margin: 0 0 8px;
+    font-size: 24px;
+}
+#result-detail {
+    font-size: 12px;
+    margin: 6px 0;
+}
+#result-participants {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin: 8px 0;
+}
+#result-participants th,
+#result-participants td {
+    padding: 5px 3px;
+    border-bottom: 1px solid #476279;
+}
+@media (max-height: 500px) {
+    #scoreboard {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+    #team-status {
+        top: calc(64px + var(--safe-top));
+    }
+    #kill-feed {
+        top: calc(122px + var(--safe-top));
+    }
+    #result-participants {
+        font-size: 10px;
+        margin: 4px 0;
+    }
+    #result-participants td,
+    #result-participants th {
+        padding: 3px;
+    }
+    #result-panel {
+        inset: 3% 12%;
+        padding: 8px;
+    }
+    #restart-match {
+        height: 32px;
+    }
+}
+@media (orientation: portrait) {
+    #team-status {
+        top: calc(146px + var(--safe-top));
+    }
+    #kill-feed {
+        top: calc(225px + var(--safe-top));
+    }
+    #result-panel {
+        inset: 10% 2%;
+    }
+}

@@ -8,7 +8,7 @@ function tick(m, seconds, command = idle) {
     for (let i = 0; i < seconds * 60 && !m.rules.result; i++) m.step(command);
 }
 test('playable countdown gates all six actors, movement, abilities and damage', () => {
-    const m = new CrownfallMatch(0, { bots: true });
+    const m = new CrownfallMatch(0, { bots: true, diagnostic: true });
     const before = m.snapshot().actors;
     expect(m.actors.filter((a) => a.bot)).toHaveLength(5);
     m.start();
@@ -20,7 +20,7 @@ test('playable countdown gates all six actors, movement, abilities and damage', 
     expect(m.human.player.x).toBeGreaterThan(before[0].x);
 });
 test('bots route around arena walls, select enemies and never target protected allies', () => {
-    const m = new CrownfallMatch(0, { bots: true });
+    const m = new CrownfallMatch(0, { bots: true, diagnostic: true });
     m.start();
     tick(m, 3);
     const sim = m.actors[1].sim,
@@ -44,7 +44,7 @@ test('bots route around arena walls, select enemies and never target protected a
 });
 for (let selected = 0; selected < 3; selected++) {
     test(`natural 3v3 battle ${selected}: all five bots fight, tickets/finals/elimination/results freeze and restart`, () => {
-        const m = new CrownfallMatch(selected, { bots: true });
+        const m = new CrownfallMatch(selected, { bots: true, diagnostic: true });
         m.start();
         tick(m, 3);
         const spawns = m.entities.map((p) => ({ x: p.x, z: p.z }));
@@ -75,7 +75,7 @@ for (let selected = 0; selected < 3; selected++) {
         const frozen = m.snapshot();
         tick(m, 3, { moveX: 1, actions: [{ id: 'ring' }] });
         expect(m.snapshot()).toEqual(frozen);
-        const reset = new CrownfallMatch(selected, { bots: true });
+        const reset = new CrownfallMatch(selected, { bots: true, diagnostic: true });
         expect(reset.rules.tickets).toEqual({ 1: 15, 2: 15 });
         expect(
             reset.entities.every((p) => !p.dead && !p.eliminated && p.finalRespawnAvailable && p.health === p.maxHealth)
@@ -85,7 +85,7 @@ for (let selected = 0; selected < 3; selected++) {
 }
 
 test('five bots complete a match even when the human remains idle', () => {
-    const m = new CrownfallMatch(0, { bots: true });
+    const m = new CrownfallMatch(0, { bots: true, diagnostic: true });
     m.start();
     tick(m, 303);
     expect(m.rules.result).not.toBe(null);

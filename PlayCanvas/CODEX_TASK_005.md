@@ -14,6 +14,7 @@ Authoritative frozen reference:
 `kalikeefbiz/Crownfall-Browser-V21-Reference`
 
 Inspect at minimum:
+
 - `src/match-data.js`
 - `src/crownfall-rules.js`
 - `src/match.js`
@@ -30,6 +31,7 @@ Use current preserved Version 21 source/tests to resolve edge cases.
 The current Task 004 build was physically tested on iPhone Safari.
 
 Accepted:
+
 - actual 3v3 match start and end state works
 - combat works
 - camera follows the user-controlled Summoner from behind
@@ -37,6 +39,7 @@ Accepted:
 - the current playable loop is worth keeping
 
 Problems / missing systems:
+
 - results currently show only the human player's final K/D/A in the result detail
 - end-game results must show ALL SIX participants, not only the local human
 - current prototype uses AI for five actors, but future multiplayer is the goal; results/state architecture must be participant-based, not human-only or AI-specific
@@ -50,6 +53,7 @@ Do not discard the working Task 004 combat/bot/camera implementation. Extend it.
 Port the authoritative Crownfall territorial rules and complete Version 21 match victory logic into the current playable 3v3 PlayCanvas build.
 
 After this task, a normal match must be capable of ending through:
+
 1. total territorial control
 2. 1,000 Crownfall Points
 3. permanent team elimination/tickets
@@ -60,6 +64,7 @@ This is the system that makes Crownfall Crownfall.
 ## Critical identity
 
 Crownfall Arena is:
+
 - mobile-first 3v3 territorial combat
 - ONE Crownfall Lane
 - Wilderness on the two lateral sides of the lane
@@ -74,6 +79,7 @@ Do not invent MOBA lane mechanics.
 ## Coordinate adaptation — preserve the accepted camera
 
 Version 21 reference coordinates use:
+
 - X = territorial axis
 - Z = lateral/Wilderness axis
 - Blue starts at negative X and pushes toward positive X
@@ -89,10 +95,12 @@ Use an explicit documented coordinate transform for match-space reference data:
 - reference lateral Z -> PlayCanvas world X
 
 Equivalent helper concept:
+
 - `world.x = reference.z`
 - `world.z = -reference.x`
 
 Therefore:
+
 - Blue reference spawn X = -30 -> PlayCanvas world Z = +30
 - Red reference spawn X = +30 -> PlayCanvas world Z = -30
 - reference lane half-width |Z| <= 12 -> PlayCanvas world |X| <= 12
@@ -109,6 +117,7 @@ Add a small well-tested transform/helper instead of scattering sign swaps throug
 Port the Version 21 competitive match dimensions and authored collision layout from `MATCH_MAP`, `MATCH_LANE`, and `ARENA_LAYOUT`.
 
 Reference values:
+
 - map: 68 × 64 reference units
 - territorial endpoints: -28 / +28
 - lane half-width: 12
@@ -128,10 +137,12 @@ The Task 002A debug sandbox may retain its existing diagnostic geometry. This ta
 Create/port a pure testable `CrownfallRules`-style authority rather than embedding territory arithmetic in HUD or bot code.
 
 At match start:
+
 - control = 50/50
 - authoritative front = neutral
 
 Eligible lane presence:
+
 - actor must be alive
 - actor must NOT be respawn-reserved
 - actor must be physically inside the Crownfall Lane
@@ -140,6 +151,7 @@ Eligible lane presence:
 Use transformed world coordinates but reproduce the Version 21 algorithm exactly.
 
 Reference algorithm semantics:
+
 - Blue forward-most eligible Summoner and Red forward-most eligible Summoner determine the front
 - with both teams present and not crossed: front is their midpoint
 - when their forward positions cross: preserve/clamp the prior front between those forward positions; do NOT award the whole lane automatically
@@ -150,6 +162,7 @@ Reference algorithm semantics:
 - dead/reserved/Wilderness actors contribute no pressure
 
 Do NOT replace this with:
+
 - capture points
 - occupancy percentages
 - kill pressure
@@ -160,10 +173,12 @@ The front is a POSITION.
 ## Total-control victory
 
 If Blue pushes the authoritative front to its opponent territorial endpoint:
+
 - Blue wins immediately
 - reason: `total-control`
 
 If Red reaches the opposite endpoint:
+
 - Red wins immediately
 - reason: `total-control`
 
@@ -187,6 +202,7 @@ Port Version 21 scoring exactly:
 - result reason: `points`
 
 Important:
+
 - losing some forward territory while remaining above 50% does NOT stop Blue scoring
 - same for Red below 50%
 - only returning to neutral or changing controlling side resets the grace/pressure clock
@@ -194,6 +210,7 @@ Important:
 ## Existing ticket/elimination victory
 
 Preserve the accepted Task 003/004 ticket/final-respawn system:
+
 - 15 shared tickets
 - normal respawns while tickets remain
 - last shared-ticket death remains ticket-funded
@@ -202,6 +219,7 @@ Preserve the accepted Task 003/004 ticket/final-respawn system:
 - team loses only when no actor is alive or respawn-reserved
 
 Result reason remains:
+
 - `tickets`
 
 Do not regress lifecycle behavior.
@@ -216,6 +234,7 @@ Port the Version 21 order:
 4. regulation resolution
 
 Once a result exists:
+
 - freeze authoritative progression
 - preserve result
 - do not continue CP/front/tickets/timer mutation
@@ -223,14 +242,17 @@ Once a result exists:
 ## Regulation
 
 Active regulation:
+
 - 300 seconds
 
 At regulation end, if no prior result:
+
 1. higher CP wins
 2. if CP tied, higher current territory/control wins
 3. if both tied, draw
 
 Result reason:
+
 - `regulation`
 
 No overtime or sudden death.
@@ -242,16 +264,17 @@ Display regulation as a countdown or clearly understandable remaining-time prese
 Add debug-quality but readable territory presentation to the playable match.
 
 Required:
+
 - visible Crownfall Lane boundaries
 - visible authoritative front/frontier in-world
 - clear Blue-controlled and Red-controlled portions of the lane
 - territory/control percentage in HUD
 - Blue and Red CP in HUD
 - pressure state:
-  - neutral
-  - Blue pressure
-  - Red pressure
-  - scoring after grace
+    - neutral
+    - Blue pressure
+    - Red pressure
+    - scoring after grace
 - visible grace progress/countdown when useful
 - frontier movement must come from authoritative rule state only
 
@@ -263,6 +286,7 @@ Do not create production art.
 ## Match HUD
 
 Normal playable HUD must surface, without debug mode:
+
 - Blue territory %
 - Red territory %
 - Blue CP / 1000
@@ -281,10 +305,12 @@ Do not remove the accepted behind-player camera or combat HUD.
 The current results summary only surfaces the local human's final K/D/A. Replace this with a complete six-participant results model and screen.
 
 Results must list ALL SIX Summoners:
+
 - Blue Kit / Set / Riven
 - Red Kit / Set / Riven
 
 For every participant show at minimum:
+
 - team
 - Summoner name
 - K
@@ -294,18 +320,20 @@ For every participant show at minimum:
 - pressure time / lane scoring participation metric already represented by Version 21 `pressureSeconds`
 
 Also show match-level result:
+
 - winner/draw
 - victory reason:
-  - total control
-  - Crownfall Points
-  - elimination/tickets
-  - regulation
+    - total control
+    - Crownfall Points
+    - elimination/tickets
+    - regulation
 - final territory %
 - final CP
 - final tickets
 - duration
 
 Architecture requirement for multiplayer:
+
 - result data must be participant-based
 - do not derive result rows from `human`
 - do not assume exactly one human in the result model
@@ -317,6 +345,7 @@ The prototype UI may mark the local actor as `YOU`, but it must not hide or down
 ## Pressure participation record
 
 Restore/port Version 21 `pressureSeconds` per actor:
+
 - increment while alive, eligible, inside the Crownfall Lane, and on the currently scoring team
 - do not increment merely because the team has historical CP
 - preserve as a match statistic
@@ -331,6 +360,7 @@ Five bots already exist and passed Task 004.
 Do not remove them.
 
 For this task:
+
 - they must operate correctly on the transformed full match geometry
 - they must use ordinary combat/movement commands
 - their positions must naturally participate in lane control when inside the lane
@@ -344,6 +374,7 @@ Their movement/combat can naturally affect territory through authoritative actor
 ## Camera — locked acceptance item
 
 Physical iPhone feedback explicitly accepts the current camera:
+
 - follows the user-controlled Summoner
 - from behind
 - this is the preferred direction
@@ -359,6 +390,7 @@ Add regression coverage so future parity work does not casually revert the camer
 Port/adapt authoritative territory/scoring tests from browser `tests/match.test.js`.
 
 At minimum prove:
+
 - match starts exactly 50/50
 - actor positions change territory without requiring damage/kills
 - approaching/crossing defenders follows authoritative front-clamp behavior
@@ -384,6 +416,7 @@ At minimum prove:
 ## Browser/device tests
 
 Add production-browser tests that prove:
+
 - normal playable match shows territory + CP HUD
 - moving actors changes displayed control/front
 - frontier visual follows authoritative state
@@ -402,6 +435,7 @@ Do not make browser tests depend only on mouse input.
 ## Explicitly out of scope
 
 Do NOT implement yet:
+
 - Wilderness camps
 - major Wilderness objective
 - Wilderness rewards
@@ -419,6 +453,7 @@ Multiplayer is the end goal, but this task prepares participant/result architect
 ## Validation
 
 Run and fix:
+
 - unit/non-rendering tests
 - typecheck
 - lint
@@ -433,6 +468,7 @@ Retain all Task 002A touch-combat and Task 003/004 lifecycle/playable-match regr
 Do not stop after drawing a territory bar.
 
 Finish only when:
+
 - authoritative territory/front logic works
 - CP/grace logic works
 - total-control victory works
@@ -449,6 +485,7 @@ Finish only when:
 - existing `/playcanvas/` deployment is triggered
 
 At completion report:
+
 1. final commit SHA
 2. files changed
 3. exact reference files/tests used

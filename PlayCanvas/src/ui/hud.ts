@@ -18,7 +18,7 @@ export function createHud() {
       <div id="battle-announcement" role="status" aria-live="polite"></div>
       <div id="kill-feed" aria-live="polite"></div>
       <button id="play-match">Start match</button>
-      <section id="result-panel" hidden><h1 id="result-title"></h1><p id="result-detail"></p><button id="restart-match">Restart match</button></section>
+      <section id="result-panel" hidden><h1 id="result-title"></h1><p id="result-detail"></p><table id="result-participants"><thead><tr><th>Team</th><th>Summoner</th><th>K</th><th>D</th><th>A</th><th>Damage</th><th>Pressure s</th></tr></thead><tbody></tbody></table><button id="restart-match">Restart match</button></section>
       <a id="debug-link" href="?debug=1">Debug</a>
       <div id="aim" hidden></div>
       <div class="notice">RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE</div>
@@ -58,9 +58,14 @@ export function createHud() {
                   ].join('\n')
                 : 'Touch combat sandbox · enable 3v3 to test lifecycle';
             if (match && document.body.classList.contains('playable')) {
-                const time = Math.floor(match.elapsed);
+                const time = Math.ceil(match.remaining);
+                const pressure = !match.pressureTeam
+                    ? 'NEUTRAL'
+                    : `${match.pressureTeam === 1 ? 'BLUE' : 'RED'} ${match.scoringTeam ? 'SCORING' : `PRESSURE · grace ${Math.max(0, 2 - match.pressureAge).toFixed(1)}s`}`;
                 hud.querySelector('#scoreboard')!.textContent =
-                    `BLUE ${match.tickets[1]}  ·  ${match.phase === 'active' ? 'ACTIVE MATCH' : match.phase.toUpperCase()}  ${Math.floor(time / 60)}:${String(time % 60).padStart(2, '0')}  ·  RED ${match.tickets[2]}`;
+                    `BLUE ${match.tickets[1]} tickets · ${match.phase === 'active' ? 'ACTIVE MATCH' : match.phase.toUpperCase()} · ${Math.floor(time / 60)}:${String(time % 60).padStart(2, '0')} · RED ${match.tickets[2]} tickets\n` +
+                    `Territory ${(match.control * 100).toFixed(1)}% / ${((1 - match.control) * 100).toFixed(1)}% · CP ${Math.floor(match.cp[1])} / ${Math.floor(match.cp[2])} of 1000\n` +
+                    `Front ${match.front.toFixed(2)} · ${pressure}`;
                 const status = hud.querySelector('#team-status')!;
                 status.replaceChildren(
                     ...[1, 2].map((team) => {
@@ -94,8 +99,36 @@ export function createHud() {
                 if (match.result) {
                     hud.querySelector('#result-title')!.textContent =
                         match.result.winner === 0 ? 'DRAW' : match.result.winner === 1 ? 'VICTORY' : 'DEFEAT';
+                    const final = match.results!;
+                    const reason: Record<string, string> = {
+                        'total-control': 'Total control',
+                        points: 'Crownfall Points',
+                        tickets: 'Elimination / tickets',
+                        regulation: 'Regulation'
+                    };
                     hud.querySelector('#result-detail')!.textContent =
-                        `${match.result.winner === 0 ? 'Both teams eliminated' : (match.result.winner === 1 ? 'Blue' : 'Red') + ' wins'} · ${Math.floor(time / 60)}:${String(time % 60).padStart(2, '0')} · ${human.kills}/${human.deaths}/${human.assists} K/D/A`;
+                        `${final.winner === 0 ? 'Draw' : (final.winner === 1 ? 'Blue' : 'Red') + ' wins'} · ${reason[final.reason]} · ${final.duration.toFixed(1)}s · Territory ${(final.control * 100).toFixed(1)}% / ${((1 - final.control) * 100).toFixed(1)}% · CP ${Math.floor(final.cp[1])} / ${Math.floor(final.cp[2])} · Tickets ${final.tickets[1]} / ${final.tickets[2]}`;
+                    hud.querySelector('#result-participants tbody')!.replaceChildren(
+                        ...final.participants.map((a) => {
+                            const row = document.createElement('tr');
+                            row.dataset.participant = a.id;
+                            row.className = a.team === 1 ? 'blue-team' : 'red-team';
+                            for (const value of [
+                                a.team === 1 ? 'Blue' : 'Red',
+                                a.name,
+                                a.kills,
+                                a.deaths,
+                                a.assists,
+                                Math.round(a.damage),
+                                a.pressureSeconds.toFixed(1)
+                            ]) {
+                                const cell = document.createElement('td');
+                                cell.textContent = String(value);
+                                row.append(cell);
+                            }
+                            return row;
+                        })
+                    );
                 }
                 hud.querySelector('.notice')!.textContent =
                     `${human.name} · ${Math.ceil(human.health)}/${human.maxHealth} HP · Ultimate ${Math.floor(human.ultimateMeter)}% · WASD move · Space Basic · Q/E/R skills · F stance`;

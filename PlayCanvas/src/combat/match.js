@@ -4,22 +4,21 @@ import { BotController } from './bot-controller.js';
 import { respawn } from './combat-core.js';
 import { CombatSimulation } from './combat.js';
 import { CONFIG } from './config.js';
+import { CrownfallRules } from './crownfall-rules.js';
+import { MATCH_WORLD, matchSpawn, worldToReference } from './match-space.js';
 import { SUMMONERS } from './summoners.js';
 
 // Lifecycle adaptation of frozen V21 match.js and crownfall-rules.js.
 // Bots only supply commands; this remains the sole match authority.
 const idle = { moveX: 0, moveZ: 0 };
 export class CrownfallMatch {
-    constructor(selected = 0, { bots = false } = {}) {
+    constructor(selected = 0, { bots = false, diagnostic = false } = {}) {
+        this.diagnostic = diagnostic;
         this.phase = 'prematch';
         this.countdownRemaining = 3;
         this.tick = 0;
-        this.rules = {
-            elapsed: 0,
-            tickets: { 1: 15, 2: 15 },
-            result: null,
-            settings: { respawnSeconds: 3, protectionSeconds: 2 }
-        };
+        this.rules = new CrownfallRules();
+        this.results = null;
         this.damageLog = new Map();
         this.feed = [];
         this.actors = [];
@@ -32,11 +31,13 @@ export class CrownfallMatch {
                     ...CONFIG,
                     summoner: { ...CONFIG.summoner, speed: 6, radius: 0.45, spawn: { x: 0, z: 5 } }
                 };
-                const map = {
-                    width: ARENA.halfWidth * 2,
-                    depth: ARENA.halfLength * 2,
-                    walls: OBSTACLES.map((o) => ({ x: o.x, z: o.z, w: o.halfX * 2, d: o.halfZ * 2 }))
-                };
+                const map = diagnostic
+                    ? {
+                          width: ARENA.halfWidth * 2,
+                          depth: ARENA.halfLength * 2,
+                          walls: OBSTACLES.map((o) => ({ x: o.x, z: o.z, w: o.halfX * 2, d: o.halfZ * 2 }))
+                      }
+                    : MATCH_WORLD;
                 const sim = new CombatSimulation(
                     entry.definition,
                     { targets: [], stations: [], zones: [], targetRespawn: Infinity },
@@ -53,17 +54,19 @@ export class CrownfallMatch {
                     finalRespawnAvailable: true,
                     eliminated: false,
                     protectedUntil: 0,
-                    spawn: {
-                        x: bots ? (slot - 1) * 3 : slot === 0 ? (team === 1 ? 0 : 0.65) : slot === 1 ? -3 : 3,
-                        z: bots ? (team === 1 ? 9.8 : -9.8) : team === 1 ? 5 : slot === 0 ? 4.1 : 4.6
-                    }
+                    spawn: diagnostic
+                        ? {
+                              x: bots ? (slot - 1) * 3 : slot === 0 ? (team === 1 ? 0 : 0.65) : slot === 1 ? -3 : 3,
+                              z: bots ? (team === 1 ? 9.8 : -9.8) : team === 1 ? 5 : slot === 0 ? 4.1 : 4.6
+                          }
+                        : matchSpawn(team, slot)
                 });
                 p.health = p.maxHealth = Math.round(p.maxHealth * 1.3);
                 this.place(sim);
                 this.actors.push({
                     sim,
                     bot: bots && (team !== 1 || slot !== 0) ? new BotController(this.actors.length) : null,
-                    record: { kills: 0, deaths: 0, assists: 0, damage: 0 }
+                    record: { kills: 0, deaths: 0, assists: 0, damage: 0, pressureSeconds: 0 }
                 });
             }
         this.entities = this.actors.map((a) => a.sim.player);
@@ -98,18 +101,7 @@ export class CrownfallMatch {
         for (const { sim } of this.actors) sim.refreshAura();
     }
     defeat(p) {
-        if (p.respawnReserved !== undefined) return;
-        let reserved = false;
-        if (this.rules.tickets[p.team] > 0) {
-            this.rules.tickets[p.team]--;
-            reserved = true;
-        } else if (p.finalRespawnAvailable) {
-            p.finalRespawnAvailable = false;
-            reserved = true;
-        }
-        p.respawnReserved = reserved;
-        p.eliminated = !reserved;
-        p.respawnAt = reserved ? this.rules.elapsed + 3 : Infinity;
+        this.rules.defeat(p);
     }
     recordDamage(sim, target, amount, source) {
         if (!this.active) return;
@@ -141,14 +133,39 @@ export class CrownfallMatch {
         this.feed.unshift(`${source?.name || 'Combat'} defeated ${target.name}`);
         this.feed.length = Math.min(3, this.feed.length);
     }
-    evaluate() {
+    evaluate(dt = 0) {
         if (!this.active) return;
-        const viable = (team) => this.entities.some((p) => p.team === team && (!p.dead || p.respawnReserved === true));
-        const blue = viable(1),
-            red = viable(2);
-        if (!blue || !red) {
-            this.rules.result = { winner: blue ? 1 : red ? 2 : 0, reason: 'tickets', duration: this.rules.elapsed };
+        const entities = this.entities.map((p) => ({ ...p, ...worldToReference(p) }));
+        // Retain the close-range lifecycle diagnostic, with neutral territory only.
+        if (this.diagnostic) for (const p of entities) p.x = 0;
+        this.rules.step(entities, dt);
+        for (const a of this.actors) {
+            const p = a.sim.player;
+            if (
+                !p.dead &&
+                !p.respawnReserved &&
+                Math.abs(p.x) <= this.rules.lane.halfWidth &&
+                p.team === this.rules.scoringTeam
+            )
+                a.record.pressureSeconds += dt;
+        }
+        if (this.rules.result) {
             this.phase = 'results';
+            this.results = {
+                ...this.rules.result,
+                control: this.rules.control,
+                front: this.rules.front,
+                cp: { ...this.rules.cp },
+                tickets: { ...this.rules.tickets },
+                participants: this.actors.map(({ sim, record, bot }) => ({
+                    id: sim.player.id,
+                    team: sim.player.team,
+                    name: sim.player.name,
+                    summonerId: sim.player.summonerId,
+                    controller: bot ? 'bot' : 'local',
+                    ...record
+                }))
+            };
         }
     }
     step(command = idle, dt = 1 / 60) {
@@ -161,6 +178,7 @@ export class CrownfallMatch {
             }
             return;
         }
+        dt = Math.min(dt, Math.max(0, this.rules.settings.timeLimitSeconds - this.rules.elapsed));
         for (const { sim } of this.actors) {
             const p = sim.player;
             if (p.dead && p.respawnReserved && this.rules.elapsed + 1e-9 >= p.respawnAt) {
@@ -173,8 +191,7 @@ export class CrownfallMatch {
         this.tick++;
         const ordered = this.tick % 2 ? this.actors : [...this.actors].reverse();
         for (const { sim, bot } of ordered) sim.step(sim === this.human ? command : bot ? bot.command(sim) : idle, dt);
-        this.rules.elapsed += dt;
-        this.evaluate();
+        this.evaluate(dt);
     }
     // Explicit debug timer seam: runs every authoritative fixed tick, never edits clocks/lives.
     debugAdvance(seconds = 5.1) {
@@ -192,6 +209,8 @@ export class CrownfallMatch {
             phase: this.phase,
             countdownRemaining: this.countdownRemaining,
             ...this.rules,
+            remaining: Math.max(0, this.rules.settings.timeLimitSeconds - this.rules.elapsed),
+            results: this.results,
             feed: [...this.feed],
             actors: this.actors.map(({ sim, record }) => ({
                 ...sim.player,
