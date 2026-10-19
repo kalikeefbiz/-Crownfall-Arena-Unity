@@ -62,3 +62,9 @@ Reset or select a Summoner, then face the gold **MOBILE TEST** enemy: its center
 - The Version 21 150 px cancellation distance is unchanged; a cancelled preview turns red and explicitly says CANCELLED. Cancellation does not commit an action. An already accepted held-repeat attack cannot be undone retroactively.
 
 See [TASK_002A_VERIFICATION.md](TASK_002A_VERIFICATION.md) for reproduction evidence, tests and remaining physical Safari checks.
+
+## 3v3 lifecycle sandbox (Task 003)
+
+Enable **3v3 lifecycle**, choose a Blue human Summoner, and press **Start countdown**. Both teams contain Kit, Set and Riven; the other five actors remain stationary. Use the inspected actor selector and debug damage/lethal buttons to test ticket and final-life exhaustion. **Debug: advance 5.1s** runs ordinary fixed ticks through respawn and protection; **Reset sandbox** creates a fresh prematch. The status panel shows all six actors, tickets, final respawns, protection, records and results. Disable the checkbox to return to the original touch-combat training layout.
+
+See [Task 003 verification](TASK_003_VERIFICATION.md) for the frozen reference, lifecycle assertions and remaining physical iPhone acceptance.

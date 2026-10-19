@@ -9,6 +9,10 @@ export function createHud() {
       <pre id="diagnostics" aria-label="Runtime diagnostics"></pre>
       <div id="move" class="pad" aria-label="Movement joystick"><span>MOVE</span><i>✥</i></div>
       <select id="summoner" aria-label="Summoner"><option>Kit</option><option>Set</option><option>Riven</option></select><button id="reset-combat">Reset sandbox</button><button id="charge">Debug: charge ultimate</button><button id="damage-player">Debug: receive 100 damage</button><div id="ability-bar"></div><pre id="combat-diagnostics"></pre>
+      <section id="lifecycle-controls"><label><input type="checkbox" id="lifecycle-mode">3v3 lifecycle</label>
+      <button id="start-match">Start countdown</button><select id="inspect-actor" aria-label="Inspected actor"></select>
+      <button id="lethal-actor">Debug: lethal</button><button id="damage-actor">Debug: damage</button>
+      <button id="advance-match">Debug: advance 5.1s</button><pre id="match-status"></pre></section>
       <div id="aim" hidden></div>
       <div class="notice">RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE</div>
     `;
@@ -26,6 +30,28 @@ export function createHud() {
         aim: hud.querySelector<HTMLElement>('#aim')!,
         update(sim: Simulation, dt: number, frames: number, intent: PreviewIntent | null = null) {
             const c = sim.combat;
+            const match = sim.match?.snapshot();
+            hud.querySelector('header span')!.textContent = match
+                ? 'ARENA · 3v3 LIFECYCLE 003'
+                : 'ARENA · TOUCH COMBAT 002A';
+            hud.querySelector('.notice')!.textContent = match
+                ? '3v3 · Start countdown · Debug actions respect protection · Reset creates a clean prematch'
+                : 'RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE';
+            hud.querySelector('#match-status')!.textContent = match
+                ? [
+                      `${match.phase} · countdown ${match.countdownRemaining.toFixed(1)} · Blue ${match.tickets[1]} tickets · Red ${match.tickets[2]} tickets`,
+                      ...(match.result
+                          ? [
+                                `RESULT ${match.result.winner === 0 ? 'DRAW' : match.result.winner === 1 ? 'BLUE' : 'RED'} · ${match.result.reason}`
+                            ]
+                          : []),
+                      ...match.actors.map(
+                          (a) =>
+                              `${a.id} ${a.name}${a.human ? ' HUMAN' : ''} · ${a.eliminated ? 'ELIMINATED' : a.respawnReserved ? `RESPAWN ${Math.max(0, a.respawnAt - match.elapsed).toFixed(1)}s` : 'alive'} · final ${a.finalRespawnAvailable ? 'available' : 'used'}${a.protected ? ' · PROTECTED' : ''} · ${a.kills}/${a.deaths}/${a.assists} · DMG ${a.damage.toFixed(0)}`
+                      ),
+                      ...match.feed
+                  ].join('\n')
+                : 'Touch combat sandbox · enable 3v3 to test lifecycle';
             const journal = c.journal,
                 attempt = journal.latestAttempt,
                 accepted = journal.latestAccepted,
@@ -34,7 +60,7 @@ export function createHud() {
                 transaction = c.transactions.at(-1);
             const banner = hud.querySelector<HTMLElement>('#combat-feedback')!;
             let outcome = 'READY',
-                message = 'Face gold MOBILE TEST target';
+                message = match ? 'Blue human · fight Red Summoners' : 'Face gold MOBILE TEST target';
             if (result && c.now - (result.finished ?? 0) < 1.8) {
                 outcome = result.result;
                 message = `${result.name} · ${result.targetIds.length} targets · ${Number(result.damage.toFixed(1))} damage`;

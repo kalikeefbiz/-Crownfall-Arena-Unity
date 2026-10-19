@@ -118,6 +118,12 @@ export function createScene(app: AppBase) {
         update(sim: Simulation, dt: number, intent: PreviewIntent | null = null) {
             const combat = sim.combat;
             root.enabled = !combat.player.dead;
+            const visibleIds = new Set(combat.targets.map((t) => t.id));
+            for (const [id, view] of targets)
+                if (!visibleIds.has(id)) {
+                    view.body.enabled = false;
+                    view.health.enabled = false;
+                }
             for (const t of combat.targets) {
                 let view = targets.get(t.id);
                 if (!view) {
@@ -129,19 +135,22 @@ export function createScene(app: AppBase) {
                 }
                 view.body.enabled = !t.dead;
                 view.body.setPosition(t.x, 0.5, t.z);
+                view.health.enabled = !t.dead;
                 view.health.setPosition(t.x, 1.2, t.z);
                 view.health.setLocalScale(Math.max(0.01, t.health / t.maxHealth), 0.08, 0.08);
                 view.body.render!.meshInstances[0].material = combat.journal.hits.some(
                     (hit) => hit.targetId === t.id && combat.now - hit.time < 0.3
                 )
                     ? hitMaterial
-                    : (t.statuses.stun || 0) > combat.now
-                      ? purple
-                      : t.id === 'mobile-test'
-                        ? gold
-                        : t.team === 1
-                          ? green
-                          : red;
+                    : sim.match?.protected(t)
+                      ? white
+                      : (t.statuses.stun || 0) > combat.now
+                        ? purple
+                        : t.id === 'mobile-test'
+                          ? gold
+                          : t.team === 1
+                            ? green
+                            : red;
                 const pulse = combat.journal.hits.some((hit) => hit.targetId === t.id && combat.now - hit.time < 0.15)
                     ? 1.22
                     : 1;

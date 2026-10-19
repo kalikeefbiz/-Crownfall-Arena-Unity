@@ -93,6 +93,7 @@ export function createCombatOverlay() {
                     : null;
             draw(castPath, stamp, project);
             const target = sim.targets.find((t) => t.id === 'mobile-test');
+            marker.hidden = !target || target.dead;
             if (target) {
                 const p = project(target, 0);
                 marker.style.transform = `translate(${p.x}px,${p.y}px) translate(-50%,28px)`;

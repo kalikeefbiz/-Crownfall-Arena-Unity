@@ -114,7 +114,7 @@ test('landscape mobile supports two captured pointers and clears cancelled input
 test('obstruction blocks movement in the rendered app', async ({ page }) => {
     await ready(page);
     await page.keyboard.down('KeyD');
-    await expect.poll(async () => (await snapshot(page)).position.x).toBeGreaterThan(2.8);
+    await expect.poll(async () => (await snapshot(page)).position.x, { intervals: [16] }).toBeGreaterThan(2.8);
     await page.keyboard.up('KeyD');
     await page.keyboard.down('KeyW');
     await expect.poll(async () => (await snapshot(page)).collisions).toBeGreaterThan(0);

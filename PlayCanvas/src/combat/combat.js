@@ -189,6 +189,7 @@ export class CombatSimulation extends MovementSimulation {
         );
     }
     cast(id, angle = this.player.angle, target = null) {
+        if (this.match?.rules.result) return false;
         try {
             return this.executeCast(id, angle, target);
         } finally {

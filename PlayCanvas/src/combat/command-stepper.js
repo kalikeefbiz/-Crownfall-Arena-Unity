@@ -10,7 +10,8 @@ export class CommandStepper {
             const preview = controls.preview;
             const command = controls.read();
             const before = sim.actionSerial;
-            sim.step({
+            const authority = sim.match || sim;
+            authority.step({
                 moveX: frame.movement.x,
                 moveZ: frame.movement.z,
                 aimX: preview ? Math.sin(preview.angle) : frame.aim.x,

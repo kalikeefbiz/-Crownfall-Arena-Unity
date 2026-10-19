@@ -14,6 +14,7 @@ Authoritative browser reference:
 `kalikeefbiz/Crownfall-Browser-V21-Reference`
 
 Inspect at minimum:
+
 - `src/match.js`
 - `src/crownfall-rules.js`
 - `src/match-data.js`
@@ -29,6 +30,7 @@ Use source/tests to settle edge cases. Do not redesign proven match rules.
 Port the Version 21 3v3 match lifecycle into PlayCanvas as one bounded parity block.
 
 This task adds:
+
 - two 3-Summoner teams
 - match phases
 - countdown
@@ -48,6 +50,7 @@ The result should be a real 3v3 lifecycle sandbox built on top of the accepted T
 ## Core match setup
 
 Create six actual combat actors:
+
 - Blue: Kit, Set, Riven
 - Red: Kit, Set, Riven
 
@@ -57,6 +60,7 @@ For this task, non-human actors may be stationary/inert lifecycle participants c
 Do NOT implement bot AI yet.
 
 Each actor must:
+
 - own an independent combat simulation/state
 - target the other five Summoners correctly
 - preserve team filtering/friendly-fire rules
@@ -65,6 +69,7 @@ Each actor must:
 - expose lifecycle state independently from presentation
 
 Full-match health uses the authoritative 1.3 durability multiplier:
+
 - Kit: 845
 - Set: 1625
 - Riven: 910
@@ -75,17 +80,20 @@ Collision radius remains 0.45.
 ## Match phases
 
 Implement:
+
 1. prematch
 2. countdown
 3. active
 4. results
 
 Countdown:
+
 - 3 seconds
 - gameplay input/combat inert until active
 - countdown reaches zero cleanly without negative drift
 
 Once a result exists:
+
 - match progression freezes
 - no further combat, respawn, score, or state mutation should occur except UI/navigation/reset
 
@@ -94,23 +102,26 @@ Once a result exists:
 Each team starts with 15 shared tickets.
 
 Authoritative defeat sequence:
+
 - while team tickets > 0:
-  - death consumes exactly one ticket
-  - reserve a normal respawn
+    - death consumes exactly one ticket
+    - reserve a normal respawn
 - the death that consumes the LAST shared ticket is still ticket-funded
 - that death does NOT also consume the Summoner's personal final respawn
 - once team tickets are 0:
-  - each Summoner may consume exactly one personal final respawn
+    - each Summoner may consume exactly one personal final respawn
 - after that Summoner has consumed its personal final respawn:
-  - its next death permanently eliminates it
+    - its next death permanently eliminates it
 
 Per-Summoner fields/state must make this explicit:
+
 - `finalRespawnAvailable`
 - `respawnReserved`
 - `respawnAt`
 - `eliminated`
 
 Respawn:
+
 - 3 seconds
 - return to authored team spawn
 - restore health to max
@@ -123,6 +134,7 @@ Respawn:
 ## Respawn protection
 
 After respawn:
+
 - 2 seconds protection
 - protected actor cannot take combat damage
 - protected actor is excluded from valid hostile targeting where reference requires
@@ -136,15 +148,18 @@ Add clear temporary debug presentation so protection can be seen on device.
 ## Team viability and terminal elimination
 
 A team remains viable if at least one Summoner is:
+
 - alive, OR
 - dead with a reserved respawn
 
 A team loses only when all three Summoners are permanently eliminated with no reserved respawn.
 
 If both teams become non-viable in the same terminal evaluation:
+
 - result is a draw
 
 Match result reason for this block:
+
 - `tickets`
 
 Do not add territory/CP victory conditions yet.
@@ -152,12 +167,14 @@ Do not add territory/CP victory conditions yet.
 ## Records
 
 Track per actor:
+
 - kills
 - deaths
 - assists
 - damage dealt
 
 Assist window:
+
 - preserve Version 21 behavior
 - use actual combat participants
 - do not invent participation scoring
@@ -169,6 +186,7 @@ Maintain short combat feed for defeats.
 Because bots are out of scope, add debug-quality controls sufficient for physical-device lifecycle acceptance without corrupting production rules.
 
 Examples:
+
 - select inspected actor
 - apply lethal damage to inspected actor
 - damage selected actor
@@ -178,6 +196,7 @@ Examples:
 Debug controls must call authoritative match/combat methods, not mutate health/tickets directly unless the action is explicitly a test-only setup helper isolated from production logic.
 
 Provide a compact team-status panel showing:
+
 - Blue tickets
 - Red tickets
 - each actor alive/dead/respawn-reserved/eliminated
@@ -202,6 +221,7 @@ All Red actors remain lifecycle participants.
 Use the accepted combat implementation from Task 002A.
 
 Required integration behavior:
+
 - combat damage can kill another match actor
 - actor death enters ticket/final-respawn lifecycle exactly once
 - repeated damage against an already-dead/reserved actor cannot consume extra tickets
@@ -218,6 +238,7 @@ Required integration behavior:
 Port/adapt authoritative lifecycle assertions from `tests/match.test.js`.
 
 At minimum cover:
+
 - match creates exactly six unique Summoner actors, 3v3
 - selected Blue human roster behavior
 - exact 1.3 match health values
@@ -245,6 +266,7 @@ At minimum cover:
 ## Browser/device acceptance
 
 Add production-browser tests for the actual rendered PlayCanvas app that prove:
+
 - lifecycle sandbox starts
 - countdown reaches active
 - six actors are represented in diagnostics/status UI
@@ -262,6 +284,7 @@ Keep the accepted Task 002A touch-damage tests passing.
 ## Architecture constraints
 
 Do not:
+
 - merge all six actors into one giant state object with character-specific branches
 - let UI determine lifecycle state
 - let presentation determine respawn timing
@@ -270,6 +293,7 @@ Do not:
 - weaken Task 002A physical-touch behavior
 
 Prefer:
+
 - one local match authority
 - six reusable combat actors
 - pure/testable lifecycle rules
@@ -279,6 +303,7 @@ Prefer:
 ## Explicitly out of scope
 
 Do NOT implement yet:
+
 - territory/front calculation
 - Crownfall Points
 - 100% territorial victory
@@ -297,6 +322,7 @@ Do not rebalance damage/health/cooldowns/ranges in this task unless a current va
 ## Validation
 
 Run and fix:
+
 - unit/non-rendering tests
 - typecheck
 - lint
@@ -311,6 +337,7 @@ No test may replace a real lifecycle assertion with direct state mutation merely
 Do not stop after tickets alone or after one successful respawn.
 
 Finish only when:
+
 - six-actor 3v3 lifecycle exists
 - countdown works
 - tickets work
@@ -326,6 +353,7 @@ Finish only when:
 - existing GitHub Pages `/playcanvas/` deployment is triggered
 
 At completion report:
+
 1. final commit SHA
 2. files changed
 3. reference source/tests used

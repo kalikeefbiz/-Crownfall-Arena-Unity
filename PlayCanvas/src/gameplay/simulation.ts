@@ -1,3 +1,4 @@
+import { CrownfallMatch } from '../combat/match.js';
 import { createCombat } from '../combat/sandbox.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import { resolveFacing } from '../presentation/facing';
@@ -8,8 +9,11 @@ import type { Vec } from './vector';
 export type InputFrame = { movement: Vec; aim: Vec; targeting: boolean; commit: boolean };
 export class Simulation {
     combat = createCombat();
+    match: CrownfallMatch | null = null;
+    lifecycle = false;
     select(index: number): void {
-        this.combat = createCombat(index);
+        this.match = this.lifecycle ? new CrownfallMatch(index) : null;
+        this.combat = this.match ? this.match.human : createCombat(index);
         this.position = { x: 0, z: 5 };
         this.aim = { x: Math.sin(this.combat.player.angle), z: Math.cos(this.combat.player.angle) };
         this.movement = { x: 0, z: 0 };

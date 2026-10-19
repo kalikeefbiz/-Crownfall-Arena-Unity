@@ -45,3 +45,7 @@ World aim dragging now uses the actual PlayCanvas camera's ground-plane projecti
 An observational journal attributes asynchronous hit/miss results to their originating cast. Damage numbers, target flash/pulse, explicit cast/HIT/MISS diagnostics and selected-ability world outlines read this evidence and the same ability data as simulation. The additional gold mobile acceptance Summoner is the only target-layout addition; all original targets are unchanged.
 
 The original 78 unit tests and nine browser tests remain intact. Additional tests cover sub-tick intention delivery and genuine touch DAMAGE assertions, including Riven hold/release and true capture loss. See [TASK_002A_VERIFICATION.md](TASK_002A_VERIFICATION.md).
+
+## Task 003 lifecycle mode
+
+The separate **3v3 lifecycle** mode supersedes training-only defeat/health behavior for full matches. It creates six real combat simulations, uses 1.3 durability, and applies Version 21 ticket reservation, personal final respawn, protection, records and terminal viability rules. The original Task 002A sandbox remains available for its fixed diagnostic target and touch regression scenarios. No kit values changed. See [TASK_003_VERIFICATION.md](TASK_003_VERIFICATION.md) for reference mapping, debug controls, validation and physical-device acceptance.

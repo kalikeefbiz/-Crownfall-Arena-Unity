@@ -394,3 +394,55 @@ main {
         bottom: 100px;
     }
 }
+
+#lifecycle-controls {
+    position: absolute;
+    top: 62px;
+    right: max(12px, var(--safe-right));
+    max-width: 460px;
+    background: #102030e8;
+    padding: 6px;
+    font-size: 11px;
+    pointer-events: auto;
+}
+#lifecycle-controls button,
+#lifecycle-controls select {
+    position: static;
+    margin: 3px;
+    font-size: 11px;
+}
+#match-status {
+    margin: 4px;
+    white-space: pre-wrap;
+}
+
+#lifecycle-controls button,
+#lifecycle-controls select {
+    width: auto;
+    height: 24px;
+    border-radius: 4px;
+}
+#match-status {
+    position: static;
+    padding: 4px;
+    font-size: 10px;
+}
+body:not(.lifecycle) #lifecycle-controls > :not(label) {
+    display: none;
+}
+.lifecycle #combat-diagnostics,
+.lifecycle #diagnostics,
+.lifecycle .help {
+    display: none;
+}
+.lifecycle #lifecycle-controls {
+    width: 420px;
+    max-width: 52vw;
+    max-height: 210px;
+    overflow: auto;
+}
+@media (max-height: 500px) {
+    .lifecycle #lifecycle-controls {
+        max-height: 150px;
+    }
+}
