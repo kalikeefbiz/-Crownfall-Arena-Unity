@@ -92,6 +92,11 @@ export function createScene(app: AppBase) {
         purple = material(0xba79f0),
         hitMaterial = material(0xffee86);
     const overlay = createCombatOverlay();
+    const actorLabels = document.createElement('div');
+    actorLabels.id = 'actor-labels';
+    document.body.append(actorLabels);
+    const labelViews = new Map<string, HTMLDivElement>();
+    const castViews = new Map<string, Entity>();
     const project = (p: { x: number; z: number }, height = 0) =>
         camera.camera!.worldToScreen(new Vec3(p.x, height, p.z));
     const groundAt = (x: number, y: number) => {
@@ -106,6 +111,7 @@ export function createScene(app: AppBase) {
         },
         destroy() {
             overlay.destroy();
+            actorLabels.remove();
         },
         dragVector(dx: number, dy: number, sim: Simulation) {
             const anchor = project(sim.position),
@@ -117,6 +123,34 @@ export function createScene(app: AppBase) {
         },
         update(sim: Simulation, dt: number, intent: PreviewIntent | null = null) {
             const combat = sim.combat;
+            const actors = sim.match?.actors || [];
+            const actorIds = new Set(actors.map((a) => a.sim.player.id));
+            for (const [id, label] of labelViews) if (!actorIds.has(id)) label.hidden = true;
+            for (const view of castViews.values()) view.enabled = false;
+            for (const { sim: actor } of actors) {
+                const p = actor.player;
+                let label = labelViews.get(p.id);
+                if (!label) {
+                    label = document.createElement('div');
+                    label.className = 'actor-label';
+                    labelViews.set(p.id, label);
+                    actorLabels.append(label);
+                }
+                label.hidden = p.dead;
+                label.style.color = p.team === 1 ? '#a2dfff' : '#ffb4c1';
+                label.textContent = `${p.name}${actor === combat ? ' · YOU' : ''}${sim.match?.protected(p) ? ' · SHIELD' : ''}`;
+                const screen = project(p, 1.7);
+                label.style.transform = `translate(${screen.x}px, ${screen.y}px) translate(-50%, -100%)`;
+                let cast = castViews.get(p.id);
+                if (!cast) {
+                    cast = primitive('actor-cast', 'box', [0, 0, 0], [0.15, 0.08, 1.8], p.team === 1 ? green : red);
+                    castViews.set(p.id, cast);
+                }
+                const accepted = actor.journal.latestAccepted;
+                cast.enabled = !p.dead && !!accepted && actor.now - accepted.time < 0.28;
+                cast.setPosition(p.x + Math.sin(p.angle) * 0.9, 0.15, p.z + Math.cos(p.angle) * 0.9);
+                cast.setEulerAngles(0, (p.angle * 180) / Math.PI, 0);
+            }
             root.enabled = !combat.player.dead;
             const visibleIds = new Set(combat.targets.map((t) => t.id));
             for (const [id, view] of targets)
@@ -156,7 +190,10 @@ export function createScene(app: AppBase) {
                     : 1;
                 view.body.setLocalScale(0.7 * pulse, pulse, 0.7 * pulse);
             }
-            combat.projectiles.items.forEach((shot, index) => {
+            const simulations = sim.match ? sim.match.actors.map((a) => a.sim) : [combat];
+            const projectiles = simulations.flatMap((c) => c.projectiles.items);
+            for (const view of shots) view.enabled = false;
+            projectiles.forEach((shot, index) => {
                 const view = (shots[index] ||= primitive(
                     'combat-projectile',
                     'sphere',
@@ -167,15 +204,24 @@ export function createScene(app: AppBase) {
                 view.enabled = shot.active;
                 if (shot.active) view.setPosition(shot.x, 0.65, shot.z);
             });
-            combat.effects.items.forEach((effect, index) => {
-                const view = (flashes[index] ||= primitive('combat-effect', 'cylinder', [0, 0, 0], [1, 0.03, 1], gold));
-                view.enabled = effect.active && ['trail', 'pantherTrail', 'buffPulse'].includes(effect.type);
-                if (view.enabled) {
-                    view.setPosition(effect.x, 0.06, effect.z);
-                    const size = (effect.range || 0.4) * 2;
-                    view.setLocalScale(size, 0.03, size);
-                }
-            });
+            for (const view of flashes) view.enabled = false;
+            simulations
+                .flatMap((c) => c.effects.items)
+                .forEach((effect, index) => {
+                    const view = (flashes[index] ||= primitive(
+                        'combat-effect',
+                        'cylinder',
+                        [0, 0, 0],
+                        [1, 0.03, 1],
+                        gold
+                    ));
+                    view.enabled = effect.active && ['trail', 'pantherTrail', 'buffPulse'].includes(effect.type);
+                    if (view.enabled) {
+                        view.setPosition(effect.x, 0.06, effect.z);
+                        const size = (effect.range || 0.4) * 2;
+                        view.setLocalScale(size, 0.03, size);
+                    }
+                });
             root.setPosition(sim.position.x, 0, sim.position.z);
             const facing = sim.facing.facing;
             const isSide = facing === 'Right' || facing === 'Left';

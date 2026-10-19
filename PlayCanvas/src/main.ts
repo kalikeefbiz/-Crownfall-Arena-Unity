@@ -33,9 +33,17 @@ try {
     const resize = () => app.resizeCanvas();
     window.addEventListener('resize', resize);
     window.visualViewport?.addEventListener('resize', resize);
+    const debug = new URLSearchParams(location.search).get('debug') === '1';
+    document.body.classList.toggle('debug', debug);
+    document.body.classList.toggle('playable', !debug);
     const simulation = new Simulation();
+    simulation.lifecycle = !debug;
+    simulation.bots = !debug;
+    simulation.select(0);
+    document.body.classList.toggle('lifecycle', simulation.lifecycle);
     const scene = createScene(app);
     const hud = createHud();
+    const stepper = new CommandStepper();
     const input = new Controls(hud.move, hud.aim, canvas, (x, y) => scene.screenAim(x, y, simulation));
     const abilities = new AbilityInput(
         { enabled: true },
@@ -50,6 +58,8 @@ try {
     };
     hud.onSelect((index) => {
         simulation.select(index);
+        stepper.accumulator = 0;
+        abilities.clear();
         refreshInspection();
         abilities.setDefinition(simulation.combat.definition);
         abilities.update(simulation.combat);
@@ -57,9 +67,10 @@ try {
     document.querySelector('#reset-combat')!.addEventListener('click', () => {
         const index = (document.querySelector('#summoner') as HTMLSelectElement).selectedIndex;
         simulation.select(index);
+        stepper.accumulator = 0;
+        abilities.clear();
         refreshInspection();
         abilities.setDefinition(simulation.combat.definition);
-        abilities.clear();
         abilities.update(simulation.combat);
     });
     document.querySelector('#lifecycle-mode')!.addEventListener('change', (event) => {
@@ -67,6 +78,11 @@ try {
         document.body.classList.toggle('lifecycle', simulation.lifecycle);
         (document.querySelector('#reset-combat') as HTMLButtonElement).click();
     });
+    refreshInspection();
+    document.querySelector('#play-match')!.addEventListener('click', () => simulation.match?.start());
+    document
+        .querySelector('#restart-match')!
+        .addEventListener('click', () => (document.querySelector('#reset-combat') as HTMLButtonElement).click());
     document.querySelector('#start-match')!.addEventListener('click', () => simulation.match?.start());
     document.querySelector('#advance-match')!.addEventListener('click', () => simulation.match?.debugAdvance());
     for (const [id, lethal] of [
@@ -88,7 +104,6 @@ try {
     document.querySelector('#damage-player')!.addEventListener('click', () => {
         simulation.combat.damage(simulation.combat.player, 100, simulation.combat.targets[0]);
     });
-    const stepper = new CommandStepper();
     let frames = 0,
         hudElapsed = 0,
         smoothedDt = 1 / 60;

@@ -8,7 +8,7 @@ const snapshot = (page: Page): Promise<MatchState> =>
         () => (window as unknown as { __crownfall: { snapshot(): { match: MatchState } } }).__crownfall.snapshot().match
     );
 async function start(page: Page) {
-    await page.goto('/');
+    await page.goto('/?debug=1');
     await expect(page.locator('#lifecycle-mode')).toBeVisible();
     await page.locator('#lifecycle-mode').check();
     await expect.poll(async () => (await snapshot(page))?.phase).toBe('prematch');

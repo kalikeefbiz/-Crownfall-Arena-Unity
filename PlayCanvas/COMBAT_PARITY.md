@@ -49,3 +49,9 @@ The original 78 unit tests and nine browser tests remain intact. Additional test
 ## Task 003 lifecycle mode
 
 The separate **3v3 lifecycle** mode supersedes training-only defeat/health behavior for full matches. It creates six real combat simulations, uses 1.3 durability, and applies Version 21 ticket reservation, personal final respawn, protection, records and terminal viability rules. The original Task 002A sandbox remains available for its fixed diagnostic target and touch regression scenarios. No kit values changed. See [TASK_003_VERIFICATION.md](TASK_003_VERIFICATION.md) for reference mapping, debug controls, validation and physical-device acceptance.
+
+## Task 004 playable match
+
+Normal startup now selects the Task 003 authority with five bot command controllers and opposing team spawns. The diagnostic sandbox and inert lifecycle fixture remain at `?debug=1`. No lifecycle rules, kit definitions, health scaling, damage, ranges or cooldowns were replaced. The damage boundary now explicitly rejects a same-team source in match mode in addition to existing ability target filtering.
+
+Bots submit ordinary movement and action commands, including ground-target offsets, through the same combat engine as the human. Delayed sampled aim, seeded error, independent attack intervals, obstacle routing and low-health repositioning give functional prototype combat without perfect tracking. There is no new match timer victory or timeout: natural results still require team viability resolution. Restart constructs a new authority and controllers, clears ability intentions and resets the fixed-step accumulator.

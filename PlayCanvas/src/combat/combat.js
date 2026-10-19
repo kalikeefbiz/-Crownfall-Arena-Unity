@@ -124,7 +124,11 @@ export class CombatSimulation extends MovementSimulation {
         this.lastEvent = 'Damage taken · ' + report.join(' / ');
     }
     damage(target, amount, source = null, options = {}) {
-        if (this.match && (!this.match.active || this.match.protected(target))) return 0;
+        if (
+            this.match &&
+            (!this.match.active || this.match.protected(target) || (source && source.team === target.team))
+        )
+            return 0;
         if (this.match) this.match.refreshAuras();
         else this.refreshAura();
         const adjusted = options.lethal

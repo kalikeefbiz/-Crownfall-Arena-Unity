@@ -446,3 +446,241 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
         max-height: 150px;
     }
 }
+/* Normal match HUD. The Task 003 diagnostics remain at ?debug=1. */
+.debug #scoreboard,
+.debug #team-status,
+.debug #battle-announcement,
+.debug #kill-feed,
+.debug #play-match,
+.debug #result-panel,
+.debug #debug-link {
+    display: none;
+}
+.playable #lifecycle-controls,
+.playable #diagnostics,
+.playable #combat-diagnostics,
+.playable #charge,
+.playable #damage-player,
+.playable #reset-combat,
+.playable .help {
+    display: none;
+}
+.playable header {
+    top: calc(8px + var(--safe-top));
+    left: 12px;
+    font-size: 12px;
+}
+.playable header span {
+    display: none;
+}
+.playable #summoner {
+    top: calc(34px + var(--safe-top));
+    left: 12px;
+}
+#scoreboard {
+    position: absolute;
+    top: calc(8px + var(--safe-top));
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    border: 1px solid #8aa8b9;
+    border-radius: 8px;
+    background: #102030ed;
+    font-weight: 800;
+    font-size: 14px;
+    white-space: nowrap;
+}
+#team-status {
+    position: absolute;
+    top: calc(52px + var(--safe-top));
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 18px;
+    width: min(720px, 73%);
+    font-size: 10px;
+    line-height: 1.5;
+}
+#team-status > div {
+    flex: 1;
+    padding: 5px;
+    border-radius: 5px;
+    background: #102030d9;
+}
+.blue-team {
+    color: #a2dfff;
+}
+.red-team {
+    color: #ffb4c1;
+}
+#battle-announcement {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-size: 30px;
+    font-weight: 900;
+    text-shadow: 0 2px 5px #000;
+}
+#kill-feed {
+    position: absolute;
+    top: calc(125px + var(--safe-top));
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 11px;
+    text-align: center;
+    width: 70%;
+    text-shadow: 0 2px 2px #000;
+}
+#play-match {
+    position: absolute;
+    top: 49%;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: auto;
+    width: 160px;
+    height: 48px;
+    border-radius: 8px;
+    color: #ffe3a4;
+    border-color: #d6ad64;
+    background: #20394af0;
+    font-size: 16px;
+}
+#play-match[hidden],
+#result-panel[hidden] {
+    display: none;
+}
+#result-panel {
+    position: absolute;
+    inset: 20% 15%;
+    background: #102030f5;
+    border: 2px solid #d6ad64;
+    border-radius: 16px;
+    text-align: center;
+    padding: 20px;
+    pointer-events: auto;
+}
+#result-panel h1 {
+    color: #ffe3a4;
+}
+#restart-match {
+    width: 160px;
+    height: 48px;
+    border-radius: 8px;
+    pointer-events: auto;
+    color: #ffe3a4;
+    font-size: 15px;
+}
+#debug-link {
+    position: absolute;
+    right: 12px;
+    top: calc(12px + var(--safe-top));
+    pointer-events: auto;
+    color: #aabbd0;
+    font-size: 10px;
+}
+.playable #combat-feedback {
+    top: auto;
+    bottom: calc(132px + var(--safe-bottom));
+    font-size: 11px;
+    max-width: 70%;
+}
+.playable .notice {
+    bottom: calc(4px + var(--safe-bottom));
+    font-size: 10px;
+}
+@media (max-height: 500px) {
+    #team-status {
+        font-size: 8px;
+        top: calc(42px + var(--safe-top));
+        width: 68%;
+        gap: 8px;
+    }
+    #scoreboard {
+        font-size: 11px;
+        padding: 6px 10px;
+    }
+    #kill-feed {
+        top: calc(105px + var(--safe-top));
+        font-size: 9px;
+    }
+    #battle-announcement {
+        font-size: 24px;
+        top: 43%;
+    }
+    .playable #combat-feedback {
+        bottom: 112px;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+    }
+    #result-panel {
+        inset: 12% 18%;
+        padding: 10px;
+    }
+}
+@media (orientation: portrait) {
+    #scoreboard {
+        top: calc(76px + var(--safe-top));
+        font-size: 11px;
+    }
+    #team-status {
+        top: calc(114px + var(--safe-top));
+        width: 96%;
+        gap: 6px;
+        font-size: 8px;
+    }
+    #kill-feed {
+        top: calc(195px + var(--safe-top));
+        width: 94%;
+        font-size: 9px;
+    }
+    .playable #ability-bar {
+        gap: 5px;
+        bottom: calc(170px + var(--safe-bottom));
+    }
+    .playable .ability {
+        width: 57px;
+        height: 57px;
+        font-size: 9px;
+    }
+    .playable .ability[data-slot='0'] {
+        width: 68px;
+        height: 68px;
+    }
+    .playable .ability-stance {
+        width: 58px;
+        height: 42px;
+        bottom: 76px;
+    }
+    .playable #combat-feedback {
+        bottom: calc(255px + var(--safe-bottom));
+    }
+    .playable .notice {
+        padding: 0 6px;
+        font-size: 9px;
+    }
+}
+
+#actor-labels {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+.actor-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 10px;
+    white-space: nowrap;
+    font-weight: 800;
+    text-shadow: 0 2px 3px #000;
+}
+@media (max-height: 500px) {
+    .actor-label {
+        font-size: 8px;
+    }
+}

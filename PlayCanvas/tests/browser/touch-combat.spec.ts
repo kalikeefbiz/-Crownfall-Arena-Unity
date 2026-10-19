@@ -53,7 +53,7 @@ async function mobile(browser: Browser, label = 'Kit') {
     const page = await context.newPage(),
         errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
-    await page.goto('/');
+    await page.goto('/?debug=1');
     await expect
         .poll(async () => (await snapshot(page)).frames, {
             timeout: 30000,

@@ -13,6 +13,13 @@ export function createHud() {
       <button id="start-match">Start countdown</button><select id="inspect-actor" aria-label="Inspected actor"></select>
       <button id="lethal-actor">Debug: lethal</button><button id="damage-actor">Debug: damage</button>
       <button id="advance-match">Debug: advance 5.1s</button><pre id="match-status"></pre></section>
+      <section id="scoreboard" aria-label="Match scoreboard"></section>
+      <section id="team-status" aria-label="Team participants"></section>
+      <div id="battle-announcement" role="status" aria-live="polite"></div>
+      <div id="kill-feed" aria-live="polite"></div>
+      <button id="play-match">Start match</button>
+      <section id="result-panel" hidden><h1 id="result-title"></h1><p id="result-detail"></p><button id="restart-match">Restart match</button></section>
+      <a id="debug-link" href="?debug=1">Debug</a>
       <div id="aim" hidden></div>
       <div class="notice">RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE</div>
     `;
@@ -31,9 +38,7 @@ export function createHud() {
         update(sim: Simulation, dt: number, frames: number, intent: PreviewIntent | null = null) {
             const c = sim.combat;
             const match = sim.match?.snapshot();
-            hud.querySelector('header span')!.textContent = match
-                ? 'ARENA · 3v3 LIFECYCLE 003'
-                : 'ARENA · TOUCH COMBAT 002A';
+            hud.querySelector('header span')!.textContent = match ? 'ARENA · 3v3' : 'ARENA · TOUCH COMBAT 002A';
             hud.querySelector('.notice')!.textContent = match
                 ? '3v3 · Start countdown · Debug actions respect protection · Reset creates a clean prematch'
                 : 'RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE';
@@ -52,6 +57,49 @@ export function createHud() {
                       ...match.feed
                   ].join('\n')
                 : 'Touch combat sandbox · enable 3v3 to test lifecycle';
+            if (match && document.body.classList.contains('playable')) {
+                const time = Math.floor(match.elapsed);
+                hud.querySelector('#scoreboard')!.textContent =
+                    `BLUE ${match.tickets[1]}  ·  ${match.phase === 'active' ? 'ACTIVE MATCH' : match.phase.toUpperCase()}  ${Math.floor(time / 60)}:${String(time % 60).padStart(2, '0')}  ·  RED ${match.tickets[2]}`;
+                const status = hud.querySelector('#team-status')!;
+                status.replaceChildren(
+                    ...[1, 2].map((team) => {
+                        const column = document.createElement('div');
+                        column.className = team === 1 ? 'blue-team' : 'red-team';
+                        for (const a of match.actors.filter((a) => a.team === team)) {
+                            const row = document.createElement('div');
+                            row.textContent = `${a.name}${a.human ? ' · YOU' : ' · AI'} · ${a.eliminated ? 'ELIMINATED' : a.dead ? `RESPAWN ${Math.max(0, a.respawnAt - match.elapsed).toFixed(1)}s` : `${Math.ceil(a.health)} HP`}${a.protected ? ' · SHIELD' : ''} · ${a.finalRespawnAvailable ? 'FINAL READY' : 'FINAL USED'} · ${a.kills}/${a.deaths}/${a.assists}`;
+                            column.append(row);
+                        }
+                        return column;
+                    })
+                );
+                const human = match.actors.find((a) => a.human)!;
+                hud.querySelector('#battle-announcement')!.textContent =
+                    match.phase === 'countdown'
+                        ? String(Math.ceil(match.countdownRemaining))
+                        : match.phase === 'prematch'
+                          ? 'Choose your Summoner. Ready for 3v3?'
+                          : match.phase === 'active' && match.elapsed < 2
+                            ? 'MATCH START · FIGHT!'
+                            : human.eliminated
+                              ? 'Permanently eliminated · Watching your team'
+                              : human.dead
+                                ? `Respawning in ${Math.max(0, human.respawnAt - match.elapsed).toFixed(1)}s`
+                                : '';
+                hud.querySelector('#kill-feed')!.textContent = match.feed.join(' • ');
+                (hud.querySelector('#play-match') as HTMLButtonElement).hidden = match.phase !== 'prematch';
+                (hud.querySelector('#summoner') as HTMLSelectElement).disabled = match.phase !== 'prematch';
+                (hud.querySelector('#result-panel') as HTMLElement).hidden = !match.result;
+                if (match.result) {
+                    hud.querySelector('#result-title')!.textContent =
+                        match.result.winner === 0 ? 'DRAW' : match.result.winner === 1 ? 'VICTORY' : 'DEFEAT';
+                    hud.querySelector('#result-detail')!.textContent =
+                        `${match.result.winner === 0 ? 'Both teams eliminated' : (match.result.winner === 1 ? 'Blue' : 'Red') + ' wins'} · ${Math.floor(time / 60)}:${String(time % 60).padStart(2, '0')} · ${human.kills}/${human.deaths}/${human.assists} K/D/A`;
+                }
+                hud.querySelector('.notice')!.textContent =
+                    `${human.name} · ${Math.ceil(human.health)}/${human.maxHealth} HP · Ultimate ${Math.floor(human.ultimateMeter)}% · WASD move · Space Basic · Q/E/R skills · F stance`;
+            }
             const journal = c.journal,
                 attempt = journal.latestAttempt,
                 accepted = journal.latestAccepted,

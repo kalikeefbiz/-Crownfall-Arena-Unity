@@ -1,6 +1,8 @@
-# Crownfall Arena — PlayCanvas combat sandbox
+# Crownfall Arena — playable PlayCanvas 3v3
 
-Task 002 adds Version 21 combat to the Task 001 arena. Kit, Set and Riven share an engine-independent combat simulation, real mobile ability controls, stationary diagnostic enemies, health/status displays, cooldowns and ultimate meter. Unity files remain preserved.
+Task 004 makes the existing arena a playable Blue versus Red match: one human Blue Summoner and five independent bots. Choose Kit, Set or Riven, press **Start match**, and fight after the visible three-second countdown. Task 003 remains the only lifecycle authority. Unity files and existing kit balance remain preserved.
+
+The normal HUD shows tickets, elapsed time, team health/respawn/final-life status, kills and match results. **Restart match** returns to a clean prematch. The **Debug** link (`?debug=1`) opens the retained Task 002A training sandbox and Task 003 lifecycle diagnostics. The diagnostic instructions below apply in that mode.
 
 ## Run
 
@@ -33,7 +35,7 @@ Primitives represent targets, health bars, projectiles and combat effects. Purpl
 - `src/input/`: independent movement/mouse intentions; `src/ui/`: mobile controls and diagnostics.
 - `src/presentation/`: PlayCanvas arena/camera and replaceable primitive presenter. Animation and graphics never determine damage timing.
 
-See [COMBAT_PARITY.md](COMBAT_PARITY.md) for source provenance, adaptations and acceptance limits. No bots, tickets, respawns, territory, networking, new artwork or audio are included.
+See [COMBAT_PARITY.md](COMBAT_PARITY.md) for source provenance, adaptations and acceptance limits. Task 004 adds bot command generation and a normal match HUD on top of Task 003 tickets/respawns. Territory, networking, new artwork and audio remain outside scope.
 
 ## Verify
 
@@ -68,3 +70,11 @@ See [TASK_002A_VERIFICATION.md](TASK_002A_VERIFICATION.md) for reproduction evid
 Enable **3v3 lifecycle**, choose a Blue human Summoner, and press **Start countdown**. Both teams contain Kit, Set and Riven; the other five actors remain stationary. Use the inspected actor selector and debug damage/lethal buttons to test ticket and final-life exhaustion. **Debug: advance 5.1s** runs ordinary fixed ticks through respawn and protection; **Reset sandbox** creates a fresh prematch. The status panel shows all six actors, tickets, final respawns, protection, records and results. Disable the checkbox to return to the original touch-combat training layout.
 
 See [Task 003 verification](TASK_003_VERIFICATION.md) for the frozen reference, lifecycle assertions and remaining physical iPhone acceptance.
+
+## Playable match integration (Task 004)
+
+`CrownfallMatch(selected, { bots: true })` supplies separated, collision-free team spawns and five command controllers. Its default diagnostic constructor remains unchanged for lifecycle regression tests. Bot commands pass through the existing simulation and cast/cooldown/target filters; they never assign health, tickets or life state. Bots sample enemies and aim every 220–380 ms, route around expanded obstacle corners, pursue, strafe or retreat at low health, and cast available skills/ultimates and Riven stance changes. Attack decisions are spaced independently of authored cooldowns.
+
+Player controls and Riven release semantics are unchanged. The normal HUD supports landscape and portrait touch viewports. All six actors have labels, health and cast feedback; projectiles/effects from all six simulations are presented. Only the human owns input and camera follow. A dead human spectates from its last camera position while team status and results continue updating.
+
+See [TASK_004_VERIFICATION.md](TASK_004_VERIFICATION.md) for validation and remaining limits.

@@ -1,15 +1,16 @@
 import { ARENA, OBSTACLES } from '../config/arena';
 
+import { BotController } from './bot-controller.js';
 import { respawn } from './combat-core.js';
 import { CombatSimulation } from './combat.js';
 import { CONFIG } from './config.js';
 import { SUMMONERS } from './summoners.js';
 
-// Lifecycle-only adaptation of frozen V21 match.js and crownfall-rules.js.
-// Spawns belong to this diagnostic arena; no territory, timer victory or bots.
+// Lifecycle adaptation of frozen V21 match.js and crownfall-rules.js.
+// Bots only supply commands; this remains the sole match authority.
 const idle = { moveX: 0, moveZ: 0 };
 export class CrownfallMatch {
-    constructor(selected = 0) {
+    constructor(selected = 0, { bots = false } = {}) {
         this.phase = 'prematch';
         this.countdownRemaining = 3;
         this.tick = 0;
@@ -53,13 +54,17 @@ export class CrownfallMatch {
                     eliminated: false,
                     protectedUntil: 0,
                     spawn: {
-                        x: slot === 0 ? (team === 1 ? 0 : 0.65) : slot === 1 ? -3 : 3,
-                        z: team === 1 ? 5 : slot === 0 ? 4.1 : 4.6
+                        x: bots ? (slot - 1) * 3 : slot === 0 ? (team === 1 ? 0 : 0.65) : slot === 1 ? -3 : 3,
+                        z: bots ? (team === 1 ? 9.8 : -9.8) : team === 1 ? 5 : slot === 0 ? 4.1 : 4.6
                     }
                 });
                 p.health = p.maxHealth = Math.round(p.maxHealth * 1.3);
                 this.place(sim);
-                this.actors.push({ sim, record: { kills: 0, deaths: 0, assists: 0, damage: 0 } });
+                this.actors.push({
+                    sim,
+                    bot: bots && (team !== 1 || slot !== 0) ? new BotController(this.actors.length) : null,
+                    record: { kills: 0, deaths: 0, assists: 0, damage: 0 }
+                });
             }
         this.entities = this.actors.map((a) => a.sim.player);
         for (const { sim } of this.actors) sim.targets = this.entities.filter((p) => p !== sim.player);
@@ -167,7 +172,7 @@ export class CrownfallMatch {
         }
         this.tick++;
         const ordered = this.tick % 2 ? this.actors : [...this.actors].reverse();
-        for (const { sim } of ordered) sim.step(sim === this.human ? command : idle, dt);
+        for (const { sim, bot } of ordered) sim.step(sim === this.human ? command : bot ? bot.command(sim) : idle, dt);
         this.rules.elapsed += dt;
         this.evaluate();
     }

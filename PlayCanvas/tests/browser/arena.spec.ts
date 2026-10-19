@@ -24,7 +24,7 @@ type Snapshot = {
 const snapshot = (page: Page): Promise<Snapshot> =>
     page.evaluate(() => (window as unknown as { __crownfall: { snapshot(): Snapshot } }).__crownfall.snapshot());
 async function ready(page: Page) {
-    await page.goto('/');
+    await page.goto('/?debug=1');
     await expect.poll(async () => (await snapshot(page)).frames).toBeGreaterThan(5);
     await expect(page.locator('#diagnostics')).toContainText('SAFE');
 }

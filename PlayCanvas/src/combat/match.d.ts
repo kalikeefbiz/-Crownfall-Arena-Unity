@@ -13,7 +13,7 @@ export type MatchActor = Combatant & {
     damage: number;
 };
 export class CrownfallMatch {
-    constructor(selected?: number);
+    constructor(selected?: number, options?: { bots?: boolean });
     phase: string;
     countdownRemaining: number;
     active: boolean;
