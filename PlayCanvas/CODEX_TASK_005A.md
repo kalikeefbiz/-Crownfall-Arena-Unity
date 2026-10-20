@@ -8,6 +8,7 @@ Branch: `playcanvas-port`
 Physical iPhone Safari playthrough of Task 005 passed at a high level.
 
 User acceptance notes:
+
 - the game now feels like Crownfall
 - overall movement/combat feel is smoother than the previous two builds
 - the behind-player camera direction is correct and must remain
@@ -26,12 +27,14 @@ Improve physical mobile readability and aiming without changing Crownfall rules,
 ## Camera
 
 Current accepted camera:
+
 - fixed behind Blue in positive world Z
 - follows the human
 - current offset: `y=15, z=12.5865`
 - current look target is directly at the human ground position
 
 Preserve:
+
 - behind-player orientation
 - fixed heading
 - follow smoothing
@@ -39,6 +42,7 @@ Preserve:
 - existing world/reference coordinate transform
 
 Change the competitive camera to approximately:
+
 - 20% greater camera-to-player distance
 - lower apparent top-down pitch
 - more forward battlefield visibility
@@ -46,12 +50,14 @@ Change the competitive camera to approximately:
 Use explicit tunable constants rather than unexplained literals.
 
 Recommended starting target:
+
 - camera offset approximately `y=15.5, z=18`
 - forward look-ahead approximately 3.5–4.5 world units toward Blue's forward direction (-Z)
 
 This yields roughly a 20% distance increase while making the view more forward-looking.
 
 Do not blindly force those exact values if they produce clipping or poor composition in automated viewport screenshots. Stay close to the requested intent:
+
 - ~20% farther
 - clearly less top-down
 - visibly more space ahead of the player than behind
@@ -69,11 +75,13 @@ On iPhone landscape, the current max-height media rule reduces normal ability bu
 Increase landscape competitive touch targets approximately 15–20%.
 
 Target range:
+
 - normal ability buttons: ~70–74 CSS px
 - Basic: ~86–90 CSS px
 - stance/special control should also receive a modest touch-target increase if needed
 
 Preserve:
+
 - current visual ordering
 - Basic remains largest
 - safe-area handling
@@ -89,6 +97,7 @@ Preserve:
 Do not change combat ranges or aim vectors to compensate for UI sizing.
 
 If necessary, adjust:
+
 - ability-bar gap
 - right/bottom offsets
 - combat-feedback vertical position
@@ -98,6 +107,7 @@ to keep the enlarged controls clear on common iPhone landscape dimensions.
 ## Tests
 
 Add/update regression coverage for:
+
 - competitive camera remains behind the human
 - camera distance is approximately 20% greater than Task 005 baseline
 - camera look target is biased forward, not directly centered under the player
@@ -132,6 +142,7 @@ Use the existing iPhone-style 844×390 browser context and any existing smaller 
 ## Validation
 
 Run:
+
 - `npm test`
 - `npm run typecheck`
 - `npm run lint`
@@ -144,6 +155,7 @@ Commit to `playcanvas-port` and trigger the existing `/playcanvas/` deployment.
 ## Completion report
 
 Report:
+
 1. final camera constants
 2. old vs new camera distance/pitch/look-ahead
 3. final landscape button sizes

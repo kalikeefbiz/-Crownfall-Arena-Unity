@@ -50,8 +50,8 @@ test('production positional territory, visual frontier, grace, retained CP and c
     expect((await snapshot(page)).match.cp[2]).toBeCloseTo(3);
     await expect
         .poll(async () => (await snapshot(page)).territory.camera.z - (await snapshot(page)).territory.follow.z)
-        .toBeCloseTo(12.5865, 3);
-    expect((await snapshot(page)).territory.camera.y).toBe(15);
+        .toBeCloseTo(18, 3);
+    expect((await snapshot(page)).territory.camera.y).toBe(15.5);
 });
 for (const reason of ['total-control', 'points'])
     test(`production ${reason} result has all participants, final metrics, freezes and restarts`, async ({ page }) => {

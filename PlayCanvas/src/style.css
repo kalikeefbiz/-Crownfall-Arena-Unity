@@ -610,14 +610,42 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
         top: 43%;
     }
     .playable #combat-feedback {
-        bottom: 112px;
+        bottom: calc(112px + var(--safe-bottom));
         left: 50%;
         right: auto;
         transform: translateX(-50%);
+        max-width: min(320px, 42%);
     }
     #result-panel {
         inset: 12% 18%;
         padding: 10px;
+    }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+    .playable #ability-bar {
+        gap: 8px;
+        bottom: calc(20px + var(--safe-bottom));
+    }
+    .playable .ability {
+        width: 72px;
+        height: 72px;
+    }
+    .playable .ability[data-slot='0'] {
+        width: 88px;
+        height: 88px;
+    }
+    .playable .ability-stance {
+        width: 72px;
+        height: 52px;
+        bottom: 98px;
+    }
+    .playable main:has(#play-match:not([hidden])) #combat-feedback {
+        visibility: hidden;
+    }
+    .playable main:has(#play-match:not([hidden])) #battle-announcement {
+        width: min(520px, 70%);
+        font-size: 18px;
+        line-height: 1.15;
     }
 }
 @media (orientation: portrait) {

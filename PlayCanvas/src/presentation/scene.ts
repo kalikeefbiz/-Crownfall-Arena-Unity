@@ -3,7 +3,13 @@ import type { AppBase } from 'playcanvas';
 
 import type { PreviewIntent } from '../combat/ability-input';
 import { MATCH_LANE } from '../combat/match-data.js';
-import { MATCH_WORLD, CAMERA_OFFSET } from '../combat/match-space.js';
+import {
+    MATCH_WORLD,
+    CAMERA_OFFSET,
+    CAMERA_LOOK_AHEAD,
+    CAMERA_FOLLOW_RATE,
+    TRAINING_CAMERA_OFFSET
+} from '../combat/match-space.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import type { Simulation } from '../gameplay/simulation';
 
@@ -97,9 +103,13 @@ export function createScene(app: AppBase, competitive = false) {
     camera.addComponent('camera', { clearColor: new Color(0.045, 0.065, 0.1), fov: 48, nearClip: 0.1, farClip: 150 });
     app.root.addChild(camera);
     const follow = new Vec3(0, 0, 5);
+    const cameraOffset = competitive ? CAMERA_OFFSET : TRAINING_CAMERA_OFFSET;
+    const lookAhead = competitive ? CAMERA_LOOK_AHEAD : 0;
+    const lookTarget = new Vec3();
     const updateCamera = () => {
-        camera.setPosition(follow.x, CAMERA_OFFSET.y, follow.z + CAMERA_OFFSET.z);
-        camera.lookAt(follow.x, 0, follow.z);
+        camera.setPosition(follow.x, cameraOffset.y, follow.z + cameraOffset.z);
+        lookTarget.set(follow.x, 0, follow.z - lookAhead);
+        camera.lookAt(lookTarget);
     };
     updateCamera();
     const light = new Entity('sun');
@@ -133,6 +143,8 @@ export function createScene(app: AppBase, competitive = false) {
             return {
                 frontierZ: frontier.getPosition().z,
                 camera: { x: camera.getPosition().x, y: camera.getPosition().y, z: camera.getPosition().z },
+                lookTarget: { x: lookTarget.x, y: lookTarget.y, z: lookTarget.z },
+                cameraForward: { x: camera.forward.x, y: camera.forward.y, z: camera.forward.z },
                 follow: { x: follow.x, z: follow.z }
             };
         },
@@ -272,7 +284,7 @@ export function createScene(app: AppBase, competitive = false) {
             sideProfile.enabled = isSide;
             aimRoot.setLocalEulerAngles(0, (Math.atan2(-sim.aim.x, -sim.aim.z) * 180) / Math.PI, 0);
             aimRoot.enabled = false;
-            const blend = 1 - Math.exp(-9 * dt);
+            const blend = 1 - Math.exp(-CAMERA_FOLLOW_RATE * dt);
             follow.x += (sim.position.x - follow.x) * blend;
             follow.z += (sim.position.z - follow.z) * blend;
             updateCamera();

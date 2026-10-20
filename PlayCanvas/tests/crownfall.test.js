@@ -10,7 +10,8 @@ import {
     worldToReference,
     MATCH_WORLD,
     matchSpawn,
-    CAMERA_OFFSET
+    CAMERA_OFFSET,
+    CAMERA_LOOK_AHEAD
 } from '../src/combat/match-space.js';
 import { CrownfallMatch } from '../src/combat/match.js';
 // Exact frozen V21 tests/match.test.js examples use its legacy training LANE.
@@ -146,6 +147,17 @@ test('a pending reserved respawn prevents elimination; simultaneous terminal def
     d.step(e, 0.1);
     assert.equal(d.result.winner, 0);
 });
+test('competitive camera is about 20% farther with a lower pitch and forward focus', () => {
+    const baselineDistance = Math.hypot(15, 12.5865);
+    const distance = Math.hypot(CAMERA_OFFSET.y, CAMERA_OFFSET.z);
+    expect(distance / baselineDistance).toBeGreaterThanOrEqual(1.18);
+    expect(distance / baselineDistance).toBeLessThanOrEqual(1.23);
+    expect(CAMERA_LOOK_AHEAD).toBeGreaterThanOrEqual(3.5);
+    expect(CAMERA_LOOK_AHEAD).toBeLessThanOrEqual(4.5);
+    const baselinePitch = Math.atan2(15, 12.5865);
+    const pitch = Math.atan2(CAMERA_OFFSET.y, CAMERA_OFFSET.z + CAMERA_LOOK_AHEAD);
+    expect(pitch).toBeLessThan(baselinePitch - (12 * Math.PI) / 180);
+});
 test('canonical transform, map walls, lane and spawns preserve accepted behind-player camera', () => {
     expect(referenceToWorld({ x: -30, z: -8 })).toEqual({ x: -8, z: 30 });
     expect(referenceToWorld({ x: 28, z: 12 })).toEqual({ x: 12, z: -28 });
@@ -158,7 +170,8 @@ test('canonical transform, map walls, lane and spawns preserve accepted behind-p
     expect(MATCH_WORLD.width).toBe(64);
     expect(MATCH_WORLD.depth).toBe(68);
     expect(MATCH_WORLD.walls).toEqual(MATCH_MAP.walls.map((w) => ({ ...referenceToWorld(w), w: w.d, d: w.w, h: w.h })));
-    expect(CAMERA_OFFSET).toEqual({ y: 15, z: 12.5865 });
+    expect(CAMERA_OFFSET.y).toBeGreaterThan(0);
+    expect(CAMERA_OFFSET.z).toBeGreaterThan(0);
     const m = new CrownfallMatch(0, { bots: true });
     expect(m.rules.control).toBe(0.5);
     expect(m.rules.front).toBe(0);
