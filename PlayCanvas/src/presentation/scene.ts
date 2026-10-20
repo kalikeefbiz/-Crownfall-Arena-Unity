@@ -10,6 +10,7 @@ import {
     CAMERA_FOLLOW_RATE,
     TRAINING_CAMERA_OFFSET
 } from '../combat/match-space.js';
+import { WILDERNESS_REGIONS } from '../combat/wilderness-data.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import type { Simulation } from '../gameplay/simulation';
 
@@ -74,6 +75,15 @@ export function createScene(app: AppBase, competitive = false) {
         m.update();
         return m;
     };
+    if (competitive)
+        for (const region of WILDERNESS_REGIONS)
+            primitive(
+                'wilderness-region',
+                'box',
+                [region.x, 0.009, region.z],
+                [region.w, 0.012, region.d],
+                tint(0x42956e)
+            );
     const blueTerritory = primitive('blue-territory', 'box', [0, 0.018, 0], [laneWidth, 0.012, 1], tint(0x369bff));
     const redTerritory = primitive('red-territory', 'box', [0, 0.02, 0], [laneWidth, 0.012, 1], tint(0xff425c));
     const frontier = primitive('authoritative-frontier', 'box', [0, 0.07, 0], [laneWidth, 0.1, 0.18], gold);
@@ -175,7 +185,8 @@ export function createScene(app: AppBase, competitive = false) {
                 redTerritory.setLocalScale(laneWidth, 0.012, Math.max(0.001, z + half));
             }
             const actors = sim.match?.actors || [];
-            const actorIds = new Set(actors.map((a) => a.sim.player.id));
+            const camps = sim.match?.wilderness.camps || [];
+            const actorIds = new Set([...actors.map((a) => a.sim.player.id), ...camps.map((c) => c.id)]);
             for (const [id, label] of labelViews) if (!actorIds.has(id)) label.hidden = true;
             for (const view of castViews.values()) view.enabled = false;
             for (const { sim: actor } of actors) {
@@ -202,6 +213,26 @@ export function createScene(app: AppBase, competitive = false) {
                 cast.setPosition(p.x + Math.sin(p.angle) * 0.9, 0.15, p.z + Math.cos(p.angle) * 0.9);
                 cast.setEulerAngles(0, (p.angle * 180) / Math.PI, 0);
             }
+            for (const camp of camps) {
+                let label = labelViews.get(camp.id);
+                if (!label) {
+                    label = document.createElement('div');
+                    label.className = 'actor-label camp-label';
+                    label.dataset.camp = camp.id;
+                    labelViews.set(camp.id, label);
+                    actorLabels.append(label);
+                }
+                const screen = project(camp, camp.major ? 2.5 : 1.8);
+                label.hidden =
+                    screen.z < 0 ||
+                    screen.x < 0 ||
+                    screen.x > window.innerWidth ||
+                    screen.y < 0 ||
+                    screen.y > window.innerHeight;
+                label.style.color = camp.major ? '#ffe3a4' : '#a9efd0';
+                label.textContent = `${camp.name} · ${camp.dead ? `RESPAWN ${Math.ceil(Math.max(0, camp.respawnAt - sim.match!.rules.elapsed))}s` : `${Math.ceil(camp.health)} / ${camp.maxHealth}`}`;
+                label.style.transform = `translate(${screen.x}px, ${screen.y}px) translate(-50%, -100%)`;
+            }
             root.enabled = !combat.player.dead;
             const visibleIds = new Set(combat.targets.map((t) => t.id));
             for (const [id, view] of targets)
@@ -218,8 +249,8 @@ export function createScene(app: AppBase, competitive = false) {
                     };
                     targets.set(t.id, view);
                 }
-                view.body.enabled = !t.dead;
-                view.body.setPosition(t.x, 0.5, t.z);
+                view.body.enabled = !t.dead || t.kind === 'monster';
+                view.body.setPosition(t.x, t.dead ? 0.08 : t.radius > 1 ? 0.9 : 0.5, t.z);
                 view.health.enabled = !t.dead;
                 view.health.setPosition(t.x, 1.2, t.z);
                 view.health.setLocalScale(Math.max(0.01, t.health / t.maxHealth), 0.08, 0.08);
@@ -231,15 +262,22 @@ export function createScene(app: AppBase, competitive = false) {
                       ? white
                       : (t.statuses.stun || 0) > combat.now
                         ? purple
-                        : t.id === 'mobile-test'
-                          ? gold
-                          : t.team === 1
-                            ? green
-                            : red;
+                        : t.kind === 'monster'
+                          ? t.dead
+                              ? dark
+                              : t.radius > 1
+                                ? gold
+                                : boundary
+                          : t.id === 'mobile-test'
+                            ? gold
+                            : t.team === 1
+                              ? green
+                              : red;
                 const pulse = combat.journal.hits.some((hit) => hit.targetId === t.id && combat.now - hit.time < 0.15)
                     ? 1.22
                     : 1;
-                view.body.setLocalScale(0.7 * pulse, pulse, 0.7 * pulse);
+                const size = t.kind === 'monster' ? t.radius * 2 : 0.7;
+                view.body.setLocalScale(size * pulse, t.dead ? 0.12 : t.radius > 1 ? 1.8 : pulse, size * pulse);
             }
             const simulations = sim.match ? sim.match.actors.map((a) => a.sim) : [combat];
             const projectiles = simulations.flatMap((c) => c.projectiles.items);

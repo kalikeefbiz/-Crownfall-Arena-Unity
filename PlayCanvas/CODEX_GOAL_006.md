@@ -23,6 +23,7 @@ Frozen behavioral authority:
 ## Current accepted baseline
 
 Physical iPhone Safari acceptance:
+
 - the match now feels like Crownfall
 - Task 005A camera composition is strongly accepted
 - the behind-player camera is locked
@@ -33,6 +34,7 @@ Physical iPhone Safari acceptance:
 - Task 006 Wilderness has NOT yet been implemented
 
 One known gameplay defect remains:
+
 - genuine full positional lane domination can fail to trigger the 100% total-control win because the current endpoint inset applies whenever both teams remain alive in-lane
 
 This defect must be fixed FIRST, then Wilderness must be integrated on top of the corrected rule.
@@ -44,6 +46,7 @@ This defect must be fixed FIRST, then Wilderness must be integrated on top of th
 Execute `PlayCanvas/CODEX_TASK_005B.md` first.
 
 Required result before proceeding:
+
 - legitimate two-team positional domination can reach exact 100%
 - total-control victory fires immediately
 - mirrored Blue/Red cases both work
@@ -63,6 +66,7 @@ If Phase A fails, investigate/fix it before moving to Wilderness.
 Once Phase A is green, execute `PlayCanvas/CODEX_TASK_006.md` completely.
 
 This includes:
+
 - transformed Wilderness regions
 - Kit Inner Flame Wilderness passive
 - six minor camps
@@ -116,28 +120,33 @@ Verify the playable build supports:
 20. bot lane combat
 21. bot Wilderness rotations
 22. all four match resolutions:
-   - total-control
-   - points
-   - tickets
-   - regulation
+
+- total-control
+- points
+- tickets
+- regulation
+
 23. full six-participant results
 24. clean restart/rematch
 
 ## Integration-specific requirements
 
 ### Territory + Wilderness
+
 - actors in Wilderness do not directly pressure the lane
 - leaving lane for a camp can reduce a team's territorial presence naturally
 - returning to lane restores positional eligibility naturally
 - no camp, buff, or assignment may directly mutate front/control/CP
 
 ### Total control + rotations
+
 - Wilderness rotations must not make the anti-backcap fix regress
 - a genuine ordered positional push can still reach exact 100%
 - a crossed runner still cannot steal the endpoint
 - bot rotations can create lane weakness naturally, but the coordinator itself never edits territory
 
 ### Camps + lifecycle
+
 - monsters cannot attack dead/eliminated/protected actors when disallowed by source rules
 - minor buffs clear on death as required
 - major team buff resumes on respawn only for its remaining authoritative duration
@@ -145,6 +154,7 @@ Verify the playable build supports:
 - rematch recreates clean Wilderness/camp/reward state
 
 ### Camps + combat economy
+
 - neutral damage never generates Ultimate Meter
 - Summoner-only abilities continue excluding monsters
 - normal eligible attacks can hit monsters
@@ -152,6 +162,7 @@ Verify the playable build supports:
 - camp reward attribution never corrupts participant K/D/A or assist logic
 
 ### Results
+
 - all six participant rows remain present
 - controller type stays metadata only
 - Wilderness systems do not make results human-only or bot-only
@@ -159,7 +170,9 @@ Verify the playable build supports:
 - do not invent a new overall score formula
 
 ### Camera / controls
+
 LOCK:
+
 - Task 005A camera offset and forward look-ahead
 - fixed behind-player heading
 - smoothing rate
@@ -183,6 +196,7 @@ At minimum:
 Run multiple deterministic complete matches with different selected human Summoners.
 
 Across the set, prove:
+
 - all six actors remain finite/valid
 - normal combat damage occurs
 - deaths occur
@@ -207,6 +221,7 @@ Use deterministic seeds/fixtures where needed, but keep at least one ordinary no
 ## Victory-condition regression
 
 Explicitly preserve tests for:
+
 - natural total-control with both teams alive in normal ordered formation
 - crossed-runner anti-backcap
 - CP victory
@@ -218,6 +233,7 @@ Explicitly preserve tests for:
 ## Browser/mobile integration
 
 Production-browser coverage should include:
+
 - current camera composition
 - enlarged controls
 - real touch movement
@@ -256,6 +272,7 @@ Do not implement new systems merely because the audit finds them.
 The audit exists to prevent the next chat/task from inventing Crownfall or accidentally reviving obsolete designs.
 
 Explicitly confirm in the audit:
+
 - one Crownfall Lane
 - lateral Wilderness
 - no towers
@@ -275,6 +292,7 @@ If the frozen V21 source and current port disagree materially on a gameplay beha
 # OUT OF SCOPE
 
 Do NOT implement:
+
 - networking
 - matchmaking
 - server authority
@@ -344,6 +362,7 @@ This Goal is complete only when:
 ## Final report
 
 Report:
+
 1. final commit SHA
 2. exact root cause/fix for total-control issue
 3. Wilderness systems implemented

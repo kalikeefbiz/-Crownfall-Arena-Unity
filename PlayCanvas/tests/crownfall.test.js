@@ -366,3 +366,30 @@ test('participant pressure time stops at neutral despite historical CP and switc
     expect(m.actors[5].record.pressureSeconds).toBe(0);
     expect(m.actors.slice(0, 3).map((a) => a.record.pressureSeconds)).toEqual(bluePressure);
 });
+
+for (const [b, red, team] of [
+    [26, 30, 1],
+    [29, 31, 1],
+    [-30, -26, 2],
+    [-31, -29, 2]
+])
+    test(`natural ordered alive formations ${b}/${red} immediately win for ${team}`, () => {
+        const r = new CrownfallRules();
+        r.step(pair(b, red), 1 / 60);
+        expect(r.control).toBe(team === 1 ? 1 : 0);
+        expect(r.front).toBe(team === 1 ? 28 : -28);
+        expect(r.result).toMatchObject({ winner: team, reason: 'total-control' });
+        expect(r.cp).toEqual({ 1: 0, 2: 0 });
+    });
+test('crossed runners at either endpoint never steal total control', () => {
+    for (const [b, red] of [
+        [31, 29],
+        [-29, -31]
+    ]) {
+        const r = new CrownfallRules();
+        r.step(pair(b, red), 1 / 60);
+        expect(r.control).toBeGreaterThan(0);
+        expect(r.control).toBeLessThan(1);
+        expect(r.result).toBe(null);
+    }
+});

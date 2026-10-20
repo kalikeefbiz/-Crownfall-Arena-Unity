@@ -66,6 +66,7 @@ export class CombatSimulation {
     targets: Combatant[];
     definition: Definition;
     stance: string | null;
+    inWilderness: boolean;
     now: number;
     actionSerial: number;
     committedAngle: number;

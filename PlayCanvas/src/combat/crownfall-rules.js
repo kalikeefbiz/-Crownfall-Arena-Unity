@@ -33,7 +33,8 @@ export class CrownfallRules {
                     ? Math.min(0, r)
                     : 0;
         this.front = Math.max(LANE.goalA, Math.min(LANE.goalB, this.front));
-        if (b !== null && r !== null)
+        // Only crossed formations need endpoint protection against a backline runner.
+        if (b !== null && r !== null && b > r)
             this.front = Math.max(
                 LANE.goalA + (LANE.goalB - LANE.goalA) / 1000,
                 Math.min(LANE.goalB - (LANE.goalB - LANE.goalA) / 1000, this.front)

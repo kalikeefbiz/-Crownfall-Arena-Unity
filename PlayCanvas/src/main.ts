@@ -13,6 +13,7 @@ import {
 import { AbilityInput } from './combat/ability-input.js';
 import { hasStatus } from './combat/combat-core.js';
 import { CommandStepper } from './combat/command-stepper.js';
+import { matchSpawn } from './combat/match-space.js';
 import { Simulation } from './gameplay/simulation';
 import { Controls } from './input/controls';
 import { createScene } from './presentation/scene';
@@ -115,7 +116,25 @@ try {
                       const m = simulation.match;
                       if (
                           !m ||
-                          !['pressure', 'neutral', 'red-pressure', 'total-control', 'points', 'combat'].includes(name)
+                          ![
+                              'pressure',
+                              'neutral',
+                              'red-pressure',
+                              'total-control',
+                              'points',
+                              'combat',
+                              'natural-blue',
+                              'natural-red',
+                              'crossed',
+                              'camp-mobility',
+                              'camp-cooldown',
+                              'camp-defense',
+                              'camp-damage',
+                              'wilderness-entry',
+                              'wilderness-left-entry',
+                              'rotation',
+                              'all-buffs'
+                          ].includes(name)
                       )
                           throw new Error('Unknown verification fixture');
                       verificationPaused = true;
@@ -124,11 +143,32 @@ try {
                           m.step(undefined, 3);
                       }
                       for (const [i, actor] of m.actors.entries()) {
-                          Object.assign(actor, { bot: null });
+                          if (name !== 'rotation') Object.assign(actor, { bot: null });
                           const p = actor.sim.player;
                           p.x = ((i % 3) - 1) * 8;
                           p.z = p.team === 1 ? -4 : -8;
                           Object.assign(p, { previous: { x: p.x, z: p.z } });
+                      }
+                      if (name === 'all-buffs') {
+                          Object.assign(m.human.player, { x: 24, z: 18 });
+                          for (const c of m.wilderness.camps) m.human.damage(c, 99999, m.human.player);
+                          verificationPaused = false;
+                      }
+                      if (name.startsWith('camp-')) {
+                          const camp = m.wilderness.camps.find((c) => c.type === name.slice(5))!;
+                          Object.assign(m.human.player, { x: camp.x, z: camp.z + 2, angle: Math.PI });
+                          // Wound through the normal damage boundary. The touch action secures it.
+                          m.human.damage(camp, camp.health - 60, m.human.player);
+                          verificationPaused = false;
+                      }
+                      if (name === 'wilderness-entry' || name === 'wilderness-left-entry') {
+                          Object.assign(m.human.player, { x: name === 'wilderness-entry' ? 10 : -10, z: 0 });
+                          verificationPaused = false;
+                      }
+                      if (name === 'rotation') {
+                          for (const [i, p] of m.entities.entries()) Object.assign(p, matchSpawn(p.team, i % 3));
+                          m.rules.elapsed = 14;
+                          for (const a of m.actors) a.sim.now = 14;
                       }
                       if (name === 'neutral') for (const p of m.entities) p.z = p.team === 1 ? 4 : -4;
                       if (name === 'red-pressure') for (const p of m.entities) p.z = p.team === 1 ? 8 : 4;
@@ -137,6 +177,10 @@ try {
                               p.x = p.team === 1 ? 0 : 13;
                               p.z = p.team === 1 ? -28 : -30;
                           }
+                      if (name === 'natural-blue' || name === 'natural-red')
+                          for (const p of m.entities)
+                              p.z = name === 'natural-blue' ? (p.team === 1 ? -26 : -30) : p.team === 1 ? 30 : 26;
+                      if (name === 'crossed') for (const p of m.entities) p.z = p.team === 1 ? -31 : -29;
                       if (name === 'points') m.rules.cp[1] = 999;
                       if (name === 'combat') {
                           for (const p of m.entities) {
@@ -147,6 +191,9 @@ try {
                           Object.assign(m.entities[3], { x: 0, z: 2.1 });
                           verificationPaused = false;
                       }
+                  },
+                  pause() {
+                      verificationPaused = true;
                   },
                   advance(seconds: number) {
                       if (!verificationPaused || !Number.isFinite(seconds) || seconds < 0 || seconds > 300)

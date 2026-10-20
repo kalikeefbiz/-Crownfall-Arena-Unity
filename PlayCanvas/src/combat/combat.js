@@ -167,7 +167,7 @@ export class CombatSimulation extends MovementSimulation {
                 value: Math.round(n),
                 expires: this.now + 0.85
             });
-        if (target.team !== this.player.team) {
+        if (target.team !== this.player.team && (!this.match || target.kind === 'summoner')) {
             this.stats.damage += n;
             if (target.dead) this.stats.kills++;
         }

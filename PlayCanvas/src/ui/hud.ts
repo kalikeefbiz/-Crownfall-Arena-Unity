@@ -15,6 +15,7 @@ export function createHud() {
       <button id="advance-match">Debug: advance 5.1s</button><pre id="match-status"></pre></section>
       <section id="scoreboard" aria-label="Match scoreboard"></section>
       <section id="team-status" aria-label="Team participants"></section>
+      <div id="wilderness-buffs" aria-label="Wilderness buffs" hidden></div>
       <div id="battle-announcement" role="status" aria-live="polite"></div>
       <div id="kill-feed" aria-live="polite"></div>
       <button id="play-match">Start match</button>
@@ -92,6 +93,22 @@ export function createHud() {
                               : human.dead
                                 ? `Respawning in ${Math.max(0, human.respawnAt - match.elapsed).toFixed(1)}s`
                                 : '';
+                const buffs = hud.querySelector('#wilderness-buffs') as HTMLElement;
+                const labels: Record<string, string> = {
+                    'camp:mobility': 'MOBILITY +20%',
+                    'camp:cooldown': 'COOLDOWN −20%',
+                    'camp:defense': 'DEFENSE +20%',
+                    'camp:damage': 'TEAM DAMAGE +25%'
+                };
+                const active = Object.entries(human.modifiers).filter(
+                    ([id, v]) => id.startsWith('camp:') && v.expires > match.elapsed
+                );
+                const inner = sim.combat.inWilderness && !human.dead && sim.combat.definition.id === 'kit-asher';
+                buffs.textContent = [
+                    ...(inner ? ['INNER FLAME +5%'] : []),
+                    ...active.map(([id, v]) => `${labels[id]} ${Math.ceil(v.expires - match.elapsed)}s`)
+                ].join(' · ');
+                buffs.hidden = (!active.length && !inner) || match.phase !== 'active';
                 hud.querySelector('#kill-feed')!.textContent = match.feed.join(' • ');
                 (hud.querySelector('#play-match') as HTMLButtonElement).hidden = match.phase !== 'prematch';
                 (hud.querySelector('#summoner') as HTMLSelectElement).disabled = match.phase !== 'prematch';

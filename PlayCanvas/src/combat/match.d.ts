@@ -27,6 +27,13 @@ export type MatchResult = {
     tickets: Record<number, number>;
     participants: ParticipantResult[];
 };
+export type Camp = Combatant & {
+    type: string;
+    major: boolean;
+    respawnAt: number;
+    home: { x: number; z: number };
+    rewarded: boolean;
+};
 export class CrownfallMatch {
     constructor(selected?: number, options?: { bots?: boolean; diagnostic?: boolean });
     phase: string;
@@ -50,6 +57,14 @@ export class CrownfallMatch {
         tickets: Record<number, number>;
         result: { winner: number; reason: string; duration: number } | null;
     };
+    wilderness: {
+        camps: Camp[];
+        assignments: Map<string, { camp: string; until: number }>;
+        assigned(id: string): Camp | null | undefined;
+        coordinate(): void;
+        rewardCount: number;
+        rotationCount: number;
+    };
     start(): void;
     step(command?: unknown, dt?: number): void;
     protected(p: Combatant): boolean;
@@ -71,6 +86,10 @@ export class CrownfallMatch {
         results: MatchResult | null;
         remaining: number;
         feed: string[];
+        camps: Camp[];
+        rotations: number;
+        rewards: number;
+        assignments: { id: string; camp: string; until: number }[];
         actors: MatchActor[];
     };
 }

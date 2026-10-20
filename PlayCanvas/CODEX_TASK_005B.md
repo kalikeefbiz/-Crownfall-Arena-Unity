@@ -6,6 +6,7 @@ Branch: `playcanvas-port`
 ## Context
 
 Physical iPhone Safari playtest of Task 005A passed strongly:
+
 - camera composition is accepted and should not change
 - camera smoothing/follow behavior is accepted
 - controls are improved
@@ -51,6 +52,7 @@ Allow genuine positional domination to reach 100% territory and immediately end 
 ## Required rule behavior
 
 Reference-space terminology remains:
+
 - Blue forward-most eligible actor = `b = max(x)`
 - Red forward-most eligible actor = `r = min(x)`
 - Blue advances toward +X
@@ -71,11 +73,13 @@ front = (b + r) / 2
 ```
 
 If that genuine midpoint reaches or passes an endpoint:
+
 - clamp to the endpoint
 - allow control to become exactly 0 or 1
 - immediately resolve `total-control`
 
 Examples that MUST win:
+
 - Blue defenders forced to/behind reference X = -30 spawn while Red attackers advance far enough that their midpoint reaches reference goalA = -28 -> Red total-control victory
 - mirrored case at goalB = +28 -> Blue total-control victory
 
@@ -109,6 +113,7 @@ Do not let a backline runner bypass the territorial fight.
 ### Single-team lane presence
 
 Preserve current behavior:
+
 - only Blue present -> Blue can push from neutral to goalB
 - only Red present -> Red can push from neutral to goalA
 - no eligible lane actors -> neutral
@@ -116,6 +121,7 @@ Preserve current behavior:
 ### Lane eligibility
 
 Do not change:
+
 - living only
 - not respawn-reserved
 - physically inside the Crownfall Lane
@@ -139,6 +145,7 @@ The authoritative FRONT must naturally be capable of reaching the goal endpoint 
 The normal HUD/frontier should display the authoritative result accurately.
 
 If control is exact endpoint:
+
 - display 100.0% / 0.0%
 - world frontier sits at the actual goal line
 - result immediately transitions to victory/defeat
@@ -151,34 +158,34 @@ Do not change camera composition.
 Add pure-rule tests for BOTH directions:
 
 1. Red pushes Blue back to/behind Blue spawn while formations remain normally ordered.
-   - both teams alive
-   - both teams still lane-eligible
-   - midpoint reaches/passes goalA
-   - control becomes exactly 0
-   - Red immediately wins
-   - reason `total-control`
+    - both teams alive
+    - both teams still lane-eligible
+    - midpoint reaches/passes goalA
+    - control becomes exactly 0
+    - Red immediately wins
+    - reason `total-control`
 
 2. Blue mirrored case.
-   - control becomes exactly 1
-   - Blue immediately wins
-   - reason `total-control`
+    - control becomes exactly 1
+    - Blue immediately wins
+    - reason `total-control`
 
 3. No CP or grace needed for either.
 
 4. Preserve anti-backcap:
-   - a runner crosses behind an active defender
-   - crossed branch uses prior-front clamp
-   - control remains strictly below 100%
-   - no total-control result
+    - a runner crosses behind an active defender
+    - crossed branch uses prior-front clamp
+    - control remains strictly below 100%
+    - no total-control result
 
 5. Preserve existing:
-   - neutral start
-   - CP/grace
-   - tickets/final lives
-   - regulation
-   - result freeze
-   - transformed world/reference mapping
-   - Wilderness remains absent for now
+    - neutral start
+    - CP/grace
+    - tickets/final lives
+    - regulation
+    - result freeze
+    - transformed world/reference mapping
+    - Wilderness remains absent for now
 
 ## Production-browser acceptance test
 
@@ -213,6 +220,7 @@ Task 006 has NOT been implemented yet. Do not start it as part of this correctio
 ## Validation
 
 Run and fix:
+
 - `npm test`
 - `npm run typecheck`
 - `npm run lint`
@@ -225,6 +233,7 @@ All retained Task 002A through Task 005A coverage must continue to pass.
 ## Finish criteria
 
 Finish only when:
+
 - genuine two-team positional domination can reach exact 100% territory
 - immediate total-control victory occurs
 - crossed-runner anti-backcap remains intact
@@ -235,6 +244,7 @@ Finish only when:
 - existing `/playcanvas/` deployment is triggered
 
 At completion report:
+
 1. exact root cause
 2. exact rules change
 3. new natural full-control scenarios tested

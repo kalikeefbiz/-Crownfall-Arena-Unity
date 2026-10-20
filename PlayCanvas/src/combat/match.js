@@ -7,6 +7,8 @@ import { CONFIG } from './config.js';
 import { CrownfallRules } from './crownfall-rules.js';
 import { MATCH_WORLD, matchSpawn, worldToReference } from './match-space.js';
 import { SUMMONERS } from './summoners.js';
+import { WILDERNESS_REGIONS } from './wilderness-data.js';
+import { Wilderness } from './wilderness.js';
 
 // Lifecycle adaptation of frozen V21 match.js and crownfall-rules.js.
 // Bots only supply commands; this remains the sole match authority.
@@ -40,7 +42,7 @@ export class CrownfallMatch {
                     : MATCH_WORLD;
                 const sim = new CombatSimulation(
                     entry.definition,
-                    { targets: [], stations: [], zones: [], targetRespawn: Infinity },
+                    { targets: [], stations: [], zones: diagnostic ? [] : WILDERNESS_REGIONS, targetRespawn: Infinity },
                     config,
                     map
                 );
@@ -70,7 +72,11 @@ export class CrownfallMatch {
                 });
             }
         this.entities = this.actors.map((a) => a.sim.player);
-        for (const { sim } of this.actors) sim.targets = this.entities.filter((p) => p !== sim.player);
+        this.wilderness = new Wilderness(this);
+        // The close-range lifecycle fixture keeps its original geometry and target set.
+        if (diagnostic) this.wilderness.camps = [];
+        for (const { sim } of this.actors)
+            sim.targets = [...this.entities.filter((p) => p !== sim.player), ...this.wilderness.camps];
         this.human = this.actors[0].sim;
         this.refreshAuras();
     }
@@ -105,6 +111,10 @@ export class CrownfallMatch {
     }
     recordDamage(sim, target, amount, source) {
         if (!this.active) return;
+        if (target.kind === 'monster') {
+            this.wilderness.onDamage(target, source);
+            return;
+        }
         const attacker = this.actors.find((a) => a.sim.player === source);
         const victim = this.actors.find((a) => a.sim.player === target);
         if (attacker && source.team !== target.team) {
@@ -188,9 +198,11 @@ export class CrownfallMatch {
                 this.place(sim);
             }
         }
+        this.wilderness.coordinate();
         this.tick++;
         const ordered = this.tick % 2 ? this.actors : [...this.actors].reverse();
         for (const { sim, bot } of ordered) sim.step(sim === this.human ? command : bot ? bot.command(sim) : idle, dt);
+        this.wilderness.step(dt);
         this.evaluate(dt);
     }
     // Explicit debug timer seam: runs every authoritative fixed tick, never edits clocks/lives.
@@ -212,6 +224,10 @@ export class CrownfallMatch {
             remaining: Math.max(0, this.rules.settings.timeLimitSeconds - this.rules.elapsed),
             results: this.results,
             feed: [...this.feed],
+            camps: this.wilderness.camps.map((c) => ({ ...c, home: { ...c.home } })),
+            rotations: this.wilderness.rotationCount,
+            rewards: this.wilderness.rewardCount,
+            assignments: [...this.wilderness.assignments].map(([id, assignment]) => ({ id, ...assignment })),
             actors: this.actors.map(({ sim, record }) => ({
                 ...sim.player,
                 protected: this.protected(sim.player),

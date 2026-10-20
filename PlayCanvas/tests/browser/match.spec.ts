@@ -19,6 +19,8 @@ async function start(page: Page) {
 test('rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch', async ({
     page
 }) => {
+    // Software WebGL may need more than 60s for the repeated real UI lifecycle.
+    test.setTimeout(120000);
     await start(page);
     expect((await snapshot(page)).actors).toHaveLength(6);
     await page.locator('#inspect-actor').selectOption('2-0');

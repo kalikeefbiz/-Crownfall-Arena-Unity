@@ -15,6 +15,7 @@ Authoritative frozen reference:
 `kalikeefbiz/Crownfall-Browser-V21-Reference`
 
 Inspect at minimum:
+
 - `src/wilderness.js`
 - `src/match-bots.js`
 - `src/match-data.js`
@@ -30,6 +31,7 @@ Use current preserved Version 21 source/tests to settle edge cases.
 ## Current accepted PlayCanvas baseline
 
 The current playable build is accepted at a high level on physical iPhone Safari:
+
 - actual 3v3 Crownfall match works
 - territory/frontier and Crownfall Points are implemented
 - all four match outcomes exist
@@ -85,6 +87,7 @@ Reference Version 21 Wilderness tags:
 - center reference (0, +22), size 68 × 20
 
 After the established transform these are lateral world strips centered around:
+
 - world X ≈ -22
 - world X ≈ +22
 
@@ -95,6 +98,7 @@ Port them as tagged gameplay regions used by simulation.
 These regions are NOT capture zones and do NOT directly affect territory/front position.
 
 They exist for:
+
 - Kit Inner Flame
 - Wilderness identification/presentation
 - camp placement/navigation
@@ -104,6 +108,7 @@ They exist for:
 Reference `CAMP_SITES` must remain authoritative and be transformed into PlayCanvas world coordinates.
 
 Reference sites:
+
 - Mobility A: (-22, -22)
 - Mobility B: (+22, -22)
 - Cooldown A: (-18, +24)
@@ -116,6 +121,7 @@ Do not reinterpret A/B as Blue/Red ownership.
 Camps are neutral objectives.
 
 There are exactly:
+
 - 2 Mobility minor camps
 - 2 Cooldown minor camps
 - 2 Defense minor camps
@@ -126,6 +132,7 @@ There are exactly:
 Create a Wilderness authority/module equivalent to Version 21.
 
 Monsters:
+
 - team 0 / neutral
 - valid damageable combatants
 - kills do not count as enemy-Summoner kills
@@ -136,6 +143,7 @@ Monsters:
 ### Minor monsters
 
 Each minor:
+
 - health: 850
 - damage: 42
 - attack interval: 1 second
@@ -162,8 +170,8 @@ Each minor:
 - dead/eliminated players are excluded
 - while pursuing, remain constrained by home leash behavior
 - if no valid target and more than 2 seconds since last hit:
-  - heal to full
-  - reset to home
+    - heal to full
+    - reset to home
 - normal map collision remains respected
 - stun/status behavior follows existing combat primitives where applicable
 
@@ -187,6 +195,7 @@ Duration: 20 seconds.
 ### Mobility
 
 Killing Summoner:
+
 - +20% movement speed
 - immediate
 - timed
@@ -195,12 +204,14 @@ Killing Summoner:
 ### Cooldown
 
 Killing Summoner:
+
 - 20% cooldown reduction
 - immediate
 - timed
 - expires after 20 s
 
 Preserve Version 21 exclusions:
+
 - normal ability cooldowns are reduced
 - Basic cooldowns remain unchanged
 - stance cooldown remains unchanged
@@ -211,6 +222,7 @@ Do not stack duplicate same-type camp modifiers beyond Version 21 behavior.
 ### Defense
 
 Killing Summoner:
+
 - 20% damage mitigation
 - immediate
 - timed
@@ -221,6 +233,7 @@ Neutral monster damage must demonstrate this mitigation while still granting zer
 ### Death/reset behavior
 
 Preserve Version 21:
+
 - minor camp buffs are temporary actor modifiers
 - death clears them according to existing defeat/reset behavior
 - rematch begins with no camp rewards/modifiers
@@ -228,10 +241,12 @@ Preserve Version 21:
 ## Major Damage reward
 
 Securing team receives:
+
 - +25% outgoing damage
 - duration: 25 seconds
 
 Rules:
+
 - applies to living teammates immediately
 - enemy team receives nothing
 - team reward has one authoritative fixed expiry
@@ -247,9 +262,11 @@ Do not turn it into a personal last-hit-only reward.
 Activate the already-structured Kit Wilderness hook in the real match.
 
 When Kit is inside a tagged Wilderness region:
+
 - +5% movement speed
 
 When Kit leaves:
+
 - bonus ends
 
 Do not make the bonus permanent.
@@ -262,6 +279,7 @@ Test entry and exit using actual transformed Wilderness regions.
 This remains prototype presentation, not production art.
 
 Add clear in-world/readable representation for:
+
 - six minor camps
 - major objective
 - camp type
@@ -272,6 +290,7 @@ Add clear in-world/readable representation for:
 Use simple PlayCanvas primitives/materials/labels.
 
 Also expose active Wilderness buffs clearly enough for physical-device QA:
+
 - Mobility
 - Cooldown
 - Defense
@@ -286,6 +305,7 @@ The territorial HUD/frontier must remain readable.
 ## Human gameplay
 
 The human must be able to:
+
 - leave Crownfall Lane into either Wilderness side
 - reach camps through current authored match geometry
 - damage/kill camps with valid kit abilities
@@ -306,6 +326,7 @@ Port the strategic assignment behavior from Version 21 without replacing authori
 The coordinator owns assignments only.
 Bots still submit ordinary movement/combat commands.
 The coordinator must never:
+
 - teleport bots
 - directly damage camps
 - directly grant buffs
@@ -315,6 +336,7 @@ The coordinator must never:
 ### Scheduling
 
 Version 21:
+
 - Blue first minor rotation eligibility: 14 s
 - Red first minor rotation eligibility: 20 s
 - minor rotation interval: 24 s
@@ -327,6 +349,7 @@ Version 21:
 ### Safety / lane-presence gates
 
 For each team:
+
 - if fewer than 3 teammates alive: cancel/avoid rotations
 - if team control is below 35%: cancel/avoid rotations
 - candidate rotating bots should be above 55% health
@@ -334,11 +357,13 @@ For each team:
 - only bot-controlled actors may receive automated Wilderness assignments
 
 Minor:
+
 - preserve at least meaningful lane presence
 - Version 21 never sends all three; with current one-human + two-bot setup, a minor rotation is at most one bot
 - require the source policy's lane/bot eligibility before assigning
 
 Major:
+
 - may assign two bots
 - requires sufficient lane/control state
 - preserve at least one actual teammate as lane presence
@@ -348,6 +373,7 @@ Major:
 ### Camp selection
 
 For minor rotations:
+
 - choose a live minor camp
 - prefer eligible camp types not already active on the bot
 - use the source's proximity policy
@@ -357,6 +383,7 @@ For minor rotations:
 ### Bot combat priority
 
 When assigned:
+
 - objective can become the bot's movement/combat target
 - nearby enemy Summoners remain relevant as in Version 21
 - preserve the source behavior where a close enemy can interrupt/directly supersede objective focus
@@ -372,6 +399,7 @@ Task 004/005 already has a deterministic PlayCanvas `BotController`.
 Do not blindly delete and replace it if that would regress working combat/pathing.
 
 Integrate Wilderness assignment awareness into the existing controller while preserving:
+
 - current combat command path
 - deterministic testing
 - obstacle routing
@@ -379,6 +407,7 @@ Integrate Wilderness assignment awareness into the existing controller while pre
 - accepted match completion
 
 Use the frozen V21 bot policy as behavioral authority specifically for:
+
 - rotation eligibility
 - objective assignment
 - objective-vs-nearby-enemy priority
@@ -393,12 +422,14 @@ Port/adapt the authoritative assertions from `tests/wilderness.test.js`.
 At minimum prove:
 
 ### Regions / Kit passive
+
 - actual lateral movement can leave lane and enter transformed Wilderness
 - lane pressure excludes lateral/Wilderness actors
 - Kit gains exactly +5% movement in tagged Wilderness
 - Kit loses it on exit
 
 ### Camp mechanics
+
 - exactly six minor camps + one major exist
 - canonical transformed positions are correct
 - Mobility gives +20% speed for 20 s and expires
@@ -418,6 +449,7 @@ At minimum prove:
 - solo major attempt remains materially riskier/slower than coordinated two-Summoner attempt through existing mechanics
 
 ### Neutral AI
+
 - aggro at valid range
 - excludes respawn-protected actors
 - pursues toward target
@@ -428,6 +460,7 @@ At minimum prove:
 - respawn restores full health/home/rewardable state
 
 ### Rotation coordinator
+
 - never assigns all three teammates to a minor
 - minor assignment is at most one bot per team under the current 1-human + 2-bot setup
 - major can assign two bots
@@ -441,7 +474,9 @@ At minimum prove:
 - bots do not directly mutate camp health/rewards
 
 ### Complete matches
+
 Run multiple deterministic full matches long enough to prove:
+
 - normal Summoner combat still occurs
 - rotations occur
 - at least one camp reward occurs across the test set
@@ -455,6 +490,7 @@ Do not require every random/deterministic match to have identical winner/reward 
 ## Browser/device tests
 
 Add production-browser coverage proving:
+
 - Wilderness/camps visibly exist in normal playable match
 - local human can physically travel from lane into Wilderness with real controls
 - local Kit Wilderness passive activates/deactivates by region
@@ -479,6 +515,7 @@ Do not encode Wilderness rules as "AI-only" behavior.
 Only the automated assignment policy is bot-specific.
 
 Future network players must be able to use the same:
+
 - camp combat
 - reward attribution
 - modifiers
@@ -490,6 +527,7 @@ No networking is implemented in this task.
 ## Explicitly out of scope
 
 Do NOT:
+
 - rebalance AI difficulty
 - rebalance Summoners
 - change CP/territory/tickets/regulation
@@ -505,6 +543,7 @@ Do NOT:
 ## Validation
 
 Run and fix:
+
 - unit/non-rendering tests
 - typecheck
 - lint
@@ -519,6 +558,7 @@ Retain all Task 002A touch combat, Task 003 lifecycle, Task 004 playable match, 
 Do not stop after placing camp primitives.
 
 Finish only when:
+
 - tagged Wilderness regions work
 - Kit Inner Flame works in the real match
 - all six minor camps work
@@ -537,6 +577,7 @@ Finish only when:
 - existing `/playcanvas/` deployment is triggered
 
 At completion report:
+
 1. final commit SHA
 2. files changed
 3. frozen reference files/tests used

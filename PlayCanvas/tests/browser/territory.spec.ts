@@ -130,3 +130,29 @@ test('normal full-map iPhone landscape HUD avoids controls and real touch deals 
     await page.screenshot({ path: 'test-results/task005-landscape-touch.png' });
     await context.close();
 });
+
+for (const team of [1, 2])
+    test(`natural alive ordered total control team ${team}`, async ({ page }) => {
+        await page.goto('/?verify=1');
+        await arrange(page, team === 1 ? 'natural-blue' : 'natural-red');
+        await advance(page, 1 / 60);
+        const s = (await snapshot(page)).match;
+        expect(s.actors.every((p) => !p.dead && Math.abs(p.x) <= 12)).toBe(true);
+        expect(s.control).toBe(team === 1 ? 1 : 0);
+        expect(s.result).toMatchObject({ winner: team, reason: 'total-control' });
+        expect(s.cp).toEqual({ 1: 0, 2: 0 });
+        await expect(page.locator('#result-title')).toHaveText(team === 1 ? 'VICTORY' : 'DEFEAT');
+        await expect(page.locator('#result-detail')).toContainText('Total control');
+        await page.screenshot({ path: `test-results/task005b-natural-${team}.png` });
+        await expect(page.locator('#scoreboard')).toContainText(team === 1 ? '100.0% / 0.0%' : '0.0% / 100.0%');
+        await expect(page.locator('#result-panel')).toBeVisible();
+        await expect.poll(async () => (await snapshot(page)).territory.frontierZ).toBe(team === 1 ? -28 : 28);
+    });
+test('crossed runner cannot backcap in production', async ({ page }) => {
+    await page.goto('/?verify=1');
+    await arrange(page, 'crossed');
+    await advance(page, 1 / 60);
+    const s = (await snapshot(page)).match;
+    expect(s.control).toBeLessThan(1);
+    expect(s.result).toBe(null);
+});

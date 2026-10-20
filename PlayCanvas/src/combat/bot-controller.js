@@ -66,10 +66,26 @@ export class BotController {
         if (now >= this.nextThink) {
             this.decisions++;
             this.nextThink = now + 0.22 + this.random() * 0.16;
-            const enemies = sim.targets.filter((t) => sim.valid(t));
-            const score = (t) => Math.hypot(t.x - p.x, t.z - p.z) + (t.id === this.targetId ? -1.8 : 0);
+            const objective = sim.match.wilderness?.assigned(p.id);
+            const enemies = sim.targets.filter(
+                (t) =>
+                    t.kind === 'summoner' &&
+                    sim.valid(t) &&
+                    (!objective || Math.abs(t.x) < sim.match.rules.lane.halfWidth + 3)
+            );
+            const score = (t) => Math.hypot(t.x - p.x, t.z - p.z) + (!objective && t.id === this.targetId ? -1.8 : 0);
             enemies.sort((a, b) => score(a) - score(b));
-            const target = enemies[0];
+            const nearby = enemies[0];
+            // V21 lets a nearby lane enemy supersede the objective. Keep existing
+            // sampled aim, combat cadence and visibility-graph routing unchanged.
+            const target =
+                objective &&
+                (!nearby ||
+                    Math.abs(nearby.x) >= sim.match.rules.lane.halfWidth + 3 ||
+                    Math.hypot(nearby.x - p.x, nearby.z - p.z) > 5)
+                    ? objective
+                    : nearby;
+            this.state = target === objective && objective ? 'wilderness' : 'combat';
             this.targetId = target?.id ?? null;
             if (!target) {
                 this.goal = null;
@@ -97,6 +113,7 @@ export class BotController {
                     .filter(
                         (a) =>
                             a.effect !== 'stance' &&
+                            (!a.summonersOnly || target.kind === 'summoner') &&
                             (!a.ultimate || p.ultimateMeter >= 100) &&
                             sim.cooldowns.ready(a.cooldownKey || a.id, now) &&
                             (a.effect === 'buff' ? distance < 7 : distance <= (a.range || 0) + target.radius - 0.15)

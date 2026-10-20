@@ -787,3 +787,34 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
         inset: 10% 2%;
     }
 }
+
+/* Compact reward row below the participant HUD; controls retain Task 005A geometry. */
+#wilderness-buffs {
+    position: absolute;
+    top: calc(143px + var(--safe-top));
+    left: 50%;
+    transform: translateX(-50%);
+    width: max-content;
+    max-width: calc(100% - var(--safe-left) - var(--safe-right) - 24px);
+    white-space: nowrap;
+    font-size: 9px;
+    line-height: 12px;
+    color: #b4f4d5;
+    text-align: center;
+    text-shadow: 0 2px 3px #000;
+    pointer-events: none;
+}
+#wilderness-buffs[hidden] {
+    display: none;
+}
+@media (max-height: 500px) {
+    #wilderness-buffs {
+        top: calc(110px + var(--safe-top));
+        font-size: 8px;
+    }
+}
+@media (orientation: portrait) {
+    #wilderness-buffs {
+        top: calc(212px + var(--safe-top));
+    }
+}
