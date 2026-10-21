@@ -2,6 +2,9 @@ import {
     AppBase,
     AppOptions,
     CameraComponentSystem,
+    ContainerHandler,
+    TextureHandler,
+    RenderHandler,
     Entity,
     FILLMODE_FILL_WINDOW,
     LightComponentSystem,
@@ -26,6 +29,7 @@ try {
     device.maxPixelRatio = Math.min(window.devicePixelRatio, 2);
     const options = new AppOptions();
     options.graphicsDevice = device;
+    options.resourceHandlers = [ContainerHandler, TextureHandler, RenderHandler];
     options.componentSystems = [RenderComponentSystem, CameraComponentSystem, LightComponentSystem];
     const app = new AppBase(canvas);
     app.init(options);
@@ -270,6 +274,8 @@ try {
                         },
                         weapons: simulation.combat.weapons.blades.map((b) => ({ x: b.x, z: b.z, phase: b.phase }))
                     },
+                    kitModel: scene.kitModel,
+                    frameMs: smoothedDt * 1000,
                     preview: scene.preview,
                     territory: scene.territory,
                     input: { pointer: abilities.pointerState, cancel: !!abilities.preview?.cancel },
