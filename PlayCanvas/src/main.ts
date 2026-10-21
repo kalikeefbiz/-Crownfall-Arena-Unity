@@ -1,4 +1,5 @@
 import {
+    AnimComponentSystem,
     AppBase,
     AppOptions,
     CameraComponentSystem,
@@ -30,7 +31,12 @@ try {
     const options = new AppOptions();
     options.graphicsDevice = device;
     options.resourceHandlers = [ContainerHandler, TextureHandler, RenderHandler];
-    options.componentSystems = [RenderComponentSystem, CameraComponentSystem, LightComponentSystem];
+    options.componentSystems = [
+        RenderComponentSystem,
+        CameraComponentSystem,
+        LightComponentSystem,
+        AnimComponentSystem
+    ];
     const app = new AppBase(canvas);
     app.init(options);
     app.setCanvasFillMode(FILLMODE_FILL_WINDOW);
