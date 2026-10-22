@@ -16,6 +16,7 @@ import type { Simulation } from '../gameplay/simulation';
 
 import { createCombatOverlay } from './combat-overlay';
 import { createKitModel } from './kit-model';
+import { createRivenModel } from './riven-model';
 
 function material(hex: number): StandardMaterial {
     const m = new StandardMaterial();
@@ -106,6 +107,7 @@ export function createScene(app: AppBase, competitive = false) {
     primitive('side-eye', 'box', [0.17, 1.51, 0.22], [0.075, 0.08, 0.06], dark, sideProfile);
     primitive('profile-nose', 'box', [0.32, 1.42, 0.06], [0.21, 0.14, 0.25], white, sideProfile);
     const kitModel = createKitModel(app, root, visual, competitive);
+    const rivenModel = createRivenModel(app, root, visual);
     const aimRoot = new Entity('continuous-aim');
     root.addChild(aimRoot);
     primitive('aim-line', 'box', [0, 0.08, -1.4], [0.055, 0.04, 2.8], gold, aimRoot);
@@ -154,6 +156,9 @@ export function createScene(app: AppBase, competitive = false) {
         get kitModel() {
             return kitModel.snapshot();
         },
+        get rivenModel() {
+            return rivenModel.snapshot();
+        },
         get territory() {
             return {
                 frontierZ: frontier.getPosition().z,
@@ -168,6 +173,7 @@ export function createScene(app: AppBase, competitive = false) {
         },
         destroy() {
             kitModel.destroy();
+            rivenModel.destroy();
             overlay.destroy();
             actorLabels.remove();
         },
@@ -319,6 +325,7 @@ export function createScene(app: AppBase, competitive = false) {
                 });
             root.setPosition(sim.position.x, 0, sim.position.z);
             kitModel.update(sim);
+            rivenModel.update(sim);
             const facing = sim.facing.facing;
             const isSide = facing === 'Right' || facing === 'Left';
             body.render!.meshInstances[0].material = isSide ? side : facing === 'Back' ? back : front;

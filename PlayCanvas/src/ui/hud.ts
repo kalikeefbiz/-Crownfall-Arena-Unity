@@ -1,6 +1,7 @@
 import type { PreviewIntent } from '../combat/ability-input';
 import type { Simulation } from '../gameplay/simulation';
 export function createHud() {
+    const rivenPreview = new URLSearchParams(location.search).get('rivenPreview') === '1';
     const hud = document.createElement('main');
     hud.innerHTML = `
       <header><strong>CROWNFALL</strong> <span>ARENA · TOUCH COMBAT 002A</span></header>
@@ -39,7 +40,12 @@ export function createHud() {
         update(sim: Simulation, dt: number, frames: number, intent: PreviewIntent | null = null) {
             const c = sim.combat;
             const match = sim.match?.snapshot();
-            hud.querySelector('header span')!.textContent = match ? 'ARENA · 3v3' : 'ARENA · TOUCH COMBAT 002A';
+            hud.querySelector('header span')!.textContent =
+                rivenPreview && c.definition.id === 'riven'
+                    ? 'RIVEN 3D · DEV PRESENTATION ONLY'
+                    : match
+                      ? 'ARENA · 3v3'
+                      : 'ARENA · TOUCH COMBAT 002A';
             hud.querySelector('.notice')!.textContent = match
                 ? '3v3 · Start countdown · Debug actions respect protection · Reset creates a clean prematch'
                 : 'RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE';

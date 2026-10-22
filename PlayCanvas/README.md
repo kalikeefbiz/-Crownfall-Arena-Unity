@@ -15,6 +15,32 @@ npm run dev -- --host 0.0.0.0
 
 Open http://localhost:5173 in landscape. Production preview: https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/
 
+## Riven 3D developer preview (Goal 007C)
+
+Open `http://localhost:5173/?rivenPreview=1`, choose **Riven**, and press
+**Start match**. The same opt-in works with `npm run build` / `npm run start`
+on port 4173. Published preview (after the branch's publish workflow succeeds):
+<https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/?rivenPreview=1>.
+For an isolated movement preview in the existing training scene, use
+`?debug=1&rivenPreview=1`, then select **Riven**; no countdown is needed.
+
+WASD/arrows or the existing left joystick move Riven; ability aiming retains the
+existing facing priority. This previews the model's idle/run presentation only.
+Existing Riven simulation/abilities are unchanged, and Kit's punch/combat animations
+are not mapped to Riven. The normal default remains unchanged without the flag.
+
+`Idle_6` blends into `Running` in 0.12 seconds. The preferred `run_fast_7` failed
+loop validation after horizontal hip correction, so only `Running` is registered
+as the running state. `Walking` remains available for future speed modes.
+`?rivenPreview=1&rivenPrimitive=1` forces the original primitive without fetching
+the model. Failed/pending imports also keep that primitive and the existing controls.
+Kit's normal animated model and `kitModel` / `kitPrimitive` comparisons remain available.
+
+Inspect `window.__crownfall.snapshot().rivenModel` for load state/timing, clip and
+loop-selection evidence, active state/time, fixed transforms, hip position, and
+fallback visibility. See [Goal 007C verification](TASK_007C_VERIFICATION.md) for
+asset validation, regression checks and remaining physical mobile acceptance.
+
 ## Controls
 
 - Select Kit, Set or Riven at the top. Reset sandbox restores the selected character and targets; defeat otherwise remains final.

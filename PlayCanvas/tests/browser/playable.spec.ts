@@ -38,7 +38,10 @@ test('normal player starts, fights a natural 3v3 battle, sees results, freeze an
     await page.screenshot({ path: 'test-results/task004-active-desktop.png' });
     await expect.poll(async () => (await state(page)).result, { timeout: 750000, intervals: [1000] }).not.toBe(null);
     const completed = await state(page);
-    expect(completed.actors.filter((a) => !a.human).every((a) => a.damage > 0 && a.deaths > 0)).toBe(true);
+    // Established territory wins can end a battle before every bot has died.
+    // Still require all bots to fight and the natural battle to include deaths.
+    expect(completed.actors.filter((a) => !a.human).every((a) => a.damage > 0)).toBe(true);
+    expect(completed.actors.some((a) => a.deaths > 0)).toBe(true);
     if (completed.result?.reason === 'tickets') expect(completed.actors.some((a) => a.eliminated)).toBe(true);
     expect(completed.results?.participants).toHaveLength(6);
     await expect(page.locator('#result-panel')).toBeVisible();

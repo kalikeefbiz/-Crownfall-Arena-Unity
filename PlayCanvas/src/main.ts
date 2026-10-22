@@ -281,6 +281,7 @@ try {
                         weapons: simulation.combat.weapons.blades.map((b) => ({ x: b.x, z: b.z, phase: b.phase }))
                     },
                     kitModel: scene.kitModel,
+                    rivenModel: scene.rivenModel,
                     frameMs: smoothedDt * 1000,
                     preview: scene.preview,
                     territory: scene.territory,
