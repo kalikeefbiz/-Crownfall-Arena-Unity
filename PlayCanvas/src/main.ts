@@ -282,6 +282,7 @@ try {
                     },
                     kitModel: scene.kitModel,
                     rivenModel: scene.rivenModel,
+                    setModel: scene.setModel,
                     frameMs: smoothedDt * 1000,
                     preview: scene.preview,
                     territory: scene.territory,
