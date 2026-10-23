@@ -1,0 +1,210 @@
+{
+    "renderer": "Chromium ANGLE SwiftShader (software)",
+    "physicalDevice": false,
+    "base": "http://127.0.0.1:4173/",
+    "measuredAt": "2026-10-23T05:39:30.411Z",
+    "results": [
+        {
+            "mode": "3d",
+            "viewport": {
+                "width": 844,
+                "height": 390
+            },
+            "deviceScaleFactor": 1,
+            "requests": [
+                "http://127.0.0.1:4173/assets/summoners/set/Set_Animated.glb",
+                "http://127.0.0.1:4173/assets/summoners/riven/Riven_Animated.glb",
+                "http://127.0.0.1:4173/assets/summoners/kit/Kit_20K_Animated.glb"
+            ],
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 373.04777777777934,
+                "medianMs": 366.7000000000007,
+                "p95Ms": 733.2999999999993
+            },
+            "entities": 1348,
+            "visibleModels": 6,
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 990.3000000000466
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 1485.3000000000466
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 2751.5
+                    }
+                ],
+                "gpu": {
+                    "tex": 268498532,
+                    "vb": 4002860,
+                    "ib": 334206,
+                    "ub": 5280,
+                    "sb": 0
+                }
+            },
+            "resources": [
+                {
+                    "name": "http://127.0.0.1:4173/assets/summoners/set/Set_Animated.glb",
+                    "durationMs": 150.5999999998603,
+                    "decodedBodySize": 10000416,
+                    "transferSize": 10000716
+                },
+                {
+                    "name": "http://127.0.0.1:4173/assets/summoners/riven/Riven_Animated.glb",
+                    "durationMs": 151.80000000004657,
+                    "decodedBodySize": 11170312,
+                    "transferSize": 11170612
+                },
+                {
+                    "name": "http://127.0.0.1:4173/assets/summoners/kit/Kit_20K_Animated.glb",
+                    "durationMs": 492.0999999998603,
+                    "decodedBodySize": 26939896,
+                    "transferSize": 26940196
+                }
+            ],
+            "jsHeapUsedBytes": 16634104
+        },
+        {
+            "mode": "primitive",
+            "viewport": {
+                "width": 844,
+                "height": 390
+            },
+            "deviceScaleFactor": 1,
+            "requests": [],
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 160.6966666666651,
+                "medianMs": 166.59999999999854,
+                "p95Ms": 300
+            },
+            "entities": 894,
+            "visibleModels": 0,
+            "modelAssets": {
+                "downloads": 0,
+                "boundCalculations": 0,
+                "assets": [],
+                "gpu": {
+                    "tex": 41008,
+                    "vb": 19192,
+                    "ib": 4380,
+                    "ub": 4224,
+                    "sb": 0
+                }
+            },
+            "resources": [],
+            "jsHeapUsedBytes": 13484568
+        },
+        {
+            "mode": "3d",
+            "viewport": {
+                "width": 844,
+                "height": 390
+            },
+            "deviceScaleFactor": 2,
+            "requests": [
+                "http://127.0.0.1:4173/assets/summoners/set/Set_Animated.glb",
+                "http://127.0.0.1:4173/assets/summoners/riven/Riven_Animated.glb",
+                "http://127.0.0.1:4173/assets/summoners/kit/Kit_20K_Animated.glb"
+            ],
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 791.1022222222217,
+                "medianMs": 783.1999999999971,
+                "p95Ms": 1583.300000000003
+            },
+            "entities": 1348,
+            "visibleModels": 6,
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 1895.6000000000931
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 2025.3000000000466
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 3655.9000000001397
+                    }
+                ],
+                "gpu": {
+                    "tex": 268498532,
+                    "vb": 4002860,
+                    "ib": 334206,
+                    "ub": 5280,
+                    "sb": 0
+                }
+            },
+            "resources": [
+                {
+                    "name": "http://127.0.0.1:4173/assets/summoners/set/Set_Animated.glb",
+                    "durationMs": 104.19999999995343,
+                    "decodedBodySize": 10000416,
+                    "transferSize": 10000716
+                },
+                {
+                    "name": "http://127.0.0.1:4173/assets/summoners/riven/Riven_Animated.glb",
+                    "durationMs": 107.4000000001397,
+                    "decodedBodySize": 11170312,
+                    "transferSize": 11170612
+                },
+                {
+                    "name": "http://127.0.0.1:4173/assets/summoners/kit/Kit_20K_Animated.glb",
+                    "durationMs": 2111.5999999998603,
+                    "decodedBodySize": 26939896,
+                    "transferSize": 26940196
+                }
+            ],
+            "jsHeapUsedBytes": 17323608
+        },
+        {
+            "mode": "primitive",
+            "viewport": {
+                "width": 844,
+                "height": 390
+            },
+            "deviceScaleFactor": 2,
+            "requests": [],
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 552.9499999999979,
+                "medianMs": 533.4000000000015,
+                "p95Ms": 1183.2999999999993
+            },
+            "entities": 894,
+            "visibleModels": 0,
+            "modelAssets": {
+                "downloads": 0,
+                "boundCalculations": 0,
+                "assets": [],
+                "gpu": {
+                    "tex": 41008,
+                    "vb": 19192,
+                    "ib": 4380,
+                    "ub": 4224,
+                    "sb": 0
+                }
+            },
+            "resources": [],
+            "jsHeapUsedBytes": 10846552
+        }
+    ]
+}

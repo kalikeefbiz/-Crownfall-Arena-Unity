@@ -1,0 +1,19 @@
+[WebServer] (node:7952) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:7971) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Six summoner diagnostics {"selected":"Kit","assets":{"downloads":3,"boundCalculations":3,"assets":[{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":987.6999999999534},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":1645.6999999999534},{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":3030.399999999907}],"gpu":{"tex":268498532,"vb":4002860,"ib":334206,"ub":5280,"sb":0}},"frameMs":69.793172330329,"entities":1348}
+  ✓  1 tests/browser/six-summoner.spec.ts:67:5 › Kit selection renders six identities with independent playback and shared resources (10.0s)
+Six summoner diagnostics {"selected":"Set","assets":{"downloads":3,"boundCalculations":3,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":2961.3000000000466},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":1218.0999999998603},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":1616.3999999999069}],"gpu":{"tex":268498532,"vb":4002860,"ib":334206,"ub":5280,"sb":0}},"frameMs":65.14590482335899,"entities":1348}
+  ✓  2 tests/browser/six-summoner.spec.ts:67:5 › Set selection renders six identities with independent playback and shared resources (8.4s)
+Six summoner diagnostics {"selected":"Riven","assets":{"downloads":3,"boundCalculations":3,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":2826},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":1207.6999999999534},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":1514.3999999999069}],"gpu":{"tex":268498532,"vb":4002860,"ib":334206,"ub":5280,"sb":0}},"frameMs":62.433385730329,"entities":1348}
+  ✓  3 tests/browser/six-summoner.spec.ts:67:5 › Riven selection renders six identities with independent playback and shared resources (7.2s)
+  ✓  4 tests/browser/six-summoner.spec.ts:151:1 › all actors survive defeat, respawn, rematch and identity reorder without redownloads (18.5s)
+  ✓  5 tests/browser/six-summoner.spec.ts:204:1 › one failed shared asset falls back for both teams while the other four models render (9.9s)
+  ✓  6 tests/browser/six-summoner.spec.ts:221:1 › global primitive diagnostic skips every GLB and keeps normal bots active (6.9s)
+  ✓  7 tests/browser/six-summoner.spec.ts:245:1 › normal match enables all six skinned actors and normal AI without preview flags (12.5s)
+
+  7 passed (1.3m)

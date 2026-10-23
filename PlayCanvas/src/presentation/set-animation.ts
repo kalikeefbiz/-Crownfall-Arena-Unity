@@ -10,12 +10,17 @@ export const SET_READY_SOURCE = 'Punch_Combo';
 export const SET_READY_TIME = 0;
 export const inPlaceSetTrack = inPlaceKitTrack;
 
+const readyTracks = new WeakMap<AnimTrack, AnimTrack>();
 export function sampledSetReady(track: AnimTrack) {
+    const cached = readyTracks.get(track);
+    if (cached) return cached;
     const snapshot = new AnimSnapshot(track);
     track.eval(SET_READY_TIME, snapshot);
     const outputs = snapshot._results.map((values) => new AnimData(values.length, [...values, ...values]));
     const curves = track.curves.map((curve, index) => new AnimCurve(curve.paths, 0, index, 1));
-    return new AnimTrack('Ready', 1, [new AnimData(1, [0, 1])], outputs, curves);
+    const ready = new AnimTrack('Ready', 1, [new AnimData(1, [0, 1])], outputs, curves);
+    readyTracks.set(track, ready);
+    return ready;
 }
 
 export class SetAnimationState {

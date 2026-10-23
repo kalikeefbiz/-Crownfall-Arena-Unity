@@ -6,7 +6,13 @@ export const KIT_ATTACK_WINDOW = 0.5;
 
 // Remove horizontal hip displacement in runtime copies only. Keep vertical gait,
 // every other joint curve, and the original GLB/container tracks untouched.
+const correctedTracks = new WeakMap<AnimTrack, Map<string, AnimTrack>>();
 export function inPlaceKitTrack(track: AnimTrack, x: number, z: number): AnimTrack {
+    const key = `${x}:${z}`;
+    let cache = correctedTracks.get(track);
+    if (!cache) correctedTracks.set(track, (cache = new Map()));
+    const cached = cache.get(key);
+    if (cached) return cached;
     const outputs = track.outputs.slice();
     for (const curve of track.curves) {
         if (!curve.paths.some((p) => p.entityPath.at(-1) === 'mixamorig:Hips' && p.propertyPath[0] === 'localPosition'))
@@ -19,7 +25,9 @@ export function inPlaceKitTrack(track: AnimTrack, x: number, z: number): AnimTra
         }
         outputs[curve.output] = new AnimData(source.components, values);
     }
-    return new AnimTrack(track.name, track.duration, track.inputs, outputs, track.curves);
+    const result = new AnimTrack(track.name, track.duration, track.inputs, outputs, track.curves);
+    cache.set(key, result);
+    return result;
 }
 
 type Attempt = { id: number; accepted: boolean; abilityId: string; time: number };

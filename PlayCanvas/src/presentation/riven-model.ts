@@ -1,9 +1,9 @@
-import { Asset, BoundingBox, Entity } from 'playcanvas';
+import { BoundingBox, Entity } from 'playcanvas';
 import type { AnimTrack, AppBase, ContainerResource, RenderComponent } from 'playcanvas';
 
-import type { Simulation } from '../gameplay/simulation';
-
 import { attachRivenAnimations, RivenAnimationState } from './riven-animation';
+import { SummonerAssets } from './summoner-assets';
+import type { ModelFrame } from './summoner-assets';
 
 export const RIVEN_ASSET_PATH = 'assets/summoners/riven/Riven_Animated.glb';
 export const RIVEN_ASSET_BYTES = 11170312;
@@ -33,10 +33,17 @@ export function normalizeRivenBounds(min: number[], max: number[]) {
     };
 }
 
-export function createRivenModel(app: AppBase, root: Entity, primitive: Entity) {
+export function createRivenModel(
+    app: AppBase,
+    root: Entity,
+    primitive: Entity,
+    competitive = false,
+    sharedAssets?: SummonerAssets
+) {
+    const assets = sharedAssets ?? new SummonerAssets(app);
     const query = new URLSearchParams(location.search);
     const previewEnabled = query.get('rivenPreview') === '1';
-    const forcedPrimitive = query.get('rivenPrimitive') === '1';
+    const forcedPrimitive = query.get('models') === 'primitive' || query.get('rivenPrimitive') === '1';
     const source = RIVEN_ASSET_PATH;
     const animation = new RivenAnimationState();
     let previousX = 0,
@@ -44,11 +51,11 @@ export function createRivenModel(app: AppBase, root: Entity, primitive: Entity) 
     const pivot = new Entity('Riven-3D-facing');
     root.addChild(pivot);
     let model: Entity | null = null;
-    let asset: Asset | null = null;
+
     let destroyed = false;
     let yaw = 180;
     let selected = false;
-    let player: Simulation['combat']['player'] | null = null;
+    let player: ModelFrame['combat']['player'] | null = null;
     const metrics = {
         state: 'idle' as 'idle' | 'loading' | 'loaded' | 'error',
         bytes: RIVEN_ASSET_BYTES,
@@ -71,63 +78,67 @@ export function createRivenModel(app: AppBase, root: Entity, primitive: Entity) 
     const start = () => {
         metrics.state = 'loading';
         const started = performance.now();
-        asset = new Asset('Riven animated', 'container', {
-            url: `${import.meta.env.BASE_URL}${source}`
-        });
-        asset.once('error', () => {
-            if (destroyed) return;
-            metrics.state = 'error';
-            metrics.error = 'Riven unavailable; using primitive';
-            metrics.loadMs = performance.now() - started;
-        });
-        asset.once('load', () => {
-            if (destroyed) return;
-            let instance: Entity | null = null;
-            try {
-                instance = (asset!.resource as ContainerResource).instantiateRenderEntity();
-                // Detached identity hierarchy: bounds are not contaminated by player position/yaw.
-                const meshes = (instance.findComponents('render') as RenderComponent[]).flatMap((c) => c.meshInstances);
-                if (!meshes.length) throw new Error('Empty Riven');
-                if (meshes.some((mesh) => mesh.skinInstance?.skin.boneNames.length !== 68))
-                    throw new Error('Expected Riven 68-joint skeleton');
-                const bounds = new BoundingBox();
-                // Stable authored bind mesh bounds, not the conservative skinned AABB.
-                bounds.setFromTransformedAabb(meshes[0].mesh!.aabb, meshes[0].node.getWorldTransform());
-                for (const mesh of meshes.slice(1)) {
-                    const part = new BoundingBox();
-                    part.setFromTransformedAabb(mesh.mesh!.aabb, mesh.node.getWorldTransform());
-                    bounds.add(part);
+        void assets.load(source).then(
+            (asset) => {
+                if (destroyed) return;
+                let instance: Entity | null = null;
+                try {
+                    instance = (asset!.resource as ContainerResource).instantiateRenderEntity();
+                    // Detached identity hierarchy: bounds are not contaminated by player position/yaw.
+                    const meshes = (instance.findComponents('render') as RenderComponent[]).flatMap(
+                        (c) => c.meshInstances
+                    );
+                    if (!meshes.length) throw new Error('Empty Riven');
+                    if (meshes.some((mesh) => mesh.skinInstance?.skin.boneNames.length !== 68))
+                        throw new Error('Expected Riven 68-joint skeleton');
+                    const normalized = assets.normalization(source, () => {
+                        const bounds = new BoundingBox();
+                        // Stable authored bind mesh bounds, not the conservative skinned AABB.
+                        bounds.setFromTransformedAabb(meshes[0].mesh!.aabb, meshes[0].node.getWorldTransform());
+                        for (const mesh of meshes.slice(1)) {
+                            const part = new BoundingBox();
+                            part.setFromTransformedAabb(mesh.mesh!.aabb, mesh.node.getWorldTransform());
+                            bounds.add(part);
+                        }
+                        const min = bounds.getMin().toArray();
+                        const max = bounds.getMax().toArray();
+                        const normalized = normalizeRivenBounds(min, max);
+                        normalized.offset[1] += RIVEN_IDLE_FLOOR_OFFSET;
+                        return { ...normalized, bounds: { min, max } };
+                    });
+                    instance.setLocalScale(normalized.scale, normalized.scale, normalized.scale);
+                    instance.setLocalPosition(...(normalized.offset as [number, number, number]));
+                    const tracks = (asset!.resource as ContainerResource).animations.map(
+                        (a) => a.resource as AnimTrack
+                    );
+                    Object.assign(metrics, attachRivenAnimations(instance, tracks));
+                    animation.runningClip = metrics.runningClip;
+                    pivot.addChild(instance);
+                    model = instance;
+                    Object.assign(metrics, normalized, {
+                        bounds: normalized.bounds,
+                        meshInstances: meshes.length,
+                        jointCount: meshes[0].skinInstance!.skin.boneNames.length,
+                        state: 'loaded',
+                        loadMs: performance.now() - started
+                    });
+                } catch (error) {
+                    instance?.destroy();
+                    metrics.state = 'error';
+                    metrics.error = `Riven import invalid: ${error instanceof Error ? error.message : 'unknown error'}; using primitive`;
+                    metrics.loadMs = performance.now() - started;
                 }
-                const min = bounds.getMin().toArray();
-                const max = bounds.getMax().toArray();
-                const normalized = normalizeRivenBounds(min, max);
-                normalized.offset[1] += RIVEN_IDLE_FLOOR_OFFSET;
-                instance.setLocalScale(normalized.scale, normalized.scale, normalized.scale);
-                instance.setLocalPosition(...(normalized.offset as [number, number, number]));
-                const tracks = (asset!.resource as ContainerResource).animations.map((a) => a.resource as AnimTrack);
-                Object.assign(metrics, attachRivenAnimations(instance, tracks));
-                animation.runningClip = metrics.runningClip;
-                pivot.addChild(instance);
-                model = instance;
-                Object.assign(metrics, normalized, {
-                    bounds: { min, max },
-                    meshInstances: meshes.length,
-                    jointCount: meshes[0].skinInstance!.skin.boneNames.length,
-                    state: 'loaded',
-                    loadMs: performance.now() - started
-                });
-            } catch (error) {
-                instance?.destroy();
+            },
+            () => {
+                if (destroyed) return;
                 metrics.state = 'error';
-                metrics.error = `Riven import invalid: ${error instanceof Error ? error.message : 'unknown error'}; using primitive`;
+                metrics.error = 'Asset unavailable; using primitive';
                 metrics.loadMs = performance.now() - started;
             }
-        });
-        app.assets.add(asset);
-        app.assets.load(asset);
+        );
     };
     return {
-        update(sim: Simulation) {
+        update(sim: ModelFrame) {
             if (player !== sim.combat.player) {
                 player = sim.combat.player;
                 animation.reset();
@@ -136,7 +147,7 @@ export function createRivenModel(app: AppBase, root: Entity, primitive: Entity) 
                 previousZ = player.z;
                 yaw = (Math.atan2(sim.aim.x, sim.aim.z) * 180) / Math.PI;
             }
-            selected = previewEnabled && sim.combat.definition.id === 'riven' && !forcedPrimitive;
+            selected = (competitive || previewEnabled) && sim.combat.definition.id === 'riven' && !forcedPrimitive;
             if (selected && sim.match?.phase !== 'prematch' && metrics.state === 'idle') start();
             const owner = sim.facing.owner;
             if (owner === 'aim') yaw = (Math.atan2(sim.aim.x, sim.aim.z) * 180) / Math.PI;
@@ -144,7 +155,7 @@ export function createRivenModel(app: AppBase, root: Entity, primitive: Entity) 
             else if (owner === 'movement') yaw = (Math.atan2(sim.movement.x, sim.movement.z) * 180) / Math.PI;
             pivot.setLocalEulerAngles(0, yaw + RIVEN_AUTHORED_FORWARD_YAW, 0);
             pivot.enabled = selected && !!model;
-            // Kit owns the default primitive each frame; override only for this opt-in Riven selection.
+            // Only the matching character presenter can hide the fallback.
             if (selected) primitive.enabled = !pivot.enabled;
             const moving = Math.hypot(player.x - previousX, player.z - previousZ) > 0.0001;
             previousX = player.x;
@@ -169,6 +180,13 @@ export function createRivenModel(app: AppBase, root: Entity, primitive: Entity) 
             }
             return {
                 ...metrics,
+                instanceId: model?.getGuid() ?? null,
+                meshId: model
+                    ? (model.findComponents('render') as RenderComponent[])[0]?.meshInstances[0]?.mesh?.id
+                    : null,
+                materialId: model
+                    ? (model.findComponents('render') as RenderComponent[])[0]?.meshInstances[0]?.material?.id
+                    : null,
                 activeAnimation: model?.anim?.baseLayer!.activeState ?? null,
                 playbackTime: model?.anim?.baseLayer!.activeStateCurrentTime ?? 0,
                 playing: !!model?.anim?.playing && root.enabled && pivot.enabled,
@@ -190,10 +208,7 @@ export function createRivenModel(app: AppBase, root: Entity, primitive: Entity) 
         destroy() {
             destroyed = true;
             pivot.destroy();
-            if (asset) {
-                app.assets.remove(asset);
-                asset.unload();
-            }
+            if (!sharedAssets) assets.destroy();
         }
     };
 }

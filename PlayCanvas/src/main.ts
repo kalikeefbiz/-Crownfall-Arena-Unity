@@ -127,6 +127,7 @@ try {
                       if (
                           !m ||
                           ![
+                              'roster',
                               'pressure',
                               'neutral',
                               'red-pressure',
@@ -192,6 +193,14 @@ try {
                               p.z = name === 'natural-blue' ? (p.team === 1 ? -26 : -30) : p.team === 1 ? 30 : 26;
                       if (name === 'crossed') for (const p of m.entities) p.z = p.team === 1 ? -31 : -29;
                       if (name === 'points') m.rules.cp[1] = 999;
+                      if (name === 'roster') {
+                          for (const [i, actor] of m.actors.entries()) {
+                              const p = actor.sim.player;
+                              Object.assign(p, { x: ((i % 3) - 1) * 2.6, z: p.team === 1 ? 4 : -1 });
+                              Object.assign(p, { previous: { x: p.x, z: p.z } });
+                          }
+                          verificationPaused = false;
+                      }
                       if (name === 'combat') {
                           for (const p of m.entities) {
                               p.x = 13 + (Number(p.id.at(-1)) || 0) * 3;
@@ -280,6 +289,8 @@ try {
                         },
                         weapons: simulation.combat.weapons.blades.map((b) => ({ x: b.x, z: b.z, phase: b.phase }))
                     },
+                    summonerModels: scene.summonerModels,
+                    modelAssets: scene.modelAssets,
                     kitModel: scene.kitModel,
                     rivenModel: scene.rivenModel,
                     setModel: scene.setModel,

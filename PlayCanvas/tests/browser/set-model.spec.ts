@@ -55,7 +55,7 @@ const snapshot = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.snapshot());
 const arrange = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('combat'));
-async function chooseSet(page: Page, url = '/?verify=1&setPreview=1') {
+async function chooseSet(page: Page, url = '/?summonerModels=local&verify=1&setPreview=1') {
     await page.goto(url);
     await page.getByLabel('Summoner', { exact: true }).selectOption('Set');
 }
@@ -157,7 +157,10 @@ for (const suffix of ['', '&setPrimitive=1']) {
         page.on('request', (r) => {
             if (r.url().endsWith('.glb')) requests.push(r.url());
         });
-        await chooseSet(page, suffix ? `/?verify=1&setPreview=1${suffix}` : '/?verify=1');
+        await chooseSet(
+            page,
+            suffix ? `/?summonerModels=local&verify=1&setPreview=1${suffix}` : '/?summonerModels=local&verify=1'
+        );
         await arrange(page);
         const m = (await snapshot(page)).setModel;
         expect(m.state).toBe('idle');
@@ -211,7 +214,7 @@ test('training preview switches summoners and reuses one Set instance', async ({
     page.on('request', (r) => {
         if (r.url().endsWith('.glb')) requests.push(r.url());
     });
-    await chooseSet(page, '/?debug=1&setPreview=1');
+    await chooseSet(page, '/?summonerModels=local&debug=1&setPreview=1');
     await expect.poll(async () => (await snapshot(page)).setModel.state).toBe('loaded');
     await expect(page.locator('header')).toContainText('DEV PRESENTATION ONLY');
     await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
@@ -260,7 +263,7 @@ test('normal Set preview starts a match and supports captured mobile movement an
     const context = await browser.newContext({ viewport: { width: 844, height: 390 }, isMobile: true, hasTouch: true });
     try {
         const page = await context.newPage();
-        await chooseSet(page, '/?setPreview=1&rivenPreview=1');
+        await chooseSet(page, '/?summonerModels=local&setPreview=1&rivenPreview=1');
         await page.locator('#play-match').tap();
         await expect.poll(async () => (await snapshot(page)).setModel.visible).toBe(true);
         await expect(page.locator('#scoreboard')).toContainText('ACTIVE MATCH');
@@ -294,7 +297,7 @@ test('normal Set preview starts a match and supports captured mobile movement an
 });
 
 test('combined preview flags preserve Riven while switching to and from Set', async ({ page }) => {
-    await chooseSet(page, '/?debug=1&setPreview=1&rivenPreview=1');
+    await chooseSet(page, '/?summonerModels=local&debug=1&setPreview=1&rivenPreview=1');
     await expect.poll(async () => (await snapshot(page)).setModel.visible).toBe(true);
     await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
     await expect.poll(async () => (await snapshot(page)).setModel.visible).toBe(false);

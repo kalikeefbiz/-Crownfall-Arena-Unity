@@ -18,6 +18,8 @@ import { createCombatOverlay } from './combat-overlay';
 import { createKitModel } from './kit-model';
 import { createRivenModel } from './riven-model';
 import { createSetModel } from './set-model';
+import { SummonerAssets } from './summoner-assets';
+import type { ModelFrame } from './summoner-assets';
 
 function material(hex: number): StandardMaterial {
     const m = new StandardMaterial();
@@ -27,6 +29,12 @@ function material(hex: number): StandardMaterial {
     return m;
 }
 export function createScene(app: AppBase, competitive = false) {
+    const ownedMaterials = new Set<StandardMaterial>();
+    const assets = new SummonerAssets(app);
+    const localOnly = new URLSearchParams(location.search).get('summonerModels') === 'local';
+    const teamMaterials = { 1: material(0x369bff), 2: material(0xff425c) };
+    const sceneRoot = new Entity('arena-presentation');
+    app.root.addChild(sceneRoot);
     const stone = material(0x334758),
         boundary = material(0x74b6ba),
         gold = material(0xd6ad64);
@@ -41,8 +49,9 @@ export function createScene(app: AppBase, competitive = false) {
         position: number[],
         scale: number[],
         mat: StandardMaterial,
-        parent = app.root
+        parent = sceneRoot
     ) => {
+        ownedMaterials.add(mat);
         const e = new Entity(name);
         e.addComponent('render', { type, material: mat });
         e.setLocalPosition(position[0], position[1], position[2]);
@@ -93,7 +102,14 @@ export function createScene(app: AppBase, competitive = false) {
     blueTerritory.enabled = redTerritory.enabled = frontier.enabled = competitive;
     const root = new Entity('Kit-gameplay-root');
     app.root.addChild(root);
-    primitive('Kit-collision-footprint', 'cylinder', [0, 0.04, 0], [0.8, 0.06, 0.8], boundary, root);
+    const localIndicator = primitive(
+        'Kit-collision-footprint',
+        'cylinder',
+        [0, 0.035, 0],
+        [1.15, 0.035, 1.15],
+        teamMaterials[1],
+        root
+    );
     // Replaceable presentation subtree. Only this child is mirrored.
     const visual = new Entity('Kit-presentation');
     root.addChild(visual);
@@ -107,9 +123,9 @@ export function createScene(app: AppBase, competitive = false) {
     visual.addChild(sideProfile);
     primitive('side-eye', 'box', [0.17, 1.51, 0.22], [0.075, 0.08, 0.06], dark, sideProfile);
     primitive('profile-nose', 'box', [0.32, 1.42, 0.06], [0.21, 0.14, 0.25], white, sideProfile);
-    const kitModel = createKitModel(app, root, visual, competitive);
-    const rivenModel = createRivenModel(app, root, visual);
-    const setModel = createSetModel(app, root, visual);
+    const kitModel = createKitModel(app, root, visual, competitive, assets);
+    const rivenModel = createRivenModel(app, root, visual, competitive && !localOnly, assets);
+    const setModel = createSetModel(app, root, visual, competitive && !localOnly, assets);
     const aimRoot = new Entity('continuous-aim');
     root.addChild(aimRoot);
     primitive('aim-line', 'box', [0, 0.08, -1.4], [0.055, 0.04, 2.8], gold, aimRoot);
@@ -134,12 +150,37 @@ export function createScene(app: AppBase, competitive = false) {
     app.root.addChild(light);
     app.scene.ambientLight = new Color(0.45, 0.5, 0.6);
     const targets = new Map<string, { body: Entity; health: Entity }>();
+    type ActorModel =
+        ReturnType<typeof createKitModel> | ReturnType<typeof createRivenModel> | ReturnType<typeof createSetModel>;
+    const actorViews = new Map<
+        string,
+        { root: Entity; indicator: Entity; model: ActorModel; summonerId: string; frame: ModelFrame }
+    >();
+    let localId = 'player';
+    let localSummonerId = 'kit';
+    let localTeam = 1;
     const shots: Entity[] = [];
     const flashes: Entity[] = [];
     const red = material(0xb54b5c),
         green = material(0x42b8a0),
         purple = material(0xba79f0),
         hitMaterial = material(0xffee86);
+    for (const mat of [
+        stone,
+        boundary,
+        gold,
+        front,
+        back,
+        side,
+        dark,
+        white,
+        red,
+        green,
+        purple,
+        hitMaterial,
+        ...Object.values(teamMaterials)
+    ])
+        ownedMaterials.add(mat);
     const overlay = createCombatOverlay();
     const actorLabels = document.createElement('div');
     actorLabels.id = 'actor-labels';
@@ -164,6 +205,36 @@ export function createScene(app: AppBase, competitive = false) {
         get rivenModel() {
             return rivenModel.snapshot();
         },
+        get summonerModels() {
+            const local = localSummonerId === 'set' ? setModel : localSummonerId === 'riven' ? rivenModel : kitModel;
+            return [
+                {
+                    id: localId,
+                    summonerId: localSummonerId,
+                    team: localTeam,
+                    teamColor: localTeam === 1 ? '#369bff' : '#ff425c',
+                    indicatorVisible: root.enabled,
+                    indicatorColor: (
+                        localIndicator.render!.meshInstances[0].material as StandardMaterial
+                    ).diffuse.toArray(),
+                    ...local.snapshot()
+                },
+                ...[...actorViews].map(([id, view]) => ({
+                    id,
+                    summonerId: view.summonerId,
+                    team: view.frame.combat.player.team,
+                    teamColor: view.frame.combat.player.team === 1 ? '#369bff' : '#ff425c',
+                    indicatorVisible: view.root.enabled,
+                    indicatorColor: (
+                        view.indicator.render!.meshInstances[0].material as StandardMaterial
+                    ).diffuse.toArray(),
+                    ...view.model.snapshot()
+                }))
+            ];
+        },
+        get modelAssets() {
+            return assets.snapshot();
+        },
         get territory() {
             return {
                 frontierZ: frontier.getPosition().z,
@@ -180,6 +251,19 @@ export function createScene(app: AppBase, competitive = false) {
             kitModel.destroy();
             rivenModel.destroy();
             setModel.destroy();
+            for (const view of actorViews.values()) {
+                view.model.destroy();
+                view.root.destroy();
+            }
+            actorViews.clear();
+            assets.destroy();
+            sceneRoot.destroy();
+            root.destroy();
+            camera.destroy();
+            light.destroy();
+            // Materials created for primitives belong to this scene. Imported
+            // character materials are owned and unloaded by the container cache.
+            for (const m of ownedMaterials) m.destroy();
             overlay.destroy();
             actorLabels.remove();
         },
@@ -193,6 +277,9 @@ export function createScene(app: AppBase, competitive = false) {
         },
         update(sim: Simulation, dt: number, intent: PreviewIntent | null = null) {
             const combat = sim.combat;
+            localId = combat.player.id;
+            localSummonerId = combat.definition.id;
+            localTeam = combat.player.team;
             if (competitive && sim.match) {
                 const z = -sim.match.rules.front;
                 frontier.setPosition(0, 0.07, z);
@@ -205,7 +292,16 @@ export function createScene(app: AppBase, competitive = false) {
             const actors = sim.match?.actors || [];
             const camps = sim.match?.wilderness.camps || [];
             const actorIds = new Set([...actors.map((a) => a.sim.player.id), ...camps.map((c) => c.id)]);
-            for (const [id, label] of labelViews) if (!actorIds.has(id)) label.hidden = true;
+            for (const [id, label] of labelViews)
+                if (!actorIds.has(id)) {
+                    label.remove();
+                    labelViews.delete(id);
+                }
+            for (const [id, cast] of castViews)
+                if (!actorIds.has(id)) {
+                    cast.destroy();
+                    castViews.delete(id);
+                }
             for (const view of castViews.values()) view.enabled = false;
             for (const { sim: actor } of actors) {
                 const p = actor.player;
@@ -251,13 +347,37 @@ export function createScene(app: AppBase, competitive = false) {
                 label.textContent = `${camp.name} · ${camp.dead ? `RESPAWN ${Math.ceil(Math.max(0, camp.respawnAt - sim.match!.rules.elapsed))}s` : `${Math.ceil(camp.health)} / ${camp.maxHealth}`}`;
                 label.style.transform = `translate(${screen.x}px, ${screen.y}px) translate(-50%, -100%)`;
             }
+            const indicatorFeedback = (indicator: Entity, p: typeof combat.player) => {
+                const hit = (sim.match?.actors.map((a) => a.sim) || [combat]).some((c) =>
+                    c.journal.hits.some((h) => h.targetId === p.id && c.now - h.time < 0.3)
+                );
+                indicator.render!.meshInstances[0].material = hit
+                    ? hitMaterial
+                    : sim.match?.protected(p)
+                      ? white
+                      : (p.statuses.stun || 0) > combat.now
+                        ? purple
+                        : teamMaterials[p.team === 1 ? 1 : 2];
+                const size = hit ? 1.3 : 1.15;
+                indicator.setLocalScale(size, 0.035, size);
+            };
+            indicatorFeedback(localIndicator, combat.player);
             root.enabled = !combat.player.dead;
             const visibleIds = new Set(combat.targets.map((t) => t.id));
             for (const [id, view] of targets)
                 if (!visibleIds.has(id)) {
-                    view.body.enabled = false;
-                    view.health.enabled = false;
+                    view.body.destroy();
+                    view.health.destroy();
+                    targets.delete(id);
                 }
+            const roster = new Map(actors.filter((a) => a.sim !== combat).map((a) => [a.sim.player.id, a.sim]));
+            for (const [id, view] of actorViews) {
+                if (!roster.has(id) || roster.get(id)!.definition.id !== view.summonerId || localOnly) {
+                    view.model.destroy();
+                    view.root.destroy();
+                    actorViews.delete(id);
+                }
+            }
             for (const t of combat.targets) {
                 let view = targets.get(t.id);
                 if (!view) {
@@ -270,7 +390,9 @@ export function createScene(app: AppBase, competitive = false) {
                 view.body.enabled = !t.dead || t.kind === 'monster';
                 view.body.setPosition(t.x, t.dead ? 0.08 : t.radius > 1 ? 0.9 : 0.5, t.z);
                 view.health.enabled = !t.dead;
-                view.health.setPosition(t.x, 1.2, t.z);
+                const actor = roster.get(t.id);
+                view.health.setPosition(t.x, actor ? (actor.definition.id === 'set' ? 2.15 : 2) : 1.2, t.z);
+                view.health.render!.meshInstances[0].material = actor ? teamMaterials[t.team === 1 ? 1 : 2] : green;
                 view.health.setLocalScale(Math.max(0.01, t.health / t.maxHealth), 0.08, 0.08);
                 view.body.render!.meshInstances[0].material = combat.journal.hits.some(
                     (hit) => hit.targetId === t.id && combat.now - hit.time < 0.3
@@ -296,6 +418,50 @@ export function createScene(app: AppBase, competitive = false) {
                     : 1;
                 const size = t.kind === 'monster' ? t.radius * 2 : 0.7;
                 view.body.setLocalScale(size * pulse, t.dead ? 0.12 : t.radius > 1 ? 1.8 : pulse, size * pulse);
+                if (actor && !localOnly) {
+                    let actorView = actorViews.get(t.id);
+                    if (!actorView) {
+                        const actorRoot = new Entity(`summoner-${t.id}`);
+                        sceneRoot.addChild(actorRoot);
+                        const indicator = primitive(
+                            `team-${t.id}`,
+                            'cylinder',
+                            [0, 0.035, 0],
+                            [1.15, 0.035, 1.15],
+                            teamMaterials[t.team === 1 ? 1 : 2],
+                            actorRoot
+                        );
+                        const create =
+                            actor.definition.id === 'set'
+                                ? createSetModel
+                                : actor.definition.id === 'riven'
+                                  ? createRivenModel
+                                  : createKitModel;
+                        actorView = {
+                            root: actorRoot,
+                            indicator,
+                            summonerId: actor.definition.id,
+                            model: create(app, actorRoot, view.body, true, assets),
+                            frame: {
+                                combat: actor,
+                                match: sim.match,
+                                aim: { x: 0, z: 1 },
+                                movement: { x: 0, z: 0 },
+                                facing: { owner: 'aim', facing: 'Front' }
+                            }
+                        };
+                        actorViews.set(t.id, actorView);
+                    }
+                    actorView.frame.combat = actor;
+                    actorView.frame.match = sim.match;
+                    actorView.frame.aim.x = Math.sin(t.angle);
+                    actorView.frame.aim.z = Math.cos(t.angle);
+                    actorView.root.setPosition(t.x, 0, t.z);
+                    actorView.root.enabled = !t.dead;
+                    indicatorFeedback(actorView.indicator, t);
+                    actorView.model.update(actorView.frame);
+                    if (t.dead) view.body.enabled = false;
+                }
             }
             const simulations = sim.match ? sim.match.actors.map((a) => a.sim) : [combat];
             const projectiles = simulations.flatMap((c) => c.projectiles.items);

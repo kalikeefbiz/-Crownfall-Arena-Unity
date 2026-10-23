@@ -15,31 +15,41 @@ npm run dev -- --host 0.0.0.0
 
 Open http://localhost:5173 in landscape. Production preview: https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/
 
-## Riven 3D developer preview (Goal 007C)
+## Six-summoner 3D presentation (Goal 007E)
 
-Open `http://localhost:5173/?rivenPreview=1`, choose **Riven**, and press
-**Start match**. The same opt-in works with `npm run build` / `npm run start`
-on port 4173. Published preview (after the branch's publish workflow succeeds):
-<https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/?rivenPreview=1>.
-For an isolated movement preview in the existing training scene, use
-`?debug=1&rivenPreview=1`, then select **Riven**; no countdown is needed.
+Normal matches display both teams' Kit, Set and Riven models without preview flags.
+Every actor has its own skeleton, animation controller and facing transform; the
+scene downloads each required GLB once and shares meshes, materials, textures and
+corrected animation tracks. Actor identity comes from match combat data, including
+Blue roster reordering after selection. Team discs, labels and health bars retain
+Blue/Red visibility without recoloring the characters. Hit/protection/stun feedback
+also appears on the discs. Wilderness creatures keep their existing presentation.
 
-WASD/arrows or the existing left joystick move Riven; ability aiming retains the
-existing facing priority. This previews the model's idle/run presentation only.
-Existing Riven simulation/abilities are unchanged, and Kit's punch/combat animations
-are not mapped to Riven. The normal default remains unchanged without the flag.
+Kit retains Idle_5 / RunFast and its established punch response. Riven uses Idle_6 /
+Running; run_fast_7 remains excluded. Set uses the temporary Ready pose / Running;
+RunFast remains excluded. Horizontal hip corrections, fixed grounding and visual
+scales are preserved. Animation never moves gameplay roots or controls damage.
+Models remain cached through ordinary respawns and rematches. Abandoned actor views
+are disposed; scene teardown unloads the shared containers. Pending or invalid
+imports retain moving primitive fallbacks.
 
-`Idle_6` blends into `Running` in 0.12 seconds. The preferred `run_fast_7` failed
-loop validation after horizontal hip correction, so only `Running` is registered
-as the running state. `Walking` remains available for future speed modes.
-`?rivenPreview=1&rivenPrimitive=1` forces the original primitive without fetching
-the model. Failed/pending imports also keep that primitive and the existing controls.
-Kit's normal animated model and `kitModel` / `kitPrimitive` comparisons remain available.
+Developer URL options:
 
-Inspect `window.__crownfall.snapshot().rivenModel` for load state/timing, clip and
-loop-selection evidence, active state/time, fixed transforms, hip position, and
-fallback visibility. See [Goal 007C verification](TASK_007C_VERIFICATION.md) for
-asset validation, regression checks and remaining physical mobile acceptance.
+- `?models=primitive` skips all character downloads and uses the original primitives.
+- `?kitPrimitive=1`, `?rivenPrimitive=1`, `?setPrimitive=1` force one identity's fallback.
+- `?kitModel=10k` retains Kit's original static comparison.
+- `?summonerModels=local` isolates the old local-only presentation for diagnostics;
+  Riven/Set then require `rivenPreview=1` / `setPreview=1`.
+- `?debug=1&rivenPreview=1` or `?debug=1&setPreview=1` preserves isolated training previews.
+
+`window.__crownfall.snapshot().summonerModels` reports each actor's identity, team,
+instance/resource IDs, animation state/time, position/facing and visibility.
+`modelAssets` reports unique load counts/timings, cached bound calculations and
+PlayCanvas GPU allocation counters. The existing `kitModel`, `rivenModel` and
+`setModel` local inspection fields remain available. Detailed world bounds are
+computed only for requested diagnostic snapshots, never during normal updates.
+See [Goal 007E verification](TASK_007E_VERIFICATION.md) for evidence and remaining
+physical iPhone Safari validation.
 
 ## Controls
 
@@ -59,7 +69,7 @@ Primitives represent targets, health bars, projectiles and combat effects. Purpl
 - `src/combat/sandbox.js`: selected-character setup, existing PlayCanvas arena collision geometry and diagnostic targets. Tagged-Wilderness passive seam exists, but this arena supplies no Wilderness zones.
 - `src/gameplay/`: presentation-facing state and original movement regression harness. Runtime movement comes exclusively from combat; presentation reads it.
 - `src/input/`: independent movement/mouse intentions; `src/ui/`: mobile controls and diagnostics.
-- `src/presentation/`: PlayCanvas arena/camera and replaceable primitive presenter. Animation and graphics never determine damage timing.
+- `src/presentation/`: PlayCanvas arena/camera, shared character containers and independent actor presenters. Animation and graphics never determine damage timing.
 
 See [COMBAT_PARITY.md](COMBAT_PARITY.md) for source provenance, adaptations and acceptance limits. Task 004 adds bot command generation and a normal match HUD on top of Task 003 tickets/respawns. Territory, networking, new artwork and audio remain outside scope.
 

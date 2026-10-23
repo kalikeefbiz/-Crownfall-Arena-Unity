@@ -55,7 +55,7 @@ const snapshot = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.snapshot());
 const arrange = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('combat'));
-async function chooseRiven(page: Page, url = '/?verify=1&rivenPreview=1') {
+async function chooseRiven(page: Page, url = '/?summonerModels=local&verify=1&rivenPreview=1') {
     await page.goto(url);
     await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
 }
@@ -184,7 +184,10 @@ for (const suffix of ['', '&rivenPrimitive=1']) {
         page.on('request', (r) => {
             if (r.url().endsWith('.glb')) requests.push(r.url());
         });
-        await chooseRiven(page, suffix ? `/?verify=1&rivenPreview=1${suffix}` : '/?verify=1');
+        await chooseRiven(
+            page,
+            suffix ? `/?summonerModels=local&verify=1&rivenPreview=1${suffix}` : '/?summonerModels=local&verify=1'
+        );
         await arrange(page);
         const m = (await snapshot(page)).rivenModel;
         expect(m.state).toBe('idle');
@@ -238,7 +241,7 @@ test('training preview switches summoners and reuses one Riven instance', async 
     page.on('request', (r) => {
         if (r.url().endsWith('.glb')) requests.push(r.url());
     });
-    await chooseRiven(page, '/?debug=1&rivenPreview=1');
+    await chooseRiven(page, '/?summonerModels=local&debug=1&rivenPreview=1');
     await expect.poll(async () => (await snapshot(page)).rivenModel.state).toBe('loaded');
     await expect(page.locator('header')).toContainText('DEV PRESENTATION ONLY');
     await page.getByLabel('Summoner', { exact: true }).selectOption('Set');

@@ -75,7 +75,10 @@ export function attachRivenAnimations(model: Entity, tracks: AnimTrack[]) {
     const reference = hip.getLocalPosition();
     const copies = tracks.map((track) => inPlaceRivenTrack(track, reference.x, reference.z));
     const selected = selectRivenRunTrack(copies);
-    const registeredStates = ['Idle_6', 'Walking', selected.track.name];
+    // Goal 007E locks runtime locomotion to the validated Running clip.
+    // Keep the loop inspector available for source-asset diagnostics.
+    const running = copies.find((track) => track.name === 'Running')!;
+    const registeredStates = ['Idle_6', 'Walking', 'Running'];
     model.addComponent('anim', { activate: true });
     for (const name of registeredStates) {
         const track = copies.find((t) => t.name === name)!;
@@ -87,7 +90,7 @@ export function attachRivenAnimations(model: Entity, tracks: AnimTrack[]) {
     return {
         clips: tracks.map((track) => ({ name: track.name, duration: track.duration })),
         registeredStates,
-        runningClip: selected.track.name as RivenRunClip,
+        runningClip: running.name as RivenRunClip,
         locomotionReason: selected.reason,
         preferredLoop: selected.preferredLoop
     };
