@@ -97,6 +97,31 @@ results froze correctly and restart restored a clean match. See
   [Typecheck](evidence/007f/typecheck.txt), [lint](evidence/007f/lint.txt),
   [formatting](evidence/007f/format.txt), [build](evidence/007f/build.txt).
 
+## Deployment verification
+
+Implementation commit: `6fab6a47e82b4ea721df57f29344dd90f1b4d7d4`, pushed to
+`playcanvas-port`. The [publishing workflow](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/39923537831)
+passed install, unit tests, typecheck, production build and Pages publication.
+The existing GitHub Pages site retains its Unity root and publishes this preview
+under `/playcanvas/`.
+
+Live verification on 2026-10-23 at 08:19 UTC fetched HTTP 200 for the page and
+entry bundle and confirmed byte-for-byte equality with the tested local build:
+
+- Entry: `assets/index-hb31ouZs.js`.
+- SHA-256: `09796267cc441e56fc51d3e6383c7964a34d27ae47a6c5df860b184f5601087a`.
+- Live carved and legacy modes both rendered six animated models at unchanged
+  gameplay Y=0, with identical authoritative match state and matching camera.
+- No browser exceptions. [Verification data](evidence/007f/deployment.json),
+  [live before](evidence/007f/live-legacy-neutral.png),
+  [live after](evidence/007f/live-carved-neutral.png).
+
+Reproduce after a local production build:
+
+```sh
+CHROMIUM_PATH=/usr/bin/chromium node tests/helpers/verify-environment-deployment.ts
+```
+
 ## Mobile limitations
 
 The terrain is five static render batches sharing one matte vertex-colour

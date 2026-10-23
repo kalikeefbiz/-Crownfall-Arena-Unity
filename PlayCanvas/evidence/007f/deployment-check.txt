@@ -1,0 +1,1 @@
+Live bundle matches; carved and legacy modes render six animated summoners with identical match state/camera.

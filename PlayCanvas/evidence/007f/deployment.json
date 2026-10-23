@@ -1,0 +1,3120 @@
+{
+    "base": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/",
+    "verifiedAt": "2026-10-23T08:19:44.559Z",
+    "entry": "./assets/index-hb31ouZs.js",
+    "bundleSha256": "09796267cc441e56fc51d3e6383c7964a34d27ae47a6c5df860b184f5601087a",
+    "productionBundleMatches": true,
+    "errors": [],
+    "snapshots": [
+        {
+            "match": {
+                "phase": "active",
+                "countdownRemaining": 0,
+                "lane": {
+                    "goalA": -28,
+                    "goalB": 28,
+                    "halfWidth": 12
+                },
+                "settings": {
+                    "startingTickets": 15,
+                    "respawnSeconds": 3,
+                    "cpTarget": 1000,
+                    "graceSeconds": 2,
+                    "cpPerSecond": 12,
+                    "depthBonus": 0,
+                    "timeLimitSeconds": 300,
+                    "countdownSeconds": 3,
+                    "protectionSeconds": 2,
+                    "ultimateDealt": 0.04,
+                    "ultimateReceived": 0.025,
+                    "durabilityMultiplier": 1.3
+                },
+                "elapsed": 2.0999999999999974,
+                "control": 0.4732142857142857,
+                "front": -1.5,
+                "cp": {
+                    "1": 0,
+                    "2": 1.199999999999969
+                },
+                "tickets": {
+                    "1": 15,
+                    "2": 15
+                },
+                "pressureTeam": 2,
+                "pressureAge": 2.0999999999999974,
+                "scoringTeam": 2,
+                "result": null,
+                "remaining": 297.9,
+                "results": null,
+                "feed": [],
+                "camps": [
+                    {
+                        "id": "mobility-a",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": 22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": 22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "mobility-b",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": -22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": -22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-a",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": 18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": 18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-b",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": -18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": -18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-a",
+                        "type": "defense",
+                        "x": -27,
+                        "z": 7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": 7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-b",
+                        "type": "defense",
+                        "x": -27,
+                        "z": -7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": -7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "major",
+                        "type": "damage",
+                        "x": 26,
+                        "z": 0,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 5200,
+                        "maxHealth": 5200,
+                        "radius": 1.3,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DAMAGE OBJECTIVE",
+                        "home": {
+                            "x": 26,
+                            "z": 0
+                        },
+                        "major": true,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    }
+                ],
+                "rotations": 0,
+                "rewards": 0,
+                "assignments": [],
+                "actors": [
+                    {
+                        "x": -2.6,
+                        "z": 4,
+                        "previous": {
+                            "x": -2.6,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-0",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 845,
+                        "maxHealth": 845,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Kit Asher",
+                        "summonerId": "kit-asher",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 0,
+                            "z": 30
+                        },
+                        "protected": false,
+                        "human": true,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0
+                    },
+                    {
+                        "x": 0,
+                        "z": 4,
+                        "previous": {
+                            "x": 0,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-1",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": 30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0
+                    },
+                    {
+                        "x": 2.6,
+                        "z": 4,
+                        "previous": {
+                            "x": 2.6,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-2",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": 30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0
+                    },
+                    {
+                        "x": -2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": -2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-0",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 845,
+                        "maxHealth": 845,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Kit Asher",
+                        "summonerId": "kit-asher",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 0,
+                            "z": -30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0.09999999999999999
+                    },
+                    {
+                        "x": 0,
+                        "z": -1,
+                        "previous": {
+                            "x": 0,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-1",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": -30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0.09999999999999999
+                    },
+                    {
+                        "x": 2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": 2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-2",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": -30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0.09999999999999999
+                    }
+                ]
+            },
+            "combat": {
+                "name": "kit-asher",
+                "stance": null,
+                "player": {
+                    "x": -2.6,
+                    "z": 4,
+                    "previous": {
+                        "x": -2.6,
+                        "z": 4
+                    },
+                    "angle": 3.141592653589793,
+                    "animation": "idle",
+                    "distance": 0,
+                    "id": "1-0",
+                    "team": 1,
+                    "kind": "summoner",
+                    "health": 845,
+                    "maxHealth": 845,
+                    "radius": 0.45,
+                    "dead": false,
+                    "targetable": true,
+                    "respawnAt": 0,
+                    "statuses": {},
+                    "modifiers": {
+                        "aura:1-1": {
+                            "mitigation": 0.02,
+                            "expires": null
+                        }
+                    },
+                    "ultimateMeter": 0,
+                    "name": "Kit Asher",
+                    "summonerId": "kit-asher",
+                    "finalRespawnAvailable": true,
+                    "eliminated": false,
+                    "protectedUntil": 0,
+                    "spawn": {
+                        "x": 0,
+                        "z": 30
+                    }
+                },
+                "targets": [
+                    {
+                        "x": 0,
+                        "z": 4,
+                        "previous": {
+                            "x": 0,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-1",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": 30
+                        }
+                    },
+                    {
+                        "x": 2.6,
+                        "z": 4,
+                        "previous": {
+                            "x": 2.6,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-2",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": 30
+                        }
+                    },
+                    {
+                        "x": -2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": -2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-0",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 845,
+                        "maxHealth": 845,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Kit Asher",
+                        "summonerId": "kit-asher",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 0,
+                            "z": -30
+                        }
+                    },
+                    {
+                        "x": 0,
+                        "z": -1,
+                        "previous": {
+                            "x": 0,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-1",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": -30
+                        }
+                    },
+                    {
+                        "x": 2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": 2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-2",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": -30
+                        }
+                    },
+                    {
+                        "id": "mobility-a",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": 22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": 22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "mobility-b",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": -22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": -22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-a",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": 18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": 18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-b",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": -18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": -18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-a",
+                        "type": "defense",
+                        "x": -27,
+                        "z": 7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": 7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-b",
+                        "type": "defense",
+                        "x": -27,
+                        "z": -7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": -7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "major",
+                        "type": "damage",
+                        "x": 26,
+                        "z": 0,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 5200,
+                        "maxHealth": 5200,
+                        "radius": 1.3,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DAMAGE OBJECTIVE",
+                        "home": {
+                            "x": 26,
+                            "z": 0
+                        },
+                        "major": true,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    }
+                ],
+                "cooldowns": {},
+                "now": 2.0999999999999974,
+                "transactions": [],
+                "journal": {
+                    "latestAttempt": null,
+                    "latestAccepted": null,
+                    "latestResolution": null,
+                    "hits": []
+                },
+                "weapons": []
+            },
+            "summonerModels": [
+                {
+                    "id": "1-0",
+                    "summonerId": "kit-asher",
+                    "team": 1,
+                    "teamColor": "#369bff",
+                    "indicatorVisible": true,
+                    "indicatorColor": [0.21176470588235294, 0.6078431372549019, 1, 1],
+                    "state": "loaded",
+                    "bytes": 26939896,
+                    "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_5",
+                            "duration": 1.8333330154418945
+                        },
+                        {
+                            "name": "Punch_Combo_1",
+                            "duration": 2.200000047683716
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "loadMs": 7789.200000000186,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.38867348432540894, -2.587064562575847e-9, -0.20758193731307983],
+                        "max": [0.38867348432540894, 1.7000000476837158, 0.20758193731307983]
+                    },
+                    "height": 1.7000000502707804,
+                    "scale": 1.0294117342650992,
+                    "offset": [0, 0.05264644266315462, 0],
+                    "meshInstances": 1,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "4f5e2a0a-3dd3-48bc-85aa-fff51eb96723",
+                    "meshId": 10,
+                    "materialId": 21,
+                    "activeAnimation": "Idle_5",
+                    "playbackTime": 0.7333999999999996,
+                    "playing": true,
+                    "attackCount": 0,
+                    "lastAttackSerial": 0,
+                    "staticComparison": false,
+                    "worldBounds": {
+                        "min": [-3.0393896437145553, -0.106077285210186, 3.225923535835966],
+                        "max": [-1.9413148563106049, 1.7388933530759552, 4.457950002930351]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 180,
+                    "position": {
+                        "x": -2.5999999046325684,
+                        "y": 0,
+                        "z": 4
+                    },
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "1-1",
+                    "summonerId": "set",
+                    "team": 1,
+                    "teamColor": "#369bff",
+                    "indicatorVisible": true,
+                    "indicatorColor": [0.21176470588235294, 0.6078431372549019, 1, 1],
+                    "state": "loaded",
+                    "bytes": 10000416,
+                    "source": "assets/summoners/set/Set_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Punch_Combo",
+                            "duration": 2.4666669368743896
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "registeredStates": ["Ready", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "Running selected; RunFast intentionally excluded",
+                    "readySource": "Punch_Combo",
+                    "readyTime": 0,
+                    "loadMs": 2695.8000000002794,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.6199274659156799, 2.9567924997309092e-8, -0.2392396479845047],
+                        "max": [0.6199275255203247, 1.7000000476837158, 0.2392396330833435]
+                    },
+                    "height": 1.7000000181157908,
+                    "scale": 1.117647046913494,
+                    "offset": [-3.3308477607771577e-8, 0.009313466953495945, 8.327119401942894e-9],
+                    "meshInstances": 1,
+                    "jointCount": 87,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "c0d013de-255c-4592-866a-bb0ee8e68dad",
+                    "meshId": 8,
+                    "materialId": 19,
+                    "activeAnimation": "Ready",
+                    "playbackTime": 1.3501000000000007,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [-0.6360617170823178, -0.06283756784961692, 3.2168089065785646],
+                        "max": [0.6157246596404985, 1.835775694312336, 4.458091993275803]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 180,
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    },
+                    "hipLocalPosition": [0.005961951799690723, 1.0001788139343262, 0.05088947340846062],
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "1-2",
+                    "summonerId": "riven",
+                    "team": 1,
+                    "teamColor": "#369bff",
+                    "indicatorVisible": true,
+                    "indicatorColor": [0.21176470588235294, 0.6078431372549019, 1, 1],
+                    "state": "loaded",
+                    "bytes": 11170312,
+                    "source": "assets/summoners/riven/Riven_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_6",
+                            "duration": 7.366666793823242
+                        },
+                        {
+                            "name": "run_fast_7",
+                            "duration": 0.8666669726371765
+                        }
+                    ],
+                    "registeredStates": ["Idle_6", "Walking", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "run_fast_7 failed loop validation; using Running",
+                    "preferredLoop": {
+                        "valid": false,
+                        "positionError": 0.01896846294403076,
+                        "rotationErrorDegrees": 12.873240271210351
+                    },
+                    "loadMs": 5564.300000000279,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.44156354665756226, 2.049818093041722e-9, -0.16084645688533783],
+                        "max": [0.44156360626220703, 1.7000001668930054, 0.16084642708301544]
+                    },
+                    "height": 1.7000001648431873,
+                    "scale": 1.029411664887353,
+                    "offset": [-3.0678858306627066e-8, 0.035075997889893344, 1.5339429153313533e-8],
+                    "meshInstances": 1,
+                    "jointCount": 68,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "19756686-89dc-4ca8-a57d-735f6411b286",
+                    "meshId": 9,
+                    "materialId": 20,
+                    "activeAnimation": "Idle_6",
+                    "playbackTime": 0.9333999999999996,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [2.0860676947004526, -0.02662691800240402, 3.649925339425194],
+                        "max": [2.968639302346954, 1.7542738413635401, 4.2985780468159325]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 180,
+                    "position": {
+                        "x": 2.5999999046325684,
+                        "y": 0,
+                        "z": 4
+                    },
+                    "hipLocalPosition": [0.0033203279599547386, 1.037421766284428, -0.009960962459445],
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "2-0",
+                    "summonerId": "kit-asher",
+                    "team": 2,
+                    "teamColor": "#ff425c",
+                    "indicatorVisible": true,
+                    "indicatorColor": [1, 0.25882352941176473, 0.3607843137254902, 1],
+                    "state": "loaded",
+                    "bytes": 26939896,
+                    "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_5",
+                            "duration": 1.8333330154418945
+                        },
+                        {
+                            "name": "Punch_Combo_1",
+                            "duration": 2.200000047683716
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "loadMs": 7788,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.38867348432540894, -2.587064562575847e-9, -0.20758193731307983],
+                        "max": [0.38867348432540894, 1.7000000476837158, 0.20758193731307983]
+                    },
+                    "height": 1.7000000502707804,
+                    "scale": 1.0294117342650992,
+                    "offset": [0, 0.05264644266315462, 0],
+                    "meshInstances": 1,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "58c1d569-7b17-42fa-aeac-0c7429d883f2",
+                    "meshId": 10,
+                    "materialId": 21,
+                    "activeAnimation": "Idle_5",
+                    "playbackTime": 0.7333999999999996,
+                    "playing": true,
+                    "attackCount": 0,
+                    "lastAttackSerial": 0,
+                    "staticComparison": false,
+                    "worldBounds": {
+                        "min": [-3.258685014312256, -0.106077285210186, -1.4579502483612485],
+                        "max": [-2.1606102575871677, 1.7388933530759552, -0.2259234131205179]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 0,
+                    "position": {
+                        "x": -2.5999999046325684,
+                        "y": 0,
+                        "z": -1
+                    },
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "2-1",
+                    "summonerId": "set",
+                    "team": 2,
+                    "teamColor": "#ff425c",
+                    "indicatorVisible": true,
+                    "indicatorColor": [1, 0.25882352941176473, 0.3607843137254902, 1],
+                    "state": "loaded",
+                    "bytes": 10000416,
+                    "source": "assets/summoners/set/Set_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Punch_Combo",
+                            "duration": 2.4666669368743896
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "registeredStates": ["Ready", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "Running selected; RunFast intentionally excluded",
+                    "readySource": "Punch_Combo",
+                    "readyTime": 0,
+                    "loadMs": 2692.899999999907,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.6199274659156799, 2.9567924997309092e-8, -0.2392396479845047],
+                        "max": [0.6199275255203247, 1.7000000476837158, 0.2392396330833435]
+                    },
+                    "height": 1.7000000181157908,
+                    "scale": 1.117647046913494,
+                    "offset": [-3.3308477607771577e-8, 0.009313466953495945, 8.327119401942894e-9],
+                    "meshInstances": 1,
+                    "jointCount": 87,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "d4060c15-ec1b-4227-9e4f-1b1cb4a80fba",
+                    "meshId": 8,
+                    "materialId": 19,
+                    "activeAnimation": "Ready",
+                    "playbackTime": 1.3501000000000007,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [-0.6157246596404984, -0.06283756784961692, -1.4580922264351475],
+                        "max": [0.6360617170823177, 1.835775694312336, -0.2168090398124758]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 0,
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": -1
+                    },
+                    "hipLocalPosition": [0.005961951799690723, 1.0001788139343262, 0.05088947340846062],
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "2-2",
+                    "summonerId": "riven",
+                    "team": 2,
+                    "teamColor": "#ff425c",
+                    "indicatorVisible": true,
+                    "indicatorColor": [1, 0.25882352941176473, 0.3607843137254902, 1],
+                    "state": "loaded",
+                    "bytes": 11170312,
+                    "source": "assets/summoners/riven/Riven_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_6",
+                            "duration": 7.366666793823242
+                        },
+                        {
+                            "name": "run_fast_7",
+                            "duration": 0.8666669726371765
+                        }
+                    ],
+                    "registeredStates": ["Idle_6", "Walking", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "run_fast_7 failed loop validation; using Running",
+                    "preferredLoop": {
+                        "valid": false,
+                        "positionError": 0.01896846294403076,
+                        "rotationErrorDegrees": 12.873240271210351
+                    },
+                    "loadMs": 5585.600000000093,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.44156354665756226, 2.049818093041722e-9, -0.16084645688533783],
+                        "max": [0.44156360626220703, 1.7000001668930054, 0.16084642708301544]
+                    },
+                    "height": 1.7000001648431873,
+                    "scale": 1.029411664887353,
+                    "offset": [-3.0678858306627066e-8, 0.035075997889893344, 1.5339429153313533e-8],
+                    "meshInstances": 1,
+                    "jointCount": 68,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "808951cb-437d-422f-b094-ffffeef14610",
+                    "meshId": 9,
+                    "materialId": 20,
+                    "activeAnimation": "Idle_6",
+                    "playbackTime": 0.9333999999999996,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [2.2313604148816073, -0.02662691800240402, -1.2985777400273468],
+                        "max": [3.113932022528108, 1.7542738413635401, -0.6499253394251938]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 0,
+                    "position": {
+                        "x": 2.5999999046325684,
+                        "y": 0,
+                        "z": -1
+                    },
+                    "hipLocalPosition": [0.0033203279599547386, 1.037421766284428, -0.009960962459445],
+                    "rootScale": [1, 1, 1]
+                }
+            ],
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 2677.100000000093
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 5509.5
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 7772.5
+                    }
+                ],
+                "gpu": {
+                    "tex": 268585912,
+                    "vb": 7759916,
+                    "ib": 495102,
+                    "ub": 3536,
+                    "sb": 0
+                }
+            },
+            "environment": {
+                "mode": "carved",
+                "batches": 5,
+                "vertices": 78272,
+                "triangles": 26816,
+                "pavingSlabs": 496,
+                "textureBytes": 87380,
+                "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                "footingRange": [-0.018, 0.027],
+                "territoryTint": false
+            },
+            "kitModel": {
+                "state": "loaded",
+                "bytes": 26939896,
+                "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                "clips": [
+                    {
+                        "name": "Running",
+                        "duration": 0.6333330273628235
+                    },
+                    {
+                        "name": "Walking",
+                        "duration": 1.0333329439163208
+                    },
+                    {
+                        "name": "Idle_5",
+                        "duration": 1.8333330154418945
+                    },
+                    {
+                        "name": "Punch_Combo_1",
+                        "duration": 2.200000047683716
+                    },
+                    {
+                        "name": "RunFast",
+                        "duration": 0.4666669964790344
+                    }
+                ],
+                "loadMs": 7789.200000000186,
+                "error": "",
+                "bounds": {
+                    "min": [-0.38867348432540894, -2.587064562575847e-9, -0.20758193731307983],
+                    "max": [0.38867348432540894, 1.7000000476837158, 0.20758193731307983]
+                },
+                "height": 1.7000000502707804,
+                "scale": 1.0294117342650992,
+                "offset": [0, 0.05264644266315462, 0],
+                "meshInstances": 1,
+                "authoredForwardYaw": 0,
+                "instanceId": "4f5e2a0a-3dd3-48bc-85aa-fff51eb96723",
+                "meshId": 10,
+                "materialId": 21,
+                "activeAnimation": "Idle_5",
+                "playbackTime": 0.7333999999999996,
+                "playing": true,
+                "attackCount": 0,
+                "lastAttackSerial": 0,
+                "staticComparison": false,
+                "worldBounds": {
+                    "min": [-3.0393896437145553, -0.106077285210186, 3.225923535835966],
+                    "max": [-1.9413148563106049, 1.7388933530759552, 4.457950002930351]
+                },
+                "selected": true,
+                "forcedPrimitive": false,
+                "visible": true,
+                "primitiveVisible": false,
+                "yaw": 180,
+                "position": {
+                    "x": -2.5999999046325684,
+                    "y": 0,
+                    "z": 4
+                },
+                "rootScale": [1, 1, 1]
+            },
+            "rivenModel": {
+                "state": "idle",
+                "bytes": 11170312,
+                "source": "assets/summoners/riven/Riven_Animated.glb",
+                "clips": [],
+                "registeredStates": [],
+                "runningClip": "Running",
+                "locomotionReason": "",
+                "preferredLoop": null,
+                "loadMs": 0,
+                "error": "",
+                "bounds": null,
+                "height": 0,
+                "scale": 1,
+                "offset": [0, 0, 0],
+                "meshInstances": 0,
+                "jointCount": 0,
+                "authoredForwardYaw": 0,
+                "instanceId": null,
+                "meshId": null,
+                "materialId": null,
+                "activeAnimation": null,
+                "playbackTime": 0,
+                "playing": false,
+                "previewEnabled": false,
+                "presentationOnly": true,
+                "worldBounds": null,
+                "selected": false,
+                "forcedPrimitive": false,
+                "visible": false,
+                "primitiveVisible": false,
+                "yaw": 180,
+                "position": {
+                    "x": -2.5999999046325684,
+                    "y": 0,
+                    "z": 4
+                },
+                "hipLocalPosition": null,
+                "rootScale": [1, 1, 1]
+            },
+            "setModel": {
+                "state": "idle",
+                "bytes": 10000416,
+                "source": "assets/summoners/set/Set_Animated.glb",
+                "clips": [],
+                "registeredStates": [],
+                "runningClip": "Running",
+                "locomotionReason": "",
+                "readySource": "",
+                "readyTime": 0,
+                "loadMs": 0,
+                "error": "",
+                "bounds": null,
+                "height": 0,
+                "scale": 1,
+                "offset": [0, 0, 0],
+                "meshInstances": 0,
+                "jointCount": 0,
+                "authoredForwardYaw": 0,
+                "instanceId": null,
+                "meshId": null,
+                "materialId": null,
+                "activeAnimation": null,
+                "playbackTime": 0,
+                "playing": false,
+                "previewEnabled": false,
+                "presentationOnly": true,
+                "worldBounds": null,
+                "selected": false,
+                "forcedPrimitive": false,
+                "visible": false,
+                "primitiveVisible": false,
+                "yaw": 180,
+                "position": {
+                    "x": -2.5999999046325684,
+                    "y": 0,
+                    "z": 4
+                },
+                "hipLocalPosition": null,
+                "rootScale": [1, 1, 1]
+            },
+            "frameMs": 81.10941679719086,
+            "preview": null,
+            "territory": {
+                "frontierZ": 1.5,
+                "camera": {
+                    "x": -2.5999999046325684,
+                    "y": 15.5,
+                    "z": 22
+                },
+                "lookTarget": {
+                    "x": -2.5999999466124657,
+                    "y": 0,
+                    "z": 4.7105106215639125e-7
+                },
+                "cameraForward": {
+                    "x": -1.5599013366877225e-9,
+                    "y": -0.5759535496335594,
+                    "z": -0.8174824210125274
+                },
+                "follow": {
+                    "x": -2.5999999466124657,
+                    "z": 4.000000471051062
+                }
+            },
+            "input": {
+                "cancel": false
+            },
+            "position": {
+                "x": -2.6,
+                "z": 4
+            },
+            "movement": {
+                "x": 0,
+                "z": 0
+            },
+            "aim": {
+                "x": 0,
+                "z": -1
+            },
+            "facing": {
+                "facing": "Back",
+                "owner": "idle"
+            },
+            "targeting": false,
+            "committedFacing": null,
+            "collisions": 0,
+            "frames": 27,
+            "entities": 1298,
+            "visualScaleX": 1,
+            "rootScaleX": 1
+        },
+        {
+            "match": {
+                "phase": "active",
+                "countdownRemaining": 0,
+                "lane": {
+                    "goalA": -28,
+                    "goalB": 28,
+                    "halfWidth": 12
+                },
+                "settings": {
+                    "startingTickets": 15,
+                    "respawnSeconds": 3,
+                    "cpTarget": 1000,
+                    "graceSeconds": 2,
+                    "cpPerSecond": 12,
+                    "depthBonus": 0,
+                    "timeLimitSeconds": 300,
+                    "countdownSeconds": 3,
+                    "protectionSeconds": 2,
+                    "ultimateDealt": 0.04,
+                    "ultimateReceived": 0.025,
+                    "durabilityMultiplier": 1.3
+                },
+                "elapsed": 2.0999999999999974,
+                "control": 0.4732142857142857,
+                "front": -1.5,
+                "cp": {
+                    "1": 0,
+                    "2": 1.199999999999969
+                },
+                "tickets": {
+                    "1": 15,
+                    "2": 15
+                },
+                "pressureTeam": 2,
+                "pressureAge": 2.0999999999999974,
+                "scoringTeam": 2,
+                "result": null,
+                "remaining": 297.9,
+                "results": null,
+                "feed": [],
+                "camps": [
+                    {
+                        "id": "mobility-a",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": 22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": 22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "mobility-b",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": -22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": -22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-a",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": 18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": 18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-b",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": -18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": -18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-a",
+                        "type": "defense",
+                        "x": -27,
+                        "z": 7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": 7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-b",
+                        "type": "defense",
+                        "x": -27,
+                        "z": -7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": -7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "major",
+                        "type": "damage",
+                        "x": 26,
+                        "z": 0,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 5200,
+                        "maxHealth": 5200,
+                        "radius": 1.3,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DAMAGE OBJECTIVE",
+                        "home": {
+                            "x": 26,
+                            "z": 0
+                        },
+                        "major": true,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    }
+                ],
+                "rotations": 0,
+                "rewards": 0,
+                "assignments": [],
+                "actors": [
+                    {
+                        "x": -2.6,
+                        "z": 4,
+                        "previous": {
+                            "x": -2.6,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-0",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 845,
+                        "maxHealth": 845,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Kit Asher",
+                        "summonerId": "kit-asher",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 0,
+                            "z": 30
+                        },
+                        "protected": false,
+                        "human": true,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0
+                    },
+                    {
+                        "x": 0,
+                        "z": 4,
+                        "previous": {
+                            "x": 0,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-1",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": 30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0
+                    },
+                    {
+                        "x": 2.6,
+                        "z": 4,
+                        "previous": {
+                            "x": 2.6,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-2",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": 30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0
+                    },
+                    {
+                        "x": -2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": -2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-0",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 845,
+                        "maxHealth": 845,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Kit Asher",
+                        "summonerId": "kit-asher",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 0,
+                            "z": -30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0.09999999999999999
+                    },
+                    {
+                        "x": 0,
+                        "z": -1,
+                        "previous": {
+                            "x": 0,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-1",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": -30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0.09999999999999999
+                    },
+                    {
+                        "x": 2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": 2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-2",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": -30
+                        },
+                        "protected": false,
+                        "human": false,
+                        "kills": 0,
+                        "deaths": 0,
+                        "assists": 0,
+                        "damage": 0,
+                        "pressureSeconds": 0.09999999999999999
+                    }
+                ]
+            },
+            "combat": {
+                "name": "kit-asher",
+                "stance": null,
+                "player": {
+                    "x": -2.6,
+                    "z": 4,
+                    "previous": {
+                        "x": -2.6,
+                        "z": 4
+                    },
+                    "angle": 3.141592653589793,
+                    "animation": "idle",
+                    "distance": 0,
+                    "id": "1-0",
+                    "team": 1,
+                    "kind": "summoner",
+                    "health": 845,
+                    "maxHealth": 845,
+                    "radius": 0.45,
+                    "dead": false,
+                    "targetable": true,
+                    "respawnAt": 0,
+                    "statuses": {},
+                    "modifiers": {
+                        "aura:1-1": {
+                            "mitigation": 0.02,
+                            "expires": null
+                        }
+                    },
+                    "ultimateMeter": 0,
+                    "name": "Kit Asher",
+                    "summonerId": "kit-asher",
+                    "finalRespawnAvailable": true,
+                    "eliminated": false,
+                    "protectedUntil": 0,
+                    "spawn": {
+                        "x": 0,
+                        "z": 30
+                    }
+                },
+                "targets": [
+                    {
+                        "x": 0,
+                        "z": 4,
+                        "previous": {
+                            "x": 0,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-1",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": 30
+                        }
+                    },
+                    {
+                        "x": 2.6,
+                        "z": 4,
+                        "previous": {
+                            "x": 2.6,
+                            "z": 4
+                        },
+                        "angle": 3.141592653589793,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "1-2",
+                        "team": 1,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:1-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": 30
+                        }
+                    },
+                    {
+                        "x": -2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": -2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-0",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 845,
+                        "maxHealth": 845,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Kit Asher",
+                        "summonerId": "kit-asher",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 0,
+                            "z": -30
+                        }
+                    },
+                    {
+                        "x": 0,
+                        "z": -1,
+                        "previous": {
+                            "x": 0,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-1",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 1625,
+                        "maxHealth": 1625,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Set",
+                        "summonerId": "set",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": -8,
+                            "z": -30
+                        }
+                    },
+                    {
+                        "x": 2.6,
+                        "z": -1,
+                        "previous": {
+                            "x": 2.6,
+                            "z": -1
+                        },
+                        "angle": 0,
+                        "animation": "idle",
+                        "distance": 0,
+                        "id": "2-2",
+                        "team": 2,
+                        "kind": "summoner",
+                        "health": 910,
+                        "maxHealth": 910,
+                        "radius": 0.45,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {
+                            "aura:2-1": {
+                                "mitigation": 0.02,
+                                "expires": null
+                            }
+                        },
+                        "ultimateMeter": 0,
+                        "name": "Riven",
+                        "summonerId": "riven",
+                        "finalRespawnAvailable": true,
+                        "eliminated": false,
+                        "protectedUntil": 0,
+                        "spawn": {
+                            "x": 8,
+                            "z": -30
+                        }
+                    },
+                    {
+                        "id": "mobility-a",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": 22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": 22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "mobility-b",
+                        "type": "mobility",
+                        "x": -22,
+                        "z": -22,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "MOBILITY CAMP",
+                        "home": {
+                            "x": -22,
+                            "z": -22
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-a",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": 18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": 18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "cooldown-b",
+                        "type": "cooldown",
+                        "x": 24,
+                        "z": -18,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "COOLDOWN CAMP",
+                        "home": {
+                            "x": 24,
+                            "z": -18
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-a",
+                        "type": "defense",
+                        "x": -27,
+                        "z": 7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": 7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "defense-b",
+                        "type": "defense",
+                        "x": -27,
+                        "z": -7,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 850,
+                        "maxHealth": 850,
+                        "radius": 0.7,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DEFENSE CAMP",
+                        "home": {
+                            "x": -27,
+                            "z": -7
+                        },
+                        "major": false,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    },
+                    {
+                        "id": "major",
+                        "type": "damage",
+                        "x": 26,
+                        "z": 0,
+                        "team": 0,
+                        "kind": "monster",
+                        "health": 5200,
+                        "maxHealth": 5200,
+                        "radius": 1.3,
+                        "dead": false,
+                        "targetable": true,
+                        "respawnAt": 0,
+                        "statuses": {},
+                        "modifiers": {},
+                        "name": "DAMAGE OBJECTIVE",
+                        "home": {
+                            "x": 26,
+                            "z": 0
+                        },
+                        "major": true,
+                        "nextAttack": 0,
+                        "lastHit": null,
+                        "rewarded": false
+                    }
+                ],
+                "cooldowns": {},
+                "now": 2.0999999999999974,
+                "transactions": [],
+                "journal": {
+                    "latestAttempt": null,
+                    "latestAccepted": null,
+                    "latestResolution": null,
+                    "hits": []
+                },
+                "weapons": []
+            },
+            "summonerModels": [
+                {
+                    "id": "1-0",
+                    "summonerId": "kit-asher",
+                    "team": 1,
+                    "teamColor": "#369bff",
+                    "indicatorVisible": true,
+                    "indicatorColor": [0.21176470588235294, 0.6078431372549019, 1, 1],
+                    "state": "loaded",
+                    "bytes": 26939896,
+                    "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_5",
+                            "duration": 1.8333330154418945
+                        },
+                        {
+                            "name": "Punch_Combo_1",
+                            "duration": 2.200000047683716
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "loadMs": 5763.600000000093,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.38867348432540894, -2.587064562575847e-9, -0.20758193731307983],
+                        "max": [0.38867348432540894, 1.7000000476837158, 0.20758193731307983]
+                    },
+                    "height": 1.7000000502707804,
+                    "scale": 1.0294117342650992,
+                    "offset": [0, 0.05264644266315462, 0],
+                    "meshInstances": 1,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "1018e9a1-1eea-4a22-9658-cc48197bc29f",
+                    "meshId": 5,
+                    "materialId": 22,
+                    "activeAnimation": "Idle_5",
+                    "playbackTime": 0.9666999999999989,
+                    "playing": true,
+                    "attackCount": 0,
+                    "lastAttackSerial": 0,
+                    "staticComparison": false,
+                    "worldBounds": {
+                        "min": [-3.0556370870232086, -0.11042470998823739, 3.214730408902741],
+                        "max": [-1.9351348434567428, 1.7405697596725702, 4.453249338941136]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 180,
+                    "position": {
+                        "x": -2.5999999046325684,
+                        "y": 0,
+                        "z": 4
+                    },
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "1-1",
+                    "summonerId": "set",
+                    "team": 1,
+                    "teamColor": "#369bff",
+                    "indicatorVisible": true,
+                    "indicatorColor": [0.21176470588235294, 0.6078431372549019, 1, 1],
+                    "state": "loaded",
+                    "bytes": 10000416,
+                    "source": "assets/summoners/set/Set_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Punch_Combo",
+                            "duration": 2.4666669368743896
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "registeredStates": ["Ready", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "Running selected; RunFast intentionally excluded",
+                    "readySource": "Punch_Combo",
+                    "readyTime": 0,
+                    "loadMs": 3201.7000000001863,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.6199274659156799, 2.9567924997309092e-8, -0.2392396479845047],
+                        "max": [0.6199275255203247, 1.7000000476837158, 0.2392396330833435]
+                    },
+                    "height": 1.7000000181157908,
+                    "scale": 1.117647046913494,
+                    "offset": [-3.3308477607771577e-8, 0.009313466953495945, 8.327119401942894e-9],
+                    "meshInstances": 1,
+                    "jointCount": 87,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "74a3c330-8694-467e-a0a8-72311981c3fb",
+                    "meshId": 3,
+                    "materialId": 20,
+                    "activeAnimation": "Ready",
+                    "playbackTime": 1.3666999999999991,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [-0.6360617170823178, -0.06283756784961692, 3.2168089065785646],
+                        "max": [0.6157246596404985, 1.835775694312336, 4.458091993275803]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 180,
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": 4
+                    },
+                    "hipLocalPosition": [0.005961951799690723, 1.0001788139343262, 0.05088947340846062],
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "1-2",
+                    "summonerId": "riven",
+                    "team": 1,
+                    "teamColor": "#369bff",
+                    "indicatorVisible": true,
+                    "indicatorColor": [0.21176470588235294, 0.6078431372549019, 1, 1],
+                    "state": "loaded",
+                    "bytes": 11170312,
+                    "source": "assets/summoners/riven/Riven_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_6",
+                            "duration": 7.366666793823242
+                        },
+                        {
+                            "name": "run_fast_7",
+                            "duration": 0.8666669726371765
+                        }
+                    ],
+                    "registeredStates": ["Idle_6", "Walking", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "run_fast_7 failed loop validation; using Running",
+                    "preferredLoop": {
+                        "valid": false,
+                        "positionError": 0.01896846294403076,
+                        "rotationErrorDegrees": 12.873240271210351
+                    },
+                    "loadMs": 3810.5,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.44156354665756226, 2.049818093041722e-9, -0.16084645688533783],
+                        "max": [0.44156360626220703, 1.7000001668930054, 0.16084642708301544]
+                    },
+                    "height": 1.7000001648431873,
+                    "scale": 1.029411664887353,
+                    "offset": [-3.0678858306627066e-8, 0.035075997889893344, 1.5339429153313533e-8],
+                    "meshInstances": 1,
+                    "jointCount": 68,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "0deedf95-b9ea-436c-b62d-345994adae73",
+                    "meshId": 4,
+                    "materialId": 21,
+                    "activeAnimation": "Idle_6",
+                    "playbackTime": 1.266699999999999,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [2.0842175879614055, -0.02685286671166187, 3.6460379026596086],
+                        "max": [2.966615287728046, 1.7560531041571592, 4.316088599428332]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 180,
+                    "position": {
+                        "x": 2.5999999046325684,
+                        "y": 0,
+                        "z": 4
+                    },
+                    "hipLocalPosition": [0.0033203279599547386, 1.0373499178214318, -0.009960962459445],
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "2-0",
+                    "summonerId": "kit-asher",
+                    "team": 2,
+                    "teamColor": "#ff425c",
+                    "indicatorVisible": true,
+                    "indicatorColor": [1, 0.25882352941176473, 0.3607843137254902, 1],
+                    "state": "loaded",
+                    "bytes": 26939896,
+                    "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_5",
+                            "duration": 1.8333330154418945
+                        },
+                        {
+                            "name": "Punch_Combo_1",
+                            "duration": 2.200000047683716
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "loadMs": 5761.399999999907,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.38867348432540894, -2.587064562575847e-9, -0.20758193731307983],
+                        "max": [0.38867348432540894, 1.7000000476837158, 0.20758193731307983]
+                    },
+                    "height": 1.7000000502707804,
+                    "scale": 1.0294117342650992,
+                    "offset": [0, 0.05264644266315462, 0],
+                    "meshInstances": 1,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "ac506e04-7371-4fc5-aa87-66c9b96c0bab",
+                    "meshId": 5,
+                    "materialId": 22,
+                    "activeAnimation": "Idle_5",
+                    "playbackTime": 0.9666999999999989,
+                    "playing": true,
+                    "attackCount": 0,
+                    "lastAttackSerial": 0,
+                    "staticComparison": false,
+                    "worldBounds": {
+                        "min": [-3.264865027166118, -0.11042470998823739, -1.4532493389411365],
+                        "max": [-2.1443628142785145, 1.7405697596725702, -0.2147305929759139]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 0,
+                    "position": {
+                        "x": -2.5999999046325684,
+                        "y": 0,
+                        "z": -1
+                    },
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "2-1",
+                    "summonerId": "set",
+                    "team": 2,
+                    "teamColor": "#ff425c",
+                    "indicatorVisible": true,
+                    "indicatorColor": [1, 0.25882352941176473, 0.3607843137254902, 1],
+                    "state": "loaded",
+                    "bytes": 10000416,
+                    "source": "assets/summoners/set/Set_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Punch_Combo",
+                            "duration": 2.4666669368743896
+                        },
+                        {
+                            "name": "RunFast",
+                            "duration": 0.4666669964790344
+                        }
+                    ],
+                    "registeredStates": ["Ready", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "Running selected; RunFast intentionally excluded",
+                    "readySource": "Punch_Combo",
+                    "readyTime": 0,
+                    "loadMs": 3199.3000000002794,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.6199274659156799, 2.9567924997309092e-8, -0.2392396479845047],
+                        "max": [0.6199275255203247, 1.7000000476837158, 0.2392396330833435]
+                    },
+                    "height": 1.7000000181157908,
+                    "scale": 1.117647046913494,
+                    "offset": [-3.3308477607771577e-8, 0.009313466953495945, 8.327119401942894e-9],
+                    "meshInstances": 1,
+                    "jointCount": 87,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "d6a970e1-99d9-47eb-a914-007d9bbc5b67",
+                    "meshId": 3,
+                    "materialId": 20,
+                    "activeAnimation": "Ready",
+                    "playbackTime": 1.3666999999999991,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [-0.6157246596404984, -0.06283756784961692, -1.4580922264351475],
+                        "max": [0.6360617170823177, 1.835775694312336, -0.2168090398124758]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 0,
+                    "position": {
+                        "x": 0,
+                        "y": 0,
+                        "z": -1
+                    },
+                    "hipLocalPosition": [0.005961951799690723, 1.0001788139343262, 0.05088947340846062],
+                    "rootScale": [1, 1, 1]
+                },
+                {
+                    "id": "2-2",
+                    "summonerId": "riven",
+                    "team": 2,
+                    "teamColor": "#ff425c",
+                    "indicatorVisible": true,
+                    "indicatorColor": [1, 0.25882352941176473, 0.3607843137254902, 1],
+                    "state": "loaded",
+                    "bytes": 11170312,
+                    "source": "assets/summoners/riven/Riven_Animated.glb",
+                    "clips": [
+                        {
+                            "name": "Running",
+                            "duration": 0.6333330273628235
+                        },
+                        {
+                            "name": "Walking",
+                            "duration": 1.0333329439163208
+                        },
+                        {
+                            "name": "Idle_6",
+                            "duration": 7.366666793823242
+                        },
+                        {
+                            "name": "run_fast_7",
+                            "duration": 0.8666669726371765
+                        }
+                    ],
+                    "registeredStates": ["Idle_6", "Walking", "Running"],
+                    "runningClip": "Running",
+                    "locomotionReason": "run_fast_7 failed loop validation; using Running",
+                    "preferredLoop": {
+                        "valid": false,
+                        "positionError": 0.01896846294403076,
+                        "rotationErrorDegrees": 12.873240271210351
+                    },
+                    "loadMs": 3820.8000000002794,
+                    "error": "",
+                    "bounds": {
+                        "min": [-0.44156354665756226, 2.049818093041722e-9, -0.16084645688533783],
+                        "max": [0.44156360626220703, 1.7000001668930054, 0.16084642708301544]
+                    },
+                    "height": 1.7000001648431873,
+                    "scale": 1.029411664887353,
+                    "offset": [-3.0678858306627066e-8, 0.035075997889893344, 1.5339429153313533e-8],
+                    "meshInstances": 1,
+                    "jointCount": 68,
+                    "authoredForwardYaw": 0,
+                    "instanceId": "c8df5cb6-2db1-40a8-a0d9-c2a1f8bc21b1",
+                    "meshId": 4,
+                    "materialId": 21,
+                    "activeAnimation": "Idle_6",
+                    "playbackTime": 1.266699999999999,
+                    "playing": true,
+                    "previewEnabled": false,
+                    "presentationOnly": true,
+                    "worldBounds": {
+                        "min": [2.233384429500515, -0.02685286671166187, -1.3160893970786538],
+                        "max": [3.1157821292671555, 1.7560531041571592, -0.6460378566413207]
+                    },
+                    "selected": true,
+                    "forcedPrimitive": false,
+                    "visible": true,
+                    "primitiveVisible": false,
+                    "yaw": 0,
+                    "position": {
+                        "x": 2.5999999046325684,
+                        "y": 0,
+                        "z": -1
+                    },
+                    "hipLocalPosition": [0.0033203279599547386, 1.0373499178214318, -0.009960962459445],
+                    "rootScale": [1, 1, 1]
+                }
+            ],
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 3187.100000000093
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 3786.600000000093
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 5759.700000000186
+                    }
+                ],
+                "gpu": {
+                    "tex": 268498532,
+                    "vb": 4002860,
+                    "ib": 334206,
+                    "ub": 4832,
+                    "sb": 0
+                }
+            },
+            "environment": {
+                "mode": "legacy",
+                "batches": 0,
+                "territoryTint": false
+            },
+            "kitModel": {
+                "state": "loaded",
+                "bytes": 26939896,
+                "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                "clips": [
+                    {
+                        "name": "Running",
+                        "duration": 0.6333330273628235
+                    },
+                    {
+                        "name": "Walking",
+                        "duration": 1.0333329439163208
+                    },
+                    {
+                        "name": "Idle_5",
+                        "duration": 1.8333330154418945
+                    },
+                    {
+                        "name": "Punch_Combo_1",
+                        "duration": 2.200000047683716
+                    },
+                    {
+                        "name": "RunFast",
+                        "duration": 0.4666669964790344
+                    }
+                ],
+                "loadMs": 5763.600000000093,
+                "error": "",
+                "bounds": {
+                    "min": [-0.38867348432540894, -2.587064562575847e-9, -0.20758193731307983],
+                    "max": [0.38867348432540894, 1.7000000476837158, 0.20758193731307983]
+                },
+                "height": 1.7000000502707804,
+                "scale": 1.0294117342650992,
+                "offset": [0, 0.05264644266315462, 0],
+                "meshInstances": 1,
+                "authoredForwardYaw": 0,
+                "instanceId": "1018e9a1-1eea-4a22-9658-cc48197bc29f",
+                "meshId": 5,
+                "materialId": 22,
+                "activeAnimation": "Idle_5",
+                "playbackTime": 0.9666999999999989,
+                "playing": true,
+                "attackCount": 0,
+                "lastAttackSerial": 0,
+                "staticComparison": false,
+                "worldBounds": {
+                    "min": [-3.0556370870232086, -0.11042470998823739, 3.214730408902741],
+                    "max": [-1.9351348434567428, 1.7405697596725702, 4.453249338941136]
+                },
+                "selected": true,
+                "forcedPrimitive": false,
+                "visible": true,
+                "primitiveVisible": false,
+                "yaw": 180,
+                "position": {
+                    "x": -2.5999999046325684,
+                    "y": 0,
+                    "z": 4
+                },
+                "rootScale": [1, 1, 1]
+            },
+            "rivenModel": {
+                "state": "idle",
+                "bytes": 11170312,
+                "source": "assets/summoners/riven/Riven_Animated.glb",
+                "clips": [],
+                "registeredStates": [],
+                "runningClip": "Running",
+                "locomotionReason": "",
+                "preferredLoop": null,
+                "loadMs": 0,
+                "error": "",
+                "bounds": null,
+                "height": 0,
+                "scale": 1,
+                "offset": [0, 0, 0],
+                "meshInstances": 0,
+                "jointCount": 0,
+                "authoredForwardYaw": 0,
+                "instanceId": null,
+                "meshId": null,
+                "materialId": null,
+                "activeAnimation": null,
+                "playbackTime": 0,
+                "playing": false,
+                "previewEnabled": false,
+                "presentationOnly": true,
+                "worldBounds": null,
+                "selected": false,
+                "forcedPrimitive": false,
+                "visible": false,
+                "primitiveVisible": false,
+                "yaw": 180,
+                "position": {
+                    "x": -2.5999999046325684,
+                    "y": 0,
+                    "z": 4
+                },
+                "hipLocalPosition": null,
+                "rootScale": [1, 1, 1]
+            },
+            "setModel": {
+                "state": "idle",
+                "bytes": 10000416,
+                "source": "assets/summoners/set/Set_Animated.glb",
+                "clips": [],
+                "registeredStates": [],
+                "runningClip": "Running",
+                "locomotionReason": "",
+                "readySource": "",
+                "readyTime": 0,
+                "loadMs": 0,
+                "error": "",
+                "bounds": null,
+                "height": 0,
+                "scale": 1,
+                "offset": [0, 0, 0],
+                "meshInstances": 0,
+                "jointCount": 0,
+                "authoredForwardYaw": 0,
+                "instanceId": null,
+                "meshId": null,
+                "materialId": null,
+                "activeAnimation": null,
+                "playbackTime": 0,
+                "playing": false,
+                "previewEnabled": false,
+                "presentationOnly": true,
+                "worldBounds": null,
+                "selected": false,
+                "forcedPrimitive": false,
+                "visible": false,
+                "primitiveVisible": false,
+                "yaw": 180,
+                "position": {
+                    "x": -2.5999999046325684,
+                    "y": 0,
+                    "z": 4
+                },
+                "hipLocalPosition": null,
+                "rootScale": [1, 1, 1]
+            },
+            "frameMs": 84.12546018617003,
+            "preview": null,
+            "territory": {
+                "frontierZ": 1.5,
+                "camera": {
+                    "x": -2.5999999046325684,
+                    "y": 15.5,
+                    "z": 22
+                },
+                "lookTarget": {
+                    "x": -2.5999999026047655,
+                    "y": 0,
+                    "z": 6.918015493795338e-7
+                },
+                "cameraForward": {
+                    "x": 7.5349692607299e-11,
+                    "y": -0.5759535496335594,
+                    "z": -0.8174824210125274
+                },
+                "follow": {
+                    "x": -2.5999999026047655,
+                    "z": 4.000000691801549
+                }
+            },
+            "input": {
+                "cancel": false
+            },
+            "position": {
+                "x": -2.6,
+                "z": 4
+            },
+            "movement": {
+                "x": 0,
+                "z": 0
+            },
+            "aim": {
+                "x": 0,
+                "z": -1
+            },
+            "facing": {
+                "facing": "Back",
+                "owner": "idle"
+            },
+            "targeting": false,
+            "committedFacing": null,
+            "collisions": 0,
+            "frames": 24,
+            "entities": 1348,
+            "visualScaleX": 1,
+            "rootScaleX": 1
+        }
+    ]
+}
