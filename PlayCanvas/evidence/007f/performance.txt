@@ -1,0 +1,4 @@
+legacy 1 {"samples":90,"meanMs":406.65,"medianMs":400,"p95Ms":850}
+carved 1 {"samples":90,"meanMs":413.87333333333333,"medianMs":416.59999999999854,"p95Ms":833.4000000000015}
+legacy 2 {"samples":90,"meanMs":918.2966666666666,"medianMs":900,"p95Ms":1899.8999999999942}
+carved 2 {"samples":90,"meanMs":803.1166666666667,"medianMs":800,"p95Ms":1600}

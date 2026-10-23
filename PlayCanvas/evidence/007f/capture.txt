@@ -1,0 +1,60 @@
+overview-legacy.png {"x":-2.5999999046325684,"y":15.5,"z":22} { mode: 'legacy', batches: 0, territoryTint: true }
+overview-legacy-neutral.png {"x":-2.5999999046325684,"y":15.5,"z":22} { mode: 'legacy', batches: 0, territoryTint: false }
+overview-carved.png {"x":-2.5999999046325684,"y":15.5,"z":22} {
+  mode: 'carved',
+  batches: 5,
+  vertices: 78272,
+  triangles: 26816,
+  pavingSlabs: 496,
+  textureBytes: 87380,
+  raisedRelief: 'existing-obstacle-footprints-and-outside-map-only',
+  footingRange: [ -0.018, 0.027 ],
+  territoryTint: true
+}
+overview-carved-neutral.png {"x":-2.5999999046325684,"y":15.5,"z":22} {
+  mode: 'carved',
+  batches: 5,
+  vertices: 78272,
+  triangles: 26816,
+  pavingSlabs: 496,
+  textureBytes: 87380,
+  raisedRelief: 'existing-obstacle-footprints-and-outside-map-only',
+  footingRange: [ -0.018, 0.027 ],
+  territoryTint: false
+}
+east-access-legacy-neutral.png {"x":10,"y":15.5,"z":18} { mode: 'legacy', batches: 0, territoryTint: false }
+east-access-carved-neutral.png {"x":10,"y":15.5,"z":18} {
+  mode: 'carved',
+  batches: 5,
+  vertices: 78272,
+  triangles: 26816,
+  pavingSlabs: 496,
+  textureBytes: 87380,
+  raisedRelief: 'existing-obstacle-footprints-and-outside-map-only',
+  footingRange: [ -0.018, 0.027 ],
+  territoryTint: false
+}
+west-access-legacy-neutral.png {"x":-10,"y":15.5,"z":18} { mode: 'legacy', batches: 0, territoryTint: false }
+west-access-carved-neutral.png {"x":-10,"y":15.5,"z":18} {
+  mode: 'carved',
+  batches: 5,
+  vertices: 78272,
+  triangles: 26816,
+  pavingSlabs: 496,
+  textureBytes: 87380,
+  raisedRelief: 'existing-obstacle-footprints-and-outside-map-only',
+  footingRange: [ -0.018, 0.027 ],
+  territoryTint: false
+}
+mobile-legacy-neutral.png {"x":-2.5999999046325684,"y":15.5,"z":22} { mode: 'legacy', batches: 0, territoryTint: false }
+mobile-carved-neutral.png {"x":-2.5999999046325684,"y":15.5,"z":22} {
+  mode: 'carved',
+  batches: 5,
+  vertices: 78272,
+  triangles: 26816,
+  pavingSlabs: 496,
+  textureBytes: 87380,
+  raisedRelief: 'existing-obstacle-footprints-and-outside-map-only',
+  footingRange: [ -0.018, 0.027 ],
+  territoryTint: false
+}

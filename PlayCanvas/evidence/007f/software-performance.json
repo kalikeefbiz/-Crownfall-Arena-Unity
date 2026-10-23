@@ -1,0 +1,208 @@
+{
+    "renderer": "Chromium ANGLE SwiftShader (software)",
+    "physicalDevice": false,
+    "base": "http://127.0.0.1:4173/",
+    "measuredAt": "2026-10-23T08:15:31.209Z",
+    "viewport": {
+        "width": 844,
+        "height": 390
+    },
+    "results": [
+        {
+            "environment": "legacy",
+            "deviceScaleFactor": 1,
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 406.65,
+                "medianMs": 400,
+                "p95Ms": 850
+            },
+            "sceneEnvironment": {
+                "mode": "legacy",
+                "batches": 0,
+                "territoryTint": true
+            },
+            "entities": 1348,
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 1922.3999999999069
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 2250
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 4217.899999999907
+                    }
+                ],
+                "gpu": {
+                    "tex": 268498532,
+                    "vb": 4002860,
+                    "ib": 334206,
+                    "ub": 5280,
+                    "sb": 0
+                }
+            },
+            "visibleModels": 6,
+            "jsHeapUsedBytes": 17075288
+        },
+        {
+            "environment": "carved",
+            "deviceScaleFactor": 1,
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 413.87333333333333,
+                "medianMs": 416.59999999999854,
+                "p95Ms": 833.4000000000015
+            },
+            "sceneEnvironment": {
+                "mode": "carved",
+                "batches": 5,
+                "vertices": 78272,
+                "triangles": 26816,
+                "pavingSlabs": 496,
+                "textureBytes": 87380,
+                "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                "footingRange": [-0.018, 0.027],
+                "territoryTint": true
+            },
+            "entities": 1298,
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 2032.3000000002794
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 2901.100000000093
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 4401.5
+                    }
+                ],
+                "gpu": {
+                    "tex": 268585912,
+                    "vb": 7759916,
+                    "ib": 495102,
+                    "ub": 4640,
+                    "sb": 0
+                }
+            },
+            "visibleModels": 6,
+            "jsHeapUsedBytes": 17492892
+        },
+        {
+            "environment": "legacy",
+            "deviceScaleFactor": 2,
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 918.2966666666666,
+                "medianMs": 900,
+                "p95Ms": 1899.8999999999942
+            },
+            "sceneEnvironment": {
+                "mode": "legacy",
+                "batches": 0,
+                "territoryTint": true
+            },
+            "entities": 1348,
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 955.1999999997206
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 1167
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 7246.600000000093
+                    }
+                ],
+                "gpu": {
+                    "tex": 268498532,
+                    "vb": 4002860,
+                    "ib": 334206,
+                    "ub": 5280,
+                    "sb": 0
+                }
+            },
+            "visibleModels": 6,
+            "jsHeapUsedBytes": 17851852
+        },
+        {
+            "environment": "carved",
+            "deviceScaleFactor": 2,
+            "frameIntervals": {
+                "samples": 90,
+                "meanMs": 803.1166666666667,
+                "medianMs": 800,
+                "p95Ms": 1600
+            },
+            "sceneEnvironment": {
+                "mode": "carved",
+                "batches": 5,
+                "vertices": 78272,
+                "triangles": 26816,
+                "pavingSlabs": 496,
+                "textureBytes": 87380,
+                "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                "footingRange": [-0.018, 0.027],
+                "territoryTint": true
+            },
+            "entities": 1298,
+            "modelAssets": {
+                "downloads": 3,
+                "boundCalculations": 3,
+                "assets": [
+                    {
+                        "source": "assets/summoners/set/Set_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 1109
+                    },
+                    {
+                        "source": "assets/summoners/riven/Riven_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 2653.399999999907
+                    },
+                    {
+                        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                        "state": "loaded",
+                        "loadMs": 6168
+                    }
+                ],
+                "gpu": {
+                    "tex": 268585912,
+                    "vb": 7759916,
+                    "ib": 495102,
+                    "ub": 4640,
+                    "sb": 0
+                }
+            },
+            "visibleModels": 6,
+            "jsHeapUsedBytes": 17322056
+        }
+    ]
+}

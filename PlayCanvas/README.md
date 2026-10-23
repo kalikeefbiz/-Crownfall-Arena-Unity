@@ -15,6 +15,25 @@ npm run dev -- --host 0.0.0.0
 
 Open http://localhost:5173 in landscape. Production preview: https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/
 
+## Carved combat road (Goal 007F)
+
+Competitive matches now use a procedural stone-and-earth road: worn bevelled
+paving, cracks, an irregular exposed foundation, broken shoulders, and layered
+rock banks with short retaining courses. Pronounced relief occupies existing
+obstacle footprints and terrain beyond the map bounds. Every legal road,
+Wilderness approach, spawn and camp remains at its original gameplay elevation.
+The environment adds five static mesh batches and one generated 128×128 grain
+texture, with no GLB downloads, new collision or per-frame terrain generation.
+
+- `?environment=legacy` restores Goal 007E's original floor, lines and obstacle rendering.
+- `?territoryTint=0` disables Blue/Red floor overlays for a neutral comparison;
+  the authoritative gold frontier, team discs and HUD remain visible.
+- Combine with `?verify=1` for the existing deterministic developer fixtures.
+
+The gameplay camera, six animated summoners and all combat/match systems retain
+their existing authority. See [Goal 007F verification](TASK_007F_VERIFICATION.md)
+for matched screenshots, regression checks and mobile performance limits.
+
 ## Six-summoner 3D presentation (Goal 007E)
 
 Normal matches display both teams' Kit, Set and Riven models without preview flags.

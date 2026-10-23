@@ -16,6 +16,7 @@ import type { Simulation } from '../gameplay/simulation';
 
 import { createCombatOverlay } from './combat-overlay';
 import { createKitModel } from './kit-model';
+import { createLaneEnvironment } from './lane-environment';
 import { createRivenModel } from './riven-model';
 import { createSetModel } from './set-model';
 import { SummonerAssets } from './summoner-assets';
@@ -35,6 +36,10 @@ export function createScene(app: AppBase, competitive = false) {
     const teamMaterials = { 1: material(0x369bff), 2: material(0xff425c) };
     const sceneRoot = new Entity('arena-presentation');
     app.root.addChild(sceneRoot);
+    const params = new URLSearchParams(location.search);
+    const carved = competitive && params.get('environment') !== 'legacy';
+    const territoryVisible = params.get('territoryTint') !== '0';
+    const environment = carved ? createLaneEnvironment(app, sceneRoot) : null;
     const stone = material(0x334758),
         boundary = material(0x74b6ba),
         gold = material(0xd6ad64);
@@ -66,19 +71,23 @@ export function createScene(app: AppBase, competitive = false) {
               depth: 32,
               walls: OBSTACLES.map((o) => ({ x: o.x, z: o.z, w: o.halfX * 2, d: o.halfZ * 2, h: 1.3 }))
           };
-    primitive('lane-floor', 'box', [0, -0.15, 0], [geometry.width, 0.3, geometry.depth], stone);
+    if (!carved) primitive('lane-floor', 'box', [0, -0.15, 0], [geometry.width, 0.3, geometry.depth], stone);
     const laneWidth = competitive ? MATCH_LANE.halfWidth * 2 : ARENA.halfWidth * 2;
     const laneLength = competitive ? MATCH_LANE.goalB - MATCH_LANE.goalA : 32;
-    for (const x of [-laneWidth / 2, laneWidth / 2])
-        primitive('lane-boundary', 'box', [x, 0.04, 0], [0.12, 0.08, geometry.depth], boundary);
-    for (const z of [-geometry.depth / 2, geometry.depth / 2])
-        primitive('lane-end', 'box', [0, 0.15, z], [geometry.width, 0.3, 0.12], boundary);
-    for (let z = -laneLength / 2; z <= laneLength / 2; z += 2)
-        primitive('lane-guide', 'box', [0, 0.012, z], [0.07, 0.02, 0.7], boundary);
-    for (const o of geometry.walls) {
-        primitive('obstruction', 'box', [o.x, o.h / 2, o.z], [o.w, o.h, o.d], dark);
-        primitive('obstruction-cap', 'box', [o.x, o.h + 0.02, o.z], [o.w, 0.04, o.d], gold);
-    }
+    if (!carved)
+        for (const x of [-laneWidth / 2, laneWidth / 2])
+            primitive('lane-boundary', 'box', [x, 0.04, 0], [0.12, 0.08, geometry.depth], boundary);
+    if (!carved)
+        for (const z of [-geometry.depth / 2, geometry.depth / 2])
+            primitive('lane-end', 'box', [0, 0.15, z], [geometry.width, 0.3, 0.12], boundary);
+    if (!carved)
+        for (let z = -laneLength / 2; z <= laneLength / 2; z += 2)
+            primitive('lane-guide', 'box', [0, 0.012, z], [0.07, 0.02, 0.7], boundary);
+    if (!carved)
+        for (const o of geometry.walls) {
+            primitive('obstruction', 'box', [o.x, o.h / 2, o.z], [o.w, o.h, o.d], dark);
+            primitive('obstruction-cap', 'box', [o.x, o.h + 0.02, o.z], [o.w, 0.04, o.d], gold);
+        }
     const tint = (hex: number) => {
         const m = material(hex);
         m.blendType = BLEND_NORMAL;
@@ -87,7 +96,7 @@ export function createScene(app: AppBase, competitive = false) {
         m.update();
         return m;
     };
-    if (competitive)
+    if (competitive && !carved)
         for (const region of WILDERNESS_REGIONS)
             primitive(
                 'wilderness-region',
@@ -98,8 +107,16 @@ export function createScene(app: AppBase, competitive = false) {
             );
     const blueTerritory = primitive('blue-territory', 'box', [0, 0.018, 0], [laneWidth, 0.012, 1], tint(0x369bff));
     const redTerritory = primitive('red-territory', 'box', [0, 0.02, 0], [laneWidth, 0.012, 1], tint(0xff425c));
+    if (carved) {
+        for (const territory of [blueTerritory, redTerritory]) {
+            const mat = territory.render!.meshInstances[0].material as StandardMaterial;
+            mat.opacity = 0.065;
+            mat.update();
+        }
+    }
     const frontier = primitive('authoritative-frontier', 'box', [0, 0.07, 0], [laneWidth, 0.1, 0.18], gold);
-    blueTerritory.enabled = redTerritory.enabled = frontier.enabled = competitive;
+    blueTerritory.enabled = redTerritory.enabled = competitive && territoryVisible;
+    frontier.enabled = competitive;
     const root = new Entity('Kit-gameplay-root');
     app.root.addChild(root);
     const localIndicator = primitive(
@@ -196,6 +213,9 @@ export function createScene(app: AppBase, competitive = false) {
         return { x: near.x + (far.x - near.x) * t, z: near.z + (far.z - near.z) * t };
     };
     return {
+        get environment() {
+            return { ...(environment?.diagnostics ?? { mode: 'legacy', batches: 0 }), territoryTint: territoryVisible };
+        },
         get kitModel() {
             return kitModel.snapshot();
         },
@@ -257,6 +277,7 @@ export function createScene(app: AppBase, competitive = false) {
             }
             actorViews.clear();
             assets.destroy();
+            environment?.destroy();
             sceneRoot.destroy();
             root.destroy();
             camera.destroy();

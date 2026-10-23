@@ -291,6 +291,7 @@ try {
                     },
                     summonerModels: scene.summonerModels,
                     modelAssets: scene.modelAssets,
+                    environment: scene.environment,
                     kitModel: scene.kitModel,
                     rivenModel: scene.rivenModel,
                     setModel: scene.setModel,
