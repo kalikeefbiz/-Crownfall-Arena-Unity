@@ -56,6 +56,10 @@ try {
                 await page.goto(new URL(`?verify=1&aimAssist=${enabled ? 1 : 0}`, base).href);
                 await page.waitForFunction(() => !!(window as unknown as { __crownfall?: Harness }).__crownfall);
                 await page.getByLabel('Summoner', { exact: true }).selectOption(label);
+                // Normal matches intentionally defer model downloads until match start.
+                await page.evaluate(() =>
+                    (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('aim-retreat')
+                );
                 await page.waitForFunction(
                     () => {
                         const s = (window as unknown as { __crownfall: Harness }).__crownfall.snapshot();

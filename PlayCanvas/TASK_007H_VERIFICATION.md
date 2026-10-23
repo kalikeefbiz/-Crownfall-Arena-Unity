@@ -121,6 +121,41 @@ with **all six animated models** and saves snapshots/screenshots:
 CHROMIUM_PATH=/usr/bin/chromium node tests/helpers/verify-aim-deployment.ts
 ```
 
+## Publication and live verification
+
+Implementation commit: `dc5d2c42a97e516e6829a2adc09cb3826b404574`, pushed to
+`playcanvas-port`. The [publishing workflow](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/39949834499)
+passed install, all 207 unit tests, typecheck, build and upload. The
+[GitHub Pages deployment](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/39949920158)
+also passed. The existing Unity root is retained; this game remains at `/playcanvas/`.
+
+Live verification completed on 2026-10-23 at 12:02 UTC. The page and entry bundle
+returned HTTP 200, and the hosted bundle matched the tested local build byte for byte:
+
+- Entry: `assets/index-JJhsRHL1.js`.
+- SHA-256: `0de48a6aee519856f86f6ba536d5ea4d0bf0948bce42a3814376cbbd2a84ab4e`.
+- All four live comparisons retained six visible animated summoner instances at
+  unchanged gameplay Y=0. No browser exceptions occurred.
+- Each used a genuine captured movement touch and separate captured attack touch.
+  The joystick vector remained `(0, 0.2222222222222222)` and the human continued
+  moving in +Z. Assisted casts faced -Z (π); disabled casts faced +Z (0).
+
+| Summoner | Assistance On                                      | Assistance Off | Live captures                                                                 |
+| -------- | -------------------------------------------------- | -------------- | ----------------------------------------------------------------------------- |
+| Kit      | Three rear-enemy transactions of 107.8 damage each | No enemy hit   | [On](evidence/007h/live-whip-on.png) / [Off](evidence/007h/live-whip-off.png) |
+| Set      | Three rear-enemy transactions of 88.2 damage each  | No enemy hit   | [On](evidence/007h/live-claw-on.png) / [Off](evidence/007h/live-claw-off.png) |
+
+The existing enemy Set aura supplies the normal 2% damage reduction in these
+six-actor fixtures. Cone reach and damage are unchanged. Live event timing varies
+between runs; the single-fixed-tick unit comparison above proves exact movement
+and displacement equality independently of that browser scheduling.
+
+[Raw live snapshots and hashes](evidence/007h/deployment.json),
+[verification output](evidence/007h/deployment-check.txt),
+[live pursuit test capture](evidence/007h/007h-live-pursuit.png),
+[natural combat](evidence/007h/natural-combat.png) and
+[natural result](evidence/007h/natural-result.png).
+
 ## Mobile gestures and remaining device checks
 
 The viewport already allowed zoom; it still has no `maximum-scale` or
