@@ -1,0 +1,83 @@
+{
+    "fixture": "Authoritative single fixed tick, enemy one unit behind, forward retreat held. Reproduced by tests/human-aim.test.js.",
+    "comparisons": [
+        {
+            "summoner": "kit-asher",
+            "enabled": true,
+            "acquisitionDistance": 3.3,
+            "inputMovement": {
+                "x": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 0,
+                "z": 0.1
+            },
+            "castAngle": 3.141592653589793,
+            "transactions": [
+                {
+                    "time": 0.016666666666666666,
+                    "sourceId": "player",
+                    "targetId": "pursuer",
+                    "amount": 110,
+                    "abilityId": "whip",
+                    "defeated": false
+                }
+            ]
+        },
+        {
+            "summoner": "kit-asher",
+            "enabled": false,
+            "acquisitionDistance": 3.3,
+            "inputMovement": {
+                "x": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 0,
+                "z": 0.1
+            },
+            "castAngle": 0,
+            "transactions": []
+        },
+        {
+            "summoner": "set",
+            "enabled": true,
+            "acquisitionDistance": 2.2,
+            "inputMovement": {
+                "x": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 0,
+                "z": 0.1
+            },
+            "castAngle": 3.141592653589793,
+            "transactions": [
+                {
+                    "time": 0.016666666666666666,
+                    "sourceId": "player",
+                    "targetId": "pursuer",
+                    "amount": 90,
+                    "abilityId": "claw",
+                    "defeated": false
+                }
+            ]
+        },
+        {
+            "summoner": "set",
+            "enabled": false,
+            "acquisitionDistance": 2.2,
+            "inputMovement": {
+                "x": 0,
+                "z": 1
+            },
+            "position": {
+                "x": 0,
+                "z": 0.1
+            },
+            "castAngle": 0,
+            "transactions": []
+        }
+    ]
+}

@@ -14,7 +14,9 @@ async function start(page: Page) {
     await expect.poll(async () => (await snapshot(page))?.phase).toBe('prematch');
     await page.locator('#start-match').click();
     await expect(page.locator('#match-status')).toContainText('countdown');
-    await expect.poll(async () => (await snapshot(page)).phase).toBe('active');
+    // Six animated models on software WebGL can need >15 wall seconds for
+    // three simulation seconds; still require the actual authoritative transition.
+    await expect.poll(async () => (await snapshot(page)).phase, { timeout: 30000 }).toBe('active');
 }
 test('rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch', async ({
     page
@@ -57,6 +59,8 @@ test('rendered lifecycle countdown, death, visible respawn/protection, all final
     ).toBe(true);
 });
 test('3v3 selected Blue human takes real touch commands after countdown and reset', async ({ browser }) => {
+    // Three rendered countdowns plus captured touch combat on the software GPU.
+    test.setTimeout(120000);
     const context = await browser.newContext({ viewport: { width: 844, height: 390 }, isMobile: true, hasTouch: true });
     const page = await context.newPage();
     await start(page);

@@ -1,3 +1,5 @@
+import { protectGameSurface } from '../input/game-gestures.js';
+
 import { AbilityCommands } from './ability-commands.js';
 import { KIT } from './combat-data.js';
 
@@ -10,6 +12,7 @@ export class AbilityInput extends AbilityCommands {
         this.buttons = new Map();
         this.capture = null;
         this.setDefinition(definition);
+        this.listen(window, 'orientationchange', () => this.clear());
         this.listen(window, 'keydown', (event) => {
             if (event.repeat || /SELECT|INPUT|BUTTON/.test(event.target?.tagName || '')) return;
             if (this.keyDown(event.code, event.timeStamp)) event.preventDefault();
@@ -37,12 +40,27 @@ export class AbilityInput extends AbilityCommands {
             button.innerHTML = `<strong>${ability.basic ? '◎' : ability.ultimate ? '♜' : '✦'}</strong><span>${ability.short}</span><b class="cooldown"></b>`;
             bar.append(button);
             this.buttons.set(ability.id, button);
+            protectGameSurface(button, this.abort.signal);
             this.listen(button, 'pointerdown', (event) => {
-                if (!this.begin(ability, event.pointerId, event.clientX, event.clientY, event.timeStamp)) return;
+                if (
+                    !this.begin(
+                        ability,
+                        event.pointerId,
+                        event.clientX,
+                        event.clientY,
+                        event.timeStamp,
+                        event.pointerType
+                    )
+                )
+                    return;
                 event.preventDefault();
                 this.pointerState = 'down';
                 this.capture = { button, pointer: event.pointerId };
                 button.setPointerCapture(event.pointerId);
+            });
+            this.listen(button, 'click', (event) => {
+                event.preventDefault();
+                button.blur();
             });
             this.listen(button, 'pointermove', (event) => this.drag(event.pointerId, event.clientX, event.clientY));
             this.listen(button, 'pointerup', (event) => {

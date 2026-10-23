@@ -2,6 +2,8 @@ import type { InputFrame } from '../gameplay/simulation';
 import { clampVector } from '../gameplay/vector';
 import type { Vec } from '../gameplay/vector';
 
+import { protectGameSurface } from './game-gestures.js';
+
 export class Controls {
     private keys = new Set<string>();
     private move: Vec = { x: 0, z: 0 };
@@ -10,6 +12,7 @@ export class Controls {
     private commit = false;
     private mousePointer: number | null = null;
     private captures = new Map<number, { kind: 'move' | 'aim'; x: number; y: number }>();
+    private zones: HTMLElement[] = [];
     private abort = new AbortController();
     constructor(
         moveZone: HTMLElement,
@@ -18,6 +21,8 @@ export class Controls {
         screenAim: (x: number, y: number) => Vec
     ) {
         const options = { signal: this.abort.signal };
+        for (const surface of [moveZone, aimZone, canvas]) protectGameSurface(surface, this.abort.signal);
+        this.zones = [moveZone, aimZone, canvas];
         for (const [zone, kind] of [
             [moveZone, 'move'],
             [aimZone, 'aim']
@@ -59,6 +64,9 @@ export class Controls {
         window.addEventListener(
             'keydown',
             (e) => {
+                const tag = (e.target as HTMLElement)?.tagName || '';
+                if (/SELECT|INPUT|TEXTAREA/.test(tag)) return;
+                if (tag === 'BUTTON' && ['Space', 'Enter'].includes(e.code)) return;
                 if (['Space', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.code)) e.preventDefault();
                 this.keys.add(e.code);
             },
@@ -121,6 +129,8 @@ export class Controls {
             },
             options
         );
+        window.addEventListener('resize', () => this.reset(), options);
+        window.addEventListener('orientationchange', () => this.reset(), options);
         window.addEventListener('blur', () => this.reset(), options);
         document.addEventListener(
             'visibilitychange',
@@ -137,7 +147,10 @@ export class Controls {
         if (capture.kind === 'move') this.move = v;
         else if (Math.hypot(v.x, v.z) > 0.08) this.aim = v;
     }
-    private reset(): void {
+    reset(): void {
+        for (const zone of this.zones)
+            for (const id of [...this.captures.keys(), ...(this.mousePointer === null ? [] : [this.mousePointer])])
+                if (zone.hasPointerCapture(id)) zone.releasePointerCapture(id);
         this.keys.clear();
         this.move = { x: 0, z: 0 };
         this.aiming = false;

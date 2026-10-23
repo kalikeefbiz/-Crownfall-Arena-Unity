@@ -7,8 +7,8 @@ export class CommandStepper {
         let accepted = false;
         while (this.accumulator + 1e-10 >= 1 / 60) {
             controls.synchronize(sim);
-            const preview = controls.preview;
-            const command = controls.read();
+            const preview = controls.softPreview ? null : controls.preview;
+            const command = controls.read(frame);
             const before = sim.actionSerial;
             const authority = sim.match || sim;
             authority.step({

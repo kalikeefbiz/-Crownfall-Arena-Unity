@@ -17,6 +17,7 @@ import {
 import { AbilityInput } from './combat/ability-input.js';
 import { hasStatus } from './combat/combat-core.js';
 import { CommandStepper } from './combat/command-stepper.js';
+import { HumanAimAssist } from './combat/human-aim.js';
 import { matchSpawn } from './combat/match-space.js';
 import { Simulation } from './gameplay/simulation';
 import { Controls } from './input/controls';
@@ -41,9 +42,10 @@ try {
     app.init(options);
     app.setCanvasFillMode(FILLMODE_FILL_WINDOW);
     app.setCanvasResolution(RESOLUTION_AUTO);
+    // Pinch zoom changes visualViewport, not the game's layout size. Do not rebuild
+    // the canvas (or clear captured touches) on every zoom/URL-bar viewport event.
     const resize = () => app.resizeCanvas();
     window.addEventListener('resize', resize);
-    window.visualViewport?.addEventListener('resize', resize);
     const debug = new URLSearchParams(location.search).get('debug') === '1';
     document.body.classList.toggle('debug', debug);
     document.body.classList.toggle('playable', !debug);
@@ -62,6 +64,34 @@ try {
         simulation.combat.definition,
         (x: number, y: number) => scene.dragVector(x, y, simulation)
     );
+    const aimAssist = new HumanAimAssist(!debug);
+    abilities.aimAssist = aimAssist;
+    const assistToggle = document.querySelector<HTMLButtonElement>('#aim-assist')!;
+    let savedAssist: string | null = null;
+    try {
+        savedAssist = localStorage.getItem('crownfall.aimAssist');
+    } catch {
+        /* Optional preference storage. */
+    }
+    const assistQuery = new URLSearchParams(location.search).get('aimAssist');
+    aimAssist.enabled =
+        assistQuery === '0' ? false : assistQuery === '1' ? true : savedAssist === null ? !debug : savedAssist === 'on';
+    const updateAssistToggle = () => {
+        assistToggle.textContent = `Aim Assist: ${aimAssist.enabled ? 'On' : 'Off'}`;
+        assistToggle.setAttribute('aria-pressed', String(aimAssist.enabled));
+    };
+    updateAssistToggle();
+    assistToggle.addEventListener('click', (event) => {
+        if (event.detail > 0) assistToggle.blur();
+        aimAssist.enabled = !aimAssist.enabled;
+        aimAssist.clear();
+        updateAssistToggle();
+        try {
+            localStorage.setItem('crownfall.aimAssist', aimAssist.enabled ? 'on' : 'off');
+        } catch {
+            /* Play without persistence. */
+        }
+    });
     abilities.update(simulation.combat);
     const refreshInspection = () => {
         const select = document.querySelector<HTMLSelectElement>('#inspect-actor')!;
@@ -72,6 +102,7 @@ try {
         simulation.select(index);
         stepper.accumulator = 0;
         abilities.clear();
+        input.reset();
         refreshInspection();
         abilities.setDefinition(simulation.combat.definition);
         abilities.update(simulation.combat);
@@ -82,6 +113,7 @@ try {
         simulation.select(index);
         stepper.accumulator = 0;
         abilities.clear();
+        input.reset();
         refreshInspection();
         abilities.setDefinition(simulation.combat.definition);
         abilities.update(simulation.combat);
@@ -127,6 +159,8 @@ try {
                       if (
                           !m ||
                           ![
+                              'aim-retreat',
+                              'aim-chase',
                               'roster',
                               'pressure',
                               'neutral',
@@ -154,11 +188,24 @@ try {
                           m.step(undefined, 3);
                       }
                       for (const [i, actor] of m.actors.entries()) {
-                          if (name !== 'rotation') Object.assign(actor, { bot: null });
+                          if (!['rotation', 'aim-chase'].includes(name)) Object.assign(actor, { bot: null });
                           const p = actor.sim.player;
                           p.x = ((i % 3) - 1) * 8;
                           p.z = p.team === 1 ? -4 : -8;
                           Object.assign(p, { previous: { x: p.x, z: p.z } });
+                      }
+                      if (name.startsWith('aim-')) {
+                          for (const [i, actor] of m.actors.entries()) {
+                              const p = actor.sim.player;
+                              Object.assign(p, {
+                                  x: i === 0 ? 0 : i < 3 ? (i - 1) * 8 : (i - 4) * 0.8,
+                                  z: i === 0 ? 0 : i < 3 ? 12 : -0.9,
+                                  angle: 0
+                              });
+                          }
+                          abilities.clear();
+                          input.reset();
+                          verificationPaused = false;
                       }
                       if (name === 'all-buffs') {
                           Object.assign(m.human.player, { x: 24, z: 18 });
@@ -229,12 +276,12 @@ try {
     app.on('update', (elapsed: number) => {
         const dt = Math.min(elapsed, 0.1);
         const frame = input.sample();
-        const preview = abilities.preview;
+        const accepted = !verificationPaused && stepper.advance(simulation.combat, abilities, frame, dt);
+        const preview = abilities.softPreview ? null : abilities.preview;
         if (preview) {
             frame.aim = { x: Math.sin(preview.angle), z: Math.cos(preview.angle) };
             frame.targeting = true;
         }
-        const accepted = !verificationPaused && stepper.advance(simulation.combat, abilities, frame, dt);
         const c = simulation.combat;
         simulation.update(
             {
@@ -249,7 +296,18 @@ try {
         simulation.position = { x: c.player.x, z: c.player.z };
         simulation.collisions = c.collisions;
         abilities.update(c);
-        scene.update(simulation, dt, abilities.preview);
+        const assistStatus = aimAssist.status(c);
+        const aimFeedback = document.querySelector<HTMLElement>('#aim-feedback')!;
+        aimFeedback.dataset.state = assistStatus.state;
+        aimFeedback.textContent =
+            assistStatus.state === 'acquired'
+                ? '◇ Assisted'
+                : assistStatus.state === 'manual'
+                  ? 'Manual aim'
+                  : assistStatus.state === 'none'
+                    ? 'No nearby target'
+                    : '';
+        scene.update(simulation, dt, preview, assistStatus.targetId);
         frames++;
         smoothedDt += (Math.max(elapsed, 0.001) - smoothedDt) * 0.1;
         hudElapsed += elapsed;
@@ -263,7 +321,6 @@ try {
         input.destroy();
         abilities.destroy();
         window.removeEventListener('resize', resize);
-        window.visualViewport?.removeEventListener('resize', resize);
     });
     // Read-only snapshots for browser smoke checks.
     Object.defineProperty(window, '__crownfall', {
@@ -299,6 +356,7 @@ try {
                     preview: scene.preview,
                     territory: scene.territory,
                     input: { pointer: abilities.pointerState, cancel: !!abilities.preview?.cancel },
+                    aimAssist: { enabled: aimAssist.enabled, ...aimAssist.status(simulation.combat) },
                     position: simulation.position,
                     movement: simulation.movement,
                     aim: simulation.aim,

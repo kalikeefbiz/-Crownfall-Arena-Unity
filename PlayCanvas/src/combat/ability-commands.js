@@ -18,10 +18,21 @@ export class AbilityCommands {
     releaseBasic(ability) {
         return this.definition.id === 'riven' && ability.basic;
     }
-    begin(ability, pointer, x, y, time) {
+    begin(ability, pointer, x, y, time, pointerType = 'touch') {
         if (!this.input.enabled || this.active) return false;
         const angle = this.getFacing();
-        this.active = { id: ability.id, ability, pointer, x, y, angle, started: time, cancel: false, dragged: false };
+        this.active = {
+            id: ability.id,
+            ability,
+            pointer,
+            x,
+            y,
+            angle,
+            started: time,
+            pointerType,
+            cancel: false,
+            dragged: false
+        };
         if (ability.aim === 'ground')
             this.active.targetOffset = {
                 x: Math.sin(angle) * ability.range * 0.65,
@@ -42,6 +53,7 @@ export class AbilityCommands {
         p.cancel = distance > 150;
         if (distance > 12) {
             p.dragged = true;
+            if (this.sim) this.aimAssist?.manual(this.sim);
             const world = this.mapDrag(dx, dz);
             p.angle = Math.atan2(world.x, world.z);
         }
@@ -63,9 +75,9 @@ export class AbilityCommands {
         const p = this.active;
         if (!p || p.pointer !== pointer) return;
         if (confirm && !p.cancel && this.input.enabled) {
-            if (this.releaseBasic(p.ability))
-                this.commitBasic(p.ability, !p.dragged && time - p.started < 180 ? p.angle : this.preview.angle);
-            else if (p.ability.basic && !p.sampled) this.actions.push({ id: p.id, angle: p.angle });
+            if (this.releaseBasic(p.ability)) this.commitBasic(p.ability, this.basicAngle(p, p.angle));
+            else if (p.ability.basic && !p.sampled)
+                this.actions.push({ id: p.id, angle: p.angle, ...(this.assistEligible(p) ? { acquire: true } : {}) });
             else if (!p.ability.basic)
                 this.actions.push({
                     id: p.id,
@@ -86,6 +98,20 @@ export class AbilityCommands {
         this.pendingBasic = null;
         this.keyboardBasic = null;
         this.heldKey = null;
+        this.aimAssist?.clear();
+        this.manualTargeting = false;
+    }
+    assistEligible(p) {
+        return this.aimAssist?.enabled && p.pointerType === 'touch' && !p.dragged && !this.manualTargeting;
+    }
+    get softPreview() {
+        return !!(this.active?.ability.basic && this.assistEligible(this.active));
+    }
+    basicAngle(p, fallback) {
+        if (p.ability.effect === 'weaponSequence' && this.sim?.weapons.next >= 2) return fallback;
+        if (this.assistEligible(p) && this.sim) return this.aimAssist.resolve(this.sim, p.ability, fallback);
+        if (p.dragged && this.sim) this.aimAssist?.manual(this.sim);
+        return fallback;
     }
     commitBasic(ability, angle) {
         this.actions.push({ id: ability.id, angle });
@@ -122,14 +148,37 @@ export class AbilityCommands {
         if (p) this.preview = null;
         this.attackHeld = false;
     }
-    read() {
+    read(frame) {
+        this.manualTargeting = !!frame?.targeting;
+        const p = this.active;
+        if (p?.dragged && this.sim) this.aimAssist?.manual(this.sim);
         if (this.attackHeld) {
             if (this.active) this.active.sampled = true;
             if (this.heldKey) this.heldKey.sampled = true;
         }
-        const actions = this.actions.splice(0);
+        const actions = this.actions.splice(0).map(({ acquire, ...action }) => {
+            if (acquire && this.sim && !this.manualTargeting)
+                action.angle =
+                    this.aimAssist?.resolve(this.sim, this.sim.ability(action.id), action.angle) ?? action.angle;
+            return action;
+        });
+        let attackHeld = this.attackHeld;
+        // Reacquire at actual attack intervals, never during cooldown/render updates.
+        // Emit ordinary one-shot actions so assisted aim cannot steer movement or track between casts.
+        if (attackHeld && p && this.assistEligible(p) && this.sim) {
+            attackHeld = false;
+            const sim = this.sim,
+                a = sim.ability(p.id);
+            if (
+                sim.cooldowns.ready(a.cooldownKey || a.id, sim.now + 1 / 60) &&
+                !sim.dash &&
+                !sim.advanced.locksCasting &&
+                (!sim.match || sim.match.active)
+            )
+                actions.push({ id: p.id, angle: this.basicAngle(p, p.angle) });
+        }
         if (this.pendingBasic && actions.some((a) => a.id === this.pendingBasic.id)) this.pendingBasic.submitted = true;
-        return { actions, attackHeld: this.attackHeld };
+        return { actions, attackHeld };
     }
     synchronize(sim) {
         this.sim = sim;

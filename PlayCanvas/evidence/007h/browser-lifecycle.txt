@@ -1,0 +1,15 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/match.spec.ts
+
+[WebServer] (node:9198) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:9217) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/match.spec.ts:21:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch (1.1m)
+  ✓  2 tests/browser/match.spec.ts:61:1 › 3v3 selected Blue human takes real touch commands after countdown and reset (53.9s)
+
+  2 passed (2.0m)

@@ -22,6 +22,8 @@ export function createHud() {
       <div id="kill-feed" aria-live="polite"></div>
       <button id="play-match">Start match</button>
       <section id="result-panel" hidden><h1 id="result-title"></h1><p id="result-detail"></p><table id="result-participants"><thead><tr><th>Team</th><th>Summoner</th><th>K</th><th>D</th><th>A</th><th>Damage</th><th>Pressure s</th></tr></thead><tbody></tbody></table><button id="restart-match">Restart match</button></section>
+      <button id="aim-assist" aria-pressed="true">Aim Assist: On</button>
+      <div id="aim-feedback" aria-live="off"></div>
       <a id="debug-link" href="?debug=1">Debug</a>
       <div id="aim" hidden></div>
       <div class="notice">RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE</div>

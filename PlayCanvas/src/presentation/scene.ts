@@ -296,7 +296,7 @@ export function createScene(app: AppBase, competitive = false) {
                 scale = Math.hypot(dx, dy) / length;
             return { x: (to.x - from.x) * scale, z: (to.z - from.z) * scale };
         },
-        update(sim: Simulation, dt: number, intent: PreviewIntent | null = null) {
+        update(sim: Simulation, dt: number, intent: PreviewIntent | null = null, assistedTarget: string | null = null) {
             const combat = sim.combat;
             localId = combat.player.id;
             localSummonerId = combat.definition.id;
@@ -333,6 +333,8 @@ export function createScene(app: AppBase, competitive = false) {
                     labelViews.set(p.id, label);
                     actorLabels.append(label);
                 }
+                label.dataset.actor = p.id;
+                label.classList.toggle('assisted-target', p.id === assistedTarget);
                 label.hidden = p.dead;
                 label.style.color = p.team === 1 ? '#a2dfff' : '#ffb4c1';
                 label.textContent = `${p.name}${actor === combat ? ' · YOU' : ''}${sim.match?.protected(p) ? ' · SHIELD' : ''}`;

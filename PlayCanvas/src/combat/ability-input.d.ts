@@ -1,4 +1,7 @@
+import type { InputFrame } from '../gameplay/simulation';
+
 import type { CombatSimulation, Definition, Ability } from './combat';
+import type { HumanAimAssist } from './human-aim';
 export type Action = { id: string; angle: number; targetOffset?: { x: number; z: number } };
 export type PreviewIntent = {
     angle: number;
@@ -13,6 +16,8 @@ export class AbilityInput {
         definition?: Definition,
         mapDrag?: (x: number, z: number) => { x: number; z: number }
     );
+    aimAssist?: HumanAimAssist;
+    softPreview: boolean;
     actions: Action[];
     preview: PreviewIntent | null;
     pointerState?: string;
@@ -21,5 +26,5 @@ export class AbilityInput {
     setDefinition(definition: Definition): void;
     clear(): void;
     destroy(): void;
-    read(): { actions: Action[]; attackHeld: boolean };
+    read(frame?: InputFrame): { actions: Action[]; attackHeld: boolean };
 }
