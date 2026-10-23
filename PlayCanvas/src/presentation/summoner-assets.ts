@@ -15,9 +15,13 @@ type Normalization = {
 // One owner for container lifetimes. Instances own their skeletons/controllers;
 // the container retains shared meshes, textures, materials and source tracks.
 export class SummonerAssets {
-    private entries = new Map<string, { asset: Asset; promise: Promise<Asset>; state: string; loadMs: number }>();
+    private entries = new Map<
+        string,
+        { asset: Asset; promise: Promise<Asset>; state: string; loadMs: number; cancel(): void }
+    >();
     private bounds = new Map<string, Normalization>();
     private destroyed = false;
+    private abort = new AbortController();
     constructor(privateApp: AppBase) {
         this.app = privateApp;
     }
@@ -27,16 +31,42 @@ export class SummonerAssets {
         const cached = this.entries.get(source);
         if (cached) return cached.promise;
         if (this.destroyed) return Promise.reject(new Error('Summoner assets disposed'));
+        const parsing = {
+            skipMeshes: false,
+            image: {
+                processAsync: (_image: unknown, done: (error: Error | null, texture: Asset | null) => void) => {
+                    // The engine defers its contents handoff. Disposal can happen
+                    // after fetch completes but before that queued parse starts.
+                    done(this.destroyed ? new Error('Summoner assets disposed') : null, null);
+                }
+            }
+        };
         const asset = new Asset(source, 'container', { url: `${import.meta.env.BASE_URL}${source}` });
+        asset.options = parsing;
+        const file = asset.file as { url: string; contents: ArrayBuffer | null };
         const started = performance.now();
-        const entry = { asset, promise: null as unknown as Promise<Asset>, state: 'loading', loadMs: 0 };
+        const entry = {
+            asset,
+            promise: null as unknown as Promise<Asset>,
+            state: 'loading',
+            loadMs: 0,
+            cancel: () => {
+                // Replaced synchronously by the promise constructor below.
+            }
+        };
         entry.promise = new Promise<Asset>((resolve, reject) => {
+            entry.cancel = () => {
+                parsing.skipMeshes = true;
+                reject(new Error('Summoner assets disposed'));
+            };
             asset.once('load', () => {
+                file.contents = null;
                 entry.state = 'loaded';
                 entry.loadMs = performance.now() - started;
                 resolve(asset);
             });
             asset.once('error', (error: unknown) => {
+                file.contents = null;
                 entry.state = 'error';
                 entry.loadMs = performance.now() - started;
                 reject(error);
@@ -44,7 +74,22 @@ export class SummonerAssets {
         });
         this.entries.set(source, entry);
         this.app.assets.add(asset);
-        this.app.assets.load(asset);
+        // Own the network lifetime. The engine's container request cannot be
+        // cancelled by asset.unload(): a late response would parse against an
+        // already-destroyed registry. Feed the same bytes to its normal parser.
+        void fetch(file.url, { signal: this.abort.signal })
+            .then((response) => {
+                if (!response.ok) throw new Error(`Asset request failed: ${response.status}`);
+                return response.arrayBuffer();
+            })
+            .then((contents) => {
+                if (this.destroyed) return;
+                file.contents = contents;
+                this.app.assets.load(asset);
+            })
+            .catch((error: unknown) => {
+                if (!this.destroyed) asset.fire('error', error);
+            });
         return entry.promise;
     }
 
@@ -67,10 +112,13 @@ export class SummonerAssets {
     }
 
     destroy() {
+        if (this.destroyed) return;
         this.destroyed = true;
-        for (const { asset } of this.entries.values()) {
-            // Detach callbacks before unloading an in-flight request. The loader can
-            // finish later; remove/unload that late resource as well.
+        this.abort.abort();
+        for (const { asset, cancel } of this.entries.values()) {
+            cancel();
+            // Parsing may already have started. Presenters are disposed first;
+            // unload any container that completes after scene-only disposal.
             if (!asset.loaded) asset.once('load', () => asset.unload());
             this.app.assets.remove(asset);
             asset.unload();

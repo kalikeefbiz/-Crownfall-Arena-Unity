@@ -1,0 +1,447 @@
+{
+    "baseline": "b68ed94aeeceb49f47006f9d94baa0a976136d05",
+    "candidateEntrySha256": "01fd769708e9aeb897b11c2cfbbeda7d939122a5b2554f1674ef97612cc8a6ab",
+    "expectedCases": 106,
+    "uniquePassedCases": 106,
+    "missingCases": [],
+    "unexpectedCases": [],
+    "runs": [
+        {
+            "command": "CHROMIUM_PATH=/usr/bin/chromium npm run test:browser",
+            "passed": 99,
+            "completion": "environment restart interrupted runner after case 99; no test failures reported"
+        },
+        {
+            "command": "CHROMIUM_PATH=/usr/bin/chromium npm run test:browser -- tests/browser/wilderness.spec.ts --grep-invert 'touch secures'",
+            "passed": 7,
+            "exitCode": 0,
+            "duration": "1.2m"
+        }
+    ],
+    "cases": [
+        {
+            "case": "tests/browser/aim-assist.spec.ts:116:1 \u203a Riven touch hold waits, release acquires scythes, confirmed second direction and recall survive retreat",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/aim-assist.spec.ts:152:1 \u203a manual drag chooses the opposite direction, cancel/blur/capture loss/orientation clear touch intentions",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/aim-assist.spec.ts:192:1 \u203a rapid game-surface taps suppress default gestures; menu zoom and live setting remain available",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/aim-assist.spec.ts:242:1 \u203a retreat and fire against three live pursuing bots records human damage through match authority",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/aim-assist.spec.ts:72:5 \u203a Kit: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/aim-assist.spec.ts:72:5 \u203a Set: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/application-lifecycle.spec.ts:137:1 \u203a real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/application-lifecycle.spec.ts:170:1 \u203a re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/application-lifecycle.spec.ts:199:1 \u203a destroy releases genuine simultaneous touch captures without committing the held ability after remount",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/application-lifecycle.spec.ts:270:1 \u203a destroy during actual delayed GLB requests tolerates their late responses and remounts six working models",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/application-lifecycle.spec.ts:338:1 \u203a destroy after GLB download while embedded texture decoding is pending leaves no late engine work",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/application-lifecycle.spec.ts:386:1 \u203a destroy between download completion and the queued engine contents handoff cancels parsing safely",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:114:1 \u203a obstruction blocks movement in the rendered app",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:132:5 \u203a Kit selection and real Basic damage through HUD",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:132:5 \u203a Riven selection and real Basic damage through HUD",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:132:5 \u203a Set selection and real Basic damage through HUD",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:155:1 \u203a aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:173:1 \u203a Set ground ultimate consumes charged meter and impacts after commitment",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:184:1 \u203a Riven stance changes actions and SCREAM updates stun/ultimate diagnostics",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:32:1 \u203a production arena renders, moves, aims independently, mirrors and preserves facing",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/arena.spec.ts:67:1 \u203a landscape mobile supports two captured pointers and clears cancelled input",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/environment.spec.ts:33:1 \u203a legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/environment.spec.ts:57:1 \u203a normal match defaults to carved terrain with territory indicators retained",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:127:5 \u203a landscape targets and HUD stay clear at 640x360, safe inset 44",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:127:5 \u203a landscape targets and HUD stay clear at 667x375, safe inset 44",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:127:5 \u203a landscape targets and HUD stay clear at 844x390, safe inset 0",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:127:5 \u203a landscape targets and HUD stay clear at 844x390, safe inset 44",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:30:5 \u203a competitive camera follows Kit smoothly from behind with fixed forward focus",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:30:5 \u203a competitive camera follows Riven smoothly from behind with fixed forward focus",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:30:5 \u203a competitive camera follows Set smoothly from behind with fixed forward focus",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:78:5 \u203a competitive Kit retains touch Basic timing with the farther camera",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:78:5 \u203a competitive Riven retains touch Basic timing with the farther camera",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/ergonomics.spec.ts:78:5 \u203a competitive Set retains touch Basic timing with the farther camera",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:111:5 \u203a Riven retains primitives without fetching Kit",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:111:5 \u203a Set retains primitives without fetching Kit",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:128:1 \u203a primitive comparison skips the GLB request",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:141:1 \u203a pending and failed loading keep playable primitive fallback",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:162:1 \u203a 10K comparison remains static and is requested only once",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:175:1 \u203a animated Kit survives death, respawn, results and restart without another download",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:45:1 \u203a production serves unchanged Kit GLB",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/kit-model.spec.ts:53:1 \u203a local Kit loads, grounds, follows and animates in the normal mobile match",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/match.spec.ts:21:1 \u203a rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/match.spec.ts:61:1 \u203a 3v3 selected Blue human takes real touch commands after countdown and reset",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/playable.spec.ts:11:1 \u203a normal player starts, fights a natural 3v3 battle, sees results, freeze and clean restart",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/playable.spec.ts:71:5 \u203a normal mobile HUD and actual captured touch controls 390x844",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/playable.spec.ts:71:5 \u203a normal mobile HUD and actual captured touch controls 844x390",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:154:1 \u203a Riven aim/commit facing uses Riven controls without Kit punch animations",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:182:5 \u203a Riven primitive skips the download with &rivenPrimitive=1",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:182:5 \u203a Riven primitive skips the download with no developer opt-in",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:200:1 \u203a pending and failed Riven loading retain a moving primitive",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:222:1 \u203a valid container missing a required Riven clip safely falls back",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:239:1 \u203a training preview switches summoners and reuses one Riven instance",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:259:1 \u203a Riven preview survives defeat, respawn, results and rematch without another download",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:63:1 \u203a production serves the exact verified Riven GLB",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-model.spec.ts:71:1 \u203a opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/riven-touch.spec.ts:5:1 \u203a Riven 3D preview supports simultaneous touch movement, aim, release and cancellation",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:155:5 \u203a Set primitive skips the download with &setPrimitive=1",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:155:5 \u203a Set primitive skips the download with no developer opt-in",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:173:1 \u203a pending and failed Set loading retain a moving primitive",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:195:1 \u203a valid container missing a required Set clip safely falls back",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:212:1 \u203a training preview switches summoners and reuses one Set instance",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:232:1 \u203a Set preview survives defeat, respawn, results and rematch without another download",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:262:1 \u203a normal Set preview starts a match and supports captured mobile movement and combat",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:299:1 \u203a combined preview flags preserve Riven while switching to and from Set",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:63:1 \u203a production serves the exact verified Set GLB",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/set-model.spec.ts:71:1 \u203a opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/six-summoner.spec.ts:151:1 \u203a all actors survive defeat, respawn, rematch and identity reorder without redownloads",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/six-summoner.spec.ts:204:1 \u203a one failed shared asset falls back for both teams while the other four models render",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/six-summoner.spec.ts:221:1 \u203a global primitive diagnostic skips every GLB and keeps normal bots active",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/six-summoner.spec.ts:245:1 \u203a normal match enables all six skinned actors and normal AI without preview flags",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/six-summoner.spec.ts:67:5 \u203a Kit selection renders six identities with independent playback and shared resources",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/six-summoner.spec.ts:67:5 \u203a Riven selection renders six identities with independent playback and shared resources",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/six-summoner.spec.ts:67:5 \u203a Set selection renders six identities with independent playback and shared resources",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/territory.spec.ts:105:1 \u203a normal full-map iPhone landscape HUD avoids controls and real touch deals damage",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/territory.spec.ts:135:5 \u203a natural alive ordered total control team 1",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/territory.spec.ts:135:5 \u203a natural alive ordered total control team 2",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/territory.spec.ts:151:1 \u203a crossed runner cannot backcap in production",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/territory.spec.ts:27:1 \u203a production positional territory, visual frontier, grace, retained CP and camera",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/territory.spec.ts:57:5 \u203a production points result has all participants, final metrics, freezes and restarts",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/territory.spec.ts:57:5 \u203a production total-control result has all participants, final metrics, freezes and restarts",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:122:5 \u203a Kit: back-to-back genuine touch press/release damages the known in-range target",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:122:5 \u203a Set: back-to-back genuine touch press/release damages the known in-range target",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:138:1 \u203a Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:159:1 \u203a Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:177:1 \u203a simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:199:5 \u203a Kit: touchcancel while aiming never commits damage",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:199:5 \u203a Riven: touchcancel while aiming never commits damage",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:199:5 \u203a Set: touchcancel while aiming never commits damage",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:210:1 \u203a Riven: actual capture loss before release cancels without enqueuing a Basic",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:252:5 \u203a Kit: aimed non-Basic touch action produces authoritative damage",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:252:5 \u203a Riven: aimed non-Basic touch action produces authoritative damage",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:252:5 \u203a Set: aimed non-Basic touch action produces authoritative damage",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:263:1 \u203a touch Solar Ring uses its radial radius and creates authoritative HIT feedback",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:274:1 \u203a Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/touch-combat.spec.ts:300:1 \u203a Set preview uses 1.65m cone, 150px cancellation is visible; Riven empty-path release visibly resolves MISS",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:100:1 \u203a bot rotation physically leaves lane toward real camp in production",
+            "passedIn": "completion"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:122:5 \u203a active reward HUD clear of controls 640 safe 44",
+            "passedIn": "completion"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:122:5 \u203a active reward HUD clear of controls 667 safe 44",
+            "passedIn": "completion"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:122:5 \u203a active reward HUD clear of controls 844 safe 0",
+            "passedIn": "completion"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:122:5 \u203a active reward HUD clear of controls 844 safe 44",
+            "passedIn": "completion"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:24:5 \u203a touch secures cooldown, visible camp and timed authoritative buff",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:24:5 \u203a touch secures damage, visible camp and timed authoritative buff",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:24:5 \u203a touch secures defense, visible camp and timed authoritative buff",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:24:5 \u203a touch secures mobility, visible camp and timed authoritative buff",
+            "passedIn": "initial"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:67:5 \u203a real captured touch leaves lane into Wilderness -1 and returns",
+            "passedIn": "completion"
+        },
+        {
+            "case": "tests/browser/wilderness.spec.ts:67:5 \u203a real captured touch leaves lane into Wilderness 1 and returns",
+            "passedIn": "completion"
+        }
+    ]
+}

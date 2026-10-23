@@ -1,6 +1,7 @@
 import type { PreviewIntent } from '../combat/ability-input';
 import type { Simulation } from '../gameplay/simulation';
 export function createHud() {
+    const abort = new AbortController();
     const setPreview = new URLSearchParams(location.search).get('setPreview') === '1';
     const rivenPreview = new URLSearchParams(location.search).get('rivenPreview') === '1';
     const hud = document.createElement('main');
@@ -29,12 +30,19 @@ export function createHud() {
       <div class="notice">RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE</div>
     `;
     document.body.append(hud);
-    hud.querySelector('#summoner')!.addEventListener('change', (e) =>
-        simSelect?.((e.target as HTMLSelectElement).selectedIndex)
+    hud.querySelector('#summoner')!.addEventListener(
+        'change',
+        (e) => simSelect?.((e.target as HTMLSelectElement).selectedIndex),
+        { signal: abort.signal }
     );
     let simSelect: ((index: number) => void) | undefined;
     const diagnostics = hud.querySelector<HTMLPreElement>('#diagnostics')!;
     return {
+        destroy() {
+            abort.abort();
+            simSelect = undefined;
+            hud.remove();
+        },
         onSelect(callback: (index: number) => void) {
             simSelect = callback;
         },

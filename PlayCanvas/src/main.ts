@@ -25,9 +25,58 @@ import { createScene } from './presentation/scene';
 import { createHud } from './ui/hud';
 import './style.css';
 
-const canvas = document.getElementById('application-canvas') as HTMLCanvasElement;
+// The canvas owns the application even when the entry module is re-evaluated.
+// A rematch stays inside this owner; only full application disposal releases art.
+const ownerKey = Symbol.for('crownfall.application');
+const canvas = document.getElementById('application-canvas') as HTMLCanvasElement & {
+    [ownerKey]?: { destroy(): void };
+};
+canvas[ownerKey]?.destroy();
+const abort = new AbortController();
+const owned: {
+    app?: AppBase;
+    scene?: ReturnType<typeof createScene>;
+    hud?: ReturnType<typeof createHud>;
+    input?: Controls;
+    abilities?: AbilityInput;
+} = {};
+let disposed = false;
+let diagnostics: object | undefined;
+const priorModes = ['debug', 'playable', 'lifecycle'].map(
+    (mode) => [mode, document.body.classList.contains(mode)] as const
+);
+const assertLive = () => {
+    if (disposed) throw new Error('Crownfall application disposed');
+};
+const cleanup = () => {
+    if (disposed) return;
+    disposed = true;
+    abort.abort();
+    // Release captured pointers before removing their DOM or presentation targets.
+    owned.input?.destroy();
+    owned.abilities?.destroy();
+    owned.hud?.destroy();
+    owned.scene?.destroy();
+    if (Object.getOwnPropertyDescriptor(window, '__crownfall')?.value === diagnostics)
+        Reflect.deleteProperty(window, '__crownfall');
+    if (canvas[ownerKey] === owner) delete canvas[ownerKey];
+    for (const [mode, present] of priorModes) document.body.classList.toggle(mode, present);
+};
+const owner = {
+    destroy() {
+        if (disposed) return;
+        if (owned.app) owned.app.destroy();
+        else cleanup();
+    }
+};
+canvas[ownerKey] = owner;
+if (import.meta.hot) import.meta.hot.dispose(() => owner.destroy());
 try {
     const device = await createGraphicsDevice(canvas, { deviceTypes: ['webgl2'] });
+    if (disposed) {
+        device.destroy();
+        assertLive();
+    }
     device.maxPixelRatio = Math.min(window.devicePixelRatio, 2);
     const options = new AppOptions();
     options.graphicsDevice = device;
@@ -40,12 +89,14 @@ try {
     ];
     const app = new AppBase(canvas);
     app.init(options);
+    owned.app = app;
+    app.on('destroy', cleanup);
     app.setCanvasFillMode(FILLMODE_FILL_WINDOW);
     app.setCanvasResolution(RESOLUTION_AUTO);
     // Pinch zoom changes visualViewport, not the game's layout size. Do not rebuild
     // the canvas (or clear captured touches) on every zoom/URL-bar viewport event.
     const resize = () => app.resizeCanvas();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize, { signal: abort.signal });
     const debug = new URLSearchParams(location.search).get('debug') === '1';
     document.body.classList.toggle('debug', debug);
     document.body.classList.toggle('playable', !debug);
@@ -54,16 +105,16 @@ try {
     simulation.bots = !debug;
     simulation.select(0);
     document.body.classList.toggle('lifecycle', simulation.lifecycle);
-    const scene = createScene(app, !debug);
-    const hud = createHud();
+    const scene = (owned.scene = createScene(app, !debug));
+    const hud = (owned.hud = createHud());
     const stepper = new CommandStepper();
-    const input = new Controls(hud.move, hud.aim, canvas, (x, y) => scene.screenAim(x, y, simulation));
-    const abilities = new AbilityInput(
+    const input = (owned.input = new Controls(hud.move, hud.aim, canvas, (x, y) => scene.screenAim(x, y, simulation)));
+    const abilities = (owned.abilities = new AbilityInput(
         { enabled: true },
         () => simulation.combat.player.angle,
         simulation.combat.definition,
         (x: number, y: number) => scene.dragVector(x, y, simulation)
-    );
+    ));
     const aimAssist = new HumanAimAssist(!debug);
     abilities.aimAssist = aimAssist;
     const assistToggle = document.querySelector<HTMLButtonElement>('#aim-assist')!;
@@ -81,17 +132,21 @@ try {
         assistToggle.setAttribute('aria-pressed', String(aimAssist.enabled));
     };
     updateAssistToggle();
-    assistToggle.addEventListener('click', (event) => {
-        if (event.detail > 0) assistToggle.blur();
-        aimAssist.enabled = !aimAssist.enabled;
-        aimAssist.clear();
-        updateAssistToggle();
-        try {
-            localStorage.setItem('crownfall.aimAssist', aimAssist.enabled ? 'on' : 'off');
-        } catch {
-            /* Play without persistence. */
-        }
-    });
+    assistToggle.addEventListener(
+        'click',
+        (event) => {
+            if (event.detail > 0) assistToggle.blur();
+            aimAssist.enabled = !aimAssist.enabled;
+            aimAssist.clear();
+            updateAssistToggle();
+            try {
+                localStorage.setItem('crownfall.aimAssist', aimAssist.enabled ? 'on' : 'off');
+            } catch {
+                /* Play without persistence. */
+            }
+        },
+        { signal: abort.signal }
+    );
     abilities.update(simulation.combat);
     const refreshInspection = () => {
         const select = document.querySelector<HTMLSelectElement>('#inspect-actor')!;
@@ -107,54 +162,82 @@ try {
         abilities.setDefinition(simulation.combat.definition);
         abilities.update(simulation.combat);
     });
-    document.querySelector('#reset-combat')!.addEventListener('click', () => {
-        const index = (document.querySelector('#summoner') as HTMLSelectElement).selectedIndex;
-        verificationPaused = false;
-        simulation.select(index);
-        stepper.accumulator = 0;
-        abilities.clear();
-        input.reset();
-        refreshInspection();
-        abilities.setDefinition(simulation.combat.definition);
-        abilities.update(simulation.combat);
-    });
-    document.querySelector('#lifecycle-mode')!.addEventListener('change', (event) => {
-        simulation.lifecycle = (event.target as HTMLInputElement).checked;
-        document.body.classList.toggle('lifecycle', simulation.lifecycle);
-        (document.querySelector('#reset-combat') as HTMLButtonElement).click();
-    });
+    document.querySelector('#reset-combat')!.addEventListener(
+        'click',
+        () => {
+            const index = (document.querySelector('#summoner') as HTMLSelectElement).selectedIndex;
+            verificationPaused = false;
+            simulation.select(index);
+            stepper.accumulator = 0;
+            abilities.clear();
+            input.reset();
+            refreshInspection();
+            abilities.setDefinition(simulation.combat.definition);
+            abilities.update(simulation.combat);
+        },
+        { signal: abort.signal }
+    );
+    document.querySelector('#lifecycle-mode')!.addEventListener(
+        'change',
+        (event) => {
+            simulation.lifecycle = (event.target as HTMLInputElement).checked;
+            document.body.classList.toggle('lifecycle', simulation.lifecycle);
+            (document.querySelector('#reset-combat') as HTMLButtonElement).click();
+        },
+        { signal: abort.signal }
+    );
     refreshInspection();
-    document.querySelector('#play-match')!.addEventListener('click', () => simulation.match?.start());
+    document
+        .querySelector('#play-match')!
+        .addEventListener('click', () => simulation.match?.start(), { signal: abort.signal });
     document
         .querySelector('#restart-match')!
-        .addEventListener('click', () => (document.querySelector('#reset-combat') as HTMLButtonElement).click());
-    document.querySelector('#start-match')!.addEventListener('click', () => simulation.match?.start());
-    document.querySelector('#advance-match')!.addEventListener('click', () => simulation.match?.debugAdvance());
+        .addEventListener('click', () => (document.querySelector('#reset-combat') as HTMLButtonElement).click(), {
+            signal: abort.signal
+        });
+    document
+        .querySelector('#start-match')!
+        .addEventListener('click', () => simulation.match?.start(), { signal: abort.signal });
+    document
+        .querySelector('#advance-match')!
+        .addEventListener('click', () => simulation.match?.debugAdvance(), { signal: abort.signal });
     for (const [id, lethal] of [
         ['lethal-actor', true],
         ['damage-actor', false]
     ] as const) {
         document
             .querySelector('#' + id)!
-            .addEventListener('click', () =>
-                simulation.match?.debugDamage(
-                    (document.querySelector('#inspect-actor') as HTMLSelectElement).value,
-                    lethal
-                )
+            .addEventListener(
+                'click',
+                () =>
+                    simulation.match?.debugDamage(
+                        (document.querySelector('#inspect-actor') as HTMLSelectElement).value,
+                        lethal
+                    ),
+                { signal: abort.signal }
             );
     }
-    document.querySelector('#charge')!.addEventListener('click', () => {
-        if (!simulation.match || simulation.match.active) simulation.combat.player.ultimateMeter = 100;
-    });
-    document.querySelector('#damage-player')!.addEventListener('click', () => {
-        simulation.combat.damage(simulation.combat.player, 100, simulation.combat.targets[0]);
-    });
+    document.querySelector('#charge')!.addEventListener(
+        'click',
+        () => {
+            if (!simulation.match || simulation.match.active) simulation.combat.player.ultimateMeter = 100;
+        },
+        { signal: abort.signal }
+    );
+    document.querySelector('#damage-player')!.addEventListener(
+        'click',
+        () => {
+            simulation.combat.damage(simulation.combat.player, 100, simulation.combat.targets[0]);
+        },
+        { signal: abort.signal }
+    );
     // Opt-in deterministic production verification; normal play exposes snapshots only.
     let verificationPaused = false;
     const verification =
         new URLSearchParams(location.search).get('verify') === '1'
             ? {
                   arrange(name: string) {
+                      assertLive();
                       const m = simulation.match;
                       if (
                           !m ||
@@ -259,9 +342,11 @@ try {
                       }
                   },
                   pause() {
+                      assertLive();
                       verificationPaused = true;
                   },
                   advance(seconds: number) {
+                      assertLive();
                       if (!verificationPaused || !Number.isFinite(seconds) || seconds < 0 || seconds > 300)
                           throw new Error('Invalid verification advance');
                       const m = simulation.match!;
@@ -316,66 +401,62 @@ try {
             hudElapsed = 0;
         }
     });
-    app.on('destroy', () => {
-        scene.destroy();
-        input.destroy();
-        abilities.destroy();
-        window.removeEventListener('resize', resize);
-    });
     // Read-only snapshots for browser smoke checks.
-    Object.defineProperty(window, '__crownfall', {
-        configurable: true,
-        value: {
-            verification,
-            snapshot: () =>
-                structuredClone({
-                    match: simulation.match?.snapshot() ?? null,
-                    combat: {
-                        name: simulation.combat.definition.id,
-                        stance: simulation.combat.stance,
-                        player: simulation.combat.player,
-                        targets: simulation.combat.targets,
-                        cooldowns: simulation.combat.cooldowns.ends,
-                        now: simulation.combat.now,
-                        transactions: simulation.combat.transactions,
-                        journal: {
-                            latestAttempt: simulation.combat.journal.latestAttempt,
-                            latestAccepted: simulation.combat.journal.latestAccepted,
-                            latestResolution: simulation.combat.journal.latestResolution,
-                            hits: simulation.combat.journal.hits
-                        },
-                        weapons: simulation.combat.weapons.blades.map((b) => ({ x: b.x, z: b.z, phase: b.phase }))
+    diagnostics = {
+        verification,
+        snapshot: () => {
+            assertLive();
+            return structuredClone({
+                match: simulation.match?.snapshot() ?? null,
+                combat: {
+                    name: simulation.combat.definition.id,
+                    stance: simulation.combat.stance,
+                    player: simulation.combat.player,
+                    targets: simulation.combat.targets,
+                    cooldowns: simulation.combat.cooldowns.ends,
+                    now: simulation.combat.now,
+                    transactions: simulation.combat.transactions,
+                    journal: {
+                        latestAttempt: simulation.combat.journal.latestAttempt,
+                        latestAccepted: simulation.combat.journal.latestAccepted,
+                        latestResolution: simulation.combat.journal.latestResolution,
+                        hits: simulation.combat.journal.hits
                     },
-                    summonerModels: scene.summonerModels,
-                    modelAssets: scene.modelAssets,
-                    environment: scene.environment,
-                    kitModel: scene.kitModel,
-                    rivenModel: scene.rivenModel,
-                    setModel: scene.setModel,
-                    frameMs: smoothedDt * 1000,
-                    preview: scene.preview,
-                    territory: scene.territory,
-                    input: { pointer: abilities.pointerState, cancel: !!abilities.preview?.cancel },
-                    aimAssist: { enabled: aimAssist.enabled, ...aimAssist.status(simulation.combat) },
-                    position: simulation.position,
-                    movement: simulation.movement,
-                    aim: simulation.aim,
-                    facing: simulation.facing,
-                    targeting: simulation.targeting,
-                    committedFacing: simulation.committedFacing,
-                    collisions: simulation.collisions,
-                    frames,
-                    entities: app.root.find((e) => e instanceof Entity).length,
-                    visualScaleX: (app.root.findByName('Kit-presentation') as Entity).getLocalScale().x,
-                    rootScaleX: (app.root.findByName('Kit-gameplay-root') as Entity).getLocalScale().x
-                })
+                    weapons: simulation.combat.weapons.blades.map((b) => ({ x: b.x, z: b.z, phase: b.phase }))
+                },
+                summonerModels: scene.summonerModels,
+                modelAssets: scene.modelAssets,
+                environment: scene.environment,
+                kitModel: scene.kitModel,
+                rivenModel: scene.rivenModel,
+                setModel: scene.setModel,
+                frameMs: smoothedDt * 1000,
+                preview: scene.preview,
+                territory: scene.territory,
+                input: { pointer: abilities.pointerState, cancel: !!abilities.preview?.cancel },
+                aimAssist: { enabled: aimAssist.enabled, ...aimAssist.status(simulation.combat) },
+                position: simulation.position,
+                movement: simulation.movement,
+                aim: simulation.aim,
+                facing: simulation.facing,
+                targeting: simulation.targeting,
+                committedFacing: simulation.committedFacing,
+                collisions: simulation.collisions,
+                frames,
+                entities: app.root.find((e) => e instanceof Entity).length,
+                visualScaleX: (app.root.findByName('Kit-presentation') as Entity).getLocalScale().x,
+                rootScaleX: (app.root.findByName('Kit-gameplay-root') as Entity).getLocalScale().x
+            });
         }
-    });
+    };
+    Object.defineProperty(window, '__crownfall', { configurable: true, value: diagnostics });
     app.start();
-    if (import.meta.hot) import.meta.hot.dispose(() => app.destroy());
 } catch (error) {
-    const message = document.createElement('p');
-    message.textContent = 'Unable to start WebGL2 arena: ' + String(error);
-    document.body.append(message);
-    throw error;
+    if (!disposed) {
+        owner.destroy();
+        const message = document.createElement('p');
+        message.textContent = 'Unable to start WebGL2 arena: ' + String(error);
+        document.body.append(message);
+        throw error;
+    }
 }
