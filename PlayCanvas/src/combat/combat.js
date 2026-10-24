@@ -15,6 +15,7 @@ import {
 import { KIT, TRAINING } from './combat-data.js';
 import { CombatJournal } from './combat-journal.js';
 import { CONFIG, MAP } from './config.js';
+import { MATCH_DEFAULTS } from './match-data.js';
 import { modifierTotals, expireModifiers, updateAlliedAura, addModifier } from './modifiers.js';
 import { MovementSimulation } from './movement.js';
 import { ReturningWeapons } from './returning-weapons.js';
@@ -156,8 +157,9 @@ export class CombatSimulation extends MovementSimulation {
         this.journal.hit(options.trace || this.executingTrace, target, n, options.ability);
         if (this.transactions.length > 128) this.transactions.shift();
         if (source && source.team !== target.team && source.kind === 'summoner' && target.kind === 'summoner') {
-            source.ultimateMeter = Math.min(100, (source.ultimateMeter || 0) + n * 0.04);
-            target.ultimateMeter = Math.min(100, (target.ultimateMeter || 0) + n * 0.025);
+            const settings = this.match?.rules.settings || MATCH_DEFAULTS;
+            source.ultimateMeter = Math.min(100, (source.ultimateMeter || 0) + n * settings.ultimateDealt);
+            target.ultimateMeter = Math.min(100, (target.ultimateMeter || 0) + n * settings.ultimateReceived);
         }
         if (!this.feedback)
             this.effects.spawn({
@@ -403,7 +405,8 @@ export class CombatSimulation extends MovementSimulation {
                     if (a.grant && !shot.earned && shot.summoners.size >= a.grant.uniqueHits && !this.player.dead) {
                         this.temporary.grant(a.grant.id, a.grant.duration, this.now);
                         shot.earned = true;
-                        this.lastEvent = `${this.ability(a.grant.id).name} earned · ${a.grant.duration} seconds to fire`;
+                        const granted = this.ability(a.grant.id);
+                        this.lastEvent = `${granted?.name ?? a.grant.id} earned · ${a.grant.duration} seconds to fire`;
                     }
                     if (!a.piercing) {
                         shot.active = false;

@@ -14,12 +14,12 @@ import { Wilderness } from './wilderness.js';
 // Bots only supply commands; this remains the sole match authority.
 const idle = { moveX: 0, moveZ: 0 };
 export class CrownfallMatch {
-    constructor(selected = 0, { bots = false, diagnostic = false } = {}) {
+    constructor(selected = 0, { bots = false, diagnostic = false, settings = {} } = {}) {
         this.diagnostic = diagnostic;
         this.phase = 'prematch';
-        this.countdownRemaining = 3;
+        this.rules = new CrownfallRules(settings);
+        this.countdownRemaining = this.rules.settings.countdownSeconds;
         this.tick = 0;
-        this.rules = new CrownfallRules();
         this.results = null;
         this.damageLog = new Map();
         this.feed = [];
@@ -63,7 +63,7 @@ export class CrownfallMatch {
                           }
                         : matchSpawn(team, slot)
                 });
-                p.health = p.maxHealth = Math.round(p.maxHealth * 1.3);
+                p.health = p.maxHealth = Math.round(p.maxHealth * this.rules.settings.durabilityMultiplier);
                 this.place(sim);
                 this.actors.push({
                     sim,
@@ -193,7 +193,7 @@ export class CrownfallMatch {
             const p = sim.player;
             if (p.dead && p.respawnReserved && this.rules.elapsed + 1e-9 >= p.respawnAt) {
                 respawn(p);
-                p.protectedUntil = this.rules.elapsed + 2;
+                p.protectedUntil = this.rules.elapsed + this.rules.settings.protectionSeconds;
                 delete p.respawnReserved;
                 this.place(sim);
             }

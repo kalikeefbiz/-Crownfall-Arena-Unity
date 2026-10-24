@@ -2,6 +2,7 @@ import type { PreviewIntent } from '../combat/ability-input';
 import type { Simulation } from '../gameplay/simulation';
 export function createHud() {
     const abort = new AbortController();
+    const percent = (value = 0) => Number((value * 100).toFixed(2));
     const setPreview = new URLSearchParams(location.search).get('setPreview') === '1';
     const rivenPreview = new URLSearchParams(location.search).get('rivenPreview') === '1';
     const hud = document.createElement('main');
@@ -81,10 +82,10 @@ export function createHud() {
                 const time = Math.ceil(match.remaining);
                 const pressure = !match.pressureTeam
                     ? 'NEUTRAL'
-                    : `${match.pressureTeam === 1 ? 'BLUE' : 'RED'} ${match.scoringTeam ? 'SCORING' : `PRESSURE · grace ${Math.max(0, 2 - match.pressureAge).toFixed(1)}s`}`;
+                    : `${match.pressureTeam === 1 ? 'BLUE' : 'RED'} ${match.scoringTeam ? 'SCORING' : `PRESSURE · grace ${Math.max(0, match.settings.graceSeconds - match.pressureAge).toFixed(1)}s`}`;
                 hud.querySelector('#scoreboard')!.textContent =
                     `BLUE ${match.tickets[1]} tickets · ${match.phase === 'active' ? 'ACTIVE MATCH' : match.phase.toUpperCase()} · ${Math.floor(time / 60)}:${String(time % 60).padStart(2, '0')} · RED ${match.tickets[2]} tickets\n` +
-                    `Territory ${(match.control * 100).toFixed(1)}% / ${((1 - match.control) * 100).toFixed(1)}% · CP ${Math.floor(match.cp[1])} / ${Math.floor(match.cp[2])} of 1000\n` +
+                    `Territory ${(match.control * 100).toFixed(1)}% / ${((1 - match.control) * 100).toFixed(1)}% · CP ${Math.floor(match.cp[1])} / ${Math.floor(match.cp[2])} of ${match.settings.cpTarget}\n` +
                     `Front ${match.front.toFixed(2)} · ${pressure}`;
                 const status = hud.querySelector('#team-status')!;
                 status.replaceChildren(
@@ -114,17 +115,17 @@ export function createHud() {
                                 : '';
                 const buffs = hud.querySelector('#wilderness-buffs') as HTMLElement;
                 const labels: Record<string, string> = {
-                    'camp:mobility': 'MOBILITY +20%',
-                    'camp:cooldown': 'COOLDOWN −20%',
-                    'camp:defense': 'DEFENSE +20%',
-                    'camp:damage': 'TEAM DAMAGE +25%'
+                    'camp:mobility': `MOBILITY +${percent(human.modifiers['camp:mobility']?.speedBonus)}%`,
+                    'camp:cooldown': `COOLDOWN −${percent(human.modifiers['camp:cooldown']?.cooldownReduction)}%`,
+                    'camp:defense': `DEFENSE +${percent(human.modifiers['camp:defense']?.mitigation)}%`,
+                    'camp:damage': `TEAM DAMAGE +${percent(human.modifiers['camp:damage']?.damageBonus)}%`
                 };
                 const active = Object.entries(human.modifiers).filter(
                     ([id, v]) => id.startsWith('camp:') && v.expires > match.elapsed
                 );
                 const inner = sim.combat.inWilderness && !human.dead && sim.combat.definition.id === 'kit-asher';
                 buffs.textContent = [
-                    ...(inner ? ['INNER FLAME +5%'] : []),
+                    ...(inner ? [`INNER FLAME +${percent(c.definition.passive?.speedBonus)}%`] : []),
                     ...active.map(([id, v]) => `${labels[id]} ${Math.ceil(v.expires - match.elapsed)}s`)
                 ].join(' · ');
                 buffs.hidden = (!active.length && !inner) || match.phase !== 'active';

@@ -87,6 +87,11 @@ export class AbilityInput extends AbilityCommands {
             this.setDefinition({ ...sim.definition, abilities: active });
         for (const [id, button] of this.buttons) {
             const ability = sim.ability(id);
+            if (!ability) {
+                button.hidden = true;
+                if (this.active?.id === id) this.release();
+                continue;
+            }
             const remaining = sim.cooldowns.remaining(ability.cooldownKey || id, sim.now);
             const bonus = id === sim.definition.bonus?.id;
             button.hidden = bonus && !sim.temporary.available(id, sim.now);

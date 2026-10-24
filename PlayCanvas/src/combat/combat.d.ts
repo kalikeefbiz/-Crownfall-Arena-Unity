@@ -1,19 +1,35 @@
-export type Combatant = {
+export type Point = { x: number; z: number };
+export type CombatModifier = {
+    expires: number;
+    label?: string;
+    damageBonus?: number;
+    speedBonus?: number;
+    cooldownReduction?: number;
+    slow?: number;
+    mitigation?: number;
+};
+export type Combatant = Point & {
     id: string;
     name?: string;
     team: number;
     kind: string;
-    x: number;
-    z: number;
     radius: number;
     health: number;
     maxHealth: number;
     dead: boolean;
     targetable: boolean;
+    ultimateMeter?: number;
+    angle?: number;
+    respawnAt: number;
+    statuses: Record<string, number>;
+    modifiers: Record<string, CombatModifier>;
+};
+export type CombatPlayer = Combatant & {
     ultimateMeter: number;
     angle: number;
-    statuses: Record<string, number>;
-    modifiers: Record<string, Record<string, number>>;
+    previous: Point;
+    distance: number;
+    animation: string;
 };
 export type Ability = {
     id: string;
@@ -31,7 +47,21 @@ export type Ability = {
     radius?: number;
     angle?: number;
 };
-export type Definition = { id: string; name?: string; health: number; abilities: Ability[]; bonus?: Ability };
+export type Definition = {
+    id: string;
+    name?: string;
+    health: number;
+    abilities: Ability[];
+    bonus?: Ability;
+    passive?: {
+        name?: string;
+        zoneTag?: string;
+        speedBonus?: number;
+        effect?: string;
+        radius?: number;
+        mitigation?: number;
+    };
+};
 export type HitEvidence = {
     id: number;
     time: number;
@@ -43,26 +73,52 @@ export type HitEvidence = {
     abilityId: string | null;
     name: string;
 };
-export type CastEvidence = {
+type CastRecord = {
     id: number;
     abilityId: string;
     name: string;
-    accepted: boolean;
     reason: string;
     time: number;
-    finished?: number;
-    result: string;
     targetIds: string[];
     damage: number;
+};
+export type RejectedCastEvidence = CastRecord & {
+    accepted: false;
+    result: 'REJECTED';
+};
+export type AcceptedCastEvidence = CastRecord & {
+    accepted: true;
+    reason: '';
+    result: 'PENDING' | 'HIT' | 'MISS' | 'DONE' | 'INTERRUPTED';
+    finished?: number;
+    interrupted?: boolean;
     ability: Ability;
-    origin: { x: number; z: number };
+    origin: Point;
     angle: number;
-    target: { x: number; z: number } | null;
+    target: Point | null;
     pending: number;
+    sealed: boolean;
+};
+export type CastEvidence = AcceptedCastEvidence | RejectedCastEvidence;
+export type CombatAction = { id: string; angle?: number; targetOffset?: Point };
+export type CombatCommand = {
+    moveX?: number;
+    moveZ?: number;
+    aimX?: number;
+    aimZ?: number;
+    aiming?: boolean;
+    attackHeld?: boolean;
+    actions?: CombatAction[];
+    speedMultiplier?: number;
+};
+export type DamageOptions = {
+    lethal?: boolean;
+    ability?: Ability;
+    trace?: AcceptedCastEvidence | null;
 };
 export class CombatSimulation {
     constructor(definition?: unknown, training?: unknown, config?: unknown, map?: unknown);
-    player: Combatant;
+    player: CombatPlayer;
     targets: Combatant[];
     definition: Definition;
     stance: string | null;
@@ -80,8 +136,8 @@ export class CombatSimulation {
     temporary: { available(id: string, now: number): boolean; grants: Map<string, { expires: number }> };
     journal: {
         latestAttempt: CastEvidence | null;
-        latestAccepted: CastEvidence | null;
-        latestResolution: CastEvidence | null;
+        latestAccepted: AcceptedCastEvidence | null;
+        latestResolution: AcceptedCastEvidence | null;
         hits: HitEvidence[];
         attempts: CastEvidence[];
     };
@@ -97,8 +153,8 @@ export class CombatSimulation {
     projectiles: { items: { active: boolean; x: number; z: number; persistent?: boolean; phase?: string }[] };
     effects: { items: { active: boolean; x: number; z: number; range?: number; type: string }[] };
     activeAbilities(): Ability[];
-    ability(id: string): Ability;
-    cast(id: string, angle?: number, target?: { x: number; z: number }): boolean;
-    damage(target: Combatant, amount: number, source?: Combatant): number;
-    step(command: unknown, dt?: number): void;
+    ability(id: string): Ability | null;
+    cast(id: string, angle?: number, target?: Point | null): boolean;
+    damage(target: Combatant, amount: number, source?: Combatant | null, options?: DamageOptions): number;
+    step(command: CombatCommand, dt?: number): void;
 }

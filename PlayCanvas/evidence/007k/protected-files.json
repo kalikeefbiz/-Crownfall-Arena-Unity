@@ -1,0 +1,110 @@
+{
+    "baselineCommit": "2132924a2afcff95628828aff0a8a1f80c7710ee",
+    "files": [
+        {
+            "path": "public/assets/summoners/kit/Kit_20K_Animated.glb",
+            "sha256": "b111e1f774b0483b78f45e43413515adb02e501941c5c99a995d09a43f96212f",
+            "matchesBaseline": true
+        },
+        {
+            "path": "public/assets/summoners/set/Set_Animated.glb",
+            "sha256": "dbee0fd906f786f4af04eb87f130a816c0f98aa04531874487b403f7ca23e154",
+            "matchesBaseline": true
+        },
+        {
+            "path": "public/assets/summoners/riven/Riven_Animated.glb",
+            "sha256": "ba2cb5d72eb2bcfe272c59a50b06a594100a5ac3ceac8f6af457c243c6a5de61",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/style.css",
+            "sha256": "32085bb47718c6a2a260feee1da5cade00598776994bcbd7383a975590f3c023",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/main.ts",
+            "sha256": "c5f5fb4e43b6011b9bdbfbee82fa2390ba817a7843e8bdff4cd6e744b625fa54",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/presentation/summoner-assets.ts",
+            "sha256": "473b839dc814b08d29c6f019fc405bb8a16eadbb030c4c03b0caf7d82e49d230",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/presentation/kit-model.ts",
+            "sha256": "99c41bff25e7b98e6319ecee8b96b6911a0ff8c43753915ea14bdfcbd1a44392",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/presentation/set-model.ts",
+            "sha256": "d1d5e635939d544c5babe3669e377e171b516a78ee6ed449de2895a2bec4262b",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/presentation/riven-model.ts",
+            "sha256": "8c3af6baef8ba6059f5195d882300c1dc8abe922db815948d5b37a9052ebda96",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/presentation/kit-animation.ts",
+            "sha256": "0e24b0a4879e414ad8c0d4a1907f7548065bce83b676c4774a4ac780c1ad4e98",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/presentation/lane-environment.ts",
+            "sha256": "939be5a7f4c8aab88fc12fccf97fbb6142259d6e2a25c108fe60100ba71340d3",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/combat-data.js",
+            "sha256": "dd11c11d98ef2d4cab018cbf529df7cca5d8ee91b24ebdc1a9241df32cf30d20",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/summoners.js",
+            "sha256": "18bb8e4916c1821f17450fd779ab2790ec21b0bbb75517749aadf81d31ad0b81",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/riven-data.js",
+            "sha256": "1f1f24989aaae794174280bbccf2f76f7c664222b1758b87565542df4e359c52",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/bot-controller.js",
+            "sha256": "97b2558b2caf656184ad6f44a6d651fa7c81e875fa26d5c1b2cb2f5a58cc209c",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/human-aim.js",
+            "sha256": "feaa7a627488ed8314ad448e966cb11b59cb4efd06327b756edd6bd6bfc613e4",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/movement.js",
+            "sha256": "620293deb42aac88ad7af082f7e95c0d724cab9a26001b9f9e4f22c573042033",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/match-space.js",
+            "sha256": "1cf8c4f841ecd3f1c151126099675157cac132acc63e8c98bcc8eda5f9e56fb4",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/wilderness.js",
+            "sha256": "c9579329f5fa2ed4d1509a6c565e2d4d288e3e1f5cb40b0d9233f0bdbf9b7c4a",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/combat/wilderness-data.js",
+            "sha256": "2eaddc557a19fb678a9631d043711bd4e230c9cb7e0bab0afe17b86cba469504",
+            "matchesBaseline": true
+        },
+        {
+            "path": "src/input/controls.ts",
+            "sha256": "ddeb2202bbc917808e3e8e57fedefe6c6cf3c38e819e07ff8f4e763614e48ffa",
+            "matchesBaseline": true
+        }
+    ]
+}

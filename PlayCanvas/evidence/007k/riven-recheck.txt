@@ -1,0 +1,32 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/riven-model.spec.ts --grep opt-in Riven loads lazily
+
+
+Running 1 test using 1 worker
+
+(node:22261) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✘  1 tests/browser/riven-model.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera (16.0s)
+
+
+  1) tests/browser/riven-model.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      128 |                 s.hipLocalPosition[2] === m.hipLocalPosition[2]
+      129 |         )
+    > 130 |     ).toBe(true);
+          |       ^
+      131 |     expect(
+      132 |         Math.max(...samples.map((s) => s.hipLocalPosition[1])) - Math.min(...samples.map((s) => s.hipLocalPosition[1]))
+      133 |     ).toBeGreaterThan(0.01);
+        at /workspace/Crownfall/PlayCanvas/tests/browser/riven-model.spec.ts:130:7
+
+    Error Context: test-results/riven-model-opt-in-Riven-l-354df-at-the-locked-mobile-camera/error-context.md
+
+  1 failed
+    tests/browser/riven-model.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera

@@ -1,0 +1,47 @@
+[
+  {
+    "selected": 0,
+    "ticks": 7602,
+    "damageTransactions": 458,
+    "deaths": 38,
+    "respawns": 35,
+    "commandsSha256": "d8750c58b4dfd65fc0c9709eb16ccc527155a1ae90252b5cbbc0e14b4d15ba5f",
+    "statesSha256": "c5d40c33e26c0565da0c80f0f7614145b7a5e2d5912a8895491fb218112ddffd",
+    "transactionsSha256": "b3583262b4077e4072ce4657b96ada635c9cc42e20f47ab035506d7155b8506b",
+    "result": {
+      "winner": 2,
+      "reason": "tickets",
+      "duration": 123.69999999999426
+    }
+  },
+  {
+    "selected": 1,
+    "ticks": 7706,
+    "damageTransactions": 453,
+    "deaths": 40,
+    "respawns": 36,
+    "commandsSha256": "44cc847a2cdc5f2b8c351c76f47de18a3eacaaa33060f7f2f893954818b6be9d",
+    "statesSha256": "4c29b7cd0098d55f65ae080b5df43719a2c313b88e3f834a7d8c95d3d873430b",
+    "transactionsSha256": "fb9ee7f460c4b982828c6ed566a52b2b2188e00745c2ca5d660d7428689bfa3e",
+    "result": {
+      "winner": 1,
+      "reason": "tickets",
+      "duration": 125.4333333333275
+    }
+  },
+  {
+    "selected": 2,
+    "ticks": 8279,
+    "damageTransactions": 541,
+    "deaths": 39,
+    "respawns": 36,
+    "commandsSha256": "d3fff0f09bfc6cf3618e3d7c790851a6ede7cd24e73519c60521d69f9677bfe2",
+    "statesSha256": "9c2765d4c3d002c2bbf5c62cce7a35729814e90fe60f8fb2243fb347567819b6",
+    "transactionsSha256": "6076608f25dc94791b164d0022fb4759cb82e6bd83e1429bffd68915231474f4",
+    "result": {
+      "winner": 1,
+      "reason": "total-control",
+      "duration": 134.9833333333329
+    }
+  }
+]

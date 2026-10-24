@@ -1,4 +1,6 @@
-// M4 playtest defaults, not locked competitive balance. M1–M3 kits are unchanged.
+// Authored match defaults, validated by matchSettings and owned at runtime by
+// CrownfallMatch.rules.settings. Countdown/durability are sampled on creation;
+// protection and meter rates are consumed at respawn/damage. No player tuning UI.
 export const MATCH_DEFAULTS = Object.freeze({
     startingTickets: 15,
     respawnSeconds: 3,

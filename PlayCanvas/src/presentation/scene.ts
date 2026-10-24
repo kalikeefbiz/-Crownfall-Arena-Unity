@@ -2,6 +2,7 @@ import { Color, Entity, StandardMaterial, Vec3, CULLFACE_NONE, BLEND_NORMAL } fr
 import type { AppBase } from 'playcanvas';
 
 import type { PreviewIntent } from '../combat/ability-input';
+import type { Combatant } from '../combat/combat';
 import { MATCH_LANE } from '../combat/match-data.js';
 import {
     MATCH_WORLD,
@@ -370,7 +371,7 @@ export function createScene(app: AppBase, competitive = false) {
                 label.textContent = `${camp.name} · ${camp.dead ? `RESPAWN ${Math.ceil(Math.max(0, camp.respawnAt - sim.match!.rules.elapsed))}s` : `${Math.ceil(camp.health)} / ${camp.maxHealth}`}`;
                 label.style.transform = `translate(${screen.x}px, ${screen.y}px) translate(-50%, -100%)`;
             }
-            const indicatorFeedback = (indicator: Entity, p: typeof combat.player) => {
+            const indicatorFeedback = (indicator: Entity, p: Combatant) => {
                 const hit = (sim.match?.actors.map((a) => a.sim) || [combat]).some((c) =>
                     c.journal.hits.some((h) => h.targetId === p.id && c.now - h.time < 0.3)
                 );
@@ -477,8 +478,8 @@ export function createScene(app: AppBase, competitive = false) {
                     }
                     actorView.frame.combat = actor;
                     actorView.frame.match = sim.match;
-                    actorView.frame.aim.x = Math.sin(t.angle);
-                    actorView.frame.aim.z = Math.cos(t.angle);
+                    actorView.frame.aim.x = Math.sin(actor.player.angle);
+                    actorView.frame.aim.z = Math.cos(actor.player.angle);
                     actorView.root.setPosition(t.x, 0, t.z);
                     actorView.root.enabled = !t.dead;
                     indicatorFeedback(actorView.indicator, t);

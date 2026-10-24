@@ -8,6 +8,8 @@ export class AbilityCommands {
         this.input = input;
         this.getFacing = getFacing;
         this.definition = definition;
+        /** @type {import('./human-aim').HumanAimAssist | undefined} */
+        this.aimAssist = undefined;
         this.actions = [];
         this.active = null;
         this.preview = null;
@@ -170,6 +172,7 @@ export class AbilityCommands {
             const sim = this.sim,
                 a = sim.ability(p.id);
             if (
+                a &&
                 sim.cooldowns.ready(a.cooldownKey || a.id, sim.now + 1 / 60) &&
                 !sim.dash &&
                 !sim.advanced.locksCasting &&
@@ -193,6 +196,10 @@ export class AbilityCommands {
             return;
         }
         const ability = sim.ability(pending.id);
+        if (!ability) {
+            this.pendingBasic = null;
+            return;
+        }
         if (sim.cooldowns.ready(ability.cooldownKey || ability.id, sim.now)) {
             this.actions.push({ id: pending.id, angle: pending.angle });
             this.pendingBasic = null;

@@ -1,0 +1,25 @@
+{
+    "baselineCommit": "2132924a2afcff95628828aff0a8a1f80c7710ee",
+    "baselineBundle": "index-xZ3oEETT.js",
+    "baselineBundleSha256": "01fd769708e9aeb897b11c2cfbbeda7d939122a5b2554f1674ef97612cc8a6ab",
+    "unchangedOriginalTest": "tests/browser/riven-model.spec.ts",
+    "originalTestSha256": "9573bf7e5aed6e68f954d8c5207630b31136f3be50c16e169f071102333019d6",
+    "diagnosticCopy": "Only console output was added after sampling and before the unchanged assertion; served the untouched baseline build. Temporary files stayed outside the repository.",
+    "baselineRuns": {
+        "passed": 3,
+        "failed": 1
+    },
+    "failedObservation": {
+        "initial": [0.0033203279599547386, 1.0330461733032037, -0.009960962459445],
+        "mismatches": [
+            {
+                "i": 3,
+                "state": "Idle_6",
+                "hip": [0.0033203279599547386, 1.031798544784392, -0.009960962459445]
+            }
+        ]
+    },
+    "allMismatchHorizontalCoordinatesExactlyEqual": true,
+    "productionRivenFilesModified": false,
+    "originalRivenTestModified": false
+}

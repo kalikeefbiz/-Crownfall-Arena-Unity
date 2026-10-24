@@ -8,16 +8,16 @@ export type AimFeedback = {
 export const HUMAN_AIM_TUNING: Readonly<
     Record<string, Readonly<Record<string, { padding?: number; rangeScale?: number }>>>
 >;
-export function acquisitionDistance(sim: CombatSimulation, ability: Ability): number;
+export function acquisitionDistance(sim: CombatSimulation, ability: Ability | null): number;
 export function hasAimLineOfSight(sim: CombatSimulation, target: Combatant): boolean;
 export function eligibleAimTarget(sim: CombatSimulation, target: Combatant, radius: number): boolean;
-export function nearestAimTarget(sim: CombatSimulation, ability: Ability): Combatant | null;
+export function nearestAimTarget(sim: CombatSimulation, ability: Ability | null): Combatant | null;
 export class HumanAimAssist {
     constructor(enabled?: boolean);
     enabled: boolean;
     feedback: AimFeedback;
     clear(): void;
     manual(sim: CombatSimulation): void;
-    resolve(sim: CombatSimulation, ability: Ability, fallback: number): number;
+    resolve(sim: CombatSimulation, ability: Ability | null, fallback: number): number;
     status(sim: CombatSimulation): AimFeedback;
 }

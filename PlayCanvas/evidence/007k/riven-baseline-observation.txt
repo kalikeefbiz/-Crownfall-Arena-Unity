@@ -1,0 +1,45 @@
+
+Running 4 tests using 1 worker
+
+(node:22714) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+HIP_DIAGNOSTIC {"initial":[0.0033203279599547386,1.0330469075130977,-0.009960962459445],"mismatches":[]}
+Riven measured diagnostics {"state":"loaded","bytes":11170312,"source":"assets/summoners/riven/Riven_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_6","duration":7.366666793823242},{"name":"run_fast_7","duration":0.8666669726371765}],"registeredStates":["Idle_6","Walking","Running"],"runningClip":"Running","locomotionReason":"run_fast_7 failed loop validation; using Running","preferredLoop":{"valid":false,"positionError":0.01896846294403076,"rotationErrorDegrees":12.873240271210351},"loadMs":1164.9000000003725,"error":"","bounds":{"min":[-0.44156354665756226,2.049818093041722e-9,-0.16084645688533783],"max":[0.44156360626220703,1.7000001668930054,0.16084642708301544]},"height":1.7000001648431873,"scale":1.029411664887353,"offset":[-3.0678858306627066e-8,0.035075997889893344,1.5339429153313533e-8],"meshInstances":1,"jointCount":68,"authoredForwardYaw":0,"instanceId":"9f7edc9f-53da-47dd-b76a-6db569f79c25","meshId":8,"materialId":19,"activeAnimation":"Idle_6","playbackTime":0.11670000000000028,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.523761866215962,-0.026336929778820517,3.593883478408305],"max":[0.35408165243358014,1.7418425828521635,4.253987288151929]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.0033203279599547386,1.0330469075130977,-0.009960962459445],"rootScale":[1,1,1],"frameMs":57.630677823410025}
+  ✓  1 ../../../tmp/crownfall-007k-diagnosis/tests/browser/riven-observe.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera (16.6s)
+(node:22858) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+HIP_DIAGNOSTIC {"initial":[0.0033203279599547386,1.0330461733032037,-0.009960962459445],"mismatches":[{"i":3,"state":"Idle_6","hip":[0.0033203279599547386,1.031798544784392,-0.009960962459445]}]}
+  ✘  2 ../../../tmp/crownfall-007k-diagnosis/tests/browser/riven-observe.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera (14.8s)
+(node:22999) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+HIP_DIAGNOSTIC {"initial":[0.0033203279599547386,1.0330469075130977,-0.009960962459445],"mismatches":[]}
+Riven measured diagnostics {"state":"loaded","bytes":11170312,"source":"assets/summoners/riven/Riven_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_6","duration":7.366666793823242},{"name":"run_fast_7","duration":0.8666669726371765}],"registeredStates":["Idle_6","Walking","Running"],"runningClip":"Running","locomotionReason":"run_fast_7 failed loop validation; using Running","preferredLoop":{"valid":false,"positionError":0.01896846294403076,"rotationErrorDegrees":12.873240271210351},"loadMs":744.5,"error":"","bounds":{"min":[-0.44156354665756226,2.049818093041722e-9,-0.16084645688533783],"max":[0.44156360626220703,1.7000001668930054,0.16084642708301544]},"height":1.7000001648431873,"scale":1.029411664887353,"offset":[-3.0678858306627066e-8,0.035075997889893344,1.5339429153313533e-8],"meshInstances":1,"jointCount":68,"authoredForwardYaw":0,"instanceId":"e2c08b7a-1d74-4f6a-8016-5bbe3ada27ac","meshId":8,"materialId":19,"activeAnimation":"Idle_6","playbackTime":0.11669999999999983,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.523761866215962,-0.026336929778820517,3.593883478408305],"max":[0.35408165243358014,1.7418425828521635,4.253987288151929]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.0033203279599547386,1.0330469075130977,-0.009960962459445],"rootScale":[1,1,1],"frameMs":50.67376142989999}
+  ✓  3 ../../../tmp/crownfall-007k-diagnosis/tests/browser/riven-observe.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera (16.9s)
+(node:23149) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+HIP_DIAGNOSTIC {"initial":[0.0033203279599547386,1.0330469075130977,-0.009960962459445],"mismatches":[]}
+Riven measured diagnostics {"state":"loaded","bytes":11170312,"source":"assets/summoners/riven/Riven_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_6","duration":7.366666793823242},{"name":"run_fast_7","duration":0.8666669726371765}],"registeredStates":["Idle_6","Walking","Running"],"runningClip":"Running","locomotionReason":"run_fast_7 failed loop validation; using Running","preferredLoop":{"valid":false,"positionError":0.01896846294403076,"rotationErrorDegrees":12.873240271210351},"loadMs":883.9000000003725,"error":"","bounds":{"min":[-0.44156354665756226,2.049818093041722e-9,-0.16084645688533783],"max":[0.44156360626220703,1.7000001668930054,0.16084642708301544]},"height":1.7000001648431873,"scale":1.029411664887353,"offset":[-3.0678858306627066e-8,0.035075997889893344,1.5339429153313533e-8],"meshInstances":1,"jointCount":68,"authoredForwardYaw":0,"instanceId":"c432e0ba-d356-4ed2-a503-17f374642f9d","meshId":8,"materialId":19,"activeAnimation":"Idle_6","playbackTime":0.11670000000000028,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.523761866215962,-0.026336929778820517,3.593883478408305],"max":[0.35408165243358014,1.7418425828521635,4.253987288151929]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.0033203279599547386,1.0330469075130977,-0.009960962459445],"rootScale":[1,1,1],"frameMs":50.20455217100003}
+  ✓  4 ../../../tmp/crownfall-007k-diagnosis/tests/browser/riven-observe.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera (16.2s)
+
+
+  1) ../../../tmp/crownfall-007k-diagnosis/tests/browser/riven-observe.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      131 |                 s.hipLocalPosition[2] === m.hipLocalPosition[2]
+      132 |         )
+    > 133 |     ).toBe(true);
+          |       ^
+      134 |     expect(
+      135 |         Math.max(...samples.map((s) => s.hipLocalPosition[1])) - Math.min(...samples.map((s) => s.hipLocalPosition[1]))
+      136 |     ).toBeGreaterThan(0.01);
+        at /tmp/crownfall-007k-diagnosis/tests/browser/riven-observe.spec.ts:133:7
+
+    Error Context: ../../../tmp/crownfall-007k-diagnosis/results/riven-observe-opt-in-Riven-2bb24-at-the-locked-mobile-camera-repeat1/error-context.md
+
+  1 failed
+    ../../../tmp/crownfall-007k-diagnosis/tests/browser/riven-observe.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+  3 passed (1.2m)
