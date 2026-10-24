@@ -1,0 +1,86 @@
+{
+    "conclusion": "failure",
+    "headSha": "cc1804b17baae7fbae7b25abc966baca86522c6c",
+    "jobs": [
+        {
+            "completedAt": "2026-10-24T01:29:07Z",
+            "conclusion": "failure",
+            "databaseId": 120740103563,
+            "name": "Validate production build",
+            "startedAt": "2026-10-24T01:28:11Z",
+            "status": "completed",
+            "steps": [
+                { "conclusion": "success", "name": "Set up job", "number": 1, "status": "completed" },
+                {
+                    "conclusion": "success",
+                    "name": "Checkout immutable event revision",
+                    "number": 2,
+                    "status": "completed"
+                },
+                { "conclusion": "success", "name": "Setup Node", "number": 3, "status": "completed" },
+                {
+                    "conclusion": "success",
+                    "name": "Clean dependency installation",
+                    "number": 4,
+                    "status": "completed"
+                },
+                { "conclusion": "success", "name": "Unit tests", "number": 5, "status": "completed" },
+                { "conclusion": "success", "name": "Typecheck", "number": 6, "status": "completed" },
+                { "conclusion": "failure", "name": "ESLint", "number": 7, "status": "completed" },
+                { "conclusion": "skipped", "name": "Prettier validation", "number": 8, "status": "completed" },
+                { "conclusion": "skipped", "name": "Production build", "number": 9, "status": "completed" },
+                {
+                    "conclusion": "skipped",
+                    "name": "Install supported Chromium and system dependencies",
+                    "number": 10,
+                    "status": "completed"
+                },
+                {
+                    "conclusion": "skipped",
+                    "name": "Complete production browser suite",
+                    "number": 11,
+                    "status": "completed"
+                },
+                {
+                    "conclusion": "success",
+                    "name": "Preserve browser evidence even on failure",
+                    "number": 12,
+                    "status": "completed"
+                },
+                {
+                    "conclusion": "skipped",
+                    "name": "Record validated build identity",
+                    "number": 13,
+                    "status": "completed"
+                },
+                {
+                    "conclusion": "skipped",
+                    "name": "Upload validated production build",
+                    "number": 14,
+                    "status": "completed"
+                },
+                { "conclusion": "skipped", "name": "Post Setup Node", "number": 27, "status": "completed" },
+                {
+                    "conclusion": "success",
+                    "name": "Post Checkout immutable event revision",
+                    "number": 28,
+                    "status": "completed"
+                },
+                { "conclusion": "success", "name": "Complete job", "number": 29, "status": "completed" }
+            ],
+            "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40049917874/job/120740103563"
+        },
+        {
+            "completedAt": "2026-10-24T01:29:07Z",
+            "conclusion": "skipped",
+            "databaseId": 120740338267,
+            "name": "Publish validated build to /playcanvas/",
+            "startedAt": "2026-10-24T01:29:08Z",
+            "status": "completed",
+            "steps": [],
+            "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40049917874/job/120740338267"
+        }
+    ],
+    "status": "completed",
+    "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40049917874"
+}

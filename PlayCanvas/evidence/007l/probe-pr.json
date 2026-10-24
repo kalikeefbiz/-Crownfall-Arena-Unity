@@ -1,0 +1,59 @@
+{
+    "baseRefName": "playcanvas-port",
+    "commits": [
+        {
+            "authoredDate": "2026-10-24T01:25:11Z",
+            "authors": [
+                { "email": "kalikeefbiz@gmail.com", "id": "U_kgDOE_NOfg", "login": "kalikeefbiz", "name": "Kali Keed" }
+            ],
+            "committedDate": "2026-10-24T01:25:11Z",
+            "messageBody": "",
+            "messageHeadline": "test(ci): temporary nonpublishing release-gate probe",
+            "oid": "63323a90579ddc3ac0691e990d2536f8810433ea"
+        },
+        {
+            "authoredDate": "2026-10-24T01:26:57Z",
+            "authors": [
+                { "email": "kalikeefbiz@gmail.com", "id": "U_kgDOE_NOfg", "login": "kalikeefbiz", "name": "Kali Keed" }
+            ],
+            "committedDate": "2026-10-24T01:26:57Z",
+            "messageBody": "",
+            "messageHeadline": "test(ci): temporary nonpublishing typecheck gate probe",
+            "oid": "6c5856638c746b32c782b1be9568dcc7666c475b"
+        },
+        {
+            "authoredDate": "2026-10-24T01:28:01Z",
+            "authors": [
+                { "email": "kalikeefbiz@gmail.com", "id": "U_kgDOE_NOfg", "login": "kalikeefbiz", "name": "Kali Keed" }
+            ],
+            "committedDate": "2026-10-24T01:28:01Z",
+            "messageBody": "",
+            "messageHeadline": "test(ci): temporary nonpublishing lint gate probe",
+            "oid": "cc1804b17baae7fbae7b25abc966baca86522c6c"
+        },
+        {
+            "authoredDate": "2026-10-24T01:29:17Z",
+            "authors": [
+                { "email": "kalikeefbiz@gmail.com", "id": "U_kgDOE_NOfg", "login": "kalikeefbiz", "name": "Kali Keed" }
+            ],
+            "committedDate": "2026-10-24T01:29:17Z",
+            "messageBody": "",
+            "messageHeadline": "test(ci): temporary nonpublishing format gate probe",
+            "oid": "49dca68da991bc918f6122f07636c7eec6b58515"
+        },
+        {
+            "authoredDate": "2026-10-24T01:30:56Z",
+            "authors": [
+                { "email": "kalikeefbiz@gmail.com", "id": "U_kgDOE_NOfg", "login": "kalikeefbiz", "name": "Kali Keed" }
+            ],
+            "committedDate": "2026-10-24T01:30:56Z",
+            "messageBody": "",
+            "messageHeadline": "test(ci): temporary mixed-docs formatting gate probe",
+            "oid": "4502b21409536074b07ca264371b9babd8f26fdb"
+        }
+    ],
+    "headRefName": "ci/007l-nonpublishing-probe",
+    "isDraft": true,
+    "state": "OPEN",
+    "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/pull/1"
+}

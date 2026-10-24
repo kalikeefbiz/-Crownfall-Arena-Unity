@@ -1,0 +1,13 @@
+Validate production build	Prettier validation	﻿2026-10-24T01:31:55.4464193Z ##[group]Run npm run fmt
+Validate production build	Prettier validation	2026-10-24T01:31:55.4464517Z [36;1mnpm run fmt[0m
+Validate production build	Prettier validation	2026-10-24T01:31:55.4528745Z shell: /usr/bin/bash -e {0}
+Validate production build	Prettier validation	2026-10-24T01:31:55.4529025Z ##[endgroup]
+Validate production build	Prettier validation	2026-10-24T01:31:55.5531537Z
+Validate production build	Prettier validation	2026-10-24T01:31:55.5532207Z > crownfall-playcanvas@0.0.0 fmt
+Validate production build	Prettier validation	2026-10-24T01:31:55.5532653Z > prettier --check .
+Validate production build	Prettier validation	2026-10-24T01:31:55.5532838Z
+Validate production build	Prettier validation	2026-10-24T01:31:55.6387898Z Checking formatting...
+Validate production build	Prettier validation	2026-10-24T01:31:55.7041970Z [[33mwarn[39m] CI_FORMAT_PROBE.md
+Validate production build	Prettier validation	2026-10-24T01:32:00.0904235Z [[33mwarn[39m] tests/ci-format-probe.json
+Validate production build	Prettier validation	2026-10-24T01:32:00.5473539Z [[33mwarn[39m] Code style issues found in 2 files. Run Prettier with --write to fix.
+Validate production build	Prettier validation	2026-10-24T01:32:00.6022381Z ##[error]Process completed with exit code 1.

@@ -1,0 +1,18 @@
+{
+    "artifact_id": 12543197281,
+    "artifact_url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40049536927/artifacts/12543197281",
+    "artifact_sha256": "3d184873a483b111357cdfbe097dc9e260eaa297be6b3a33558cd41c22ba48c2",
+    "trace_sha256": "395b5bec534ec553863ff994a5daef7a03b49952e63129baee44866abd7fa9f8",
+    "trace_size": 17869754,
+    "last_screencast_frame": {
+        "type": "screencast-frame",
+        "pageId": "page@ebbc65d5384aecb9de2de58c0cb70166",
+        "file": "screencast/page@ebbc65d5384aecb9de2de58c0cb70166-1792805546700.jpeg",
+        "width": 640,
+        "height": 360,
+        "timestamp": 493880.82,
+        "frameSwapWallTime": 1792805545720.249
+    },
+    "assertion": "#scoreboard / #team-status expected true, received false",
+    "file": "tests/browser/ergonomics.spec.ts:223"
+}

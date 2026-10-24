@@ -1,0 +1,16 @@
+[
+    {
+        "case": "ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44",
+        "error_context": "local-ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44-context.txt",
+        "trace_path": "/workspace/crownfall/PlayCanvas/test-results/ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44/trace.zip",
+        "trace_sha256": "f8d813a8d097f57a0ed5b29aa1ef5ad70728df0de3be6150fa12ce60e17f0e4c",
+        "trace_bytes": 19517684
+    },
+    {
+        "case": "ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0",
+        "error_context": "local-ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0-context.txt",
+        "trace_path": "/workspace/crownfall/PlayCanvas/test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/trace.zip",
+        "trace_sha256": "b19ec35f0a6ee92106c63ff031fabf331e8d09e14892ca8654fde40100991394",
+        "trace_bytes": 19409614
+    }
+]

@@ -1,0 +1,62 @@
+[
+    {
+        "file": "assets/index-BG9Ns0t1.css",
+        "git_blob": "d55852c69a4c77c7bdef4cb5d48594add0b9d372",
+        "sha256": "75297fb99a9b6d86fcce654187af15365775261dc680d669e0e4cab327162539",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/index-BSBNewh8.js",
+        "git_blob": "d5d818151a6b8d8df58c77e138f42db36472003d",
+        "sha256": "cd79f71c265c23f10a38052ea9fb35986012c8275869db4d95c39a4c0622f1ae",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/summoners/kit/Kit_20K_Animated.glb",
+        "git_blob": "e14568032d15a0eff2b61706e7b3edeadf2ee25b",
+        "sha256": "b111e1f774b0483b78f45e43413515adb02e501941c5c99a995d09a43f96212f",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/summoners/kit/README.md",
+        "git_blob": "0de45535a1de189b1f37ebe64775637d972368a2",
+        "sha256": "4f7fc89e2dbb87d125d00b9a787f10ad46258b2537b951ebf7e7de185cc0d02d",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/summoners/kit/kit-10k-test.glb",
+        "git_blob": "a9937b0479c750bf07d13a082de17a773f66c0f4",
+        "sha256": "11f0b6ad226eae565ddaa7e9104ca1aae2a85ecc954203a70fdce23b0adfb547",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/summoners/riven/README.md",
+        "git_blob": "df7763c6539fd00f9eb8f506b0182e38cfea435c",
+        "sha256": "4a41c394d0abd5bfed38442e540e304ccead821e82e3f1535b8a53a5078289bc",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/summoners/riven/Riven_Animated.glb",
+        "git_blob": "470bef4da8eea6a0f9d919b1a3e045532a2b8407",
+        "sha256": "ba2cb5d72eb2bcfe272c59a50b06a594100a5ac3ceac8f6af457c243c6a5de61",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/summoners/set/README.md",
+        "git_blob": "902d9f96419f27eabadb601511346664e6322309",
+        "sha256": "d1955dbd707d450984770008e5af2d209f026f4c1f76465ecc5aa48a7e0bb6e3",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "assets/summoners/set/Set_Animated.glb",
+        "git_blob": "0fa342e3bde0be65d59c67e11c3932661424c8d0",
+        "sha256": "dbee0fd906f786f4af04eb87f130a816c0f98aa04531874487b403f7ca23e154",
+        "matches_previous_publication": true
+    },
+    {
+        "file": "index.html",
+        "git_blob": "48aae736c8cd495b07c9e435a3ec4b7733a1519f",
+        "sha256": "e5675e4db40b8385da37c366b4559725ea27a25135927768a202d6393e162aa5",
+        "matches_previous_publication": true
+    }
+]

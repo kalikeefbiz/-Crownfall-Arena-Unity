@@ -1,0 +1,9 @@
+
+> crownfall-playcanvas@0.0.0 lint
+> eslint .
+
+
+/workspace/007l-probe/PlayCanvas/src/ci-gate-probe.js
+  1:1  error  Unexpected 'debugger' statement  no-debugger
+
+✖ 1 problem (1 error, 0 warnings)

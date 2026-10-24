@@ -1,0 +1,169 @@
+{
+    "assertions": [
+        {
+            "check": "publication depends on successful validation",
+            "passed": true
+        },
+        {
+            "check": "publication restricted to source-branch push or authorized dispatch",
+            "passed": true
+        },
+        {
+            "check": "read permission by default; write only in publish",
+            "passed": true
+        },
+        {
+            "check": "serial production releases; PR supersession only",
+            "passed": true
+        },
+        {
+            "check": "all required checks exist and fail closed",
+            "passed": true
+        },
+        {
+            "check": "immutable checkout for validate",
+            "passed": true
+        },
+        {
+            "check": "immutable checkout for publish",
+            "passed": true
+        },
+        {
+            "check": "full discovery, one worker, explicit no retries, no test exclusion",
+            "passed": true
+        },
+        {
+            "check": "browser failure evidence unconditional",
+            "passed": true
+        },
+        {
+            "check": "same run/attempt immutable artifact, no publication rebuild",
+            "passed": true
+        },
+        {
+            "check": "build identity, checksums and source freshness checked before publish",
+            "passed": true
+        },
+        {
+            "check": "existing gh-pages subtree and root preservation",
+            "passed": true
+        },
+        {
+            "check": "push trigger: source",
+            "passed": true
+        },
+        {
+            "check": "push trigger: unit tests",
+            "passed": true
+        },
+        {
+            "check": "push trigger: browser tests",
+            "passed": true
+        },
+        {
+            "check": "push trigger: dependencies",
+            "passed": true
+        },
+        {
+            "check": "push trigger: build config",
+            "passed": true
+        },
+        {
+            "check": "push trigger: workflow config",
+            "passed": true
+        },
+        {
+            "check": "push trigger: other workflow config",
+            "passed": true
+        },
+        {
+            "check": "push trigger: root report",
+            "passed": true
+        },
+        {
+            "check": "push trigger: nested documentation",
+            "passed": true
+        },
+        {
+            "check": "push trigger: historical evidence",
+            "passed": true
+        },
+        {
+            "check": "push trigger: audit",
+            "passed": true
+        },
+        {
+            "check": "push trigger: mixed docs/source",
+            "passed": true
+        },
+        {
+            "check": "push trigger: Unity unrelated",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: source",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: unit tests",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: browser tests",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: dependencies",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: build config",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: workflow config",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: other workflow config",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: root report",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: nested documentation",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: historical evidence",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: audit",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: mixed docs/source",
+            "passed": true
+        },
+        {
+            "check": "pull_request trigger: Unity unrelated",
+            "passed": true
+        },
+        {
+            "check": "push source branch filter",
+            "passed": true
+        },
+        {
+            "check": "PR sources/targets unrestricted for validation",
+            "passed": true
+        },
+        {
+            "check": "manual validation available without path filters",
+            "passed": true
+        }
+    ],
+    "count": 41
+}

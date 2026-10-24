@@ -1,0 +1,25 @@
+{
+    "total_count": 1,
+    "artifacts": [
+        {
+            "id": 12543197281,
+            "node_id": "MDg6QXJ0aWZhY3QxMjU0MzE5NzI4MQ==",
+            "name": "browser-evidence-60c2907e29e11d105ecac3319c9edc8e6d1935f9-1",
+            "size_in_bytes": 64107546,
+            "url": "https://api.github.com/repos/kalikeefbiz/-Crownfall-Arena-Unity/actions/artifacts/12543197281",
+            "archive_download_url": "https://api.github.com/repos/kalikeefbiz/-Crownfall-Arena-Unity/actions/artifacts/12543197281/zip",
+            "expired": false,
+            "digest": "sha256:3d184873a483b111357cdfbe097dc9e260eaa297be6b3a33558cd41c22ba48c2",
+            "created_at": "2026-10-24T01:47:23Z",
+            "updated_at": "2026-10-24T01:47:23Z",
+            "expires_at": "2026-11-07T01:47:21Z",
+            "workflow_run": {
+                "id": 40049536927,
+                "repository_id": 1391504619,
+                "head_repository_id": 1391504619,
+                "head_branch": "playcanvas-port",
+                "head_sha": "60c2907e29e11d105ecac3319c9edc8e6d1935f9"
+            }
+        }
+    ]
+}

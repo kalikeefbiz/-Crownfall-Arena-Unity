@@ -1,0 +1,42 @@
+[
+    {
+        "probe": "unit",
+        "command": ["npm", "test"],
+        "exit_code": 1,
+        "expected_failure": true
+    },
+    {
+        "probe": "typecheck",
+        "command": ["npm", "run", "typecheck"],
+        "exit_code": 2,
+        "expected_failure": true
+    },
+    {
+        "probe": "lint",
+        "command": ["npm", "run", "lint"],
+        "exit_code": 1,
+        "expected_failure": true
+    },
+    {
+        "probe": "format",
+        "command": ["npm", "run", "fmt"],
+        "exit_code": 1,
+        "expected_failure": true
+    },
+    {
+        "probe": "browser",
+        "command": [
+            "npm",
+            "run",
+            "test:browser",
+            "--",
+            "tests/browser/ci-gate-probe.spec.ts",
+            "--workers=1",
+            "--retries=0",
+            "--reporter=line,html",
+            "--trace=retain-on-failure"
+        ],
+        "exit_code": 1,
+        "expected_failure": true
+    }
+]

@@ -1,0 +1,76 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: ergonomics.spec.ts >> landscape targets and HUD stay clear at 844x390, safe inset 44
+- Location: tests/browser/ergonomics.spec.ts:127:5
+
+# Error details
+
+```
+Test timeout of 60000ms exceeded.
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic "Crownfall 3D test arena" [ref=e2]
+  - img "World combat preview"
+  - generic:
+    - generic: Riven · YOU
+    - generic: Kit Asher
+    - generic: Set
+    - generic: Kit Asher
+    - generic: Set
+    - generic: Riven
+    - generic: MOBILITY CAMP · 850 / 850
+    - generic: COOLDOWN CAMP · 850 / 850
+    - generic: DEFENSE CAMP · 850 / 850
+  - main:
+    - generic:
+      - strong: CROWNFALL
+    - status: READY · Blue human · fight Red Summoners
+    - generic "Movement joystick" [ref=e3]:
+      - generic [ref=e4]: MOVE
+      - generic [ref=e5]: ✥
+    - combobox "Summoner" [disabled] [ref=e6]:
+      - option "Kit"
+      - option "Set"
+      - option "Riven" [selected]
+    - generic [ref=e7]:
+      - button "Reso Blades" [ref=e8]:
+        - strong: ◎
+        - generic: SCYTHES
+      - button "Elf Dance" [ref=e9]:
+        - strong: ✦
+        - generic: ELF DANCE
+      - button "AMP'D" [ref=e10]:
+        - strong: ✦
+      - button "Death Scream" [ref=e11]:
+        - strong: ♜
+        - generic: SCREAM
+        - generic: 0%
+      - button "Switch Stance" [ref=e12]:
+        - strong: ✦
+        - generic: SWITCH
+    - region "Match scoreboard": BLUE 15 tickets · ACTIVE MATCH · 5:00 · RED 15 tickets Territory 50.0% / 50.0% · CP 0 / 0 of 1000 Front 0.00 · NEUTRAL
+    - region "Team participants":
+      - generic:
+        - generic: Riven · YOU · 910 HP · FINAL READY · 0/0/0
+        - generic: Kit Asher · AI · 845 HP · FINAL READY · 0/0/0
+        - generic: Set · AI · 1625 HP · FINAL READY · 0/0/0
+      - generic:
+        - generic: Kit Asher · AI · 845 HP · FINAL READY · 0/0/0
+        - generic: Set · AI · 1625 HP · FINAL READY · 0/0/0
+        - generic: Riven · AI · 910 HP · FINAL READY · 0/0/0
+    - status: MATCH START · FIGHT!
+    - 'button "Aim Assist: On" [pressed] [ref=e13]'
+    - link "Debug" [ref=e14] [cursor=pointer]:
+      - /url: "?debug=1"
+    - generic: Riven · 910/910 HP · Ultimate 0% · WASD move · Space Basic · Q/E/R skills · F stance
+```

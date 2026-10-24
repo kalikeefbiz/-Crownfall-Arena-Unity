@@ -1,0 +1,22 @@
+[
+    {
+        "probe": "validated-current",
+        "exit_code": 0,
+        "expected_pass": true
+    },
+    {
+        "probe": "wrong-revision",
+        "exit_code": 1,
+        "expected_pass": false
+    },
+    {
+        "probe": "tampered-build",
+        "exit_code": 1,
+        "expected_pass": false
+    },
+    {
+        "probe": "stale-source",
+        "exit_code": 1,
+        "expected_pass": false
+    }
+]

@@ -1,0 +1,196 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: ergonomics.spec.ts >> landscape targets and HUD stay clear at 640x360, safe inset 44
+- Location: tests/browser/ergonomics.spec.ts:127:5
+
+# Error details
+
+```
+Error: #scoreboard / #team-status
+
+expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic "Crownfall 3D test arena" [ref=e2]
+  - img "World combat preview"
+  - generic:
+    - generic: Kit Asher · YOU
+    - generic: Set
+    - generic: Riven
+    - generic: Kit Asher
+    - generic: Set
+    - generic: Riven
+    - generic: MOBILITY CAMP · 850 / 850
+    - generic: DEFENSE CAMP · 850 / 850
+  - main:
+    - generic:
+      - strong: CROWNFALL
+    - status: READY · Blue human · fight Red Summoners
+    - generic "Movement joystick" [ref=e3]:
+      - generic [ref=e4]: MOVE
+      - generic [ref=e5]: ✥
+    - combobox "Summoner" [disabled] [ref=e6]:
+      - option "Kit" [selected]
+      - option "Set"
+      - option "Riven"
+    - generic [ref=e7]:
+      - button "Solar Whip" [ref=e8]:
+        - strong: ◎
+        - generic: WHIP
+      - button "Ember Step" [ref=e9]:
+        - strong: ✦
+        - generic: STEP
+      - button "Solar Ring" [ref=e10]:
+        - strong: ✦
+        - generic: RING
+      - button "The Last Flame" [ref=e11]:
+        - strong: ♜
+        - generic: DRAGON
+        - generic: 0%
+      - button "Expellant Blast" [ref=e12]:
+        - strong: ✦
+        - generic: BLAST
+        - generic: 0s
+    - region "Match scoreboard": BLUE 15 tickets · ACTIVE MATCH · 5:00 · RED 15 tickets Territory 50.0% / 50.0% · CP 0 / 0 of 1000 Front 0.00 · NEUTRAL
+    - region "Team participants":
+      - generic:
+        - generic: Kit Asher · YOU · 845 HP · FINAL READY · 0/0/0
+        - generic: Set · AI · 1625 HP · FINAL READY · 0/0/0
+        - generic: Riven · AI · 910 HP · FINAL READY · 0/0/0
+      - generic:
+        - generic: Kit Asher · AI · 845 HP · FINAL READY · 0/0/0
+        - generic: Set · AI · 1625 HP · FINAL READY · 0/0/0
+        - generic: Riven · AI · 910 HP · FINAL READY · 0/0/0
+    - status: MATCH START · FIGHT!
+    - 'button "Aim Assist: On" [pressed] [ref=e13]'
+    - link "Debug" [ref=e14] [cursor=pointer]:
+      - /url: "?debug=1"
+    - generic: Kit Asher · 845/845 HP · Ultimate 0% · WASD move · Space Basic · Q/E/R skills · F stance
+```
+
+# Test source
+
+```ts
+  123 |     [844, 390, 44],
+  124 |     [667, 375, 44],
+  125 |     [640, 360, 44]
+  126 | ]) {
+  127 |     test(`landscape targets and HUD stay clear at ${width}x${height}, safe inset ${safe}`, async ({ browser }) => {
+  128 |         const context = await browser.newContext({
+  129 |             viewport: { width, height },
+  130 |             isMobile: true,
+  131 |             hasTouch: true,
+  132 |             deviceScaleFactor: 2
+  133 |         });
+  134 |         const page = await context.newPage();
+  135 |         await page.goto('/?verify=1');
+  136 |         // Chromium has no physical notch: exercise the same CSS variables Safari fills from env().
+  137 |         await page.evaluate((safe) => {
+  138 |             const style = document.documentElement.style;
+  139 |             style.setProperty('--safe-left', `${safe}px`);
+  140 |             style.setProperty('--safe-right', `${safe}px`);
+  141 |             style.setProperty('--safe-bottom', `${safe ? 21 : 0}px`);
+  142 |         }, safe);
+  143 |         const box = async (selector: string) => {
+  144 |             const bounds = await page.locator(selector).boundingBox();
+  145 |             expect(bounds, selector).not.toBe(null);
+  146 |             return bounds!;
+  147 |         };
+  148 |         const clear = (a: Awaited<ReturnType<typeof box>>, b: Awaited<ReturnType<typeof box>>) =>
+  149 |             a.x + a.width <= b.x || b.x + b.width <= a.x || a.y + a.height <= b.y || b.y + b.height <= a.y;
+  150 |         for (const summoner of ['Kit', 'Set', 'Riven']) {
+  151 |             if (summoner !== 'Kit')
+  152 |                 await page.locator('#restart-match').evaluate((e) => (e as HTMLButtonElement).click());
+  153 |             await page.getByLabel('Summoner', { exact: true }).selectOption(summoner);
+  154 |             await expect(page.locator('#combat-feedback')).toBeHidden();
+  155 |             const start = await box('#play-match');
+  156 |             for (const selector of ['#ability-bar', '#move', '#scoreboard', '#team-status', '#battle-announcement'])
+  157 |                 expect(clear(start, await box(selector)), `Start match / ${selector}`).toBe(true);
+  158 |             await page.evaluate(() =>
+  159 |                 (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('pressure')
+  160 |             );
+  161 |             await expect(page.locator('#play-match')).toBeHidden();
+  162 |             await expect(page.locator('#combat-feedback')).toBeVisible();
+  163 |             // Layout-only fixture: include Kit's normally earned fifth action at its widest footprint.
+  164 |             if (summoner === 'Kit')
+  165 |                 await page.locator('.ability-blast').evaluate((e) => {
+  166 |                     (e as HTMLElement).style.display = 'block';
+  167 |                 });
+  168 |             const abilities = page.locator('.ability:visible:not(.ability-stance)');
+  169 |             await expect(abilities).toHaveCount(summoner === 'Kit' ? 5 : 4);
+  170 |             const basic = await box('.ability[data-slot="0"]');
+  171 |             expect(basic.width).toBe(88);
+  172 |             expect(basic.height).toBe(88);
+  173 |             for (const ability of await abilities.all()) {
+  174 |                 const b = (await ability.boundingBox())!;
+  175 |                 expect(await ability.evaluate((e) => getComputedStyle(e).touchAction)).toBe('none');
+  176 |                 expect(b.width).toBeGreaterThanOrEqual(72);
+  177 |                 expect(b.height).toBeGreaterThanOrEqual(72);
+  178 |                 if ((await ability.getAttribute('data-slot')) !== '0') {
+  179 |                     expect(b.width).toBeLessThan(basic.width);
+  180 |                     expect(b.height).toBeLessThan(basic.height);
+  181 |                     expect(clear(b, basic)).toBe(true);
+  182 |                 }
+  183 |             }
+  184 |             // Stress the banner with a long production-shaped HIT message as well as READY.
+  185 |             for (const message of [
+  186 |                 'READY · Blue human · fight Red Summoners',
+  187 |                 'HIT · Predatory Combo · 3 targets · 210 damage'
+  188 |             ]) {
+  189 |                 await page.locator('#combat-feedback').evaluate((e, text) => {
+  190 |                     e.textContent = text;
+  191 |                 }, message);
+  192 |                 const selectors = [
+  193 |                     '#ability-bar',
+  194 |                     '#move',
+  195 |                     '#scoreboard',
+  196 |                     '#team-status',
+  197 |                     '#combat-feedback',
+  198 |                     '.notice'
+  199 |                 ];
+  200 |                 if (summoner === 'Riven') selectors.push('.ability-stance');
+  201 |                 const boxes = await Promise.all(selectors.map(box));
+  202 |                 const [bar, move] = boxes;
+  203 |                 const controls = [bar, move];
+  204 |                 if (summoner === 'Riven') {
+  205 |                     const stance = boxes.at(-1)!;
+  206 |                     expect(stance.width).toBe(72);
+  207 |                     expect(stance.height).toBe(52);
+  208 |                     controls.push(stance);
+  209 |                 }
+  210 |                 for (const b of boxes) {
+  211 |                     expect(b.x).toBeGreaterThanOrEqual(0);
+  212 |                     expect(b.y).toBeGreaterThanOrEqual(0);
+  213 |                     expect(b.x + b.width).toBeLessThanOrEqual(width);
+  214 |                     expect(b.y + b.height).toBeLessThanOrEqual(height);
+  215 |                 }
+  216 |                 for (const control of controls) {
+  217 |                     expect(control.x).toBeGreaterThanOrEqual(safe);
+  218 |                     expect(control.x + control.width).toBeLessThanOrEqual(width - safe);
+  219 |                     expect(control.y + control.height).toBeLessThanOrEqual(height - (safe ? 21 : 0));
+  220 |                 }
+  221 |                 for (let i = 0; i < boxes.length; i++)
+  222 |                     for (let j = i + 1; j < boxes.length; j++)
+> 223 |                         expect(clear(boxes[i], boxes[j]), `${selectors[i]} / ${selectors[j]}`).toBe(true);
+      |                                                                                                ^ Error: #scoreboard / #team-status
+  224 |             }
+  225 |             await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png` });
+  226 |         }
+  227 |         await context.close();
+  228 |     });
+  229 | }
+  230 |
+```

@@ -1,0 +1,110 @@
+Listing tests:
+  aim-assist.spec.ts:72:5 › Kit: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+  aim-assist.spec.ts:72:5 › Set: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+  aim-assist.spec.ts:116:1 › Riven touch hold waits, release acquires scythes, confirmed second direction and recall survive retreat
+  aim-assist.spec.ts:152:1 › manual drag chooses the opposite direction, cancel/blur/capture loss/orientation clear touch intentions
+  aim-assist.spec.ts:192:1 › rapid game-surface taps suppress default gestures; menu zoom and live setting remain available
+  aim-assist.spec.ts:242:1 › retreat and fire against three live pursuing bots records human damage through match authority
+  application-lifecycle.spec.ts:137:1 › real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command
+  application-lifecycle.spec.ts:170:1 › re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers
+  application-lifecycle.spec.ts:199:1 › destroy releases genuine simultaneous touch captures without committing the held ability after remount
+  application-lifecycle.spec.ts:270:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+  application-lifecycle.spec.ts:338:1 › destroy after GLB download while embedded texture decoding is pending leaves no late engine work
+  application-lifecycle.spec.ts:386:1 › destroy between download completion and the queued engine contents handoff cancels parsing safely
+  arena.spec.ts:32:1 › production arena renders, moves, aims independently, mirrors and preserves facing
+  arena.spec.ts:67:1 › landscape mobile supports two captured pointers and clears cancelled input
+  arena.spec.ts:114:1 › obstruction blocks movement in the rendered app
+  arena.spec.ts:132:5 › Kit selection and real Basic damage through HUD
+  arena.spec.ts:132:5 › Set selection and real Basic damage through HUD
+  arena.spec.ts:132:5 › Riven selection and real Basic damage through HUD
+  arena.spec.ts:155:1 › aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics
+  arena.spec.ts:173:1 › Set ground ultimate consumes charged meter and impacts after commitment
+  arena.spec.ts:184:1 › Riven stance changes actions and SCREAM updates stun/ultimate diagnostics
+  environment.spec.ts:33:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera
+  environment.spec.ts:57:1 › normal match defaults to carved terrain with territory indicators retained
+  ergonomics.spec.ts:30:5 › competitive camera follows Kit smoothly from behind with fixed forward focus
+  ergonomics.spec.ts:30:5 › competitive camera follows Set smoothly from behind with fixed forward focus
+  ergonomics.spec.ts:30:5 › competitive camera follows Riven smoothly from behind with fixed forward focus
+  ergonomics.spec.ts:78:5 › competitive Kit retains touch Basic timing with the farther camera
+  ergonomics.spec.ts:78:5 › competitive Set retains touch Basic timing with the farther camera
+  ergonomics.spec.ts:78:5 › competitive Riven retains touch Basic timing with the farther camera
+  ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+  ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 844x390, safe inset 44
+  ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 667x375, safe inset 44
+  ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 640x360, safe inset 44
+  hud-contracts.spec.ts:33:5 › HUD text follows exact default match settings and earned modifier values
+  hud-contracts.spec.ts:33:5 › HUD text follows nondefault match settings and earned modifier values
+  kit-model.spec.ts:45:1 › production serves unchanged Kit GLB
+  kit-model.spec.ts:53:1 › local Kit loads, grounds, follows and animates in the normal mobile match
+  kit-model.spec.ts:111:5 › Set retains primitives without fetching Kit
+  kit-model.spec.ts:111:5 › Riven retains primitives without fetching Kit
+  kit-model.spec.ts:128:1 › primitive comparison skips the GLB request
+  kit-model.spec.ts:141:1 › pending and failed loading keep playable primitive fallback
+  kit-model.spec.ts:162:1 › 10K comparison remains static and is requested only once
+  kit-model.spec.ts:175:1 › animated Kit survives death, respawn, results and restart without another download
+  match.spec.ts:21:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch
+  match.spec.ts:61:1 › 3v3 selected Blue human takes real touch commands after countdown and reset
+  playable.spec.ts:11:1 › normal player starts, fights a natural 3v3 battle, sees results, freeze and clean restart
+  playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 844x390
+  playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 390x844
+  riven-model.spec.ts:63:1 › production serves the exact verified Riven GLB
+  riven-model.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+  riven-model.spec.ts:154:1 › Riven aim/commit facing uses Riven controls without Kit punch animations
+  riven-model.spec.ts:182:5 › Riven primitive skips the download with no developer opt-in
+  riven-model.spec.ts:182:5 › Riven primitive skips the download with &rivenPrimitive=1
+  riven-model.spec.ts:200:1 › pending and failed Riven loading retain a moving primitive
+  riven-model.spec.ts:222:1 › valid container missing a required Riven clip safely falls back
+  riven-model.spec.ts:239:1 › training preview switches summoners and reuses one Riven instance
+  riven-model.spec.ts:259:1 › Riven preview survives defeat, respawn, results and rematch without another download
+  riven-touch.spec.ts:5:1 › Riven 3D preview supports simultaneous touch movement, aim, release and cancellation
+  set-model.spec.ts:63:1 › production serves the exact verified Set GLB
+  set-model.spec.ts:71:1 › opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera
+  set-model.spec.ts:155:5 › Set primitive skips the download with no developer opt-in
+  set-model.spec.ts:155:5 › Set primitive skips the download with &setPrimitive=1
+  set-model.spec.ts:173:1 › pending and failed Set loading retain a moving primitive
+  set-model.spec.ts:195:1 › valid container missing a required Set clip safely falls back
+  set-model.spec.ts:212:1 › training preview switches summoners and reuses one Set instance
+  set-model.spec.ts:232:1 › Set preview survives defeat, respawn, results and rematch without another download
+  set-model.spec.ts:262:1 › normal Set preview starts a match and supports captured mobile movement and combat
+  set-model.spec.ts:299:1 › combined preview flags preserve Riven while switching to and from Set
+  six-summoner.spec.ts:67:5 › Kit selection renders six identities with independent playback and shared resources
+  six-summoner.spec.ts:67:5 › Set selection renders six identities with independent playback and shared resources
+  six-summoner.spec.ts:67:5 › Riven selection renders six identities with independent playback and shared resources
+  six-summoner.spec.ts:151:1 › all actors survive defeat, respawn, rematch and identity reorder without redownloads
+  six-summoner.spec.ts:204:1 › one failed shared asset falls back for both teams while the other four models render
+  six-summoner.spec.ts:221:1 › global primitive diagnostic skips every GLB and keeps normal bots active
+  six-summoner.spec.ts:245:1 › normal match enables all six skinned actors and normal AI without preview flags
+  territory.spec.ts:27:1 › production positional territory, visual frontier, grace, retained CP and camera
+  territory.spec.ts:57:5 › production total-control result has all participants, final metrics, freezes and restarts
+  territory.spec.ts:57:5 › production points result has all participants, final metrics, freezes and restarts
+  territory.spec.ts:105:1 › normal full-map iPhone landscape HUD avoids controls and real touch deals damage
+  territory.spec.ts:135:5 › natural alive ordered total control team 1
+  territory.spec.ts:135:5 › natural alive ordered total control team 2
+  territory.spec.ts:151:1 › crossed runner cannot backcap in production
+  touch-combat.spec.ts:122:5 › Kit: back-to-back genuine touch press/release damages the known in-range target
+  touch-combat.spec.ts:122:5 › Set: back-to-back genuine touch press/release damages the known in-range target
+  touch-combat.spec.ts:138:1 › Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes
+  touch-combat.spec.ts:159:1 › Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch
+  touch-combat.spec.ts:177:1 › simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves
+  touch-combat.spec.ts:199:5 › Kit: touchcancel while aiming never commits damage
+  touch-combat.spec.ts:199:5 › Set: touchcancel while aiming never commits damage
+  touch-combat.spec.ts:199:5 › Riven: touchcancel while aiming never commits damage
+  touch-combat.spec.ts:210:1 › Riven: actual capture loss before release cancels without enqueuing a Basic
+  touch-combat.spec.ts:252:5 › Kit: aimed non-Basic touch action produces authoritative damage
+  touch-combat.spec.ts:252:5 › Set: aimed non-Basic touch action produces authoritative damage
+  touch-combat.spec.ts:252:5 › Riven: aimed non-Basic touch action produces authoritative damage
+  touch-combat.spec.ts:263:1 › touch Solar Ring uses its radial radius and creates authoritative HIT feedback
+  touch-combat.spec.ts:274:1 › Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target
+  touch-combat.spec.ts:300:1 › Set preview uses 1.65m cone, 150px cancellation is visible; Riven empty-path release visibly resolves MISS
+  wilderness.spec.ts:24:5 › touch secures mobility, visible camp and timed authoritative buff
+  wilderness.spec.ts:24:5 › touch secures cooldown, visible camp and timed authoritative buff
+  wilderness.spec.ts:24:5 › touch secures defense, visible camp and timed authoritative buff
+  wilderness.spec.ts:24:5 › touch secures damage, visible camp and timed authoritative buff
+  wilderness.spec.ts:67:5 › real captured touch leaves lane into Wilderness -1 and returns
+  wilderness.spec.ts:67:5 › real captured touch leaves lane into Wilderness 1 and returns
+  wilderness.spec.ts:100:1 › bot rotation physically leaves lane toward real camp in production
+  wilderness.spec.ts:122:5 › active reward HUD clear of controls 844 safe 0
+  wilderness.spec.ts:122:5 › active reward HUD clear of controls 844 safe 44
+  wilderness.spec.ts:122:5 › active reward HUD clear of controls 667 safe 44
+  wilderness.spec.ts:122:5 › active reward HUD clear of controls 640 safe 44
+Total: 108 tests in 16 files

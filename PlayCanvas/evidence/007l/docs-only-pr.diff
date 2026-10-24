@@ -1,0 +1,9 @@
+diff --git a/PlayCanvas/CI_FORMAT_PROBE.md b/PlayCanvas/CI_FORMAT_PROBE.md
+new file mode 100644
+index 0000000..de12808
+--- /dev/null
++++ b/PlayCanvas/CI_FORMAT_PROBE.md
+@@ -0,0 +1,3 @@
++#   Intentional formatting probe
++
++-   item

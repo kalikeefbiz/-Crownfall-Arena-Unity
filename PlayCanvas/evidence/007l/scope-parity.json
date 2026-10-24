@@ -1,0 +1,90 @@
+{
+    "baseline": "c292b8566ca31323bb1d0cc99f82418ac5f28278",
+    "implementation": "60c2907e29e11d105ecac3319c9edc8e6d1935f9",
+    "objects": [
+        {
+            "path": "PlayCanvas/src",
+            "baseline_object": "68451b6aff9f0398d535a1c7c8c23762a2c0d8b8",
+            "implementation_object": "68451b6aff9f0398d535a1c7c8c23762a2c0d8b8",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/tests",
+            "baseline_object": "61cbaaa37e3ff416cd03a9eec95bae98054844c4",
+            "implementation_object": "61cbaaa37e3ff416cd03a9eec95bae98054844c4",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/public",
+            "baseline_object": "29c16969dee338e19802a74d12c6d0c1fcfbd034",
+            "implementation_object": "29c16969dee338e19802a74d12c6d0c1fcfbd034",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/package.json",
+            "baseline_object": "743a564dc9b353cbd7a7b394652cceb8c80e0bfb",
+            "implementation_object": "743a564dc9b353cbd7a7b394652cceb8c80e0bfb",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/package-lock.json",
+            "baseline_object": "e73ebbe75d7b763e0ffb272e048b82ebe1d46efa",
+            "implementation_object": "e73ebbe75d7b763e0ffb272e048b82ebe1d46efa",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/playwright.config.ts",
+            "baseline_object": "7493f31f4eaf9b9b88eda5c1d7a9569d0a3182b1",
+            "implementation_object": "7493f31f4eaf9b9b88eda5c1d7a9569d0a3182b1",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/vite.config.ts",
+            "baseline_object": "eb2b436e844ed63a7c7dbfb3608330e276a37084",
+            "implementation_object": "eb2b436e844ed63a7c7dbfb3608330e276a37084",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/tsconfig.json",
+            "baseline_object": "4d201116f813a8f81eb78652b580b9479780d206",
+            "implementation_object": "4d201116f813a8f81eb78652b580b9479780d206",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/eslint.config.mjs",
+            "baseline_object": "a97ce2965f29b5eae6508596d75df73ec6a0b87d",
+            "implementation_object": "a97ce2965f29b5eae6508596d75df73ec6a0b87d",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/prettier.config.mjs",
+            "baseline_object": "1f5ea4f339908498454bf741259b4a2745186181",
+            "implementation_object": "1f5ea4f339908498454bf741259b4a2745186181",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/index.html",
+            "baseline_object": "716b4b9004eea2a34f04b070e7ddd2d190a1fa67",
+            "implementation_object": "716b4b9004eea2a34f04b070e7ddd2d190a1fa67",
+            "unchanged": true
+        },
+        {
+            "path": ".github/workflows/deploy-crownfall-pages.yml",
+            "baseline_object": "18b0159c9fc47fbdf3851398e3b4dccf02f770fb",
+            "implementation_object": "18b0159c9fc47fbdf3851398e3b4dccf02f770fb",
+            "unchanged": true
+        },
+        {
+            "path": ".github/workflows/publish-crownfall-gh-pages.yml",
+            "baseline_object": "802440106b42b64ed19b4dfe4659618dbdb3c851",
+            "implementation_object": "802440106b42b64ed19b4dfe4659618dbdb3c851",
+            "unchanged": true
+        },
+        {
+            "path": ".github/workflows/publish-crownfall-recovery-preview.yml",
+            "baseline_object": "bc373778830aae0b0104779fd12ca0c15110f72c",
+            "implementation_object": "bc373778830aae0b0104779fd12ca0c15110f72c",
+            "unchanged": true
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+Validate production build	ESLint	﻿2026-10-24T01:29:01.4647106Z ##[group]Run npm run lint
+Validate production build	ESLint	2026-10-24T01:29:01.4647483Z [36;1mnpm run lint[0m
+Validate production build	ESLint	2026-10-24T01:29:01.4712541Z shell: /usr/bin/bash -e {0}
+Validate production build	ESLint	2026-10-24T01:29:01.4712906Z ##[endgroup]
+Validate production build	ESLint	2026-10-24T01:29:01.5797457Z
+Validate production build	ESLint	2026-10-24T01:29:01.5797967Z > crownfall-playcanvas@0.0.0 lint
+Validate production build	ESLint	2026-10-24T01:29:01.5798357Z > eslint .
+Validate production build	ESLint	2026-10-24T01:29:01.5798495Z
+Validate production build	ESLint	2026-10-24T01:29:05.1756218Z
+Validate production build	ESLint	2026-10-24T01:29:05.1758005Z /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas/src/ci-gate-probe.js
+Validate production build	ESLint	2026-10-24T01:29:05.1789897Z ##[error]  1:1  error  Unexpected 'debugger' statement  no-debugger
+Validate production build	ESLint	2026-10-24T01:29:05.1797955Z
+Validate production build	ESLint	2026-10-24T01:29:05.1798489Z ✖ 1 problem (1 error, 0 warnings)
+Validate production build	ESLint	2026-10-24T01:29:05.1799083Z
+Validate production build	ESLint	2026-10-24T01:29:05.3373132Z ##[error]Process completed with exit code 1.

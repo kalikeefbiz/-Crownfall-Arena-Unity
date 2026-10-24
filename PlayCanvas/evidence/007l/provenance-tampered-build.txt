@@ -1,0 +1,11 @@
+dist/assets/index-BG9Ns0t1.css: OK
+dist/assets/index-BSBNewh8.js: OK
+dist/assets/summoners/kit/Kit_20K_Animated.glb: OK
+dist/assets/summoners/kit/README.md: OK
+dist/assets/summoners/kit/kit-10k-test.glb: OK
+dist/assets/summoners/riven/README.md: OK
+dist/assets/summoners/riven/Riven_Animated.glb: OK
+dist/assets/summoners/set/README.md: OK
+dist/assets/summoners/set/Set_Animated.glb: OK
+dist/index.html: FAILED
+sha256sum: WARNING: 1 computed checksum did NOT match
