@@ -1,0 +1,176 @@
+{
+    "implementationCommit": "bd37f66db15a0ac937363f36c0b60530d7337ed7",
+    "baseline": "2132924a2afcff95628828aff0a8a1f80c7710ee",
+    "publish": {
+        "id": 40043329362,
+        "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40043329362",
+        "headSha": "bd37f66db15a0ac937363f36c0b60530d7337ed7",
+        "status": "completed",
+        "conclusion": "success",
+        "createdAt": "2026-10-24T00:06:53Z",
+        "completedAt": "2026-10-24T00:07:51Z"
+    },
+    "publishJobs": [
+        {
+            "id": 120719212882,
+            "name": "build-and-publish",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+                {
+                    "name": "Set up job",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Checkout PlayCanvas port",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Setup Node",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Install",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Test",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Typecheck",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Build",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Publish preview under existing GitHub Pages site",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Post Setup Node",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Post Checkout PlayCanvas port",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Complete job",
+                    "status": "completed",
+                    "conclusion": "success"
+                }
+            ]
+        }
+    ],
+    "pages": {
+        "id": 40043410475,
+        "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40043410475",
+        "headSha": "cd43d91352f4906925f73600542c83ac2a8f3493",
+        "status": "completed",
+        "conclusion": "success",
+        "createdAt": "2026-10-24T00:07:49Z",
+        "completedAt": "2026-10-24T00:08:22Z"
+    },
+    "pagesJobs": [
+        {
+            "id": 120719473296,
+            "name": "build",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+                {
+                    "name": "Set up job",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Checkout",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Upload artifact",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Post Checkout",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Complete job",
+                    "status": "completed",
+                    "conclusion": "success"
+                }
+            ]
+        },
+        {
+            "id": 120719543248,
+            "name": "deploy",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+                {
+                    "name": "Set up job",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Deploy to GitHub Pages",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Complete job",
+                    "status": "completed",
+                    "conclusion": "success"
+                }
+            ]
+        },
+        {
+            "id": 120719543261,
+            "name": "report-build-status",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+                {
+                    "name": "Set up job",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Report Build Status",
+                    "status": "completed",
+                    "conclusion": "success"
+                },
+                {
+                    "name": "Complete job",
+                    "status": "completed",
+                    "conclusion": "success"
+                }
+            ]
+        }
+    ],
+    "publishedCommit": {
+        "sha": "cd43d91352f4906925f73600542c83ac2a8f3493",
+        "html_url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/commit/cd43d91352f4906925f73600542c83ac2a8f3493",
+        "message": "deploy: bd37f66db15a0ac937363f36c0b60530d7337ed7"
+    },
+    "liveHttpEvidence": "live-http.json",
+    "liveBrowserEvidence": "live-browser.json",
+    "livePage": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/"
+}

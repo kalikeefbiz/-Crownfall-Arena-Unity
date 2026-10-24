@@ -1,0 +1,24 @@
+{
+    "implementationCommit": "bd37f66db15a0ac937363f36c0b60530d7337ed7",
+    "checkedUtc": "2026-10-24T00:08:58.236442+00:00",
+    "page": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/",
+    "status": 200,
+    "assets": [
+        {
+            "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/assets/index-BSBNewh8.js",
+            "status": 200,
+            "bytes": 1307720,
+            "sha256": "cd79f71c265c23f10a38052ea9fb35986012c8275869db4d95c39a4c0622f1ae",
+            "testedSha256": "cd79f71c265c23f10a38052ea9fb35986012c8275869db4d95c39a4c0622f1ae",
+            "matchesTestedBuild": true
+        },
+        {
+            "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/assets/index-BG9Ns0t1.css",
+            "status": 200,
+            "bytes": 12332,
+            "sha256": "75297fb99a9b6d86fcce654187af15365775261dc680d669e0e4cab327162539",
+            "testedSha256": "75297fb99a9b6d86fcce654187af15365775261dc680d669e0e4cab327162539",
+            "matchesTestedBuild": true
+        }
+    ]
+}
