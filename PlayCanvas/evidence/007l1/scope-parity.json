@@ -1,0 +1,78 @@
+{
+    "baseline": "b85c28475652a57a8e1ea3bef12f6d1761c9fbb0",
+    "release": "376006bf4b2118e9df901274baa354f688213c43",
+    "objects": [
+        {
+            "path": "PlayCanvas/src/combat",
+            "baseline": "8b22bcbce0f01da109ae1caa24736a5d3f3b58df",
+            "release": "8b22bcbce0f01da109ae1caa24736a5d3f3b58df",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/src/gameplay",
+            "baseline": "d345769c911eae1aebbf87aa8025bfa4f2f6f39e",
+            "release": "d345769c911eae1aebbf87aa8025bfa4f2f6f39e",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/src/input",
+            "baseline": "24b4744ce8cd98caade38df573b91f6dc96db1b2",
+            "release": "24b4744ce8cd98caade38df573b91f6dc96db1b2",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/src/presentation",
+            "baseline": "8e8abc7031d55229c2616fb164035b47710d7b15",
+            "release": "8e8abc7031d55229c2616fb164035b47710d7b15",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/src/main.ts",
+            "baseline": "5c337bba53a9b51f4ea13569bcf8db622df72df6",
+            "release": "5c337bba53a9b51f4ea13569bcf8db622df72df6",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/public",
+            "baseline": "29c16969dee338e19802a74d12c6d0c1fcfbd034",
+            "release": "29c16969dee338e19802a74d12c6d0c1fcfbd034",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/package.json",
+            "baseline": "743a564dc9b353cbd7a7b394652cceb8c80e0bfb",
+            "release": "743a564dc9b353cbd7a7b394652cceb8c80e0bfb",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/package-lock.json",
+            "baseline": "e73ebbe75d7b763e0ffb272e048b82ebe1d46efa",
+            "release": "e73ebbe75d7b763e0ffb272e048b82ebe1d46efa",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/playwright.config.ts",
+            "baseline": "7493f31f4eaf9b9b88eda5c1d7a9569d0a3182b1",
+            "release": "7493f31f4eaf9b9b88eda5c1d7a9569d0a3182b1",
+            "unchanged": true
+        },
+        {
+            "path": ".github/workflows",
+            "baseline": "9e1ca17f9f380cd9e3280e368f358e58adec09c8",
+            "release": "9e1ca17f9f380cd9e3280e368f358e58adec09c8",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/tests/browser/riven-model.spec.ts",
+            "baseline": "d1d246add15a503e7d9781266aa9b65837eec41d",
+            "release": "d1d246add15a503e7d9781266aa9b65837eec41d",
+            "unchanged": true
+        },
+        {
+            "path": "PlayCanvas/tests/browser/set-model.spec.ts",
+            "baseline": "0da5c5569bf086c7ff7fb1f2794f0f8551201168",
+            "release": "0da5c5569bf086c7ff7fb1f2794f0f8551201168",
+            "unchanged": true
+        }
+    ]
+}

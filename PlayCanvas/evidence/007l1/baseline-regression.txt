@@ -1,0 +1,43 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test --config /workspace/007l1-evidence/baseline-playwright.config.ts hud-layout.spec.ts --grep 640x360 --retries=0 --reporter=line,json --trace=retain-on-failure
+
+
+Running 1 test using 1 worker
+
+(node:6606) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 640x360, safe 44
+  1) tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 640x360, safe 44
+
+    Error: "DejaVu Sans", sans-serif / Kit / active
+
+    expect(received).toBeGreaterThanOrEqual(expected)
+
+    Expected: >= 4
+    Received:    -10
+
+      127 |                         measurements.push({ width, height, safe, font, summoner, scenario: phase, ...observation });
+      128 |                         const [score, team] = observation.rows;
+    > 129 |                         expect(team.y - score.bottom, `${font} / ${summoner} / ${phase}`).toBeGreaterThanOrEqual(4);
+          |                                                                                           ^
+      130 |                         for (const row of observation.rows) {
+      131 |                             expect(row.width).toBeGreaterThan(0);
+      132 |                             expect(row.height).toBeGreaterThan(0);
+        at /workspace/crownfall/PlayCanvas/tests/browser/hud-layout.spec.ts:129:91
+
+    Error Context: test-results/hud-layout-HUD-rows-follow-7d28d-h-phases-at-640x360-safe-44/error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/hud-layout-HUD-rows-follow-7d28d-h-phases-at-640x360-safe-44/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/hud-layout-HUD-rows-follow-7d28d-h-phases-at-640x360-safe-44/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 640x360, safe 44

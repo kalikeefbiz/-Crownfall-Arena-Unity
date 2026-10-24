@@ -1,0 +1,35 @@
+{
+    "commit": "376006bf4b2118e9df901274baa354f688213c43",
+    "files": [
+        {
+            "path": "PlayCanvas/src/style.css",
+            "sha256": "35c7b492564215bf87d95534916194216ca9283635b659d4a1d76abc18854aa6",
+            "git_blob": "8210ca016e2fc47d4defc0a11017d3ebcd2877d1"
+        },
+        {
+            "path": "PlayCanvas/src/ui/hud.ts",
+            "sha256": "6eb68b965cc751b9850e05756284bdca517bedbd5fe7b1ccb2601c3ea80f6cbb",
+            "git_blob": "c049f5f65f5a44365f514c1fa4322aa715766c09"
+        },
+        {
+            "path": "PlayCanvas/tests/browser/ergonomics.spec.ts",
+            "sha256": "f743bd75593ea558d025d012c7c7682e19526c94f1626e8f46d3d10c0beb0d97",
+            "git_blob": "187b330218b4f1c6347a6e1f9060b81d7342b4ca"
+        },
+        {
+            "path": "PlayCanvas/tests/browser/hud-layout.spec.ts",
+            "sha256": "dd37e547744142548f07c836e1346633fd37df0db29bee32cb10f5ffd941cb47",
+            "git_blob": "941afc16467f5a9a397a23d878e7d2dd65d1b1ee"
+        },
+        {
+            "path": "PlayCanvas/tests/browser/touch-combat.spec.ts",
+            "sha256": "32aacf7b6702200e6d73a889b150fa90bf5e1aaa60a489115ea56dda0aa376ee",
+            "git_blob": "07e8d7c66c5cdfc4e699d2e26e12782d66b4fed4"
+        },
+        {
+            "path": "PlayCanvas/tests/helpers/hud-contract-fixture.ts",
+            "sha256": "39953bbf4da4369113571291123de918d1e850b78e36cb4ed1441cd2317d2c55",
+            "git_blob": "f4542d0b5a062e8966a6f9adff3ea6f883c48d8a"
+        }
+    ]
+}

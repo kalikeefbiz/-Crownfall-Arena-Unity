@@ -1,0 +1,24 @@
+import {chromium} from '/workspace/crownfall/PlayCanvas/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const results=[];
+for(const scale of ['device','css']) {
+ const c=await browser.newContext({viewport:{width:844,height:390},isMobile:true,hasTouch:true,deviceScaleFactor:2});
+ await c.tracing.start({screenshots:true,snapshots:true,sources:true});
+ const page=await c.newPage(); await page.goto('http://127.0.0.1:4174/?verify=1');
+ for(const name of ['Kit','Set','Riven']) {
+  if(name!=='Kit')await page.locator('#restart-match').evaluate(e=>e.click());
+  await page.getByLabel('Summoner',{exact:true}).selectOption(name);
+  await page.evaluate(()=>window.__crownfall.verification.arrange('pressure'));
+  await page.waitForFunction(()=>document.querySelector('#scoreboard').textContent.includes('ACTIVE MATCH'));
+  await page.evaluate(()=>document.fonts.ready);
+  const before=await page.evaluate(()=>({dpr:devicePixelRatio,canvas:[document.querySelector('canvas').width,document.querySelector('canvas').height],score:document.querySelector('#scoreboard').getBoundingClientRect().toJSON(),frames:window.__crownfall.snapshot().frames}));
+  const start=performance.now();
+  await page.screenshot({path:`/workspace/007l1-evidence/capture-${scale}-${name}.png`,scale,timeout:30000});
+  const seconds=(performance.now()-start)/1000;
+  results.push({scale,name,seconds,before});
+  await fs.writeFile('/workspace/007l1-evidence/capture-probe.json',JSON.stringify(results,null,2));
+ }
+ await c.tracing.stop();await c.close();
+}
+await browser.close();

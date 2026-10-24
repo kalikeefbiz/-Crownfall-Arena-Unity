@@ -1,0 +1,1380 @@
+{
+    "stats": {
+        "startTime": "2026-10-24T04:05:50.436Z",
+        "duration": 2139280.953,
+        "expected": 114,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+    },
+    "tests": [
+        {
+            "file": "aim-assist.spec.ts",
+            "line": 72,
+            "title": "Kit: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 18762
+                }
+            ]
+        },
+        {
+            "file": "aim-assist.spec.ts",
+            "line": 72,
+            "title": "Set: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 22040
+                }
+            ]
+        },
+        {
+            "file": "aim-assist.spec.ts",
+            "line": 116,
+            "title": "Riven touch hold waits, release acquires scythes, confirmed second direction and recall survive retreat",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13421
+                }
+            ]
+        },
+        {
+            "file": "aim-assist.spec.ts",
+            "line": 152,
+            "title": "manual drag chooses the opposite direction, cancel/blur/capture loss/orientation clear touch intentions",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 15113
+                }
+            ]
+        },
+        {
+            "file": "aim-assist.spec.ts",
+            "line": 192,
+            "title": "rapid game-surface taps suppress default gestures; menu zoom and live setting remain available",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 16651
+                }
+            ]
+        },
+        {
+            "file": "aim-assist.spec.ts",
+            "line": 242,
+            "title": "retreat and fire against three live pursuing bots records human damage through match authority",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 11145
+                }
+            ]
+        },
+        {
+            "file": "application-lifecycle.spec.ts",
+            "line": 137,
+            "title": "real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 18337
+                }
+            ]
+        },
+        {
+            "file": "application-lifecycle.spec.ts",
+            "line": 170,
+            "title": "re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13644
+                }
+            ]
+        },
+        {
+            "file": "application-lifecycle.spec.ts",
+            "line": 199,
+            "title": "destroy releases genuine simultaneous touch captures without committing the held ability after remount",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13601
+                }
+            ]
+        },
+        {
+            "file": "application-lifecycle.spec.ts",
+            "line": 270,
+            "title": "destroy during actual delayed GLB requests tolerates their late responses and remounts six working models",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 22145
+                }
+            ]
+        },
+        {
+            "file": "application-lifecycle.spec.ts",
+            "line": 338,
+            "title": "destroy after GLB download while embedded texture decoding is pending leaves no late engine work",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 16007
+                }
+            ]
+        },
+        {
+            "file": "application-lifecycle.spec.ts",
+            "line": 386,
+            "title": "destroy between download completion and the queued engine contents handoff cancels parsing safely",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 17959
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 32,
+            "title": "production arena renders, moves, aims independently, mirrors and preserves facing",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 14008
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 67,
+            "title": "landscape mobile supports two captured pointers and clears cancelled input",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 12673
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 114,
+            "title": "obstruction blocks movement in the rendered app",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6503
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 132,
+            "title": "Kit selection and real Basic damage through HUD",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6423
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 132,
+            "title": "Set selection and real Basic damage through HUD",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 5283
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 132,
+            "title": "Riven selection and real Basic damage through HUD",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6202
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 155,
+            "title": "aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 5441
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 173,
+            "title": "Set ground ultimate consumes charged meter and impacts after commitment",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 8692
+                }
+            ]
+        },
+        {
+            "file": "arena.spec.ts",
+            "line": 184,
+            "title": "Riven stance changes actions and SCREAM updates stun/ultimate diagnostics",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7608
+                }
+            ]
+        },
+        {
+            "file": "environment.spec.ts",
+            "line": 33,
+            "title": "legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 50562
+                }
+            ]
+        },
+        {
+            "file": "environment.spec.ts",
+            "line": 57,
+            "title": "normal match defaults to carved terrain with territory indicators retained",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13979
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 30,
+            "title": "competitive camera follows Kit smoothly from behind with fixed forward focus",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13763
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 30,
+            "title": "competitive camera follows Set smoothly from behind with fixed forward focus",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 20737
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 30,
+            "title": "competitive camera follows Riven smoothly from behind with fixed forward focus",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 23606
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 78,
+            "title": "competitive Kit retains touch Basic timing with the farther camera",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 27320
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 78,
+            "title": "competitive Set retains touch Basic timing with the farther camera",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 26622
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 78,
+            "title": "competitive Riven retains touch Basic timing with the farther camera",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 22165
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 127,
+            "title": "landscape targets and HUD stay clear at 844x390, safe inset 0",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 52545
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 127,
+            "title": "landscape targets and HUD stay clear at 844x390, safe inset 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 54358
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 127,
+            "title": "landscape targets and HUD stay clear at 667x375, safe inset 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 48039
+                }
+            ]
+        },
+        {
+            "file": "ergonomics.spec.ts",
+            "line": 127,
+            "title": "landscape targets and HUD stay clear at 640x360, safe inset 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 48020
+                }
+            ]
+        },
+        {
+            "file": "hud-contracts.spec.ts",
+            "line": 33,
+            "title": "HUD text follows exact default match settings and earned modifier values",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7508
+                }
+            ]
+        },
+        {
+            "file": "hud-contracts.spec.ts",
+            "line": 33,
+            "title": "HUD text follows nondefault match settings and earned modifier values",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 4295
+                }
+            ]
+        },
+        {
+            "file": "hud-layout.spec.ts",
+            "line": 42,
+            "title": "HUD rows follow content across fonts and match phases at 844x390, safe 0",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 9956
+                }
+            ]
+        },
+        {
+            "file": "hud-layout.spec.ts",
+            "line": 42,
+            "title": "HUD rows follow content across fonts and match phases at 844x390, safe 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7423
+                }
+            ]
+        },
+        {
+            "file": "hud-layout.spec.ts",
+            "line": 42,
+            "title": "HUD rows follow content across fonts and match phases at 667x375, safe 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6875
+                }
+            ]
+        },
+        {
+            "file": "hud-layout.spec.ts",
+            "line": 42,
+            "title": "HUD rows follow content across fonts and match phases at 640x360, safe 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6619
+                }
+            ]
+        },
+        {
+            "file": "hud-layout.spec.ts",
+            "line": 42,
+            "title": "HUD rows follow content across fonts and match phases at 390x844, safe 0",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 9431
+                }
+            ]
+        },
+        {
+            "file": "hud-layout.spec.ts",
+            "line": 42,
+            "title": "HUD rows follow content across fonts and match phases at 1280x720, safe 0",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 15445
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 45,
+            "title": "production serves unchanged Kit GLB",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 181
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 53,
+            "title": "local Kit loads, grounds, follows and animates in the normal mobile match",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 21500
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 111,
+            "title": "Set retains primitives without fetching Kit",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 3324
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 111,
+            "title": "Riven retains primitives without fetching Kit",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7705
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 128,
+            "title": "primitive comparison skips the GLB request",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6362
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 141,
+            "title": "pending and failed loading keep playable primitive fallback",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 10150
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 162,
+            "title": "10K comparison remains static and is requested only once",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 2982
+                }
+            ]
+        },
+        {
+            "file": "kit-model.spec.ts",
+            "line": 175,
+            "title": "animated Kit survives death, respawn, results and restart without another download",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 17146
+                }
+            ]
+        },
+        {
+            "file": "match.spec.ts",
+            "line": 21,
+            "title": "rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 69687
+                }
+            ]
+        },
+        {
+            "file": "match.spec.ts",
+            "line": 61,
+            "title": "3v3 selected Blue human takes real touch commands after countdown and reset",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 51431
+                }
+            ]
+        },
+        {
+            "file": "playable.spec.ts",
+            "line": 11,
+            "title": "normal player starts, fights a natural 3v3 battle, sees results, freeze and clean restart",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 241636
+                }
+            ]
+        },
+        {
+            "file": "playable.spec.ts",
+            "line": 71,
+            "title": "normal mobile HUD and actual captured touch controls 844x390",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 27791
+                }
+            ]
+        },
+        {
+            "file": "playable.spec.ts",
+            "line": 71,
+            "title": "normal mobile HUD and actual captured touch controls 390x844",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 33198
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 63,
+            "title": "production serves the exact verified Riven GLB",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 193
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 71,
+            "title": "opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 26695
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 154,
+            "title": "Riven aim/commit facing uses Riven controls without Kit punch animations",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13893
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 182,
+            "title": "Riven primitive skips the download with no developer opt-in",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6192
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 182,
+            "title": "Riven primitive skips the download with &rivenPrimitive=1",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6172
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 200,
+            "title": "pending and failed Riven loading retain a moving primitive",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13218
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 222,
+            "title": "valid container missing a required Riven clip safely falls back",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13056
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 239,
+            "title": "training preview switches summoners and reuses one Riven instance",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 11713
+                }
+            ]
+        },
+        {
+            "file": "riven-model.spec.ts",
+            "line": 259,
+            "title": "Riven preview survives defeat, respawn, results and rematch without another download",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 14655
+                }
+            ]
+        },
+        {
+            "file": "riven-touch.spec.ts",
+            "line": 5,
+            "title": "Riven 3D preview supports simultaneous touch movement, aim, release and cancellation",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 21101
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 63,
+            "title": "production serves the exact verified Set GLB",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 142
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 71,
+            "title": "opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 25721
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 155,
+            "title": "Set primitive skips the download with no developer opt-in",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 2275
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 155,
+            "title": "Set primitive skips the download with &setPrimitive=1",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 5888
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 173,
+            "title": "pending and failed Set loading retain a moving primitive",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13326
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 195,
+            "title": "valid container missing a required Set clip safely falls back",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 10143
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 212,
+            "title": "training preview switches summoners and reuses one Set instance",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 10293
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 232,
+            "title": "Set preview survives defeat, respawn, results and rematch without another download",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 15449
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 262,
+            "title": "normal Set preview starts a match and supports captured mobile movement and combat",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 23110
+                }
+            ]
+        },
+        {
+            "file": "set-model.spec.ts",
+            "line": 299,
+            "title": "combined preview flags preserve Riven while switching to and from Set",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7698
+                }
+            ]
+        },
+        {
+            "file": "six-summoner.spec.ts",
+            "line": 67,
+            "title": "Kit selection renders six identities with independent playback and shared resources",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 29307
+                }
+            ]
+        },
+        {
+            "file": "six-summoner.spec.ts",
+            "line": 67,
+            "title": "Set selection renders six identities with independent playback and shared resources",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 23639
+                }
+            ]
+        },
+        {
+            "file": "six-summoner.spec.ts",
+            "line": 67,
+            "title": "Riven selection renders six identities with independent playback and shared resources",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 22065
+                }
+            ]
+        },
+        {
+            "file": "six-summoner.spec.ts",
+            "line": 151,
+            "title": "all actors survive defeat, respawn, rematch and identity reorder without redownloads",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 28693
+                }
+            ]
+        },
+        {
+            "file": "six-summoner.spec.ts",
+            "line": 204,
+            "title": "one failed shared asset falls back for both teams while the other four models render",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 12899
+                }
+            ]
+        },
+        {
+            "file": "six-summoner.spec.ts",
+            "line": 221,
+            "title": "global primitive diagnostic skips every GLB and keeps normal bots active",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13781
+                }
+            ]
+        },
+        {
+            "file": "six-summoner.spec.ts",
+            "line": 245,
+            "title": "normal match enables all six skinned actors and normal AI without preview flags",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 19761
+                }
+            ]
+        },
+        {
+            "file": "territory.spec.ts",
+            "line": 27,
+            "title": "production positional territory, visual frontier, grace, retained CP and camera",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 20305
+                }
+            ]
+        },
+        {
+            "file": "territory.spec.ts",
+            "line": 57,
+            "title": "production total-control result has all participants, final metrics, freezes and restarts",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 33099
+                }
+            ]
+        },
+        {
+            "file": "territory.spec.ts",
+            "line": 57,
+            "title": "production points result has all participants, final metrics, freezes and restarts",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 33996
+                }
+            ]
+        },
+        {
+            "file": "territory.spec.ts",
+            "line": 105,
+            "title": "normal full-map iPhone landscape HUD avoids controls and real touch deals damage",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 23197
+                }
+            ]
+        },
+        {
+            "file": "territory.spec.ts",
+            "line": 135,
+            "title": "natural alive ordered total control team 1",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 14697
+                }
+            ]
+        },
+        {
+            "file": "territory.spec.ts",
+            "line": 135,
+            "title": "natural alive ordered total control team 2",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 18680
+                }
+            ]
+        },
+        {
+            "file": "territory.spec.ts",
+            "line": 151,
+            "title": "crossed runner cannot backcap in production",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7903
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 133,
+            "title": "Kit: back-to-back genuine touch press/release damages the known in-range target",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 12687
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 133,
+            "title": "Set: back-to-back genuine touch press/release damages the known in-range target",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 11107
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 149,
+            "title": "Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 10871
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 170,
+            "title": "Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 12755
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 188,
+            "title": "simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7492
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 218,
+            "title": "Kit: touchcancel while aiming never commits damage",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 9186
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 218,
+            "title": "Set: touchcancel while aiming never commits damage",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 9567
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 218,
+            "title": "Riven: touchcancel while aiming never commits damage",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 8305
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 229,
+            "title": "Riven: actual capture loss before release cancels without enqueuing a Basic",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 9226
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 271,
+            "title": "Kit: aimed non-Basic touch action produces authoritative damage",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7530
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 271,
+            "title": "Set: aimed non-Basic touch action produces authoritative damage",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 7458
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 271,
+            "title": "Riven: aimed non-Basic touch action produces authoritative damage",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 10373
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 282,
+            "title": "touch Solar Ring uses its radial radius and creates authoritative HIT feedback",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 6608
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 293,
+            "title": "Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 11513
+                }
+            ]
+        },
+        {
+            "file": "touch-combat.spec.ts",
+            "line": 319,
+            "title": "Set preview uses 1.65m cone, 150px cancellation is visible; Riven empty-path release visibly resolves MISS",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 15745
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 24,
+            "title": "touch secures mobility, visible camp and timed authoritative buff",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 20149
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 24,
+            "title": "touch secures cooldown, visible camp and timed authoritative buff",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 17743
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 24,
+            "title": "touch secures defense, visible camp and timed authoritative buff",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 18097
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 24,
+            "title": "touch secures damage, visible camp and timed authoritative buff",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 16150
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 67,
+            "title": "real captured touch leaves lane into Wilderness -1 and returns",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 24934
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 67,
+            "title": "real captured touch leaves lane into Wilderness 1 and returns",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 24409
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 100,
+            "title": "bot rotation physically leaves lane toward real camp in production",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 22721
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 122,
+            "title": "active reward HUD clear of controls 844 safe 0",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 18484
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 122,
+            "title": "active reward HUD clear of controls 844 safe 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 12759
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 122,
+            "title": "active reward HUD clear of controls 667 safe 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13600
+                }
+            ]
+        },
+        {
+            "file": "wilderness.spec.ts",
+            "line": 122,
+            "title": "active reward HUD clear of controls 640 safe 44",
+            "results": [
+                {
+                    "status": "passed",
+                    "retry": 0,
+                    "duration_ms": 13102
+                }
+            ]
+        }
+    ]
+}

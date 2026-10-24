@@ -1,0 +1,106 @@
+{
+    "publication": "unchanged prior release; new CI blocked",
+    "publicationSha": "cd43d91352f4906925f73600542c83ac2a8f3493",
+    "site": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/",
+    "files": [
+        {
+            "file": "index.html",
+            "sha256": "e5675e4db40b8385da37c366b4559725ea27a25135927768a202d6393e162aa5",
+            "bytes": 580
+        },
+        {
+            "file": "assets/index-BSBNewh8.js",
+            "sha256": "cd79f71c265c23f10a38052ea9fb35986012c8275869db4d95c39a4c0622f1ae",
+            "bytes": 1307720
+        },
+        {
+            "file": "assets/index-BG9Ns0t1.css",
+            "sha256": "75297fb99a9b6d86fcce654187af15365775261dc680d669e0e4cab327162539",
+            "bytes": 12332
+        }
+    ],
+    "glbResponses": [
+        {
+            "file": "assets/summoners/riven/Riven_Animated.glb",
+            "sha256": "ba2cb5d72eb2bcfe272c59a50b06a594100a5ac3ceac8f6af457c243c6a5de61",
+            "bytes": 11170312,
+            "status": 200
+        },
+        {
+            "file": "assets/summoners/set/Set_Animated.glb",
+            "sha256": "dbee0fd906f786f4af04eb87f130a816c0f98aa04531874487b403f7ca23e154",
+            "bytes": 10000416,
+            "status": 200
+        },
+        {
+            "file": "assets/summoners/kit/Kit_20K_Animated.glb",
+            "sha256": "b111e1f774b0483b78f45e43413515adb02e501941c5c99a995d09a43f96212f",
+            "bytes": 26939896,
+            "status": 200
+        }
+    ],
+    "models": [
+        {
+            "id": "1-0",
+            "summonerId": "kit-asher",
+            "instanceId": "c45aa25f-7df7-4dca-bfb8-b4aaf0f741b5",
+            "playing": true,
+            "animation": "Idle_5",
+            "beforeTime": 1.6499000000000017,
+            "afterTime": 1.7499000000000018
+        },
+        {
+            "id": "1-1",
+            "summonerId": "set",
+            "instanceId": "9b6dbffc-6a08-4e69-85ed-e8fa9512b791",
+            "playing": true,
+            "animation": "Running",
+            "beforeTime": 1.749900000000002,
+            "afterTime": 0
+        },
+        {
+            "id": "1-2",
+            "summonerId": "riven",
+            "instanceId": "9af36190-dd57-4666-aae5-7445f4fc72f5",
+            "playing": true,
+            "animation": "Idle_6",
+            "beforeTime": 2.183200000000003,
+            "afterTime": 2.283200000000003
+        },
+        {
+            "id": "2-0",
+            "summonerId": "kit-asher",
+            "instanceId": "7abd72ef-1062-4be7-a9ff-a94b45305329",
+            "playing": true,
+            "animation": "Idle_5",
+            "beforeTime": 1.6499000000000017,
+            "afterTime": 1.7499000000000018
+        },
+        {
+            "id": "2-1",
+            "summonerId": "set",
+            "instanceId": "4f48bf8e-827c-447a-937a-696729eec77f",
+            "playing": true,
+            "animation": "Ready",
+            "beforeTime": 1.749900000000002,
+            "afterTime": 1.849900000000002
+        },
+        {
+            "id": "2-2",
+            "summonerId": "riven",
+            "instanceId": "2e33fee7-1682-4a09-a137-a9bf1f642280",
+            "playing": true,
+            "animation": "Idle_6",
+            "beforeTime": 2.183200000000003,
+            "afterTime": 2.283200000000003
+        }
+    ],
+    "normalPhase": "active",
+    "rosterInstancesPreserved": true,
+    "errors": [],
+    "unityRoot": {
+        "status": 200,
+        "gitBlob": "11d54ce515a37802cd92ed1511fe7938ad254dfd",
+        "unchanged": true
+    }
+}

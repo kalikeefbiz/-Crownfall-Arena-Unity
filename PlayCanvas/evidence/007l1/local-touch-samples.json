@@ -1,0 +1,87 @@
+[
+    {
+        "traceTime": 1789607.175,
+        "frames": 2,
+        "position": {
+            "x": 0,
+            "z": 5
+        },
+        "movement": {
+            "x": 0,
+            "z": 0
+        },
+        "input": {
+            "pointer": "undefined",
+            "cancel": false
+        },
+        "combatTime": 0.03333333333333333
+    },
+    {
+        "traceTime": 1789721.14,
+        "frames": 9,
+        "position": {
+            "x": 0,
+            "z": 5
+        },
+        "movement": {
+            "x": 0,
+            "z": 0
+        },
+        "input": {
+            "pointer": "undefined",
+            "cancel": false
+        },
+        "combatTime": 0.15
+    },
+    {
+        "traceTime": 1794024.451,
+        "frames": 29,
+        "position": {
+            "x": 0.1333333333333333,
+            "z": 5
+        },
+        "movement": {
+            "x": 0.14814814814814814,
+            "z": 0
+        },
+        "input": {
+            "pointer": "down",
+            "cancel": false
+        },
+        "combatTime": 0.6000000000000002
+    },
+    {
+        "traceTime": 1794092.317,
+        "frames": 32,
+        "position": {
+            "x": 0.17777777777777773,
+            "z": 5
+        },
+        "movement": {
+            "x": 0.14814814814814814,
+            "z": 0
+        },
+        "input": {
+            "pointer": "down",
+            "cancel": false
+        },
+        "combatTime": 0.6500000000000004
+    },
+    {
+        "traceTime": 1794188.689,
+        "frames": 37,
+        "position": {
+            "x": 0.22222222222222215,
+            "z": 5
+        },
+        "movement": {
+            "x": 0,
+            "z": 0
+        },
+        "input": {
+            "pointer": "down",
+            "cancel": false
+        },
+        "combatTime": 0.7500000000000007
+    }
+]

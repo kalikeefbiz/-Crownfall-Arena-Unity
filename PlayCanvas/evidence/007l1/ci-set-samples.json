@@ -1,0 +1,213 @@
+{
+    "actor": "set",
+    "trace_sha256": "fead65316fbf4ddc15d294c24ecab58af8c38da75c85d7eaeeb38f217122f2e2",
+    "sample_count": 40,
+    "animation_states": {
+        "Ready": 1,
+        "Running": 39
+    },
+    "x_spread": 0.0,
+    "z_spread": 0.0,
+    "samples": [
+        {
+            "index": 0,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.072999198858724, 0.05088947340846062]
+        },
+        {
+            "index": 1,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0536346451623722, 0.05088947340846062]
+        },
+        {
+            "index": 2,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0311982632751722, 0.05088947340846062]
+        },
+        {
+            "index": 3,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.081797834904563, 0.05088947340846062]
+        },
+        {
+            "index": 4,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0788068771362305, 0.05088947340846062]
+        },
+        {
+            "index": 5,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.070972427945273, 0.05088947340846062]
+        },
+        {
+            "index": 6,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0456446270328208, 0.05088947340846062]
+        },
+        {
+            "index": 7,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0825705168475321, 0.05088947340846062]
+        },
+        {
+            "index": 8,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0626073232156805, 0.05088947340846062]
+        },
+        {
+            "index": 9,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0465562087842313, 0.05088947340846062]
+        },
+        {
+            "index": 10,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0356708078638766, 0.05088947340846062]
+        },
+        {
+            "index": 11,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0868072363613697, 0.05088947340846062]
+        },
+        {
+            "index": 12,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0709410091594562, 0.05088947340846062]
+        },
+        {
+            "index": 13,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0456413794464305, 0.05088947340846062]
+        },
+        {
+            "index": 14,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0825906201173372, 0.05088947340846062]
+        },
+        {
+            "index": 15,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0625711948610128, 0.05088947340846062]
+        },
+        {
+            "index": 16,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.03134673082408, 0.05088947340846062]
+        },
+        {
+            "index": 17,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0726080135492662, 0.05088947340846062]
+        },
+        {
+            "index": 18,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0848505609347847, 0.05088947340846062]
+        },
+        {
+            "index": 19,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.049377275004854, 0.05088947340846062]
+        },
+        {
+            "index": 20,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.069394131383837, 0.05088947340846062]
+        },
+        {
+            "index": 21,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.079012223191941, 0.05088947340846062]
+        },
+        {
+            "index": 22,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0355053160286363, 0.05088947340846062]
+        },
+        {
+            "index": 23,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0517684911323606, 0.05088947340846062]
+        },
+        {
+            "index": 24,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0913597895289537, 0.05088947340846062]
+        },
+        {
+            "index": 25,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0577196350898794, 0.05088947340846062]
+        },
+        {
+            "index": 26,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0530340729649876, 0.05088947340846062]
+        },
+        {
+            "index": 27,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0870275343789055, 0.05088947340846062]
+        },
+        {
+            "index": 28,
+            "animation": "Ready",
+            "hipLocalPosition": [0.005961951799690723, 1.0864828352200309, 0.05088947340846062]
+        },
+        {
+            "index": 29,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.006741362013046, 0.05088947340846062]
+        },
+        {
+            "index": 30,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0786502819265105, 0.05088947340846062]
+        },
+        {
+            "index": 31,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0536346451623722, 0.05088947340846062]
+        },
+        {
+            "index": 32,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0311982632751722, 0.05088947340846062]
+        },
+        {
+            "index": 33,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.081797834904563, 0.05088947340846062]
+        },
+        {
+            "index": 34,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0788068771362305, 0.05088947340846062]
+        },
+        {
+            "index": 35,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0464544338330164, 0.05088947340846062]
+        },
+        {
+            "index": 36,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0775576545816552, 0.05088947340846062]
+        },
+        {
+            "index": 37,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0716161296236575, 0.05088947340846062]
+        },
+        {
+            "index": 38,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0314969990304375, 0.05088947340846062]
+        },
+        {
+            "index": 39,
+            "animation": "Running",
+            "hipLocalPosition": [0.005961951799690723, 1.0633067353779309, 0.05088947340846062]
+        }
+    ]
+}

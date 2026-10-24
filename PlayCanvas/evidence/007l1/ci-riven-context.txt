@@ -1,0 +1,287 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: riven-model.spec.ts >> opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+- Location: tests/browser/riven-model.spec.ts:71:1
+
+# Error details
+
+```
+Error: expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic "Crownfall 3D test arena" [ref=e2]
+  - img "World combat preview"
+  - generic: −107.8
+  - generic:
+    - generic: Riven · YOU
+    - generic: Kit Asher
+    - generic: Set
+    - generic: Kit Asher
+    - generic: Set
+    - generic: Riven
+    - generic: COOLDOWN CAMP · 850 / 850
+    - generic: DAMAGE OBJECTIVE · 5200 / 5200
+  - main:
+    - generic:
+      - strong: CROWNFALL
+    - status: HIT · Damage · −107.8 · 1-0
+    - generic "Movement joystick" [ref=e3]:
+      - generic [ref=e4]: MOVE
+      - generic [ref=e5]: ✥
+    - combobox "Summoner" [disabled] [ref=e6]:
+      - option "Kit"
+      - option "Set"
+      - option "Riven" [selected]
+    - generic [ref=e7]:
+      - button "Reso Blades" [ref=e8]:
+        - strong: ◎
+        - generic: SCYTHES
+      - button "Elf Dance" [ref=e9]:
+        - strong: ✦
+        - generic: ELF DANCE
+      - button "AMP'D" [ref=e10]:
+        - strong: ✦
+      - button "Death Scream" [ref=e11]:
+        - strong: ♜
+        - generic: SCREAM
+        - generic: 0%
+      - button "Switch Stance" [ref=e12]:
+        - strong: ✦
+        - generic: SWITCH
+    - generic:
+      - region "Match scoreboard": BLUE 15 tickets · ACTIVE MATCH · 4:54 · RED 15 tickets Territory 46.3% / 53.8% · CP 0 / 53 of 1000 Front -2.10 · RED SCORING
+      - region "Team participants":
+        - generic:
+          - generic: Riven · YOU · 803 HP · FINAL READY · 0/0/0
+          - generic: Kit Asher · AI · 845 HP · FINAL READY · 0/0/0
+          - generic: Set · AI · 1625 HP · FINAL READY · 0/0/0
+        - generic:
+          - generic: Kit Asher · AI · 845 HP · FINAL READY · 0/0/0
+          - generic: Set · AI · 1625 HP · FINAL READY · 0/0/0
+          - generic: Riven · AI · 910 HP · FINAL READY · 0/0/0
+    - status
+    - 'button "Aim Assist: On" [pressed] [ref=e13]'
+    - link "Debug" [ref=e14] [cursor=pointer]:
+      - /url: "?debug=1"
+    - generic: Riven · 803/910 HP · Ultimate 0% · WASD move · Space Basic · Q/E/R skills · F stance
+```
+
+# Test source
+
+```ts
+  30  |         scale: number;
+  31  |         offset: number[];
+  32  |         height: number;
+  33  |         meshInstances: number;
+  34  |         jointCount: number;
+  35  |         yaw: number;
+  36  |         position: { x: number; y: number; z: number };
+  37  |         rootScale: number[];
+  38  |         hipLocalPosition: number[];
+  39  |         bounds: { min: number[]; max: number[] };
+  40  |         loadMs: number;
+  41  |     };
+  42  |     kitModel: { state: string; visible: boolean; activeAnimation: string };
+  43  |     combat: {
+  44  |         name: string;
+  45  |         player: { x: number; z: number; radius: number };
+  46  |         journal: { latestAccepted: { abilityId: string } | null };
+  47  |     };
+  48  |     territory: { camera: { x: number; y: number; z: number } };
+  49  |     frameMs: number;
+  50  |     facing: { owner: string };
+  51  |     aim: { x: number; z: number };
+  52  | };
+  53  | type Harness = { snapshot(): Inspection; verification: { arrange(name: string): void; advance(t: number): void } };
+  54  | const snapshot = (page: Page) =>
+  55  |     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.snapshot());
+  56  | const arrange = (page: Page) =>
+  57  |     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('combat'));
+  58  | async function chooseRiven(page: Page, url = '/?summonerModels=local&verify=1&rivenPreview=1') {
+  59  |     await page.goto(url);
+  60  |     await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
+  61  | }
+  62  |
+  63  | test('production serves the exact verified Riven GLB', async ({ request }) => {
+  64  |     const response = await request.get(`/${RIVEN_ASSET_PATH}`);
+  65  |     expect(response.ok()).toBe(true);
+  66  |     const bytes = await response.body();
+  67  |     expect(bytes.length).toBe(RIVEN_ASSET_BYTES);
+  68  |     expect(createHash('sha256').update(bytes).digest('hex')).toBe(RIVEN_ASSET_SHA256);
+  69  | });
+  70  |
+  71  | test('opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera', async ({ page }) => {
+  72  |     await page.setViewportSize({ width: 844, height: 390 });
+  73  |     const errors: string[] = [],
+  74  |         requests: string[] = [];
+  75  |     page.on('pageerror', (e) => errors.push(e.message));
+  76  |     page.on('request', (r) => {
+  77  |         if (r.url().endsWith('.glb')) requests.push(r.url());
+  78  |     });
+  79  |     await chooseRiven(page);
+  80  |     expect((await snapshot(page)).rivenModel.state).toBe('idle');
+  81  |     expect(requests).toEqual([]);
+  82  |     const before = await snapshot(page);
+  83  |     await arrange(page);
+  84  |     await expect.poll(async () => (await snapshot(page)).rivenModel.state).toBe('loaded');
+  85  |     // Container completion can precede the next presentation frame. Wait for the
+  86  |     // visible swap before asserting the settled render state.
+  87  |     await expect.poll(async () => (await snapshot(page)).rivenModel.visible).toBe(true);
+  88  |     const loaded = await snapshot(page),
+  89  |         m = loaded.rivenModel;
+  90  |     expect(loaded.combat.name).toBe('riven');
+  91  |     expect(loaded.combat.player.radius).toBe(before.combat.player.radius);
+  92  |     expect(m.visible).toBe(true);
+  93  |     expect(m.primitiveVisible).toBe(false);
+  94  |     expect(m.presentationOnly).toBe(true);
+  95  |     expect(m.rootScale).toEqual([1, 1, 1]);
+  96  |     expect(m.height * m.scale).toBeCloseTo(1.75, 5);
+  97  |     expect(m.bounds.min[1] * m.scale + m.offset[1]).toBeCloseTo(RIVEN_IDLE_FLOOR_OFFSET, 5);
+  98  |     expect(m.meshInstances).toBe(1);
+  99  |     expect(m.jointCount).toBe(68);
+  100 |     expect(m.clips.map((c) => c.name).sort()).toEqual(['Idle_6', 'Running', 'Walking', 'run_fast_7']);
+  101 |     expect(m.registeredStates).toEqual(['Idle_6', 'Walking', 'Running']);
+  102 |     expect(m.runningClip).toBe('Running');
+  103 |     expect(m.locomotionReason).toContain('failed loop validation');
+  104 |     expect(m.activeAnimation).toBe('Idle_6');
+  105 |     expect(m.playing).toBe(true);
+  106 |     expect(loaded.kitModel.state).toBe('idle');
+  107 |     expect(loaded.kitModel.visible).toBe(false);
+  108 |     await expect.poll(async () => (await snapshot(page)).rivenModel.playbackTime).toBeGreaterThan(m.playbackTime + 0.2);
+  109 |     await page.screenshot({ path: 'test-results/task007c-riven-idle.png' });
+  110 |     await page.keyboard.down('d');
+  111 |     await expect.poll(async () => (await snapshot(page)).rivenModel.position.x).toBeGreaterThan(m.position.x + 0.5);
+  112 |     await expect.poll(async () => (await snapshot(page)).rivenModel.activeAnimation).toBe('Running');
+  113 |     await expect.poll(async () => (await snapshot(page)).rivenModel.yaw).toBeCloseTo(90, 3);
+  114 |     // Play across several complete running cycles, with stable horizontal hips.
+  115 |     const samples = await page.evaluate(async () => {
+  116 |         const result = [];
+  117 |         for (let i = 0; i < 40; i++) {
+  118 |             await new Promise(requestAnimationFrame);
+  119 |             result.push((window as unknown as { __crownfall: Harness }).__crownfall.snapshot().rivenModel);
+  120 |         }
+  121 |         return result;
+  122 |     });
+  123 |     expect(
+  124 |         samples.every(
+  125 |             (s) =>
+  126 |                 s.activeAnimation === 'Running' &&
+  127 |                 s.hipLocalPosition[0] === m.hipLocalPosition[0] &&
+  128 |                 s.hipLocalPosition[2] === m.hipLocalPosition[2]
+  129 |         )
+> 130 |     ).toBe(true);
+      |       ^ Error: expect(received).toBe(expected) // Object.is equality
+  131 |     expect(
+  132 |         Math.max(...samples.map((s) => s.hipLocalPosition[1])) - Math.min(...samples.map((s) => s.hipLocalPosition[1]))
+  133 |     ).toBeGreaterThan(0.01);
+  134 |     expect(samples.at(-1)!.playbackTime).toBeGreaterThan(samples[0].playbackTime + 0.64);
+  135 |     await page.screenshot({ path: 'test-results/task007c-riven-running.png' });
+  136 |     await page.keyboard.up('d');
+  137 |     await expect.poll(async () => (await snapshot(page)).rivenModel.activeAnimation).toBe('Idle_6');
+  138 |     const moved = await snapshot(page);
+  139 |     expect(moved.rivenModel.position.x).toBeCloseTo(moved.combat.player.x, 5);
+  140 |     expect(moved.rivenModel.position.z).toBeCloseTo(moved.combat.player.z, 5);
+  141 |     expect(moved.rivenModel.position.y).toBe(0);
+  142 |     expect(moved.rivenModel.offset).toEqual(m.offset);
+  143 |     expect(moved.rivenModel.scale).toBe(m.scale);
+  144 |     expect(moved.rivenModel.yaw).toBeCloseTo(90, 3);
+  145 |     await page.keyboard.down('a');
+  146 |     await expect.poll(async () => (await snapshot(page)).rivenModel.yaw).toBeCloseTo(-90, 3);
+  147 |     await page.keyboard.up('a');
+  148 |     expect(requests).toHaveLength(1);
+  149 |     expect(requests[0]).toContain('/summoners/riven/');
+  150 |     console.log('Riven measured diagnostics', JSON.stringify({ ...m, frameMs: loaded.frameMs }));
+  151 |     expect(errors).toEqual([]);
+  152 | });
+  153 |
+  154 | test('Riven aim/commit facing uses Riven controls without Kit punch animations', async ({ page }) => {
+  155 |     await chooseRiven(page);
+  156 |     await arrange(page);
+  157 |     await expect.poll(async () => (await snapshot(page)).rivenModel.state).toBe('loaded');
+  158 |     const button = page.getByRole('button', { name: 'Reso Blades', exact: true });
+  159 |     const b = (await button.boundingBox())!;
+  160 |     await page.mouse.move(b.x + b.width / 2, b.y + b.height / 2);
+  161 |     await page.mouse.down();
+  162 |     await page.mouse.move(b.x + b.width / 2 - 40, b.y + b.height / 2 - 20);
+  163 |     await expect.poll(async () => (await snapshot(page)).facing.owner).toBe('aim');
+  164 |     expect((await snapshot(page)).combat.journal.latestAccepted).toBeNull();
+  165 |     await expect
+  166 |         .poll(async () => {
+  167 |             const s = await snapshot(page);
+  168 |             return Math.abs(s.rivenModel.yaw - (Math.atan2(s.aim.x, s.aim.z) * 180) / Math.PI);
+  169 |         })
+  170 |         .toBeLessThan(0.001);
+  171 |     await page.keyboard.down('d');
+  172 |     await expect.poll(async () => (await snapshot(page)).rivenModel.activeAnimation).toBe('Running');
+  173 |     await page.mouse.up();
+  174 |     await expect.poll(async () => (await snapshot(page)).facing.owner).toBe('commit');
+  175 |     await expect.poll(async () => (await snapshot(page)).combat.journal.latestAccepted?.abilityId).toBe('reso');
+  176 |     await page.keyboard.up('d');
+  177 |     await expect.poll(async () => (await snapshot(page)).rivenModel.activeAnimation).toBe('Idle_6');
+  178 |     expect((await snapshot(page)).rivenModel.registeredStates).not.toContain('Punch_Combo_1');
+  179 | });
+  180 |
+  181 | for (const suffix of ['', '&rivenPrimitive=1']) {
+  182 |     test(`Riven primitive skips the download with ${suffix || 'no developer opt-in'}`, async ({ page }) => {
+  183 |         const requests: string[] = [];
+  184 |         page.on('request', (r) => {
+  185 |             if (r.url().endsWith('.glb')) requests.push(r.url());
+  186 |         });
+  187 |         await chooseRiven(
+  188 |             page,
+  189 |             suffix ? `/?summonerModels=local&verify=1&rivenPreview=1${suffix}` : '/?summonerModels=local&verify=1'
+  190 |         );
+  191 |         await arrange(page);
+  192 |         const m = (await snapshot(page)).rivenModel;
+  193 |         expect(m.state).toBe('idle');
+  194 |         expect(m.visible).toBe(false);
+  195 |         expect(m.primitiveVisible).toBe(true);
+  196 |         expect(requests).toEqual([]);
+  197 |     });
+  198 | }
+  199 |
+  200 | test('pending and failed Riven loading retain a moving primitive', async ({ page }) => {
+  201 |     let release!: () => void;
+  202 |     const gate = new Promise<void>((resolve) => {
+  203 |         release = resolve;
+  204 |     });
+  205 |     await page.route('**/Riven_Animated.glb', async (route) => {
+  206 |         await gate;
+  207 |         await route.abort();
+  208 |     });
+  209 |     await chooseRiven(page);
+  210 |     await arrange(page);
+  211 |     await expect.poll(async () => (await snapshot(page)).rivenModel.state).toBe('loading');
+  212 |     expect((await snapshot(page)).rivenModel.primitiveVisible).toBe(true);
+  213 |     release();
+  214 |     await expect.poll(async () => (await snapshot(page)).rivenModel.state).toBe('error');
+  215 |     expect((await snapshot(page)).rivenModel.primitiveVisible).toBe(true);
+  216 |     expect((await snapshot(page)).rivenModel.visible).toBe(false);
+  217 |     await page.keyboard.down('d');
+  218 |     await expect.poll(async () => (await snapshot(page)).combat.player.x).toBeGreaterThan(0.5);
+  219 |     await page.keyboard.up('d');
+  220 | });
+  221 |
+  222 | test('valid container missing a required Riven clip safely falls back', async ({ page }) => {
+  223 |     const body = readFileSync(`public/${RIVEN_ASSET_PATH}`);
+  224 |     const index = body.indexOf(Buffer.from('"Idle_6"'));
+  225 |     expect(index).toBeGreaterThan(0);
+  226 |     body.write('"Absent"', index); // Same-length metadata edit preserves a valid GLB container.
+  227 |     await page.route('**/Riven_Animated.glb', (route) =>
+  228 |         route.fulfill({ status: 200, contentType: 'model/gltf-binary', body })
+  229 |     );
+  230 |     await chooseRiven(page);
+```

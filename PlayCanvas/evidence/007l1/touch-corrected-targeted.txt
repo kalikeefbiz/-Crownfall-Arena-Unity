@@ -1,0 +1,30 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/touch-combat.spec.ts --retries=0 --reporter=line,json --trace=retain-on-failure
+
+[WebServer] (node:9345) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 15 tests using 1 worker
+
+(node:9364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/15] tests/browser/touch-combat.spec.ts:126:5 › Kit: back-to-back genuine touch press/release damages the known in-range target
+[2/15] tests/browser/touch-combat.spec.ts:126:5 › Set: back-to-back genuine touch press/release damages the known in-range target
+[3/15] tests/browser/touch-combat.spec.ts:142:1 › Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes
+[4/15] tests/browser/touch-combat.spec.ts:163:1 › Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch
+[5/15] tests/browser/touch-combat.spec.ts:181:1 › simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves
+[6/15] tests/browser/touch-combat.spec.ts:203:5 › Kit: touchcancel while aiming never commits damage
+[7/15] tests/browser/touch-combat.spec.ts:203:5 › Set: touchcancel while aiming never commits damage
+[8/15] tests/browser/touch-combat.spec.ts:203:5 › Riven: touchcancel while aiming never commits damage
+[9/15] tests/browser/touch-combat.spec.ts:214:1 › Riven: actual capture loss before release cancels without enqueuing a Basic
+[10/15] tests/browser/touch-combat.spec.ts:256:5 › Kit: aimed non-Basic touch action produces authoritative damage
+[11/15] tests/browser/touch-combat.spec.ts:256:5 › Set: aimed non-Basic touch action produces authoritative damage
+[12/15] tests/browser/touch-combat.spec.ts:256:5 › Riven: aimed non-Basic touch action produces authoritative damage
+[13/15] tests/browser/touch-combat.spec.ts:267:1 › touch Solar Ring uses its radial radius and creates authoritative HIT feedback
+[14/15] tests/browser/touch-combat.spec.ts:278:1 › Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target
+[15/15] tests/browser/touch-combat.spec.ts:304:1 › Set preview uses 1.65m cone, 150px cancellation is visible; Riven empty-path release visibly resolves MISS
+  15 passed (2.6m)

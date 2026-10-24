@@ -1,0 +1,254 @@
+[
+    {
+        "font": "\"DejaVu Sans\", sans-serif",
+        "phase": "prematch",
+        "state": {
+            "#scoreboard": {
+                "x": 167.140625,
+                "y": 8,
+                "width": 305.71875,
+                "height": 52,
+                "bottom": 60,
+                "top": "auto",
+                "left": "auto",
+                "font": "800 10px / 14px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "14px",
+                "whiteSpace": "pre-line",
+                "text": "BLUE 15 tickets · PREMATCH · 5:00 · RED 15 tickets\nTerritory 50.0% / 50.0% · CP 0 / 0 of 1000\nFront 0.00 · NEUTRAL"
+            },
+            "#team-status": {
+                "x": 102.40625,
+                "y": 64,
+                "width": 435.1875,
+                "height": 46,
+                "bottom": 110,
+                "top": "auto",
+                "left": "auto",
+                "font": "8px / 12px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "12px",
+                "whiteSpace": "normal",
+                "text": "Kit Asher · YOU · 845 HP · FINAL READY · 0/0/0Set · AI · 1625 HP · FINAL READY · 0/0/0Riven · AI · 910 HP · FINAL READY · 0/0/0Kit Asher · AI · 845 HP · FINAL READY · 0/0/0Set · AI · 1625 HP · FINAL READY · 0/0/0Riven · AI · 910 HP · FINAL READY · 0/0/0"
+            },
+            "#wilderness-buffs": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "bottom": 0,
+                "top": "auto",
+                "left": "auto",
+                "font": "8px / 12px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "12px",
+                "whiteSpace": "normal",
+                "text": ""
+            },
+            "#kill-feed": {
+                "x": 102.40625,
+                "y": 110,
+                "width": 435.1875,
+                "height": 0,
+                "bottom": 110,
+                "top": "auto",
+                "left": "auto",
+                "font": "9px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": ""
+            },
+            "#battle-announcement": {
+                "x": 96,
+                "y": 144.453125,
+                "width": 448,
+                "height": 20.6875,
+                "bottom": 165.140625,
+                "top": "154.797px",
+                "left": "320px",
+                "font": "900 18px / 20.7px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "20.7px",
+                "whiteSpace": "normal",
+                "text": "Choose your Summoner. Ready for 3v3?"
+            },
+            "#combat-feedback": {
+                "x": 185.6015625,
+                "y": 185,
+                "width": 268.796875,
+                "height": 42,
+                "bottom": 227,
+                "top": "185px",
+                "left": "320px",
+                "font": "750 11px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": "READY · Blue human · fight Red Summoners"
+            }
+        }
+    },
+    {
+        "font": "\"DejaVu Sans\", sans-serif",
+        "phase": "countdown",
+        "state": {
+            "#scoreboard": {
+                "x": 160.109375,
+                "y": 8,
+                "width": 319.765625,
+                "height": 52,
+                "bottom": 60,
+                "top": "auto",
+                "left": "auto",
+                "font": "800 10px / 14px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "14px",
+                "whiteSpace": "pre-line",
+                "text": "BLUE 15 tickets · COUNTDOWN · 5:00 · RED 15 tickets\nTerritory 50.0% / 50.0% · CP 0 / 0 of 1000\nFront 0.00 · NEUTRAL"
+            },
+            "#team-status": {
+                "x": 102.40625,
+                "y": 64,
+                "width": 435.1875,
+                "height": 46,
+                "bottom": 110,
+                "top": "auto",
+                "left": "auto",
+                "font": "8px / 12px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "12px",
+                "whiteSpace": "normal",
+                "text": "Kit Asher · YOU · 845 HP · FINAL READY · 0/0/0Set · AI · 1625 HP · FINAL READY · 0/0/0Riven · AI · 910 HP · FINAL READY · 0/0/0Kit Asher · AI · 845 HP · FINAL READY · 0/0/0Set · AI · 1625 HP · FINAL READY · 0/0/0Riven · AI · 910 HP · FINAL READY · 0/0/0"
+            },
+            "#wilderness-buffs": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "bottom": 0,
+                "top": "auto",
+                "left": "auto",
+                "font": "8px / 12px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "12px",
+                "whiteSpace": "normal",
+                "text": ""
+            },
+            "#kill-feed": {
+                "x": 102.40625,
+                "y": 110,
+                "width": 435.1875,
+                "height": 0,
+                "bottom": 110,
+                "top": "auto",
+                "left": "auto",
+                "font": "9px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": ""
+            },
+            "#battle-announcement": {
+                "x": 311.6484375,
+                "y": 140.796875,
+                "width": 16.703125,
+                "height": 28,
+                "bottom": 168.796875,
+                "top": "154.797px",
+                "left": "320px",
+                "font": "900 24px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": "3"
+            },
+            "#combat-feedback": {
+                "x": 185.6015625,
+                "y": 185,
+                "width": 268.796875,
+                "height": 42,
+                "bottom": 227,
+                "top": "185px",
+                "left": "320px",
+                "font": "750 11px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": "READY · Blue human · fight Red Summoners"
+            }
+        }
+    },
+    {
+        "font": "\"DejaVu Sans\", sans-serif",
+        "phase": "pressure",
+        "state": {
+            "#scoreboard": {
+                "x": 156.234375,
+                "y": 8,
+                "width": 327.53125,
+                "height": 52,
+                "bottom": 60,
+                "top": "auto",
+                "left": "auto",
+                "font": "800 10px / 14px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "14px",
+                "whiteSpace": "pre-line",
+                "text": "BLUE 15 tickets · ACTIVE MATCH · 5:00 · RED 15 tickets\nTerritory 50.0% / 50.0% · CP 0 / 0 of 1000\nFront 0.00 · NEUTRAL"
+            },
+            "#team-status": {
+                "x": 102.40625,
+                "y": 64,
+                "width": 435.1875,
+                "height": 46,
+                "bottom": 110,
+                "top": "auto",
+                "left": "auto",
+                "font": "8px / 12px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "12px",
+                "whiteSpace": "normal",
+                "text": "Kit Asher · YOU · 845 HP · FINAL READY · 0/0/0Set · AI · 1625 HP · FINAL READY · 0/0/0Riven · AI · 910 HP · FINAL READY · 0/0/0Kit Asher · AI · 845 HP · FINAL READY · 0/0/0Set · AI · 1625 HP · FINAL READY · 0/0/0Riven · AI · 910 HP · FINAL READY · 0/0/0"
+            },
+            "#wilderness-buffs": {
+                "x": 0,
+                "y": 0,
+                "width": 0,
+                "height": 0,
+                "bottom": 0,
+                "top": "auto",
+                "left": "auto",
+                "font": "8px / 12px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "12px",
+                "whiteSpace": "normal",
+                "text": ""
+            },
+            "#kill-feed": {
+                "x": 102.40625,
+                "y": 110,
+                "width": 435.1875,
+                "height": 0,
+                "bottom": 110,
+                "top": "auto",
+                "left": "auto",
+                "font": "9px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": ""
+            },
+            "#battle-announcement": {
+                "x": 167.2890625,
+                "y": 140.796875,
+                "width": 305.421875,
+                "height": 28,
+                "bottom": 168.796875,
+                "top": "154.797px",
+                "left": "320px",
+                "font": "900 24px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": "MATCH START · FIGHT!"
+            },
+            "#combat-feedback": {
+                "x": 185.6015625,
+                "y": 185,
+                "width": 268.796875,
+                "height": 42,
+                "bottom": 227,
+                "top": "185px",
+                "left": "320px",
+                "font": "750 11px \"DejaVu Sans\", sans-serif",
+                "lineHeight": "normal",
+                "whiteSpace": "normal",
+                "text": "READY · Blue human · fight Red Summoners"
+            }
+        }
+    }
+]

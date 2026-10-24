@@ -1,0 +1,30 @@
+[
+    {
+        "trace": "riven-model-opt-in-Riven-l-354df-at-the-locked-mobile-camera",
+        "file": "assets/index-D-9p9G16.css",
+        "status": 200,
+        "resource": "resources/39c59fe7a190ef637b27660daf84514e5a72854d.css",
+        "bytes": 11829,
+        "sha256": "601081d02761817f1f1121214ead098bb099aea8a9a7519016ac1efc50b56421"
+    },
+    {
+        "trace": "riven-model-opt-in-Riven-l-354df-at-the-locked-mobile-camera",
+        "file": "assets/index-CSTEtNkC.js",
+        "status": 200,
+        "note": "JavaScript body was not retained in trace; no validated-build artifact exists because validation failed."
+    },
+    {
+        "trace": "set-model-opt-in-Set-loads-3e7a5-at-the-locked-mobile-camera",
+        "file": "assets/index-D-9p9G16.css",
+        "status": 200,
+        "resource": "resources/39c59fe7a190ef637b27660daf84514e5a72854d.css",
+        "bytes": 11829,
+        "sha256": "601081d02761817f1f1121214ead098bb099aea8a9a7519016ac1efc50b56421"
+    },
+    {
+        "trace": "set-model-opt-in-Set-loads-3e7a5-at-the-locked-mobile-camera",
+        "file": "assets/index-CSTEtNkC.js",
+        "status": 200,
+        "note": "JavaScript body was not retained in trace; no validated-build artifact exists because validation failed."
+    }
+]

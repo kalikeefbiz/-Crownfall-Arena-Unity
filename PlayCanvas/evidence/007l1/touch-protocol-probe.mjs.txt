@@ -1,0 +1,15 @@
+import { chromium } from '/workspace/crownfall/PlayCanvas/node_modules/playwright/index.mjs';
+import fs from 'node:fs/promises';
+const browser=await chromium.launch({args:['--no-sandbox']});
+const results=[];
+for(const method of ['remaining-points','released-point']) {
+ const c=await browser.newContext({viewport:{width:844,height:390},isMobile:true,hasTouch:true,deviceScaleFactor:2});const p=await c.newPage();
+ await p.setContent('<style>button{position:absolute;top:80px;width:100px;height:100px;touch-action:none}#move{left:50px}#ability{left:250px}</style><button id="move">move</button><button id="ability">ability</button>');
+ await p.evaluate(()=>{window.events=[];for(const b of document.querySelectorAll('button')){b.addEventListener('pointerdown',e=>{e.preventDefault();b.setPointerCapture(e.pointerId)});for(const type of ['pointerdown','pointerup','pointercancel','lostpointercapture'])b.addEventListener(type,e=>window.events.push({type,target:e.target.id,id:e.pointerId,trusted:e.isTrusted}));}});
+ const cdp=await c.newCDPSession(p);const m={id:1,x:100,y:130,radiusX:4,radiusY:4,force:1},a={...m,id:2,x:300};
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[m]});await cdp.send('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[m,a]});
+ const points=method==='remaining-points'?[m]:[a];
+ await cdp.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:points});
+ const events=await p.evaluate(()=>window.events);results.push({method,releaseRequest:{type:'touchEnd',touchPoints:points},events});await c.close();
+}
+await browser.close();await fs.writeFile('/workspace/007l1-evidence/touch-protocol-probe.json',JSON.stringify(results,null,2)+'\n');console.log(JSON.stringify(results));

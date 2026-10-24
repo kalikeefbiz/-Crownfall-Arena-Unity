@@ -1,0 +1,86 @@
+[
+    {
+        "method": "remaining-points",
+        "releaseRequest": {
+            "type": "touchEnd",
+            "touchPoints": [
+                {
+                    "id": 1,
+                    "x": 100,
+                    "y": 130,
+                    "radiusX": 4,
+                    "radiusY": 4,
+                    "force": 1
+                }
+            ]
+        },
+        "events": [
+            {
+                "type": "pointerdown",
+                "target": "move",
+                "id": 2,
+                "trusted": true
+            },
+            {
+                "type": "pointerdown",
+                "target": "ability",
+                "id": 3,
+                "trusted": true
+            },
+            {
+                "type": "pointerup",
+                "target": "move",
+                "id": 2,
+                "trusted": true
+            },
+            {
+                "type": "lostpointercapture",
+                "target": "move",
+                "id": 2,
+                "trusted": true
+            }
+        ]
+    },
+    {
+        "method": "released-point",
+        "releaseRequest": {
+            "type": "touchEnd",
+            "touchPoints": [
+                {
+                    "id": 2,
+                    "x": 300,
+                    "y": 130,
+                    "radiusX": 4,
+                    "radiusY": 4,
+                    "force": 1
+                }
+            ]
+        },
+        "events": [
+            {
+                "type": "pointerdown",
+                "target": "move",
+                "id": 2,
+                "trusted": true
+            },
+            {
+                "type": "pointerdown",
+                "target": "ability",
+                "id": 3,
+                "trusted": true
+            },
+            {
+                "type": "pointerup",
+                "target": "ability",
+                "id": 3,
+                "trusted": true
+            },
+            {
+                "type": "lostpointercapture",
+                "target": "ability",
+                "id": 3,
+                "trusted": true
+            }
+        ]
+    }
+]

@@ -1,0 +1,122 @@
+[
+    {
+        "scale": "device",
+        "name": "Kit",
+        "seconds": 11.4612435,
+        "before": {
+            "dpr": 2,
+            "canvas": [1688, 780],
+            "score": {
+                "x": 281.46875,
+                "y": 8,
+                "width": 281.0625,
+                "height": 52,
+                "top": 8,
+                "right": 562.53125,
+                "bottom": 60,
+                "left": 281.46875
+            },
+            "frames": 20
+        }
+    },
+    {
+        "scale": "device",
+        "name": "Set",
+        "seconds": 12.119314625,
+        "before": {
+            "dpr": 2,
+            "canvas": [1688, 780],
+            "score": {
+                "x": 281.46875,
+                "y": 8,
+                "width": 281.0625,
+                "height": 52,
+                "top": 8,
+                "right": 562.53125,
+                "bottom": 60,
+                "left": 281.46875
+            },
+            "frames": 46
+        }
+    },
+    {
+        "scale": "device",
+        "name": "Riven",
+        "seconds": 14.035207124000001,
+        "before": {
+            "dpr": 2,
+            "canvas": [1688, 780],
+            "score": {
+                "x": 281.46875,
+                "y": 8,
+                "width": 281.0625,
+                "height": 52,
+                "top": 8,
+                "right": 562.53125,
+                "bottom": 60,
+                "left": 281.46875
+            },
+            "frames": 65
+        }
+    },
+    {
+        "scale": "css",
+        "name": "Kit",
+        "seconds": 4.2764543019999985,
+        "before": {
+            "dpr": 2,
+            "canvas": [1688, 780],
+            "score": {
+                "x": 281.46875,
+                "y": 8,
+                "width": 281.0625,
+                "height": 52,
+                "top": 8,
+                "right": 562.53125,
+                "bottom": 60,
+                "left": 281.46875
+            },
+            "frames": 23
+        }
+    },
+    {
+        "scale": "css",
+        "name": "Set",
+        "seconds": 11.692571717999993,
+        "before": {
+            "dpr": 2,
+            "canvas": [1688, 780],
+            "score": {
+                "x": 281.46875,
+                "y": 8,
+                "width": 281.0625,
+                "height": 52,
+                "top": 8,
+                "right": 562.53125,
+                "bottom": 60,
+                "left": 281.46875
+            },
+            "frames": 43
+        }
+    },
+    {
+        "scale": "css",
+        "name": "Riven",
+        "seconds": 10.784543187999995,
+        "before": {
+            "dpr": 2,
+            "canvas": [1688, 780],
+            "score": {
+                "x": 281.46875,
+                "y": 8,
+                "width": 281.0625,
+                "height": 52,
+                "top": 8,
+                "right": 562.53125,
+                "bottom": 60,
+                "left": 281.46875
+            },
+            "frames": 60
+        }
+    }
+]

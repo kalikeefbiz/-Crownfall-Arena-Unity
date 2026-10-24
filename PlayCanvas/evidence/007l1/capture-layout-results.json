@@ -1,0 +1,38 @@
+[
+    {
+        "test": "landscape targets and HUD stay clear at 844x390, safe inset 0",
+        "results": [
+            {
+                "status": "passed",
+                "duration_ms": 49001
+            }
+        ]
+    },
+    {
+        "test": "landscape targets and HUD stay clear at 844x390, safe inset 44",
+        "results": [
+            {
+                "status": "passed",
+                "duration_ms": 55706
+            }
+        ]
+    },
+    {
+        "test": "landscape targets and HUD stay clear at 667x375, safe inset 44",
+        "results": [
+            {
+                "status": "passed",
+                "duration_ms": 49125
+            }
+        ]
+    },
+    {
+        "test": "landscape targets and HUD stay clear at 640x360, safe inset 44",
+        "results": [
+            {
+                "status": "passed",
+                "duration_ms": 52380
+            }
+        ]
+    }
+]

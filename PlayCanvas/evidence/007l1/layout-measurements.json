@@ -1,0 +1,2268 @@
+{
+    "baseline": [
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.4765625,
+                    "y": 8,
+                    "width": 277.046875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 194.8046875,
+                    "y": 8,
+                    "width": 250.390625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.4765625,
+                    "y": 8,
+                    "width": 277.046875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 194.8046875,
+                    "y": 8,
+                    "width": 250.390625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.4765625,
+                    "y": 8,
+                    "width": 277.046875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 194.8046875,
+                    "y": 8,
+                    "width": 250.390625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.1640625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.5234375,
+                    "y": 8,
+                    "width": 276.953125,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 192.1640625,
+                    "y": 8,
+                    "width": 255.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.1640625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.1640625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.5234375,
+                    "y": 8,
+                    "width": 276.953125,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 192.1640625,
+                    "y": 8,
+                    "width": 255.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.1640625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.1640625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.5234375,
+                    "y": 8,
+                    "width": 276.953125,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 70,
+                    "bottom": 134,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 192.1640625,
+                    "y": 8,
+                    "width": 255.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.1640625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "\"DejaVu Sans\", sans-serif",
+            "summoner": "Kit",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 167.140625,
+                    "y": 8,
+                    "width": 305.71875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "\"DejaVu Sans\", sans-serif",
+            "summoner": "Kit",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 160.1171875,
+                    "y": 8,
+                    "width": 319.765625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "\"DejaVu Sans\", sans-serif",
+            "summoner": "Kit",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 160,
+                    "y": 8,
+                    "width": 320,
+                    "height": 66,
+                    "bottom": 74,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        }
+    ],
+    "corrected": [
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.46875,
+                    "y": 8,
+                    "width": 277.046875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 194.796875,
+                    "y": 8,
+                    "width": 250.390625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Kit",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.46875,
+                    "y": 8,
+                    "width": 277.046875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 194.796875,
+                    "y": 8,
+                    "width": 250.390625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Set",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.46875,
+                    "y": 8,
+                    "width": 277.046875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 179.46875,
+                    "y": 8,
+                    "width": 281.0625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 194.796875,
+                    "y": 8,
+                    "width": 250.390625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "system-ui, sans-serif",
+            "summoner": "Riven",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 188.953125,
+                    "y": 8,
+                    "width": 262.09375,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.15625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.515625,
+                    "y": 8,
+                    "width": 276.953125,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 192.15625,
+                    "y": 8,
+                    "width": 255.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Kit",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.15625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.15625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.515625,
+                    "y": 8,
+                    "width": 276.953125,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 58,
+                    "bottom": 122,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 192.15625,
+                    "y": 8,
+                    "width": 255.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Set",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.15625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Set \u00b7 YOU \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.15625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 181.515625,
+                    "y": 8,
+                    "width": 276.953125,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "pressure-long",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 177.90625,
+                    "y": 8,
+                    "width": 284.1875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 2:57 \u00b7 RED 15 tickets\nTerritory 60.7% / 39.3% \u00b7 CP 999 / 876 of 1000\nFront -28.02 \u00b7 BLUE PRESSURE \u00b7 grace 1.9s"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 70,
+                    "bottom": 134,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 SHIELD \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "results",
+            "phase": "results",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 192.15625,
+                    "y": 8,
+                    "width": 255.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 RESULTS \u00b7 0:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 999 / 876 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 12/2/12Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 12/2/12Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 12/2/12"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "Arial, sans-serif",
+            "summoner": "Riven",
+            "scenario": "restart",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 187.15625,
+                    "y": 8,
+                    "width": 265.671875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Riven \u00b7 YOU \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "\"DejaVu Sans\", sans-serif",
+            "summoner": "Kit",
+            "scenario": "prematch",
+            "phase": "prematch",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 167.140625,
+                    "y": 8,
+                    "width": 305.71875,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 PREMATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "\"DejaVu Sans\", sans-serif",
+            "summoner": "Kit",
+            "scenario": "countdown",
+            "phase": "countdown",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 160.109375,
+                    "y": 8,
+                    "width": 319.765625,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 COUNTDOWN \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        },
+        {
+            "width": 640,
+            "height": 360,
+            "safe": 44,
+            "font": "\"DejaVu Sans\", sans-serif",
+            "summoner": "Kit",
+            "scenario": "active",
+            "phase": "active",
+            "rows": [
+                {
+                    "selector": "#scoreboard",
+                    "x": 156.234375,
+                    "y": 8,
+                    "width": 327.53125,
+                    "height": 52,
+                    "bottom": 60,
+                    "text": "BLUE 15 tickets \u00b7 ACTIVE MATCH \u00b7 5:00 \u00b7 RED 15 tickets\nTerritory 50.0% / 50.0% \u00b7 CP 0 / 0 of 1000\nFront 0.00 \u00b7 NEUTRAL"
+                },
+                {
+                    "selector": "#team-status",
+                    "x": 102.40625,
+                    "y": 64,
+                    "width": 435.1875,
+                    "height": 46,
+                    "bottom": 110,
+                    "text": "Kit Asher \u00b7 YOU \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0Kit Asher \u00b7 AI \u00b7 845 HP \u00b7 FINAL READY \u00b7 0/0/0Set \u00b7 AI \u00b7 1625 HP \u00b7 FINAL READY \u00b7 0/0/0Riven \u00b7 AI \u00b7 910 HP \u00b7 FINAL READY \u00b7 0/0/0"
+                }
+            ]
+        }
+    ]
+}

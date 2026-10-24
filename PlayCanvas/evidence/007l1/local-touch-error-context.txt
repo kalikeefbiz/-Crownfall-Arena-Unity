@@ -1,0 +1,280 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: touch-combat.spec.ts >> simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves
+- Location: tests/browser/touch-combat.spec.ts:177:1
+
+# Error details
+
+```
+Error: expect(received).toBeGreaterThan(expected)
+
+Expected: > 0
+Received:   0
+```
+
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - generic "Crownfall 3D test arena" [ref=e2]
+  - img "World combat preview"
+  - generic:
+    - generic: MOBILE TEST · 1.11m Face gold target from RESET
+    - generic: Solar Whip · cone · 2.80m
+    - generic: −110
+    - generic: −110
+    - generic: −110
+    - generic: −110
+    - generic: −150
+    - generic: −150
+    - generic: −150
+    - generic: −150
+  - main:
+    - generic:
+      - strong: CROWNFALL
+    - status: HIT · Solar Whip · −110 · mobile-test
+    - generic "Runtime diagnostics": "MOVE 0.00, 0.00 AIM 0.00, -1.00 (continuous) FACE Back / aim MODE targeting / pre-cast · lock 0.23s POS 0.22, 5.00 · collisions 0 FRAME 28.3ms · 35 FPS · #37 VIEW 844×390 · DPR 2 SAFE T0px R0px B0px L0px"
+    - generic "Movement joystick" [ref=e3]:
+      - generic [ref=e4]: MOVE
+      - generic [ref=e5]: ✥
+    - combobox "Summoner" [ref=e6]:
+      - option "Kit" [selected]
+      - option "Set"
+      - option "Riven"
+    - button "Reset sandbox" [ref=e7]
+    - 'button "Debug: charge ultimate" [ref=e8]'
+    - 'button "Debug: receive 100 damage" [ref=e9]'
+    - generic [ref=e10]:
+      - button "Solar Whip" [ref=e11]:
+        - strong: ◎
+        - generic: WHIP
+        - generic: "0.5"
+      - button "Ember Step" [ref=e12]:
+        - strong: ✦
+        - generic: STEP
+      - button "Solar Ring" [ref=e13]:
+        - strong: ✦
+        - generic: RING
+      - button "The Last Flame" [ref=e14]:
+        - strong: ♜
+        - generic: DRAGON
+        - generic: 31%
+    - generic: Kit · HP 650/650 ULT 13.2 · alive CAST REJECTED cooldown · whip RESULT whip · HIT · 4 targets TX whip → mobile-test −110 Solar Whip · strike 1 SELF near-a HP 4890 near-b HP 4890 line-a HP 5000 line-b HP 5000 ally HP 5000 object HP 4890 mobile-test HP 4890
+    - generic [ref=e16]:
+      - checkbox "3v3 lifecycle" [ref=e17]
+      - text: 3v3 lifecycle
+    - generic: "RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE"
+```
+
+# Test source
+
+```ts
+  88  |     };
+  89  |     const move = async (id: number, dx: number, dy: number) => {
+  90  |         const p = points.get(id)!;
+  91  |         points.set(id, { ...p, x: p.x + dx, y: p.y + dy });
+  92  |         await send('touchMove');
+  93  |     };
+  94  |     const end = async (id: number) => {
+  95  |         points.delete(id);
+  96  |         await send('touchEnd');
+  97  |     };
+  98  |     const tap = async (selector: string) => {
+  99  |         const id = await start(selector);
+  100 |         await end(id);
+  101 |     };
+  102 |     const cancel = async () => {
+  103 |         points.clear();
+  104 |         await send('touchCancel');
+  105 |     };
+  106 |     const finish = async () => {
+  107 |         const events = await page.evaluate(
+  108 |             () => (window as unknown as { touchEvidence: { pointerType: string; trusted: boolean }[] }).touchEvidence
+  109 |         );
+  110 |         expect(events.length).toBeGreaterThan(0);
+  111 |         expect(events.every((e) => e.pointerType === 'touch' && e.trusted)).toBe(true);
+  112 |         expect(errors).toEqual([]);
+  113 |         await context.close();
+  114 |     };
+  115 |     return { page, cdp, start, move, end, tap, cancel, finish };
+  116 | }
+  117 |
+  118 | for (const [label, id, amount] of [
+  119 |     ['Kit', 'whip', 110],
+  120 |     ['Set', 'claw', 90]
+  121 | ] as const) {
+  122 |     test(`${label}: back-to-back genuine touch press/release damages the known in-range target`, async ({
+  123 |         browser
+  124 |     }) => {
+  125 |         const h = await mobile(browser, label);
+  126 |         await h.tap('.ability-' + id);
+  127 |         await expect.poll(async () => damage(await snapshot(h.page), id)).toBe(amount);
+  128 |         expect(hp(await snapshot(h.page))).toBe(5000 - amount);
+  129 |         expect((await snapshot(h.page)).combat.journal.latestAccepted?.result).toBe('HIT');
+  130 |         await expect(h.page.locator('#combat-feedback')).toContainText('HIT');
+  131 |         await expect(h.page.locator('.damage-number[data-target="mobile-test"]')).toContainText('−' + amount);
+  132 |         await expect(h.page.locator('#combat-diagnostics')).toContainText('TX ' + id);
+  133 |         await h.page.screenshot({ path: `test-results/touch-${id}-hit.png` });
+  134 |         await h.finish();
+  135 |     });
+  136 | }
+  137 |
+  138 | test('Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes', async ({
+  139 |     browser
+  140 | }) => {
+  141 |     const h = await mobile(browser, 'Riven'),
+  142 |         id = await h.start('.ability-reso');
+  143 |     const start = (await snapshot(h.page)).combat.now;
+  144 |     await expect.poll(async () => (await snapshot(h.page)).combat.now).toBeGreaterThan(start + 0.3);
+  145 |     expect((await snapshot(h.page)).combat.transactions).toEqual([]);
+  146 |     expect((await snapshot(h.page)).combat.journal.latestAccepted).toBeNull();
+  147 |     await h.end(id);
+  148 |     await expect.poll(async () => damage(await snapshot(h.page), 'reso')).toBe(150);
+  149 |     expect(hp(await snapshot(h.page))).toBe(4850);
+  150 |     const order = await h.page.evaluate(() =>
+  151 |         (window as unknown as { touchEvidence: { type: string }[] }).touchEvidence.map((e) => e.type)
+  152 |     );
+  153 |     expect(order).toContain('pointerup');
+  154 |     expect(order.indexOf('lostpointercapture')).toBeGreaterThan(order.indexOf('pointerup'));
+  155 |     await expect(h.page.locator('#combat-feedback')).toContainText('HIT');
+  156 |     await h.finish();
+  157 | });
+  158 |
+  159 | test('Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch', async ({
+  160 |     browser
+  161 | }) => {
+  162 |     const h = await mobile(browser, 'Riven');
+  163 |     await h.tap('.ability-reso');
+  164 |     await expect.poll(async () => damage(await snapshot(h.page), 'reso')).toBe(150);
+  165 |     await h.tap('#reset-combat');
+  166 |     await h.tap('.ability-stance');
+  167 |     const id = await h.start('.ability-pulse');
+  168 |     const start = (await snapshot(h.page)).combat.now;
+  169 |     await expect.poll(async () => (await snapshot(h.page)).combat.now).toBeGreaterThan(start + 0.25);
+  170 |     expect((await snapshot(h.page)).combat.transactions.length).toBe(0);
+  171 |     await expect.poll(async () => (await snapshot(h.page)).preview?.width).toBe(0.7);
+  172 |     await h.end(id);
+  173 |     await expect.poll(async () => damage(await snapshot(h.page), 'pulse')).toBe(100);
+  174 |     await h.finish();
+  175 | });
+  176 |
+  177 | test('simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves', async ({
+  178 |     browser
+  179 | }) => {
+  180 |     const h = await mobile(browser),
+  181 |         m = await h.start('#move'),
+  182 |         a = await h.start('.ability-whip');
+  183 |     await h.move(m, 8, 0);
+  184 |     await h.move(a, 0, -40);
+  185 |     await expect.poll(async () => damage(await snapshot(h.page), 'whip')).toBeGreaterThan(0);
+  186 |     await expect.poll(async () => (await snapshot(h.page)).position.x).toBeGreaterThan(0.12);
+  187 |     await h.end(a);
+> 188 |     expect((await snapshot(h.page)).movement.x).toBeGreaterThan(0);
+      |                                                 ^ Error: expect(received).toBeGreaterThan(expected)
+  189 |     await h.end(m);
+  190 |     await expect.poll(async () => (await snapshot(h.page)).movement.x).toBe(0);
+  191 |     await h.finish();
+  192 | });
+  193 |
+  194 | for (const [label, ability] of [
+  195 |     ['Kit', 'step'],
+  196 |     ['Set', 'predatory'],
+  197 |     ['Riven', 'reso']
+  198 | ])
+  199 |     test(`${label}: touchcancel while aiming never commits damage`, async ({ browser }) => {
+  200 |         const h = await mobile(browser, label);
+  201 |         await h.start('.ability-' + ability);
+  202 |         await h.cancel();
+  203 |         const start = (await snapshot(h.page)).combat.now;
+  204 |         await expect.poll(async () => (await snapshot(h.page)).combat.now).toBeGreaterThan(start + 0.6);
+  205 |         expect((await snapshot(h.page)).combat.transactions.length).toBe(0);
+  206 |         expect((await snapshot(h.page)).combat.journal.latestAccepted).toBeNull();
+  207 |         await h.finish();
+  208 |     });
+  209 |
+  210 | test('Riven: actual capture loss before release cancels without enqueuing a Basic', async ({ browser }) => {
+  211 |     const h = await mobile(browser, 'Riven'),
+  212 |         id = await h.start('.ability-reso');
+  213 |     await h.move(id, 0, -1);
+  214 |     await expect
+  215 |         .poll(async () =>
+  216 |             h.page.evaluate(() =>
+  217 |                 (window as unknown as { touchEvidence: { type: string }[] }).touchEvidence.some(
+  218 |                     (e) => e.type === 'gotpointercapture'
+  219 |                 )
+  220 |             )
+  221 |         )
+  222 |         .toBe(true);
+  223 |     await h.page.evaluate(() => {
+  224 |         const e = (window as unknown as { touchEvidence: { type: string; id: number }[] }).touchEvidence
+  225 |             .filter((e) => e.type === 'pointerdown')
+  226 |             .at(-1)!;
+  227 |         document.querySelector('.ability-reso')!.releasePointerCapture(e.id);
+  228 |     });
+  229 |     await h.move(id, 0, -30);
+  230 |     await expect
+  231 |         .poll(async () =>
+  232 |             h.page.evaluate(() =>
+  233 |                 (window as unknown as { touchEvidence: { type: string }[] }).touchEvidence.some(
+  234 |                     (e) => e.type === 'lostpointercapture'
+  235 |                 )
+  236 |             )
+  237 |         )
+  238 |         .toBe(true);
+  239 |     await h.end(id);
+  240 |     const start = (await snapshot(h.page)).combat.now;
+  241 |     await expect.poll(async () => (await snapshot(h.page)).combat.now).toBeGreaterThan(start + 0.6);
+  242 |     expect((await snapshot(h.page)).combat.transactions.length).toBe(0);
+  243 |     expect((await snapshot(h.page)).combat.journal.latestAccepted).toBeNull();
+  244 |     await h.finish();
+  245 | });
+  246 |
+  247 | for (const [label, ability, minDamage] of [
+  248 |     ['Kit', 'step', 100],
+  249 |     ['Set', 'predatory', 70],
+  250 |     ['Riven', 'elf-dance', 240]
+  251 | ] as const)
+  252 |     test(`${label}: aimed non-Basic touch action produces authoritative damage`, async ({ browser }) => {
+  253 |         const h = await mobile(browser, label),
+  254 |             id = await h.start('.ability-' + ability);
+  255 |         await h.move(id, 0, -42);
+  256 |         await expect(h.page.locator('#ability-preview')).not.toHaveAttribute('d', '');
+  257 |         expect((await snapshot(h.page)).combat.transactions.length).toBe(0);
+  258 |         await h.end(id);
+  259 |         await expect.poll(async () => damage(await snapshot(h.page), ability)).toBeGreaterThanOrEqual(minDamage);
+  260 |         await h.finish();
+  261 |     });
+  262 |
+  263 | test('touch Solar Ring uses its radial radius and creates authoritative HIT feedback', async ({ browser }) => {
+  264 |     const h = await mobile(browser),
+  265 |         id = await h.start('.ability-ring');
+  266 |     await expect.poll(async () => (await snapshot(h.page)).preview?.kind).toBe('radial');
+  267 |     expect((await snapshot(h.page)).preview?.radius).toBe(3.5);
+  268 |     await h.end(id);
+  269 |     await expect.poll(async () => damage(await snapshot(h.page), 'ring')).toBe(190);
+  270 |     await expect(h.page.locator('#combat-feedback')).toContainText('HIT');
+  271 |     await h.finish();
+  272 | });
+  273 |
+  274 | test('Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target', async ({
+  275 |     browser
+  276 | }) => {
+  277 |     const h = await mobile(browser, 'Set');
+  278 |     await h.tap('#charge');
+  279 |     const id = await h.start('.ability-fist');
+  280 |     await h.move(id, 120, 0);
+  281 |     await expect.poll(async () => (await snapshot(h.page)).preview?.kind).toBe('ground');
+  282 |     const p = (await snapshot(h.page)).preview!;
+  283 |     expect(p.kind).toBe('ground');
+  284 |     expect(p.radius).toBe(3);
+  285 |     expect(Math.hypot(p.center.x - p.origin.x, p.center.z - p.origin.z)).toBeCloseTo(14);
+  286 |     await h.cancel();
+  287 |     const north = await h.start('.ability-fist');
+  288 |     await h.move(north, 0, -60);
+```

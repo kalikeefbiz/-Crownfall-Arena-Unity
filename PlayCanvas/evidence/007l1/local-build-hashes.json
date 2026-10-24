@@ -1,0 +1,52 @@
+[
+    {
+        "file": "assets/index-CSTEtNkC.js",
+        "sha256": "4bbaaaca793c3157604a83d68b1f8d2ac0dd0d71a84c4064191728f556457e22",
+        "bytes": 1307773
+    },
+    {
+        "file": "assets/index-D-9p9G16.css",
+        "sha256": "601081d02761817f1f1121214ead098bb099aea8a9a7519016ac1efc50b56421",
+        "bytes": 11829
+    },
+    {
+        "file": "assets/summoners/kit/Kit_20K_Animated.glb",
+        "sha256": "b111e1f774b0483b78f45e43413515adb02e501941c5c99a995d09a43f96212f",
+        "bytes": 26939896
+    },
+    {
+        "file": "assets/summoners/kit/README.md",
+        "sha256": "4f7fc89e2dbb87d125d00b9a787f10ad46258b2537b951ebf7e7de185cc0d02d",
+        "bytes": 1943
+    },
+    {
+        "file": "assets/summoners/kit/kit-10k-test.glb",
+        "sha256": "11f0b6ad226eae565ddaa7e9104ca1aae2a85ecc954203a70fdce23b0adfb547",
+        "bytes": 5317848
+    },
+    {
+        "file": "assets/summoners/riven/README.md",
+        "sha256": "4a41c394d0abd5bfed38442e540e304ccead821e82e3f1535b8a53a5078289bc",
+        "bytes": 1899
+    },
+    {
+        "file": "assets/summoners/riven/Riven_Animated.glb",
+        "sha256": "ba2cb5d72eb2bcfe272c59a50b06a594100a5ac3ceac8f6af457c243c6a5de61",
+        "bytes": 11170312
+    },
+    {
+        "file": "assets/summoners/set/README.md",
+        "sha256": "d1955dbd707d450984770008e5af2d209f026f4c1f76465ecc5aa48a7e0bb6e3",
+        "bytes": 1223
+    },
+    {
+        "file": "assets/summoners/set/Set_Animated.glb",
+        "sha256": "dbee0fd906f786f4af04eb87f130a816c0f98aa04531874487b403f7ca23e154",
+        "bytes": 10000416
+    },
+    {
+        "file": "index.html",
+        "sha256": "1021db364265c9c9ef2b7d85dcdcbeb537927d025761bb4186b43ebb63996f10",
+        "bytes": 580
+    }
+]
