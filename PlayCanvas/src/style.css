@@ -477,11 +477,22 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
     top: calc(34px + var(--safe-top));
     left: 12px;
 }
-#scoreboard {
+#match-overview {
     position: absolute;
     top: calc(8px + var(--safe-top));
-    left: 50%;
-    transform: translateX(-50%);
+    left: max(12px, var(--safe-left));
+    right: max(12px, var(--safe-right));
+    margin-inline: auto;
+    width: min(720px, 73%);
+    max-width: calc(100% - max(12px, var(--safe-left)) - max(12px, var(--safe-right)));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#scoreboard {
+    width: max-content;
+    max-width: 100%;
+    margin-bottom: 4px;
     padding: 8px 12px;
     border: 1px solid #8aa8b9;
     border-radius: 8px;
@@ -491,18 +502,15 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
     white-space: nowrap;
 }
 #team-status {
-    position: absolute;
-    top: calc(52px + var(--safe-top));
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     gap: 18px;
-    width: min(720px, 73%);
+    width: 100%;
     font-size: 10px;
     line-height: 1.5;
 }
 #team-status > div {
     flex: 1;
+    min-width: 0;
     padding: 5px;
     border-radius: 5px;
     background: #102030d9;
@@ -524,13 +532,9 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
     text-shadow: 0 2px 5px #000;
 }
 #kill-feed {
-    position: absolute;
-    top: calc(125px + var(--safe-top));
-    left: 50%;
-    transform: translateX(-50%);
     font-size: 11px;
     text-align: center;
-    width: 70%;
+    width: 100%;
     text-shadow: 0 2px 2px #000;
 }
 #play-match {
@@ -591,10 +595,11 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
     font-size: 10px;
 }
 @media (max-height: 500px) {
+    #match-overview {
+        width: 68%;
+    }
     #team-status {
         font-size: 8px;
-        top: calc(42px + var(--safe-top));
-        width: 68%;
         gap: 8px;
     }
     #scoreboard {
@@ -602,7 +607,6 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
         padding: 6px 10px;
     }
     #kill-feed {
-        top: calc(105px + var(--safe-top));
         font-size: 9px;
     }
     #battle-announcement {
@@ -649,19 +653,18 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
     }
 }
 @media (orientation: portrait) {
-    #scoreboard {
+    #match-overview {
         top: calc(76px + var(--safe-top));
+        width: 96%;
+    }
+    #scoreboard {
         font-size: 11px;
     }
     #team-status {
-        top: calc(114px + var(--safe-top));
-        width: 96%;
         gap: 6px;
         font-size: 8px;
     }
     #kill-feed {
-        top: calc(195px + var(--safe-top));
-        width: 94%;
         font-size: 9px;
     }
     .playable #ability-bar {
@@ -720,12 +723,6 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
     font-size: 12px;
     line-height: 1.4;
 }
-#team-status {
-    top: calc(84px + var(--safe-top));
-}
-#kill-feed {
-    top: calc(155px + var(--safe-top));
-}
 #result-panel {
     inset: 5% 12%;
     overflow: auto;
@@ -754,12 +751,6 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
         font-size: 10px;
         padding: 4px 8px;
     }
-    #team-status {
-        top: calc(64px + var(--safe-top));
-    }
-    #kill-feed {
-        top: calc(122px + var(--safe-top));
-    }
     #result-participants {
         font-size: 10px;
         margin: 4px 0;
@@ -777,12 +768,6 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
     }
 }
 @media (orientation: portrait) {
-    #team-status {
-        top: calc(146px + var(--safe-top));
-    }
-    #kill-feed {
-        top: calc(225px + var(--safe-top));
-    }
     #result-panel {
         inset: 10% 2%;
     }
@@ -790,13 +775,8 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
 
 /* Compact reward row below the participant HUD; controls retain Task 005A geometry. */
 #wilderness-buffs {
-    position: absolute;
-    top: calc(143px + var(--safe-top));
-    left: 50%;
-    transform: translateX(-50%);
     width: max-content;
-    max-width: calc(100% - var(--safe-left) - var(--safe-right) - 24px);
-    white-space: nowrap;
+    max-width: calc(100vw - var(--safe-left) - var(--safe-right) - 24px);
     font-size: 9px;
     line-height: 12px;
     color: #b4f4d5;
@@ -809,13 +789,7 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
 }
 @media (max-height: 500px) {
     #wilderness-buffs {
-        top: calc(110px + var(--safe-top));
         font-size: 8px;
-    }
-}
-@media (orientation: portrait) {
-    #wilderness-buffs {
-        top: calc(212px + var(--safe-top));
     }
 }
 

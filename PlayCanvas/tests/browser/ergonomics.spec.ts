@@ -124,7 +124,9 @@ for (const [width, height, safe] of [
     [667, 375, 44],
     [640, 360, 44]
 ]) {
-    test(`landscape targets and HUD stay clear at ${width}x${height}, safe inset ${safe}`, async ({ browser }) => {
+    test(`landscape targets and HUD stay clear at ${width}x${height}, safe inset ${safe}`, async ({
+        browser
+    }, testInfo) => {
         const context = await browser.newContext({
             viewport: { width, height },
             isMobile: true,
@@ -140,21 +142,36 @@ for (const [width, height, safe] of [
             style.setProperty('--safe-right', `${safe}px`);
             style.setProperty('--safe-bottom', `${safe ? 21 : 0}px`);
         }, safe);
-        const box = async (selector: string) => {
-            const bounds = await page.locator(selector).boundingBox();
-            expect(bounds, selector).not.toBe(null);
-            return bounds!;
+        // Read each group in one browser task: every assertion sees the same
+        // layout, without a traced protocol round trip per individual rectangle.
+        const boxes = async (selectors: string[]) => {
+            const bounds = await page.evaluate(
+                (selectors) =>
+                    selectors.map((selector) => {
+                        const element = document.querySelector(selector);
+                        if (!element?.getClientRects().length || getComputedStyle(element).visibility !== 'visible')
+                            return null;
+                        const { x, y, width, height } = element.getBoundingClientRect();
+                        return { x, y, width, height };
+                    }),
+                selectors
+            );
+            return bounds.map((bounds, i) => {
+                expect(bounds, selectors[i]).not.toBe(null);
+                return bounds!;
+            });
         };
-        const clear = (a: Awaited<ReturnType<typeof box>>, b: Awaited<ReturnType<typeof box>>) =>
+        const clear = (a: Awaited<ReturnType<typeof boxes>>[number], b: Awaited<ReturnType<typeof boxes>>[number]) =>
             a.x + a.width <= b.x || b.x + b.width <= a.x || a.y + a.height <= b.y || b.y + b.height <= a.y;
         for (const summoner of ['Kit', 'Set', 'Riven']) {
             if (summoner !== 'Kit')
                 await page.locator('#restart-match').evaluate((e) => (e as HTMLButtonElement).click());
             await page.getByLabel('Summoner', { exact: true }).selectOption(summoner);
             await expect(page.locator('#combat-feedback')).toBeHidden();
-            const start = await box('#play-match');
-            for (const selector of ['#ability-bar', '#move', '#scoreboard', '#team-status', '#battle-announcement'])
-                expect(clear(start, await box(selector)), `Start match / ${selector}`).toBe(true);
+            const prematchSelectors = ['#ability-bar', '#move', '#scoreboard', '#team-status', '#battle-announcement'];
+            const [start, ...prematch] = await boxes(['#play-match', ...prematchSelectors]);
+            for (const [i, bounds] of prematch.entries())
+                expect(clear(start, bounds), `Start match / ${prematchSelectors[i]}`).toBe(true);
             await page.evaluate(() =>
                 (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('pressure')
             );
@@ -167,15 +184,27 @@ for (const [width, height, safe] of [
                 });
             const abilities = page.locator('.ability:visible:not(.ability-stance)');
             await expect(abilities).toHaveCount(summoner === 'Kit' ? 5 : 4);
-            const basic = await box('.ability[data-slot="0"]');
+            const abilityBounds = await abilities.evaluateAll((elements) =>
+                elements.map((element) => {
+                    const { x, y, width, height } = element.getBoundingClientRect();
+                    return {
+                        x,
+                        y,
+                        width,
+                        height,
+                        slot: element.getAttribute('data-slot'),
+                        touchAction: getComputedStyle(element).touchAction
+                    };
+                })
+            );
+            const basic = abilityBounds.find((bounds) => bounds.slot === '0')!;
             expect(basic.width).toBe(88);
             expect(basic.height).toBe(88);
-            for (const ability of await abilities.all()) {
-                const b = (await ability.boundingBox())!;
-                expect(await ability.evaluate((e) => getComputedStyle(e).touchAction)).toBe('none');
+            for (const b of abilityBounds) {
+                expect(b.touchAction).toBe('none');
                 expect(b.width).toBeGreaterThanOrEqual(72);
                 expect(b.height).toBeGreaterThanOrEqual(72);
-                if ((await ability.getAttribute('data-slot')) !== '0') {
+                if (b.slot !== '0') {
                     expect(b.width).toBeLessThan(basic.width);
                     expect(b.height).toBeLessThan(basic.height);
                     expect(clear(b, basic)).toBe(true);
@@ -198,16 +227,20 @@ for (const [width, height, safe] of [
                     '.notice'
                 ];
                 if (summoner === 'Riven') selectors.push('.ability-stance');
-                const boxes = await Promise.all(selectors.map(box));
-                const [bar, move] = boxes;
+                const bounds = await boxes(selectors);
+                await testInfo.attach(`hud-${summoner}-${message.startsWith('READY') ? 'ready' : 'hit'}`, {
+                    body: JSON.stringify({ width, height, safe, summoner, message, selectors, bounds }, null, 2),
+                    contentType: 'application/json'
+                });
+                const [bar, move] = bounds;
                 const controls = [bar, move];
                 if (summoner === 'Riven') {
-                    const stance = boxes.at(-1)!;
+                    const stance = bounds.at(-1)!;
                     expect(stance.width).toBe(72);
                     expect(stance.height).toBe(52);
                     controls.push(stance);
                 }
-                for (const b of boxes) {
+                for (const b of bounds) {
                     expect(b.x).toBeGreaterThanOrEqual(0);
                     expect(b.y).toBeGreaterThanOrEqual(0);
                     expect(b.x + b.width).toBeLessThanOrEqual(width);
@@ -218,11 +251,13 @@ for (const [width, height, safe] of [
                     expect(control.x + control.width).toBeLessThanOrEqual(width - safe);
                     expect(control.y + control.height).toBeLessThanOrEqual(height - (safe ? 21 : 0));
                 }
-                for (let i = 0; i < boxes.length; i++)
-                    for (let j = i + 1; j < boxes.length; j++)
-                        expect(clear(boxes[i], boxes[j]), `${selectors[i]} / ${selectors[j]}`).toBe(true);
+                for (let i = 0; i < bounds.length; i++)
+                    for (let j = i + 1; j < bounds.length; j++)
+                        expect(clear(bounds[i], bounds[j]), `${selectors[i]} / ${selectors[j]}`).toBe(true);
             }
-            await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png` });
+            // Keep the DPR=2 rendering/layout above; export one pixel per CSS
+            // pixel to avoid oversized software-rendered evidence captures.
+            await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png`, scale: 'css' });
         }
         await context.close();
     });

@@ -17,11 +17,13 @@ export function createHud() {
       <button id="start-match">Start countdown</button><select id="inspect-actor" aria-label="Inspected actor"></select>
       <button id="lethal-actor">Debug: lethal</button><button id="damage-actor">Debug: damage</button>
       <button id="advance-match">Debug: advance 5.1s</button><pre id="match-status"></pre></section>
-      <section id="scoreboard" aria-label="Match scoreboard"></section>
-      <section id="team-status" aria-label="Team participants"></section>
-      <div id="wilderness-buffs" aria-label="Wilderness buffs" hidden></div>
+      <div id="match-overview">
+        <section id="scoreboard" aria-label="Match scoreboard"></section>
+        <section id="team-status" aria-label="Team participants"></section>
+        <div id="wilderness-buffs" aria-label="Wilderness buffs" hidden></div>
+        <div id="kill-feed" aria-live="polite"></div>
+      </div>
       <div id="battle-announcement" role="status" aria-live="polite"></div>
-      <div id="kill-feed" aria-live="polite"></div>
       <button id="play-match">Start match</button>
       <section id="result-panel" hidden><h1 id="result-title"></h1><p id="result-detail"></p><table id="result-participants"><thead><tr><th>Team</th><th>Summoner</th><th>K</th><th>D</th><th>A</th><th>Damage</th><th>Pressure s</th></tr></thead><tbody></tbody></table><button id="restart-match">Restart match</button></section>
       <button id="aim-assist" aria-pressed="true">Aim Assist: On</button>
