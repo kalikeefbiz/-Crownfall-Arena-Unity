@@ -1,0 +1,3 @@
+#   Intentional formatting probe
+
+-   item
