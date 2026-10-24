@@ -46,8 +46,6 @@ export function createRivenModel(
     const forcedPrimitive = query.get('models') === 'primitive' || query.get('rivenPrimitive') === '1';
     const source = RIVEN_ASSET_PATH;
     const animation = new RivenAnimationState();
-    let previousX = 0,
-        previousZ = 0;
     const pivot = new Entity('Riven-3D-facing');
     root.addChild(pivot);
     let model: Entity | null = null;
@@ -143,8 +141,6 @@ export function createRivenModel(
                 player = sim.combat.player;
                 animation.reset();
                 model?.anim?.baseLayer!.play('Idle_6');
-                previousX = player.x;
-                previousZ = player.z;
                 yaw = (Math.atan2(sim.aim.x, sim.aim.z) * 180) / Math.PI;
             }
             selected = (competitive || previewEnabled) && sim.combat.definition.id === 'riven' && !forcedPrimitive;
@@ -157,9 +153,8 @@ export function createRivenModel(
             pivot.enabled = selected && !!model;
             // Only the matching character presenter can hide the fallback.
             if (selected) primitive.enabled = !pivot.enabled;
-            const moving = Math.hypot(player.x - previousX, player.z - previousZ) > 0.0001;
-            previousX = player.x;
-            previousZ = player.z;
+            // Retain the last authoritative tick's locomotion between render updates.
+            const moving = player.animation === 'run';
             const alive = !player.dead && (!sim.match || sim.match.phase === 'active');
             const transition = animation.update(moving, alive);
             if (model?.anim) {
