@@ -62,14 +62,21 @@ async function mobile(browser: Browser, label = 'Kit') {
         .toBeGreaterThan(5);
     await page.getByLabel('Summoner', { exact: true }).selectOption({ label });
     await page.evaluate(() => {
-        const events: { type: string; pointerType: string; trusted: boolean; id: number }[] = [];
+        const events: { type: string; pointerType: string; trusted: boolean; id: number; target: string }[] = [];
         (window as unknown as { touchEvidence: typeof events }).touchEvidence = events;
         for (const type of ['pointerdown', 'pointerup', 'pointercancel', 'gotpointercapture', 'lostpointercapture'])
             document.addEventListener(
                 type,
                 (e) => {
                     const p = e as PointerEvent;
-                    events.push({ type, pointerType: p.pointerType, trusted: e.isTrusted, id: p.pointerId });
+                    const target = p.target instanceof Element ? p.target.closest('#move, .ability') : null;
+                    events.push({
+                        type,
+                        pointerType: p.pointerType,
+                        trusted: e.isTrusted,
+                        id: p.pointerId,
+                        target: target?.id || target?.className || ''
+                    });
                 },
                 true
             );
@@ -77,7 +84,7 @@ async function mobile(browser: Browser, label = 'Kit') {
     const cdp = await context.newCDPSession(page),
         points = new Map<number, TouchPoint>();
     let next = 1;
-    const send = (type: 'touchStart' | 'touchEnd' | 'touchMove' | 'touchCancel') =>
+    const send = (type: 'touchStart' | 'touchMove' | 'touchCancel') =>
         cdp.send('Input.dispatchTouchEvent', { type, touchPoints: [...points.values()] });
     const start = async (selector: string) => {
         const r = (await page.locator(selector).boundingBox())!,
@@ -92,8 +99,12 @@ async function mobile(browser: Browser, label = 'Kit') {
         await send('touchMove');
     };
     const end = async (id: number) => {
+        const released = points.get(id);
+        if (!released) throw new Error(`Touch ${id} is not active`);
         points.delete(id);
-        await send('touchEnd');
+        // CDP touchEnd lists the changed (released) point, not the fingers
+        // still held. Passing the remaining move finger releases the wrong one.
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [released] });
     };
     const tap = async (selector: string) => {
         const id = await start(selector);
@@ -185,6 +196,14 @@ test('simultaneous movement and Basic touch fingers retain independent capture w
     await expect.poll(async () => damage(await snapshot(h.page), 'whip')).toBeGreaterThan(0);
     await expect.poll(async () => (await snapshot(h.page)).position.x).toBeGreaterThan(0.12);
     await h.end(a);
+    const released = await h.page.evaluate(() =>
+        (window as unknown as { touchEvidence: { type: string; target: string }[] }).touchEvidence
+            .filter((event) => event.type === 'pointerup')
+            .map((event) => event.target)
+    );
+    expect(released).toHaveLength(1);
+    expect(released[0]).toContain('ability-whip');
+    expect(released).not.toContain('move');
     expect((await snapshot(h.page)).movement.x).toBeGreaterThan(0);
     await h.end(m);
     await expect.poll(async () => (await snapshot(h.page)).movement.x).toBe(0);
