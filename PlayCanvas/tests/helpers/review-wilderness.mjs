@@ -80,6 +80,7 @@ async function open(deviceScaleFactor) {
             p.x -= 26;
             p.previous = { x: p.x, z: p.z };
         }
+        window.__crownfall.verification.advance(1 / 60);
     });
     // Let the existing follow camera settle, independent of asset load time.
     await page.waitForFunction(
@@ -108,6 +109,15 @@ try {
         const { context, page } = await open(2);
         results.views.push({ name: 'match', snapshot: await page.evaluate(() => window.__crownfall.snapshot()) });
         await capture(page, 'match');
+        await page.evaluate(() => {
+            window.__artSim.combat.cast('reso', Math.PI / 2);
+            window.__crownfall.verification.advance(0.2);
+        });
+        await page.evaluate(async () => {
+            for (let i = 0; i < 2; i++) await new Promise(requestAnimationFrame);
+        });
+        await capture(page, 'ability');
+        results.views.push({ name: 'ability', snapshot: await page.evaluate(() => window.__crownfall.snapshot()) });
         await page.evaluate(() => {
             const app = window.__artApp,
                 c = app.root.findByName('MOBA-camera');
