@@ -1,0 +1,897 @@
+﻿2026-10-25T08:01:11.4482851Z Current runner version: '2.338.0'
+2026-10-25T08:01:11.4508745Z ##[group]Runner Image Provisioner
+2026-10-25T08:01:11.4509757Z Hosted Compute Agent
+2026-10-25T08:01:11.4510348Z Version: 20261021.618
+2026-10-25T08:01:11.4511041Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-25T08:01:11.4511798Z Build Date: 2026-10-21T00:45:21Z
+2026-10-25T08:01:11.4512449Z Worker ID: {fcae67ab-3169-4093-b100-9340b5d46dee}
+2026-10-25T08:01:11.4513211Z Region: westus
+2026-10-25T08:01:11.4513745Z Cloud: Azure
+2026-10-25T08:01:11.4514304Z ##[endgroup]
+2026-10-25T08:01:11.4515842Z ##[group]Operating System
+2026-10-25T08:01:11.4516496Z Ubuntu
+2026-10-25T08:01:11.4517108Z 24.04.5
+2026-10-25T08:01:11.4518030Z LTS
+2026-10-25T08:01:11.4518663Z ##[endgroup]
+2026-10-25T08:01:11.4519330Z ##[group]Runner Image
+2026-10-25T08:01:11.4519943Z Image: ubuntu-24.04
+2026-10-25T08:01:11.4520596Z Version: 20261012.334.1
+2026-10-25T08:01:11.4521843Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-25T08:01:11.4523528Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-25T08:01:11.4524490Z ##[endgroup]
+2026-10-25T08:01:11.4525639Z ##[group]GITHUB_TOKEN Permissions
+2026-10-25T08:01:11.4527752Z Contents: read
+2026-10-25T08:01:11.4528497Z Metadata: read
+2026-10-25T08:01:11.4529058Z ##[endgroup]
+2026-10-25T08:01:11.4531701Z Secret source: Actions
+2026-10-25T08:01:11.4532646Z Cache mode: write
+2026-10-25T08:01:11.4533322Z Prepare workflow directory
+2026-10-25T08:01:11.5008503Z Prepare all required actions
+2026-10-25T08:01:11.5058411Z Getting action download info
+2026-10-25T08:01:11.8457085Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-25T08:01:11.9471489Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2026-10-25T08:01:12.0302340Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-25T08:01:12.2511462Z Complete job name: Validate production build
+2026-10-25T08:01:12.3447999Z ##[group]Run actions/checkout@v4
+2026-10-25T08:01:12.3448938Z with:
+2026-10-25T08:01:12.3449444Z   ref: 26d2d14efd91082aab01dde25739013f4da1381d
+2026-10-25T08:01:12.3450055Z   persist-credentials: false
+2026-10-25T08:01:12.3450628Z   repository: kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-25T08:01:12.3454812Z   token: ***
+2026-10-25T08:01:12.3455240Z   ssh-strict: true
+2026-10-25T08:01:12.3455674Z   ssh-user: git
+2026-10-25T08:01:12.3456117Z   clean: true
+2026-10-25T08:01:12.3456560Z   sparse-checkout-cone-mode: true
+2026-10-25T08:01:12.3457098Z   fetch-depth: 1
+2026-10-25T08:01:12.3457714Z   fetch-tags: false
+2026-10-25T08:01:12.3458165Z   show-progress: true
+2026-10-25T08:01:12.3458620Z   lfs: false
+2026-10-25T08:01:12.3459032Z   submodules: false
+2026-10-25T08:01:12.3459482Z   set-safe-directory: true
+2026-10-25T08:01:12.3459985Z   allow-unsafe-pr-checkout: false
+2026-10-25T08:01:12.3460808Z ##[endgroup]
+2026-10-25T08:01:12.4498222Z Syncing repository: kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-25T08:01:12.4500432Z ##[group]Getting Git version info
+2026-10-25T08:01:12.4501948Z Working directory is '/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity'
+2026-10-25T08:01:12.4504038Z [command]/usr/bin/git version
+2026-10-25T08:01:12.4573401Z git version 2.55.0
+2026-10-25T08:01:12.4612153Z ##[endgroup]
+2026-10-25T08:01:12.4623189Z Temporarily overriding HOME='/home/runner/work/_temp/a3106013-e7cd-4e91-a58a-029576c0b64e' before making global git config changes
+2026-10-25T08:01:12.4625388Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-25T08:01:12.4630516Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+2026-10-25T08:01:12.4687798Z Deleting the contents of '/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity'
+2026-10-25T08:01:12.4693446Z ##[group]Initializing the repository
+2026-10-25T08:01:12.4699333Z [command]/usr/bin/git init /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+2026-10-25T08:01:12.4815157Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-25T08:01:12.4817097Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-25T08:01:12.4818994Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-25T08:01:12.4820596Z hint: call:
+2026-10-25T08:01:12.4821030Z hint:
+2026-10-25T08:01:12.4821555Z hint: 	git config --global init.defaultBranch <name>
+2026-10-25T08:01:12.4822590Z hint:
+2026-10-25T08:01:12.4823604Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-25T08:01:12.4825201Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-25T08:01:12.4825981Z hint:
+2026-10-25T08:01:12.4826407Z hint: 	git branch -m <name>
+2026-10-25T08:01:12.4826893Z hint:
+2026-10-25T08:01:12.4827893Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-25T08:01:12.4829181Z Initialized empty Git repository in /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/.git/
+2026-10-25T08:01:12.4832459Z [command]/usr/bin/git remote add origin https://github.com/kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-25T08:01:12.4888598Z ##[endgroup]
+2026-10-25T08:01:12.4889941Z ##[group]Disabling automatic garbage collection
+2026-10-25T08:01:12.4893208Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-25T08:01:12.4929617Z ##[endgroup]
+2026-10-25T08:01:12.4930796Z ##[group]Setting up auth
+2026-10-25T08:01:12.4938095Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T08:01:12.4986822Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T08:01:12.5403052Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T08:01:12.5458934Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T08:01:12.5727616Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T08:01:12.5778710Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T08:01:12.6021172Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-25T08:01:12.6066288Z ##[endgroup]
+2026-10-25T08:01:12.6067506Z ##[group]Fetching the repository
+2026-10-25T08:01:12.6076551Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 26d2d14efd91082aab01dde25739013f4da1381d
+2026-10-25T08:01:23.8429052Z From https://github.com/kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-25T08:01:23.8430200Z  * branch            26d2d14efd91082aab01dde25739013f4da1381d -> FETCH_HEAD
+2026-10-25T08:01:23.8502114Z ##[endgroup]
+2026-10-25T08:01:23.8502998Z ##[group]Determining the checkout info
+2026-10-25T08:01:23.8504018Z ##[endgroup]
+2026-10-25T08:01:23.8504549Z [command]/usr/bin/git sparse-checkout disable
+2026-10-25T08:01:23.8505989Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-25T08:01:23.8534935Z ##[group]Checking out the ref
+2026-10-25T08:01:23.8540107Z [command]/usr/bin/git checkout --progress --force 26d2d14efd91082aab01dde25739013f4da1381d
+2026-10-25T08:01:24.4236528Z Note: switching to '26d2d14efd91082aab01dde25739013f4da1381d'.
+2026-10-25T08:01:24.4237027Z 
+2026-10-25T08:01:24.4237759Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-25T08:01:24.4238781Z changes and commit them, and you can discard any commits you make in this
+2026-10-25T08:01:24.4239680Z state without impacting any branches by switching back to a branch.
+2026-10-25T08:01:24.4240413Z 
+2026-10-25T08:01:24.4240717Z If you want to create a new branch to retain commits you create, you may
+2026-10-25T08:01:24.4241345Z do so (now or later) by using -c with the switch command. Example:
+2026-10-25T08:01:24.4241696Z 
+2026-10-25T08:01:24.4241860Z   git switch -c <new-branch-name>
+2026-10-25T08:01:24.4242145Z 
+2026-10-25T08:01:24.4242297Z Or undo this operation with:
+2026-10-25T08:01:24.4242524Z 
+2026-10-25T08:01:24.4242664Z   git switch -
+2026-10-25T08:01:24.4242917Z 
+2026-10-25T08:01:24.4243234Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-25T08:01:24.4243644Z 
+2026-10-25T08:01:24.4243883Z HEAD is now at 26d2d14 Format reduced Wilderness placement list
+2026-10-25T08:01:24.4287695Z ##[endgroup]
+2026-10-25T08:01:24.4335074Z [command]/usr/bin/git log -1 --format=%H
+2026-10-25T08:01:24.4362094Z 26d2d14efd91082aab01dde25739013f4da1381d
+2026-10-25T08:01:24.4371866Z ##[group]Removing auth
+2026-10-25T08:01:24.4376212Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T08:01:24.4410743Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T08:01:24.4634100Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T08:01:24.4661408Z http.https://github.com/.extraheader
+2026-10-25T08:01:24.4669303Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-25T08:01:24.4705580Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T08:01:24.4926733Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T08:01:24.4958776Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T08:01:24.5176460Z ##[endgroup]
+2026-10-25T08:01:24.5426207Z ##[group]Run actions/setup-node@v4
+2026-10-25T08:01:24.5426580Z with:
+2026-10-25T08:01:24.5426818Z   node-version: 24
+2026-10-25T08:01:24.5427072Z   cache: npm
+2026-10-25T08:01:24.5427693Z   cache-dependency-path: PlayCanvas/package-lock.json
+2026-10-25T08:01:24.5428085Z   always-auth: false
+2026-10-25T08:01:24.5428353Z   check-latest: false
+2026-10-25T08:01:24.5431108Z   token: ***
+2026-10-25T08:01:24.5431354Z ##[endgroup]
+2026-10-25T08:01:24.6823099Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+2026-10-25T08:01:24.6827804Z (node:2392) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-25T08:01:24.6828756Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-25T08:01:24.6831100Z ##[group]Environment details
+2026-10-25T08:01:25.0548563Z node: v24.21.0
+2026-10-25T08:01:25.0548892Z npm: 11.19.0
+2026-10-25T08:01:25.0549103Z yarn: 1.22.22
+2026-10-25T08:01:25.0550134Z ##[endgroup]
+2026-10-25T08:01:25.0573979Z [command]/opt/hostedtoolcache/node/24.21.0/x64/bin/npm config get cache
+2026-10-25T08:01:25.1654142Z /home/runner/.npm
+2026-10-25T08:01:25.4208542Z Cache hit for: node-cache-Linux-x64-npm-ec2be6c2cda2971feffdd10b391efb0c6cee39d582eabcd45fcf5108cb07fa9a
+2026-10-25T08:01:25.4322216Z (node:2392) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-25T08:01:26.6894886Z Received 4194304 of 72030184 (5.8%), 4.0 MBs/sec
+2026-10-25T08:01:27.2812689Z Received 72030184 of 72030184 (100.0%), 43.2 MBs/sec
+2026-10-25T08:01:27.2814313Z Cache Size: ~69 MB (72030184 B)
+2026-10-25T08:01:27.2885039Z [command]/usr/bin/tar -xf /home/runner/work/_temp/de282840-95ee-4486-9707-c56efc95acf1/cache.tzst -P -C /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity --use-compress-program unzstd
+2026-10-25T08:01:27.4540237Z Cache restored successfully
+2026-10-25T08:01:27.4581350Z Cache restored from key: node-cache-Linux-x64-npm-ec2be6c2cda2971feffdd10b391efb0c6cee39d582eabcd45fcf5108cb07fa9a
+2026-10-25T08:01:27.4752329Z ##[group]Run npm ci
+2026-10-25T08:01:27.4752658Z [36;1mnpm ci[0m
+2026-10-25T08:01:27.5013247Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:01:27.5013571Z ##[endgroup]
+2026-10-25T08:01:32.1731546Z npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+2026-10-25T08:01:36.6257472Z 
+2026-10-25T08:01:36.6258488Z added 400 packages, and audited 401 packages in 9s
+2026-10-25T08:01:36.6259044Z 
+2026-10-25T08:01:36.6259728Z 168 packages are looking for funding
+2026-10-25T08:01:36.6261386Z   run `npm fund` for details
+2026-10-25T08:01:36.6318050Z 
+2026-10-25T08:01:36.6318508Z 2 moderate severity vulnerabilities
+2026-10-25T08:01:36.6318825Z 
+2026-10-25T08:01:36.6319021Z To address all issues, run:
+2026-10-25T08:01:36.6319367Z   npm audit fix
+2026-10-25T08:01:36.6319557Z 
+2026-10-25T08:01:36.6319732Z Run `npm audit` for details.
+2026-10-25T08:01:36.6328891Z npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+2026-10-25T08:01:36.6330688Z npm warn install-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+2026-10-25T08:01:36.6331948Z npm warn install-scripts
+2026-10-25T08:01:36.6333446Z npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+2026-10-25T08:01:36.7130195Z ##[group]Run npm test
+2026-10-25T08:01:36.7130487Z [36;1mnpm test[0m
+2026-10-25T08:01:36.7195867Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:01:36.7196132Z ##[endgroup]
+2026-10-25T08:01:36.8223275Z 
+2026-10-25T08:01:36.8224149Z > crownfall-playcanvas@0.0.0 test
+2026-10-25T08:01:36.8224814Z > vitest run
+2026-10-25T08:01:36.8225087Z 
+2026-10-25T08:01:37.1385823Z 
+2026-10-25T08:01:37.1391356Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas[39m
+2026-10-25T08:01:37.1392325Z 
+2026-10-25T08:01:37.9840273Z  [32m✓[39m tests/human-aim.test.js [2m([22m[2m18 tests[22m[2m)[22m[33m 490[2mms[22m[39m
+2026-10-25T08:01:37.9869470Z    [33m[2m✓[22m[39m bot commands, accuracy and decisions identical with assistance enabled/disabled for idle human [33m 411[2mms[22m[39m
+2026-10-25T08:01:40.3889731Z  [32m✓[39m tests/wilderness.test.js [2m([22m[2m20 tests[22m[2m)[22m[33m 2891[2mms[22m[39m
+2026-10-25T08:01:40.3906220Z    [33m[2m✓[22m[39m camp last-hit once per death, independent respawns, home/full reset and clean rematch [33m 640[2mms[22m[39m
+2026-10-25T08:01:40.3959036Z    [33m[2m✓[22m[39m major is materially riskier solo than two existing Summoners using ordinary casts [33m 367[2mms[22m[39m
+2026-10-25T08:01:40.3961356Z    [33m[2m✓[22m[39m all seven authored camp homes are physically reachable from ordinary spawn through map routing [33m 909[2mms[22m[39m
+2026-10-25T08:01:40.6720263Z  [32m✓[39m tests/riven.test.js [2m([22m[2m16 tests[22m[2m)[22m[32m 69[2mms[22m[39m
+2026-10-25T08:01:40.9215017Z  [32m✓[39m tests/ability-input.test.js [2m([22m[2m10 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+2026-10-25T08:01:42.4563588Z  [32m✓[39m tests/crownfall.test.js [2m([22m[2m25 tests[22m[2m)[22m[33m 4963[2mms[22m[39m
+2026-10-25T08:01:42.4603516Z    [33m[2m✓[22m[39m canonical natural match 0 reaches Crownfall result with five ordinary command bots [33m 2154[2mms[22m[39m
+2026-10-25T08:01:42.4608755Z    [33m[2m✓[22m[39m canonical natural match 1 reaches Crownfall result with five ordinary command bots [33m 1384[2mms[22m[39m
+2026-10-25T08:01:42.4610742Z    [33m[2m✓[22m[39m canonical natural match 2 reaches Crownfall result with five ordinary command bots [33m 1356[2mms[22m[39m
+2026-10-25T08:01:44.3393639Z  [32m✓[39m tests/match.test.js [2m([22m[2m13 tests[22m[2m)[22m[33m 3196[2mms[22m[39m
+2026-10-25T08:01:44.3395528Z    [33m[2m✓[22m[39m last ticket remains funded; personal final reserved once; next death eliminates [33m 608[2mms[22m[39m
+2026-10-25T08:01:44.3397149Z    [33m[2m✓[22m[39m reserved respawns remain viable; victory waits for all three permanently eliminated [33m 527[2mms[22m[39m
+2026-10-25T08:01:44.3399321Z    [33m[2m✓[22m[39m simultaneous terminal non-viability is a draw through real deaths [33m 912[2mms[22m[39m
+2026-10-25T08:01:44.3401890Z    [33m[2m✓[22m[39m dead and eliminated cannot move/cast; Riven death clears blades and respawn resets stance [33m 577[2mms[22m[39m
+2026-10-25T08:01:44.3404625Z    [33m[2m✓[22m[39m result freezes ticks, casts, damage, respawns and records; fresh rematch clears all state [33m 329[2mms[22m[39m
+2026-10-25T08:01:44.6220817Z  [32m✓[39m tests/combat.test.js [2m([22m[2m15 tests[22m[2m)[22m[32m 50[2mms[22m[39m
+2026-10-25T08:01:44.9449292Z  [32m✓[39m tests/foundation.test.js [2m([22m[2m12 tests[22m[2m)[22m[32m 83[2mms[22m[39m
+2026-10-25T08:01:44.9525807Z  [32m✓[39m tests/riven-model.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 1310[2mms[22m[39m
+2026-10-25T08:01:44.9527639Z      [33m[2m✓[22m[39m grounds exact idle soles and preserves the running airborne phase with a fixed offset [33m 880[2mms[22m[39m
+2026-10-25T08:01:45.2442443Z  [32m✓[39m tests/set.test.js [2m([22m[2m12 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+2026-10-25T08:01:47.0693412Z  [32m✓[39m tests/lane-geometry.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 724[2mms[22m[39m
+2026-10-25T08:01:47.0703975Z      [33m[2m✓[22m[39m provides grounded footing across both Wilderness access routes, camps and spawns [33m 408[2mms[22m[39m
+2026-10-25T08:01:47.3739192Z  [32m✓[39m tests/logic.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+2026-10-25T08:01:49.5027766Z  [32m✓[39m tests/runtime-contracts.test.ts [2m([22m[2m16 tests[22m[2m)[22m[33m 11243[2mms[22m[39m
+2026-10-25T08:01:49.5039411Z    [33m[2m✓[22m[39m default commands, every authoritative tick, transactions and complete results match the pre-change baseline [33m 11195[2mms[22m[39m
+2026-10-25T08:01:49.8129528Z  [32m✓[39m tests/touch-commands.test.js [2m([22m[2m10 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+2026-10-25T08:01:51.0811365Z  [32m✓[39m tests/summoner-assets.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 176[2mms[22m[39m
+2026-10-25T08:01:51.3869195Z  [32m✓[39m tests/combat-journal.test.js [2m([22m[2m5 tests[22m[2m)[22m[32m 43[2mms[22m[39m
+2026-10-25T08:01:51.4848133Z  [32m✓[39m tests/playable-match.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 3868[2mms[22m[39m
+2026-10-25T08:01:51.4887512Z    [33m[2m✓[22m[39m natural 3v3 battle 0: all five bots fight, tickets/finals/elimination/results freeze and restart [33m 1184[2mms[22m[39m
+2026-10-25T08:01:51.4890480Z    [33m[2m✓[22m[39m natural 3v3 battle 1: all five bots fight, tickets/finals/elimination/results freeze and restart [33m 941[2mms[22m[39m
+2026-10-25T08:01:51.4914934Z    [33m[2m✓[22m[39m natural 3v3 battle 2: all five bots fight, tickets/finals/elimination/results freeze and restart [33m 844[2mms[22m[39m
+2026-10-25T08:01:51.4917051Z    [33m[2m✓[22m[39m five bots complete a match even when the human remains idle [33m 697[2mms[22m[39m
+2026-10-25T08:01:52.6259466Z  [32m✓[39m tests/kit-animation.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+2026-10-25T08:01:53.2594297Z  [32m✓[39m tests/set-model.test.ts [2m([22m[2m3 tests[22m[2m)[22m[33m 780[2mms[22m[39m
+2026-10-25T08:01:53.2632651Z    [33m[2m✓[22m[39m Set sampled mesh grounding and normalization [33m 583[2mms[22m[39m
+2026-10-25T08:01:53.6045839Z [90mstderr[2m | tests/presenter-locomotion.test.ts[2m > [22m[2mSet locomotion survives renders without ticks and respects authoritative stops
+2026-10-25T08:01:53.6050111Z [22m[39mASSERT FAILED:  Could not find current application
+2026-10-25T08:01:53.6050997Z 
+2026-10-25T08:01:53.6078133Z [90mstderr[2m | tests/presenter-locomotion.test.ts[2m > [22m[2mRiven locomotion survives renders without ticks and respects authoritative stops
+2026-10-25T08:01:53.6081009Z [22m[39mASSERT FAILED:  Could not find current application
+2026-10-25T08:01:53.6106256Z  [32m✓[39m tests/presenter-locomotion.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+2026-10-25T08:01:53.6126810Z 
+2026-10-25T08:01:54.2853671Z  [32m✓[39m tests/riven-weapons.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+2026-10-25T08:01:54.4926974Z  [32m✓[39m tests/wilderness-environment.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 56[2mms[22m[39m
+2026-10-25T08:01:54.5732020Z  [32m✓[39m tests/kit-model.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 59[2mms[22m[39m
+2026-10-25T08:01:54.6823272Z  [32m✓[39m tests/ability-preview.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+2026-10-25T08:02:00.1600320Z  [32m✓[39m tests/full-loop.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 15009[2mms[22m[39m
+2026-10-25T08:02:00.1601261Z    [33m[2m✓[22m[39m ordinary complete integrated matches across all three selected Summoners [33m 10046[2mms[22m[39m
+2026-10-25T08:02:00.1602640Z    [33m[2m✓[22m[39m complete coordinated full-health major opening 1 [33m 1949[2mms[22m[39m
+2026-10-25T08:02:00.1603807Z    [33m[2m✓[22m[39m complete coordinated full-health major opening 2 [33m 1754[2mms[22m[39m
+2026-10-25T08:02:00.1605398Z    [33m[2m✓[22m[39m complete neutral regulation match is a draw with clean camps and all six participants [33m 981[2mms[22m[39m
+2026-10-25T08:02:00.1630180Z 
+2026-10-25T08:02:00.1648973Z [2m Test Files [22m [1m[32m25 passed[39m[22m[90m (25)[39m
+2026-10-25T08:02:00.1658771Z [2m      Tests [22m [1m[32m231 passed[39m[22m[90m (231)[39m
+2026-10-25T08:02:00.1664271Z [2m   Start at [22m 08:01:37
+2026-10-25T08:02:00.1665857Z [2m   Duration [22m 23.02s[2m (transform 736ms, setup 0ms, import 8.25s, tests 45.20s, environment 4ms)[22m
+2026-10-25T08:02:00.1667080Z 
+2026-10-25T08:02:00.1969891Z ##[group]Run npm run typecheck
+2026-10-25T08:02:00.1970215Z [36;1mnpm run typecheck[0m
+2026-10-25T08:02:00.2032937Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:02:00.2033219Z ##[endgroup]
+2026-10-25T08:02:00.3029069Z 
+2026-10-25T08:02:00.3029697Z > crownfall-playcanvas@0.0.0 typecheck
+2026-10-25T08:02:00.3030348Z > tsc --noEmit
+2026-10-25T08:02:00.3030609Z 
+2026-10-25T08:02:04.0613368Z ##[group]Run npm run lint
+2026-10-25T08:02:04.0613671Z [36;1mnpm run lint[0m
+2026-10-25T08:02:04.0677482Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:02:04.0677810Z ##[endgroup]
+2026-10-25T08:02:04.1720073Z 
+2026-10-25T08:02:04.1720457Z > crownfall-playcanvas@0.0.0 lint
+2026-10-25T08:02:04.1720959Z > eslint .
+2026-10-25T08:02:04.1721169Z 
+2026-10-25T08:02:07.4934753Z ##[group]Run npm run fmt
+2026-10-25T08:02:07.4935284Z [36;1mnpm run fmt[0m
+2026-10-25T08:02:07.5025216Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:02:07.5025689Z ##[endgroup]
+2026-10-25T08:02:07.6024976Z 
+2026-10-25T08:02:07.6025582Z > crownfall-playcanvas@0.0.0 fmt
+2026-10-25T08:02:07.6026245Z > prettier --check .
+2026-10-25T08:02:07.6026526Z 
+2026-10-25T08:02:07.6859127Z Checking formatting...
+2026-10-25T08:02:14.4736385Z All matched files use Prettier code style!
+2026-10-25T08:02:14.5239224Z ##[group]Run npm run build
+2026-10-25T08:02:14.5239746Z [36;1mnpm run build[0m
+2026-10-25T08:02:14.5331128Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:02:14.5331620Z ##[endgroup]
+2026-10-25T08:02:14.6357605Z 
+2026-10-25T08:02:14.6358462Z > crownfall-playcanvas@0.0.0 build
+2026-10-25T08:02:14.6359292Z > vite build
+2026-10-25T08:02:14.6359862Z 
+2026-10-25T08:02:14.8529184Z [36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+2026-10-25T08:02:14.8622979Z transforming...
+2026-10-25T08:02:15.0569303Z ✓ 1299 modules transformed.
+2026-10-25T08:02:15.1510837Z rendering chunks...
+2026-10-25T08:02:15.2983429Z computing gzip size...
+2026-10-25T08:02:15.3179538Z dist/index.html                     0.58 kB │ gzip:   0.34 kB
+2026-10-25T08:02:15.3180946Z dist/assets/index-D-9p9G16.css     11.82 kB │ gzip:   3.12 kB
+2026-10-25T08:02:15.3182316Z dist/assets/index-Dx2hhpSv.js   1,317.84 kB │ gzip: 356.68 kB
+2026-10-25T08:02:15.3182927Z 
+2026-10-25T08:02:15.3184344Z [32m✓ built in 465ms[39m
+2026-10-25T08:02:15.3191733Z [33m[plugin builtin:vite-reporter] 
+2026-10-25T08:02:15.3192352Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2026-10-25T08:02:15.3192955Z - Using dynamic import() to code-split the application
+2026-10-25T08:02:15.3193846Z - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+2026-10-25T08:02:15.3194813Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+2026-10-25T08:02:15.3456351Z ##[group]Run npx playwright install --with-deps chromium
+2026-10-25T08:02:15.3456810Z [36;1mnpx playwright install --with-deps chromium[0m
+2026-10-25T08:02:15.3518896Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:02:15.3519175Z ##[endgroup]
+2026-10-25T08:02:16.0946905Z Installing dependencies...
+2026-10-25T08:02:16.1030073Z Switching to root user to install dependencies...
+2026-10-25T08:02:16.2398147Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-25T08:02:16.2524947Z Get:4 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+2026-10-25T08:02:16.2754049Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+2026-10-25T08:02:16.2769398Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2026-10-25T08:02:16.2844633Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2026-10-25T08:02:16.2917880Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+2026-10-25T08:02:16.3588663Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.4 kB]
+2026-10-25T08:02:16.3709273Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [660 kB]
+2026-10-25T08:02:16.3783410Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [598 kB]
+2026-10-25T08:02:16.4759954Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1400 kB]
+2026-10-25T08:02:16.4850259Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [310 kB]
+2026-10-25T08:02:16.4858931Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1706 kB]
+2026-10-25T08:02:16.4937747Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [342 kB]
+2026-10-25T08:02:16.4958077Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1805 kB]
+2026-10-25T08:02:16.5058745Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [411 kB]
+2026-10-25T08:02:16.5830914Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1146 kB]
+2026-10-25T08:02:16.5886487Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [231 kB]
+2026-10-25T08:02:16.5901415Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1222 kB]
+2026-10-25T08:02:16.5960538Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [246 kB]
+2026-10-25T08:02:16.6390542Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1713 kB]
+2026-10-25T08:02:16.6466595Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [392 kB]
+2026-10-25T08:02:23.4091790Z Fetched 12.6 MB in 1s (9696 kB/s)
+2026-10-25T08:02:24.3998644Z Reading package lists...
+2026-10-25T08:02:24.4233653Z Reading package lists...
+2026-10-25T08:02:24.6391383Z Building dependency tree...
+2026-10-25T08:02:24.6399523Z Reading state information...
+2026-10-25T08:02:24.7941116Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+2026-10-25T08:02:24.7942140Z libasound2t64 set to manually installed.
+2026-10-25T08:02:24.7943139Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-25T08:02:24.7944052Z libatk-bridge2.0-0t64 set to manually installed.
+2026-10-25T08:02:24.7944919Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-25T08:02:24.7945648Z libatk1.0-0t64 set to manually installed.
+2026-10-25T08:02:24.7946444Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+2026-10-25T08:02:24.7947516Z libatspi2.0-0t64 set to manually installed.
+2026-10-25T08:02:24.7948329Z libcairo2 is already the newest version (1.18.0-3build1).
+2026-10-25T08:02:24.7949076Z libcairo2 set to manually installed.
+2026-10-25T08:02:24.7950065Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+2026-10-25T08:02:24.7951651Z libcups2t64 set to manually installed.
+2026-10-25T08:02:24.7952556Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+2026-10-25T08:02:24.7953515Z libdbus-1-3 set to manually installed.
+2026-10-25T08:02:24.7954348Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+2026-10-25T08:02:24.7955057Z libdrm2 set to manually installed.
+2026-10-25T08:02:24.7955770Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+2026-10-25T08:02:24.7956429Z libgbm1 set to manually installed.
+2026-10-25T08:02:24.7957063Z libnspr4 is already the newest version (2:4.35-1.1build1).
+2026-10-25T08:02:24.7957779Z libnspr4 set to manually installed.
+2026-10-25T08:02:24.7958223Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+2026-10-25T08:02:24.7958654Z libpango-1.0-0 set to manually installed.
+2026-10-25T08:02:24.7959098Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+2026-10-25T08:02:24.7959500Z libx11-6 set to manually installed.
+2026-10-25T08:02:24.7960046Z libxcb1 is already the newest version (1.15-1ubuntu2).
+2026-10-25T08:02:24.7960481Z libxcb1 set to manually installed.
+2026-10-25T08:02:24.7960907Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+2026-10-25T08:02:24.7961328Z libxcomposite1 set to manually installed.
+2026-10-25T08:02:24.7961760Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+2026-10-25T08:02:24.7962150Z libxdamage1 set to manually installed.
+2026-10-25T08:02:24.7962548Z libxext6 is already the newest version (2:1.3.4-1build2).
+2026-10-25T08:02:24.7963098Z libxext6 set to manually installed.
+2026-10-25T08:02:24.7963494Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+2026-10-25T08:02:24.7963887Z libxfixes3 set to manually installed.
+2026-10-25T08:02:24.7964285Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+2026-10-25T08:02:24.7964681Z libxkbcommon0 set to manually installed.
+2026-10-25T08:02:24.7965093Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+2026-10-25T08:02:24.7965482Z libxrandr2 set to manually installed.
+2026-10-25T08:02:24.7965988Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+2026-10-25T08:02:24.7966577Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+2026-10-25T08:02:24.7967006Z libfontconfig1 set to manually installed.
+2026-10-25T08:02:24.7967704Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+2026-10-25T08:02:24.7968153Z libfreetype6 set to manually installed.
+2026-10-25T08:02:24.7968579Z fonts-liberation is already the newest version (1:2.1.5-3).
+2026-10-25T08:02:24.7969000Z fonts-liberation set to manually installed.
+2026-10-25T08:02:24.7969415Z The following additional packages will be installed:
+2026-10-25T08:02:24.7969887Z   gir1.2-glib-2.0 libglib2.0-bin libglib2.0-data libnss3-tools
+2026-10-25T08:02:24.7970304Z   xfonts-encodings xfonts-utils xserver-common
+2026-10-25T08:02:24.7970640Z Suggested packages:
+2026-10-25T08:02:24.7970868Z   low-memory-monitor
+2026-10-25T08:02:24.7971111Z Recommended packages:
+2026-10-25T08:02:24.7971642Z   fonts-ipafont-mincho fonts-tlwg-loma xfonts-base
+2026-10-25T08:02:24.8303683Z The following NEW packages will be installed:
+2026-10-25T08:02:24.8304745Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+2026-10-25T08:02:24.8313475Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+2026-10-25T08:02:24.8313960Z   xfonts-utils
+2026-10-25T08:02:24.8317748Z The following packages will be upgraded:
+2026-10-25T08:02:24.8320120Z   gir1.2-glib-2.0 libglib2.0-0t64 libglib2.0-bin libglib2.0-data libnss3
+2026-10-25T08:02:24.8324879Z   libnss3-tools xserver-common xvfb
+2026-10-25T08:02:24.8503204Z 8 upgraded, 9 newly installed, 0 to remove and 92 not upgraded.
+2026-10-25T08:02:24.8504004Z Need to get 25.9 MB of archives.
+2026-10-25T08:02:24.8504784Z After this operation, 79.5 MB of additional disk space will be used.
+2026-10-25T08:02:24.8505580Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+2026-10-25T08:02:24.9409095Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+2026-10-25T08:02:25.1614839Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-data all 2.80.0-6ubuntu3.10 [50.2 kB]
+2026-10-25T08:02:25.2351405Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-bin amd64 2.80.0-6ubuntu3.10 [97.9 kB]
+2026-10-25T08:02:25.3147782Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 gir1.2-glib-2.0 amd64 2.80.0-6ubuntu3.10 [183 kB]
+2026-10-25T08:02:25.3965018Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-0t64 amd64 2.80.0-6ubuntu3.10 [1548 kB]
+2026-10-25T08:02:25.5616939Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+2026-10-25T08:02:25.9724669Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+2026-10-25T08:02:26.0524193Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+2026-10-25T08:02:26.3121396Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+2026-10-25T08:02:26.7320140Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libnss3 amd64 2:3.98-1ubuntu0.3 [1445 kB]
+2026-10-25T08:02:26.8732599Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libnss3-tools amd64 2:3.98-1ubuntu0.3 [615 kB]
+2026-10-25T08:02:26.9698243Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+2026-10-25T08:02:27.0799676Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+2026-10-25T08:02:27.1605189Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+2026-10-25T08:02:27.2644258Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+2026-10-25T08:02:27.3585923Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 xserver-common all 2:21.1.12-1ubuntu1.9 [35.0 kB]
+2026-10-25T08:02:27.4343423Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 xvfb amd64 2:21.1.12-1ubuntu1.9 [877 kB]
+2026-10-25T08:02:27.7918616Z Fetched 25.9 MB in 3s (9769 kB/s)
+2026-10-25T08:02:27.8144089Z Selecting previously unselected package fonts-ipafont-gothic.
+2026-10-25T08:02:27.8414883Z (Reading database ... 
+2026-10-25T08:02:27.8415536Z (Reading database ... 5%
+2026-10-25T08:02:27.8415931Z (Reading database ... 10%
+2026-10-25T08:02:27.8416209Z (Reading database ... 15%
+2026-10-25T08:02:27.8416472Z (Reading database ... 20%
+2026-10-25T08:02:27.8416769Z (Reading database ... 25%
+2026-10-25T08:02:27.8417038Z (Reading database ... 30%
+2026-10-25T08:02:27.8417825Z (Reading database ... 35%
+2026-10-25T08:02:27.8418179Z (Reading database ... 40%
+2026-10-25T08:02:27.8418454Z (Reading database ... 45%
+2026-10-25T08:02:27.8418989Z (Reading database ... 50%
+2026-10-25T08:02:27.8459235Z (Reading database ... 55%
+2026-10-25T08:02:27.9338308Z (Reading database ... 60%
+2026-10-25T08:02:28.1407938Z (Reading database ... 65%
+2026-10-25T08:02:28.3474610Z (Reading database ... 70%
+2026-10-25T08:02:28.5294267Z (Reading database ... 75%
+2026-10-25T08:02:28.6414097Z (Reading database ... 80%
+2026-10-25T08:02:28.7502890Z (Reading database ... 85%
+2026-10-25T08:02:28.8632812Z (Reading database ... 90%
+2026-10-25T08:02:29.0048814Z (Reading database ... 95%
+2026-10-25T08:02:29.0049367Z (Reading database ... 100%
+2026-10-25T08:02:29.0050149Z (Reading database ... 203540 files and directories currently installed.)
+2026-10-25T08:02:29.0091956Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+2026-10-25T08:02:29.0184842Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-25T08:02:29.2594005Z Preparing to unpack .../01-libglib2.0-data_2.80.0-6ubuntu3.10_all.deb ...
+2026-10-25T08:02:29.2612998Z Unpacking libglib2.0-data (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+2026-10-25T08:02:29.2999110Z Preparing to unpack .../02-libglib2.0-bin_2.80.0-6ubuntu3.10_amd64.deb ...
+2026-10-25T08:02:29.3016732Z Unpacking libglib2.0-bin (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+2026-10-25T08:02:29.3731020Z Preparing to unpack .../03-gir1.2-glib-2.0_2.80.0-6ubuntu3.10_amd64.deb ...
+2026-10-25T08:02:29.3749581Z Unpacking gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+2026-10-25T08:02:29.4182886Z Preparing to unpack .../04-libglib2.0-0t64_2.80.0-6ubuntu3.10_amd64.deb ...
+2026-10-25T08:02:29.5101553Z Unpacking libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+2026-10-25T08:02:29.6068275Z Selecting previously unselected package fonts-freefont-ttf.
+2026-10-25T08:02:29.6195309Z Preparing to unpack .../05-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+2026-10-25T08:02:29.6202646Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-25T08:02:29.6965262Z Selecting previously unselected package fonts-tlwg-loma-otf.
+2026-10-25T08:02:29.7089409Z Preparing to unpack .../06-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+2026-10-25T08:02:29.7095226Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-25T08:02:29.7289314Z Selecting previously unselected package fonts-unifont.
+2026-10-25T08:02:29.7411972Z Preparing to unpack .../07-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+2026-10-25T08:02:29.7418141Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+2026-10-25T08:02:29.8429013Z Selecting previously unselected package fonts-wqy-zenhei.
+2026-10-25T08:02:29.8552866Z Preparing to unpack .../08-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+2026-10-25T08:02:29.8649401Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-25T08:02:30.3350858Z Preparing to unpack .../09-libnss3_2%3a3.98-1ubuntu0.3_amd64.deb ...
+2026-10-25T08:02:30.3372288Z Unpacking libnss3:amd64 (2:3.98-1ubuntu0.3) over (2:3.98-1ubuntu0.2) ...
+2026-10-25T08:02:30.3858490Z Preparing to unpack .../10-libnss3-tools_2%3a3.98-1ubuntu0.3_amd64.deb ...
+2026-10-25T08:02:30.3876452Z Unpacking libnss3-tools (2:3.98-1ubuntu0.3) over (2:3.98-1ubuntu0.2) ...
+2026-10-25T08:02:30.4318509Z Selecting previously unselected package xfonts-encodings.
+2026-10-25T08:02:30.4445628Z Preparing to unpack .../11-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+2026-10-25T08:02:30.4451945Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-25T08:02:30.4744143Z Selecting previously unselected package xfonts-utils.
+2026-10-25T08:02:30.4867903Z Preparing to unpack .../12-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+2026-10-25T08:02:30.4874825Z Unpacking xfonts-utils (1:7.7+6build3) ...
+2026-10-25T08:02:30.5225998Z Selecting previously unselected package xfonts-cyrillic.
+2026-10-25T08:02:30.5350297Z Preparing to unpack .../13-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+2026-10-25T08:02:30.5357737Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-25T08:02:30.5688056Z Selecting previously unselected package xfonts-scalable.
+2026-10-25T08:02:30.5812078Z Preparing to unpack .../14-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+2026-10-25T08:02:30.5818442Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-25T08:02:30.6165546Z Preparing to unpack .../15-xserver-common_2%3a21.1.12-1ubuntu1.9_all.deb ...
+2026-10-25T08:02:30.6185499Z Unpacking xserver-common (2:21.1.12-1ubuntu1.9) over (2:21.1.12-1ubuntu1.8) ...
+2026-10-25T08:02:30.6524488Z Preparing to unpack .../16-xvfb_2%3a21.1.12-1ubuntu1.9_amd64.deb ...
+2026-10-25T08:02:30.6543218Z Unpacking xvfb (2:21.1.12-1ubuntu1.9) over (2:21.1.12-1ubuntu1.8) ...
+2026-10-25T08:02:30.7128392Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+2026-10-25T08:02:30.7244193Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+2026-10-25T08:02:30.7262518Z Setting up libnss3:amd64 (2:3.98-1ubuntu0.3) ...
+2026-10-25T08:02:30.7281181Z Setting up libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.10) ...
+2026-10-25T08:02:30.7523891Z Setting up libglib2.0-data (2.80.0-6ubuntu3.10) ...
+2026-10-25T08:02:30.7541986Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+2026-10-25T08:02:30.7559753Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+2026-10-25T08:02:30.7577901Z Setting up gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.10) ...
+2026-10-25T08:02:30.7595124Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+2026-10-25T08:02:30.7661947Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+2026-10-25T08:02:30.7676849Z Setting up xserver-common (2:21.1.12-1ubuntu1.9) ...
+2026-10-25T08:02:30.7695079Z Setting up libnss3-tools (2:3.98-1ubuntu0.3) ...
+2026-10-25T08:02:30.7712030Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+2026-10-25T08:02:30.7731285Z Setting up xvfb (2:21.1.12-1ubuntu1.9) ...
+2026-10-25T08:02:30.7748139Z Setting up libglib2.0-bin (2.80.0-6ubuntu3.10) ...
+2026-10-25T08:02:30.7765070Z Setting up xfonts-utils (1:7.7+6build3) ...
+2026-10-25T08:02:30.7806805Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+2026-10-25T08:02:30.8097835Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+2026-10-25T08:02:30.8422091Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+2026-10-25T08:02:30.8988696Z Processing triggers for man-db (2.12.0-4build2) ...
+2026-10-25T08:02:30.9009735Z Not building database; man-db/auto-update is not 'true'.
+2026-10-25T08:02:30.9021614Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+2026-10-25T08:02:32.0291772Z 
+2026-10-25T08:02:32.0292494Z Running kernel seems to be up-to-date.
+2026-10-25T08:02:32.0292850Z 
+2026-10-25T08:02:32.0293023Z Restarting services...
+2026-10-25T08:02:32.0751195Z  systemctl restart packagekit.service php8.3-fpm.service polkit.service udisks2.service
+2026-10-25T08:02:32.2078467Z 
+2026-10-25T08:02:32.2087979Z Service restarts being deferred:
+2026-10-25T08:02:32.2103344Z  systemctl restart ModemManager.service
+2026-10-25T08:02:32.2104358Z  systemctl restart networkd-dispatcher.service
+2026-10-25T08:02:32.2105079Z 
+2026-10-25T08:02:32.2105672Z No containers need to be restarted.
+2026-10-25T08:02:32.2106241Z 
+2026-10-25T08:02:32.2106755Z No user sessions are running outdated binaries.
+2026-10-25T08:02:32.2107666Z 
+2026-10-25T08:02:32.2108544Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2026-10-25T08:02:33.2529291Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+2026-10-25T08:02:33.6713718Z |                                                                                |   0% of 191.1 MiB
+2026-10-25T08:02:33.8758527Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+2026-10-25T08:02:33.9763776Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+2026-10-25T08:02:34.0818651Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+2026-10-25T08:02:34.1736987Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+2026-10-25T08:02:34.2771475Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+2026-10-25T08:02:34.3818378Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+2026-10-25T08:02:34.4658850Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+2026-10-25T08:02:34.5879803Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+2026-10-25T08:02:34.6845218Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+2026-10-25T08:02:34.7924277Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+2026-10-25T08:02:38.0961000Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+2026-10-25T08:02:38.0965289Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+2026-10-25T08:02:38.4456386Z |                                                                                |   0% of 2.2 MiB
+2026-10-25T08:02:38.4492047Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+2026-10-25T08:02:38.4521763Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+2026-10-25T08:02:38.4547686Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+2026-10-25T08:02:38.4567102Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+2026-10-25T08:02:38.4582500Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+2026-10-25T08:02:38.4609987Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+2026-10-25T08:02:38.4638504Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+2026-10-25T08:02:38.4652014Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+2026-10-25T08:02:38.4676057Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+2026-10-25T08:02:38.4755784Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+2026-10-25T08:02:38.5361731Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+2026-10-25T08:02:38.5364853Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+2026-10-25T08:02:38.9513764Z |                                                                                |   0% of 120 MiB
+2026-10-25T08:02:39.0668741Z |■■■■■■■■                                                                        |  10% of 120 MiB
+2026-10-25T08:02:39.1456031Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+2026-10-25T08:02:39.2111274Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+2026-10-25T08:02:39.2951426Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+2026-10-25T08:02:39.3484227Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+2026-10-25T08:02:39.4044911Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+2026-10-25T08:02:39.4768520Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+2026-10-25T08:02:39.5303253Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+2026-10-25T08:02:39.5909369Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+2026-10-25T08:02:39.6591472Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+2026-10-25T08:02:42.0241164Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+2026-10-25T08:02:42.0619805Z ##[group]Run npm run test:browser -- --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line,html --trace=retain-on-failure
+2026-10-25T08:02:42.0620834Z [36;1mnpm run test:browser -- --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line,html --trace=retain-on-failure[0m
+2026-10-25T08:02:42.0683724Z shell: /usr/bin/bash -e {0}
+2026-10-25T08:02:42.0683989Z env:
+2026-10-25T08:02:42.0684188Z   CI: true
+2026-10-25T08:02:42.0684390Z   CHROMIUM_PATH: 
+2026-10-25T08:02:42.0684614Z   PLAYWRIGHT_HTML_OPEN: never
+2026-10-25T08:02:42.0684911Z   PLAYWRIGHT_HTML_OUTPUT_DIR: playwright-report
+2026-10-25T08:02:42.0685248Z ##[endgroup]
+2026-10-25T08:02:42.1721899Z 
+2026-10-25T08:02:42.1722593Z > crownfall-playcanvas@0.0.0 test:browser
+2026-10-25T08:02:42.1723660Z > playwright test --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line,html --trace=retain-on-failure
+2026-10-25T08:02:42.1724284Z 
+2026-10-25T08:02:44.4609061Z 
+2026-10-25T08:02:44.4610010Z Running 119 tests using 1 worker
+2026-10-25T08:02:44.4610686Z 
+2026-10-25T08:02:44.8689349Z [1/119] tests/browser/aim-assist.spec.ts:72:5 › Kit: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+2026-10-25T08:03:08.3258874Z [2/119] tests/browser/aim-assist.spec.ts:72:5 › Set: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+2026-10-25T08:03:33.2820338Z [3/119] tests/browser/aim-assist.spec.ts:116:1 › Riven touch hold waits, release acquires scythes, confirmed second direction and recall survive retreat
+2026-10-25T08:03:48.7475689Z [4/119] tests/browser/aim-assist.spec.ts:152:1 › manual drag chooses the opposite direction, cancel/blur/capture loss/orientation clear touch intentions
+2026-10-25T08:04:04.7269863Z [5/119] tests/browser/aim-assist.spec.ts:192:1 › rapid game-surface taps suppress default gestures; menu zoom and live setting remain available
+2026-10-25T08:04:21.6240536Z [6/119] tests/browser/aim-assist.spec.ts:242:1 › retreat and fire against three live pursuing bots records human damage through match authority
+2026-10-25T08:04:32.9699913Z [7/119] tests/browser/application-lifecycle.spec.ts:146:1 › real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command
+2026-10-25T08:04:56.4531770Z [8/119] tests/browser/application-lifecycle.spec.ts:179:1 › re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers
+2026-10-25T08:05:12.2215519Z [9/119] tests/browser/application-lifecycle.spec.ts:208:1 › destroy releases genuine simultaneous touch captures without committing the held ability after remount
+2026-10-25T08:05:26.8769962Z [10/119] tests/browser/application-lifecycle.spec.ts:279:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+2026-10-25T08:06:08.2119871Z   1) tests/browser/application-lifecycle.spec.ts:279:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models 
+2026-10-25T08:06:08.2120771Z 
+2026-10-25T08:06:08.2121059Z     Error: expect(received).toEqual(expected) // deep equality
+2026-10-25T08:06:08.2121406Z 
+2026-10-25T08:06:08.2121541Z     - Expected  - 1
+2026-10-25T08:06:08.2121831Z     + Received  + 1
+2026-10-25T08:06:08.2121999Z 
+2026-10-25T08:06:08.2122108Z       Object {
+2026-10-25T08:06:08.2122377Z         "ib": 666954,
+2026-10-25T08:06:08.2122661Z         "sb": 0,
+2026-10-25T08:06:08.2122933Z         "tex": 461436480,
+2026-10-25T08:06:08.2123229Z     -   "ub": 7360,
+2026-10-25T08:06:08.2123500Z     +   "ub": 8416,
+2026-10-25T08:06:08.2123775Z         "vb": 6104300,
+2026-10-25T08:06:08.2124047Z       }
+2026-10-25T08:06:08.2124186Z 
+2026-10-25T08:06:08.2124296Z       356 |     );
+2026-10-25T08:06:08.2124826Z       357 |     expect(after.modelAssets.downloads).toBe(4);
+2026-10-25T08:06:08.2125728Z     > 358 |     expect(after.modelAssets.gpu).toEqual(before.modelAssets.gpu);
+2026-10-25T08:06:08.2126654Z           |                                   ^
+2026-10-25T08:06:08.2127117Z       359 |     await page.keyboard.down('KeyD');
+2026-10-25T08:06:08.2127797Z       360 |     await expect
+2026-10-25T08:06:08.2128541Z       361 |         .poll(async () => (await read(page)).summonerModels.find((model) => model.id === '1-0')!.activeAnimation)
+2026-10-25T08:06:08.2129799Z         at /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas/tests/browser/application-lifecycle.spec.ts:358:35
+2026-10-25T08:06:08.2130520Z 
+2026-10-25T08:06:08.2131099Z     Error Context: test-results/application-lifecycle-dest-50e89-remounts-six-working-models/error-context.md
+2026-10-25T08:06:08.2131744Z 
+2026-10-25T08:06:08.2132355Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-25T08:06:08.2133272Z     test-results/application-lifecycle-dest-50e89-remounts-six-working-models/trace.zip
+2026-10-25T08:06:08.2133903Z     Usage:
+2026-10-25T08:06:08.2134043Z 
+2026-10-25T08:06:08.2134661Z         npx playwright show-trace test-results/application-lifecycle-dest-50e89-remounts-six-working-models/trace.zip
+2026-10-25T08:06:08.2135316Z 
+2026-10-25T08:06:08.2135788Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-25T08:06:08.2136183Z 
+2026-10-25T08:06:08.2136189Z 
+2026-10-25T08:06:08.6634963Z [11/119] tests/browser/application-lifecycle.spec.ts:369:1 › destroy after GLB download while embedded texture decoding is pending leaves no late engine work
+2026-10-25T08:06:18.0463900Z [12/119] tests/browser/application-lifecycle.spec.ts:417:1 › destroy between download completion and the queued engine contents handoff cancels parsing safely
+2026-10-25T08:06:36.3709568Z [13/119] tests/browser/arena.spec.ts:32:1 › production arena renders, moves, aims independently, mirrors and preserves facing
+2026-10-25T08:06:50.5963606Z [14/119] tests/browser/arena.spec.ts:67:1 › landscape mobile supports two captured pointers and clears cancelled input
+2026-10-25T08:07:04.1791081Z [15/119] tests/browser/arena.spec.ts:114:1 › obstruction blocks movement in the rendered app
+2026-10-25T08:07:12.1280047Z [16/119] tests/browser/arena.spec.ts:132:5 › Kit selection and real Basic damage through HUD
+2026-10-25T08:07:15.4909280Z [17/119] tests/browser/arena.spec.ts:132:5 › Set selection and real Basic damage through HUD
+2026-10-25T08:07:23.0374643Z [18/119] tests/browser/arena.spec.ts:132:5 › Riven selection and real Basic damage through HUD
+2026-10-25T08:07:28.4669564Z [19/119] tests/browser/arena.spec.ts:155:1 › aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics
+2026-10-25T08:07:34.6939145Z [20/119] tests/browser/arena.spec.ts:173:1 › Set ground ultimate consumes charged meter and impacts after commitment
+2026-10-25T08:07:43.0809381Z [21/119] tests/browser/arena.spec.ts:184:1 › Riven stance changes actions and SCREAM updates stun/ultimate diagnostics
+2026-10-25T08:07:51.5190617Z [22/119] tests/browser/environment.spec.ts:41:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera
+2026-10-25T08:08:49.2989591Z [23/119] tests/browser/environment.spec.ts:73:1 › normal match defaults to carved terrain with territory indicators retained
+2026-10-25T08:09:07.1525921Z [24/119] tests/browser/ergonomics.spec.ts:30:5 › competitive camera follows Kit smoothly from behind with fixed forward focus
+2026-10-25T08:09:20.8320077Z [25/119] tests/browser/ergonomics.spec.ts:30:5 › competitive camera follows Set smoothly from behind with fixed forward focus
+2026-10-25T08:09:39.9917853Z [26/119] tests/browser/ergonomics.spec.ts:30:5 › competitive camera follows Riven smoothly from behind with fixed forward focus
+2026-10-25T08:09:57.0414814Z [27/119] tests/browser/ergonomics.spec.ts:78:5 › competitive Kit retains touch Basic timing with the farther camera
+2026-10-25T08:10:24.5136269Z [28/119] tests/browser/ergonomics.spec.ts:78:5 › competitive Set retains touch Basic timing with the farther camera
+2026-10-25T08:10:53.9627690Z [29/119] tests/browser/ergonomics.spec.ts:78:5 › competitive Riven retains touch Basic timing with the farther camera
+2026-10-25T08:11:21.6760044Z [30/119] tests/browser/ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+2026-10-25T08:12:33.6155711Z   2) tests/browser/ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 844x390, safe inset 0 
+2026-10-25T08:12:33.6156521Z 
+2026-10-25T08:12:33.6156789Z     Test timeout of 60000ms exceeded.
+2026-10-25T08:12:33.6157148Z 
+2026-10-25T08:12:33.6158279Z     Error Context: test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/error-context.md
+2026-10-25T08:12:33.6159635Z 
+2026-10-25T08:12:33.6160547Z     attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-25T08:12:33.6161896Z     test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/trace.zip
+2026-10-25T08:12:33.6162849Z     Usage:
+2026-10-25T08:12:33.6163084Z 
+2026-10-25T08:12:33.6163952Z         npx playwright show-trace test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/trace.zip
+2026-10-25T08:12:33.6164794Z 
+2026-10-25T08:12:33.6165575Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-25T08:12:33.6166170Z 
+2026-10-25T08:12:33.6166180Z 
+2026-10-25T08:12:34.0948107Z [31/119] tests/browser/ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 844x390, safe inset 44
+2026-10-25T08:13:34.0107090Z [32/119] tests/browser/ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 667x375, safe inset 44
+2026-10-25T08:14:32.7565178Z [33/119] tests/browser/ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 640x360, safe inset 44
+2026-10-25T08:15:27.8089862Z [34/119] tests/browser/hud-contracts.spec.ts:33:5 › HUD text follows exact default match settings and earned modifier values
+2026-10-25T08:15:42.4549696Z [35/119] tests/browser/hud-contracts.spec.ts:33:5 › HUD text follows nondefault match settings and earned modifier values
+2026-10-25T08:15:50.7174822Z [36/119] tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 844x390, safe 0
+2026-10-25T08:16:04.6789867Z [37/119] tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 844x390, safe 44
+2026-10-25T08:16:16.7986881Z [38/119] tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 667x375, safe 44
+2026-10-25T08:16:28.2636419Z [39/119] tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 640x360, safe 44
+2026-10-25T08:16:39.4607712Z [40/119] tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 390x844, safe 0
+2026-10-25T08:16:50.4358610Z [41/119] tests/browser/hud-layout.spec.ts:42:5 › HUD rows follow content across fonts and match phases at 1280x720, safe 0
+2026-10-25T08:17:11.8483901Z [42/119] tests/browser/kit-model.spec.ts:45:1 › production serves unchanged Kit GLB
+2026-10-25T08:17:11.9928660Z [43/119] tests/browser/kit-model.spec.ts:53:1 › local Kit loads, grounds, follows and animates in the normal mobile match
+2026-10-25T08:17:33.3113745Z tests/browser/kit-model.spec.ts:53:1 › local Kit loads, grounds, follows and animates in the normal mobile match
+2026-10-25T08:17:33.3147640Z Kit measured diagnostics {"state":"loaded","bytes":26939896,"source":"assets/summoners/kit/Kit_20K_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_5","duration":1.8333330154418945},{"name":"Punch_Combo_1","duration":2.200000047683716},{"name":"RunFast","duration":0.4666669964790344}],"loadMs":3776.5,"error":"","bounds":{"min":[-0.38867348432540894,-2.587064562575847e-9,-0.20758193731307983],"max":[0.38867348432540894,1.7000000476837158,0.20758193731307983]},"height":1.7000000502707804,"scale":1.0294117342650992,"offset":[0,0.05264644266315462,0],"meshInstances":1,"authoredForwardYaw":0,"instanceId":"af4606d4-e229-4d09-8ee1-b82e0ad9e0d9","meshId":13,"materialId":26,"activeAnimation":"Idle_5","playbackTime":0.11669999999999983,"playing":true,"attackCount":0,"lastAttackSerial":0,"staticComparison":false,"worldBounds":{"min":[-0.40019223136390936,-0.12703282169203156,3.1985283906900794],"max":[0.6925436223925988,1.7080930542288133,4.440709423833232]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"rootScale":[1,1,1],"frameMs":39.09912691387095}
+2026-10-25T08:17:33.3160908Z 
+2026-10-25T08:17:33.3590912Z [44/119] tests/browser/kit-model.spec.ts:111:5 › Set retains primitives without fetching Kit
+2026-10-25T08:17:43.3788361Z [45/119] tests/browser/kit-model.spec.ts:111:5 › Riven retains primitives without fetching Kit
+2026-10-25T08:17:55.7969390Z [46/119] tests/browser/kit-model.spec.ts:128:1 › primitive comparison skips the GLB request
+2026-10-25T08:18:06.8053038Z [47/119] tests/browser/kit-model.spec.ts:141:1 › pending and failed loading keep playable primitive fallback
+2026-10-25T08:18:16.3969369Z [48/119] tests/browser/kit-model.spec.ts:162:1 › 10K comparison remains static and is requested only once
+2026-10-25T08:18:30.8369709Z [49/119] tests/browser/kit-model.spec.ts:175:1 › animated Kit survives death, respawn, results and restart without another download
+2026-10-25T08:18:59.4547142Z   3) tests/browser/kit-model.spec.ts:175:1 › animated Kit survives death, respawn, results and restart without another download 
+2026-10-25T08:18:59.4548103Z 
+2026-10-25T08:18:59.4548363Z     Error: expect(received).toBe(expected) // Object.is equality
+2026-10-25T08:18:59.4548710Z 
+2026-10-25T08:18:59.4548822Z     Expected: "loaded"
+2026-10-25T08:18:59.4549074Z     Received: "loading"
+2026-10-25T08:18:59.4549226Z 
+2026-10-25T08:18:59.4549319Z     Call Log:
+2026-10-25T08:18:59.4549648Z     - Timeout 15000ms exceeded while waiting on the predicate
+2026-10-25T08:18:59.4549910Z 
+2026-10-25T08:18:59.4550139Z       180 |     await page.goto('/?summonerModels=local&verify=1');
+2026-10-25T08:18:59.4550539Z       181 |     await arrange(page);
+2026-10-25T08:18:59.4551035Z     > 182 |     await expect.poll(async () => (await snapshot(page)).kitModel.state).toBe('loaded');
+2026-10-25T08:18:59.4551576Z           |                                                                          ^
+2026-10-25T08:18:59.4552099Z       183 |     // The existing diagnostic control is intentionally hidden in normal play.
+2026-10-25T08:18:59.4552696Z       184 |     await page.locator('#inspect-actor').selectOption('1-0', { force: true });
+2026-10-25T08:18:59.4553350Z       185 |     await page.locator('#lethal-actor').evaluate((e) => (e as HTMLButtonElement).click());
+2026-10-25T08:18:59.4554171Z         at /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas/tests/browser/kit-model.spec.ts:182:74
+2026-10-25T08:18:59.4554652Z 
+2026-10-25T08:18:59.4555097Z     Error Context: test-results/kit-model-animated-Kit-sur-f8b1a-rt-without-another-download/error-context.md
+2026-10-25T08:18:59.4555557Z 
+2026-10-25T08:18:59.4556011Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-25T08:18:59.4556686Z     test-results/kit-model-animated-Kit-sur-f8b1a-rt-without-another-download/trace.zip
+2026-10-25T08:18:59.4557154Z     Usage:
+2026-10-25T08:18:59.4557568Z 
+2026-10-25T08:18:59.4558107Z         npx playwright show-trace test-results/kit-model-animated-Kit-sur-f8b1a-rt-without-another-download/trace.zip
+2026-10-25T08:18:59.4558592Z 
+2026-10-25T08:18:59.4558988Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-25T08:18:59.4559299Z 
+2026-10-25T08:18:59.4559305Z 
+2026-10-25T08:18:59.9229747Z [50/119] tests/browser/match.spec.ts:21:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch
+2026-10-25T08:19:56.5108358Z [51/119] tests/browser/match.spec.ts:61:1 › 3v3 selected Blue human takes real touch commands after countdown and reset
+2026-10-25T08:20:41.6389625Z [52/119] tests/browser/playable.spec.ts:11:1 › normal player starts, fights a natural 3v3 battle, sees results, freeze and clean restart
+2026-10-25T08:23:44.5285747Z [53/119] tests/browser/playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 844x390
+2026-10-25T08:24:13.3939600Z   4) tests/browser/playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 844x390 
+2026-10-25T08:24:13.3940449Z 
+2026-10-25T08:24:13.3940887Z     Error: expect(received).toBe(expected) // Object.is equality
+2026-10-25T08:24:13.3941800Z 
+2026-10-25T08:24:13.3942026Z     Expected: "active"
+2026-10-25T08:24:13.3942459Z     Received: "countdown"
+2026-10-25T08:24:13.3942740Z 
+2026-10-25T08:24:13.3942898Z     Call Log:
+2026-10-25T08:24:13.3943454Z     - Timeout 15000ms exceeded while waiting on the predicate
+2026-10-25T08:24:13.3943924Z 
+2026-10-25T08:24:13.3944475Z       85 |         await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
+2026-10-25T08:24:13.3945382Z       86 |         await page.locator('#play-match').tap();
+2026-10-25T08:24:13.3946234Z     > 87 |         await expect.poll(async () => (await state(page)).phase).toBe('active');
+2026-10-25T08:24:13.3947129Z          |                                                                  ^
+2026-10-25T08:24:13.3948267Z       88 |         const initial = (await state(page)).actors.find((a) => a.human)!;
+2026-10-25T08:24:13.3949160Z       89 |         const cdp = await context.newCDPSession(page);
+2026-10-25T08:24:13.3950043Z       90 |         const box = (await page.locator('#move').boundingBox())!;
+2026-10-25T08:24:13.3951430Z         at /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas/tests/browser/playable.spec.ts:87:66
+2026-10-25T08:24:13.3952254Z 
+2026-10-25T08:24:13.3953069Z     Error Context: test-results/playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390/error-context.md
+2026-10-25T08:24:13.3953878Z 
+2026-10-25T08:24:13.3954732Z     attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+2026-10-25T08:24:13.3956016Z     test-results/playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390/trace.zip
+2026-10-25T08:24:13.3956901Z     Usage:
+2026-10-25T08:24:13.3957112Z 
+2026-10-25T08:24:13.3958198Z         npx playwright show-trace test-results/playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390/trace.zip
+2026-10-25T08:24:13.3959099Z 
+2026-10-25T08:24:13.3959892Z     ────────────────────────────────────────────────────────────────────────────────────────────────
+2026-10-25T08:24:13.3960479Z 
+2026-10-25T08:24:13.3960489Z 
+2026-10-25T08:24:13.8595592Z [54/119] tests/browser/playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 390x844
+2026-10-25T08:24:39.0159433Z [55/119] tests/browser/riven-model.spec.ts:63:1 › production serves the exact verified Riven GLB
+2026-10-25T08:24:39.1508511Z [56/119] tests/browser/riven-model.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+2026-10-25T08:25:10.1361806Z tests/browser/riven-model.spec.ts:71:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+2026-10-25T08:25:10.1400093Z Riven measured diagnostics {"state":"loaded","bytes":11170312,"source":"assets/summoners/riven/Riven_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_6","duration":7.366666793823242},{"name":"run_fast_7","duration":0.8666669726371765}],"registeredStates":["Idle_6","Walking","Running"],"runningClip":"Running","locomotionReason":"run_fast_7 failed loop validation; using Running","preferredLoop":{"valid":false,"positionError":0.01896846294403076,"rotationErrorDegrees":12.873240271210351},"loadMs":635.6000000000931,"error":"","bounds":{"min":[-0.44156354665756226,2.049818093041722e-9,-0.16084645688533783],"max":[0.44156360626220703,1.7000001668930054,0.16084642708301544]},"height":1.7000001648431873,"scale":1.029411664887353,"offset":[-3.0678858306627066e-8,0.035075997889893344,1.5339429153313533e-8],"meshInstances":1,"jointCount":68,"authoredForwardYaw":0,"instanceId":"bb0bdf45-2c67-4e0d-81ec-c29a906e22c9","meshId":13,"materialId":26,"activeAnimation":"Idle_6","playbackTime":0.5166999999999998,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.5169224402659582,-0.026544493264653468,3.629153857719293],"max":[0.3646393161403293,1.7502363948631976,4.270719498584513]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.0033203279599547386,1.0361023627929253,-0.009960962459445],"rootScale":[1,1,1],"frameMs":60.30456055542621}
+2026-10-25T08:25:10.1413520Z 
+2026-10-25T08:25:10.1689763Z [57/119] tests/browser/riven-model.spec.ts:154:1 › Riven aim/commit facing uses Riven controls without Kit punch animations
+2026-10-25T08:25:33.8329236Z [58/119] tests/browser/riven-model.spec.ts:182:5 › Riven primitive skips the download with no developer opt-in
+2026-10-25T08:25:46.7029295Z [59/119] tests/browser/riven-model.spec.ts:182:5 › Riven primitive skips the download with &rivenPrimitive=1
+2026-10-25T08:25:56.4544611Z [60/119] tests/browser/riven-model.spec.ts:200:1 › pending and failed Riven loading retain a moving primitive
+2026-10-25T08:26:19.5749764Z [61/119] tests/browser/riven-model.spec.ts:222:1 › valid container missing a required Riven clip safely falls back
+2026-10-25T08:26:28.8461601Z [62/119] tests/browser/riven-model.spec.ts:239:1 › training preview switches summoners and reuses one Riven instance
+2026-10-25T08:26:44.8802765Z [63/119] tests/browser/riven-model.spec.ts:259:1 › Riven preview survives defeat, respawn, results and rematch without another download
+2026-10-25T08:27:04.0227765Z [64/119] tests/browser/riven-touch.spec.ts:5:1 › Riven 3D preview supports simultaneous touch movement, aim, release and cancellation
+2026-10-25T08:27:30.5914276Z [65/119] tests/browser/riven-weapons.spec.ts:91:1 › two shared Moonreapers follow every Reso phase, stance and Elf Dance
+2026-10-25T08:28:13.1444943Z [66/119] tests/browser/riven-weapons.spec.ts:158:5 › failed asset keeps two functional fallback scythes per Riven
+2026-10-25T08:28:27.9156114Z [67/119] tests/browser/riven-weapons.spec.ts:158:5 › primitive keeps two functional fallback scythes per Riven
+2026-10-25T08:28:35.1777486Z [68/119] tests/browser/riven-weapons.spec.ts:175:1 › ordinary 3v3 selects Riven and renders independent player and AI scythes without preview flags
+2026-10-25T08:28:50.9919680Z [69/119] tests/browser/set-model.spec.ts:63:1 › production serves the exact verified Set GLB
+2026-10-25T08:28:51.0815474Z [70/119] tests/browser/set-model.spec.ts:71:1 › opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera
+2026-10-25T08:29:20.4805048Z tests/browser/set-model.spec.ts:71:1 › opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera
+2026-10-25T08:29:20.4830867Z Set measured diagnostics {"state":"loaded","bytes":10000416,"source":"assets/summoners/set/Set_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Punch_Combo","duration":2.4666669368743896},{"name":"RunFast","duration":0.4666669964790344}],"registeredStates":["Ready","Running"],"runningClip":"Running","locomotionReason":"Running selected; RunFast intentionally excluded","readySource":"Punch_Combo","readyTime":0,"loadMs":1299,"error":"","bounds":{"min":[-0.6199274659156799,2.9567924997309092e-8,-0.2392396479845047],"max":[0.6199275255203247,1.7000000476837158,0.2392396330833435]},"height":1.7000000181157908,"scale":1.117647046913494,"offset":[-3.3308477607771577e-8,0.009313466953495945,8.327119401942894e-9],"meshInstances":1,"jointCount":87,"authoredForwardYaw":0,"instanceId":"94fbde55-e876-4ea4-87fc-00a806351960","meshId":13,"materialId":26,"activeAnimation":"Ready","playbackTime":0.21669999999999984,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.6360617170823178,-0.06283756784961692,3.2168089065785646],"max":[0.6157246596404985,1.835775694312336,4.458091993275803]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.005961951799690723,1.0001788139343262,0.05088947340846062],"rootScale":[1,1,1],"frameMs":52.28640714193898}
+2026-10-25T08:29:20.4840333Z 
+2026-10-25T08:29:20.5049335Z [71/119] tests/browser/set-model.spec.ts:155:5 › Set primitive skips the download with no developer opt-in
+2026-10-25T08:29:29.6009430Z [72/119] tests/browser/set-model.spec.ts:155:5 › Set primitive skips the download with &setPrimitive=1
+2026-10-25T08:29:38.0899453Z [73/119] tests/browser/set-model.spec.ts:173:1 › pending and failed Set loading retain a moving primitive
+2026-10-25T08:29:48.6061579Z [74/119] tests/browser/set-model.spec.ts:195:1 › valid container missing a required Set clip safely falls back
+2026-10-25T08:30:04.2219422Z [75/119] tests/browser/set-model.spec.ts:212:1 › training preview switches summoners and reuses one Set instance
+2026-10-25T08:30:16.1079688Z [76/119] tests/browser/set-model.spec.ts:232:1 › Set preview survives defeat, respawn, results and rematch without another download
+2026-10-25T08:30:34.0199706Z [77/119] tests/browser/set-model.spec.ts:262:1 › normal Set preview starts a match and supports captured mobile movement and combat
+2026-10-25T08:31:00.9952942Z [78/119] tests/browser/set-model.spec.ts:299:1 › combined preview flags preserve Riven while switching to and from Set
+2026-10-25T08:31:11.8649702Z [79/119] tests/browser/six-summoner.spec.ts:84:5 › Kit selection renders six identities with independent playback and shared resources
+2026-10-25T08:31:40.2795725Z tests/browser/six-summoner.spec.ts:84:5 › Kit selection renders six identities with independent playback and shared resources
+2026-10-25T08:31:40.2833367Z Six summoner diagnostics {"selected":"Kit","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":1372.3000000000466},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":1678.8000000000466},{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":4485.300000000047},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":1877.8999999999069}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8064,"sb":0}},"frameMs":75.04143038438033,"entities":1345}
+2026-10-25T08:31:40.2853922Z 
+2026-10-25T08:31:40.3114397Z [80/119] tests/browser/six-summoner.spec.ts:84:5 › Set selection renders six identities with independent playback and shared resources
+2026-10-25T08:32:09.4928807Z tests/browser/six-summoner.spec.ts:84:5 › Set selection renders six identities with independent playback and shared resources
+2026-10-25T08:32:09.4934684Z Six summoner diagnostics {"selected":"Set","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":5306.399999999907},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":2234.1999999999534},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":4216.5},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":2520.3000000000466}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8064,"sb":0}},"frameMs":61.38829443208669,"entities":1345}
+2026-10-25T08:32:09.4950789Z 
+2026-10-25T08:32:09.5434474Z [81/119] tests/browser/six-summoner.spec.ts:84:5 › Riven selection renders six identities with independent playback and shared resources
+2026-10-25T08:32:32.5564626Z tests/browser/six-summoner.spec.ts:84:5 › Riven selection renders six identities with independent playback and shared resources
+2026-10-25T08:32:32.5571913Z Six summoner diagnostics {"selected":"Riven","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":6435},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":3495.0999999998603},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":3543.600000000093},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":2732.0999999998603}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8064,"sb":0}},"frameMs":60.771903515098565,"entities":1345}
+2026-10-25T08:32:32.5578070Z 
+2026-10-25T08:32:32.5940681Z [82/119] tests/browser/six-summoner.spec.ts:168:1 › all actors survive defeat, respawn, rematch and identity reorder without redownloads
+2026-10-25T08:33:06.2618491Z [83/119] tests/browser/six-summoner.spec.ts:231:1 › one failed shared asset falls back for both teams while the other four models render
+2026-10-25T08:33:24.6732818Z [84/119] tests/browser/six-summoner.spec.ts:248:1 › global primitive diagnostic skips every GLB and keeps normal bots active
+2026-10-25T08:33:39.9449647Z [85/119] tests/browser/six-summoner.spec.ts:272:1 › normal match enables all six skinned actors and normal AI without preview flags
+2026-10-25T08:34:07.5085758Z [86/119] tests/browser/territory.spec.ts:27:1 › production positional territory, visual frontier, grace, retained CP and camera
+2026-10-25T08:34:31.4047025Z [87/119] tests/browser/territory.spec.ts:57:5 › production total-control result has all participants, final metrics, freezes and restarts
+2026-10-25T08:35:03.0093028Z [88/119] tests/browser/territory.spec.ts:57:5 › production points result has all participants, final metrics, freezes and restarts
+2026-10-25T08:35:37.1818400Z [89/119] tests/browser/territory.spec.ts:105:1 › normal full-map iPhone landscape HUD avoids controls and real touch deals damage
+2026-10-25T08:35:59.8656531Z [90/119] tests/browser/territory.spec.ts:135:5 › natural alive ordered total control team 1
+2026-10-25T08:36:21.0340039Z [91/119] tests/browser/territory.spec.ts:135:5 › natural alive ordered total control team 2
+2026-10-25T08:36:43.8334448Z [92/119] tests/browser/territory.spec.ts:151:1 › crossed runner cannot backcap in production
+2026-10-25T08:36:52.9617989Z [93/119] tests/browser/touch-combat.spec.ts:133:5 › Kit: back-to-back genuine touch press/release damages the known in-range target
+2026-10-25T08:37:04.5809681Z [94/119] tests/browser/touch-combat.spec.ts:133:5 › Set: back-to-back genuine touch press/release damages the known in-range target
+2026-10-25T08:37:14.9369981Z [95/119] tests/browser/touch-combat.spec.ts:149:1 › Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes
+2026-10-25T08:37:25.7543042Z [96/119] tests/browser/touch-combat.spec.ts:170:1 › Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch
+2026-10-25T08:37:38.5710136Z [97/119] tests/browser/touch-combat.spec.ts:188:1 › simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves
+2026-10-25T08:37:45.9075903Z [98/119] tests/browser/touch-combat.spec.ts:218:5 › Kit: touchcancel while aiming never commits damage
+2026-10-25T08:37:53.9949445Z [99/119] tests/browser/touch-combat.spec.ts:218:5 › Set: touchcancel while aiming never commits damage
+2026-10-25T08:38:03.5239728Z [100/119] tests/browser/touch-combat.spec.ts:218:5 › Riven: touchcancel while aiming never commits damage
+2026-10-25T08:38:11.7397100Z [101/119] tests/browser/touch-combat.spec.ts:229:1 › Riven: actual capture loss before release cancels without enqueuing a Basic
+2026-10-25T08:38:21.6392560Z [102/119] tests/browser/touch-combat.spec.ts:271:5 › Kit: aimed non-Basic touch action produces authoritative damage
+2026-10-25T08:38:29.4135719Z [103/119] tests/browser/touch-combat.spec.ts:271:5 › Set: aimed non-Basic touch action produces authoritative damage
+2026-10-25T08:38:37.0419857Z [104/119] tests/browser/touch-combat.spec.ts:271:5 › Riven: aimed non-Basic touch action produces authoritative damage
+2026-10-25T08:38:45.6326718Z [105/119] tests/browser/touch-combat.spec.ts:282:1 › touch Solar Ring uses its radial radius and creates authoritative HIT feedback
+2026-10-25T08:38:53.9025788Z [106/119] tests/browser/touch-combat.spec.ts:293:1 › Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target
+2026-10-25T08:39:06.8209827Z [107/119] tests/browser/touch-combat.spec.ts:319:1 › Set preview uses 1.65m cone, 150px cancellation is visible; Riven empty-path release visibly resolves MISS
+2026-10-25T08:39:21.7859493Z [108/119] tests/browser/wilderness-environment.spec.ts:11:1 › western grove loads each approved species once and shares tree meshes and materials
+2026-10-25T08:39:45.3054698Z [109/119] tests/browser/wilderness.spec.ts:24:5 › touch secures mobility, visible camp and timed authoritative buff
+2026-10-25T08:40:11.5489590Z [110/119] tests/browser/wilderness.spec.ts:24:5 › touch secures cooldown, visible camp and timed authoritative buff
+2026-10-25T08:40:33.3675259Z [111/119] tests/browser/wilderness.spec.ts:24:5 › touch secures defense, visible camp and timed authoritative buff
+2026-10-25T08:40:59.5049467Z [112/119] tests/browser/wilderness.spec.ts:24:5 › touch secures damage, visible camp and timed authoritative buff
+2026-10-25T08:41:19.4018909Z [113/119] tests/browser/wilderness.spec.ts:67:5 › real captured touch leaves lane into Wilderness -1 and returns
+2026-10-25T08:41:48.4299680Z [114/119] tests/browser/wilderness.spec.ts:67:5 › real captured touch leaves lane into Wilderness 1 and returns
+2026-10-25T08:42:17.2044220Z [115/119] tests/browser/wilderness.spec.ts:100:1 › bot rotation physically leaves lane toward real camp in production
+2026-10-25T08:42:40.1765150Z [116/119] tests/browser/wilderness.spec.ts:122:5 › active reward HUD clear of controls 844 safe 0
+2026-10-25T08:42:55.4136445Z [117/119] tests/browser/wilderness.spec.ts:122:5 › active reward HUD clear of controls 844 safe 44
+2026-10-25T08:43:11.8842391Z [118/119] tests/browser/wilderness.spec.ts:122:5 › active reward HUD clear of controls 667 safe 44
+2026-10-25T08:43:27.2357967Z [119/119] tests/browser/wilderness.spec.ts:122:5 › active reward HUD clear of controls 640 safe 44
+2026-10-25T08:43:45.8755086Z   4 failed
+2026-10-25T08:43:45.8756632Z     tests/browser/application-lifecycle.spec.ts:279:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models 
+2026-10-25T08:43:45.8758366Z     tests/browser/ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 844x390, safe inset 0 
+2026-10-25T08:43:45.8759845Z     tests/browser/kit-model.spec.ts:175:1 › animated Kit survives death, respawn, results and restart without another download 
+2026-10-25T08:43:45.8761030Z     tests/browser/playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 844x390 
+2026-10-25T08:43:45.8761629Z   115 passed (41.1m)
+2026-10-25T08:43:46.3389993Z ##[error]Process completed with exit code 1.
+2026-10-25T08:43:46.3491223Z ##[group]Run actions/upload-artifact@v4
+2026-10-25T08:43:46.3491540Z with:
+2026-10-25T08:43:46.3491875Z   name: browser-evidence-26d2d14efd91082aab01dde25739013f4da1381d-1
+2026-10-25T08:43:46.3492352Z   path: PlayCanvas/playwright-report/
+PlayCanvas/test-results/
+
+2026-10-25T08:43:46.3492718Z   if-no-files-found: ignore
+2026-10-25T08:43:46.3492962Z   retention-days: 14
+2026-10-25T08:43:46.3493181Z   compression-level: 6
+2026-10-25T08:43:46.3493400Z   overwrite: false
+2026-10-25T08:43:46.3493618Z   include-hidden-files: false
+2026-10-25T08:43:46.3493863Z ##[endgroup]
+2026-10-25T08:43:46.5187649Z (node:6582) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-25T08:43:46.5188920Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-25T08:43:46.5554045Z Multiple search paths detected. Calculating the least common ancestor of all paths
+2026-10-25T08:43:46.5557853Z The least common ancestor is /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas. This will be the root directory of the artifact
+2026-10-25T08:43:46.5559436Z With the provided path, there will be 118 files uploaded
+2026-10-25T08:43:46.5568218Z Artifact name is valid!
+2026-10-25T08:43:46.5569891Z Root directory input is valid!
+2026-10-25T08:43:46.9468514Z Beginning upload of artifact content to blob storage
+2026-10-25T08:43:47.2451809Z (node:6582) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-25T08:43:48.2679531Z Uploaded bytes 8388608
+2026-10-25T08:43:48.4715236Z Uploaded bytes 16777216
+2026-10-25T08:43:48.6162998Z Uploaded bytes 25165824
+2026-10-25T08:43:48.7972747Z Uploaded bytes 33554432
+2026-10-25T08:43:48.8551033Z Uploaded bytes 41943040
+2026-10-25T08:43:48.9678557Z Uploaded bytes 50331648
+2026-10-25T08:43:49.1462834Z Uploaded bytes 58720256
+2026-10-25T08:43:49.4377998Z Uploaded bytes 67108864
+2026-10-25T08:43:49.7439362Z Uploaded bytes 75497472
+2026-10-25T08:43:49.8406550Z Uploaded bytes 83886080
+2026-10-25T08:43:50.1393477Z Uploaded bytes 92274688
+2026-10-25T08:43:50.4184459Z Uploaded bytes 100663296
+2026-10-25T08:43:50.9168900Z Uploaded bytes 109051904
+2026-10-25T08:43:50.9519628Z Uploaded bytes 117440512
+2026-10-25T08:43:51.2731287Z Uploaded bytes 125829120
+2026-10-25T08:43:51.4639886Z Uploaded bytes 134217728
+2026-10-25T08:43:51.8939940Z Uploaded bytes 142606336
+2026-10-25T08:43:51.9791300Z Uploaded bytes 150994944
+2026-10-25T08:43:52.3227439Z Uploaded bytes 159383552
+2026-10-25T08:43:52.7440694Z Uploaded bytes 167772160
+2026-10-25T08:43:52.8760857Z Uploaded bytes 176160768
+2026-10-25T08:43:53.1663349Z Uploaded bytes 184549376
+2026-10-25T08:43:53.3779651Z Uploaded bytes 192937984
+2026-10-25T08:43:53.7978490Z Uploaded bytes 201326592
+2026-10-25T08:43:53.9318048Z Uploaded bytes 209715200
+2026-10-25T08:43:54.3720300Z Uploaded bytes 218103808
+2026-10-25T08:43:54.7419126Z Uploaded bytes 223582984
+2026-10-25T08:43:54.8236853Z Finished uploading artifact content to blob storage!
+2026-10-25T08:43:54.8239955Z SHA256 digest of uploaded artifact zip is ed9d9f00ac5ba4f9a703d8d61935677830be019191c25e844def07696ef465ea
+2026-10-25T08:43:54.8241813Z Finalizing artifact upload
+2026-10-25T08:43:55.4160981Z Artifact browser-evidence-26d2d14efd91082aab01dde25739013f4da1381d-1.zip successfully finalized. Artifact ID 12593077742
+2026-10-25T08:43:55.4162432Z Artifact browser-evidence-26d2d14efd91082aab01dde25739013f4da1381d-1 has been successfully uploaded! Final size is 223582984 bytes. Artifact ID is 12593077742
+2026-10-25T08:43:55.4169034Z Artifact download URL: https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40174975963/artifacts/12593077742
+2026-10-25T08:43:55.4404474Z Post job cleanup.
+2026-10-25T08:43:55.5285208Z [command]/usr/bin/git version
+2026-10-25T08:43:55.5338808Z git version 2.55.0
+2026-10-25T08:43:55.5373002Z Temporarily overriding HOME='/home/runner/work/_temp/4d6a7132-5900-4f1e-a84c-da206f004aff' before making global git config changes
+2026-10-25T08:43:55.5374526Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-25T08:43:55.5379803Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+2026-10-25T08:43:55.5424268Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-25T08:43:55.5462686Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-25T08:43:55.5714778Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-25T08:43:55.5780963Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-25T08:43:55.6047896Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-25T08:43:55.6085858Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-25T08:43:55.6503225Z Cleaning up orphan processes
+2026-10-25T08:43:55.6934775Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
