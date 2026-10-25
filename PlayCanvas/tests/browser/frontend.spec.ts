@@ -306,3 +306,50 @@ test('saved control positions are the real captured touch targets across rotatio
         await context.close();
     }
 });
+
+test('preparation deadline prevents a late game module from starting behind the error screen', async ({ page }) => {
+    await page.addInitScript(() => {
+        const nativeTimeout = window.setTimeout.bind(window);
+        let deadline = false;
+        window.setTimeout = ((callback: TimerHandler, timeout?: number, ...args: unknown[]) => {
+            if (timeout === 120000 && !deadline) {
+                deadline = true;
+                return nativeTimeout(callback, 100, ...args);
+            }
+            return nativeTimeout(callback, timeout, ...args);
+        }) as typeof window.setTimeout;
+    });
+    let release!: () => void;
+    const gate = new Promise<void>((resolve) => {
+        release = resolve;
+    });
+    let finished = false;
+    page.on('requestfinished', (request) => {
+        if (/\/game-[^/]+\.js$/.test(request.url())) finished = true;
+    });
+    await page.route('**/game-*.js', async (route) => {
+        await gate;
+        await route.continue();
+    });
+    await page.goto('/');
+    await click(page, 'select');
+    await click(page, 'enter');
+    await expect(page.locator('#resource-status')).toContainText('Preparation exceeded 120 seconds');
+    release();
+    await expect.poll(() => finished).toBe(true);
+    await page.evaluate(async () => {
+        for (let i = 0; i < 6; i++) await new Promise(requestAnimationFrame);
+    });
+    expect(
+        await page
+            .locator('canvas')
+            .evaluate((canvas) =>
+                Boolean((canvas as HTMLCanvasElement & Record<symbol, unknown>)[Symbol.for('crownfall.application')])
+            )
+    ).toBe(false);
+    expect(await page.evaluate(() => '__crownfall' in window)).toBe(false);
+    await expect(page.locator('#resource-status')).toContainText('Preparation exceeded 120 seconds');
+    await expect(page.locator('#frontend [data-action="enter"]')).toHaveText(/Retry/);
+    await click(page, 'cancel-load');
+    expect((await front(page)).page).toBe('select');
+});

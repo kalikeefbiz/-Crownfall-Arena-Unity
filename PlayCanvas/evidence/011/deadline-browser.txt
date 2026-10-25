@@ -1,0 +1,10 @@
+
+Running 2 tests using 1 worker
+
+(node:10154) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] tests/browser/frontend.spec.ts:214:1 › failed essential model offers real retry and return without a countdown
+[2/2] tests/browser/frontend.spec.ts:310:1 › preparation deadline prevents a late game module from starting behind the error screen
+  2 passed (23.3s)

@@ -109,3 +109,15 @@ not wait for models, countdown or gameplay conditions being tested, and changes 
 runtime code, gameplay assertions, model-load timeouts, GPU equality assertions,
 worker counts or release-gate rules. The complete gate is required again on the
 corrected source.
+
+## Deadline continuation cleanup
+
+A final resource-lifecycle check found that a module/device initialization resolving
+after the 120-second outer deadline needed its preparation token invalidated even
+when no game handle had been returned yet. The error path now invalidates that token,
+so the existing late-continuation guards prevent startup or destroy the late owner.
+A browser regression holds the real production game module, invokes the real deadline
+handler with an accelerated test-only timer, releases the response and verifies that
+no canvas application owner, HUD or simulation appears behind the error screen.
+The existing failed-model retry check also passes. Production deadlines are unchanged.
+The final complete browser gate therefore contains 127 cases.

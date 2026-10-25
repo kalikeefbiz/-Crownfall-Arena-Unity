@@ -185,6 +185,9 @@ export function createFrontend() {
             game?.play();
         } catch (error) {
             if (token !== attempt) return;
+            // A deadline may fire while the module/device is still initializing.
+            // Invalidate its token so a late continuation destroys its owner.
+            ++attempt;
             game?.destroy();
             game = undefined;
             root.querySelector('#resource-status')!.textContent =
