@@ -121,3 +121,56 @@ handler with an accelerated test-only timer, releases the response and verifies 
 no canvas application owner, HUD or simulation appears behind the error screen.
 The existing failed-model retry check also passes. Production deadlines are unchanged.
 The final complete browser gate therefore contains 127 cases.
+
+## Second complete gate
+
+Run [40238565492](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40238565492)
+on `1043089bfd90ef753e5c755a0e055ff400b2494a` passed **123/126 browser cases in
+44.3 minutes**. All seven public front-end cases and the full GPU-allocation
+remount check passed. Publication was skipped because three inspection cases failed:
+
+- `ergonomics.spec.ts`: the 844×390 / safe inset 0 and 44 cases exhausted their
+  existing 60-second case limits while capturing gameplay screenshots.
+- `six-summoner.spec.ts`: after a deliberately failed Set import, two remaining
+  detailed models were visible when the existing 15-second poll required four.
+
+The [complete log](evidence/011/second-release.log) is retained. No timeouts,
+assertions, rendering composition or release rules were changed in response.
+The final deadline-cleanup source receives the complete gate separately.
+
+## Final disposition — implemented, publication blocked
+
+Final implementation source: `d1d7ed59d27176119767a1dd15687f9345a883a7`.
+[Final complete gate](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40241993599):
+**120/127 browser cases passed; 7 failed in 44.3 minutes. Publication was skipped.**
+All 238 unit tests, typecheck, lint, formatting and production build passed in CI.
+All eight Goal 011 public front-end cases and all six application disposal/remount
+cases passed, including the full GPU allocation equality assertion. The natural
+unmodified full-match case also passed. The existing hosted release is unchanged.
+
+The remaining release blockers are recorded precisely in
+[release.json](evidence/011/release.json) and the
+[complete final log](evidence/011/final-release.log):
+
+- Environment comparison: four rather than six models visible within its 15-second poll.
+- Three landscape ergonomics cases: existing 60-second case budgets exhausted on
+  gameplay capture or waiting for the prematch button to disappear (844×390 safe 0/44,
+  667×375 safe 44).
+- Kit lifecycle: model still loading at its 15-second poll.
+- Existing 844×390 mobile match check: countdown still running at its 15-second poll.
+- Deliberately failed Set asset: two rather than four other detailed models visible
+  at its 15-second poll.
+
+These failures leave the environment/resource-loading release gate unresolved.
+They are reported without claiming that every failure was pre-existing or that
+phone performance has been established. No assertions, timeouts, rendering
+composition or publication safeguards were weakened. No further environmental
+or maintenance work was started; Goal 011 stops here with its implementation and
+review evidence available, but without a successful release gate or publication.
+
+Cold production menu observation on the final runtime: approximately **948 KB**
+transferred, **zero GLBs**, no simulation/API, 844×390/DPR 1. Latest recorded essential
+readiness was **5.107 seconds** locally, including a deliberately held first request;
+[menu measurement](evidence/011/menu-startup.json),
+[stage measurement](evidence/011/readiness.json). These measurements describe local
+software Chromium and must not be presented as physical iPhone timings.

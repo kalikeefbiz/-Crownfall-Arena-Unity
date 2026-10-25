@@ -8,54 +8,54 @@
     "paints": [
         {
             "name": "first-paint",
-            "ms": 132
+            "ms": 68
         },
         {
             "name": "first-contentful-paint",
-            "ms": 272
+            "ms": 228
         }
     ],
     "hasGameSnapshot": false,
     "resources": [
         {
-            "name": "/assets/index-DGGsr46T.js",
+            "name": "/assets/index-B_qzD2tG.js",
             "bytes": 969,
-            "durationMs": 66.60000000009313
+            "durationMs": 30.5
         },
         {
             "name": "/assets/preload-helper-CRzLMJPS.js",
             "bytes": 1098,
-            "durationMs": 77.39999999990687
+            "durationMs": 28.699999999254942
         },
         {
             "name": "/assets/index-BgPqw8kw.css",
             "bytes": 5822,
-            "durationMs": 70.19999999995343
+            "durationMs": 28
         },
         {
-            "name": "/assets/frontend-Bm4jU1Or.js",
-            "bytes": 6236,
-            "durationMs": 8.5
-        },
-        {
-            "name": "/assets/frontend/ucl-arena-menu.jpeg",
-            "bytes": 722206,
-            "durationMs": 52.800000000046566
-        },
-        {
-            "name": "/assets/frontend/fonts/Rajdhani.woff",
-            "bytes": 151864,
-            "durationMs": 100.5
-        },
-        {
-            "name": "/assets/frontend/fonts/Cinzel.woff",
-            "bytes": 59760,
-            "durationMs": 100.19999999995343
+            "name": "/assets/frontend-BlFCwNDw.js",
+            "bytes": 6235,
+            "durationMs": 32.299999999813735
         },
         {
             "name": "/favicon.ico",
             "bytes": 300,
-            "durationMs": 4.699999999953434
+            "durationMs": 5.2999999998137355
+        },
+        {
+            "name": "/assets/frontend/ucl-arena-menu.jpeg",
+            "bytes": 722206,
+            "durationMs": 15.5
+        },
+        {
+            "name": "/assets/frontend/fonts/Rajdhani.woff",
+            "bytes": 151864,
+            "durationMs": 101.90000000037253
+        },
+        {
+            "name": "/assets/frontend/fonts/Cinzel.woff",
+            "bytes": 59760,
+            "durationMs": 101.79999999981374
         }
     ]
 }
