@@ -16,8 +16,8 @@ import {
 import type { AppBase } from 'playcanvas';
 
 import { createLaneGeometry } from './lane-geometry';
-import { createWildernessEnvironment } from './wilderness-environment';
 import type { SummonerAssets } from './summoner-assets';
+import { createWildernessEnvironment } from './wilderness-environment';
 
 // Six shared 1K maps; AR packs linear AO (R) and roughness (G).
 // All images in a set have the same orientation, repeat scale and mip filtering.
