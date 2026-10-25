@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 import type { CrownfallMatch } from '../../src/combat/match';
+import { waitForInspection } from '../helpers/inspection-startup';
 type State = ReturnType<CrownfallMatch['snapshot']>;
 type Harness = {
     snapshot(): {
@@ -29,6 +30,7 @@ for (const type of ['mobility', 'cooldown', 'defense', 'damage'])
         });
         const page = await context.newPage();
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await arrange(page, `camp-${type}`);
         const label = page.locator(`[data-camp="${type === 'damage' ? 'major' : type + '-a'}"]`);
         await expect(label).toBeVisible();
@@ -72,6 +74,7 @@ for (const direction of [-1, 1])
         });
         const page = await context.newPage();
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await arrange(page, direction === 1 ? 'wilderness-entry' : 'wilderness-left-entry');
         const cdp = await context.newCDPSession(page),
             box = (await page.locator('#move').boundingBox())!,
@@ -99,6 +102,7 @@ for (const direction of [-1, 1])
     });
 test('bot rotation physically leaves lane toward real camp in production', async ({ page }) => {
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await arrange(page, 'rotation');
     await advance(page, 1 / 60);
     let s = (await read(page)).match;
@@ -123,6 +127,7 @@ for (const [width, height, safe] of [
         const context = await browser.newContext({ viewport: { width, height }, isMobile: true, hasTouch: true }),
             page = await context.newPage();
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await arrange(page, 'all-buffs');
         await expect(page.locator('#wilderness-buffs')).toContainText('MOBILITY');
         await expect(page.locator('#wilderness-buffs')).toContainText('INNER FLAME');

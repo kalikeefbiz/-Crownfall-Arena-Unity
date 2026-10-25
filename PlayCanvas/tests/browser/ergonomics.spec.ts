@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
+import { waitForInspection } from '../helpers/inspection-startup';
+
 type Point = { x: number; y: number; z: number };
 type Inspection = {
     frames: number;
@@ -30,6 +32,7 @@ for (const summoner of ['Kit', 'Set', 'Riven']) {
     test(`competitive camera follows ${summoner} smoothly from behind with fixed forward focus`, async ({ page }) => {
         await page.setViewportSize({ width: 844, height: 390 });
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await page.getByLabel('Summoner', { exact: true }).selectOption(summoner);
         await expect.poll(async () => followError(await snapshot(page))).toBeLessThan(0.01);
         const samples = await page.evaluate(async () => {
@@ -83,6 +86,7 @@ for (const [summoner, basicId] of [
         });
         const page = await context.newPage();
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await page.getByLabel('Summoner', { exact: true }).selectOption(summoner);
         await page.evaluate(() =>
             (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('combat')
@@ -135,6 +139,7 @@ for (const [width, height, safe] of [
         });
         const page = await context.newPage();
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         // Chromium has no physical notch: exercise the same CSS variables Safari fills from env().
         await page.evaluate((safe) => {
             const style = document.documentElement.style;

@@ -1,0 +1,13 @@
+
+Running 5 tests using 1 worker
+
+(node:8941) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/5] tests/browser/arena.spec.ts:35:1 › production arena renders, moves, aims independently, mirrors and preserves facing
+[2/5] tests/browser/kit-model.spec.ts:131:1 › primitive comparison skips the GLB request
+[3/5] tests/browser/set-model.spec.ts:264:1 › normal Set preview starts a match and supports captured mobile movement and combat
+[4/5] tests/browser/territory.spec.ts:59:5 › production points result has all participants, final metrics, freezes and restarts
+[5/5] tests/browser/wilderness.spec.ts:25:5 › touch secures mobility, visible camp and timed authoritative buff
+  5 passed (1.3m)

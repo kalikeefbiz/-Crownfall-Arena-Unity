@@ -1,6 +1,8 @@
 import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
+import { waitForInspection } from '../helpers/inspection-startup';
+
 type Inspection = {
     environment: {
         mode: string;
@@ -46,11 +48,13 @@ test('legacy recovery and tint-free carved rendering preserve the same authorita
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto('/?verify=1&environment=legacy&territoryTint=0');
+    await waitForInspection(page);
     await arrange(page);
     const before = await read(page);
     expect(before.environment).toMatchObject({ mode: 'legacy', batches: 0, territoryTint: false });
     await page.screenshot({ path: 'test-results/007f-legacy-neutral.png' });
     await page.goto('/?verify=1&territoryTint=0');
+    await waitForInspection(page);
     await arrange(page);
     const after = await read(page);
     expect(after.environment).toMatchObject({ mode: 'carved', batches: 5, territoryTint: false });
@@ -72,9 +76,12 @@ test('legacy recovery and tint-free carved rendering preserve the same authorita
 
 test('normal match defaults to carved terrain with territory indicators retained', async ({ page }) => {
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     expect((await read(page)).environment).toMatchObject({ mode: 'carved', territoryTint: true });
     await page.goto('/?verify=1&environment=legacy');
+    await waitForInspection(page);
     expect((await read(page)).environment).toMatchObject({ mode: 'legacy', territoryTint: true });
     await page.goto('/?debug=1');
+    await waitForInspection(page);
     expect((await read(page)).environment.mode).toBe('legacy');
 });

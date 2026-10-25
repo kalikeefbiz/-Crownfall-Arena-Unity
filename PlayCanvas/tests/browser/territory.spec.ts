@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 import type { CrownfallMatch } from '../../src/combat/match';
+import { waitForInspection } from '../helpers/inspection-startup';
 type State = ReturnType<CrownfallMatch['snapshot']>;
 type Inspection = {
     match: State;
@@ -26,6 +27,7 @@ const advance = (page: Page, seconds: number) =>
 
 test('production positional territory, visual frontier, grace, retained CP and camera', async ({ page }) => {
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await expect(page.locator('#scoreboard')).toContainText('50.0% / 50.0%');
     await expect(page.locator('#scoreboard')).toContainText('CP 0 / 0 of 1000');
     await arrange(page, 'pressure');
@@ -56,6 +58,7 @@ test('production positional territory, visual frontier, grace, retained CP and c
 for (const reason of ['total-control', 'points'])
     test(`production ${reason} result has all participants, final metrics, freezes and restarts`, async ({ page }) => {
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await arrange(page, reason);
         await advance(page, reason === 'points' ? 2.25 : 1 / 60);
         await expect(page.locator('#result-panel')).toBeVisible();
@@ -106,6 +109,7 @@ test('normal full-map iPhone landscape HUD avoids controls and real touch deals 
     const context = await browser.newContext({ viewport: { width: 844, height: 390 }, isMobile: true, hasTouch: true });
     const page = await context.newPage();
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await arrange(page, 'combat');
     await expect(page.locator('#scoreboard')).toContainText('CP');
     const boxes = await Promise.all(
@@ -134,6 +138,7 @@ test('normal full-map iPhone landscape HUD avoids controls and real touch deals 
 for (const team of [1, 2])
     test(`natural alive ordered total control team ${team}`, async ({ page }) => {
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await arrange(page, team === 1 ? 'natural-blue' : 'natural-red');
         await advance(page, 1 / 60);
         const s = (await snapshot(page)).match;
@@ -150,6 +155,7 @@ for (const team of [1, 2])
     });
 test('crossed runner cannot backcap in production', async ({ page }) => {
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await arrange(page, 'crossed');
     await advance(page, 1 / 60);
     const s = (await snapshot(page)).match;

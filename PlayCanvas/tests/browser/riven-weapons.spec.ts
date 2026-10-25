@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 import type { createRivenWeapons } from '../../src/presentation/riven-weapons';
+import { waitForInspection } from '../helpers/inspection-startup';
 
 type Weapons = ReturnType<ReturnType<typeof createRivenWeapons>['snapshot']>;
 type State = {
@@ -31,6 +32,7 @@ async function advance(page: Page, seconds: number) {
 async function choose(page: Page, suffix = '') {
     await page.setViewportSize({ width: 844, height: 390 });
     await page.goto(`/?verify=1${suffix}`);
+    await waitForInspection(page);
     await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
     await page.evaluate(() =>
         (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('roster')
@@ -178,6 +180,7 @@ test('ordinary 3v3 selects Riven and renders independent player and AI scythes w
     test.setTimeout(120000);
     await page.setViewportSize({ width: 844, height: 390 });
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
     await page.locator('#play-match').click();
     await expect.poll(async () => (await read(page)).rivenWeapons.state, { timeout: 45000 }).toBe('loaded');

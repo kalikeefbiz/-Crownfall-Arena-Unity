@@ -1,0 +1,61 @@
+{
+    "viewport": {
+        "width": 844,
+        "height": 390,
+        "dpr": 1
+    },
+    "renderer": "Chromium desktop, local production preview; not an iPhone benchmark",
+    "paints": [
+        {
+            "name": "first-paint",
+            "ms": 132
+        },
+        {
+            "name": "first-contentful-paint",
+            "ms": 272
+        }
+    ],
+    "hasGameSnapshot": false,
+    "resources": [
+        {
+            "name": "/assets/index-DGGsr46T.js",
+            "bytes": 969,
+            "durationMs": 66.60000000009313
+        },
+        {
+            "name": "/assets/preload-helper-CRzLMJPS.js",
+            "bytes": 1098,
+            "durationMs": 77.39999999990687
+        },
+        {
+            "name": "/assets/index-BgPqw8kw.css",
+            "bytes": 5822,
+            "durationMs": 70.19999999995343
+        },
+        {
+            "name": "/assets/frontend-Bm4jU1Or.js",
+            "bytes": 6236,
+            "durationMs": 8.5
+        },
+        {
+            "name": "/assets/frontend/ucl-arena-menu.jpeg",
+            "bytes": 722206,
+            "durationMs": 52.800000000046566
+        },
+        {
+            "name": "/assets/frontend/fonts/Rajdhani.woff",
+            "bytes": 151864,
+            "durationMs": 100.5
+        },
+        {
+            "name": "/assets/frontend/fonts/Cinzel.woff",
+            "bytes": 59760,
+            "durationMs": 100.19999999995343
+        },
+        {
+            "name": "/favicon.ico",
+            "bytes": 300,
+            "durationMs": 4.699999999953434
+        }
+    ]
+}

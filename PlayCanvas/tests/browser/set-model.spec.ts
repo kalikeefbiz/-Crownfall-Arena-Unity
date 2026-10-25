@@ -10,6 +10,7 @@ import {
     SET_ASSET_SHA256,
     SET_IDLE_FLOOR_OFFSET
 } from '../../src/presentation/set-model';
+import { waitForInspection } from '../helpers/inspection-startup';
 
 type Inspection = {
     setModel: {
@@ -57,6 +58,7 @@ const arrange = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('combat'));
 async function chooseSet(page: Page, url = '/?summonerModels=local&verify=1&setPreview=1') {
     await page.goto(url);
+    await waitForInspection(page);
     await page.getByLabel('Summoner', { exact: true }).selectOption('Set');
 }
 
@@ -263,7 +265,7 @@ test('normal Set preview starts a match and supports captured mobile movement an
     const context = await browser.newContext({ viewport: { width: 844, height: 390 }, isMobile: true, hasTouch: true });
     try {
         const page = await context.newPage();
-        await chooseSet(page, '/?summonerModels=local&setPreview=1&rivenPreview=1');
+        await chooseSet(page, '/?summonerModels=local&verify=1&setPreview=1&rivenPreview=1');
         await page.locator('#play-match').tap();
         await expect.poll(async () => (await snapshot(page)).setModel.visible).toBe(true);
         await expect(page.locator('#scoreboard')).toContainText('ACTIVE MATCH');

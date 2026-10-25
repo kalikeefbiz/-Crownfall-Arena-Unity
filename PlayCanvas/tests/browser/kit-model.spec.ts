@@ -9,6 +9,7 @@ import {
     KIT_ASSET_SHA256,
     KIT_IDLE_FLOOR_OFFSET
 } from '../../src/presentation/kit-model';
+import { waitForInspection } from '../helpers/inspection-startup';
 
 type Inspection = {
     kitModel: {
@@ -55,6 +56,7 @@ test('local Kit loads, grounds, follows and animates in the normal mobile match'
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto('/?summonerModels=local&verify=1');
+    await waitForInspection(page);
     await expect.poll(async () => (await snapshot(page)).kitModel.state).toBe('idle');
     const before = await snapshot(page);
     await arrange(page);
@@ -114,6 +116,7 @@ for (const summoner of ['Set', 'Riven']) {
             if (r.url().endsWith('.glb')) requests.push(r.url());
         });
         await page.goto('/?summonerModels=local&verify=1');
+        await waitForInspection(page);
         await page.getByLabel('Summoner', { exact: true }).selectOption(summoner);
         await arrange(page);
         await expect.poll(async () => (await snapshot(page)).combat.player.x).toBe(0);
@@ -131,6 +134,7 @@ test('primitive comparison skips the GLB request', async ({ page }) => {
         if (r.url().endsWith('.glb')) requests.push(r.url());
     });
     await page.goto('/?summonerModels=local&verify=1&kitPrimitive=1');
+    await waitForInspection(page);
     await arrange(page);
     const s = await snapshot(page);
     expect(s.kitModel.primitiveVisible).toBe(true);
@@ -148,6 +152,7 @@ test('pending and failed loading keep playable primitive fallback', async ({ pag
         await route.abort();
     });
     await page.goto('/?summonerModels=local&verify=1');
+    await waitForInspection(page);
     await arrange(page);
     await expect.poll(async () => (await snapshot(page)).kitModel.state).toBe('loading');
     expect((await snapshot(page)).kitModel.primitiveVisible).toBe(true);
@@ -165,6 +170,7 @@ test('10K comparison remains static and is requested only once', async ({ page }
         if (r.url().endsWith('.glb')) requests.push(r.url());
     });
     await page.goto('/?summonerModels=local&verify=1&kitModel=10k');
+    await waitForInspection(page);
     await arrange(page);
     await expect.poll(async () => (await snapshot(page)).kitModel.state).toBe('loaded');
     expect((await snapshot(page)).kitModel.activeAnimation).toBeNull();
@@ -178,6 +184,7 @@ test('animated Kit survives death, respawn, results and restart without another 
         if (r.url().endsWith('.glb')) requests.push(r.url());
     });
     await page.goto('/?summonerModels=local&verify=1');
+    await waitForInspection(page);
     await arrange(page);
     await expect.poll(async () => (await snapshot(page)).kitModel.state).toBe('loaded');
     // The existing diagnostic control is intentionally hidden in normal play.

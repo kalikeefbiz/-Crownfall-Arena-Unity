@@ -91,3 +91,21 @@ Local logs, mobile screenshots, design comparison and final release disposition
 are recorded under [evidence/011](evidence/011). Physical iPhone Safari performance,
 thermal behavior and hardware safe-area acceptance require a physical device;
 Chromium touch/viewport checks do not establish those results.
+
+## First complete gate and inspection-entry correction
+
+The first complete release run at `50f2f83733044aa9f717dda4dbff6d5acb0d61a1`
+finished **74/126 passed, 52 failed in 18.2 minutes**; publication was skipped.
+All seven public front-end cases passed. Fifty-one older cases read the diagnostic
+API immediately after navigation, before the deferred game module had initialized.
+The remaining Set mobile case still navigated to a public menu URL while expecting
+the inspection Summoner selector. The complete log is retained in
+[first-release.log](evidence/011/first-release.log).
+
+The correction adds a shared `waitForInspection` after navigation in the existing
+inspection tests and explicitly marks the Set fixture URL with `verify=1`. The wait
+uses the existing expectation timeout and checks only that the API exists. It does
+not wait for models, countdown or gameplay conditions being tested, and changes no
+runtime code, gameplay assertions, model-load timeouts, GPU equality assertions,
+worker counts or release-gate rules. The complete gate is required again on the
+corrected source.

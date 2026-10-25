@@ -10,6 +10,7 @@ import {
     RIVEN_ASSET_SHA256,
     RIVEN_IDLE_FLOOR_OFFSET
 } from '../../src/presentation/riven-model';
+import { waitForInspection } from '../helpers/inspection-startup';
 
 type Inspection = {
     rivenModel: {
@@ -57,6 +58,7 @@ const arrange = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('combat'));
 async function chooseRiven(page: Page, url = '/?summonerModels=local&verify=1&rivenPreview=1') {
     await page.goto(url);
+    await waitForInspection(page);
     await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
 }
 

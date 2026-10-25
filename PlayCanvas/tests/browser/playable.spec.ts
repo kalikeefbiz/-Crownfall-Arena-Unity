@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 import type { CrownfallMatch } from '../../src/combat/match';
+import { waitForInspection } from '../helpers/inspection-startup';
 type MatchState = ReturnType<CrownfallMatch['snapshot']>;
 const state = (page: Page): Promise<MatchState> =>
     page.evaluate(
@@ -18,6 +19,7 @@ test('prematch inspection starts, fights a natural 3v3 battle, sees results, fre
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await expect(page.locator('#play-match')).toBeVisible();
     await expect(page.locator('#lifecycle-controls')).toBeHidden();
     await expect(page.locator('#scoreboard')).toContainText('BLUE 15');
@@ -76,6 +78,7 @@ for (const viewport of [
         const context = await browser.newContext({ viewport, isMobile: true, hasTouch: true });
         const page = await context.newPage();
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await expect(page.locator('#play-match')).toBeVisible();
         for (const locator of ['#play-match', '#summoner', '#move', '#ability-bar', '#scoreboard', '#team-status']) {
             const box = (await page.locator(locator).boundingBox())!;

@@ -4,6 +4,7 @@ import { expect, test } from '@playwright/test';
 import { build } from 'vite';
 
 import type { mountHudContractFixture } from '../helpers/hud-contract-fixture';
+import { waitForInspection } from '../helpers/inspection-startup';
 
 type FixtureWindow = Window & {
     hudFixture?: ReturnType<typeof mountHudContractFixture>;
@@ -52,6 +53,7 @@ for (const [width, height, safe] of [
         const measurements: object[] = [];
         try {
             await page.goto('/?verify=1&models=primitive');
+            await waitForInspection(page);
             await page.waitForFunction(() => Object.hasOwn(window, '__crownfall'));
             await page.evaluate(
                 async ({ source, safe }) => {

@@ -1,5 +1,7 @@
 import { test, expect } from '@playwright/test';
 
+import { waitForInspection } from '../helpers/inspection-startup';
+
 // Exercise the 3D presenter with the actual mobile controls, including simultaneous
 // captured movement and Riven's release-confirmed Basic. No test-only gameplay is added.
 test('Riven 3D preview supports simultaneous touch movement, aim, release and cancellation', async ({ browser }) => {
@@ -14,6 +16,7 @@ test('Riven 3D preview supports simultaneous touch movement, aim, release and ca
         const errors: string[] = [];
         page.on('pageerror', (e) => errors.push(e.message));
         await page.goto('/?debug=1&rivenPreview=1');
+        await waitForInspection(page);
         await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
         type Snapshot = {
             position: { x: number; z: number };

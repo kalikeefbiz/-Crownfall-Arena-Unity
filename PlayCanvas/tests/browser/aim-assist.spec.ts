@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import type { Browser, Page } from '@playwright/test';
 
+import { waitForInspection } from '../helpers/inspection-startup';
+
 type State = {
     combat: {
         now: number;
@@ -22,6 +24,7 @@ async function mobile(browser: Browser, label = 'Kit', enabled = true, chase = f
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto(`/?verify=1&models=primitive&aimAssist=${enabled ? 1 : 0}`);
+    await waitForInspection(page);
     await expect(page.locator('#play-match')).toBeVisible();
     await page.getByLabel('Summoner', { exact: true }).selectOption(label);
     await page.evaluate(

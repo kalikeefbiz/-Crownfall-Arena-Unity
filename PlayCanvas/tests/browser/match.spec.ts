@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 import type { CrownfallMatch } from '../../src/combat/match';
+import { waitForInspection } from '../helpers/inspection-startup';
 type MatchState = ReturnType<CrownfallMatch['snapshot']>;
 const snapshot = (page: Page): Promise<MatchState> =>
     page.evaluate(
@@ -9,6 +10,7 @@ const snapshot = (page: Page): Promise<MatchState> =>
     );
 async function start(page: Page) {
     await page.goto('/?debug=1');
+    await waitForInspection(page);
     await expect(page.locator('#lifecycle-mode')).toBeVisible();
     await page.locator('#lifecycle-mode').check();
     await expect.poll(async () => (await snapshot(page))?.phase).toBe('prematch');

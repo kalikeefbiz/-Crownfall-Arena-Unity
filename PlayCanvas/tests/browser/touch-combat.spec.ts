@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import type { Browser, Page } from '@playwright/test';
 
+import { waitForInspection } from '../helpers/inspection-startup';
+
 type Evidence = { abilityId: string; targetId: string; amount: number };
 type Cast = {
     accepted: boolean;
@@ -54,6 +56,7 @@ async function mobile(browser: Browser, label = 'Kit') {
         errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto('/?debug=1');
+    await waitForInspection(page);
     await expect
         .poll(async () => (await snapshot(page)).frames, {
             timeout: 30000,

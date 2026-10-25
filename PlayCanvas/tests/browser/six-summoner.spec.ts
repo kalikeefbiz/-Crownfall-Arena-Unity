@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 import type { createRivenWeapons } from '../../src/presentation/riven-weapons';
+import { waitForInspection } from '../helpers/inspection-startup';
 
 type Model = {
     id: string;
@@ -92,6 +93,7 @@ for (const [name, id, run, idle, height, floor] of [
         });
         page.on('pageerror', (e) => errors.push(e.message));
         await page.goto('/?verify=1');
+        await waitForInspection(page);
         await page.getByLabel('Summoner', { exact: true }).selectOption(name);
         expect(requests).toHaveLength(0);
         await arrange(page);
@@ -172,6 +174,7 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
         if (r.url().endsWith('.glb') && r.url().includes('/summoners/')) requests.push(r.url());
     });
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await arrange(page);
     await loaded(page);
     const initial = await snapshot(page);
@@ -231,6 +234,7 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
 test('one failed shared asset falls back for both teams while the other four models render', async ({ page }) => {
     await page.route('**/Set_Animated.glb', (route) => route.abort());
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await arrange(page);
     await expect
         .poll(async () => (await snapshot(page)).summonerModels.filter((m) => m.state === 'error').length)
@@ -252,6 +256,7 @@ test('global primitive diagnostic skips every GLB and keeps normal bots active',
         if (r.url().endsWith('.glb')) requests.push(r.url());
     });
     await page.goto('/?verify=1&models=primitive');
+    await waitForInspection(page);
     await page.locator('#play-match').click();
     await expect.poll(async () => (await snapshot(page)).match.phase).toBe('active');
     const initial = await snapshot(page);
@@ -272,6 +277,7 @@ test('global primitive diagnostic skips every GLB and keeps normal bots active',
 test('normal match enables all six skinned actors and normal AI without preview flags', async ({ page }) => {
     await page.setViewportSize({ width: 844, height: 390 });
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await page.locator('#play-match').click();
     await loaded(page);
     await expect.poll(async () => (await snapshot(page)).match.phase).toBe('active');

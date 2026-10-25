@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
+import { waitForInspection } from '../helpers/inspection-startup';
+
 type State = {
     environment: { wilderness?: { state: string } };
     rivenWeapons: { state: string };
@@ -150,6 +152,7 @@ test('real destroy/remount removes HUD, native listeners and saved diagnostic ac
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/?verify=1&models=primitive&aimAssist=0');
+    await waitForInspection(page);
     await ready(page);
     for (let cycle = 0; cycle < 3; cycle++) {
         await uniqueHud(page);
@@ -182,6 +185,7 @@ test('re-evaluating startup while mounted replaces its owner instead of duplicat
     const errors: string[] = [];
     page.on('pageerror', (error) => errors.push(error.message));
     await page.goto('/?verify=1&models=primitive');
+    await waitForInspection(page);
     await ready(page);
     await page.evaluate(() => ((window as HarnessWindow).oldApi = (window as HarnessWindow).__crownfall));
     await remount(page, 'replace-live-owner');
@@ -214,6 +218,7 @@ test('destroy releases genuine simultaneous touch captures without committing th
         const errors: string[] = [];
         page.on('pageerror', (error) => errors.push(error.message));
         await page.goto('/?verify=1&models=primitive');
+        await waitForInspection(page);
         await ready(page);
         await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
         await page.evaluate(() => {
@@ -293,6 +298,7 @@ test('destroy during actual delayed GLB requests tolerates their late responses 
         await route.continue();
     });
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await ready(page);
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     await expect.poll(() => pending).toBe(1);
@@ -397,6 +403,7 @@ test('destroy after GLB download while embedded texture decoding is pending leav
         }) as typeof window.createImageBitmap;
     });
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await ready(page);
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     const decode = () =>
@@ -440,6 +447,7 @@ test('destroy between download completion and the queued engine contents handoff
         }) as typeof window.setTimeout;
     });
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await ready(page);
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     await expect

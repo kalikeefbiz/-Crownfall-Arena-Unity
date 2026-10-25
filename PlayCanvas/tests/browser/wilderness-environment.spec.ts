@@ -1,6 +1,7 @@
 import { expect, test } from '@playwright/test';
 
 import type { createWildernessEnvironment } from '../../src/presentation/wilderness-environment';
+import { waitForInspection } from '../helpers/inspection-startup';
 
 type Grove = ReturnType<typeof createWildernessEnvironment>['diagnostics'];
 type Harness = {
@@ -17,6 +18,7 @@ test('western grove loads each approved species once and shares tree meshes and 
     });
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto('/?verify=1');
+    await waitForInspection(page);
     await page.evaluate(() =>
         (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('roster')
     );
@@ -39,6 +41,7 @@ test('western grove loads each approved species once and shares tree meshes and 
     expect(grove.groundMaps).toBe(6);
     expect(grove.grassTriangles).toBe(240);
     await page.goto('/?verify=1&environment=legacy');
+    await waitForInspection(page);
     expect(await read()).toBeUndefined();
     expect(requests).toHaveLength(4);
     expect(errors).toEqual([]);
