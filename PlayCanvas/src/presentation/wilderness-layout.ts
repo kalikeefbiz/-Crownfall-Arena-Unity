@@ -12,7 +12,7 @@ export const WILDERNESS_TREES = [
     { species: 'pine', x: -34.8, z: -12.5, height: 6.2, yaw: 82 },
     { species: 'pine', x: -35.1, z: 2.4, height: 5.4, yaw: 211 },
     { species: 'oak', x: -37.1, z: -0.8, height: 6.6, yaw: 52 },
-    { species: 'redwood', x: -36.8, z: -10.1, height: 11.4, yaw: 137 },
+    { species: 'redwood', x: -36.8, z: -10.1, height: 11.4, yaw: 137 }
 ] as const;
 
 // Matches the existing Goal 009 outer bank, including its four-metre segments.
