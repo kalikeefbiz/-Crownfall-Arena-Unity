@@ -19,7 +19,7 @@ Open http://localhost:5173 in landscape. Production preview: https://kalikeefbiz
 
 Competitive matches use Poly Haven's CC0 `dirt` and `dry_ground_rocks` PBR scans.
 The continuous flat lane feathers into rocky soil, sparse embedded gravel and
-textured embankments, with no paving slabs. Four static batches share six 1K maps
+textured embankments, with no paving slabs. Five static batches share six 1K maps
 (albedo, OpenGL normal, packed AO/roughness for each surface). Custom meshes have
 normal/tangent streams; soft actor contact discs avoid full-scene shadow maps.
 Raised relief stays within existing obstacle footprints or outside map bounds.

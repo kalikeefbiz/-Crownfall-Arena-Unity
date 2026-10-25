@@ -2,7 +2,7 @@
 
 Source baseline: `e3c357bccb9426a7fe5c7a72ec3547df29ac4f32` (`playcanvas-port`).
 
-Stone courses, seams and retaining masonry are removed. Four shared static batches
+Stone courses, seams and retaining masonry are removed. Five shared static batches
 depict continuous compacted dirt, feathered rocky shoulders, eroded banks and
 sparse embedded gravel. Relief stays within original obstacle footprints or
 outside movement bounds; playable footing stays within centimetres of Y=0.
@@ -15,6 +15,8 @@ mipmaps and trilinear filtering. Meshes provide calculated normals and orthogona
 four-component tangent streams, including vertical banks. Broad vertex pigment
 and gently warped world UVs soften repetition without generated textures.
 The rocky scan uses a subdued, cooler material multiplier to match the lane.
+Only the narrow transition band blends two surfaces; outer rocky shoulders are
+opaque and replace the dirt beneath them, limiting PBR overdraw.
 
 The sun direction, intensity and ambient illumination remain unchanged. Normal,
 roughness and AO response reveal local depth. Six shared-mesh soft contact discs

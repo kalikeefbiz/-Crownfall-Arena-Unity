@@ -28,6 +28,7 @@ export function createLaneGeometry() {
     };
     const ground = batch('continuous-packed-earth', 'dirt');
     const shoulders = batch('feathered-rocky-soil', 'shoulder');
+    const outerSoil = batch('opaque-rocky-shoulders', 'rock');
     const banks = batch('eroded-embankments', 'rock');
     const gravel = batch('sparse-embedded-stones', 'rock');
     const shade = (x: number, z: number) =>
@@ -68,20 +69,26 @@ export function createLaneGeometry() {
     };
     // A continuous flat floor. This modest grid carries broad pigment variation,
     // not individual stones or dense displacement. Footing remains at Y=0.
-    for (let z = -34; z < 34; z += 2)
-        for (let x = -32; x < 32; x += 2)
+    for (let z = -34; z < 34; z += 1) {
+        const widthA = laneEdge(z) + 2.4,
+            widthB = laneEdge(z + 1) + 2.4;
+        for (let i = 0; i < 16; i++) {
+            const a = i / 8 - 1,
+                b = (i + 1) / 8 - 1;
             quad(ground, [
-                [x, -0.018, z],
-                [x, -0.018, z + 2],
-                [x + 2, -0.018, z + 2],
-                [x + 2, -0.018, z]
+                [a * widthA, -0.018, z],
+                [a * widthB, -0.018, z + 1],
+                [b * widthB, -0.018, z + 1],
+                [b * widthA, -0.018, z]
             ]);
+        }
+    }
     // Only this narrow feather draws over the dirt; alpha interpolates smoothly
     // between materials, with no rectangular paving seams or hard lane kerb.
     for (let z = -34; z < 34; z += 1)
         for (const sign of [-1, 1]) {
             const distances = [-1, -0.25, 0.8, 2.4, 9, 21];
-            const opacity = [0, 0.12, 0.62, 0.96, 1, 1];
+            const opacity = [0, 0.12, 0.62, 1, 1, 1];
             const point = (s: number, t: number): Point => [
                 sign * Math.min(32, laneEdge(t) + distances[s]),
                 -0.014 + 0.014 * Math.min(1, Math.max(0, distances[s] / 2.4)) * (0.65 + 0.35 * Math.sin(t * 0.8)),
@@ -94,7 +101,9 @@ export function createLaneGeometry() {
                     points.reverse();
                     alphas.reverse();
                 }
-                quad(shoulders, points, alphas);
+                // Opaque outer soil replaces the underlying dirt entirely. Only
+                // the 3.4m transition band pays for two PBR surface samples.
+                quad(i < 3 ? shoulders : outerSoil, points, alphas);
             }
             // Small, mostly buried fragments, confined to shoulders; no broad slabs.
             if (random() < 0.5) {
@@ -170,5 +179,5 @@ export function createLaneGeometry() {
                 }
             }
     }
-    return { batches: [ground, shoulders, banks, gravel], slabs: 0 };
+    return { batches: [ground, shoulders, outerSoil, banks, gravel], slabs: 0 };
 }

@@ -53,7 +53,7 @@ test('legacy recovery and tint-free carved rendering preserve the same authorita
     await page.goto('/?verify=1&territoryTint=0');
     await arrange(page);
     const after = await read(page);
-    expect(after.environment).toMatchObject({ mode: 'carved', batches: 4, territoryTint: false });
+    expect(after.environment).toMatchObject({ mode: 'carved', batches: 5, territoryTint: false });
     expect(after.environment.triangles).toBeLessThan(6000);
     await expect.poll(async () => (await read(page)).environment.materials?.state).toBe('loaded');
     expect((await read(page)).environment).toMatchObject({
