@@ -2,7 +2,15 @@ import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 type Inspection = {
-    environment: { mode: string; batches: number; territoryTint: boolean; triangles?: number };
+    environment: {
+        mode: string;
+        batches: number;
+        territoryTint: boolean;
+        triangles?: number;
+        materials?: { state: string; loadedMaps: number };
+        pavingSlabs?: number;
+        tangentBasis?: boolean;
+    };
     match: unknown;
     combat: { player: { x: number; z: number } };
     territory: { frontierZ: number; camera: { x: number; y: number; z: number }; follow: { x: number; z: number } };
@@ -33,6 +41,8 @@ async function arrange(page: Page) {
 test('legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera', async ({
     page
 }) => {
+    // Two complete model/terrain loads and software-WebGL screenshot readbacks.
+    test.setTimeout(120000);
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     await page.goto('/?verify=1&environment=legacy&territoryTint=0');
@@ -43,8 +53,14 @@ test('legacy recovery and tint-free carved rendering preserve the same authorita
     await page.goto('/?verify=1&territoryTint=0');
     await arrange(page);
     const after = await read(page);
-    expect(after.environment).toMatchObject({ mode: 'carved', batches: 5, territoryTint: false });
-    expect(after.environment.triangles).toBeLessThan(28000);
+    expect(after.environment).toMatchObject({ mode: 'carved', batches: 4, territoryTint: false });
+    expect(after.environment.triangles).toBeLessThan(6000);
+    await expect.poll(async () => (await read(page)).environment.materials?.state).toBe('loaded');
+    expect((await read(page)).environment).toMatchObject({
+        materials: { loadedMaps: 6 },
+        pavingSlabs: 0,
+        tangentBasis: true
+    });
     expect(after.match).toEqual(before.match);
     expect(after.territory.frontierZ).toBe(before.territory.frontierZ);
     for (const axis of ['x', 'y', 'z'] as const)

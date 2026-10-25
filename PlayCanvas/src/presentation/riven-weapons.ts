@@ -8,7 +8,7 @@ import type { SummonerAssets } from './summoner-assets';
 export const MOONREAPER_PATH = 'assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb';
 export const MOONREAPER_BYTES = 23080916;
 export const MOONREAPER_SHA256 = '20bad659e39bc916b7f34fca587e55beed25eeae9d3e77d856879efd173636c8';
-export const MOONREAPER_HEIGHT = 1.3;
+export const MOONREAPER_HEIGHT = 0.8;
 
 export function normalizeMoonreaper(min: number[], max: number[]) {
     const height = max[1] - min[1];
@@ -111,6 +111,7 @@ export function createRivenWeapons(assets: SummonerAssets, parent: Entity, enabl
         const pivot = new Entity('Moonreaper-facing');
         const fallback = new Entity('Moonreaper-fallback');
         root.addChild(pivot);
+        fallback.setLocalScale(MOONREAPER_HEIGHT / 1.3, MOONREAPER_HEIGHT / 1.3, MOONREAPER_HEIGHT / 1.3);
         pivot.addChild(fallback);
         // A small physical scythe silhouette also works offline/primitive-only.
         for (const [name, x, y, sx, sy, angle] of [

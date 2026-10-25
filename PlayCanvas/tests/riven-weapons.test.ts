@@ -28,8 +28,8 @@ describe('approved Azure Moonreaper', () => {
         const position = gltf.accessors[primitive.attributes.POSITION];
         expect(position.count).toBe(6243);
         const n = normalizeMoonreaper(position.min, position.max);
-        expect(n.height * n.scale).toBeCloseTo(1.3);
-        expect((position.max[2] - position.min[2]) * n.scale).toBeCloseTo(0.1901, 3);
+        expect(n.height * n.scale).toBeCloseTo(0.8);
+        expect((position.max[2] - position.min[2]) * n.scale).toBeCloseTo(0.117, 3);
         for (let i = 0; i < 3; i++)
             expect(((position.min[i] + position.max[i]) * n.scale) / 2 + n.offset[i]).toBeCloseTo(0);
         expect(gltf.extensionsRequired ?? []).toEqual([]);

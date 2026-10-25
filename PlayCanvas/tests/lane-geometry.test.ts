@@ -1,3 +1,4 @@
+import { calculateNormals, calculateTangents } from 'playcanvas';
 import { describe, expect, it } from 'vitest';
 
 import { MATCH_WORLD } from '../src/combat/match-space.js';
@@ -56,6 +57,24 @@ describe('carved lane presentation preserves the authoritative map', () => {
             const height = heightAt(x, z);
             expect(height, `footing at ${x}, ${z}`).toBeGreaterThanOrEqual(-0.01801);
             expect(height, `footing at ${x}, ${z}`).toBeLessThanOrEqual(0.028);
+        }
+    });
+
+    it('provides a finite tangent basis on the floor, feather and vertical embankments', () => {
+        expect(createLaneGeometry().slabs).toBe(0);
+        for (const b of batches) {
+            const normals = calculateNormals(b.positions, b.indices);
+            const tangents = calculateTangents(b.positions, normals, b.uvs, b.indices);
+            expect([...tangents].every(Number.isFinite), b.name).toBe(true);
+            for (let i = 0; i < b.positions.length / 3; i++) {
+                const n = normals.slice(i * 3, i * 3 + 3);
+                const t = tangents.slice(i * 4, i * 4 + 3);
+                expect(Math.hypot(...t), b.name).toBeCloseTo(1, 4);
+                expect(
+                    n.reduce((sum, v, j) => sum + v * t[j], 0),
+                    b.name
+                ).toBeCloseTo(0, 4);
+            }
         }
     });
 

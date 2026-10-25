@@ -118,7 +118,7 @@ export function createScene(app: AppBase, competitive = false) {
     if (carved) {
         for (const territory of [blueTerritory, redTerritory]) {
             const mat = territory.render!.meshInstances[0].material as StandardMaterial;
-            mat.opacity = 0.065;
+            mat.opacity = 0.035;
             mat.update();
         }
     }
@@ -127,6 +127,7 @@ export function createScene(app: AppBase, competitive = false) {
     frontier.enabled = competitive;
     const root = new Entity('Kit-gameplay-root');
     app.root.addChild(root);
+    environment?.groundActor(root);
     const localIndicator = primitive(
         'Kit-collision-footprint',
         'cylinder',
@@ -458,6 +459,7 @@ export function createScene(app: AppBase, competitive = false) {
                     if (!actorView) {
                         const actorRoot = new Entity(`summoner-${t.id}`);
                         sceneRoot.addChild(actorRoot);
+                        environment?.groundActor(actorRoot);
                         const indicator = primitive(
                             `team-${t.id}`,
                             'cylinder',

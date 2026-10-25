@@ -15,24 +15,23 @@ npm run dev -- --host 0.0.0.0
 
 Open http://localhost:5173 in landscape. Production preview: https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/
 
-## Carved combat road (Goal 007F)
+## Packed-earth battleground (Goal 009)
 
-Competitive matches now use a procedural stone-and-earth road: worn bevelled
-paving, cracks, an irregular exposed foundation, broken shoulders, and layered
-rock banks with short retaining courses. Pronounced relief occupies existing
-obstacle footprints and terrain beyond the map bounds. Every legal road,
-Wilderness approach, spawn and camp remains at its original gameplay elevation.
-The environment adds five static mesh batches and one generated 128×128 grain
-texture, with no GLB downloads, new collision or per-frame terrain generation.
+Competitive matches use Poly Haven's CC0 `dirt` and `dry_ground_rocks` PBR scans.
+The continuous flat lane feathers into rocky soil, sparse embedded gravel and
+textured embankments, with no paving slabs. Four static batches share six 1K maps
+(albedo, OpenGL normal, packed AO/roughness for each surface). Custom meshes have
+normal/tangent streams; soft actor contact discs avoid full-scene shadow maps.
+Raised relief stays within existing obstacle footprints or outside map bounds.
+Riven's approved Azure Moonreapers normalize to **0.80 m**, previously 1.30 m.
 
-- `?environment=legacy` restores Goal 007E's original floor, lines and obstacle rendering.
-- `?territoryTint=0` disables Blue/Red floor overlays for a neutral comparison;
-  the authoritative gold frontier, team discs and HUD remain visible.
-- Combine with `?verify=1` for the existing deterministic developer fixtures.
+- `?environment=legacy` restores the original floor and obstacle presentation.
+- `?territoryTint=0` disables floor tint while retaining the authoritative gold
+  frontier, team discs and HUD.
+- `?verify=1` enables the established deterministic developer fixtures.
 
-The gameplay camera, six animated summoners and all combat/match systems retain
-their existing authority. See [Goal 007F verification](TASK_007F_VERIFICATION.md)
-for matched screenshots, regression checks and mobile performance limits.
+See [Goal 009 verification](TASK_009_VERIFICATION.md) for matched captures,
+asset sources, measured allocation/frame costs and device limitations.
 
 ## Six-summoner 3D presentation (Goal 007E)
 
