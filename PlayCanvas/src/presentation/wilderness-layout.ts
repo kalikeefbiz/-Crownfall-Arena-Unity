@@ -8,16 +8,11 @@ export const TREE_SPECIES = {
 } as const;
 export const WILDERNESS_TREES = [
     { species: 'maple', x: -36.2, z: -6.4, height: 6.8, yaw: 24 },
-    { species: 'maple', x: -36.7, z: -17.5, height: 7.4, yaw: 153 },
     { species: 'maple', x: -36.1, z: 9.6, height: 6.1, yaw: 281 },
     { species: 'pine', x: -34.8, z: -12.5, height: 6.2, yaw: 82 },
     { species: 'pine', x: -35.1, z: 2.4, height: 5.4, yaw: 211 },
-    { species: 'pine', x: -35.2, z: 16.4, height: 7.1, yaw: 332 },
     { species: 'oak', x: -37.1, z: -0.8, height: 6.6, yaw: 52 },
-    { species: 'oak', x: -37.2, z: -23.4, height: 6.8, yaw: 197 },
     { species: 'redwood', x: -36.8, z: -10.1, height: 11.4, yaw: 137 },
-    { species: 'redwood', x: -37.1, z: 5.1, height: 12.2, yaw: 249 },
-    { species: 'redwood', x: -37.5, z: -20.3, height: 10.6, yaw: 15 }
 ] as const;
 
 // Matches the existing Goal 009 outer bank, including its four-metre segments.

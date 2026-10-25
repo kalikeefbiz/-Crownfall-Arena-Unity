@@ -36,7 +36,7 @@ asset sources, measured allocation/frame costs and device limitations.
 ## Wilderness showcase (Goal 010)
 
 The western boundary now frames play with all four approved Meshy tree species:
-maple, pine, red oak and redwood. Eleven deliberately placed trees share geometry
+maple, pine, red oak and redwood. Six deliberately placed trees share geometry
 and materials per species; their rotated canopy bounds remain outside movement
 limits. Heights vary from 5.4 to 12.2m. CC0 sparse-grass and leaf-litter scans
 feather across the bank and selected outer Wilderness ground; low blade fans and

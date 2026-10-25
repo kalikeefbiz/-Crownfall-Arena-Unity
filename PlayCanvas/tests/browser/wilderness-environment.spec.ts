@@ -28,7 +28,7 @@ test('western grove loads each approved species once and shares tree meshes and 
     const grove = (await read())!;
     expect(requests).toHaveLength(4);
     expect(requests.every((r) => r.includes('/mobile/'))).toBe(true);
-    expect(grove.trees).toHaveLength(11);
+    expect(grove.trees).toHaveLength(6);
     expect(new Set(grove.trees.map((t) => t.species)).size).toBe(4);
     for (const species of ['maple', 'pine', 'oak', 'redwood']) {
         const trees = grove.trees.filter((t) => t.species === species);
