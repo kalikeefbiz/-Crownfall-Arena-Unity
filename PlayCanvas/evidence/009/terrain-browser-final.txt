@@ -1,0 +1,13 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/environment.spec.ts
+
+
+Running 2 tests using 1 worker
+
+(node:4590) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  1 tests/browser/environment.spec.ts:41:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera (56.8s)
+  ✓  2 tests/browser/environment.spec.ts:73:1 › normal match defaults to carved terrain with territory indicators retained (19.4s)
+
+  2 passed (1.3m)

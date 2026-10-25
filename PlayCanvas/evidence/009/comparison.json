@@ -1,0 +1,25 @@
+{
+    "baselineSha": "e3c357bccb9426a7fe5c7a72ec3547df29ac4f32",
+    "implementationSha": "1f72fa7d5f13e11c8e7c5b8fbff24be83afa1b60",
+    "viewport": {
+        "width": 844,
+        "height": 390
+    },
+    "deviceScaleFactor": 2,
+    "screenshotPixels": [844, 390],
+    "matchIdentical": true,
+    "playerIdentical": true,
+    "camera": {
+        "x": -2.5999999046325684,
+        "y": 15.5,
+        "z": 22
+    },
+    "cameraIdenticalWithin": 1e-6,
+    "sunAndAmbientUnchanged": true,
+    "moonreaperNormalizedHeightMeters": {
+        "before": 1.3,
+        "after": 0.8
+    },
+    "browser": "Chromium 154.0.8037.57; ANGLE SwiftShader",
+    "physicalDevice": false
+}

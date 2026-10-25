@@ -1,0 +1,170 @@
+{
+    "runId": 40166808199,
+    "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40166808199",
+    "implementationSha": "1f72fa7d5f13e11c8e7c5b8fbff24be83afa1b60",
+    "unitTestsPassed": 229,
+    "browserTestsPassed": 118,
+    "browserMinutes": 33.2,
+    "jobs": [
+        {
+            "id": 121089433949,
+            "name": "Validate production build",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+                {
+                    "name": "Set up job",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 1
+                },
+                {
+                    "name": "Checkout immutable event revision",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 2
+                },
+                {
+                    "name": "Setup Node",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 3
+                },
+                {
+                    "name": "Clean dependency installation",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 4
+                },
+                {
+                    "name": "Unit tests",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 5
+                },
+                {
+                    "name": "Typecheck",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 6
+                },
+                {
+                    "name": "ESLint",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 7
+                },
+                {
+                    "name": "Prettier validation",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 8
+                },
+                {
+                    "name": "Production build",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 9
+                },
+                {
+                    "name": "Install supported Chromium and system dependencies",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 10
+                },
+                {
+                    "name": "Complete production browser suite",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 11
+                },
+                {
+                    "name": "Preserve browser evidence even on failure",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 12
+                },
+                {
+                    "name": "Record validated build identity",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 13
+                },
+                {
+                    "name": "Upload validated production build",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 14
+                },
+                {
+                    "name": "Post Setup Node",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 27
+                },
+                {
+                    "name": "Post Checkout immutable event revision",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 28
+                },
+                {
+                    "name": "Complete job",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 29
+                }
+            ]
+        },
+        {
+            "id": 121095384187,
+            "name": "Publish validated build to /playcanvas/",
+            "status": "completed",
+            "conclusion": "success",
+            "steps": [
+                {
+                    "name": "Set up job",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 1
+                },
+                {
+                    "name": "Checkout validated revision for publication metadata",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 2
+                },
+                {
+                    "name": "Download this run's validated build",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 3
+                },
+                {
+                    "name": "Verify build provenance and reject stale releases",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 4
+                },
+                {
+                    "name": "Publish validated artifact under existing GitHub Pages site",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 5
+                },
+                {
+                    "name": "Post Checkout validated revision for publication metadata",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 10
+                },
+                {
+                    "name": "Complete job",
+                    "status": "completed",
+                    "conclusion": "success",
+                    "number": 11
+                }
+            ]
+        }
+    ]
+}
