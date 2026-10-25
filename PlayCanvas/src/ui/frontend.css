@@ -1,0 +1,683 @@
+@font-face {
+    font-family: Cinzel;
+    src: url('/assets/frontend/fonts/Cinzel.woff') format('woff');
+    font-weight: 400 900;
+    font-display: swap;
+}
+@font-face {
+    font-family: Rajdhani;
+    src: url('/assets/frontend/fonts/Rajdhani.woff') format('woff');
+    font-weight: 400 800;
+    font-display: swap;
+}
+#frontend {
+    --gold: #f4bb6a;
+    --ivory: #f6f0e4;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    color: var(--ivory);
+    font:
+        600 16px Rajdhani,
+        'Arial Narrow',
+        sans-serif;
+    background: #07131d;
+    user-select: none;
+    overflow: auto;
+}
+#frontend[hidden] {
+    display: none;
+}
+.cf-page {
+    position: relative;
+    min-height: 100%;
+    height: 100dvh;
+    padding: max(18px, env(safe-area-inset-top)) max(36px, env(safe-area-inset-right))
+        max(36px, env(safe-area-inset-bottom)) max(36px, env(safe-area-inset-left));
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background:
+        linear-gradient(90deg, #030b13eb 0%, #040d16b8 33%, #040d1633 75%),
+        linear-gradient(0deg, #020910bc, transparent 60%),
+        url('/assets/frontend/ucl-arena-menu.jpeg') center/cover;
+    border: 1px solid #b0874c80;
+}
+.cf-page button,
+#pause-game {
+    font:
+        700 16px Rajdhani,
+        sans-serif;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    touch-action: manipulation;
+    cursor: pointer;
+    color: var(--ivory);
+    width: auto;
+    height: auto;
+    min-height: 44px;
+    border-radius: 0;
+    padding: 8px 16px;
+    background: #07131ded;
+    border: 1px solid #e0b06b66;
+}
+.cf-page button:hover,
+.cf-page button:focus-visible {
+    border-color: var(--gold);
+    color: var(--gold);
+    outline: 2px solid #f4bb6a;
+    outline-offset: 2px;
+}
+.cf-page .cf-primary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    min-width: 225px;
+    background: var(--gold);
+    border: 0;
+    clip-path: polygon(0 0, 96% 0, 100% 25%, 100% 100%, 0 100%);
+    color: #07131d;
+    font-size: 20px;
+    min-height: 46px;
+    padding: 8px 18px;
+    text-align: left;
+}
+.cf-primary span {
+    font-size: 28px;
+    line-height: 1;
+}
+.cf-top,
+.cf-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    font-size: 11px;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+.cf-top {
+    flex-shrink: 0;
+    min-height: 22px;
+}
+.cf-top > span:first-child:before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    width: 26px;
+    height: 2px;
+    margin-right: 10px;
+    background: var(--gold);
+}
+.cf-page em {
+    color: var(--gold);
+    font-style: normal;
+}
+.cf-eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+.cf-footer {
+    position: absolute;
+    bottom: max(14px, env(safe-area-inset-bottom));
+    left: max(36px, env(safe-area-inset-left));
+    right: max(36px, env(safe-area-inset-right));
+    border-top: 1px solid #e0b06b55;
+    padding-top: 7px;
+    font-size: 10px;
+    color: #d5cdbf;
+}
+.cf-title-zone {
+    margin: auto 0;
+    width: min(440px, 60%);
+}
+.cf-title-zone h1 {
+    font:
+        600 clamp(36px, 6vw, 76px) Cinzel,
+        Georgia,
+        serif;
+    margin: 10px 0 0;
+    letter-spacing: 0.01em;
+    line-height: 1.1;
+    text-shadow: 0 3px 4px #000;
+}
+.cf-arena {
+    font-size: 26px;
+    letter-spacing: 0.55em;
+    color: var(--gold);
+    margin: 8px 0 14px;
+}
+.cf-title-zone p {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    margin: 10px 0 16px;
+}
+.cf-title-zone .cf-primary {
+    width: min(100%, 300px);
+}
+.cf-subactions {
+    display: flex;
+    gap: 12px;
+}
+.cf-subactions .cf-button {
+    background: none;
+    border: 0;
+    padding: 0 4px;
+    min-height: 40px;
+    font-size: 13px;
+}
+.cf-annotation {
+    position: absolute;
+    right: 8%;
+    top: 62%;
+    text-align: center;
+    color: var(--gold);
+    font-size: 12px;
+    line-height: 1.5;
+    letter-spacing: 0.16em;
+}
+.cf-intro {
+    margin: 16px 0 12px;
+}
+.cf-intro h1 {
+    font:
+        600 clamp(21px, 3.1vw, 38px) Cinzel,
+        Georgia,
+        serif;
+    margin: 5px 0 0;
+    line-height: 1.15;
+}
+.cf-page .cf-back {
+    position: absolute;
+    right: max(36px, env(safe-area-inset-right));
+    top: 60px;
+    min-height: 40px;
+    font-size: 13px;
+}
+.cf-roster {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    flex: 1;
+    min-height: 0;
+    max-height: 420px;
+}
+.cf-page .cf-hero {
+    position: relative;
+    overflow: hidden;
+    text-align: left;
+    padding: 10px 12px;
+    background: linear-gradient(130deg, #07131dec, #152432df);
+    border-color: #b3c2cd88;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 0;
+}
+.cf-page .cf-hero:nth-child(2) {
+    background: linear-gradient(130deg, #111c35f2, #182237e0);
+}
+.cf-page .cf-hero:nth-child(3) {
+    background: linear-gradient(130deg, #062d3bf5, #071923e0);
+}
+.cf-page .cf-hero.selected {
+    border: 1px solid var(--gold);
+    box-shadow: inset 0 -4px var(--gold);
+}
+.cf-class {
+    position: relative;
+    z-index: 1;
+    font-size: 11px;
+    color: var(--gold);
+    letter-spacing: 0.09em;
+}
+.cf-hero img {
+    position: absolute;
+    object-fit: contain;
+    height: 100%;
+    width: 100%;
+    inset: 0;
+    pointer-events: none;
+    object-position: 50% 22%;
+}
+.cf-identity {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(0deg, #07131d 0%, #07131dc9 65%, transparent);
+    margin: 0 -12px -9px;
+    padding: 22px 12px 10px;
+}
+.cf-identity h2 {
+    font:
+        600 21px Cinzel,
+        Georgia,
+        serif;
+    margin: 0 0 4px;
+}
+.cf-identity span {
+    font-size: 12px;
+    color: #d0dee2;
+}
+.cf-identity small {
+    display: block;
+    font-size: 10px;
+    color: #a7c0c4;
+    margin-top: 3px;
+}
+.cf-select-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0 12px;
+    gap: 12px;
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 13px;
+}
+.cf-settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    flex: 1;
+    min-height: 0;
+    margin-bottom: 20px;
+    max-height: 410px;
+}
+.cf-setting {
+    background: #06141ef2;
+    border: 1px solid #d8af7280;
+    padding: 10px 14px;
+    overflow: auto;
+}
+.cf-setting small {
+    color: var(--gold);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+}
+.cf-setting h2 {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 3px 0;
+}
+.cf-setting p {
+    font-size: 11px;
+    color: #a8c9ce;
+    margin: 3px 0;
+}
+.cf-setting .cf-button {
+    min-height: 36px;
+    padding: 4px 10px;
+    font-size: 13px;
+    color: #a8d2d8;
+    background: none;
+    border-color: #a8d2d844;
+}
+.cf-options {
+    display: flex;
+    gap: 8px;
+}
+.cf-notice {
+    font-size: 12px;
+    color: #70d9cf;
+    position: absolute;
+    bottom: 40px;
+}
+.cf-load,
+.cf-center {
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+.cf-load h1,
+.cf-crownfall h1 {
+    font:
+        600 30px Cinzel,
+        Georgia,
+        serif;
+    margin: 0;
+    color: var(--gold);
+}
+.cf-load > img {
+    height: 100px;
+    width: 140px;
+    object-fit: contain;
+}
+.cf-load > div:not(.cf-versus) {
+    font-size: 13px;
+}
+.cf-versus {
+    display: flex;
+    gap: 44px;
+    align-items: center;
+    letter-spacing: 0.16em;
+}
+.cf-versus span:first-child {
+    color: #a2dfff;
+}
+.cf-versus span:last-child {
+    color: #ffb4c1;
+}
+.cf-load progress {
+    width: min(360px, 80vw);
+    height: 6px;
+    accent-color: var(--gold);
+    margin-top: 6px;
+}
+.cf-load p {
+    margin: 2px 0;
+    font-size: 12px;
+    max-width: 75vw;
+}
+.cf-load #load-actions {
+    display: flex;
+    gap: 10px;
+}
+.cf-center > .cf-button {
+    min-width: 225px;
+}
+.cf-center .cf-intro {
+    margin: 5px;
+}
+.cf-crownfall h1 {
+    font-size: clamp(38px, 8vw, 80px);
+    letter-spacing: 0.1em;
+    margin: 12px;
+}
+.cf-result-detail {
+    font-size: 12px;
+    margin: 0 0 6px;
+    color: #d5cdbf;
+}
+.cf-result-table {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    background: #07131dec;
+    border: 1px solid #e0b06b55;
+}
+.cf-result-table table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 13px;
+}
+.cf-result-table td,
+.cf-result-table th {
+    border-bottom: 1px solid #e0b06b33;
+    padding: 5px 12px;
+}
+.cf-result-table th {
+    color: var(--gold);
+    text-transform: uppercase;
+    font-size: 11px;
+}
+.cf-result-actions {
+    display: flex;
+    gap: 10px;
+    margin: 8px 0 12px;
+}
+.cf-result-actions .cf-primary {
+    min-width: 190px;
+    font-size: 17px;
+}
+.cf-result-actions .cf-button {
+    font-size: 13px;
+}
+#pause-game {
+    position: fixed;
+    z-index: 10;
+    top: max(10px, env(safe-area-inset-top));
+    right: max(12px, env(safe-area-inset-right));
+    min-height: 44px;
+    color: #f6f0e4;
+    letter-spacing: 0;
+    font-size: 13px;
+    border-color: #f4bb6a88;
+}
+#pause-game[hidden] {
+    display: none;
+}
+.cf-editor-toolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    z-index: 2;
+    background: #07131def;
+    padding: 5px;
+    margin: -10px -20px 0;
+    font-size: 12px;
+}
+.cf-editor-toolbar > strong {
+    color: var(--gold);
+}
+.cf-editor-toolbar label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.cf-editor-toolbar select {
+    font-size: 16px;
+    background: #07131d;
+    color: #fff;
+    max-width: 90px;
+}
+.cf-editor-toolbar input {
+    width: 75px;
+    accent-color: #f4bb6a;
+}
+.cf-editor-toolbar .cf-button {
+    min-height: 36px;
+    padding: 4px 9px;
+    font-size: 12px;
+}
+.cf-editor-help {
+    margin: 5px 0;
+    font-size: 11px;
+    color: #a8d2d8;
+}
+.cf-page .cf-edit-pad {
+    border-radius: 50%;
+    border: 2px solid #9db7c9;
+    touch-action: none;
+    font-size: 11px;
+    padding: 3px;
+    z-index: 1;
+    background: #143044;
+}
+.cf-page .cf-edit-pad.selected {
+    border-color: var(--gold);
+    color: var(--gold);
+}
+body.official:not([data-screen='gameplay']) > main,
+body.official:not([data-screen='gameplay']) > #actor-labels,
+body.official:not([data-screen='gameplay']) > #combat-labels,
+body.official:not([data-screen='gameplay']) > #combat-world {
+    visibility: hidden;
+    pointer-events: none;
+}
+body.official:not(.debug) #summoner,
+body.official #play-match,
+body.official #result-panel,
+body.official #debug-link {
+    display: none !important;
+}
+body.official #aim-assist {
+    top: calc(58px + var(--safe-top));
+    font-size: 10px;
+    min-height: 36px;
+    padding: 4px 8px;
+}
+body.official #aim {
+    display: flex;
+    font-size: 9px;
+}
+body.official #ability-bar {
+    position: static;
+}
+body.official #aim:empty:after {
+    content: 'AIM';
+}
+body.official main .ability {
+    font-size: 9px;
+}
+body.official main .ability strong {
+    font-size: 15px;
+}
+body.official main .ability-stance {
+    border-radius: 50%;
+}
+@media (max-height: 380px) {
+    .cf-page {
+        padding-top: 12px;
+        padding-bottom: 34px;
+    }
+    .cf-intro {
+        margin: 10px 0;
+    }
+    .cf-title-zone h1 {
+        margin: 5px 0;
+    }
+    .cf-arena {
+        margin: 4px 0 8px;
+    }
+    .cf-title-zone p {
+        margin: 8px 0 10px;
+    }
+    .cf-identity h2 {
+        font-size: 18px;
+    }
+    .cf-identity small {
+        display: none;
+    }
+    .cf-setting {
+        padding: 7px 12px;
+    }
+    .cf-setting h2 {
+        font-size: 18px;
+    }
+    .cf-load > img {
+        height: 72px;
+    }
+    .cf-load {
+        gap: 5px;
+    }
+    .cf-result-table td {
+        padding: 3px 10px;
+    }
+    .cf-result-actions {
+        margin: 6px 0 10px;
+    }
+}
+@media (max-width: 700px) {
+    .cf-page {
+        padding-left: max(22px, env(safe-area-inset-left));
+        padding-right: max(22px, env(safe-area-inset-right));
+    }
+    .cf-footer {
+        left: max(22px, env(safe-area-inset-left));
+        right: max(22px, env(safe-area-inset-right));
+        font-size: 9px;
+    }
+    .cf-top {
+        font-size: 9px;
+    }
+    .cf-title-zone {
+        width: 64%;
+    }
+    .cf-title-zone .cf-eyebrow {
+        font-size: 10px;
+    }
+    .cf-title-zone p {
+        font-size: 10px;
+    }
+    .cf-page .cf-back {
+        right: 22px;
+        top: 48px;
+    }
+    .cf-roster {
+        gap: 8px;
+    }
+    .cf-class {
+        font-size: 10px;
+    }
+    .cf-select-footer {
+        font-size: 12px;
+    }
+    .cf-page .cf-primary {
+        min-width: 200px;
+        font-size: 18px;
+    }
+    .cf-annotation {
+        right: 5%;
+        font-size: 10px;
+    }
+    .cf-settings-grid {
+        gap: 8px;
+    }
+    .cf-editor-toolbar {
+        gap: 5px;
+    }
+    .cf-editor-toolbar input {
+        width: 60px;
+    }
+}
+@media (orientation: portrait) {
+    .cf-page {
+        height: auto;
+        min-height: 100dvh;
+        padding-bottom: 60px;
+        overflow: auto;
+    }
+    .cf-top > span:last-child {
+        max-width: 40%;
+        text-align: right;
+    }
+    .cf-title-zone {
+        width: 100%;
+        margin: 25vh 0 20vh;
+    }
+    .cf-annotation {
+        display: none;
+    }
+    .cf-intro {
+        margin: 40px 0 16px;
+    }
+    .cf-intro h1 {
+        font-size: 24px;
+    }
+    .cf-roster {
+        min-height: 330px;
+    }
+    .cf-identity h2 {
+        font-size: 14px;
+    }
+    .cf-class {
+        font-size: 9px;
+    }
+    .cf-select-footer {
+        flex-wrap: wrap;
+    }
+    .cf-settings-grid {
+        grid-template-columns: 1fr;
+    }
+    .cf-result-actions {
+        flex-wrap: wrap;
+    }
+    .cf-editor-toolbar {
+        margin: 0;
+    }
+    .cf-load,
+    .cf-center {
+        margin: 20vh auto;
+    }
+}
+#aim[hidden] {
+    display: none;
+}

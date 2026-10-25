@@ -5,6 +5,7 @@ import type { Vec } from '../gameplay/vector';
 import { protectGameSurface } from './game-gestures.js';
 
 export class Controls {
+    enabled = true;
     private keys = new Set<string>();
     private move: Vec = { x: 0, z: 0 };
     private aim: Vec = { x: 0, z: -1 };
@@ -30,6 +31,7 @@ export class Controls {
             zone.addEventListener(
                 'pointerdown',
                 (e) => {
+                    if (!this.enabled) return;
                     if ([...this.captures.values()].some((c) => c.kind === kind)) return;
                     e.preventDefault();
                     zone.setPointerCapture(e.pointerId);
@@ -64,6 +66,7 @@ export class Controls {
         window.addEventListener(
             'keydown',
             (e) => {
+                if (!this.enabled) return;
                 const tag = (e.target as HTMLElement)?.tagName || '';
                 if (/SELECT|INPUT|TEXTAREA/.test(tag)) return;
                 if (tag === 'BUTTON' && ['Space', 'Enter'].includes(e.code)) return;
@@ -84,7 +87,7 @@ export class Controls {
         canvas.addEventListener(
             'pointerdown',
             (e) => {
-                if (e.pointerType !== 'mouse') return;
+                if (!this.enabled || e.pointerType !== 'mouse') return;
                 canvas.setPointerCapture(e.pointerId);
                 this.mousePointer = e.pointerId;
                 this.aiming = true;
@@ -95,7 +98,7 @@ export class Controls {
         canvas.addEventListener(
             'pointermove',
             (e) => {
-                if (e.pointerType === 'mouse') this.aim = screenAim(e.clientX, e.clientY);
+                if (this.enabled && e.pointerType === 'mouse') this.aim = screenAim(e.clientX, e.clientY);
             },
             options
         );

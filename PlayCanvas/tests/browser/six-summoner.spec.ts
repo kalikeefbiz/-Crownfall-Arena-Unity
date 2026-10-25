@@ -251,7 +251,7 @@ test('global primitive diagnostic skips every GLB and keeps normal bots active',
     page.on('request', (r) => {
         if (r.url().endsWith('.glb')) requests.push(r.url());
     });
-    await page.goto('/?models=primitive');
+    await page.goto('/?verify=1&models=primitive');
     await page.locator('#play-match').click();
     await expect.poll(async () => (await snapshot(page)).match.phase).toBe('active');
     const initial = await snapshot(page);
@@ -271,7 +271,7 @@ test('global primitive diagnostic skips every GLB and keeps normal bots active',
 
 test('normal match enables all six skinned actors and normal AI without preview flags', async ({ page }) => {
     await page.setViewportSize({ width: 844, height: 390 });
-    await page.goto('/');
+    await page.goto('/?verify=1');
     await page.locator('#play-match').click();
     await loaded(page);
     await expect.poll(async () => (await snapshot(page)).match.phase).toBe('active');

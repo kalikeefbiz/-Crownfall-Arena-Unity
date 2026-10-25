@@ -38,7 +38,7 @@ test('western grove loads each approved species once and shares tree meshes and 
     }
     expect(grove.groundMaps).toBe(6);
     expect(grove.grassTriangles).toBe(240);
-    await page.goto('/?environment=legacy');
+    await page.goto('/?verify=1&environment=legacy');
     expect(await read()).toBeUndefined();
     expect(requests).toHaveLength(4);
     expect(errors).toEqual([]);

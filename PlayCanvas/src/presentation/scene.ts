@@ -16,11 +16,11 @@ import { ARENA, OBSTACLES } from '../config/arena';
 import type { Simulation } from '../gameplay/simulation';
 
 import { createCombatOverlay } from './combat-overlay';
-import { createKitModel } from './kit-model';
+import { KIT_ASSET_PATH, createKitModel } from './kit-model';
 import { createLaneEnvironment } from './lane-environment';
-import { createRivenModel } from './riven-model';
-import { createRivenWeapons } from './riven-weapons';
-import { createSetModel } from './set-model';
+import { RIVEN_ASSET_PATH, createRivenModel } from './riven-model';
+import { MOONREAPER_PATH, createRivenWeapons } from './riven-weapons';
+import { SET_ASSET_PATH, createSetModel } from './set-model';
 import { SummonerAssets } from './summoner-assets';
 import type { ModelFrame } from './summoner-assets';
 
@@ -222,6 +222,52 @@ export function createScene(app: AppBase, competitive = false) {
         return { x: near.x + (far.x - near.x) * t, z: near.z + (far.z - near.z) * t };
     };
     return {
+        quality(low: boolean) {
+            environment?.quality(low);
+        },
+        async prepare(sim: Simulation, report: (label: string, done: number, total: number) => void) {
+            const paths = [KIT_ASSET_PATH, SET_ASSET_PATH, RIVEN_ASSET_PATH];
+            const selected = sim.combat.definition.id === 'set' ? 1 : sim.combat.definition.id === 'riven' ? 2 : 0;
+            const ordered = [paths[selected], ...paths.filter((_, i) => i !== selected)];
+            const detailed = competitive && params.get('models') !== 'primitive';
+            const total = detailed ? 7 : 3;
+            let done = 0;
+            report('Preparing essential battlefield', done, total);
+            if (environment) await environment.ready;
+            report('Battlefield ready', ++done, total);
+            if (detailed) {
+                for (const path of [...ordered, MOONREAPER_PATH]) {
+                    report(
+                        path === MOONREAPER_PATH
+                            ? 'Preparing Azure Moonreapers'
+                            : `Preparing ${path.split('/')[2]} materials and animation`,
+                        done,
+                        total
+                    );
+                    await assets.load(path);
+                    this.update(sim, 0);
+                    await new Promise<void>((resolve) => setTimeout(resolve, 0));
+                    this.update(sim, 0);
+                    await new Promise<void>((resolve) => {
+                        app.once('postrender', resolve);
+                        app.renderNextFrame = true;
+                    });
+                    report('Resource ready', ++done, total);
+                }
+            }
+            report('Assembling Summoners and controls', done, total);
+            this.update(sim, 0);
+            await new Promise<void>((resolve) => setTimeout(resolve, 0));
+            this.update(sim, 0);
+            const failed = this.summonerModels.find((m) => m.state === 'error');
+            if (failed) throw new Error(failed.error);
+            report('Warming essential rendering resources', ++done, total);
+            await new Promise<void>((resolve) => {
+                app.once('postrender', resolve);
+                app.renderNextFrame = true;
+            });
+            report('Arena ready', ++done, total);
+        },
         get environment() {
             return { ...(environment?.diagnostics ?? { mode: 'legacy', batches: 0 }), territoryTint: territoryVisible };
         },

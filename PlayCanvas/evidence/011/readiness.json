@@ -1,0 +1,129 @@
+{
+    "page": "gameplay",
+    "selected": "Riven",
+    "low": false,
+    "measurements": [
+        {
+            "label": "Preparing essential battlefield",
+            "done": 0,
+            "total": 7,
+            "ms": 444
+        },
+        {
+            "label": "Battlefield ready",
+            "done": 1,
+            "total": 7,
+            "ms": 954
+        },
+        {
+            "label": "Preparing riven materials and animation",
+            "done": 1,
+            "total": 7,
+            "ms": 954
+        },
+        {
+            "label": "Resource ready",
+            "done": 2,
+            "total": 7,
+            "ms": 2256
+        },
+        {
+            "label": "Preparing kit materials and animation",
+            "done": 2,
+            "total": 7,
+            "ms": 2256
+        },
+        {
+            "label": "Resource ready",
+            "done": 3,
+            "total": 7,
+            "ms": 3577
+        },
+        {
+            "label": "Preparing set materials and animation",
+            "done": 3,
+            "total": 7,
+            "ms": 3577
+        },
+        {
+            "label": "Resource ready",
+            "done": 4,
+            "total": 7,
+            "ms": 4077
+        },
+        {
+            "label": "Preparing Azure Moonreapers",
+            "done": 4,
+            "total": 7,
+            "ms": 4077
+        },
+        {
+            "label": "Resource ready",
+            "done": 5,
+            "total": 7,
+            "ms": 5095
+        },
+        {
+            "label": "Assembling Summoners and controls",
+            "done": 5,
+            "total": 7,
+            "ms": 5095
+        },
+        {
+            "label": "Warming essential rendering resources",
+            "done": 6,
+            "total": 7,
+            "ms": 5102
+        },
+        {
+            "label": "Arena ready",
+            "done": 7,
+            "total": 7,
+            "ms": 5107
+        }
+    ],
+    "renderer": "Chromium / ANGLE SwiftShader",
+    "viewport": {
+        "width": 667,
+        "height": 375
+    },
+    "resourceCacheAtReadiness": {
+        "downloads": 4,
+        "boundCalculations": 4,
+        "assets": [
+            {
+                "source": "assets/summoners/riven/Riven_Animated.glb",
+                "state": "loaded",
+                "loadMs": 840.6999999999534
+            },
+            {
+                "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                "state": "loaded",
+                "loadMs": 1286.3000000000466
+            },
+            {
+                "source": "assets/summoners/set/Set_Animated.glb",
+                "state": "loaded",
+                "loadMs": 476.60000000009313
+            },
+            {
+                "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                "state": "loaded",
+                "loadMs": 979.2000000001863
+            }
+        ],
+        "gpu": {
+            "tex": 457242180,
+            "vb": 5903628,
+            "ib": 622278,
+            "ub": 7840,
+            "sb": 0
+        }
+    },
+    "essentialRequests": [
+        "/assets/summoners/riven/Riven_Animated.glb",
+        "/assets/summoners/kit/Kit_20K_Animated.glb",
+        "/assets/summoners/set/Set_Animated.glb",
+        "/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb"
+    ]
+}

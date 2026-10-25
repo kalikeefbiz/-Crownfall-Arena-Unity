@@ -100,7 +100,8 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     shoulder.depthWrite = false;
     shoulder.update();
     materials.push(shoulder);
-    void Promise.all(pending).then(
+    const ready = Promise.all(pending);
+    void ready.then(
         () => {
             if (!destroyed) loading.state = 'loaded';
         },
@@ -169,6 +170,12 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     materials.push(contactMaterial);
     const diagnostics = {
         mode: 'carved',
+        get normalMappedSurfaces() {
+            return materials.filter((mat) => !!mat.normalMap).length;
+        },
+        get occlusionMappedSurfaces() {
+            return materials.filter((mat) => !!mat.aoMap).length;
+        },
         get wilderness() {
             return wilderness?.diagnostics ?? { state: preparingWilderness ? 'loading' : 'idle' };
         },
@@ -186,6 +193,14 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     };
     return {
         diagnostics,
+        ready,
+        quality(low: boolean) {
+            for (const mat of [dirt, rock, shoulder]) {
+                mat.normalMap = low ? null : textures[mat === dirt ? 1 : 4];
+                mat.aoMap = low ? null : textures[mat === dirt ? 2 : 5];
+                mat.update();
+            }
+        },
         update(active: boolean) {
             if (!wildernessEnabled || !active || preparingWilderness) return;
             preparingWilderness = true;

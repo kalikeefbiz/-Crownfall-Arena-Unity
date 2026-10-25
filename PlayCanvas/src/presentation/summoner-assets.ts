@@ -21,11 +21,16 @@ export class SummonerAssets {
     >();
     private bounds = new Map<string, Normalization>();
     private destroyed = false;
+    private queue: Promise<void> = Promise.resolve();
     private abort = new AbortController();
     constructor(privateApp: AppBase) {
         this.app = privateApp;
     }
     private app: AppBase;
+
+    isLoaded(source: string) {
+        return this.entries.get(source)?.state === 'loaded';
+    }
 
     load(source: string): Promise<Asset> {
         const cached = this.entries.get(source);
@@ -45,6 +50,14 @@ export class SummonerAssets {
         asset.options = parsing;
         const file = asset.file as { url: string; contents: ArrayBuffer | null };
         const started = performance.now();
+        const requestAbort = new AbortController();
+        const cancelRequest = () => requestAbort.abort();
+        this.abort.signal.addEventListener('abort', cancelRequest, { once: true });
+        let timeout: ReturnType<typeof setTimeout>;
+        const finishRequest = () => {
+            globalThis.clearTimeout(timeout);
+            this.abort.signal.removeEventListener('abort', cancelRequest);
+        };
         const entry = {
             asset,
             promise: null as unknown as Promise<Asset>,
@@ -56,16 +69,19 @@ export class SummonerAssets {
         };
         entry.promise = new Promise<Asset>((resolve, reject) => {
             entry.cancel = () => {
+                finishRequest();
                 parsing.skipMeshes = true;
                 reject(new Error('Summoner assets disposed'));
             };
             asset.once('load', () => {
+                finishRequest();
                 file.contents = null;
                 entry.state = 'loaded';
                 entry.loadMs = performance.now() - started;
                 resolve(asset);
             });
             asset.once('error', (error: unknown) => {
+                finishRequest();
                 file.contents = null;
                 entry.state = 'error';
                 entry.loadMs = performance.now() - started;
@@ -77,19 +93,26 @@ export class SummonerAssets {
         // Own the network lifetime. The engine's container request cannot be
         // cancelled by asset.unload(): a late response would parse against an
         // already-destroyed registry. Feed the same bytes to its normal parser.
-        void fetch(file.url, { signal: this.abort.signal })
-            .then((response) => {
+        this.queue = this.queue.then(async () => {
+            if (this.destroyed) return;
+            timeout = globalThis.setTimeout(() => {
+                requestAbort.abort();
+                asset.fire('error', new Error(`Asset preparation timed out: ${source}`));
+            }, 45000);
+            try {
+                const response = await fetch(file.url, { signal: requestAbort.signal });
                 if (!response.ok) throw new Error(`Asset request failed: ${response.status}`);
-                return response.arrayBuffer();
-            })
-            .then((contents) => {
+                const contents = await response.arrayBuffer();
                 if (this.destroyed) return;
                 file.contents = contents;
                 this.app.assets.load(asset);
-            })
-            .catch((error: unknown) => {
+                await entry.promise;
+                // Let the renderer upload this container before another decode.
+                await new Promise<void>((resolve) => setTimeout(resolve, 0));
+            } catch (error) {
                 if (!this.destroyed) asset.fire('error', error);
-            });
+            }
+        });
         return entry.promise;
     }
 

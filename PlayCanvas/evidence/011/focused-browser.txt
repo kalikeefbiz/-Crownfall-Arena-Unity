@@ -1,0 +1,24 @@
+[WebServer] (node:6556) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 13 tests using 1 worker
+
+(node:6575) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/13] tests/browser/application-lifecycle.spec.ts:146:1 › real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command
+[2/13] tests/browser/application-lifecycle.spec.ts:179:1 › re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers
+[3/13] tests/browser/application-lifecycle.spec.ts:208:1 › destroy releases genuine simultaneous touch captures without committing the held ability after remount
+[4/13] tests/browser/application-lifecycle.spec.ts:279:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+[5/13] tests/browser/application-lifecycle.spec.ts:374:1 › destroy after GLB download while embedded texture decoding is pending leaves no late engine work
+[6/13] tests/browser/application-lifecycle.spec.ts:423:1 › destroy between download completion and the queued engine contents handoff cancels parsing safely
+[7/13] tests/browser/frontend.spec.ts:45:5 › menu-first, roster, settings and saved editor 844x390
+[8/13] tests/browser/frontend.spec.ts:45:5 › menu-first, roster, settings and saved editor 667x375
+[9/13] tests/browser/frontend.spec.ts:45:5 › menu-first, roster, settings and saved editor 640x360
+[10/13] tests/browser/frontend.spec.ts:112:1 › real sequential readiness, authoritative result, replay cache, pause and menu rendering suspension
+[11/13] tests/browser/frontend.spec.ts:197:1 › failed essential model offers real retry and return without a countdown
+[12/13] tests/browser/frontend.spec.ts:215:1 › Combat Practice uses the existing sandbox authority and can return to menu
+[13/13] tests/browser/frontend.spec.ts:228:1 › saved control positions are the real captured touch targets across rotation
+  13 passed (3.1m)

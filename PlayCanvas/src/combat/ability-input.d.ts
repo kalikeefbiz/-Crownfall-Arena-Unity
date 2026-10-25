@@ -10,6 +10,7 @@ export type PreviewIntent = {
     targetOffset?: { x: number; z: number };
 };
 export class AbilityInput {
+    input: { enabled: boolean };
     constructor(
         input: { enabled: boolean },
         getFacing: () => number,

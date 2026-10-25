@@ -71,9 +71,9 @@ test('legacy recovery and tint-free carved rendering preserve the same authorita
 });
 
 test('normal match defaults to carved terrain with territory indicators retained', async ({ page }) => {
-    await page.goto('/');
+    await page.goto('/?verify=1');
     expect((await read(page)).environment).toMatchObject({ mode: 'carved', territoryTint: true });
-    await page.goto('/?environment=legacy');
+    await page.goto('/?verify=1&environment=legacy');
     expect((await read(page)).environment).toMatchObject({ mode: 'legacy', territoryTint: true });
     await page.goto('/?debug=1');
     expect((await read(page)).environment.mode).toBe('legacy');

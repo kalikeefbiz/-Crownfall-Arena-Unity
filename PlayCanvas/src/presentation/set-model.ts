@@ -144,7 +144,8 @@ export function createSetModel(
                 yaw = (Math.atan2(sim.aim.x, sim.aim.z) * 180) / Math.PI;
             }
             selected = (competitive || previewEnabled) && sim.combat.definition.id === 'set' && !forcedPrimitive;
-            if (selected && sim.match?.phase !== 'prematch' && metrics.state === 'idle') start();
+            if (selected && (sim.match?.phase !== 'prematch' || assets.isLoaded(source)) && metrics.state === 'idle')
+                start();
             const owner = sim.facing.owner;
             if (owner === 'aim') yaw = (Math.atan2(sim.aim.x, sim.aim.z) * 180) / Math.PI;
             else if (owner === 'commit') yaw = (sim.combat.committedAngle * 180) / Math.PI;

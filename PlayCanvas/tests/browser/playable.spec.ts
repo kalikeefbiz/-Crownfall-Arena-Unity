@@ -8,14 +8,16 @@ const state = (page: Page): Promise<MatchState> =>
         () => (window as unknown as { __crownfall: { snapshot(): { match: MatchState } } }).__crownfall.snapshot().match
     );
 
-test('normal player starts, fights a natural 3v3 battle, sees results, freeze and clean restart', async ({ page }) => {
+test('prematch inspection starts, fights a natural 3v3 battle, sees results, freeze and clean restart', async ({
+    page
+}) => {
     test.setTimeout(900000);
     // Keep the full normal match on software WebGL fast enough to exercise real time.
     // Canonical opposite spawns are 60 units apart; no clocks or actor state are edited.
     await page.setViewportSize({ width: 640, height: 360 });
     const errors: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
-    await page.goto('/');
+    await page.goto('/?verify=1');
     await expect(page.locator('#play-match')).toBeVisible();
     await expect(page.locator('#lifecycle-controls')).toBeHidden();
     await expect(page.locator('#scoreboard')).toContainText('BLUE 15');
@@ -73,7 +75,7 @@ for (const viewport of [
     }) => {
         const context = await browser.newContext({ viewport, isMobile: true, hasTouch: true });
         const page = await context.newPage();
-        await page.goto('/');
+        await page.goto('/?verify=1');
         await expect(page.locator('#play-match')).toBeVisible();
         for (const locator of ['#play-match', '#summoner', '#move', '#ability-bar', '#scoreboard', '#team-status']) {
             const box = (await page.locator(locator).boundingBox())!;

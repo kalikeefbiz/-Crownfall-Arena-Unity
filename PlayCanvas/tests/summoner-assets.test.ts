@@ -60,6 +60,7 @@ describe('scene-owned summoner containers', () => {
         const asset = registry.load.mock.calls[0][0] as Asset;
         const unload = vi.spyOn(asset, 'unload');
         const cancelled = expect(pending).rejects.toThrow('disposed');
+        await vi.waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
         assets.destroy();
         asset.fire('load');
         await cancelled;
@@ -76,6 +77,7 @@ describe('scene-owned summoner containers', () => {
         vi.stubGlobal('fetch', fetch);
         const pending = assets.load('late.glb');
         const cancelled = expect(pending).rejects.toThrow('disposed');
+        await vi.waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
         assets.destroy();
         assets.destroy();
         expect(fetch.mock.calls[0][1].signal.aborted).toBe(true);
@@ -85,5 +87,36 @@ describe('scene-owned summoner containers', () => {
         await Promise.resolve();
         expect(registry.load).not.toHaveBeenCalled();
         expect(registry.remove).toHaveBeenCalledTimes(1);
+    });
+    it('serializes unique containers through decode and releases the queue after failure', async () => {
+        const { registry, assets } = fixture();
+        const first = assets.load('first.glb');
+        const second = assets.load('second.glb');
+        const failure = expect(first).rejects.toBe('invalid first');
+        await vi.waitFor(() => expect(registry.load).toHaveBeenCalledTimes(1));
+        expect(fetch).toHaveBeenCalledTimes(1);
+        registry.load.mock.calls[0][0].fire('error', 'invalid first');
+        await failure;
+        await vi.waitFor(() => expect(registry.load).toHaveBeenCalledTimes(2));
+        const secondAsset = registry.load.mock.calls[1][0] as Asset;
+        secondAsset.fire('load');
+        expect(await second).toBe(secondAsset);
+        assets.destroy();
+    });
+
+    it('cancels a queued container without starting another request after disposal', async () => {
+        const { registry, assets } = fixture();
+        const first = assets.load('first.glb');
+        const second = assets.load('queued.glb');
+        const cancelled = Promise.all([
+            expect(first).rejects.toThrow('disposed'),
+            expect(second).rejects.toThrow('disposed')
+        ]);
+        await vi.waitFor(() => expect(registry.load).toHaveBeenCalledTimes(1));
+        assets.destroy();
+        await cancelled;
+        await new Promise((resolve) => setTimeout(resolve, 0));
+        expect(fetch).toHaveBeenCalledTimes(1);
+        expect(registry.load).toHaveBeenCalledTimes(1);
     });
 });

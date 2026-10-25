@@ -29,7 +29,7 @@ export function createHud() {
       <button id="aim-assist" aria-pressed="true">Aim Assist: On</button>
       <div id="aim-feedback" aria-live="off"></div>
       <a id="debug-link" href="?debug=1">Debug</a>
-      <div id="aim" hidden></div>
+      <div id="aim" class="pad" hidden></div>
       <div class="notice">RESET → gold MOBILE TEST · Kit/Set: press/hold · Riven: aim then RELEASE</div>
     `;
     document.body.append(hud);

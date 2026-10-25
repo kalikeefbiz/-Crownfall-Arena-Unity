@@ -1,0 +1,22 @@
+
+> crownfall-playcanvas@0.0.0 build
+> vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 1303 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                             0.65 kB │ gzip:   0.36 kB
+dist/assets/index-BgPqw8kw.css             21.92 kB │ gzip:   5.57 kB
+dist/assets/index-DGGsr46T.js               1.32 kB │ gzip:   0.66 kB
+dist/assets/preload-helper-CRzLMJPS.js      1.53 kB │ gzip:   0.80 kB
+dist/assets/frontend-Bm4jU1Or.js           14.41 kB │ gzip:   5.94 kB
+dist/assets/game-BYVe_Bud.js            1,318.81 kB │ gzip: 356.76 kB
+
+✓ built in 648ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.

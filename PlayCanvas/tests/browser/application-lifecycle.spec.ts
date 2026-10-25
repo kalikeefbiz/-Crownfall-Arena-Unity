@@ -67,8 +67,7 @@ async function nativeListeners(page: Page) {
         const scripts = new Map<string, string>();
         cdp.on('Debugger.scriptParsed', ({ scriptId, url }) => scripts.set(scriptId, url));
         await cdp.send('Debugger.enable');
-        const entry = await page.locator('script[type="module"]').getAttribute('src');
-        const entryUrl = new URL(entry!, page.url()).href;
+        const applicationOrigin = new URL(page.url()).origin;
         const counts: Record<string, number> = {};
         for (const expression of [
             'window',
@@ -83,8 +82,8 @@ async function nativeListeners(page: Page) {
             const { listeners } = await cdp.send('DOMDebugger.getEventListeners', { objectId: result.objectId! });
             // Playwright installs its own action/hit-target listeners. Inspect
             // native listeners belonging to every evaluation of the app bundle.
-            counts[expression] = listeners.filter(
-                (listener) => scripts.get(listener.scriptId)?.split('?')[0] === entryUrl
+            counts[expression] = listeners.filter((listener) =>
+                scripts.get(listener.scriptId)?.startsWith(`${applicationOrigin}/assets/`)
             ).length;
         }
         return counts;
@@ -296,8 +295,9 @@ test('destroy during actual delayed GLB requests tolerates their late responses 
     await page.goto('/?verify=1');
     await ready(page);
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
-    await expect.poll(() => pending).toBe(3);
-    // Weapon download/decode is queued behind these held character loads.
+    await expect.poll(() => pending).toBe(1);
+    expect((await read(page)).modelAssets.downloads).toBe(3); // Two registered requests remain queued.
+    // Serial decoding holds the first character; other characters and weapons stay queued.
     expect((await read(page)).rivenWeapons.state).toBe('loading');
     expect((await read(page)).summonerModels.every((model) => !model.visible)).toBe(true);
     const finished: string[] = [];
@@ -311,7 +311,8 @@ test('destroy during actual delayed GLB requests tolerates their late responses 
     await rememberAndDestroy(page);
     await disposed(page);
     release();
-    await expect.poll(() => finished.length).toBe(3);
+    await expect.poll(() => finished.length).toBe(1);
+    expect(pending).toBe(1); // Disposal must never start the two queued containers.
     // Let late loader/decode callbacks run, without relying on a sleep to assert success.
     await page.evaluate(async () => {
         for (let i = 0; i < 6; i++) await new Promise(requestAnimationFrame);
@@ -400,8 +401,9 @@ test('destroy after GLB download while embedded texture decoding is pending leav
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     const decode = () =>
         page.evaluate(() => (window as unknown as { delayedDecode: { pending: number } }).delayedDecode.pending);
-    // All nine character textures (the large weapon waits for these loads to settle) have decoded, but their engine callbacks are held.
-    await expect.poll(decode).toBe(9);
+    // The first container’s three textures have decoded, but their engine callbacks are held.
+    // The serial queue must keep both other character containers out of the parser.
+    await expect.poll(decode).toBe(3);
     expect((await read(page)).summonerModels.every((model) => !model.visible)).toBe(true);
     await rememberAndDestroy(page);
     await disposed(page);
@@ -410,7 +412,7 @@ test('destroy after GLB download while embedded texture decoding is pending leav
         .poll(() =>
             page.evaluate(() => (window as unknown as { delayedDecode: { delivered: number } }).delayedDecode.delivered)
         )
-        .toBe(9);
+        .toBe(3);
     await page.evaluate(async () => {
         for (let i = 0; i < 6; i++) await new Promise(requestAnimationFrame);
     });
@@ -442,7 +444,7 @@ test('destroy between download completion and the queued engine contents handoff
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     await expect
         .poll(() => page.evaluate(() => (window as unknown as { queuedContents: unknown[] }).queuedContents.length))
-        .toBe(3);
+        .toBe(1);
     await rememberAndDestroy(page);
     await disposed(page);
     await page.evaluate(() => {
