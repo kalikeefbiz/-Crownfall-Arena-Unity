@@ -31,6 +31,7 @@ export function createWildernessEnvironment(
     const textures: Texture[] = [],
         materials: StandardMaterial[] = [],
         meshes: Mesh[] = [];
+    const renderParts: MeshInstance[] = [];
     const instances: { species: string; height: number; position: number[]; meshId: number; materialId: number }[] = [];
     let destroyed = false;
     const diagnostics = {
@@ -232,6 +233,7 @@ export function createWildernessEnvironment(
             receiveShadows: false
         });
         root.addChild(entity);
+        renderParts.push(...entity.render!.meshInstances);
     }
     diagnostics.groundBatches = meshes.length;
     diagnostics.grassTriangles = blades.i.length / 3;
@@ -243,6 +245,14 @@ export function createWildernessEnvironment(
         }
     });
     pending.length = 0;
+    // Upload every static draw's buffers once, including temporarily culled
+    // props. Loaded means GPU resources have seen a completed render, so later
+    // camera movement/rematches do not lazily grow the uniform-buffer cache.
+    const rendered = () => {
+        if (destroyed) return;
+        for (const part of renderParts) part.cull = true;
+        diagnostics.state = 'loaded';
+    };
     const params = new URLSearchParams(location.search);
     const enabled = params.get('models') !== 'primitive' && params.get('summonerModels') !== 'local';
     const start = () => {
@@ -288,6 +298,7 @@ export function createWildernessEnvironment(
                             );
                             pivot.addChild(model);
                             for (const part of parts) part.castShadow = false;
+                            renderParts.push(...parts);
                             instances.push({
                                 species,
                                 height: placement.height,
@@ -301,7 +312,9 @@ export function createWildernessEnvironment(
             }
             void Promise.all([...pending, groundReady]).then(
                 () => {
-                    if (!destroyed) diagnostics.state = 'loaded';
+                    if (destroyed) return;
+                    for (const part of renderParts) part.cull = false;
+                    app.once('postrender', rendered);
                 },
                 (e: unknown) => {
                     if (!destroyed) {
@@ -319,6 +332,7 @@ export function createWildernessEnvironment(
         },
         destroy() {
             destroyed = true;
+            app.off('postrender', rendered);
             root.destroy();
             cache.destroy();
             meshes.forEach((m) => m.destroy());

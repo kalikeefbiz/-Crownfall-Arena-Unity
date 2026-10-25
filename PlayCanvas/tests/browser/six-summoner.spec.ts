@@ -249,7 +249,7 @@ test('global primitive diagnostic skips every GLB and keeps normal bots active',
     await page.setViewportSize({ width: 844, height: 390 });
     const requests: string[] = [];
     page.on('request', (r) => {
-        if (r.url().endsWith('.glb') && r.url().includes('/summoners/')) requests.push(r.url());
+        if (r.url().endsWith('.glb')) requests.push(r.url());
     });
     await page.goto('/?models=primitive');
     await page.locator('#play-match').click();

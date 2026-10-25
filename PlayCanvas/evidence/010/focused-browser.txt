@@ -1,0 +1,47 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test --grep western grove|legacy recovery|normal match defaults|two shared Moonreapers|destroy while|embedded texture|queued engine --reporter=line
+
+
+Running 6 tests using 1 worker
+
+(node:2560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/6] tests/browser/application-lifecycle.spec.ts:369:1 › destroy after GLB download while embedded texture decoding is pending leaves no late engine work
+[2/6] tests/browser/application-lifecycle.spec.ts:417:1 › destroy between download completion and the queued engine contents handoff cancels parsing safely
+[3/6] tests/browser/environment.spec.ts:41:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera
+  1) tests/browser/environment.spec.ts:41:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 4
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      30 |         h.verification.advance(2.1);
+      31 |     });
+    > 32 |     await expect.poll(async () => (await read(page)).summonerModels.filter((m) => m.visible).length).toBe(6);
+         |                                                                                                      ^
+      33 |     await expect
+      34 |         .poll(async () => {
+      35 |             const s = await read(page);
+        at arrange (/workspace/crownfall/PlayCanvas/tests/browser/environment.spec.ts:32:102)
+        at /workspace/crownfall/PlayCanvas/tests/browser/environment.spec.ts:49:5
+
+    Error Context: test-results/environment-legacy-recover-41812-ritative-fixture-and-camera/error-context.md
+
+
+(node:2869) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/6] tests/browser/environment.spec.ts:73:1 › normal match defaults to carved terrain with territory indicators retained
+[5/6] tests/browser/riven-weapons.spec.ts:91:1 › two shared Moonreapers follow every Reso phase, stance and Elf Dance
+[6/6] tests/browser/wilderness-environment.spec.ts:11:1 › western grove loads each approved species once and shares tree meshes and materials
+  1 failed
+    tests/browser/environment.spec.ts:41:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera 
+  5 passed (3.8m)

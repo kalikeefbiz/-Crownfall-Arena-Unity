@@ -86,7 +86,12 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     };
     const dirt = makeMaterial('dirt');
     const rock = makeMaterial('dry_ground_rocks');
-    const wilderness = createWildernessEnvironment(app, root, rock, characters);
+    // Keep prematch/countdown and isolated character diagnostics on Goal 009's
+    // rendering budget. Optional scenery begins after character imports settle.
+    let wilderness: ReturnType<typeof createWildernessEnvironment> | null = null;
+    let preparingWilderness = false;
+    const params = new URLSearchParams(location.search);
+    const wildernessEnabled = params.get('models') !== 'primitive' && params.get('summonerModels') !== 'local';
     const shoulder = rock.clone();
     shoulder.name = 'rocky-soil-feather';
     shoulder.opacityVertexColor = true;
@@ -164,7 +169,9 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     materials.push(contactMaterial);
     const diagnostics = {
         mode: 'carved',
-        wilderness: wilderness.diagnostics,
+        get wilderness() {
+            return wilderness?.diagnostics ?? { state: preparingWilderness ? 'loading' : 'idle' };
+        },
         surface: 'polyhaven-packed-earth',
         batches: meshes.length,
         vertices: data.batches.reduce((n, b) => n + b.positions.length / 3, 0),
@@ -179,7 +186,15 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     };
     return {
         diagnostics,
-        update: wilderness.update,
+        update(active: boolean) {
+            if (!wildernessEnabled || !active || preparingWilderness) return;
+            preparingWilderness = true;
+            void characters.settled().then(() => {
+                if (destroyed) return;
+                wilderness = createWildernessEnvironment(app, root, rock, characters);
+                wilderness.update(true);
+            });
+        },
         groundActor(parent: Entity) {
             const contact = new Entity('soft-ground-contact');
             contact.addComponent('render', {
@@ -191,7 +206,7 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
         },
         destroy() {
             destroyed = true;
-            wilderness.destroy();
+            wilderness?.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
             contactMesh.destroy();

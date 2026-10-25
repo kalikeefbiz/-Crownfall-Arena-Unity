@@ -1,0 +1,10 @@
+{
+    "matchedState": true,
+    "cameraToleranceMetres": 1e-5,
+    "views": ["match", "ability"],
+    "viewport": {
+        "width": 844,
+        "height": 390
+    },
+    "deviceScaleFactor": 2
+}

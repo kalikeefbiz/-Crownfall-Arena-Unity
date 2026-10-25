@@ -1,0 +1,8 @@
+{
+    "sourceResolution": 2048,
+    "runtimeResolution": 512,
+    "cropNormalized": [0, 0.29, 0.44, 0.9],
+    "meanAbsoluteRgbDifference255": 0.3528279236222791,
+    "p95ChannelDifference255": 2.0,
+    "note": "Supporting pixel comparison of static western vegetation at competitive camera; visual review remains authoritative."
+}

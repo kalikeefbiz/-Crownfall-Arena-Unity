@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 type State = {
+    environment: { wilderness?: { state: string } };
     rivenWeapons: { state: string };
     frames: number;
     movement: { x: number; z: number };
@@ -342,6 +343,9 @@ test('destroy during actual delayed GLB requests tolerates their late responses 
             throw error;
         });
     await expect.poll(async () => (await read(page)).rivenWeapons.state).toBe('loaded');
+    // Wait for the new scenery's completed-render fence before measuring
+    // resource stability. Keep the full GPU-allocation equality assertion.
+    await expect.poll(async () => (await read(page)).environment.wilderness?.state).toBe('loaded');
     const before = await read(page);
     // Ordinary rematch is a reset inside this same owner, not application disposal.
     await page.locator('#restart-match').evaluate((element) => (element as HTMLButtonElement).click());

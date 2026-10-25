@@ -1,0 +1,75 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test --grep destroy during actual delayed|landscape targets and HUD stay clear at 844x390, safe inset 0|animated Kit survives|normal mobile HUD and actual captured touch controls 844x390|western grove --reporter=line
+
+
+Running 5 tests using 1 worker
+
+(node:9331) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/5] tests/browser/application-lifecycle.spec.ts:280:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+tests/browser/application-lifecycle.spec.ts:280:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+Remount diagnostics {"errors":[],"frames":16,"assets":{"downloads":4,"boundCalculations":3,"assets":[{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":11925.800000000745},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":5879.5999999996275},{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":15299.099999999627},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loading","loadMs":0}],"gpu":{"tex":306247256,"vb":4866604,"ib":393744,"ub":6336,"sb":0}},"models":[{"id":"1-0","state":"loaded","error":"","visible":true,"playing":true},{"id":"1-1","state":"loaded","error":"","visible":true,"playing":true},{"id":"1-2","state":"loaded","error":"","visible":true,"playing":true},{"id":"2-0","state":"loaded","error":"","visible":true,"playing":true},{"id":"2-1","state":"loaded","error":"","visible":true,"playing":true},{"id":"2-2","state":"loaded","error":"","visible":true,"playing":true}]}
+
+  1) tests/browser/application-lifecycle.spec.ts:280:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 4
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      323 |     await expect
+      324 |         .poll(async () => (await read(page)).summonerModels.filter((model) => model.visible && model.playing).length)
+    > 325 |         .toBe(6)
+          |          ^
+      326 |         .catch(async (error) => {
+      327 |             const s = await read(page);
+      328 |             console.log(
+        at /workspace/crownfall/PlayCanvas/tests/browser/application-lifecycle.spec.ts:325:10
+
+    Error Context: test-results/application-lifecycle-dest-50e89-remounts-six-working-models/error-context.md
+
+
+(node:9478) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/5] tests/browser/ergonomics.spec.ts:127:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+[3/5] tests/browser/kit-model.spec.ts:175:1 › animated Kit survives death, respawn, results and restart without another download
+[4/5] tests/browser/playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 844x390
+  2) tests/browser/playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 844x390 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "active"
+    Received: "countdown"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      85 |         await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
+      86 |         await page.locator('#play-match').tap();
+    > 87 |         await expect.poll(async () => (await state(page)).phase).toBe('active');
+         |                                                                  ^
+      88 |         const initial = (await state(page)).actors.find((a) => a.human)!;
+      89 |         const cdp = await context.newCDPSession(page);
+      90 |         const box = (await page.locator('#move').boundingBox())!;
+        at /workspace/crownfall/PlayCanvas/tests/browser/playable.spec.ts:87:66
+
+    Error Context: test-results/playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390/error-context.md
+
+
+(node:9721) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/5] tests/browser/wilderness-environment.spec.ts:11:1 › western grove loads each approved species once and shares tree meshes and materials
+  2 failed
+    tests/browser/application-lifecycle.spec.ts:280:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models 
+    tests/browser/playable.spec.ts:71:5 › normal mobile HUD and actual captured touch controls 844x390 
+  3 passed (2.9m)
