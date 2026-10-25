@@ -19,6 +19,7 @@ import { createCombatOverlay } from './combat-overlay';
 import { createKitModel } from './kit-model';
 import { createLaneEnvironment } from './lane-environment';
 import { createRivenModel } from './riven-model';
+import { createRivenWeapons } from './riven-weapons';
 import { createSetModel } from './set-model';
 import { SummonerAssets } from './summoner-assets';
 import type { ModelFrame } from './summoner-assets';
@@ -33,10 +34,16 @@ function material(hex: number): StandardMaterial {
 export function createScene(app: AppBase, competitive = false) {
     const ownedMaterials = new Set<StandardMaterial>();
     const assets = new SummonerAssets(app);
+    const weaponParams = new URLSearchParams(location.search);
+    const weaponModels =
+        weaponParams.get('models') !== 'primitive' &&
+        weaponParams.get('rivenPrimitive') !== '1' &&
+        ((competitive && weaponParams.get('summonerModels') !== 'local') || weaponParams.get('rivenPreview') === '1');
     const localOnly = new URLSearchParams(location.search).get('summonerModels') === 'local';
     const teamMaterials = { 1: material(0x369bff), 2: material(0xff425c) };
     const sceneRoot = new Entity('arena-presentation');
     app.root.addChild(sceneRoot);
+    const rivenWeapons = createRivenWeapons(assets, sceneRoot, weaponModels);
     const params = new URLSearchParams(location.search);
     const carved = competitive && params.get('environment') !== 'legacy';
     const territoryVisible = params.get('territoryTint') !== '0';
@@ -253,6 +260,9 @@ export function createScene(app: AppBase, competitive = false) {
                 }))
             ];
         },
+        get rivenWeapons() {
+            return rivenWeapons.snapshot();
+        },
         get modelAssets() {
             return assets.snapshot();
         },
@@ -277,6 +287,7 @@ export function createScene(app: AppBase, competitive = false) {
                 view.root.destroy();
             }
             actorViews.clear();
+            rivenWeapons.destroy();
             assets.destroy();
             environment?.destroy();
             sceneRoot.destroy();
@@ -488,7 +499,9 @@ export function createScene(app: AppBase, competitive = false) {
                 }
             }
             const simulations = sim.match ? sim.match.actors.map((a) => a.sim) : [combat];
-            const projectiles = simulations.flatMap((c) => c.projectiles.items);
+            const projectiles = simulations.flatMap((c) =>
+                c.projectiles.items.filter((shot) => !rivenWeapons.handles(c, shot))
+            );
             for (const view of shots) view.enabled = false;
             projectiles.forEach((shot, index) => {
                 const view = (shots[index] ||= primitive(
@@ -523,6 +536,7 @@ export function createScene(app: AppBase, competitive = false) {
             kitModel.update(sim);
             rivenModel.update(sim);
             setModel.update(sim);
+            rivenWeapons.update(simulations, sim.match?.phase !== 'prematch');
             const facing = sim.facing.facing;
             const isSide = facing === 'Right' || facing === 'Left';
             body.render!.meshInstances[0].material = isSide ? side : facing === 'Back' ? back : front;

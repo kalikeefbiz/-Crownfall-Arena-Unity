@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 type State = {
+    rivenWeapons: { state: string };
     frames: number;
     movement: { x: number; z: number };
     match: { phase: string; elapsed: number; actors: { id: string; x: number; z: number }[] };
@@ -12,7 +13,15 @@ type State = {
         journal: { latestAttempt: { id: number } | null; latestAccepted: { id: number; abilityId: string } | null };
     };
     modelAssets: { downloads: number; gpu: { tex: number; vb: number; ib: number } };
-    summonerModels: { id: string; visible: boolean; instanceId: string; activeAnimation: string; playing: boolean }[];
+    summonerModels: {
+        state: string;
+        error: string;
+        id: string;
+        visible: boolean;
+        instanceId: string;
+        activeAnimation: string;
+        playing: boolean;
+    }[];
 };
 type API = {
     snapshot(): State;
@@ -287,6 +296,8 @@ test('destroy during actual delayed GLB requests tolerates their late responses 
     await ready(page);
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     await expect.poll(() => pending).toBe(3);
+    // Weapon download/decode is queued behind these held character loads.
+    expect((await read(page)).rivenWeapons.state).toBe('loading');
     expect((await read(page)).summonerModels.every((model) => !model.visible)).toBe(true);
     const finished: string[] = [];
     const settle = (request: { url(): string }) => {
@@ -310,7 +321,27 @@ test('destroy during actual delayed GLB requests tolerates their late responses 
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     await expect
         .poll(async () => (await read(page)).summonerModels.filter((model) => model.visible && model.playing).length)
-        .toBe(6);
+        .toBe(6)
+        .catch(async (error) => {
+            const s = await read(page);
+            console.log(
+                'Remount diagnostics',
+                JSON.stringify({
+                    errors,
+                    frames: s.frames,
+                    assets: s.modelAssets,
+                    models: s.summonerModels.map((m) => ({
+                        id: m.id,
+                        state: m.state,
+                        error: m.error,
+                        visible: m.visible,
+                        playing: m.playing
+                    }))
+                })
+            );
+            throw error;
+        });
+    await expect.poll(async () => (await read(page)).rivenWeapons.state).toBe('loaded');
     const before = await read(page);
     // Ordinary rematch is a reset inside this same owner, not application disposal.
     await page.locator('#restart-match').evaluate((element) => (element as HTMLButtonElement).click());
@@ -323,7 +354,7 @@ test('destroy during actual delayed GLB requests tolerates their late responses 
     expect(after.summonerModels.map((model) => model.instanceId)).toEqual(
         before.summonerModels.map((model) => model.instanceId)
     );
-    expect(after.modelAssets.downloads).toBe(3);
+    expect(after.modelAssets.downloads).toBe(4);
     expect(after.modelAssets.gpu).toEqual(before.modelAssets.gpu);
     await page.keyboard.down('KeyD');
     await expect
@@ -365,7 +396,7 @@ test('destroy after GLB download while embedded texture decoding is pending leav
     await page.evaluate(() => (window as HarnessWindow).__crownfall!.verification.arrange('roster'));
     const decode = () =>
         page.evaluate(() => (window as unknown as { delayedDecode: { pending: number } }).delayedDecode.pending);
-    // All nine real embedded source textures have decoded, but their engine callbacks are held.
+    // All nine character textures (the large weapon waits for these loads to settle) have decoded, but their engine callbacks are held.
     await expect.poll(decode).toBe(9);
     expect((await read(page)).summonerModels.every((model) => !model.visible)).toBe(true);
     await rememberAndDestroy(page);

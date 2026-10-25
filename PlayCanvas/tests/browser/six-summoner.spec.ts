@@ -1,6 +1,8 @@
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
+import type { createRivenWeapons } from '../../src/presentation/riven-weapons';
+
 type Model = {
     id: string;
     summonerId: string;
@@ -25,6 +27,7 @@ type Model = {
     playbackTime: number;
 };
 type Snapshot = {
+    rivenWeapons: ReturnType<ReturnType<typeof createRivenWeapons>['snapshot']>;
     summonerModels: Model[];
     modelAssets: { downloads: number; boundCalculations: number; gpu: Record<string, number> };
     match: {
@@ -42,6 +45,16 @@ const snapshot = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.snapshot());
 const arrange = (page: Page) =>
     page.evaluate(() => (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('roster'));
+function checkWeapons(s: Snapshot) {
+    const weapons = s.rivenWeapons.instances;
+    expect(weapons).toHaveLength(4);
+    expect(new Set(weapons.map((w) => w.instanceId)).size).toBe(4);
+    for (const m of s.summonerModels) {
+        const owned = weapons.filter((w) => w.ownerId === m.id && w.kind === 'reso');
+        expect(owned).toHaveLength(m.summonerId === 'riven' ? 2 : 0);
+        expect(owned.every((w) => !w.fallback && w.phase === 'orbit')).toBe(true);
+    }
+}
 const loaded = async (page: Page) => {
     await expect
         .poll(async () => {
@@ -57,6 +70,8 @@ const loaded = async (page: Page) => {
             );
         })
         .toBe(true);
+    // The large optional weapon starts after the characters have settled.
+    await expect.poll(async () => (await snapshot(page)).rivenWeapons.state).toBe('loaded');
 };
 
 for (const [name, id, run, idle, height, floor] of [
@@ -125,10 +140,10 @@ for (const [name, id, run, idle, height, floor] of [
         await expect
             .poll(async () => (await snapshot(page)).summonerModels.find((m) => m.id === '1-0')!.activeAnimation)
             .toBe(idle);
-        expect(requests).toHaveLength(3);
-        expect(new Set(requests).size).toBe(3);
-        expect(s.modelAssets.downloads).toBe(3);
-        expect(s.modelAssets.boundCalculations).toBe(3);
+        expect(requests).toHaveLength(4);
+        expect(new Set(requests).size).toBe(4);
+        expect(s.modelAssets.downloads).toBe(4);
+        expect(s.modelAssets.boundCalculations).toBe(4);
         await page.evaluate(() => {
             const h = (window as unknown as { __crownfall: Harness }).__crownfall;
             h.verification.pause();
@@ -158,6 +173,7 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
     await arrange(page);
     await loaded(page);
     const initial = await snapshot(page);
+    checkWeapons(initial);
     for (const actor of initial.match.actors) {
         await page.locator('#inspect-actor').selectOption(actor.id, { force: true });
         await page.locator('#lethal-actor').evaluate((e) => (e as HTMLButtonElement).click());
@@ -165,8 +181,10 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
             .poll(async () => (await snapshot(page)).summonerModels.find((m) => m.id === actor.id)!.visible)
             .toBe(false);
         expect((await snapshot(page)).summonerModels.find((m) => m.id === actor.id)!.playing).toBe(false);
+        expect((await snapshot(page)).rivenWeapons.instances.filter((w) => w.ownerId === actor.id)).toHaveLength(0);
         await page.locator('#advance-match').evaluate((e) => (e as HTMLButtonElement).click());
         await loaded(page);
+        checkWeapons(await snapshot(page));
     }
     await page.evaluate(() => {
         const h = (window as unknown as { __crownfall: Harness }).__crownfall;
@@ -174,10 +192,16 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
         h.verification.advance(2.25);
     });
     await expect.poll(async () => (await snapshot(page)).summonerModels.every((m) => !m.playing)).toBe(true);
+    const frozenWeapons = (await snapshot(page)).rivenWeapons;
+    await page.evaluate(async () => {
+        for (let i = 0; i < 2; i++) await new Promise(requestAnimationFrame);
+    });
+    expect((await snapshot(page)).rivenWeapons).toEqual(frozenWeapons);
     await page.locator('#restart-match').click();
     await arrange(page);
     await loaded(page);
     const restarted = await snapshot(page);
+    checkWeapons(restarted);
     expect(restarted.summonerModels.map((m) => m.instanceId)).toEqual(initial.summonerModels.map((m) => m.instanceId));
     expect(restarted.entities).toBe(initial.entities);
     let warmedEntities = 0;
@@ -188,6 +212,7 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
         await arrange(page);
         await loaded(page);
         const s = await snapshot(page);
+        checkWeapons(s);
         if (index === 2) {
             warmedEntities = s.entities;
             warmedGpu = s.modelAssets.gpu;
@@ -198,7 +223,7 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
     const final = await snapshot(page);
     expect(final.entities).toBe(warmedEntities);
     for (const resource of ['tex', 'vb', 'ib']) expect(final.modelAssets.gpu[resource]).toBe(warmedGpu[resource]);
-    expect(requests).toHaveLength(3);
+    expect(requests).toHaveLength(4);
 });
 
 test('one failed shared asset falls back for both teams while the other four models render', async ({ page }) => {
@@ -215,7 +240,7 @@ test('one failed shared asset falls back for both teams while the other four mod
         expect(m.primitiveVisible).toBe(true);
         expect(m.visible).toBe(false);
     }
-    expect(s.modelAssets.downloads).toBe(3);
+    expect(s.modelAssets.downloads).toBe(4);
 });
 
 test('global primitive diagnostic skips every GLB and keeps normal bots active', async ({ page }) => {

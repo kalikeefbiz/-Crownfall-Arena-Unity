@@ -93,6 +93,12 @@ export class SummonerAssets {
         return entry.promise;
     }
 
+    // Large optional props can wait for the current character loads without
+    // competing with their decode/upload work. Failures still release the queue.
+    settled() {
+        return Promise.allSettled([...this.entries.values()].map((entry) => entry.promise));
+    }
+
     normalization(source: string, calculate: () => Normalization) {
         let value = this.bounds.get(source);
         if (!value) {

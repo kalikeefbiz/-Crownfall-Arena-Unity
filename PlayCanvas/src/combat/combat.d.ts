@@ -111,6 +111,20 @@ export type CombatCommand = {
     actions?: CombatAction[];
     speedMultiplier?: number;
 };
+// Read-only presentation shape of the existing pooled projectile authority.
+export type Projectile = {
+    active: boolean;
+    x: number;
+    z: number;
+    type?: string;
+    ability?: Ability;
+    source?: Combatant;
+    angle?: number;
+    persistent?: boolean;
+    phase?: string;
+    orbitIndex?: number;
+    trace?: AcceptedCastEvidence | null;
+};
 export type DamageOptions = {
     lethal?: boolean;
     ability?: Ability;
@@ -150,7 +164,7 @@ export class CombatSimulation {
         defeated: boolean;
     }[];
     weapons: { next: number; returning: boolean; blades: { x: number; z: number; phase: string }[] };
-    projectiles: { items: { active: boolean; x: number; z: number; persistent?: boolean; phase?: string }[] };
+    projectiles: { items: Projectile[] };
     effects: { items: { active: boolean; x: number; z: number; range?: number; type: string }[] };
     activeAbilities(): Ability[];
     ability(id: string): Ability | null;

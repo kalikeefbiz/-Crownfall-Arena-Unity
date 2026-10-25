@@ -429,6 +429,7 @@ try {
                 environment: scene.environment,
                 kitModel: scene.kitModel,
                 rivenModel: scene.rivenModel,
+                rivenWeapons: scene.rivenWeapons,
                 setModel: scene.setModel,
                 frameMs: smoothedDt * 1000,
                 preview: scene.preview,

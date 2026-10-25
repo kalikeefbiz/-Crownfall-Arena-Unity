@@ -74,7 +74,7 @@ test('opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mo
         requests: string[] = [];
     page.on('pageerror', (e) => errors.push(e.message));
     page.on('request', (r) => {
-        if (r.url().endsWith('.glb')) requests.push(r.url());
+        if (r.url().endsWith('/Riven_Animated.glb')) requests.push(r.url());
     });
     await chooseRiven(page);
     expect((await snapshot(page)).rivenModel.state).toBe('idle');
@@ -182,7 +182,7 @@ for (const suffix of ['', '&rivenPrimitive=1']) {
     test(`Riven primitive skips the download with ${suffix || 'no developer opt-in'}`, async ({ page }) => {
         const requests: string[] = [];
         page.on('request', (r) => {
-            if (r.url().endsWith('.glb')) requests.push(r.url());
+            if (r.url().endsWith('/Riven_Animated.glb')) requests.push(r.url());
         });
         await chooseRiven(
             page,
@@ -239,7 +239,7 @@ test('valid container missing a required Riven clip safely falls back', async ({
 test('training preview switches summoners and reuses one Riven instance', async ({ page }) => {
     const requests: string[] = [];
     page.on('request', (r) => {
-        if (r.url().endsWith('.glb')) requests.push(r.url());
+        if (r.url().endsWith('/Riven_Animated.glb')) requests.push(r.url());
     });
     await chooseRiven(page, '/?summonerModels=local&debug=1&rivenPreview=1');
     await expect.poll(async () => (await snapshot(page)).rivenModel.state).toBe('loaded');
@@ -259,7 +259,7 @@ test('training preview switches summoners and reuses one Riven instance', async 
 test('Riven preview survives defeat, respawn, results and rematch without another download', async ({ page }) => {
     const requests: string[] = [];
     page.on('request', (r) => {
-        if (r.url().endsWith('.glb')) requests.push(r.url());
+        if (r.url().endsWith('/Riven_Animated.glb')) requests.push(r.url());
     });
     await chooseRiven(page);
     await arrange(page);
