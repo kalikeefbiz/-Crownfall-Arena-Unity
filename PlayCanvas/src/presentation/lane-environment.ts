@@ -16,10 +16,12 @@ import {
 import type { AppBase } from 'playcanvas';
 
 import { createLaneGeometry } from './lane-geometry';
+import { createWildernessEnvironment } from './wilderness-environment';
+import type { SummonerAssets } from './summoner-assets';
 
 // Six shared 1K maps; AR packs linear AO (R) and roughness (G).
 // All images in a set have the same orientation, repeat scale and mip filtering.
-export function createLaneEnvironment(app: AppBase, parent: Entity) {
+export function createLaneEnvironment(app: AppBase, parent: Entity, characters: SummonerAssets) {
     const data = createLaneGeometry();
     const root = new Entity('packed-earth-environment');
     parent.addChild(root);
@@ -84,6 +86,7 @@ export function createLaneEnvironment(app: AppBase, parent: Entity) {
     };
     const dirt = makeMaterial('dirt');
     const rock = makeMaterial('dry_ground_rocks');
+    const wilderness = createWildernessEnvironment(app, root, rock, characters);
     const shoulder = rock.clone();
     shoulder.name = 'rocky-soil-feather';
     shoulder.opacityVertexColor = true;
@@ -161,6 +164,7 @@ export function createLaneEnvironment(app: AppBase, parent: Entity) {
     materials.push(contactMaterial);
     const diagnostics = {
         mode: 'carved',
+        wilderness: wilderness.diagnostics,
         surface: 'polyhaven-packed-earth',
         batches: meshes.length,
         vertices: data.batches.reduce((n, b) => n + b.positions.length / 3, 0),
@@ -175,6 +179,7 @@ export function createLaneEnvironment(app: AppBase, parent: Entity) {
     };
     return {
         diagnostics,
+        update: wilderness.update,
         groundActor(parent: Entity) {
             const contact = new Entity('soft-ground-contact');
             contact.addComponent('render', {
@@ -186,6 +191,7 @@ export function createLaneEnvironment(app: AppBase, parent: Entity) {
         },
         destroy() {
             destroyed = true;
+            wilderness.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
             contactMesh.destroy();

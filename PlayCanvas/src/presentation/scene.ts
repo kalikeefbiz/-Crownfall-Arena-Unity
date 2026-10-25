@@ -47,7 +47,7 @@ export function createScene(app: AppBase, competitive = false) {
     const params = new URLSearchParams(location.search);
     const carved = competitive && params.get('environment') !== 'legacy';
     const territoryVisible = params.get('territoryTint') !== '0';
-    const environment = carved ? createLaneEnvironment(app, sceneRoot) : null;
+    const environment = carved ? createLaneEnvironment(app, sceneRoot, assets) : null;
     const stone = material(0x334758),
         boundary = material(0x74b6ba),
         gold = material(0xd6ad64);
@@ -539,6 +539,7 @@ export function createScene(app: AppBase, competitive = false) {
             rivenModel.update(sim);
             setModel.update(sim);
             rivenWeapons.update(simulations, sim.match?.phase !== 'prematch');
+            environment?.update(sim.match?.phase !== 'prematch');
             const facing = sim.facing.facing;
             const isSide = facing === 'Right' || facing === 'Left';
             body.render!.meshInstances[0].material = isSide ? side : facing === 'Back' ? back : front;

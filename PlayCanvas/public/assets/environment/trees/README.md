@@ -3,6 +3,7 @@
 This folder is reserved for the four founder-supplied, textured Meshy GLBs for Goal 010.
 
 Upload the original files **unchanged**, with these exact filenames:
+
 - `Meshy_AI_Maple_tree_1025062934_texture.glb` (8,199 triangles)
 - `Meshy_AI_Pine_tree_1025063153_texture.glb` (2,559 triangles)
 - `Meshy_AI_Red_oak_tree_1025063928_texture.glb` (6,765 triangles)

@@ -8,7 +8,7 @@ import type { SummonerAssets } from './summoner-assets';
 export const MOONREAPER_PATH = 'assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb';
 export const MOONREAPER_BYTES = 23080916;
 export const MOONREAPER_SHA256 = '20bad659e39bc916b7f34fca587e55beed25eeae9d3e77d856879efd173636c8';
-export const MOONREAPER_HEIGHT = 0.8;
+export const MOONREAPER_HEIGHT = 0.6;
 
 export function normalizeMoonreaper(min: number[], max: number[]) {
     const height = max[1] - min[1];

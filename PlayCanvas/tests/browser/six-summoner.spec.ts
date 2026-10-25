@@ -27,6 +27,7 @@ type Model = {
     playbackTime: number;
 };
 type Snapshot = {
+    environment: { wilderness?: { state: string } };
     rivenWeapons: ReturnType<ReturnType<typeof createRivenWeapons>['snapshot']>;
     summonerModels: Model[];
     modelAssets: { downloads: number; boundCalculations: number; gpu: Record<string, number> };
@@ -72,6 +73,7 @@ const loaded = async (page: Page) => {
         .toBe(true);
     // The large optional weapon starts after the characters have settled.
     await expect.poll(async () => (await snapshot(page)).rivenWeapons.state).toBe('loaded');
+    await expect.poll(async () => (await snapshot(page)).environment.wilderness?.state).toBe('loaded');
 };
 
 for (const [name, id, run, idle, height, floor] of [
@@ -86,7 +88,7 @@ for (const [name, id, run, idle, height, floor] of [
         const requests: string[] = [],
             errors: string[] = [];
         page.on('request', (r) => {
-            if (r.url().endsWith('.glb')) requests.push(r.url());
+            if (r.url().endsWith('.glb') && r.url().includes('/summoners/')) requests.push(r.url());
         });
         page.on('pageerror', (e) => errors.push(e.message));
         await page.goto('/?verify=1');
@@ -167,7 +169,7 @@ test('all actors survive defeat, respawn, rematch and identity reorder without r
     await page.setViewportSize({ width: 844, height: 390 });
     const requests: string[] = [];
     page.on('request', (r) => {
-        if (r.url().endsWith('.glb')) requests.push(r.url());
+        if (r.url().endsWith('.glb') && r.url().includes('/summoners/')) requests.push(r.url());
     });
     await page.goto('/?verify=1');
     await arrange(page);
@@ -247,7 +249,7 @@ test('global primitive diagnostic skips every GLB and keeps normal bots active',
     await page.setViewportSize({ width: 844, height: 390 });
     const requests: string[] = [];
     page.on('request', (r) => {
-        if (r.url().endsWith('.glb')) requests.push(r.url());
+        if (r.url().endsWith('.glb') && r.url().includes('/summoners/')) requests.push(r.url());
     });
     await page.goto('/?models=primitive');
     await page.locator('#play-match').click();

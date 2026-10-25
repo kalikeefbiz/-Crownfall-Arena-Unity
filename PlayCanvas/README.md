@@ -23,7 +23,7 @@ textured embankments, with no paving slabs. Five static batches share six 1K map
 (albedo, OpenGL normal, packed AO/roughness for each surface). Custom meshes have
 normal/tangent streams; soft actor contact discs avoid full-scene shadow maps.
 Raised relief stays within existing obstacle footprints or outside map bounds.
-Riven's approved Azure Moonreapers normalize to **0.80 m**, previously 1.30 m.
+Riven's approved Azure Moonreapers now normalize to **0.60 m** (Goal 010).
 
 - `?environment=legacy` restores the original floor and obstacle presentation.
 - `?territoryTint=0` disables floor tint while retaining the authoritative gold
@@ -32,6 +32,20 @@ Riven's approved Azure Moonreapers normalize to **0.80 m**, previously 1.30 m.
 
 See [Goal 009 verification](TASK_009_VERIFICATION.md) for matched captures,
 asset sources, measured allocation/frame costs and device limitations.
+
+## Wilderness showcase (Goal 010)
+
+The western boundary now frames play with all four approved Meshy tree species:
+maple, pine, red oak and redwood. Eleven deliberately placed trees share geometry
+and materials per species; their rotated canopy bounds remain outside movement
+limits. Heights vary from 5.4 to 12.2m. CC0 sparse-grass and leaf-litter scans
+feather across the bank and selected outer Wilderness ground; low blade fans and
+rocks remain outside play. The original packed-earth lane is preserved.
+
+Source GLBs stay unchanged. Runtime variants retain their geometry/materials and
+reduce only embedded images to 512². Trees begin loading after the match starts
+and character imports settle; rematches reuse them. The existing legacy renderer
+and primitive/local character diagnostics remain available.
 
 ## Six-summoner 3D presentation (Goal 007E)
 
