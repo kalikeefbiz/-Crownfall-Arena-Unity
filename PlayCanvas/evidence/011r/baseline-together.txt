@@ -1,0 +1,320 @@
+[WebServer] (node:11981) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 8 tests using 1 worker
+
+(node:12000) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/8] tests/browser/environment.spec.ts:43:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera
+  1) tests/browser/environment.spec.ts:43:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 4
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      32 |         h.verification.advance(2.1);
+      33 |     });
+    > 34 |     await expect.poll(async () => (await read(page)).summonerModels.filter((m) => m.visible).length).toBe(6);
+         |                                                                                                      ^
+      35 |     await expect
+      36 |         .poll(async () => {
+      37 |             const s = await read(page);
+        at arrange (/workspace/crownfall/PlayCanvas/tests/browser/environment.spec.ts:34:102)
+        at /workspace/crownfall/PlayCanvas/tests/browser/environment.spec.ts:58:5
+
+    Error Context: test-results/environment-legacy-recover-41812-ritative-fixture-and-camera/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/environment-legacy-recover-41812-ritative-fixture-and-camera/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/environment-legacy-recover-41812-ritative-fixture-and-camera/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12091) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+  2) tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.screenshot: Test ended.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      263 |             // Keep the DPR=2 rendering/layout above; export one pixel per CSS
+      264 |             // pixel to avoid oversized software-rendered evidence captures.
+    > 265 |             await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png`, scale: 'css' });
+          |                        ^
+      266 |         }
+      267 |         await context.close();
+      268 |     });
+        at /workspace/crownfall/PlayCanvas/tests/browser/ergonomics.spec.ts:265:24
+
+    Error Context: test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12184) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44
+  3) tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.screenshot: Test ended.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      263 |             // Keep the DPR=2 rendering/layout above; export one pixel per CSS
+      264 |             // pixel to avoid oversized software-rendered evidence captures.
+    > 265 |             await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png`, scale: 'css' });
+          |                        ^
+      266 |         }
+      267 |         await context.close();
+      268 |     });
+        at /workspace/crownfall/PlayCanvas/tests/browser/ergonomics.spec.ts:265:24
+
+    Error Context: test-results/ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12296) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 667x375, safe inset 44
+  4) tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 667x375, safe inset 44 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.selectOption: Test ended.
+    Call log:
+      - waiting for getByLabel('Summoner', { exact: true })
+        - locator resolved to <select disabled id="summoner" aria-label="Summoner">…</select>
+      - attempting select option action
+        2 × waiting for element to be visible and enabled
+          - element is not enabled
+        - retrying select option action
+        - waiting 20ms
+        2 × waiting for element to be visible and enabled
+          - element is not enabled
+        - retrying select option action
+          - waiting 100ms
+        - waiting for element to be visible and enabled
+        - element is not enabled
+      - retrying select option action
+        - waiting 500ms
+        - waiting for element to be visible and enabled
+
+
+      172 |             if (summoner !== 'Kit')
+      173 |                 await page.locator('#restart-match').evaluate((e) => (e as HTMLButtonElement).click());
+    > 174 |             await page.getByLabel('Summoner', { exact: true }).selectOption(summoner);
+          |                                                                ^
+      175 |             await expect(page.locator('#combat-feedback')).toBeHidden();
+      176 |             const prematchSelectors = ['#ability-bar', '#move', '#scoreboard', '#team-status', '#battle-announcement'];
+      177 |             const [start, ...prematch] = await boxes(['#play-match', ...prematchSelectors]);
+        at /workspace/crownfall/PlayCanvas/tests/browser/ergonomics.spec.ts:174:64
+
+    Error Context: test-results/ergonomics-landscape-targe-ebedc-ar-at-667x375-safe-inset-44/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ergonomics-landscape-targe-ebedc-ar-at-667x375-safe-inset-44/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ergonomics-landscape-targe-ebedc-ar-at-667x375-safe-inset-44/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12403) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44
+  5) tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: expect(locator).toBeHidden() failed
+
+    Locator:  locator('#play-match')
+    Expected: hidden
+    Received: visible
+
+    Call log:
+      - Expect "toBeHidden" locator('#play-match') with timeout 15000ms
+      - waiting for locator('#play-match')
+        5 × locator resolved to <button id="play-match">Start match</button>
+          - unexpected value "visible"
+      - Test ended.
+
+
+      181 |                 (window as unknown as { __crownfall: Harness }).__crownfall.verification.arrange('pressure')
+      182 |             );
+    > 183 |             await expect(page.locator('#play-match')).toBeHidden();
+          |                                                       ^
+      184 |             await expect(page.locator('#combat-feedback')).toBeVisible();
+      185 |             // Layout-only fixture: include Kit's normally earned fifth action at its widest footprint.
+      186 |             if (summoner === 'Kit')
+        at /workspace/crownfall/PlayCanvas/tests/browser/ergonomics.spec.ts:183:55
+
+    Error Context: test-results/ergonomics-landscape-targe-da269-ar-at-640x360-safe-inset-44/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ergonomics-landscape-targe-da269-ar-at-640x360-safe-inset-44/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ergonomics-landscape-targe-da269-ar-at-640x360-safe-inset-44/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12511) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/8] tests/browser/kit-model.spec.ts:181:1 › animated Kit survives death, respawn, results and restart without another download
+  6) tests/browser/kit-model.spec.ts:181:1 › animated Kit survives death, respawn, results and restart without another download 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "loaded"
+    Received: "loading"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      187 |     await waitForInspection(page);
+      188 |     await arrange(page);
+    > 189 |     await expect.poll(async () => (await snapshot(page)).kitModel.state).toBe('loaded');
+          |                                                                          ^
+      190 |     // The existing diagnostic control is intentionally hidden in normal play.
+      191 |     await page.locator('#inspect-actor').selectOption('1-0', { force: true });
+      192 |     await page.locator('#lethal-actor').evaluate((e) => (e as HTMLButtonElement).click());
+        at /workspace/crownfall/PlayCanvas/tests/browser/kit-model.spec.ts:189:74
+
+    Error Context: test-results/kit-model-animated-Kit-sur-f8b1a-rt-without-another-download/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/kit-model-animated-Kit-sur-f8b1a-rt-without-another-download/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/kit-model-animated-Kit-sur-f8b1a-rt-without-another-download/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12611) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[7/8] tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 844x390
+  7) tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 844x390 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "active"
+    Received: "countdown"
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      90 |         await page.getByLabel('Summoner', { exact: true }).selectOption('Riven');
+      91 |         await page.locator('#play-match').tap();
+    > 92 |         await expect.poll(async () => (await state(page)).phase).toBe('active');
+         |                                                                  ^
+      93 |         const initial = (await state(page)).actors.find((a) => a.human)!;
+      94 |         const cdp = await context.newCDPSession(page);
+      95 |         const box = (await page.locator('#move').boundingBox())!;
+        at /workspace/crownfall/PlayCanvas/tests/browser/playable.spec.ts:92:66
+
+    Error Context: test-results/playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:12697) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[8/8] tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render
+  8) tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 4
+    Received: 2
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      240 |         .poll(async () => (await snapshot(page)).summonerModels.filter((m) => m.state === 'error').length)
+      241 |         .toBe(2);
+    > 242 |     await expect.poll(async () => (await snapshot(page)).summonerModels.filter((m) => m.visible).length).toBe(4);
+          |                                                                                                          ^
+      243 |     const s = await snapshot(page);
+      244 |     expect(s.summonerModels.filter((m) => m.visible)).toHaveLength(4);
+      245 |     for (const m of s.summonerModels.filter((m) => m.summonerId === 'set')) {
+        at /workspace/crownfall/PlayCanvas/tests/browser/six-summoner.spec.ts:242:106
+
+    Error Context: test-results/six-summoner-one-failed-sh-2511f-he-other-four-models-render/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/six-summoner-one-failed-sh-2511f-he-other-four-models-render/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/six-summoner-one-failed-sh-2511f-he-other-four-models-render/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  8 failed
+    tests/browser/environment.spec.ts:43:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera 
+    tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0 
+    tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44 
+    tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 667x375, safe inset 44 
+    tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44 
+    tests/browser/kit-model.spec.ts:181:1 › animated Kit survives death, respawn, results and restart without another download 
+    tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 844x390 
+    tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render 

@@ -222,6 +222,9 @@ export function createScene(app: AppBase, competitive = false) {
         return { x: near.x + (far.x - near.x) * t, z: near.z + (far.z - near.z) * t };
     };
     return {
+        get loading() {
+            return assets.loading || (environment?.loading ?? false);
+        },
         quality(low: boolean) {
             environment?.quality(low);
         },

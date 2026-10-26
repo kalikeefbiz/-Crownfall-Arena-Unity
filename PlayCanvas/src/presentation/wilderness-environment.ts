@@ -327,6 +327,9 @@ export function createWildernessEnvironment(
     };
     return {
         diagnostics,
+        get loading() {
+            return cache.loading;
+        },
         update(active: boolean) {
             if (enabled && active && diagnostics.state === 'idle') start();
         },

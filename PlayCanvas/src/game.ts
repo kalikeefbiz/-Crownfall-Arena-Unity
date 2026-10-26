@@ -417,6 +417,18 @@ export async function createGame(
                 resultReported = true;
                 onResult();
             }
+            // Public entry already owns its staged render gate. The direct
+            // inspection/practice path must also yield idle GPU work to imports.
+            // Its protected countdown has no world motion; the HUD keeps ticking.
+            // Human input still renders the supported fallback during imports.
+            if (!managed)
+                app.autoRender =
+                    simulation.match?.phase !== 'countdown' &&
+                    (!scene.loading ||
+                        accepted ||
+                        frame.commit ||
+                        frame.targeting ||
+                        Math.hypot(frame.movement.x, frame.movement.z) > 0);
             frames++;
             smoothedDt += (Math.max(elapsed, 0.001) - smoothedDt) * 0.1;
             hudElapsed += elapsed;

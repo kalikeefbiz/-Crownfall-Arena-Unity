@@ -1,0 +1,2528 @@
+[
+    {
+        "case": "environment-legacy-recover-41812-ritative-fixture-and-camera",
+        "states": [
+            {
+                "time": 320935.02,
+                "frames": 8,
+                "frameMs": 23.811372155199997,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 41008,
+                        "vb": 19192,
+                        "ib": 4380,
+                        "ub": 4000,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 321238.966,
+                "frames": 17,
+                "frameMs": 32.00931505482857,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 41008,
+                        "vb": 1108644,
+                        "ib": 124608,
+                        "ub": 4000,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 327900.005,
+                "frames": 19,
+                "frameMs": 44.92754519441114,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 1,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 517.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 67158508,
+                        "vb": 1108644,
+                        "ib": 124608,
+                        "ub": 4352,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 535.5
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 542.4000000000233
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 328635.888,
+                "frames": 35,
+                "frameMs": 43.544021522014255,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 2,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 517.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 7410.600000000035
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 134274088,
+                        "vb": 4002860,
+                        "ib": 334206,
+                        "ub": 4704,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 535.5
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7437
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 542.4000000000233
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7459.599999999977
+                    }
+                ]
+            },
+            {
+                "time": 332568.225,
+                "frames": 38,
+                "frameMs": 58.84359168954839,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 4,
+                    "boundCalculations": 3,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 517.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 7410.600000000035
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 11652.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 268498532,
+                        "vb": 4002860,
+                        "ib": 334206,
+                        "ub": 5056,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11662
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 535.5
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7437
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11660.5
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 542.4000000000233
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7459.599999999977
+                    }
+                ]
+            },
+            {
+                "time": 332634.255,
+                "frames": 38,
+                "frameMs": 58.84359168954839,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 4,
+                    "boundCalculations": 3,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 517.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 7410.600000000035
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 11652.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 268498532,
+                        "vb": 4002860,
+                        "ib": 334206,
+                        "ub": 5056,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11662
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 535.5
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7437
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11660.5
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 542.4000000000233
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7459.599999999977
+                    }
+                ]
+            },
+            {
+                "time": 332794.921,
+                "frames": 40,
+                "frameMs": 58.33330926853409,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 4,
+                    "boundCalculations": 3,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 517.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 7410.600000000035
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 11652.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 268498532,
+                        "vb": 4202636,
+                        "ib": 352464,
+                        "ub": 5056,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11662
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 535.5
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7437
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11660.5
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 542.4000000000233
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7459.599999999977
+                    }
+                ]
+            },
+            {
+                "time": 339560.657,
+                "frames": 42,
+                "frameMs": 57.90998050751247,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 4,
+                    "boundCalculations": 4,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 517.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 7410.600000000035
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 11652.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                            "state": "loaded",
+                            "loadMs": 4656.800000000047
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 402716256,
+                        "vb": 4202636,
+                        "ib": 352464,
+                        "ub": 5408,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "legacy",
+                    "batches": 0,
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11662
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 535.5
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7437
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 11660.5
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 542.4000000000233
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7459.599999999977
+                    }
+                ]
+            },
+            {
+                "time": 352446.454,
+                "frames": 13,
+                "frameMs": 32.48177648682911,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 33595432,
+                        "vb": 661544,
+                        "ib": 31914,
+                        "ub": 4288,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 357773.354,
+                "frames": 16,
+                "frameMs": 44.031915058898484,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 33595432,
+                        "vb": 1750996,
+                        "ib": 152142,
+                        "ub": 4288,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 358147.266,
+                "frames": 25,
+                "frameMs": 46.78555484772484,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 1,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 5676.599999999977
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 100712932,
+                        "vb": 1750996,
+                        "ib": 152142,
+                        "ub": 4640,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 5684.300000000047
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 5687.79999999993
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 360691.03,
+                "frames": 34,
+                "frameMs": 56.38466082124176,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 2,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 5676.599999999977
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 8239.29999999993
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 167828512,
+                        "vb": 2705144,
+                        "ib": 237342,
+                        "ub": 4992,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": false
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 5684.300000000047
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 8266.900000000023
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 5687.79999999993
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 8292.900000000023
+                    }
+                ]
+            }
+        ],
+        "slowCalls": [
+            {
+                "method": "evaluateExpression",
+                "ms": 6303,
+                "expr": "{'expression': '() => window.__crownfall.snapshot()', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 2897,
+                "expr": "{'expression': '() => window.__crownfall.snapshot()', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 3753,
+                "expr": "{'expression': '() => window.__crownfall.snapshot()', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            },
+            {
+                "method": "screenshot",
+                "ms": 2356,
+                "expr": "{'type': 'png'}"
+            },
+            {
+                "method": "goto",
+                "ms": 9643,
+                "expr": "{'url': '/?verify=1&territoryTint=0', 'waitUntil': 'load'}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 5155,
+                "expr": "{'expression': '() => window.__crownfall.snapshot()', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 2011,
+                "expr": "{'expression': '() => window.__crownfall.snapshot()', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            }
+        ],
+        "network": [
+            {
+                "name": "Set_Animated.glb",
+                "start": "2026-10-25T22:58:37.377Z",
+                "ms": 121.393,
+                "status": 200
+            },
+            {
+                "name": "Riven_Animated.glb",
+                "start": "2026-10-25T22:58:37.905Z",
+                "ms": 6508.659000000001,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T22:58:44.835Z",
+                "ms": 205.174,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                "start": "2026-10-25T22:58:49.046Z",
+                "ms": 153.462,
+                "status": 200
+            },
+            {
+                "name": "dirt_albedo_1k.webp",
+                "start": "2026-10-25T22:59:08.212Z",
+                "ms": 11.921,
+                "status": 200
+            },
+            {
+                "name": "dirt_normal_1k.webp",
+                "start": "2026-10-25T22:59:08.212Z",
+                "ms": 19.276,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_albedo_1k.webp",
+                "start": "2026-10-25T22:59:08.213Z",
+                "ms": 23.637999999999998,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_normal_1k.webp",
+                "start": "2026-10-25T22:59:08.213Z",
+                "ms": 36.482,
+                "status": 200
+            },
+            {
+                "name": "dirt_ar_1k.png",
+                "start": "2026-10-25T22:59:08.212Z",
+                "ms": 32.615,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_ar_1k.png",
+                "start": "2026-10-25T22:59:08.213Z",
+                "ms": 41.676,
+                "status": 200
+            },
+            {
+                "name": "Set_Animated.glb",
+                "start": "2026-10-25T22:59:08.870Z",
+                "ms": 120.69,
+                "status": 200
+            },
+            {
+                "name": "Riven_Animated.glb",
+                "start": "2026-10-25T22:59:14.592Z",
+                "ms": 102.22,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T22:59:17.176Z",
+                "ms": 126.734,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_albedo_512.webp",
+                "start": "2026-10-25T22:59:21.719Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "sparse_grass_normal_512.webp",
+                "start": "2026-10-25T22:59:21.720Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "sparse_grass_ar_512.png",
+                "start": "2026-10-25T22:59:21.720Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "forest_leaves_02_albedo_512.webp",
+                "start": "2026-10-25T22:59:21.720Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "forest_leaves_02_normal_512.webp",
+                "start": "2026-10-25T22:59:21.720Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "forest_leaves_02_ar_512.png",
+                "start": "2026-10-25T22:59:21.720Z",
+                "ms": -1,
+                "status": -1
+            }
+        ]
+    },
+    {
+        "case": "playable-normal-mobile-HUD-e1bb7-ured-touch-controls-844x390",
+        "states": [],
+        "slowCalls": [
+            {
+                "method": "tap",
+                "ms": 2544,
+                "expr": "{'selector': '#play-match', 'strict': True}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 3864,
+                "expr": "{'expression': '() => window.__crownfall.snapshot().match', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 2172,
+                "expr": "{'expression': '() => window.__crownfall.snapshot().match', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 4310,
+                "expr": "{'expression': '() => window.__crownfall.snapshot().match', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            }
+        ],
+        "network": [
+            {
+                "name": "dirt_albedo_1k.webp",
+                "start": "2026-10-25T23:15:39.146Z",
+                "ms": 7.604,
+                "status": 200
+            },
+            {
+                "name": "dirt_normal_1k.webp",
+                "start": "2026-10-25T23:15:39.146Z",
+                "ms": 16.421,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_albedo_1k.webp",
+                "start": "2026-10-25T23:15:39.146Z",
+                "ms": 19.103,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_normal_1k.webp",
+                "start": "2026-10-25T23:15:39.146Z",
+                "ms": 22.886,
+                "status": 200
+            },
+            {
+                "name": "dirt_ar_1k.png",
+                "start": "2026-10-25T23:15:39.146Z",
+                "ms": 25.833,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_ar_1k.png",
+                "start": "2026-10-25T23:15:39.146Z",
+                "ms": 31.509999999999998,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T23:15:42.507Z",
+                "ms": 189.665,
+                "status": 200
+            },
+            {
+                "name": "Set_Animated.glb",
+                "start": "2026-10-25T23:15:47.009Z",
+                "ms": 81.66600000000001,
+                "status": 200
+            },
+            {
+                "name": "Riven_Animated.glb",
+                "start": "2026-10-25T23:15:47.378Z",
+                "ms": 85.845,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_albedo_512.webp",
+                "start": "2026-10-25T23:15:49.694Z",
+                "ms": 7.364,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_normal_512.webp",
+                "start": "2026-10-25T23:15:49.694Z",
+                "ms": 16.634,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_ar_512.png",
+                "start": "2026-10-25T23:15:49.694Z",
+                "ms": 22.874,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_albedo_512.webp",
+                "start": "2026-10-25T23:15:49.694Z",
+                "ms": 20.854,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_normal_512.webp",
+                "start": "2026-10-25T23:15:49.695Z",
+                "ms": 27.208,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_ar_512.png",
+                "start": "2026-10-25T23:15:49.695Z",
+                "ms": 26.753,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                "start": "2026-10-25T23:15:50.986Z",
+                "ms": 218.942,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Maple_tree_1025062934_texture.glb",
+                "start": "2026-10-25T23:15:53.362Z",
+                "ms": 14.791999999999998,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Pine_tree_1025063153_texture.glb",
+                "start": "2026-10-25T23:15:56.360Z",
+                "ms": 2.7729999999999997,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+                "start": "2026-10-25T23:15:56.395Z",
+                "ms": 7.461,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_redwood_tree_1025061650_texture.glb",
+                "start": "2026-10-25T23:15:56.438Z",
+                "ms": 6.087999999999999,
+                "status": 200
+            }
+        ]
+    },
+    {
+        "case": "ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0",
+        "states": [],
+        "slowCalls": [
+            {
+                "method": "expect",
+                "ms": 8019,
+                "expr": "{'selector': '#combat-feedback', 'expression': 'to.be.hidden', 'expectedValue': {'value': {'v': 'undefined'}, 'handles': []}, 'isNot': False, 'timeout"
+            },
+            {
+                "method": "waitForSelector",
+                "ms": 1894,
+                "expr": "{'selector': '.ability-blast', 'strict': True, 'state': 'attached'}"
+            },
+            {
+                "method": "expect",
+                "ms": 7187,
+                "expr": "{'selector': '.ability:visible:not(.ability-stance)', 'expression': 'to.have.count', 'expectedNumber': 5, 'expectedValue': {'value': {'v': 'undefined'"
+            },
+            {
+                "method": "waitForSelector",
+                "ms": 6267,
+                "expr": "{'selector': '#combat-feedback', 'strict': True, 'state': 'attached'}"
+            },
+            {
+                "method": "screenshot",
+                "ms": 14006,
+                "expr": "{'type': 'png', 'scale': 'css'}"
+            },
+            {
+                "method": "screenshot",
+                "ms": 13067,
+                "expr": "{'type': 'png', 'scale': 'css'}"
+            }
+        ],
+        "network": [
+            {
+                "name": "dirt_albedo_1k.webp",
+                "start": "2026-10-25T23:02:12.747Z",
+                "ms": 8.242,
+                "status": 200
+            },
+            {
+                "name": "dirt_normal_1k.webp",
+                "start": "2026-10-25T23:02:12.747Z",
+                "ms": 13.460999999999999,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_albedo_1k.webp",
+                "start": "2026-10-25T23:02:12.748Z",
+                "ms": 17.982,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_normal_1k.webp",
+                "start": "2026-10-25T23:02:12.748Z",
+                "ms": 18.381,
+                "status": 200
+            },
+            {
+                "name": "dirt_ar_1k.png",
+                "start": "2026-10-25T23:02:12.748Z",
+                "ms": 25.302,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_ar_1k.png",
+                "start": "2026-10-25T23:02:12.748Z",
+                "ms": 32.213,
+                "status": 200
+            },
+            {
+                "name": "Set_Animated.glb",
+                "start": "2026-10-25T23:02:21.712Z",
+                "ms": 104.70899999999999,
+                "status": 200
+            },
+            {
+                "name": "Riven_Animated.glb",
+                "start": "2026-10-25T23:02:24.074Z",
+                "ms": 105.917,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T23:02:31.427Z",
+                "ms": 153.57500000000002,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_albedo_512.webp",
+                "start": "2026-10-25T23:02:32.986Z",
+                "ms": 26.472,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_normal_512.webp",
+                "start": "2026-10-25T23:02:32.986Z",
+                "ms": 33.592999999999996,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_ar_512.png",
+                "start": "2026-10-25T23:02:32.986Z",
+                "ms": 37.042,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_albedo_512.webp",
+                "start": "2026-10-25T23:02:32.986Z",
+                "ms": 33.001,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_normal_512.webp",
+                "start": "2026-10-25T23:02:32.986Z",
+                "ms": 32.677,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_ar_512.png",
+                "start": "2026-10-25T23:02:32.986Z",
+                "ms": 51.487,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                "start": "2026-10-25T23:02:37.911Z",
+                "ms": 228.911,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Maple_tree_1025062934_texture.glb",
+                "start": "2026-10-25T23:02:42.885Z",
+                "ms": 6.6579999999999995,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Pine_tree_1025063153_texture.glb",
+                "start": "2026-10-25T23:02:52.203Z",
+                "ms": 6.83,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+                "start": "2026-10-25T23:02:52.335Z",
+                "ms": 14.283999999999999,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_redwood_tree_1025061650_texture.glb",
+                "start": "2026-10-25T23:02:52.382Z",
+                "ms": 4.262,
+                "status": 200
+            }
+        ]
+    },
+    {
+        "case": "ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44",
+        "states": [],
+        "slowCalls": [
+            {
+                "method": "selectOption",
+                "ms": 8479,
+                "expr": "{'selector': 'internal:label=\"Summoner\"s', 'strict': True, 'options': [{'valueOrLabel': 'Kit'}]}"
+            },
+            {
+                "method": "expect",
+                "ms": 3355,
+                "expr": "{'selector': '#play-match', 'expression': 'to.be.hidden', 'expectedValue': {'value': {'v': 'undefined'}, 'handles': []}, 'isNot': False, 'timeout': 15"
+            },
+            {
+                "method": "waitForSelector",
+                "ms": 6451,
+                "expr": "{'selector': '.ability-blast', 'strict': True, 'state': 'attached'}"
+            },
+            {
+                "method": "screenshot",
+                "ms": 19724,
+                "expr": "{'type': 'png', 'scale': 'css'}"
+            },
+            {
+                "method": "screenshot",
+                "ms": 19352,
+                "expr": "{'type': 'png', 'scale': 'css'}"
+            }
+        ],
+        "network": [
+            {
+                "name": "dirt_normal_1k.webp",
+                "start": "2026-10-25T23:03:20.302Z",
+                "ms": 8.369,
+                "status": 200
+            },
+            {
+                "name": "dirt_albedo_1k.webp",
+                "start": "2026-10-25T23:03:20.302Z",
+                "ms": 17.319,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_albedo_1k.webp",
+                "start": "2026-10-25T23:03:20.302Z",
+                "ms": 24.447,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_normal_1k.webp",
+                "start": "2026-10-25T23:03:20.302Z",
+                "ms": 26.039,
+                "status": 200
+            },
+            {
+                "name": "dirt_ar_1k.png",
+                "start": "2026-10-25T23:03:20.302Z",
+                "ms": 25.881,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_ar_1k.png",
+                "start": "2026-10-25T23:03:20.302Z",
+                "ms": 31.989,
+                "status": 200
+            },
+            {
+                "name": "Set_Animated.glb",
+                "start": "2026-10-25T23:03:30.013Z",
+                "ms": 74.208,
+                "status": 200
+            },
+            {
+                "name": "Riven_Animated.glb",
+                "start": "2026-10-25T23:03:33.013Z",
+                "ms": 80.91799999999999,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T23:03:39.520Z",
+                "ms": 159.493,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_albedo_512.webp",
+                "start": "2026-10-25T23:03:40.540Z",
+                "ms": 7.625,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_normal_512.webp",
+                "start": "2026-10-25T23:03:40.540Z",
+                "ms": 29.931,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_ar_512.png",
+                "start": "2026-10-25T23:03:40.541Z",
+                "ms": 30.871,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_albedo_512.webp",
+                "start": "2026-10-25T23:03:40.541Z",
+                "ms": 25.131,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_normal_512.webp",
+                "start": "2026-10-25T23:03:40.541Z",
+                "ms": 25.945999999999998,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_ar_512.png",
+                "start": "2026-10-25T23:03:40.541Z",
+                "ms": 28.985,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                "start": "2026-10-25T23:03:45.496Z",
+                "ms": 233.059,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Maple_tree_1025062934_texture.glb",
+                "start": "2026-10-25T23:03:49.746Z",
+                "ms": 11.175999999999998,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Pine_tree_1025063153_texture.glb",
+                "start": "2026-10-25T23:03:59.843Z",
+                "ms": 7,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+                "start": "2026-10-25T23:03:59.919Z",
+                "ms": 12.484,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_redwood_tree_1025061650_texture.glb",
+                "start": "2026-10-25T23:03:59.994Z",
+                "ms": 6.257,
+                "status": 200
+            }
+        ]
+    },
+    {
+        "case": "ergonomics-landscape-targe-ebedc-ar-at-667x375-safe-inset-44",
+        "states": [],
+        "slowCalls": [
+            {
+                "method": "selectOption",
+                "ms": 6710,
+                "expr": "{'selector': 'internal:label=\"Summoner\"s', 'strict': True, 'options': [{'valueOrLabel': 'Kit'}]}"
+            },
+            {
+                "method": "waitForSelector",
+                "ms": 1032,
+                "expr": "{'selector': '.ability-blast', 'strict': True, 'state': 'attached'}"
+            },
+            {
+                "method": "evaluateExpression",
+                "ms": 6822,
+                "expr": "{'expression': \"selectors => selectors.map(selector => {\\n        const element = document.querySelector(selector);\\n        if (!(element !== null &&"
+            },
+            {
+                "method": "screenshot",
+                "ms": 12619,
+                "expr": "{'type': 'png', 'scale': 'css'}"
+            },
+            {
+                "method": "expect",
+                "ms": 1307,
+                "expr": "{'selector': '#play-match', 'expression': 'to.be.hidden', 'expectedValue': {'value': {'v': 'undefined'}, 'handles': []}, 'isNot': False, 'timeout': 15"
+            },
+            {
+                "method": "screenshot",
+                "ms": 10117,
+                "expr": "{'type': 'png', 'scale': 'css'}"
+            }
+        ],
+        "network": [
+            {
+                "name": "dirt_albedo_1k.webp",
+                "start": "2026-10-25T23:04:33.454Z",
+                "ms": 6.295999999999999,
+                "status": 200
+            },
+            {
+                "name": "dirt_normal_1k.webp",
+                "start": "2026-10-25T23:04:33.454Z",
+                "ms": 20.785,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_albedo_1k.webp",
+                "start": "2026-10-25T23:04:33.454Z",
+                "ms": 14.872,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_normal_1k.webp",
+                "start": "2026-10-25T23:04:33.454Z",
+                "ms": 15.937999999999999,
+                "status": 200
+            },
+            {
+                "name": "dirt_ar_1k.png",
+                "start": "2026-10-25T23:04:33.454Z",
+                "ms": 25.343,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_ar_1k.png",
+                "start": "2026-10-25T23:04:33.454Z",
+                "ms": 30.545,
+                "status": 200
+            },
+            {
+                "name": "Set_Animated.glb",
+                "start": "2026-10-25T23:04:40.986Z",
+                "ms": 82.79899999999999,
+                "status": 200
+            },
+            {
+                "name": "Riven_Animated.glb",
+                "start": "2026-10-25T23:04:45.299Z",
+                "ms": 105.14399999999999,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T23:04:52.397Z",
+                "ms": 107.066,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_albedo_512.webp",
+                "start": "2026-10-25T23:04:54.242Z",
+                "ms": 24.47,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_normal_512.webp",
+                "start": "2026-10-25T23:04:54.242Z",
+                "ms": 43.483000000000004,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_ar_512.png",
+                "start": "2026-10-25T23:04:54.242Z",
+                "ms": 51.286,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_albedo_512.webp",
+                "start": "2026-10-25T23:04:54.242Z",
+                "ms": 40.900000000000006,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_normal_512.webp",
+                "start": "2026-10-25T23:04:54.242Z",
+                "ms": 46.004000000000005,
+                "status": 200
+            },
+            {
+                "name": "forest_leaves_02_ar_512.png",
+                "start": "2026-10-25T23:04:54.242Z",
+                "ms": 51.887,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+                "start": "2026-10-25T23:05:00.948Z",
+                "ms": 245.889,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Maple_tree_1025062934_texture.glb",
+                "start": "2026-10-25T23:05:04.597Z",
+                "ms": 5.405,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Pine_tree_1025063153_texture.glb",
+                "start": "2026-10-25T23:05:13.723Z",
+                "ms": 4.76,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+                "start": "2026-10-25T23:05:13.817Z",
+                "ms": 4.855,
+                "status": 200
+            },
+            {
+                "name": "Meshy_AI_redwood_tree_1025061650_texture.glb",
+                "start": "2026-10-25T23:05:13.862Z",
+                "ms": 4.213,
+                "status": 200
+            }
+        ]
+    },
+    {
+        "case": "kit-model-animated-Kit-sur-f8b1a-rt-without-another-download",
+        "states": [
+            {
+                "time": 1059996.408,
+                "frames": 13,
+                "frameMs": 34.9334714872301,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 1,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 33595432,
+                        "vb": 661544,
+                        "ib": 31914,
+                        "ub": 4736,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "idle"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": true
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 1065902.184,
+                "frames": 15,
+                "frameMs": 31.45011190465639,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 1,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 33595432,
+                        "vb": 661544,
+                        "ib": 31914,
+                        "ub": 4736,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "idle"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": true
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 1066344.876,
+                "frames": 27,
+                "frameMs": 35.71427757097072,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 1,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 55965052,
+                        "vb": 2601612,
+                        "ib": 156312,
+                        "ub": 4736,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "idle"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": true
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            }
+        ],
+        "slowCalls": [
+            {
+                "method": "evaluateExpression",
+                "ms": 2794,
+                "expr": "{'expression': '() => window.__crownfall.snapshot()', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            }
+        ],
+        "network": [
+            {
+                "name": "dirt_albedo_1k.webp",
+                "start": "2026-10-25T23:10:55.681Z",
+                "ms": 15.337,
+                "status": 200
+            },
+            {
+                "name": "dirt_normal_1k.webp",
+                "start": "2026-10-25T23:10:55.681Z",
+                "ms": 9.832,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_albedo_1k.webp",
+                "start": "2026-10-25T23:10:55.681Z",
+                "ms": 24.964,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_normal_1k.webp",
+                "start": "2026-10-25T23:10:55.681Z",
+                "ms": 25.929000000000002,
+                "status": 200
+            },
+            {
+                "name": "dirt_ar_1k.png",
+                "start": "2026-10-25T23:10:55.681Z",
+                "ms": 18.207,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_ar_1k.png",
+                "start": "2026-10-25T23:10:55.681Z",
+                "ms": 29.329,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T23:10:56.487Z",
+                "ms": 6047.000999999999,
+                "status": 200
+            }
+        ]
+    },
+    {
+        "case": "six-summoner-one-failed-sh-2511f-he-other-four-models-render",
+        "states": [
+            {
+                "time": 1942459.887,
+                "frames": 10,
+                "frameMs": 33.8719819839,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "error",
+                            "loadMs": 32.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 33595432,
+                        "vb": 661544,
+                        "ib": 31914,
+                        "ub": 4736,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": true
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32.89999999990687
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 1949821.784,
+                "frames": 17,
+                "frameMs": 34.20942424975522,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "error",
+                            "loadMs": 32.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 33595432,
+                        "vb": 1615692,
+                        "ib": 117114,
+                        "ub": 4736,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": true
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32.89999999990687
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 1950059.53,
+                "frames": 23,
+                "frameMs": 36.371220632714206,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 0,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "error",
+                            "loadMs": 32.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 55965052,
+                        "vb": 1615692,
+                        "ib": 117114,
+                        "ub": 4736,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": true
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32.89999999990687
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    }
+                ]
+            },
+            {
+                "time": 1950561.863,
+                "frames": 33,
+                "frameMs": 39.41764708194783,
+                "phase": "active",
+                "countdown": 0,
+                "assets": {
+                    "downloads": 3,
+                    "boundCalculations": 1,
+                    "assets": [
+                        {
+                            "source": "assets/summoners/set/Set_Animated.glb",
+                            "state": "error",
+                            "loadMs": 32.5
+                        },
+                        {
+                            "source": "assets/summoners/riven/Riven_Animated.glb",
+                            "state": "loaded",
+                            "loadMs": 7724.199999999721
+                        },
+                        {
+                            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+                            "state": "loading",
+                            "loadMs": 0
+                        }
+                    ],
+                    "gpu": {
+                        "tex": 100711012,
+                        "vb": 3555760,
+                        "ib": 241512,
+                        "ub": 5088,
+                        "sb": 0
+                    }
+                },
+                "environment": {
+                    "mode": "carved",
+                    "normalMappedSurfaces": 3,
+                    "occlusionMappedSurfaces": 3,
+                    "wilderness": {
+                        "state": "loading"
+                    },
+                    "surface": "polyhaven-packed-earth",
+                    "batches": 5,
+                    "vertices": 10015,
+                    "triangles": 4517,
+                    "pavingSlabs": 0,
+                    "textureBytes": 33554424,
+                    "textureMaps": 6,
+                    "materials": {
+                        "state": "loaded",
+                        "error": "",
+                        "loadedMaps": 6
+                    },
+                    "tangentBasis": true,
+                    "raisedRelief": "existing-obstacle-footprints-and-outside-map-only",
+                    "footingRange": [-0.018, 0.024],
+                    "territoryTint": true
+                },
+                "models": [
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32.89999999990687
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7766.0999999996275
+                    },
+                    {
+                        "summonerId": "kit-asher",
+                        "state": "loading",
+                        "visible": false,
+                        "loadMs": 0
+                    },
+                    {
+                        "summonerId": "set",
+                        "state": "error",
+                        "visible": false,
+                        "loadMs": 32
+                    },
+                    {
+                        "summonerId": "riven",
+                        "state": "loaded",
+                        "visible": true,
+                        "loadMs": 7794.200000000186
+                    }
+                ]
+            }
+        ],
+        "slowCalls": [
+            {
+                "method": "evaluateExpression",
+                "ms": 7311,
+                "expr": "{'expression': '() => window.__crownfall.snapshot()', 'isFunction': True, 'arg': {'value': {'v': 'undefined'}, 'handles': []}}"
+            }
+        ],
+        "network": [
+            {
+                "name": "dirt_albedo_1k.webp",
+                "start": "2026-10-25T23:25:38.276Z",
+                "ms": 5.8389999999999995,
+                "status": 200
+            },
+            {
+                "name": "dirt_normal_1k.webp",
+                "start": "2026-10-25T23:25:38.276Z",
+                "ms": 8.288,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_albedo_1k.webp",
+                "start": "2026-10-25T23:25:38.276Z",
+                "ms": 16.093,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_normal_1k.webp",
+                "start": "2026-10-25T23:25:38.276Z",
+                "ms": 21.634999999999998,
+                "status": 200
+            },
+            {
+                "name": "dirt_ar_1k.png",
+                "start": "2026-10-25T23:25:38.276Z",
+                "ms": 15.824,
+                "status": 200
+            },
+            {
+                "name": "dry_ground_rocks_ar_1k.png",
+                "start": "2026-10-25T23:25:38.276Z",
+                "ms": 28.814,
+                "status": 200
+            },
+            {
+                "name": "Set_Animated.glb",
+                "start": "2026-10-25T23:25:38.910Z",
+                "ms": 14.027000000001863,
+                "status": -1
+            },
+            {
+                "name": "Riven_Animated.glb",
+                "start": "2026-10-25T23:25:38.928Z",
+                "ms": 125.325,
+                "status": 200
+            },
+            {
+                "name": "Kit_20K_Animated.glb",
+                "start": "2026-10-25T23:25:46.740Z",
+                "ms": 197.705,
+                "status": 200
+            },
+            {
+                "name": "sparse_grass_albedo_512.webp",
+                "start": "2026-10-25T23:25:51.026Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "sparse_grass_normal_512.webp",
+                "start": "2026-10-25T23:25:51.026Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "sparse_grass_ar_512.png",
+                "start": "2026-10-25T23:25:51.026Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "forest_leaves_02_albedo_512.webp",
+                "start": "2026-10-25T23:25:51.026Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "forest_leaves_02_normal_512.webp",
+                "start": "2026-10-25T23:25:51.026Z",
+                "ms": -1,
+                "status": -1
+            },
+            {
+                "name": "forest_leaves_02_ar_512.png",
+                "start": "2026-10-25T23:25:51.026Z",
+                "ms": -1,
+                "status": -1
+            }
+        ]
+    }
+]

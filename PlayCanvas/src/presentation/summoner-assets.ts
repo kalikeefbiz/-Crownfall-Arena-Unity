@@ -28,6 +28,10 @@ export class SummonerAssets {
     }
     private app: AppBase;
 
+    get loading() {
+        return [...this.entries.values()].some((entry) => entry.state === 'loading');
+    }
+
     isLoaded(source: string) {
         return this.entries.get(source)?.state === 'loaded';
     }

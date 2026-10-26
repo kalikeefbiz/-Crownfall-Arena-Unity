@@ -1,0 +1,40 @@
+
+Running 1 test using 1 worker
+
+(node:13324) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render
+  1) tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 4
+    Received: 2
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      240 |         .poll(async () => (await snapshot(page)).summonerModels.filter((m) => m.state === 'error').length)
+      241 |         .toBe(2);
+    > 242 |     await expect.poll(async () => (await snapshot(page)).summonerModels.filter((m) => m.visible).length).toBe(4);
+          |                                                                                                          ^
+      243 |     const s = await snapshot(page);
+      244 |     expect(s.summonerModels.filter((m) => m.visible)).toHaveLength(4);
+      245 |     for (const m of s.summonerModels.filter((m) => m.summonerId === 'set')) {
+        at /workspace/crownfall/PlayCanvas/tests/browser/six-summoner.spec.ts:242:106
+
+    Error Context: test-results/six-summoner-one-failed-sh-2511f-he-other-four-models-render/error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/six-summoner-one-failed-sh-2511f-he-other-four-models-render/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/six-summoner-one-failed-sh-2511f-he-other-four-models-render/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+  1 failed
+    tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render 

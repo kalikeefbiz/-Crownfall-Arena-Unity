@@ -193,6 +193,9 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     };
     return {
         diagnostics,
+        get loading() {
+            return wilderness?.loading ?? false;
+        },
         ready,
         quality(low: boolean) {
             for (const mat of [dirt, rock, shoulder]) {

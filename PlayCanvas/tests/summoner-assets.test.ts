@@ -119,4 +119,24 @@ describe('scene-owned summoner containers', () => {
         expect(fetch).toHaveBeenCalledTimes(1);
         expect(registry.load).toHaveBeenCalledTimes(1);
     });
+    it('tracks queued network and decode work, then releases the render budget on failure', async () => {
+        const { registry, assets } = fixture();
+        let deliver!: (response: Response) => void;
+        vi.mocked(fetch).mockReturnValueOnce(
+            new Promise((resolve) => {
+                deliver = resolve;
+            })
+        );
+        const pending = assets.load('decode.glb');
+        const rejected = expect(pending).rejects.toBe('invalid container');
+        await vi.waitFor(() => expect(fetch).toHaveBeenCalledTimes(1));
+        expect(assets.loading).toBe(true);
+        deliver({ ok: true, arrayBuffer: async () => new ArrayBuffer(0) } as Response);
+        await vi.waitFor(() => expect(registry.load).toHaveBeenCalledTimes(1));
+        expect(assets.loading).toBe(true);
+        registry.load.mock.calls[0][0].fire('error', 'invalid container');
+        await rejected;
+        await vi.waitFor(() => expect(assets.loading).toBe(false));
+        assets.destroy();
+    });
 });

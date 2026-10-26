@@ -1,0 +1,22 @@
+
+Running 14 tests using 1 worker
+
+(node:17437) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/14] tests/browser/application-lifecycle.spec.ts:148:1 › real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command
+[2/14] tests/browser/application-lifecycle.spec.ts:182:1 › re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers
+[3/14] tests/browser/application-lifecycle.spec.ts:212:1 › destroy releases genuine simultaneous touch captures without committing the held ability after remount
+[4/14] tests/browser/application-lifecycle.spec.ts:284:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+[5/14] tests/browser/application-lifecycle.spec.ts:380:1 › destroy after GLB download while embedded texture decoding is pending leaves no late engine work
+[6/14] tests/browser/application-lifecycle.spec.ts:430:1 › destroy between download completion and the queued engine contents handoff cancels parsing safely
+[7/14] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 844x390
+[8/14] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 667x375
+[9/14] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 640x360
+[10/14] tests/browser/frontend.spec.ts:113:1 › real sequential readiness, authoritative result, replay cache, pause and menu rendering suspension
+[11/14] tests/browser/frontend.spec.ts:214:1 › failed essential model offers real retry and return without a countdown
+[12/14] tests/browser/frontend.spec.ts:232:1 › Combat Practice uses the existing sandbox authority and can return to menu
+[13/14] tests/browser/frontend.spec.ts:245:1 › saved control positions are the real captured touch targets across rotation
+[14/14] tests/browser/frontend.spec.ts:310:1 › preparation deadline prevents a late game module from starting behind the error screen
+  14 passed (4.5m)

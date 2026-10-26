@@ -1,0 +1,125 @@
+
+Running 8 tests using 1 worker
+
+(node:16908) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/8] tests/browser/environment.spec.ts:43:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera
+[2/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+  1) tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.screenshot: Test ended.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      263 |             // Keep the DPR=2 rendering/layout above; export one pixel per CSS
+      264 |             // pixel to avoid oversized software-rendered evidence captures.
+    > 265 |             await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png`, scale: 'css' });
+          |                        ^
+      266 |         }
+      267 |         await context.close();
+      268 |     });
+        at /workspace/crownfall/PlayCanvas/tests/browser/ergonomics.spec.ts:265:24
+
+    Error Context: test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/error-context.md
+
+    attachment #6: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ergonomics-landscape-targe-fe04a-ear-at-844x390-safe-inset-0/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:17032) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44
+  2) tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.screenshot: Test ended.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      263 |             // Keep the DPR=2 rendering/layout above; export one pixel per CSS
+      264 |             // pixel to avoid oversized software-rendered evidence captures.
+    > 265 |             await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png`, scale: 'css' });
+          |                        ^
+      266 |         }
+      267 |         await context.close();
+      268 |     });
+        at /workspace/crownfall/PlayCanvas/tests/browser/ergonomics.spec.ts:265:24
+
+    Error Context: test-results/ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44/error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ergonomics-landscape-targe-aecae-ar-at-844x390-safe-inset-44/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:17110) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 667x375, safe inset 44
+[5/8] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44
+  3) tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: page.screenshot: Test ended.
+    Call log:
+      - taking page screenshot
+      - waiting for fonts to load...
+      - fonts loaded
+
+
+      263 |             // Keep the DPR=2 rendering/layout above; export one pixel per CSS
+      264 |             // pixel to avoid oversized software-rendered evidence captures.
+    > 265 |             await page.screenshot({ path: `test-results/task005a-${width}-${safe}-${summoner}.png`, scale: 'css' });
+          |                        ^
+      266 |         }
+      267 |         await context.close();
+      268 |     });
+        at /workspace/crownfall/PlayCanvas/tests/browser/ergonomics.spec.ts:265:24
+
+    Error Context: test-results/ergonomics-landscape-targe-da269-ar-at-640x360-safe-inset-44/error-context.md
+
+    attachment #8: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/ergonomics-landscape-targe-da269-ar-at-640x360-safe-inset-44/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/ergonomics-landscape-targe-da269-ar-at-640x360-safe-inset-44/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+
+(node:17255) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/8] tests/browser/kit-model.spec.ts:181:1 › animated Kit survives death, respawn, results and restart without another download
+[7/8] tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 844x390
+[8/8] tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render
+  3 failed
+    tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0 
+    tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44 
+    tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44 
+  5 passed (7.0m)
