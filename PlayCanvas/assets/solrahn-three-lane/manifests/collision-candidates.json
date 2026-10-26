@@ -1,0 +1,26 @@
+{
+    "status": "PARTIAL_NOT_GAMEPLAY_VALIDATED",
+    "objects": [
+        {
+            "object": "UpperLane_Core_CANDIDATE",
+            "source_triangles": 40563,
+            "triangles": 2500,
+            "vertices": 2906
+        },
+        {
+            "object": "MiddleLane_Core_CANDIDATE",
+            "source_triangles": 19222,
+            "triangles": 2500,
+            "vertices": 1906
+        },
+        {
+            "object": "LowerLane_Core_CANDIDATE",
+            "source_triangles": 39479,
+            "triangles": 2500,
+            "vertices": 2874
+        }
+    ],
+    "method": "Actual upward-facing source triangles in conservative lane cores; extracted then QEM-simplified. No geometry added or moved.",
+    "excluded": "Wilderness under canopy, cliffs and solid structures cannot be reliably classified from fused scanned surface; not prepared.",
+    "labels": "Upper = negative Blender X flank; lower = positive Blender X flank. Provisional author review labels."
+}

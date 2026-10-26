@@ -1,0 +1,105 @@
+{
+    "file": "solrahn-lane-collision-candidates.glb",
+    "bytes": 587724,
+    "sha256": "7046fbef7d83b48ce561c834e07f7c811f073f323358f1b0a7fb16efc75cba85",
+    "meshes": 3,
+    "nodes": [
+        {
+            "extras": {
+                "candidate_only": true,
+                "coverage": "Partial lane cores, authored coordinates. Requires gap, slope, boundary and scale review before later integration."
+            },
+            "mesh": 0,
+            "name": "UpperLane_Core_CANDIDATE"
+        },
+        {
+            "extras": {
+                "candidate_only": true,
+                "coverage": "Partial lane cores, authored coordinates. Requires gap, slope, boundary and scale review before later integration."
+            },
+            "mesh": 1,
+            "name": "MiddleLane_Core_CANDIDATE"
+        },
+        {
+            "extras": {
+                "candidate_only": true,
+                "coverage": "Partial lane cores, authored coordinates. Requires gap, slope, boundary and scale review before later integration."
+            },
+            "mesh": 2,
+            "name": "LowerLane_Core_CANDIDATE"
+        }
+    ],
+    "primitives": 3,
+    "materials": [],
+    "samplers": [],
+    "exported_vertices_including_uv_normal_tangent_splits": 22498,
+    "triangles": 7500,
+    "geometry_buffer_bytes": 584952,
+    "images": [],
+    "texture_rgba8_mips_bytes": 0,
+    "extensions_used": [],
+    "extensions_required": [],
+    "external_uris": [],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 7498,
+            "max": [-0.12707099318504333, -0.05924515053629875, 0.7629269957542419],
+            "min": [-0.6820766925811768, -0.08732867985963821, -0.7609708309173584],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 7498,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5123,
+            "count": 7500,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5126,
+            "count": 7500,
+            "max": [0.03223999962210655, -0.0632326528429985, 0.7647770047187805],
+            "min": [-0.032242998480796814, -0.09188300371170044, -0.7614173889160156],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5126,
+            "count": 7500,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 5,
+            "componentType": 5123,
+            "count": 7500,
+            "type": "SCALAR"
+        },
+        {
+            "bufferView": 6,
+            "componentType": 5126,
+            "count": 7500,
+            "max": [0.683975100517273, -0.05965600162744522, 0.76255202293396],
+            "min": [0.12519900500774384, -0.08746381103992462, -0.7601649761199951],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 7,
+            "componentType": 5126,
+            "count": 7500,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 8,
+            "componentType": 5123,
+            "count": 7500,
+            "type": "SCALAR"
+        }
+    ]
+}

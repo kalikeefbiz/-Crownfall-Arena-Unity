@@ -1,0 +1,10 @@
+{
+    "archive_path": "/workspace/crownfall/PlayCanvas/assets/solrahn-three-lane/packages/solrahn-goal-013-evidence.zip",
+    "archive_bytes": 28331800,
+    "archive_sha256": "e99ce11fac7958a1b5244c0ffae0e20dfea2e8d6982c322c27b7797f8b40a2cf",
+    "sha256sums_path": "/workspace/crownfall/PlayCanvas/assets/solrahn-three-lane/packages/SHA256SUMS.txt",
+    "binary_total_bytes": 103428271,
+    "total_transfer_bytes": 131760574,
+    "uploaded": false,
+    "note": "ZIP contains reports, manifests, scripts, matched JPEG comparisons and original/optimized PNG render masters, not the large source/working/runtime binaries. This archive sidecar is excluded from the ZIP to avoid a self-referential checksum."
+}

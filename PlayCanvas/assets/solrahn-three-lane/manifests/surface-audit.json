@@ -1,0 +1,12 @@
+{
+    "degenerate_triangles_area_below_1e_16": 0,
+    "upward_triangles_normal_z_above_085": 545444,
+    "downward_triangles_normal_z_below_minus085": 243223,
+    "surface_area_native_units2": 9.325638771057129,
+    "upward_surface_area_native_units2": 1.4944417476654053,
+    "uv_min": [4.999999873689376e-6, 3.993511199951172e-6],
+    "uv_max": [0.9999759793281555, 0.9999729990959167],
+    "uv_nonfinite": 0,
+    "uv_corners_outside_0_1": 0,
+    "note": "Upward normals include tree canopy, rocks, roofs and decorative surfaces. These are not validated walkable terrain."
+}

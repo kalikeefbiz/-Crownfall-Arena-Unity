@@ -1,0 +1,11 @@
+{
+    "file": "solrahn-lane-collision-candidates.glb",
+    "objects": 3,
+    "triangles": 7500,
+    "bounds": {
+        "min": [-0.6820766925811768, -0.7647770047187805, -0.09188300371170044],
+        "max": [0.683975100517273, 0.7614173889160156, -0.05924515053629875]
+    },
+    "uv_nonfinite": 0,
+    "status": "PASS"
+}

@@ -1,0 +1,303 @@
+{
+    "blender": "4.5.15 LTS",
+    "source": "",
+    "autoexec_enabled": false,
+    "units": {
+        "system": "METRIC",
+        "scale_length": 1.0
+    },
+    "collections": [],
+    "objects": [
+        {
+            "name": "UpperLane_Core_CANDIDATE",
+            "type": "MESH",
+            "collections": ["Scene Collection"],
+            "parent": null,
+            "matrix_world": [
+                [1.0, 0.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0, 0.0],
+                [0.0, 0.0, 1.0, 0.0],
+                [0.0, 0.0, 0.0, 1.0]
+            ],
+            "location": [0.0, 0.0, 0.0],
+            "rotation_mode": "QUATERNION",
+            "rotation_euler": [0.0, 0.0, 0.0],
+            "scale": [1.0, 1.0, 1.0],
+            "hide_render": false,
+            "hide_viewport": false,
+            "modifiers": [],
+            "mesh": "UpperLane_Core_CANDIDATE",
+            "mesh_users": 1,
+            "source": {
+                "vertices": 7498,
+                "edges": 7499,
+                "polygons": 2500,
+                "triangles": 2500,
+                "loops": 7500
+            },
+            "bounds": {
+                "min": [-0.6820766925811768, -0.7629269957542419, -0.08732867985963821],
+                "max": [-0.12707099318504333, 0.7609708309173584, -0.05924515053629875]
+            },
+            "uv_maps": [],
+            "materials": [],
+            "attributes": [
+                {
+                    "name": "position",
+                    "domain": "POINT",
+                    "data_type": "FLOAT_VECTOR"
+                },
+                {
+                    "name": ".select_vert",
+                    "domain": "POINT",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".edge_verts",
+                    "domain": "EDGE",
+                    "data_type": "INT32_2D"
+                },
+                {
+                    "name": "sharp_edge",
+                    "domain": "EDGE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".select_poly",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": "sharp_face",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".corner_vert",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": ".corner_edge",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": "custom_normal",
+                    "domain": "CORNER",
+                    "data_type": "INT16_2D"
+                }
+            ],
+            "evaluated": {
+                "vertices": 7498,
+                "edges": 7499,
+                "polygons": 2500,
+                "triangles": 2500,
+                "loops": 7500
+            },
+            "geometry_material_hash": "7258b2ee96dc2cc1b897eb72026fc2b8870ec93a0a6672678364960693588304"
+        },
+        {
+            "name": "MiddleLane_Core_CANDIDATE",
+            "type": "MESH",
+            "collections": ["Scene Collection"],
+            "parent": null,
+            "matrix_world": [
+                [1.0, 0.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0, 0.0],
+                [0.0, 0.0, 1.0, 0.0],
+                [0.0, 0.0, 0.0, 1.0]
+            ],
+            "location": [0.0, 0.0, 0.0],
+            "rotation_mode": "QUATERNION",
+            "rotation_euler": [0.0, 0.0, 0.0],
+            "scale": [1.0, 1.0, 1.0],
+            "hide_render": false,
+            "hide_viewport": false,
+            "modifiers": [],
+            "mesh": "MiddleLane_Core_CANDIDATE",
+            "mesh_users": 1,
+            "source": {
+                "vertices": 7500,
+                "edges": 7500,
+                "polygons": 2500,
+                "triangles": 2500,
+                "loops": 7500
+            },
+            "bounds": {
+                "min": [-0.032242998480796814, -0.7647770047187805, -0.09188300371170044],
+                "max": [0.03223999962210655, 0.7614173889160156, -0.0632326528429985]
+            },
+            "uv_maps": [],
+            "materials": [],
+            "attributes": [
+                {
+                    "name": "position",
+                    "domain": "POINT",
+                    "data_type": "FLOAT_VECTOR"
+                },
+                {
+                    "name": ".select_vert",
+                    "domain": "POINT",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".edge_verts",
+                    "domain": "EDGE",
+                    "data_type": "INT32_2D"
+                },
+                {
+                    "name": "sharp_edge",
+                    "domain": "EDGE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".select_poly",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": "sharp_face",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".corner_vert",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": ".corner_edge",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": "custom_normal",
+                    "domain": "CORNER",
+                    "data_type": "INT16_2D"
+                }
+            ],
+            "evaluated": {
+                "vertices": 7500,
+                "edges": 7500,
+                "polygons": 2500,
+                "triangles": 2500,
+                "loops": 7500
+            },
+            "geometry_material_hash": "3aec2ec5bab8ae99a9809bcca20350819c8673d80f30a7e16aa7db7bc3974f9d"
+        },
+        {
+            "name": "LowerLane_Core_CANDIDATE",
+            "type": "MESH",
+            "collections": ["Scene Collection"],
+            "parent": null,
+            "matrix_world": [
+                [1.0, 0.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0, 0.0],
+                [0.0, 0.0, 1.0, 0.0],
+                [0.0, 0.0, 0.0, 1.0]
+            ],
+            "location": [0.0, 0.0, 0.0],
+            "rotation_mode": "QUATERNION",
+            "rotation_euler": [0.0, 0.0, 0.0],
+            "scale": [1.0, 1.0, 1.0],
+            "hide_render": false,
+            "hide_viewport": false,
+            "modifiers": [],
+            "mesh": "LowerLane_Core_CANDIDATE",
+            "mesh_users": 1,
+            "source": {
+                "vertices": 7500,
+                "edges": 7500,
+                "polygons": 2500,
+                "triangles": 2500,
+                "loops": 7500
+            },
+            "bounds": {
+                "min": [0.12519900500774384, -0.76255202293396, -0.08746381103992462],
+                "max": [0.683975100517273, 0.7601649761199951, -0.05965600162744522]
+            },
+            "uv_maps": [],
+            "materials": [],
+            "attributes": [
+                {
+                    "name": "position",
+                    "domain": "POINT",
+                    "data_type": "FLOAT_VECTOR"
+                },
+                {
+                    "name": ".select_vert",
+                    "domain": "POINT",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".edge_verts",
+                    "domain": "EDGE",
+                    "data_type": "INT32_2D"
+                },
+                {
+                    "name": "sharp_edge",
+                    "domain": "EDGE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".select_poly",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": "sharp_face",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".corner_vert",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": ".corner_edge",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": "custom_normal",
+                    "domain": "CORNER",
+                    "data_type": "INT16_2D"
+                }
+            ],
+            "evaluated": {
+                "vertices": 7500,
+                "edges": 7500,
+                "polygons": 2500,
+                "triangles": 2500,
+                "loops": 7500
+            },
+            "geometry_material_hash": "346a145c6bfdc91d3c89cc1109cfbcccad9e8da2b4878c33ce19cbad10a8f99e"
+        }
+    ],
+    "materials": [],
+    "images": [],
+    "external_paths": [],
+    "libraries": [],
+    "text_blocks": [],
+    "duplicates": [],
+    "totals": {
+        "scene_objects": 3,
+        "mesh_objects": 3,
+        "unique_meshes": 3,
+        "materials": 0,
+        "source": {
+            "vertices": 22498,
+            "triangles": 7500,
+            "polygons": 7500,
+            "loops": 22500
+        },
+        "evaluated": {
+            "vertices": 22498,
+            "triangles": 7500,
+            "polygons": 7500,
+            "loops": 22500
+        }
+    }
+}

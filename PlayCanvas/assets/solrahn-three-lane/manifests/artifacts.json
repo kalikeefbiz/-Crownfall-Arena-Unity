@@ -1,0 +1,36 @@
+{
+    "preparation_only": true,
+    "release": null,
+    "intended_release": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/tag/solrahn-three-lane-prepared-goal-013-v1",
+    "upload_status": "FAILED: HTTP 401 Bad credentials at uploads.github.com; empty task-created draft removed; no preparation release published.",
+    "artifacts": [
+        {
+            "path": "working/solrahn-three-lane-optimized.blend",
+            "workspace_path": "/workspace/crownfall/PlayCanvas/assets/solrahn-three-lane/working/solrahn-three-lane-optimized.blend",
+            "bytes": 53714858,
+            "sha256": "933d32e010c7e1c6ad1b8e21b06ecc6090ce33b9f9c630fb47db345e78656307",
+            "intended_release_download": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/download/solrahn-three-lane-prepared-goal-013-v1/solrahn-three-lane-optimized.blend"
+        },
+        {
+            "path": "working/solrahn-lane-collision-candidates.blend",
+            "workspace_path": "/workspace/crownfall/PlayCanvas/assets/solrahn-three-lane/working/solrahn-lane-collision-candidates.blend",
+            "bytes": 299761,
+            "sha256": "a3101eee867eb29c8058b823b0103efcb5871062261f0b9ea979edee8db8f827",
+            "intended_release_download": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/download/solrahn-three-lane-prepared-goal-013-v1/solrahn-lane-collision-candidates.blend"
+        },
+        {
+            "path": "runtime/solrahn-three-lane-visual.glb",
+            "workspace_path": "/workspace/crownfall/PlayCanvas/assets/solrahn-three-lane/runtime/solrahn-three-lane-visual.glb",
+            "bytes": 48825928,
+            "sha256": "7faa8ecdc8e5b3f078d7ea0de09507a3572dccb2a63ac5eea30660e640a66a9d",
+            "intended_release_download": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/download/solrahn-three-lane-prepared-goal-013-v1/solrahn-three-lane-visual.glb"
+        },
+        {
+            "path": "runtime/solrahn-lane-collision-candidates.glb",
+            "workspace_path": "/workspace/crownfall/PlayCanvas/assets/solrahn-three-lane/runtime/solrahn-lane-collision-candidates.glb",
+            "bytes": 587724,
+            "sha256": "7046fbef7d83b48ce561c834e07f7c811f073f323358f1b0a7fb16efc75cba85",
+            "intended_release_download": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/download/solrahn-three-lane-prepared-goal-013-v1/solrahn-lane-collision-candidates.glb"
+        }
+    ]
+}

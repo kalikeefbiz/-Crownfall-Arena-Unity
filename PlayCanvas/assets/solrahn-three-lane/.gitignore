@@ -1,0 +1,14 @@
+source/
+working/
+runtime/
+logs/
+*.blend*
+*.glb
+*.npy
+*.npz
+__pycache__/
+previews/source/
+previews/optimized/
+previews/reimport/
+previews/collision/
+packages/

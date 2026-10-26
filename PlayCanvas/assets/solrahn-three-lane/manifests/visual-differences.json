@@ -1,0 +1,76 @@
+{
+    "views": [
+        {
+            "view": "entire-arena",
+            "foreground_rmse_8bit": 7.278266362384059,
+            "foreground_mae_8bit": 4.453690994278985,
+            "psnr_db": 30.89024470074871,
+            "foreground_mask_iou": 0.9937540566710292
+        },
+        {
+            "view": "top-plan",
+            "foreground_rmse_8bit": 7.439497880744973,
+            "foreground_mae_8bit": 4.279379693021202,
+            "psnr_db": 30.699931120827777,
+            "foreground_mask_iou": 0.9945271090989399
+        },
+        {
+            "view": "upper-lane",
+            "foreground_rmse_8bit": 7.917249602694388,
+            "foreground_mae_8bit": 4.917795974652322,
+            "psnr_db": 30.159316870389922,
+            "foreground_mask_iou": 0.9966760494301038
+        },
+        {
+            "view": "middle-lane",
+            "foreground_rmse_8bit": 8.01671094575783,
+            "foreground_mae_8bit": 5.043998797912181,
+            "psnr_db": 30.05087911354433,
+            "foreground_mask_iou": 0.9952520936504734
+        },
+        {
+            "view": "lower-lane",
+            "foreground_rmse_8bit": 8.287783547969116,
+            "foreground_mae_8bit": 5.1795647838289725,
+            "psnr_db": 29.76203560706075,
+            "foreground_mask_iou": 0.9973808054023388
+        },
+        {
+            "view": "wilderness-geography",
+            "foreground_rmse_8bit": 9.113546594561502,
+            "foreground_mae_8bit": 5.51514561231761,
+            "psnr_db": 28.937055242201602,
+            "foreground_mask_iou": 0.9989744204476588
+        },
+        {
+            "view": "stadium-features",
+            "foreground_rmse_8bit": 9.278470952606321,
+            "foreground_mae_8bit": 5.954590579544473,
+            "psnr_db": 28.781275359214202,
+            "foreground_mask_iou": 0.9953725860781295
+        },
+        {
+            "view": "gameplay-upper",
+            "foreground_rmse_8bit": 9.178159675522577,
+            "foreground_mae_8bit": 5.956721283515325,
+            "psnr_db": 28.8756914288562,
+            "foreground_mask_iou": 0.9971470546052198
+        },
+        {
+            "view": "gameplay-middle",
+            "foreground_rmse_8bit": 9.815210886679207,
+            "foreground_mae_8bit": 6.567125899766696,
+            "psnr_db": 28.29281090553237,
+            "foreground_mask_iou": 0.9992099428396615
+        },
+        {
+            "view": "gameplay-lower",
+            "foreground_rmse_8bit": 8.157765290484125,
+            "foreground_mae_8bit": 4.585422283713254,
+            "psnr_db": 29.899379489802755,
+            "foreground_mask_iou": 0.9883035180621063
+        }
+    ],
+    "missing": [],
+    "notes": "Cycles CPU 16 samples with denoising; matched camera, light and color transform. Differences combine geometry reduction, texture resizing and render sampling/denoising. Masks are background-color estimates, not semantic object IDs. No perceptual or mobile-fps guarantee."
+}

@@ -1,0 +1,108 @@
+{
+    "file": "solrahn-three-lane-visual.glb",
+    "bytes": 48825928,
+    "sha256": "7faa8ecdc8e5b3f078d7ea0de09507a3572dccb2a63ac5eea30660e640a66a9d",
+    "meshes": 1,
+    "nodes": [
+        {
+            "extras": {
+                "source_asset": "export_Meshy_AI_2026-10-26_4debfa.blend",
+                "preparation_only": true,
+                "semantic_groups": "Continuous surface: lane/Wilderness/structure categories documented in reports; no destructive slicing."
+            },
+            "mesh": 0,
+            "name": "Mesh_0"
+        }
+    ],
+    "primitives": 1,
+    "materials": [
+        {
+            "doubleSided": true,
+            "name": "Material_0",
+            "normalTexture": {
+                "index": 0
+            },
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 1
+                },
+                "metallicRoughnessTexture": {
+                    "index": 2
+                }
+            }
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987
+        }
+    ],
+    "exported_vertices_including_uv_normal_tangent_splits": 452046,
+    "triangles": 668270,
+    "geometry_buffer_bytes": 29717448,
+    "images": [
+        {
+            "name": "Image_2",
+            "mimeType": "image/png",
+            "width": 2048,
+            "height": 2048,
+            "bytes": 6347127,
+            "rgba8_mips_bytes": 22369621
+        },
+        {
+            "name": "Image_0",
+            "mimeType": "image/png",
+            "width": 2048,
+            "height": 2048,
+            "bytes": 7906013,
+            "rgba8_mips_bytes": 22369621
+        },
+        {
+            "name": "Image_1",
+            "mimeType": "image/png",
+            "width": 2048,
+            "height": 2048,
+            "bytes": 4853238,
+            "rgba8_mips_bytes": 22369621
+        }
+    ],
+    "texture_rgba8_mips_bytes": 67108863,
+    "extensions_used": [],
+    "extensions_required": [],
+    "external_uris": [],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 452046,
+            "max": [0.7763410210609436, 0.19200511276721954, 0.9508559703826904],
+            "min": [-0.7759439945220947, -0.16330599784851074, -0.9507640600204468],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 452046,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 452046,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5126,
+            "count": 452046,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5125,
+            "count": 2004810,
+            "type": "SCALAR"
+        }
+    ]
+}

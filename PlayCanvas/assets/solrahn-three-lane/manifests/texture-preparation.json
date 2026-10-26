@@ -1,0 +1,23 @@
+[
+    {
+        "name": "Image_0",
+        "before": [4096, 4096],
+        "after": [2048, 2048],
+        "colorspace": "sRGB",
+        "packed_bytes": 7906013
+    },
+    {
+        "name": "Image_1",
+        "before": [2048, 2048],
+        "after": [2048, 2048],
+        "colorspace": "Non-Color",
+        "packed_bytes": 4853238
+    },
+    {
+        "name": "Image_2",
+        "before": [4096, 4096],
+        "after": [2048, 2048],
+        "colorspace": "Non-Color",
+        "packed_bytes": 6347127
+    }
+]

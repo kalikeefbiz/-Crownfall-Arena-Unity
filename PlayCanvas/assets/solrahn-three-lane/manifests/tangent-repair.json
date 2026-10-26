@@ -1,0 +1,11 @@
+{
+    "method": "Deterministic orthogonal tangent for zero-vector output at degenerate UV corners; all other bytes unchanged.",
+    "records": [
+        {
+            "mesh": 0,
+            "primitive": 0,
+            "repaired_count": 5,
+            "vertex_indices": [73896, 240508, 265457, 401559, 448096]
+        }
+    ]
+}

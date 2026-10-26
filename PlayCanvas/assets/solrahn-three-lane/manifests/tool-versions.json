@@ -1,0 +1,10 @@
+{
+    "blender": "4.5.15 LTS",
+    "blender_build_hash": "5afeabba6097",
+    "blender_archive_sha256": "0d2b8bb2efe97e6c8eb57de6b7322f8800e1984e3125b60decca5f6771e4773e",
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "pillow": "12.3.0",
+    "gltf_validator": "2.0.0-dev.3.10"
+}

@@ -1,0 +1,14 @@
+{
+    "components": 1,
+    "largest_components": [
+        {
+            "label": 0,
+            "vertices": 2782049,
+            "min": [-0.7759439945220947, -0.9508559703826904, -0.16330599784851074],
+            "max": [0.7763410210609436, 0.9507369995117188, 0.19200499355793]
+        }
+    ],
+    "component_vertices_percentiles": [2782049.0, 2782049.0, 2782049.0, 2782049.0, 2782049.0, 2782049.0, 2782049.0],
+    "coincident_position_excess": 0,
+    "note": "No components or coincident positions removed. Connected shells are not semantically labeled objects."
+}

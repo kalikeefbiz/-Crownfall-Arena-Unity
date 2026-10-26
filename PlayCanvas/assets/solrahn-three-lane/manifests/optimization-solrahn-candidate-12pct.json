@@ -1,0 +1,24 @@
+{
+    "input_sha256": "626f546561dc2b364e0ba960eb0ae5979492fecb5667a934902ea4dce6082d7f",
+    "ratio": 0.12,
+    "method": "Blender weighted quadric edge collapse; UV-aware custom-data interpolation; no remesh/weld/cuts",
+    "weight_factor": 4.999999873689376e-5,
+    "permission_histogram": {
+        "0.0": 6,
+        "0.20000000298023224": 25115,
+        "0.3499999940395355": 310075,
+        "0.699999988079071": 409490,
+        "1.0": 2037363
+    },
+    "protected_extrema": [6, 1217191, 1363761, 1525876, 2755572, 2781964],
+    "native_transform": [
+        [1.0, 0.0, 0.0, 0.0],
+        [0.0, 1.0, 0.0, 0.0],
+        [0.0, 0.0, 1.0, 0.0],
+        [0.0, 0.0, 0.0, 1.0]
+    ],
+    "started": 1793042028.7761433,
+    "vertices": 331722,
+    "triangles": 668270,
+    "finished": 1793042172.3439252
+}

@@ -1,0 +1,327 @@
+{
+    "blender": "4.5.15 LTS",
+    "source": "/workspace/scratch/solrahn-portability-check.blend",
+    "autoexec_enabled": false,
+    "units": {
+        "system": "METRIC",
+        "scale_length": 1.0
+    },
+    "collections": [
+        {
+            "name": "SolRahn_Continuous_AuthoredEnvironment",
+            "objects": ["Mesh_0"],
+            "children": []
+        }
+    ],
+    "objects": [
+        {
+            "name": "Mesh_0",
+            "type": "MESH",
+            "collections": ["SolRahn_Continuous_AuthoredEnvironment"],
+            "parent": null,
+            "matrix_world": [
+                [1.0, 0.0, 0.0, 0.0],
+                [0.0, 1.0, 0.0, 0.0],
+                [0.0, 0.0, 1.0, 0.0],
+                [0.0, 0.0, 0.0, 1.0]
+            ],
+            "location": [0.0, 0.0, 0.0],
+            "rotation_mode": "QUATERNION",
+            "rotation_euler": [0.0, 0.0, 0.0],
+            "scale": [1.0, 1.0, 1.0],
+            "hide_render": false,
+            "hide_viewport": false,
+            "modifiers": [],
+            "mesh": "Mesh_0",
+            "mesh_users": 1,
+            "source": {
+                "vertices": 331722,
+                "edges": 1002389,
+                "polygons": 668270,
+                "triangles": 668270,
+                "loops": 2004810
+            },
+            "bounds": {
+                "min": [-0.7759439945220947, -0.9508559703826904, -0.16330599784851074],
+                "max": [0.7763410210609436, 0.9507640600204468, 0.19200511276721954]
+            },
+            "uv_maps": [
+                {
+                    "name": "UVMap",
+                    "active_render": true
+                }
+            ],
+            "materials": ["Material_0"],
+            "attributes": [
+                {
+                    "name": "position",
+                    "domain": "POINT",
+                    "data_type": "FLOAT_VECTOR"
+                },
+                {
+                    "name": ".select_vert",
+                    "domain": "POINT",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".edge_verts",
+                    "domain": "EDGE",
+                    "data_type": "INT32_2D"
+                },
+                {
+                    "name": ".select_edge",
+                    "domain": "EDGE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".select_poly",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": "sharp_face",
+                    "domain": "FACE",
+                    "data_type": "BOOLEAN"
+                },
+                {
+                    "name": ".corner_vert",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": ".corner_edge",
+                    "domain": "CORNER",
+                    "data_type": "INT"
+                },
+                {
+                    "name": "custom_normal",
+                    "domain": "CORNER",
+                    "data_type": "INT16_2D"
+                },
+                {
+                    "name": "UVMap",
+                    "domain": "CORNER",
+                    "data_type": "FLOAT2"
+                }
+            ],
+            "evaluated": {
+                "vertices": 331722,
+                "edges": 1002389,
+                "polygons": 668270,
+                "triangles": 668270,
+                "loops": 2004810
+            },
+            "geometry_material_hash": "ed2ff19bc301067c104f24527cdd2559a6c5be92a31bd496b7ba305092d9ff2d"
+        }
+    ],
+    "materials": [
+        {
+            "name": "Material_0",
+            "users": 1,
+            "use_nodes": true,
+            "nodes": [
+                {
+                    "name": "Principled BSDF",
+                    "type": "ShaderNodeBsdfPrincipled",
+                    "image": null,
+                    "inputs": {
+                        "Base Color": [0.800000011920929, 0.800000011920929, 0.800000011920929, 1.0],
+                        "Metallic": 0.0,
+                        "Roughness": 0.5,
+                        "IOR": 1.5,
+                        "Alpha": 1.0,
+                        "Normal": [0.0, 0.0, 0.0],
+                        "Weight": 0.0,
+                        "Diffuse Roughness": 0.0,
+                        "Subsurface Weight": 0.0,
+                        "Subsurface Radius": [1.0, 0.20000000298023224, 0.10000000149011612],
+                        "Subsurface Scale": 0.05000000074505806,
+                        "Subsurface IOR": 1.399999976158142,
+                        "Subsurface Anisotropy": 0.0,
+                        "Specular IOR Level": 0.5,
+                        "Specular Tint": [1.0, 1.0, 1.0, 1.0],
+                        "Anisotropic": 0.0,
+                        "Anisotropic Rotation": 0.0,
+                        "Tangent": [0.0, 0.0, 0.0],
+                        "Transmission Weight": 0.0,
+                        "Coat Weight": 0.0,
+                        "Coat Roughness": 0.029999999329447746,
+                        "Coat IOR": 1.5,
+                        "Coat Tint": [1.0, 1.0, 1.0, 1.0],
+                        "Coat Normal": [0.0, 0.0, 0.0],
+                        "Sheen Weight": 0.0,
+                        "Sheen Roughness": 0.5,
+                        "Sheen Tint": [1.0, 1.0, 1.0, 1.0],
+                        "Emission Color": [1.0, 1.0, 1.0, 1.0],
+                        "Emission Strength": 0.0,
+                        "Thin Film Thickness": 0.0,
+                        "Thin Film IOR": 1.3300000429153442
+                    }
+                },
+                {
+                    "name": "Material Output",
+                    "type": "ShaderNodeOutputMaterial",
+                    "image": null,
+                    "inputs": {
+                        "Displacement": [0.0, 0.0, 0.0],
+                        "Thickness": 0.0
+                    }
+                },
+                {
+                    "name": "Image Texture",
+                    "type": "ShaderNodeTexImage",
+                    "image": "Image_0",
+                    "inputs": {
+                        "Vector": [0.0, 0.0, 0.0]
+                    }
+                },
+                {
+                    "name": "Separate Color",
+                    "type": "ShaderNodeSeparateColor",
+                    "image": null,
+                    "inputs": {
+                        "Color": [0.800000011920929, 0.800000011920929, 0.800000011920929, 1.0]
+                    }
+                },
+                {
+                    "name": "Image Texture.001",
+                    "type": "ShaderNodeTexImage",
+                    "image": "Image_1",
+                    "inputs": {
+                        "Vector": [0.0, 0.0, 0.0]
+                    }
+                },
+                {
+                    "name": "Normal Map",
+                    "type": "ShaderNodeNormalMap",
+                    "image": null,
+                    "inputs": {
+                        "Strength": 1.0,
+                        "Color": [0.5, 0.5, 1.0, 1.0]
+                    }
+                },
+                {
+                    "name": "Image Texture.002",
+                    "type": "ShaderNodeTexImage",
+                    "image": "Image_2",
+                    "inputs": {
+                        "Vector": [0.0, 0.0, 0.0]
+                    }
+                }
+            ],
+            "links": [
+                {
+                    "from_node": "Principled BSDF",
+                    "from_socket": "BSDF",
+                    "to_node": "Material Output",
+                    "to_socket": "Surface"
+                },
+                {
+                    "from_node": "Image Texture",
+                    "from_socket": "Color",
+                    "to_node": "Principled BSDF",
+                    "to_socket": "Base Color"
+                },
+                {
+                    "from_node": "Separate Color",
+                    "from_socket": "Blue",
+                    "to_node": "Principled BSDF",
+                    "to_socket": "Metallic"
+                },
+                {
+                    "from_node": "Separate Color",
+                    "from_socket": "Green",
+                    "to_node": "Principled BSDF",
+                    "to_socket": "Roughness"
+                },
+                {
+                    "from_node": "Image Texture.001",
+                    "from_socket": "Color",
+                    "to_node": "Separate Color",
+                    "to_socket": "Color"
+                },
+                {
+                    "from_node": "Normal Map",
+                    "from_socket": "Normal",
+                    "to_node": "Principled BSDF",
+                    "to_socket": "Normal"
+                },
+                {
+                    "from_node": "Image Texture.002",
+                    "from_socket": "Color",
+                    "to_node": "Normal Map",
+                    "to_socket": "Color"
+                }
+            ]
+        }
+    ],
+    "images": [
+        {
+            "name": "Image_0",
+            "source": "FILE",
+            "filepath": "//textures/Image_0.png",
+            "resolved_path": "/workspace/scratch/textures/Image_0.png",
+            "exists": false,
+            "packed": true,
+            "packed_bytes": 7906013,
+            "size": [2048, 2048],
+            "channels": 4,
+            "colorspace": "sRGB",
+            "has_data": true,
+            "float_buffer": false,
+            "gpu_rgba8_mips_bytes": 22369621
+        },
+        {
+            "name": "Image_1",
+            "source": "FILE",
+            "filepath": "//textures/Image_1.png",
+            "resolved_path": "/workspace/scratch/textures/Image_1.png",
+            "exists": false,
+            "packed": true,
+            "packed_bytes": 4853238,
+            "size": [2048, 2048],
+            "channels": 4,
+            "colorspace": "Non-Color",
+            "has_data": true,
+            "float_buffer": false,
+            "gpu_rgba8_mips_bytes": 22369621
+        },
+        {
+            "name": "Image_2",
+            "source": "FILE",
+            "filepath": "//textures/Image_2.png",
+            "resolved_path": "/workspace/scratch/textures/Image_2.png",
+            "exists": false,
+            "packed": true,
+            "packed_bytes": 6347127,
+            "size": [2048, 2048],
+            "channels": 4,
+            "colorspace": "Non-Color",
+            "has_data": true,
+            "float_buffer": false,
+            "gpu_rgba8_mips_bytes": 22369621
+        }
+    ],
+    "external_paths": [],
+    "libraries": [],
+    "text_blocks": [],
+    "duplicates": [],
+    "totals": {
+        "scene_objects": 1,
+        "mesh_objects": 1,
+        "unique_meshes": 1,
+        "materials": 1,
+        "source": {
+            "vertices": 331722,
+            "triangles": 668270,
+            "polygons": 668270,
+            "loops": 2004810
+        },
+        "evaluated": {
+            "vertices": 331722,
+            "triangles": 668270,
+            "polygons": 668270,
+            "loops": 2004810
+        }
+    }
+}

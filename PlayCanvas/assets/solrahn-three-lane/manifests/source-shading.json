@@ -1,0 +1,47 @@
+{
+    "shading": [
+        {
+            "object": "Mesh_0",
+            "smooth_faces": 5564830,
+            "flat_faces": 4094,
+            "has_custom_normals": true
+        }
+    ],
+    "samplers": [
+        {
+            "node": "Image Texture",
+            "image": "Image_0",
+            "extension": "REPEAT",
+            "interpolation": "Linear",
+            "projection": "FLAT"
+        },
+        {
+            "node": "Image Texture.001",
+            "image": "Image_1",
+            "extension": "REPEAT",
+            "interpolation": "Linear",
+            "projection": "FLAT"
+        },
+        {
+            "node": "Image Texture.002",
+            "image": "Image_2",
+            "extension": "REPEAT",
+            "interpolation": "Linear",
+            "projection": "FLAT"
+        }
+    ],
+    "images": [
+        {
+            "name": "Image_0",
+            "packed_magic_hex": "ffd8ffe000104a46494600010100000100010000ffdb00430001010101010101"
+        },
+        {
+            "name": "Image_1",
+            "packed_magic_hex": "ffd8ffe000104a46494600010100000100010000ffdb00430001010101010101"
+        },
+        {
+            "name": "Image_2",
+            "packed_magic_hex": "ffd8ffe000104a46494600010100000100010000ffdb00430001010101010101"
+        }
+    ]
+}

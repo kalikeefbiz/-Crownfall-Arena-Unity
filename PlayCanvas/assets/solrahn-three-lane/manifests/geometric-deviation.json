@@ -1,0 +1,45 @@
+{
+    "source_to_optimized": {
+        "all": {
+            "samples": 50000,
+            "mean": 7.855048327284443e-5,
+            "rms": 0.00010120580252676776,
+            "p50": 6.349081377265975e-5,
+            "p95": 0.0002038547660049515,
+            "p99": 0.00028121767420088913,
+            "maximum_sampled": 0.000936563708819449
+        },
+        "lane_mask": {
+            "samples": 5534,
+            "mean": 7.494936507267718e-5,
+            "rms": 9.703001606277764e-5,
+            "p50": 5.94143111811718e-5,
+            "p95": 0.00019590920346672643,
+            "p99": 0.0002719778023310937,
+            "maximum_sampled": 0.0004192765336483717
+        }
+    },
+    "optimized_to_source": {
+        "all": {
+            "samples": 50000,
+            "mean": 9.667771534400548e-5,
+            "rms": 0.0001208522981432058,
+            "p50": 8.226690988522023e-5,
+            "p95": 0.00023544450596091338,
+            "p99": 0.0003103035973617808,
+            "maximum_sampled": 0.00101587048266083
+        },
+        "lane_mask": {
+            "samples": 5579,
+            "mean": 9.450533612044715e-5,
+            "rms": 0.00011923381110255472,
+            "p50": 7.804542838130146e-5,
+            "p95": 0.00023558144748676564,
+            "p99": 0.0003097100526792931,
+            "maximum_sampled": 0.0005259281024336815
+        }
+    },
+    "method": "50,000 seeded triangle-centroid samples in each direction, uniformly by triangle index. Euclidean nearest-surface distances in unchanged native Blender units; not area-weighted and not a Hausdorff bound.",
+    "seed": 13,
+    "arena_long_axis": 1.9015929698944092
+}

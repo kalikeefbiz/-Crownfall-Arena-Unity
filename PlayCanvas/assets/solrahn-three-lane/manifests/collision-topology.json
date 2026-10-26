@@ -1,0 +1,23 @@
+[
+    {
+        "object": "UpperLane_Core_CANDIDATE",
+        "components": 48,
+        "boundary_edges": 2600,
+        "nonmanifold_edges_over_two_faces": 0,
+        "note": "Open fragmented candidate surfaces. Not a closed solid or complete lane collision."
+    },
+    {
+        "object": "MiddleLane_Core_CANDIDATE",
+        "components": 4,
+        "boundary_edges": 1332,
+        "nonmanifold_edges_over_two_faces": 0,
+        "note": "Open fragmented candidate surfaces. Not a closed solid or complete lane collision."
+    },
+    {
+        "object": "LowerLane_Core_CANDIDATE",
+        "components": 59,
+        "boundary_edges": 2732,
+        "nonmanifold_edges_over_two_faces": 0,
+        "note": "Open fragmented candidate surfaces. Not a closed solid or complete lane collision."
+    }
+]

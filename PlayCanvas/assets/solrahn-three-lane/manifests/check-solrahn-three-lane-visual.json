@@ -1,0 +1,13 @@
+{
+    "file": "solrahn-three-lane-visual.glb",
+    "objects": 1,
+    "triangles": 668270,
+    "bounds": {
+        "min": [-0.7759439945220947, -0.9508559703826904, -0.16330599784851074],
+        "max": [0.7763410210609436, 0.9507640600204468, 0.19200511276721954]
+    },
+    "uv_nonfinite": 0,
+    "triangle_count_matches": true,
+    "bounds_max_absolute_error": 0.0,
+    "status": "PASS"
+}

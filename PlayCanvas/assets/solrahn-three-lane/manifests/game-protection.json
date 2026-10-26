@@ -1,0 +1,17 @@
+{
+    "base_commit": "761b8b294d7adf417947fa5c6d23c191825d74ef",
+    "scope": "Only PlayCanvas/assets/solrahn-three-lane/",
+    "production_build": "PASS: npm ci && npm run build",
+    "advisory": "Existing Vite large chunk advisory",
+    "gameplay_code_changed": false,
+    "production_map_changed": false,
+    "deployment_dispatched": false,
+    "push_ci_suppression": "[skip ci]",
+    "production_gh_pages_before": "129ae5cd91b134ed511a95953d155ff30a4c46ef",
+    "source_release_unchanged": {
+        "release_id": 424023349,
+        "asset_ids": [677586807, 677581170],
+        "sizes": [506928885, 154342975]
+    },
+    "binary_upload": "HTTP 401 Bad credentials at uploads.github.com. No assets uploaded; task-created empty draft 424673459 removed."
+}
