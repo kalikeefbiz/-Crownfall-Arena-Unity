@@ -18,3 +18,16 @@ Only albedo uses sRGB. Normals and AR remain linear. All maps flip Y together,
 repeat, generate mipmaps, use trilinear minification and up to 4× anisotropy.
 World UVs cover 4.5m per repeat; embankment faces use dominant-axis projection.
 Mesh normals and orthogonal tangent/handedness streams support the normal maps.
+
+## Goal 010 Wilderness scans
+
+- [sparse_grass](https://polyhaven.com/a/sparse_grass) and
+  [forest_leaves_02](https://polyhaven.com/a/forest_leaves_02), CC0 1.0.
+- Downloaded 2026-10-25 from each asset's `api.polyhaven.com/files/{asset}`
+  1K JPG Diffuse, nor_gl, AO and Rough entries; MD5 checked before conversion.
+- Delivered at 512×512 using Lanczos downsampling. Albedo WebP quality 92;
+  OpenGL normal WebP quality 96; lossless PNG packs AO in R / roughness in G.
+  No generated or painted texture replacements. All maps share mipmaps and UVs.
+- Grass scan also supplies restrained moss-like cover on the bank and selected
+  rock facets; sparse low-profile opaque blade fans supplement it outside play.
+- Reproduction: `python tests/helpers/prepare-wilderness.py` (Pillow required).
