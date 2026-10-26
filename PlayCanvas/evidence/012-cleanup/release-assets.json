@@ -1,0 +1,43 @@
+{
+    "releaseUrl": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/tag/solrahn-three-lane-source-v1",
+    "tag": "solrahn-three-lane-source-v1",
+    "releaseId": 424023349,
+    "checkedAt": "2026-10-26T09:14:56.844171+00:00",
+    "draft": false,
+    "prerelease": true,
+    "assetCount": 2,
+    "method": "GitHub release metadata and HTTP HEAD only. No Blender file downloaded, opened, edited, or exported. SHA-256 values are GitHub-reported digests.",
+    "roleMapping": "Founder confirmed in this session: 4debfa is three-lane; 7d27be is one-lane.",
+    "assets": [
+        {
+            "id": 677586807,
+            "name": "export_Meshy_AI_2026-10-26_4debfa.blend",
+            "bytes": 506928885,
+            "sha256": "626f546561dc2b364e0ba960eb0ae5979492fecb5667a934902ea4dce6082d7f",
+            "downloadUrl": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/download/solrahn-three-lane-source-v1/export_Meshy_AI_2026-10-26_4debfa.blend",
+            "state": "uploaded",
+            "head": {
+                "status": 200,
+                "contentLength": "506928885",
+                "contentType": "application/octet-stream",
+                "acceptRanges": "bytes"
+            },
+            "arena": "three-lane"
+        },
+        {
+            "id": 677581170,
+            "name": "export_Meshy_AI_2026-10-26_7d27be.blend",
+            "bytes": 154342975,
+            "sha256": "a245c604a9f1b092c37dcc6b66bed5353df6506a9d16e91d5188f0c616f7af82",
+            "downloadUrl": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/releases/download/solrahn-three-lane-source-v1/export_Meshy_AI_2026-10-26_7d27be.blend",
+            "state": "uploaded",
+            "head": {
+                "status": 200,
+                "contentLength": "154342975",
+                "contentType": "application/octet-stream",
+                "acceptRanges": "bytes"
+            },
+            "arena": "one-lane"
+        }
+    ]
+}

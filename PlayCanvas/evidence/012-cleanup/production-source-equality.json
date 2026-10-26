@@ -1,0 +1,13 @@
+{
+    "baseline": "5c2c6f0",
+    "meaning": "Validated pre-Goal-012 production source baseline",
+    "identicalPaths": [
+        "PlayCanvas/src",
+        "PlayCanvas/public",
+        "PlayCanvas/package.json",
+        "PlayCanvas/package-lock.json",
+        "PlayCanvas/tsconfig.json",
+        ".github/workflows"
+    ],
+    "changedFiles": []
+}

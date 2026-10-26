@@ -1,0 +1,22 @@
+{
+    "checks": [
+        {
+            "query": "",
+            "previewGlobal": false,
+            "previewPanel": false,
+            "canvas": true,
+            "pageErrors": [],
+            "rejectedPreviewRequests": [],
+            "officialMenuVisible": true
+        },
+        {
+            "query": "?mapPreview=solrahn",
+            "previewGlobal": false,
+            "previewPanel": false,
+            "canvas": true,
+            "pageErrors": [],
+            "rejectedPreviewRequests": [],
+            "officialMenuVisible": true
+        }
+    ]
+}

@@ -146,12 +146,3 @@ See [Task 003 verification](TASK_003_VERIFICATION.md) for the frozen reference, 
 Player controls and Riven release semantics are unchanged. The normal HUD supports landscape and portrait touch viewports. All six actors have labels, health and cast feedback; projectiles/effects from all six simulations are presented. Only the human owns input and camera follow. A dead human spectates from its last camera position while team status and results continue updating.
 
 See [TASK_004_VERIFICATION.md](TASK_004_VERIFICATION.md) for validation and remaining limits.
-
-## Sol’Rahn master graybox (Goal 012)
-
-`?mapPreview=solrahn` opens the isolated 240 × 144 three-lane geography harness.
-Use Region for the master/fenced 3v3 band, View for overview/gameplay camera,
-Survey for explicit placement, and WASD/arrows or left stick to traverse.
-The preview shares the existing movement authority and preserves the default game.
-Existing core/camp sites are reserved without running a second match engine.
-See [Goal 012 verification](TASK_012_VERIFICATION.md) for measurements and evidence.

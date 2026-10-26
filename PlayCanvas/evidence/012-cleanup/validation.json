@@ -1,0 +1,28 @@
+{
+    "unitTests": {
+        "passed": 239,
+        "files": 26
+    },
+    "focusedExistingBrowserTests": {
+        "passed": 9,
+        "duration": "1.4m",
+        "coverage": [
+            "official menu at 844x390, 667x375 and 640x360",
+            "roster and controls settings",
+            "sequential model readiness, result, replay cache, pause and menu rendering suspension",
+            "production movement/aim/facing",
+            "obstacle collision",
+            "Kit, Set and Riven Basic damage"
+        ]
+    },
+    "typecheck": "pass",
+    "lint": "pass",
+    "format": "pass",
+    "productionBuild": "pass",
+    "retiredPreviewUrl": "normal official menu; no preview global, UI or resource request",
+    "runtimeReferenceScan": "No solrahn/mapPreview/__solrahn references remain in src or tests",
+    "productionSourceEquality": "All production source, public assets, dependencies, tsconfig and workflows match validated baseline 5c2c6f0",
+    "deploymentRequested": false,
+    "liveGhPagesBefore": "129ae5cd91b134ed511a95953d155ff30a4c46ef",
+    "pushPolicy": "Cleanup commit uses [skip ci] to avoid triggering the existing automatic publication workflow."
+}
