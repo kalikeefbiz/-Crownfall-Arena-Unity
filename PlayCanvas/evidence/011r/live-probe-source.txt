@@ -1,0 +1,74 @@
+import { chromium, expect } from '/workspace/crownfall/PlayCanvas/node_modules/@playwright/test/index.mjs';
+import { readFile, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import assert from 'node:assert/strict';
+
+const url = 'https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/';
+const browser = await chromium.launch({
+    args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader']
+});
+try {
+    const page = await browser.newPage({ viewport: { width: 844, height: 390 }, hasTouch: true });
+    const errors = [];
+    const glbs = [];
+    const gameModules = [];
+    page.on('pageerror', (e) => errors.push(e.message));
+    page.on('request', (r) => {
+        if (/\.glb(?:\?|$)/.test(r.url())) glbs.push(r.url());
+        if (/\/game-[^/]+\.js/.test(r.url())) gameModules.push(r.url());
+    });
+    const response = await page.goto(url + '?goal011r=5227f2e');
+    assert.equal(response.status(), 200);
+    const liveIndex = await response.body();
+    assert.deepEqual(liveIndex, await readFile('/workspace/011r-published-index.html'));
+    await page.evaluate(() => document.fonts.ready);
+    await expect(page.getByRole('button', { name: /Enter Crownfall/ })).toBeVisible();
+    const menu = {
+        glbRequests: glbs.length,
+        gameModuleRequests: gameModules.length,
+        simulationPresent: await page.evaluate(() => '__crownfall' in window)
+    };
+    assert.deepEqual(menu, { glbRequests: 0, gameModuleRequests: 0, simulationPresent: false });
+    await page.screenshot({ path: '/workspace/011r-live-menu.png' });
+    const click = (name) => page.locator(`#frontend [data-action="${name}"]`).last().click();
+    await click('select');
+    await page.locator('[data-hero="2"]').click();
+    await expect(page.locator('.cf-hero.selected')).toContainText('Riven');
+    assert.equal(glbs.length, 0);
+    await click('enter');
+    await page.waitForFunction(
+        () => window.__crownfallFrontend.snapshot().page === 'gameplay',
+        {},
+        { timeout: 125000 }
+    );
+    const loaded = await page.evaluate(() => ({
+        front: window.__crownfallFrontend.snapshot(),
+        game: window.__crownfall.snapshot()
+    }));
+    assert.equal(loaded.front.selected, 'Riven');
+    assert.equal(loaded.game.combat.name, 'riven');
+    assert.equal(loaded.game.summonerModels.filter((m) => m.visible).length, 6);
+    await page.waitForFunction(() => window.__crownfall.snapshot().match.phase === 'active', {}, { timeout: 15000 });
+    await page.locator('#pause-game').click();
+    await expect(page.locator('#frontend')).toContainText('Paused');
+    await click('main');
+    await expect(page.getByRole('button', { name: /Enter Crownfall/ })).toBeVisible();
+    assert.deepEqual(errors, []);
+    const result = {
+        url,
+        testedSource: '5227f2e02302b21e316cdbdf03f54c8737b509ea',
+        indexSha256: createHash('sha256').update(liveIndex).digest('hex'),
+        menu,
+        selected: loaded.front.selected,
+        mountedModels: loaded.game.summonerModels.filter((m) => m.visible).length,
+        glbRequests: glbs.length,
+        measurements: loaded.front.measurements,
+        activeCountdownPassed: true,
+        pauseAndMenuPassed: true,
+        pageErrors: errors
+    };
+    await writeFile('/workspace/011r-live-publication.json', JSON.stringify(result, null, 2) + '\n');
+    console.log(JSON.stringify(result));
+} finally {
+    await browser.close();
+}

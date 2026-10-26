@@ -1,0 +1,280 @@
+{
+    "testedSource": "5227f2e02302b21e316cdbdf03f54c8737b509ea",
+    "artifact": 12628928296,
+    "artifactSha256": "07ff48adc0d13102f0a6957aa10ee02e14dd14feb1e7d73c727487e983807d6e",
+    "publishedCommit": "2711b05e3232af5ea7dfdb5b533a7767c9c2b545",
+    "verifiedFiles": [
+        {
+            "path": "playcanvas/assets/environment/polyhaven/SOURCES.md",
+            "sha256": "92996f46e7be4ca543babb076e69a61d00a30dd9eed335e582ebe20b266682d7",
+            "bytes": 2072
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/dirt_albedo_1k.webp",
+            "sha256": "7c5aa6105d4900f10b65244060defad7687031572ed051ea7eec59f4ba8b3fee",
+            "bytes": 256400
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/dirt_ar_1k.png",
+            "sha256": "a125f2d8ef5bbcc22f1a1cc1482a194ca966f6e1446f98672b7dd8e45e4dc275",
+            "bytes": 1182466
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/dirt_normal_1k.webp",
+            "sha256": "7f2273a11f7084bbb43cd39c733f643f503119605612cb15877aa6a361b2a087",
+            "bytes": 650728
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/dry_ground_rocks_albedo_1k.webp",
+            "sha256": "c2cf120f0bc9c7f2d63e0e0e4107b4c8a69692ee8811499982caa38ca0cd4ee0",
+            "bytes": 544052
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/dry_ground_rocks_ar_1k.png",
+            "sha256": "93f20db4a367e68420c90e61e31ee0ac736951db2f234384e951cef25b9855a2",
+            "bytes": 1815517
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/dry_ground_rocks_normal_1k.webp",
+            "sha256": "8b01e76723a50efb4b9c312bb634a1828b099a0d56cc15c211a524617f100ba6",
+            "bytes": 655838
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/forest_leaves_02_albedo_512.webp",
+            "sha256": "cb1863a580f07406a5ce83c680b8f3d5241069f59598023f959e11984f59e1b8",
+            "bytes": 143448
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/forest_leaves_02_ar_512.png",
+            "sha256": "f8394d4ac17b58169cc0d4cd13f2481c71947f65db6b7a9ab0193618fecc9669",
+            "bytes": 486937
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/forest_leaves_02_normal_512.webp",
+            "sha256": "7c7b301bf7404d3054fa734ff9b06d91875976b6dea9996446272e180cae957c",
+            "bytes": 190932
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/sparse_grass_albedo_512.webp",
+            "sha256": "49aefbd0567f12a787bd20e0531c7e5fa1902eefd7f561644e63a42eb46d0503",
+            "bytes": 95608
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/sparse_grass_ar_512.png",
+            "sha256": "447e71dfea510c8fb65e2679e9e24472321af1598039c078b186ebeaf7df423b",
+            "bytes": 434978
+        },
+        {
+            "path": "playcanvas/assets/environment/polyhaven/sparse_grass_normal_512.webp",
+            "sha256": "eadd1cb6666ce29f91f572cc21317c831fa976dfba8fbc59404ef4557989404f",
+            "bytes": 172584
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb",
+            "sha256": "3b0901cf17158cca50d24eecad0e4f08e5dbca94992699d23b1637243468ff0e",
+            "bytes": 7729688
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb",
+            "sha256": "9f51f945f3555b824ae7f61f82a5d0dfc90905f2bf1d87894398a78a125a0590",
+            "bytes": 5213436
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+            "sha256": "41dfef59d263dfdf3cbf9b247d2c74dcc0395894802816bb229d5afbcbcdddd1",
+            "bytes": 6099384
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb",
+            "sha256": "e53a2c229aacb5f5530bb04d55749e4c056c393e46a88b850f31988188dce350",
+            "bytes": 5795696
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/README.md",
+            "sha256": "1153e0b7cb56f9f020f50faf16b69e781df41d3c6252d7106b564e33257cc176",
+            "bytes": 889
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb",
+            "sha256": "dffee7231cdacdfcfb3725000808d15d9774c8692608bf98fb92f02b5c90a59b",
+            "bytes": 728492
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb",
+            "sha256": "15460eb525b15ea5723bd24f0b9c292fdd0427a62fcc58d39646e273fd59d9fe",
+            "bytes": 379620
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+            "sha256": "c93f512c21804d32db122848e26bd8477e0dea4c44c26784477904155f09003a",
+            "bytes": 599928
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb",
+            "sha256": "1adc5f2a2c3f22d80232b71445f05353ac1f6a378e512505ee7ea2553e032eb3",
+            "bytes": 451248
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/mobile/README.md",
+            "sha256": "7aeeb6811f77d97650a8ee580126c2c9f2febf3b648b150a60cd718a51a05fd6",
+            "bytes": 1181
+        },
+        {
+            "path": "playcanvas/assets/environment/trees/mobile/preparation.json",
+            "sha256": "60cd6196a2e3f5c37b736dc7af38e6ce2147736f8f83dc6242c11a22950477ed",
+            "bytes": 2928
+        },
+        {
+            "path": "playcanvas/assets/frontend-Ddx99pEg.js",
+            "sha256": "1853062057740c710b458d632955559d01a5db1727c072c164336cfbcc030f8d",
+            "bytes": 14417
+        },
+        {
+            "path": "playcanvas/assets/frontend/fonts/Cinzel-OFL.txt",
+            "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83",
+            "bytes": 4383
+        },
+        {
+            "path": "playcanvas/assets/frontend/fonts/Cinzel.woff",
+            "sha256": "1f7ac117deec8915bc7cc826165a459eb9992042df9984df4066d6229a22b00d",
+            "bytes": 59460
+        },
+        {
+            "path": "playcanvas/assets/frontend/fonts/Rajdhani-OFL.txt",
+            "sha256": "f62ef357d3a1c3d27edd35a6e1ba350e8a8d13499797964eeadefbf0b3b15d1f",
+            "bytes": 4373
+        },
+        {
+            "path": "playcanvas/assets/frontend/fonts/Rajdhani.woff",
+            "sha256": "bbde9d81eda957d1cf0c54740b1d3d4e5d961a4a027fcec2fa648a5b116e6e47",
+            "bytes": 151564
+        },
+        {
+            "path": "playcanvas/assets/frontend/portraits/kit.webp",
+            "sha256": "2527614c031ee311b34b668197e987b283a98c73b007ec3a8e4b3918fdc78439",
+            "bytes": 11618
+        },
+        {
+            "path": "playcanvas/assets/frontend/portraits/provenance.json",
+            "sha256": "d5c5def405d7bea61d066a60a5700d95c80d267062df08856d2320ffcd53ed49",
+            "bytes": 1342
+        },
+        {
+            "path": "playcanvas/assets/frontend/portraits/riven.webp",
+            "sha256": "96d00448e20db3348ce59509638417633a4e6d10a4e591249849e34df17245dd",
+            "bytes": 8684
+        },
+        {
+            "path": "playcanvas/assets/frontend/portraits/set.webp",
+            "sha256": "ac57d49b4cb07d187bd0bb50c06cb010aaa3ca2b2eb734aa7f6f82ff389f7d0d",
+            "bytes": 12734
+        },
+        {
+            "path": "playcanvas/assets/frontend/ucl-arena-menu.jpeg",
+            "sha256": "d785263520bd9ecef5b0c680550e322c8eb39a0d18ea15d055b77d316a697259",
+            "bytes": 721906
+        },
+        {
+            "path": "playcanvas/assets/game-DwHibMSk.js",
+            "sha256": "7cd825d7d599bbbf280435028784b6b3df4af2f8cefd0220533553434d1abbd4",
+            "bytes": 1319140
+        },
+        {
+            "path": "playcanvas/assets/index-Bet49Jyd.js",
+            "sha256": "6582e08080e1d5aa5fe7214e3261da082d095e106b4d66a0851a174e0c971802",
+            "bytes": 1327
+        },
+        {
+            "path": "playcanvas/assets/index-BgPqw8kw.css",
+            "sha256": "ca83f3715ed612bdf69431e67dbdf8cb6455bb7697f6ca71fa71097c1a08065d",
+            "bytes": 21920
+        },
+        {
+            "path": "playcanvas/assets/preload-helper-CRzLMJPS.js",
+            "sha256": "bcc465e3e61dc3878a69ffa95ccb53cb82d95b1639ada223420b281ebd150048",
+            "bytes": 1534
+        },
+        {
+            "path": "playcanvas/assets/summoners/kit/Kit_20K_Animated.glb",
+            "sha256": "b111e1f774b0483b78f45e43413515adb02e501941c5c99a995d09a43f96212f",
+            "bytes": 26939896
+        },
+        {
+            "path": "playcanvas/assets/summoners/kit/README.md",
+            "sha256": "4f7fc89e2dbb87d125d00b9a787f10ad46258b2537b951ebf7e7de185cc0d02d",
+            "bytes": 1943
+        },
+        {
+            "path": "playcanvas/assets/summoners/kit/kit-10k-test.glb",
+            "sha256": "11f0b6ad226eae565ddaa7e9104ca1aae2a85ecc954203a70fdce23b0adfb547",
+            "bytes": 5317848
+        },
+        {
+            "path": "playcanvas/assets/summoners/riven/README.md",
+            "sha256": "4a41c394d0abd5bfed38442e540e304ccead821e82e3f1535b8a53a5078289bc",
+            "bytes": 1899
+        },
+        {
+            "path": "playcanvas/assets/summoners/riven/Riven_Animated.glb",
+            "sha256": "ba2cb5d72eb2bcfe272c59a50b06a594100a5ac3ceac8f6af457c243c6a5de61",
+            "bytes": 11170312
+        },
+        {
+            "path": "playcanvas/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+            "sha256": "20bad659e39bc916b7f34fca587e55beed25eeae9d3e77d856879efd173636c8",
+            "bytes": 23080916
+        },
+        {
+            "path": "playcanvas/assets/summoners/riven/weapons/README.md",
+            "sha256": "8121fc8be3fd4b72f27ddbb48be117fc96061a9dc9c01070f52e0dbe9d78a140",
+            "bytes": 1754
+        },
+        {
+            "path": "playcanvas/assets/summoners/set/README.md",
+            "sha256": "d1955dbd707d450984770008e5af2d209f026f4c1f76465ecc5aa48a7e0bb6e3",
+            "bytes": 1223
+        },
+        {
+            "path": "playcanvas/assets/summoners/set/Set_Animated.glb",
+            "sha256": "dbee0fd906f786f4af04eb87f130a816c0f98aa04531874487b403f7ca23e154",
+            "bytes": 10000416
+        },
+        {
+            "path": "playcanvas/index.html",
+            "sha256": "7037923837a04b6ab100b694ff9c8b8951e1382ab3934cd448dd13d580913c28",
+            "bytes": 653
+        }
+    ],
+    "liveHttpVerifiedFiles": [
+        {
+            "path": "playcanvas/assets/frontend-Ddx99pEg.js",
+            "sha256": "1853062057740c710b458d632955559d01a5db1727c072c164336cfbcc030f8d",
+            "bytes": 14417
+        },
+        {
+            "path": "playcanvas/assets/game-DwHibMSk.js",
+            "sha256": "7cd825d7d599bbbf280435028784b6b3df4af2f8cefd0220533553434d1abbd4",
+            "bytes": 1319140
+        },
+        {
+            "path": "playcanvas/assets/index-Bet49Jyd.js",
+            "sha256": "6582e08080e1d5aa5fe7214e3261da082d095e106b4d66a0851a174e0c971802",
+            "bytes": 1327
+        },
+        {
+            "path": "playcanvas/assets/index-BgPqw8kw.css",
+            "sha256": "ca83f3715ed612bdf69431e67dbdf8cb6455bb7697f6ca71fa71097c1a08065d",
+            "bytes": 21920
+        },
+        {
+            "path": "playcanvas/assets/preload-helper-CRzLMJPS.js",
+            "sha256": "bcc465e3e61dc3878a69ffa95ccb53cb82d95b1639ada223420b281ebd150048",
+            "bytes": 1534
+        },
+        {
+            "path": "playcanvas/index.html",
+            "sha256": "7037923837a04b6ab100b694ff9c8b8951e1382ab3934cd448dd13d580913c28",
+            "bytes": 653
+        }
+    ]
+}

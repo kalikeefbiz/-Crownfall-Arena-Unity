@@ -66,10 +66,54 @@ case verifies that queued network/decode work is tracked and failure releases it
   including the unchanged full GPU allocation equality assertion. The eight public
   front-end cases cover all three menu sizes, real readiness/retry, results/replay,
   practice, saved touch positions after rotation and the preparation deadline.
-- The complete release gate is executed once on the committed correction. Its
-  result and publication disposition will be recorded below; local partial success
-  is not release approval.
+- The complete release gate ran **once** on the committed correction. Its final
+  result and publication disposition are recorded below.
 
 [Evidence directory](evidence/011r): baseline/group/isolated logs, CI trace analysis,
 controlled renderer/capture probes, unit and affected-case logs. These are desktop
 software-renderer observations, not physical iPhone performance results.
+
+## Final release gate and publication
+
+Tested source: `5227f2e02302b21e316cdbdf03f54c8737b509ea`.
+[Release run 40269368420](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40269368420)
+completed successfully:
+
+- **239/239 unit tests** across 26 files.
+- Typecheck, ESLint, Prettier, production build: passed.
+- **127/127 browser tests passed in 33.0 minutes**, one worker, zero retries,
+  unchanged assertions, timeouts, tracing and full resource/GPU validation.
+- All seven original CI failures passed in that complete run, including the three
+  landscape capture cases and the original model/fallback/countdown checks.
+- The eight public front-end cases and six lifecycle cases also passed.
+
+The existing workflow published the same validated artifact `12628928296`, without
+rebuilding it. The artifact ZIP SHA256 is
+`07ff48adc0d13102f0a6957aa10ee02e14dd14feb1e7d73c727487e983807d6e`.
+The publication job's source/provenance/staleness checks all passed.
+Published `gh-pages` commit: `2711b05e3232af5ea7dfdb5b533a7767c9c2b545`.
+[Pages deployment 40272370689](https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40272370689)
+also completed successfully.
+
+All **48 production files** in that published commit were independently hashed
+against the validated artifact's `dist.sha256`. The live HTTP entry, JavaScript
+and CSS were also checked against the same manifest. See
+[publication-manifest.json](evidence/011r/publication-manifest.json).
+
+[Live Crownfall](https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/)
+opened at 844×390 with the official menu, zero GLB requests, zero game-module
+requests and no simulation. Selection showed Riven without a GLB download;
+confirmed entry reached real readiness with Riven's combat identity and all six
+models visible. [Live menu capture](evidence/011r/live-menu.png).
+
+An additional local live probe then exceeded a **15-second** countdown wait under
+SwiftShader. That was a new probe using the legacy inspection limit; the existing
+public-flow release test uses 30 seconds and passed unchanged. The probe stopped
+there, so it supplies no live pause/return claim. Its failure is retained in
+[live-probe.txt](evidence/011r/live-probe.txt) and
+[live-publication.json](evidence/011r/live-publication.json), alongside the probe
+source. No timeout was increased and no further runtime correction or release
+rerun was made. This observation does not establish a physical-device failure.
+
+**Remaining CI or publication blockers: none.** The exact tested build is live.
+Goal 011's release gate is closed; no additional maintenance work was started.

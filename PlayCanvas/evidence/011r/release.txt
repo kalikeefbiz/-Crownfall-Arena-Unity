@@ -1,0 +1,823 @@
+Validate production build	Set up job	﻿2026-10-26T04:29:56.1844916Z Current runner version: '2.338.0'
+Validate production build	Set up job	2026-10-26T04:29:56.1870530Z ##[group]Runner Image Provisioner
+Validate production build	Set up job	2026-10-26T04:29:56.1871548Z Hosted Compute Agent
+Validate production build	Set up job	2026-10-26T04:29:56.1872169Z Version: 20261021.618
+Validate production build	Set up job	2026-10-26T04:29:56.1872845Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+Validate production build	Set up job	2026-10-26T04:29:56.1873562Z Build Date: 2026-10-21T00:45:21Z
+Validate production build	Set up job	2026-10-26T04:29:56.1874230Z Worker ID: {317f0482-8a70-4c3e-920e-a79dba55b14d}
+Validate production build	Set up job	2026-10-26T04:29:56.1875383Z Region: westus2
+Validate production build	Set up job	2026-10-26T04:29:56.1875995Z Cloud: Azure
+Validate production build	Set up job	2026-10-26T04:29:56.1876553Z ##[endgroup]
+Validate production build	Set up job	2026-10-26T04:29:56.1878035Z ##[group]Operating System
+Validate production build	Set up job	2026-10-26T04:29:56.1878673Z Ubuntu
+Validate production build	Set up job	2026-10-26T04:29:56.1879299Z 24.04.5
+Validate production build	Set up job	2026-10-26T04:29:56.1879835Z LTS
+Validate production build	Set up job	2026-10-26T04:29:56.1880372Z ##[endgroup]
+Validate production build	Set up job	2026-10-26T04:29:56.1880936Z ##[group]Runner Image
+Validate production build	Set up job	2026-10-26T04:29:56.1881518Z Image: ubuntu-24.04
+Validate production build	Set up job	2026-10-26T04:29:56.1882117Z Version: 20261012.334.1
+Validate production build	Set up job	2026-10-26T04:29:56.1883195Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+Validate production build	Set up job	2026-10-26T04:29:56.1885167Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+Validate production build	Set up job	2026-10-26T04:29:56.1886124Z ##[endgroup]
+Validate production build	Set up job	2026-10-26T04:29:56.1887290Z ##[group]GITHUB_TOKEN Permissions
+Validate production build	Set up job	2026-10-26T04:29:56.1889136Z Contents: read
+Validate production build	Set up job	2026-10-26T04:29:56.1889860Z Metadata: read
+Validate production build	Set up job	2026-10-26T04:29:56.1890412Z ##[endgroup]
+Validate production build	Set up job	2026-10-26T04:29:56.1892795Z Secret source: Actions
+Validate production build	Set up job	2026-10-26T04:29:56.1893902Z Cache mode: write
+Validate production build	Set up job	2026-10-26T04:29:56.1895014Z Prepare workflow directory
+Validate production build	Set up job	2026-10-26T04:29:56.2309085Z Prepare all required actions
+Validate production build	Set up job	2026-10-26T04:29:56.2356806Z Getting action download info
+Validate production build	Set up job	2026-10-26T04:29:56.5785597Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+Validate production build	Set up job	2026-10-26T04:29:56.6798653Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+Validate production build	Set up job	2026-10-26T04:29:56.7670072Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+Validate production build	Set up job	2026-10-26T04:29:56.9868051Z Complete job name: Validate production build
+Validate production build	Checkout immutable event revision	﻿2026-10-26T04:29:57.0772817Z ##[group]Run actions/checkout@v4
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0773711Z with:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0774178Z   ref: 5227f2e02302b21e316cdbdf03f54c8737b509ea
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0774990Z   persist-credentials: false
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0775550Z   repository: kalikeefbiz/-Crownfall-Arena-Unity
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0779650Z   token: ***
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0780073Z   ssh-strict: true
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0780501Z   ssh-user: git
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0780925Z   clean: true
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0781350Z   sparse-checkout-cone-mode: true
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0781869Z   fetch-depth: 1
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0782284Z   fetch-tags: false
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0782715Z   show-progress: true
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0783143Z   lfs: false
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0783541Z   submodules: false
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0783976Z   set-safe-directory: true
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0784662Z   allow-unsafe-pr-checkout: false
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.0785520Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1822660Z Syncing repository: kalikeefbiz/-Crownfall-Arena-Unity
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1825901Z ##[group]Getting Git version info
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1827535Z Working directory is '/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity'
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1829490Z [command]/usr/bin/git version
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1923702Z git version 2.55.0
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1956299Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1970718Z Temporarily overriding HOME='/home/runner/work/_temp/21f246e3-3578-40de-a5dc-590b8387f0f4' before making global git config changes
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1973174Z Adding repository directory to the temporary git global config as a safe directory
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.1977740Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2039373Z Deleting the contents of '/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity'
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2045867Z ##[group]Initializing the repository
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2051344Z [command]/usr/bin/git init /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2216015Z hint: Using 'master' as the name for the initial branch. This default branch name
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2225614Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2230374Z hint: to use in all of your new repositories, which will suppress this warning,
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2232110Z hint: call:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2232908Z hint:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2234134Z hint: 	git config --global init.defaultBranch <name>
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2236007Z hint:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2237416Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2239294Z hint: 'development'. The just-created branch can be renamed via this command:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2240512Z hint:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2241347Z hint: 	git branch -m <name>
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2242343Z hint:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2243394Z hint: Disable this message with "git config set advice.defaultBranchName false"
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2245632Z Initialized empty Git repository in /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/.git/
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2249179Z [command]/usr/bin/git remote add origin https://github.com/kalikeefbiz/-Crownfall-Arena-Unity
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2283392Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2285478Z ##[group]Disabling automatic garbage collection
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2296799Z [command]/usr/bin/git config --local gc.auto 0
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2360023Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2361491Z ##[group]Setting up auth
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2373907Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2427873Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2860161Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.2905940Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.3158963Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.3198213Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.3425800Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.3469263Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.3470134Z ##[group]Fetching the repository
+Validate production build	Checkout immutable event revision	2026-10-26T04:29:57.3479301Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 5227f2e02302b21e316cdbdf03f54c8737b509ea
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5689868Z From https://github.com/kalikeefbiz/-Crownfall-Arena-Unity
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5692759Z  * branch            5227f2e02302b21e316cdbdf03f54c8737b509ea -> FETCH_HEAD
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5781950Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5784293Z ##[group]Determining the checkout info
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5786651Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5787947Z [command]/usr/bin/git sparse-checkout disable
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5791538Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5812049Z ##[group]Checking out the ref
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:11.5817495Z [command]/usr/bin/git checkout --progress --force 5227f2e02302b21e316cdbdf03f54c8737b509ea
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1796597Z Note: switching to '5227f2e02302b21e316cdbdf03f54c8737b509ea'.
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1797460Z 
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1797872Z You are in 'detached HEAD' state. You can look around, make experimental
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1798868Z changes and commit them, and you can discard any commits you make in this
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1799839Z state without impacting any branches by switching back to a branch.
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1800741Z 
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1801192Z If you want to create a new branch to retain commits you create, you may
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1802091Z do so (now or later) by using -c with the switch command. Example:
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1802596Z 
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1802827Z   git switch -c <new-branch-name>
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1803083Z 
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1803230Z Or undo this operation with:
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1803428Z 
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1803548Z   git switch -
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1803746Z 
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1804080Z Turn off this advice by setting config variable advice.detachedHead to false
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1804744Z 
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1805072Z HEAD is now at 5227f2e Yield idle inspection rendering during staged resource work
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1866745Z ##[endgroup]
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.1986405Z [command]/usr/bin/git log -1 --format=%H
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2018817Z 5227f2e02302b21e316cdbdf03f54c8737b509ea
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2030926Z ##[group]Removing auth
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2035265Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2078502Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2357775Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2572189Z http.https://github.com/.extraheader
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2595794Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2625576Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2875206Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.2909952Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Validate production build	Checkout immutable event revision	2026-10-26T04:30:12.3145688Z ##[endgroup]
+Validate production build	Setup Node	﻿2026-10-26T04:30:12.3586676Z ##[group]Run actions/setup-node@v4
+Validate production build	Setup Node	2026-10-26T04:30:12.3587305Z with:
+Validate production build	Setup Node	2026-10-26T04:30:12.3587709Z   node-version: 24
+Validate production build	Setup Node	2026-10-26T04:30:12.3588139Z   cache: npm
+Validate production build	Setup Node	2026-10-26T04:30:12.3588662Z   cache-dependency-path: PlayCanvas/package-lock.json
+Validate production build	Setup Node	2026-10-26T04:30:12.3589302Z   always-auth: false
+Validate production build	Setup Node	2026-10-26T04:30:12.3589746Z   check-latest: false
+Validate production build	Setup Node	2026-10-26T04:30:12.3592837Z   token: ***
+Validate production build	Setup Node	2026-10-26T04:30:12.3593106Z ##[endgroup]
+Validate production build	Setup Node	2026-10-26T04:30:12.7218262Z Found in cache @ /opt/hostedtoolcache/node/24.21.0/x64
+Validate production build	Setup Node	2026-10-26T04:30:12.7224107Z (node:2583) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Validate production build	Setup Node	2026-10-26T04:30:12.7225544Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Validate production build	Setup Node	2026-10-26T04:30:12.7231354Z ##[group]Environment details
+Validate production build	Setup Node	2026-10-26T04:30:13.7567495Z node: v24.21.0
+Validate production build	Setup Node	2026-10-26T04:30:13.7568067Z npm: 11.19.0
+Validate production build	Setup Node	2026-10-26T04:30:13.7568491Z yarn: 1.22.22
+Validate production build	Setup Node	2026-10-26T04:30:13.7570209Z ##[endgroup]
+Validate production build	Setup Node	2026-10-26T04:30:13.7617332Z [command]/opt/hostedtoolcache/node/24.21.0/x64/bin/npm config get cache
+Validate production build	Setup Node	2026-10-26T04:30:13.9551664Z /home/runner/.npm
+Validate production build	Setup Node	2026-10-26T04:30:14.2227922Z Cache hit for: node-cache-Linux-x64-npm-ec2be6c2cda2971feffdd10b391efb0c6cee39d582eabcd45fcf5108cb07fa9a
+Validate production build	Setup Node	2026-10-26T04:30:14.2328727Z (node:2583) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Validate production build	Setup Node	2026-10-26T04:30:15.5204297Z Received 0 of 72030184 (0.0%), 0.0 MBs/sec
+Validate production build	Setup Node	2026-10-26T04:30:16.2436968Z Received 72030184 of 72030184 (100.0%), 39.9 MBs/sec
+Validate production build	Setup Node	2026-10-26T04:30:16.2438053Z Cache Size: ~69 MB (72030184 B)
+Validate production build	Setup Node	2026-10-26T04:30:16.2573706Z [command]/usr/bin/tar -xf /home/runner/work/_temp/6c400ad4-56d5-42dc-94a4-327f8bea66ed/cache.tzst -P -C /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity --use-compress-program unzstd
+Validate production build	Setup Node	2026-10-26T04:30:16.4205831Z Cache restored successfully
+Validate production build	Setup Node	2026-10-26T04:30:16.4247656Z Cache restored from key: node-cache-Linux-x64-npm-ec2be6c2cda2971feffdd10b391efb0c6cee39d582eabcd45fcf5108cb07fa9a
+Validate production build	Clean dependency installation	﻿2026-10-26T04:30:16.4410032Z ##[group]Run npm ci
+Validate production build	Clean dependency installation	2026-10-26T04:30:16.4410343Z [36;1mnpm ci[0m
+Validate production build	Clean dependency installation	2026-10-26T04:30:16.4760315Z shell: /usr/bin/bash -e {0}
+Validate production build	Clean dependency installation	2026-10-26T04:30:16.4760697Z ##[endgroup]
+Validate production build	Clean dependency installation	2026-10-26T04:30:22.3202298Z npm warn deprecated eslint@9.39.5: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8859926Z 
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8861031Z added 400 packages, and audited 401 packages in 10s
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8870714Z 
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8871738Z 168 packages are looking for funding
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8872341Z   run `npm fund` for details
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8926987Z 
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8927663Z 2 moderate severity vulnerabilities
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8928375Z 
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8928888Z To address all issues, run:
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8929580Z   npm audit fix
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8929974Z 
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8930348Z Run `npm audit` for details.
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8943151Z npm warn install-scripts 1 package has install scripts not yet covered by allowScripts:
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8944848Z npm warn install-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8945889Z npm warn install-scripts
+Validate production build	Clean dependency installation	2026-10-26T04:30:26.8947189Z npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+Validate production build	Unit tests	﻿2026-10-26T04:30:26.9764095Z ##[group]Run npm test
+Validate production build	Unit tests	2026-10-26T04:30:26.9764398Z [36;1mnpm test[0m
+Validate production build	Unit tests	2026-10-26T04:30:26.9837090Z shell: /usr/bin/bash -e {0}
+Validate production build	Unit tests	2026-10-26T04:30:26.9837383Z ##[endgroup]
+Validate production build	Unit tests	2026-10-26T04:30:27.1017509Z 
+Validate production build	Unit tests	2026-10-26T04:30:27.1018166Z > crownfall-playcanvas@0.0.0 test
+Validate production build	Unit tests	2026-10-26T04:30:27.1018775Z > vitest run
+Validate production build	Unit tests	2026-10-26T04:30:27.1018986Z 
+Validate production build	Unit tests	2026-10-26T04:30:27.4300998Z 
+Validate production build	Unit tests	2026-10-26T04:30:27.4305525Z [1m[30m[46m RUN [49m[39m[22m [36mv4.1.11 [39m[90m/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas[39m
+Validate production build	Unit tests	2026-10-26T04:30:27.4306448Z 
+Validate production build	Unit tests	2026-10-26T04:30:28.2407791Z  [32m✓[39m tests/human-aim.test.js [2m([22m[2m18 tests[22m[2m)[22m[33m 425[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:28.2450621Z    [33m[2m✓[22m[39m bot commands, accuracy and decisions identical with assistance enabled/disabled for idle human [33m 328[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:30.4358927Z  [32m✓[39m tests/wilderness.test.js [2m([22m[2m20 tests[22m[2m)[22m[33m 2631[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:30.4422312Z    [33m[2m✓[22m[39m camp last-hit once per death, independent respawns, home/full reset and clean rematch [33m 554[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:30.4466337Z    [33m[2m✓[22m[39m major is materially riskier solo than two existing Summoners using ordinary casts [33m 373[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:30.4506219Z    [33m[2m✓[22m[39m all seven authored camp homes are physically reachable from ordinary spawn through map routing [33m 718[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:30.7586509Z  [32m✓[39m tests/riven.test.js [2m([22m[2m16 tests[22m[2m)[22m[32m 89[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:31.0209749Z  [32m✓[39m tests/ability-input.test.js [2m([22m[2m10 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:33.1486474Z  [32m✓[39m tests/crownfall.test.js [2m([22m[2m25 tests[22m[2m)[22m[33m 5341[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:33.1536703Z    [33m[2m✓[22m[39m canonical natural match 0 reaches Crownfall result with five ordinary command bots [33m 2129[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:33.1538618Z    [33m[2m✓[22m[39m canonical natural match 1 reaches Crownfall result with five ordinary command bots [33m 1225[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:33.1540455Z    [33m[2m✓[22m[39m canonical natural match 2 reaches Crownfall result with five ordinary command bots [33m 1882[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:34.2426531Z  [32m✓[39m tests/match.test.js [2m([22m[2m13 tests[22m[2m)[22m[33m 2981[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:34.2437044Z    [33m[2m✓[22m[39m last ticket remains funded; personal final reserved once; next death eliminates [33m 440[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:34.2444204Z    [33m[2m✓[22m[39m reserved respawns remain viable; victory waits for all three permanently eliminated [33m 424[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:34.2457511Z    [33m[2m✓[22m[39m simultaneous terminal non-viability is a draw through real deaths [33m 1018[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:34.2466155Z    [33m[2m✓[22m[39m dead and eliminated cannot move/cast; Riven death clears blades and respawn resets stance [33m 535[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:34.2479545Z    [33m[2m✓[22m[39m result freezes ticks, casts, damage, respawns and records; fresh rematch clears all state [33m 343[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:34.4558614Z  [32m✓[39m tests/combat.test.js [2m([22m[2m15 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:35.3385016Z  [32m✓[39m tests/riven-model.test.ts [2m([22m[2m8 tests[22m[2m)[22m[33m 1165[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:35.3386955Z      [33m[2m✓[22m[39m grounds exact idle soles and preserves the running airborne phase with a fixed offset [33m 696[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:35.6098618Z  [32m✓[39m tests/foundation.test.js [2m([22m[2m12 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:35.8056690Z  [32m✓[39m tests/set.test.js [2m([22m[2m12 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:35.9213664Z  [32m✓[39m tests/summoner-assets.test.ts [2m([22m[2m7 tests[22m[2m)[22m[33m 432[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:38.1046442Z  [32m✓[39m tests/lane-geometry.test.ts [2m([22m[2m4 tests[22m[2m)[22m[33m 1070[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:38.1048349Z      [33m[2m✓[22m[39m provides grounded footing across both Wilderness access routes, camps and spawns [33m 611[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:38.1050505Z      [33m[2m✓[22m[39m provides a finite tangent basis on the floor, feather and vertical embankments [33m 386[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:38.3785642Z  [32m✓[39m tests/logic.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:39.0376536Z  [32m✓[39m tests/runtime-contracts.test.ts [2m([22m[2m16 tests[22m[2m)[22m[33m 10510[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:39.0378625Z    [33m[2m✓[22m[39m default commands, every authoritative tick, transactions and complete results match the pre-change baseline [33m 10466[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:39.3018224Z  [32m✓[39m tests/touch-commands.test.js [2m([22m[2m10 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:39.5399561Z  [32m✓[39m tests/combat-journal.test.js [2m([22m[2m5 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:41.3746084Z  [32m✓[39m tests/set-model.test.ts [2m([22m[2m3 tests[22m[2m)[22m[33m 733[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:41.3766650Z    [33m[2m✓[22m[39m Set sampled mesh grounding and normalization [33m 539[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:41.6279859Z  [32m✓[39m tests/playable-match.test.js [2m([22m[2m6 tests[22m[2m)[22m[33m 3015[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:41.6283435Z    [33m[2m✓[22m[39m natural 3v3 battle 0: all five bots fight, tickets/finals/elimination/results freeze and restart [33m 915[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:41.6286306Z    [33m[2m✓[22m[39m natural 3v3 battle 1: all five bots fight, tickets/finals/elimination/results freeze and restart [33m 821[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:41.6307230Z    [33m[2m✓[22m[39m natural 3v3 battle 2: all five bots fight, tickets/finals/elimination/results freeze and restart [33m 511[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:41.6309520Z    [33m[2m✓[22m[39m five bots complete a match even when the human remains idle [33m 597[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:42.4557761Z [90mstderr[2m | tests/presenter-locomotion.test.ts[2m > [22m[2mSet locomotion survives renders without ticks and respects authoritative stops
+Validate production build	Unit tests	2026-10-26T04:30:42.4560011Z [22m[39mASSERT FAILED:  Could not find current application
+Validate production build	Unit tests	2026-10-26T04:30:42.4560539Z 
+Validate production build	Unit tests	2026-10-26T04:30:42.4586861Z [90mstderr[2m | tests/presenter-locomotion.test.ts[2m > [22m[2mRiven locomotion survives renders without ticks and respects authoritative stops
+Validate production build	Unit tests	2026-10-26T04:30:42.4588544Z [22m[39mASSERT FAILED:  Could not find current application
+Validate production build	Unit tests	2026-10-26T04:30:42.4589425Z 
+Validate production build	Unit tests	2026-10-26T04:30:42.4622755Z  [32m✓[39m tests/presenter-locomotion.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:42.4687128Z  [32m✓[39m tests/kit-animation.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:43.3131313Z  [32m✓[39m tests/kit-model.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:43.5556658Z  [32m✓[39m tests/control-layout.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 50[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:43.5719140Z  [32m✓[39m tests/riven-weapons.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 44[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:43.7687210Z  [32m✓[39m tests/ability-preview.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:43.8288814Z  [32m✓[39m tests/wilderness-environment.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 54[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0179013Z  [32m✓[39m tests/full-loop.test.js [2m([22m[2m5 tests[22m[2m)[22m[33m 14027[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0180256Z    [33m[2m✓[22m[39m ordinary complete integrated matches across all three selected Summoners [33m 9031[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0181245Z    [33m[2m✓[22m[39m complete coordinated full-health major opening 1 [33m 1954[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0183277Z    [33m[2m✓[22m[39m complete coordinated full-health major opening 2 [33m 1765[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0185354Z    [33m[2m✓[22m[39m complete neutral regulation match is a draw with clean camps and all six participants [33m 994[2mms[22m[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0204701Z 
+Validate production build	Unit tests	2026-10-26T04:30:50.0210087Z [2m Test Files [22m [1m[32m26 passed[39m[22m[90m (26)[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0211756Z [2m      Tests [22m [1m[32m239 passed[39m[22m[90m (239)[39m
+Validate production build	Unit tests	2026-10-26T04:30:50.0212816Z [2m   Start at [22m 04:30:27
+Validate production build	Unit tests	2026-10-26T04:30:50.0225235Z [2m   Duration [22m 22.58s[2m (transform 732ms, setup 0ms, import 7.87s, tests 42.87s, environment 4ms)[22m
+Validate production build	Unit tests	2026-10-26T04:30:50.0226248Z 
+Validate production build	Typecheck	﻿2026-10-26T04:30:50.0572102Z ##[group]Run npm run typecheck
+Validate production build	Typecheck	2026-10-26T04:30:50.0572433Z [36;1mnpm run typecheck[0m
+Validate production build	Typecheck	2026-10-26T04:30:50.0645093Z shell: /usr/bin/bash -e {0}
+Validate production build	Typecheck	2026-10-26T04:30:50.0645409Z ##[endgroup]
+Validate production build	Typecheck	2026-10-26T04:30:50.1826175Z 
+Validate production build	Typecheck	2026-10-26T04:30:50.1827074Z > crownfall-playcanvas@0.0.0 typecheck
+Validate production build	Typecheck	2026-10-26T04:30:50.1827956Z > tsc --noEmit
+Validate production build	Typecheck	2026-10-26T04:30:50.1828373Z 
+Validate production build	ESLint	﻿2026-10-26T04:30:54.0717556Z ##[group]Run npm run lint
+Validate production build	ESLint	2026-10-26T04:30:54.0717866Z [36;1mnpm run lint[0m
+Validate production build	ESLint	2026-10-26T04:30:54.0781160Z shell: /usr/bin/bash -e {0}
+Validate production build	ESLint	2026-10-26T04:30:54.0781446Z ##[endgroup]
+Validate production build	ESLint	2026-10-26T04:30:54.1793322Z 
+Validate production build	ESLint	2026-10-26T04:30:54.1793739Z > crownfall-playcanvas@0.0.0 lint
+Validate production build	ESLint	2026-10-26T04:30:54.1794272Z > eslint .
+Validate production build	ESLint	2026-10-26T04:30:54.1794733Z 
+Validate production build	Prettier validation	﻿2026-10-26T04:30:57.7197883Z ##[group]Run npm run fmt
+Validate production build	Prettier validation	2026-10-26T04:30:57.7198202Z [36;1mnpm run fmt[0m
+Validate production build	Prettier validation	2026-10-26T04:30:57.7261752Z shell: /usr/bin/bash -e {0}
+Validate production build	Prettier validation	2026-10-26T04:30:57.7262051Z ##[endgroup]
+Validate production build	Prettier validation	2026-10-26T04:30:57.8298707Z 
+Validate production build	Prettier validation	2026-10-26T04:30:57.8299563Z > crownfall-playcanvas@0.0.0 fmt
+Validate production build	Prettier validation	2026-10-26T04:30:57.8300572Z > prettier --check .
+Validate production build	Prettier validation	2026-10-26T04:30:57.8301012Z 
+Validate production build	Prettier validation	2026-10-26T04:30:57.9205433Z Checking formatting...
+Validate production build	Prettier validation	2026-10-26T04:31:05.8570606Z All matched files use Prettier code style!
+Validate production build	Production build	﻿2026-10-26T04:31:05.9093090Z ##[group]Run npm run build
+Validate production build	Production build	2026-10-26T04:31:05.9093469Z [36;1mnpm run build[0m
+Validate production build	Production build	2026-10-26T04:31:05.9156997Z shell: /usr/bin/bash -e {0}
+Validate production build	Production build	2026-10-26T04:31:05.9157293Z ##[endgroup]
+Validate production build	Production build	2026-10-26T04:31:06.0188436Z 
+Validate production build	Production build	2026-10-26T04:31:06.0189393Z > crownfall-playcanvas@0.0.0 build
+Validate production build	Production build	2026-10-26T04:31:06.0189843Z > vite build
+Validate production build	Production build	2026-10-26T04:31:06.0190012Z 
+Validate production build	Production build	2026-10-26T04:31:06.2296450Z [36mvite v8.3.4 [32mbuilding client environment for production...[36m[39m
+Validate production build	Production build	2026-10-26T04:31:06.2400977Z transforming...
+Validate production build	Production build	2026-10-26T04:31:06.4441867Z ✓ 1303 modules transformed.
+Validate production build	Production build	2026-10-26T04:31:06.5327240Z rendering chunks...
+Validate production build	Production build	2026-10-26T04:31:06.6757415Z computing gzip size...
+Validate production build	Production build	2026-10-26T04:31:06.6954187Z dist/index.html                             0.65 kB │ gzip:   0.36 kB
+Validate production build	Production build	2026-10-26T04:31:06.6955724Z dist/assets/index-BgPqw8kw.css             21.92 kB │ gzip:   5.57 kB
+Validate production build	Production build	2026-10-26T04:31:06.6956667Z dist/assets/index-Bet49Jyd.js               1.32 kB │ gzip:   0.66 kB
+Validate production build	Production build	2026-10-26T04:31:06.6957950Z dist/assets/preload-helper-CRzLMJPS.js      1.53 kB │ gzip:   0.80 kB
+Validate production build	Production build	2026-10-26T04:31:06.6959238Z dist/assets/frontend-Ddx99pEg.js           14.41 kB │ gzip:   5.94 kB
+Validate production build	Production build	2026-10-26T04:31:06.6960163Z dist/assets/game-DwHibMSk.js            1,319.14 kB │ gzip: 356.86 kB
+Validate production build	Production build	2026-10-26T04:31:06.6960621Z 
+Validate production build	Production build	2026-10-26T04:31:06.6960859Z [32m✓ built in 465ms[39m
+Validate production build	Production build	2026-10-26T04:31:06.6963932Z [33m[plugin builtin:vite-reporter] 
+Validate production build	Production build	2026-10-26T04:31:06.6964884Z (!) Some chunks are larger than 500 kB after minification. Consider:
+Validate production build	Production build	2026-10-26T04:31:06.6965689Z - Using dynamic import() to code-split the application
+Validate production build	Production build	2026-10-26T04:31:06.6967061Z - Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+Validate production build	Production build	2026-10-26T04:31:06.6968701Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.[39m
+Validate production build	Install supported Chromium and system dependencies	﻿2026-10-26T04:31:06.7279920Z ##[group]Run npx playwright install --with-deps chromium
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:06.7280464Z [36;1mnpx playwright install --with-deps chromium[0m
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:06.7342825Z shell: /usr/bin/bash -e {0}
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:06.7343104Z ##[endgroup]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.5417539Z Installing dependencies...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.5502873Z Switching to root user to install dependencies...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.6457394Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.6823725Z Hit:2 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.6825521Z Get:6 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease [3600 B]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.6835405Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.6898218Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.6938383Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease [126 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8090710Z Get:7 https://packages.microsoft.com/ubuntu/24.04/prod noble/main armhf Packages [12.4 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8190238Z Get:8 https://packages.microsoft.com/ubuntu/24.04/prod noble/main amd64 Packages [661 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8315906Z Get:9 https://packages.microsoft.com/ubuntu/24.04/prod noble/main arm64 Packages [598 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8595821Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1400 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8696512Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main Translation-en [310 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8735818Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1706 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8813181Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe Translation-en [342 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8842147Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Packages [1805 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.8943744Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble-updates/restricted Translation-en [411 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.9726298Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble-security/main amd64 Packages [1146 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.9792759Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-security/main Translation-en [231 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.9817255Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-security/universe amd64 Packages [1222 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:07.9884879Z Get:19 http://azure.archive.ubuntu.com/ubuntu noble-security/universe Translation-en [246 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:08.0347325Z Get:20 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted amd64 Packages [1713 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:08.0453893Z Get:21 http://azure.archive.ubuntu.com/ubuntu noble-security/restricted Translation-en [392 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:11.1941623Z Fetched 12.6 MB in 1s (10.1 MB/s)
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.1248134Z Reading package lists...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.1489899Z Reading package lists...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.3392045Z Building dependency tree...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.3399346Z Reading state information...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4755493Z libasound2t64 is already the newest version (1.2.11-1ubuntu0.3).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4756557Z libasound2t64 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4757537Z libatk-bridge2.0-0t64 is already the newest version (2.52.0-1build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4758473Z libatk-bridge2.0-0t64 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4759120Z libatk1.0-0t64 is already the newest version (2.52.0-1build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4759653Z libatk1.0-0t64 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4760360Z libatspi2.0-0t64 is already the newest version (2.52.0-1build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4761239Z libatspi2.0-0t64 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4762011Z libcairo2 is already the newest version (1.18.0-3build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4762512Z libcairo2 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4763023Z libcups2t64 is already the newest version (2.4.7-1.2ubuntu7.14).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4763523Z libcups2t64 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4764812Z libdbus-1-3 is already the newest version (1.14.10-4ubuntu4.1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4765337Z libdbus-1-3 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4765858Z libdrm2 is already the newest version (2.4.125-1ubuntu0.1~24.04.2).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4766357Z libdrm2 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4767085Z libgbm1 is already the newest version (25.2.8-0ubuntu0.24.04.4).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4767835Z libgbm1 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4768327Z libnspr4 is already the newest version (2:4.35-1.1build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4768801Z libnspr4 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4769306Z libpango-1.0-0 is already the newest version (1.52.1+ds-1build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4769806Z libpango-1.0-0 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4770315Z libx11-6 is already the newest version (2:1.8.7-1ubuntu0.1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4770773Z libx11-6 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4771152Z libxcb1 is already the newest version (1.15-1ubuntu2).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4771699Z libxcb1 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4772127Z libxcomposite1 is already the newest version (1:0.4.5-1build3).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4772558Z libxcomposite1 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4772982Z libxdamage1 is already the newest version (1:1.1.6-1build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4773377Z libxdamage1 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4773775Z libxext6 is already the newest version (2:1.3.4-1build2).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4774151Z libxext6 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4774741Z libxfixes3 is already the newest version (1:6.0.0-2build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4775189Z libxfixes3 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4775586Z libxkbcommon0 is already the newest version (1.6.0-1build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4775982Z libxkbcommon0 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4776377Z libxrandr2 is already the newest version (2:1.5.2-2build1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4776755Z libxrandr2 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4777248Z fonts-noto-color-emoji is already the newest version (2.047-0ubuntu0.24.04.1).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4777933Z libfontconfig1 is already the newest version (2.15.0-1.1ubuntu2).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4778350Z libfontconfig1 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4778798Z libfreetype6 is already the newest version (2.13.2+dfsg-1ubuntu0.2).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4779409Z libfreetype6 set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4779816Z fonts-liberation is already the newest version (1:2.1.5-3).
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4780233Z fonts-liberation set to manually installed.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4780640Z The following additional packages will be installed:
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4781094Z   gir1.2-glib-2.0 libglib2.0-bin libglib2.0-data libnss3-tools
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4781513Z   xfonts-encodings xfonts-utils xserver-common
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4781833Z Suggested packages:
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4782059Z   low-memory-monitor
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4782300Z Recommended packages:
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4782602Z   fonts-ipafont-mincho fonts-tlwg-loma xfonts-base
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4998838Z The following NEW packages will be installed:
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.4999811Z   fonts-freefont-ttf fonts-ipafont-gothic fonts-tlwg-loma-otf fonts-unifont
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5004621Z   fonts-wqy-zenhei xfonts-cyrillic xfonts-encodings xfonts-scalable
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5005567Z   xfonts-utils
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5007922Z The following packages will be upgraded:
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5009353Z   gir1.2-glib-2.0 libglib2.0-0t64 libglib2.0-bin libglib2.0-data libnss3
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5013080Z   libnss3-tools xserver-common xvfb
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5173621Z 8 upgraded, 9 newly installed, 0 to remove and 92 not upgraded.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5174374Z Need to get 25.9 MB of archives.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5175114Z After this operation, 79.5 MB of additional disk space will be used.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.5175638Z Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [144 B]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.6050516Z Get:2 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-ipafont-gothic all 00303-21ubuntu1 [3513 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.7558072Z Get:3 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-data all 2.80.0-6ubuntu3.10 [50.2 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.8269920Z Get:4 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-bin amd64 2.80.0-6ubuntu3.10 [97.9 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.8988748Z Get:5 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 gir1.2-glib-2.0 amd64 2.80.0-6ubuntu3.10 [183 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:12.9764189Z Get:6 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libglib2.0-0t64 amd64 2.80.0-6ubuntu3.10 [1548 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.0788767Z Get:7 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 fonts-freefont-ttf all 20211204+svn4273-2 [5641 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.2735950Z Get:8 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-tlwg-loma-otf all 1:0.7.3-1 [107 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.3465498Z Get:9 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-unifont all 1:15.1.01-1build1 [2993 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.4519885Z Get:10 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 fonts-wqy-zenhei all 0.9.45-8 [7472 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.7156813Z Get:11 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libnss3 amd64 2:3.98-1ubuntu0.3 [1445 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.8255944Z Get:12 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 libnss3-tools amd64 2:3.98-1ubuntu0.3 [615 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.9099661Z Get:13 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-encodings all 1:1.0.5-0ubuntu2 [578 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:13.9948701Z Get:14 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-utils amd64 1:7.7+6build3 [94.4 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.0669246Z Get:15 http://azure.archive.ubuntu.com/ubuntu noble/universe amd64 xfonts-cyrillic all 1:1.0.5+nmu1 [384 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.1494139Z Get:16 http://azure.archive.ubuntu.com/ubuntu noble/main amd64 xfonts-scalable all 1:1.0.3-1.3 [304 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.2266171Z Get:17 http://azure.archive.ubuntu.com/ubuntu noble-updates/main amd64 xserver-common all 2:21.1.12-1ubuntu1.9 [35.0 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.2978653Z Get:18 http://azure.archive.ubuntu.com/ubuntu noble-updates/universe amd64 xvfb amd64 2:21.1.12-1ubuntu1.9 [877 kB]
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.5627566Z Fetched 25.9 MB in 2s (14.3 MB/s)
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.5870767Z Selecting previously unselected package fonts-ipafont-gothic.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6186487Z (Reading database ... 
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6187018Z (Reading database ... 5%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6187328Z (Reading database ... 10%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6187614Z (Reading database ... 15%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6188006Z (Reading database ... 20%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6188292Z (Reading database ... 25%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6188596Z (Reading database ... 30%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6188862Z (Reading database ... 35%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6189196Z (Reading database ... 40%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6189468Z (Reading database ... 45%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6189724Z (Reading database ... 50%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.6243324Z (Reading database ... 55%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.7522458Z (Reading database ... 60%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:14.9629727Z (Reading database ... 65%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:15.1659714Z (Reading database ... 70%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:15.3531077Z (Reading database ... 75%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:15.5163733Z (Reading database ... 80%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:15.7195219Z (Reading database ... 85%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:15.8840750Z (Reading database ... 90%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.0795036Z (Reading database ... 95%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.0795791Z (Reading database ... 100%
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.0796530Z (Reading database ... 203540 files and directories currently installed.)
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.0836137Z Preparing to unpack .../00-fonts-ipafont-gothic_00303-21ubuntu1_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.0925259Z Unpacking fonts-ipafont-gothic (00303-21ubuntu1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.3271952Z Preparing to unpack .../01-libglib2.0-data_2.80.0-6ubuntu3.10_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.3291481Z Unpacking libglib2.0-data (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.3645532Z Preparing to unpack .../02-libglib2.0-bin_2.80.0-6ubuntu3.10_amd64.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.3664883Z Unpacking libglib2.0-bin (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.4275392Z Preparing to unpack .../03-gir1.2-glib-2.0_2.80.0-6ubuntu3.10_amd64.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.4294054Z Unpacking gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.4730882Z Preparing to unpack .../04-libglib2.0-0t64_2.80.0-6ubuntu3.10_amd64.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.4839073Z Unpacking libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.10) over (2.80.0-6ubuntu3.9) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.5319940Z Selecting previously unselected package fonts-freefont-ttf.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.5445776Z Preparing to unpack .../05-fonts-freefont-ttf_20211204+svn4273-2_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.5451830Z Unpacking fonts-freefont-ttf (20211204+svn4273-2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.6233646Z Selecting previously unselected package fonts-tlwg-loma-otf.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.6357826Z Preparing to unpack .../06-fonts-tlwg-loma-otf_1%3a0.7.3-1_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.6363592Z Unpacking fonts-tlwg-loma-otf (1:0.7.3-1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.6562283Z Selecting previously unselected package fonts-unifont.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.6685486Z Preparing to unpack .../07-fonts-unifont_1%3a15.1.01-1build1_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.6692351Z Unpacking fonts-unifont (1:15.1.01-1build1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.7838193Z Selecting previously unselected package fonts-wqy-zenhei.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.7962716Z Preparing to unpack .../08-fonts-wqy-zenhei_0.9.45-8_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:16.8063953Z Unpacking fonts-wqy-zenhei (0.9.45-8) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.2750575Z Preparing to unpack .../09-libnss3_2%3a3.98-1ubuntu0.3_amd64.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.2779563Z Unpacking libnss3:amd64 (2:3.98-1ubuntu0.3) over (2:3.98-1ubuntu0.2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.3298458Z Preparing to unpack .../10-libnss3-tools_2%3a3.98-1ubuntu0.3_amd64.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.3315964Z Unpacking libnss3-tools (2:3.98-1ubuntu0.3) over (2:3.98-1ubuntu0.2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.3793862Z Selecting previously unselected package xfonts-encodings.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.3920336Z Preparing to unpack .../11-xfonts-encodings_1%3a1.0.5-0ubuntu2_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.3926666Z Unpacking xfonts-encodings (1:1.0.5-0ubuntu2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.4201570Z Selecting previously unselected package xfonts-utils.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.4326436Z Preparing to unpack .../12-xfonts-utils_1%3a7.7+6build3_amd64.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.4333302Z Unpacking xfonts-utils (1:7.7+6build3) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.4704782Z Selecting previously unselected package xfonts-cyrillic.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.4829878Z Preparing to unpack .../13-xfonts-cyrillic_1%3a1.0.5+nmu1_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.4836843Z Unpacking xfonts-cyrillic (1:1.0.5+nmu1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.5169439Z Selecting previously unselected package xfonts-scalable.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.5295451Z Preparing to unpack .../14-xfonts-scalable_1%3a1.0.3-1.3_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.5301655Z Unpacking xfonts-scalable (1:1.0.3-1.3) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.5643491Z Preparing to unpack .../15-xserver-common_2%3a21.1.12-1ubuntu1.9_all.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.5660136Z Unpacking xserver-common (2:21.1.12-1ubuntu1.9) over (2:21.1.12-1ubuntu1.8) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.5989622Z Preparing to unpack .../16-xvfb_2%3a21.1.12-1ubuntu1.9_amd64.deb ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6007216Z Unpacking xvfb (2:21.1.12-1ubuntu1.9) over (2:21.1.12-1ubuntu1.8) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6560653Z Setting up fonts-wqy-zenhei (0.9.45-8) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6674321Z Setting up fonts-freefont-ttf (20211204+svn4273-2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6695674Z Setting up libnss3:amd64 (2:3.98-1ubuntu0.3) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6712694Z Setting up libglib2.0-0t64:amd64 (2.80.0-6ubuntu3.10) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6905320Z Setting up libglib2.0-data (2.80.0-6ubuntu3.10) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6922282Z Setting up fonts-tlwg-loma-otf (1:0.7.3-1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6939187Z Setting up xfonts-encodings (1:1.0.5-0ubuntu2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6955387Z Setting up gir1.2-glib-2.0:amd64 (2.80.0-6ubuntu3.10) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.6971875Z Setting up fonts-ipafont-gothic (00303-21ubuntu1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7035612Z update-alternatives: using /usr/share/fonts/opentype/ipafont-gothic/ipag.ttf to provide /usr/share/fonts/truetype/fonts-japanese-gothic.ttf (fonts-japanese-gothic.ttf) in auto mode
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7048828Z Setting up xserver-common (2:21.1.12-1ubuntu1.9) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7066277Z Setting up libnss3-tools (2:3.98-1ubuntu0.3) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7083743Z Setting up fonts-unifont (1:15.1.01-1build1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7101083Z Setting up xvfb (2:21.1.12-1ubuntu1.9) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7116942Z Setting up libglib2.0-bin (2.80.0-6ubuntu3.10) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7133980Z Setting up xfonts-utils (1:7.7+6build3) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7197227Z Setting up xfonts-cyrillic (1:1.0.5+nmu1) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.7758219Z Setting up xfonts-scalable (1:1.0.3-1.3) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.8075035Z Processing triggers for libc-bin (2.39-0ubuntu8.9) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.8447764Z Processing triggers for man-db (2.12.0-4build2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.8468835Z Not building database; man-db/auto-update is not 'true'.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:17.8481997Z Processing triggers for fontconfig (2.15.0-1.1ubuntu2) ...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.5681378Z 
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.5682144Z Running kernel seems to be up-to-date.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.5682572Z 
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.5682774Z Restarting services...
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.6143966Z  systemctl restart packagekit.service php8.3-fpm.service polkit.service udisks2.service
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7406426Z 
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7407183Z Service restarts being deferred:
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7407938Z  systemctl restart ModemManager.service
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7408612Z  systemctl restart networkd-dispatcher.service
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7409069Z 
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7410349Z No containers need to be restarted.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7411394Z 
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7412171Z No user sessions are running outdated binaries.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7412859Z 
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:18.7413345Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:19.6754334Z Downloading Chrome for Testing 156.0.8078.4 (playwright chromium v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-linux64.zip
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.0786241Z |                                                                                |   0% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.3047296Z |■■■■■■■■                                                                        |  10% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.3984219Z |■■■■■■■■■■■■■■■■                                                                |  20% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.4997004Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.5736480Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.6630357Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.7405999Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.8256097Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.9329397Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:20.9932517Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:21.0736299Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 191.1 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:24.3278754Z Chrome for Testing 156.0.8078.4 (playwright chromium v1248) downloaded to /home/runner/.cache/ms-playwright/chromium-1248
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:24.3282618Z Downloading FFmpeg (playwright ffmpeg v1013) from https://cdn.playwright.dev/dbazure/download/playwright/builds/ffmpeg/1013/ffmpeg-linux.zip
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7486414Z |                                                                                |   0% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7619749Z |■■■■■■■■                                                                        |  10% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7674043Z |■■■■■■■■■■■■■■■■                                                                |  20% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7733736Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7755195Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7785129Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7810658Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7842641Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7855875Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7869327Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.7890917Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 2.2 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.8501010Z FFmpeg (playwright ffmpeg v1013) downloaded to /home/runner/.cache/ms-playwright/ffmpeg-1013
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:25.8504878Z Downloading Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/builds/cft/156.0.8078.4/linux64/chrome-headless-shell-linux64.zip
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.2691176Z |                                                                                |   0% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.4644795Z |■■■■■■■■                                                                        |  10% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.5382728Z |■■■■■■■■■■■■■■■■                                                                |  20% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.6000293Z |■■■■■■■■■■■■■■■■■■■■■■■■                                                        |  30% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.6741189Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                                |  40% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.7159280Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                        |  50% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.7630260Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                                |  60% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.8279183Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                        |  70% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.8682838Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■                |  80% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:26.9426915Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■        |  90% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:27.0022126Z |■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■| 100% of 120 MiB
+Validate production build	Install supported Chromium and system dependencies	2026-10-26T04:31:29.3702738Z Chrome Headless Shell 156.0.8078.4 (playwright chromium-headless-shell v1248) downloaded to /home/runner/.cache/ms-playwright/chromium_headless_shell-1248
+Validate production build	Complete production browser suite	﻿2026-10-26T04:31:29.4075162Z ##[group]Run npm run test:browser -- --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line,html --trace=retain-on-failure
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4076276Z [36;1mnpm run test:browser -- --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line,html --trace=retain-on-failure[0m
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4139184Z shell: /usr/bin/bash -e {0}
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4139451Z env:
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4139648Z   CI: true
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4139853Z   CHROMIUM_PATH: 
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4140081Z   PLAYWRIGHT_HTML_OPEN: never
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4140380Z   PLAYWRIGHT_HTML_OUTPUT_DIR: playwright-report
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.4140697Z ##[endgroup]
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.5199777Z 
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.5200341Z > crownfall-playcanvas@0.0.0 test:browser
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.5201790Z > playwright test --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line,html --trace=retain-on-failure
+Validate production build	Complete production browser suite	2026-10-26T04:31:29.5202739Z 
+Validate production build	Complete production browser suite	2026-10-26T04:31:31.8553070Z 
+Validate production build	Complete production browser suite	2026-10-26T04:31:31.8554375Z Running 127 tests using 1 worker
+Validate production build	Complete production browser suite	2026-10-26T04:31:31.8555524Z 
+Validate production build	Complete production browser suite	2026-10-26T04:31:32.2708483Z [1/127] tests/browser/aim-assist.spec.ts:75:5 › Kit: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+Validate production build	Complete production browser suite	2026-10-26T04:31:56.5835889Z [2/127] tests/browser/aim-assist.spec.ts:75:5 › Set: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+Validate production build	Complete production browser suite	2026-10-26T04:32:20.2783588Z [3/127] tests/browser/aim-assist.spec.ts:119:1 › Riven touch hold waits, release acquires scythes, confirmed second direction and recall survive retreat
+Validate production build	Complete production browser suite	2026-10-26T04:32:36.0508741Z [4/127] tests/browser/aim-assist.spec.ts:155:1 › manual drag chooses the opposite direction, cancel/blur/capture loss/orientation clear touch intentions
+Validate production build	Complete production browser suite	2026-10-26T04:32:52.2397176Z [5/127] tests/browser/aim-assist.spec.ts:195:1 › rapid game-surface taps suppress default gestures; menu zoom and live setting remain available
+Validate production build	Complete production browser suite	2026-10-26T04:33:08.4477643Z [6/127] tests/browser/aim-assist.spec.ts:245:1 › retreat and fire against three live pursuing bots records human damage through match authority
+Validate production build	Complete production browser suite	2026-10-26T04:33:19.9127244Z [7/127] tests/browser/application-lifecycle.spec.ts:148:1 › real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command
+Validate production build	Complete production browser suite	2026-10-26T04:33:41.5807612Z [8/127] tests/browser/application-lifecycle.spec.ts:182:1 › re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers
+Validate production build	Complete production browser suite	2026-10-26T04:33:58.2016267Z [9/127] tests/browser/application-lifecycle.spec.ts:212:1 › destroy releases genuine simultaneous touch captures without committing the held ability after remount
+Validate production build	Complete production browser suite	2026-10-26T04:34:12.2800631Z [10/127] tests/browser/application-lifecycle.spec.ts:284:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+Validate production build	Complete production browser suite	2026-10-26T04:34:32.9166882Z [11/127] tests/browser/application-lifecycle.spec.ts:380:1 › destroy after GLB download while embedded texture decoding is pending leaves no late engine work
+Validate production build	Complete production browser suite	2026-10-26T04:34:49.6368766Z [12/127] tests/browser/application-lifecycle.spec.ts:430:1 › destroy between download completion and the queued engine contents handoff cancels parsing safely
+Validate production build	Complete production browser suite	2026-10-26T04:34:59.0566352Z [13/127] tests/browser/arena.spec.ts:35:1 › production arena renders, moves, aims independently, mirrors and preserves facing
+Validate production build	Complete production browser suite	2026-10-26T04:35:12.8337257Z [14/127] tests/browser/arena.spec.ts:70:1 › landscape mobile supports two captured pointers and clears cancelled input
+Validate production build	Complete production browser suite	2026-10-26T04:35:26.4006686Z [15/127] tests/browser/arena.spec.ts:117:1 › obstruction blocks movement in the rendered app
+Validate production build	Complete production browser suite	2026-10-26T04:35:32.7456572Z [16/127] tests/browser/arena.spec.ts:135:5 › Kit selection and real Basic damage through HUD
+Validate production build	Complete production browser suite	2026-10-26T04:35:39.8661107Z [17/127] tests/browser/arena.spec.ts:135:5 › Set selection and real Basic damage through HUD
+Validate production build	Complete production browser suite	2026-10-26T04:35:45.4706566Z [18/127] tests/browser/arena.spec.ts:135:5 › Riven selection and real Basic damage through HUD
+Validate production build	Complete production browser suite	2026-10-26T04:35:51.0376690Z [19/127] tests/browser/arena.spec.ts:158:1 › aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics
+Validate production build	Complete production browser suite	2026-10-26T04:35:58.6179423Z [20/127] tests/browser/arena.spec.ts:176:1 › Set ground ultimate consumes charged meter and impacts after commitment
+Validate production build	Complete production browser suite	2026-10-26T04:36:08.5752971Z [21/127] tests/browser/arena.spec.ts:187:1 › Riven stance changes actions and SCREAM updates stun/ultimate diagnostics
+Validate production build	Complete production browser suite	2026-10-26T04:36:16.6456807Z [22/127] tests/browser/environment.spec.ts:43:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera
+Validate production build	Complete production browser suite	2026-10-26T04:36:44.8807618Z [23/127] tests/browser/environment.spec.ts:77:1 › normal match defaults to carved terrain with territory indicators retained
+Validate production build	Complete production browser suite	2026-10-26T04:37:02.6086694Z [24/127] tests/browser/ergonomics.spec.ts:32:5 › competitive camera follows Kit smoothly from behind with fixed forward focus
+Validate production build	Complete production browser suite	2026-10-26T04:37:10.9547155Z [25/127] tests/browser/ergonomics.spec.ts:32:5 › competitive camera follows Set smoothly from behind with fixed forward focus
+Validate production build	Complete production browser suite	2026-10-26T04:37:21.3377778Z [26/127] tests/browser/ergonomics.spec.ts:32:5 › competitive camera follows Riven smoothly from behind with fixed forward focus
+Validate production build	Complete production browser suite	2026-10-26T04:37:35.1640620Z [27/127] tests/browser/ergonomics.spec.ts:81:5 › competitive Kit retains touch Basic timing with the farther camera
+Validate production build	Complete production browser suite	2026-10-26T04:37:57.2700906Z [28/127] tests/browser/ergonomics.spec.ts:81:5 › competitive Set retains touch Basic timing with the farther camera
+Validate production build	Complete production browser suite	2026-10-26T04:38:19.8347285Z [29/127] tests/browser/ergonomics.spec.ts:81:5 › competitive Riven retains touch Basic timing with the farther camera
+Validate production build	Complete production browser suite	2026-10-26T04:38:41.5734026Z [30/127] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+Validate production build	Complete production browser suite	2026-10-26T04:39:31.9196397Z [31/127] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44
+Validate production build	Complete production browser suite	2026-10-26T04:40:27.9996576Z [32/127] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 667x375, safe inset 44
+Validate production build	Complete production browser suite	2026-10-26T04:41:07.5124306Z [33/127] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44
+Validate production build	Complete production browser suite	2026-10-26T04:41:43.4918613Z [34/127] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 844x390
+Validate production build	Complete production browser suite	2026-10-26T04:41:53.1491642Z [35/127] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 667x375
+Validate production build	Complete production browser suite	2026-10-26T04:41:55.4003753Z [36/127] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 640x360
+Validate production build	Complete production browser suite	2026-10-26T04:41:57.6446164Z [37/127] tests/browser/frontend.spec.ts:113:1 › real sequential readiness, authoritative result, replay cache, pause and menu rendering suspension
+Validate production build	Complete production browser suite	2026-10-26T04:42:22.5233624Z [38/127] tests/browser/frontend.spec.ts:214:1 › failed essential model offers real retry and return without a countdown
+Validate production build	Complete production browser suite	2026-10-26T04:42:31.3232131Z [39/127] tests/browser/frontend.spec.ts:232:1 › Combat Practice uses the existing sandbox authority and can return to menu
+Validate production build	Complete production browser suite	2026-10-26T04:42:39.0252807Z [40/127] tests/browser/frontend.spec.ts:245:1 › saved control positions are the real captured touch targets across rotation
+Validate production build	Complete production browser suite	2026-10-26T04:42:52.7747042Z [41/127] tests/browser/frontend.spec.ts:310:1 › preparation deadline prevents a late game module from starting behind the error screen
+Validate production build	Complete production browser suite	2026-10-26T04:42:55.5166028Z [42/127] tests/browser/hud-contracts.spec.ts:34:5 › HUD text follows exact default match settings and earned modifier values
+Validate production build	Complete production browser suite	2026-10-26T04:43:03.6804889Z [43/127] tests/browser/hud-contracts.spec.ts:34:5 › HUD text follows nondefault match settings and earned modifier values
+Validate production build	Complete production browser suite	2026-10-26T04:43:11.4368180Z [44/127] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 844x390, safe 0
+Validate production build	Complete production browser suite	2026-10-26T04:43:22.3364722Z [45/127] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 844x390, safe 44
+Validate production build	Complete production browser suite	2026-10-26T04:43:33.2946128Z [46/127] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 667x375, safe 44
+Validate production build	Complete production browser suite	2026-10-26T04:43:43.6586986Z [47/127] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 640x360, safe 44
+Validate production build	Complete production browser suite	2026-10-26T04:43:53.6432216Z [48/127] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 390x844, safe 0
+Validate production build	Complete production browser suite	2026-10-26T04:44:05.8975189Z [49/127] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 1280x720, safe 0
+Validate production build	Complete production browser suite	2026-10-26T04:44:32.4016408Z [50/127] tests/browser/kit-model.spec.ts:46:1 › production serves unchanged Kit GLB
+Validate production build	Complete production browser suite	2026-10-26T04:44:32.5673442Z [51/127] tests/browser/kit-model.spec.ts:54:1 › local Kit loads, grounds, follows and animates in the normal mobile match
+Validate production build	Complete production browser suite	2026-10-26T04:44:49.4900905Z tests/browser/kit-model.spec.ts:54:1 › local Kit loads, grounds, follows and animates in the normal mobile match
+Validate production build	Complete production browser suite	2026-10-26T04:44:49.4928169Z Kit measured diagnostics {"state":"loaded","bytes":26939896,"source":"assets/summoners/kit/Kit_20K_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_5","duration":1.8333330154418945},{"name":"Punch_Combo_1","duration":2.200000047683716},{"name":"RunFast","duration":0.4666669964790344}],"loadMs":3029.5,"error":"","bounds":{"min":[-0.38867348432540894,-2.587064562575847e-9,-0.20758193731307983],"max":[0.38867348432540894,1.7000000476837158,0.20758193731307983]},"height":1.7000000502707804,"scale":1.0294117342650992,"offset":[0,0.05264644266315462,0],"meshInstances":1,"authoredForwardYaw":0,"instanceId":"946dc065-03c2-4dac-9b1e-dce51d6d3415","meshId":9,"materialId":23,"activeAnimation":"Idle_5","playbackTime":0.11659999999999991,"playing":true,"attackCount":0,"lastAttackSerial":0,"staticComparison":false,"worldBounds":{"min":[-0.4001753723276067,-0.12703652638564356,3.198524547277488],"max":[0.6925488767017371,1.708087504310059,4.440707547902265]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"rootScale":[1,1,1],"frameMs":29.50400013753993}
+Validate production build	Complete production browser suite	2026-10-26T04:44:49.4936361Z 
+Validate production build	Complete production browser suite	2026-10-26T04:44:49.5323006Z [52/127] tests/browser/kit-model.spec.ts:113:5 › Set retains primitives without fetching Kit
+Validate production build	Complete production browser suite	2026-10-26T04:45:00.3836369Z [53/127] tests/browser/kit-model.spec.ts:113:5 › Riven retains primitives without fetching Kit
+Validate production build	Complete production browser suite	2026-10-26T04:45:09.9941478Z [54/127] tests/browser/kit-model.spec.ts:131:1 › primitive comparison skips the GLB request
+Validate production build	Complete production browser suite	2026-10-26T04:45:20.1244312Z [55/127] tests/browser/kit-model.spec.ts:145:1 › pending and failed loading keep playable primitive fallback
+Validate production build	Complete production browser suite	2026-10-26T04:45:30.2746580Z [56/127] tests/browser/kit-model.spec.ts:167:1 › 10K comparison remains static and is requested only once
+Validate production build	Complete production browser suite	2026-10-26T04:45:44.4707035Z [57/127] tests/browser/kit-model.spec.ts:181:1 › animated Kit survives death, respawn, results and restart without another download
+Validate production build	Complete production browser suite	2026-10-26T04:46:00.7248777Z [58/127] tests/browser/match.spec.ts:23:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch
+Validate production build	Complete production browser suite	2026-10-26T04:46:52.0391130Z [59/127] tests/browser/match.spec.ts:63:1 › 3v3 selected Blue human takes real touch commands after countdown and reset
+Validate production build	Complete production browser suite	2026-10-26T04:47:26.7907221Z [60/127] tests/browser/playable.spec.ts:12:1 › prematch inspection starts, fights a natural 3v3 battle, sees results, freeze and clean restart
+Validate production build	Complete production browser suite	2026-10-26T04:48:54.9377686Z [61/127] tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 844x390
+Validate production build	Complete production browser suite	2026-10-26T04:49:23.8725528Z [62/127] tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 390x844
+Validate production build	Complete production browser suite	2026-10-26T04:49:48.7505300Z [63/127] tests/browser/riven-model.spec.ts:65:1 › production serves the exact verified Riven GLB
+Validate production build	Complete production browser suite	2026-10-26T04:49:48.8286750Z [64/127] tests/browser/riven-model.spec.ts:73:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+Validate production build	Complete production browser suite	2026-10-26T04:50:11.5350983Z tests/browser/riven-model.spec.ts:73:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+Validate production build	Complete production browser suite	2026-10-26T04:50:11.5381918Z Riven measured diagnostics {"state":"loaded","bytes":11170312,"source":"assets/summoners/riven/Riven_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_6","duration":7.366666793823242},{"name":"run_fast_7","duration":0.8666669726371765}],"registeredStates":["Idle_6","Walking","Running"],"runningClip":"Running","locomotionReason":"run_fast_7 failed loop validation; using Running","preferredLoop":{"valid":false,"positionError":0.01896846294403076,"rotationErrorDegrees":12.873240271210351},"loadMs":2947.5,"error":"","bounds":{"min":[-0.44156354665756226,2.049818093041722e-9,-0.16084645688533783],"max":[0.44156360626220703,1.7000001668930054,0.16084642708301544]},"height":1.7000001648431873,"scale":1.029411664887353,"offset":[-3.0678858306627066e-8,0.035075997889893344,1.5339429153313533e-8],"meshInstances":1,"jointCount":68,"authoredForwardYaw":0,"instanceId":"746137ea-bc2d-4bd6-aea4-d524f14a4d4a","meshId":9,"materialId":23,"activeAnimation":"Idle_6","playbackTime":0.4,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.4545507002204552,0.03507599818120699,3.8344228103126046],"max":[0.4545507002204552,1.7850760129006318,4.165577220366254]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.0033203279599547386,1.035124540271319,-0.009960962459445],"rootScale":[1,1,1],"frameMs":27.649824667676015}
+Validate production build	Complete production browser suite	2026-10-26T04:50:11.5429819Z 
+Validate production build	Complete production browser suite	2026-10-26T04:50:11.5726752Z [65/127] tests/browser/riven-model.spec.ts:156:1 › Riven aim/commit facing uses Riven controls without Kit punch animations
+Validate production build	Complete production browser suite	2026-10-26T04:50:25.9806816Z [66/127] tests/browser/riven-model.spec.ts:184:5 › Riven primitive skips the download with no developer opt-in
+Validate production build	Complete production browser suite	2026-10-26T04:50:33.4736629Z [67/127] tests/browser/riven-model.spec.ts:184:5 › Riven primitive skips the download with &rivenPrimitive=1
+Validate production build	Complete production browser suite	2026-10-26T04:50:40.2767158Z [68/127] tests/browser/riven-model.spec.ts:202:1 › pending and failed Riven loading retain a moving primitive
+Validate production build	Complete production browser suite	2026-10-26T04:50:54.8801325Z [69/127] tests/browser/riven-model.spec.ts:224:1 › valid container missing a required Riven clip safely falls back
+Validate production build	Complete production browser suite	2026-10-26T04:51:09.5427836Z [70/127] tests/browser/riven-model.spec.ts:241:1 › training preview switches summoners and reuses one Riven instance
+Validate production build	Complete production browser suite	2026-10-26T04:51:14.1929304Z [71/127] tests/browser/riven-model.spec.ts:261:1 › Riven preview survives defeat, respawn, results and rematch without another download
+Validate production build	Complete production browser suite	2026-10-26T04:51:27.3737937Z [72/127] tests/browser/riven-touch.spec.ts:7:1 › Riven 3D preview supports simultaneous touch movement, aim, release and cancellation
+Validate production build	Complete production browser suite	2026-10-26T04:51:43.0416714Z [73/127] tests/browser/riven-weapons.spec.ts:93:1 › two shared Moonreapers follow every Reso phase, stance and Elf Dance
+Validate production build	Complete production browser suite	2026-10-26T04:52:22.0086495Z [74/127] tests/browser/riven-weapons.spec.ts:160:5 › failed asset keeps two functional fallback scythes per Riven
+Validate production build	Complete production browser suite	2026-10-26T04:52:32.7053559Z [75/127] tests/browser/riven-weapons.spec.ts:160:5 › primitive keeps two functional fallback scythes per Riven
+Validate production build	Complete production browser suite	2026-10-26T04:52:40.8709605Z [76/127] tests/browser/riven-weapons.spec.ts:177:1 › ordinary 3v3 selects Riven and renders independent player and AI scythes without preview flags
+Validate production build	Complete production browser suite	2026-10-26T04:52:52.6424875Z [77/127] tests/browser/set-model.spec.ts:65:1 › production serves the exact verified Set GLB
+Validate production build	Complete production browser suite	2026-10-26T04:52:52.7652552Z [78/127] tests/browser/set-model.spec.ts:73:1 › opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera
+Validate production build	Complete production browser suite	2026-10-26T04:53:18.4671059Z tests/browser/set-model.spec.ts:73:1 › opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera
+Validate production build	Complete production browser suite	2026-10-26T04:53:18.4683876Z Set measured diagnostics {"state":"loaded","bytes":10000416,"source":"assets/summoners/set/Set_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Punch_Combo","duration":2.4666669368743896},{"name":"RunFast","duration":0.4666669964790344}],"registeredStates":["Ready","Running"],"runningClip":"Running","locomotionReason":"Running selected; RunFast intentionally excluded","readySource":"Punch_Combo","readyTime":0,"loadMs":2949.399999999907,"error":"","bounds":{"min":[-0.6199274659156799,2.9567924997309092e-8,-0.2392396479845047],"max":[0.6199275255203247,1.7000000476837158,0.2392396330833435]},"height":1.7000000181157908,"scale":1.117647046913494,"offset":[-3.3308477607771577e-8,0.009313466953495945,8.327119401942894e-9],"meshInstances":1,"jointCount":87,"authoredForwardYaw":0,"instanceId":"021040dd-e18e-44eb-a056-9c85fd8c685f","meshId":9,"materialId":23,"activeAnimation":"Ready","playbackTime":0.35010000000000047,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.6360617170823178,-0.06283756784961692,3.2168089065785646],"max":[0.6157246596404985,1.835775694312336,4.458091993275803]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.005961951799690723,1.0001788139343262,0.05088947340846062],"rootScale":[1,1,1],"frameMs":24.07935840722813}
+Validate production build	Complete production browser suite	2026-10-26T04:53:18.4704919Z 
+Validate production build	Complete production browser suite	2026-10-26T04:53:18.5025909Z [79/127] tests/browser/set-model.spec.ts:157:5 › Set primitive skips the download with no developer opt-in
+Validate production build	Complete production browser suite	2026-10-26T04:53:24.4116711Z [80/127] tests/browser/set-model.spec.ts:157:5 › Set primitive skips the download with &setPrimitive=1
+Validate production build	Complete production browser suite	2026-10-26T04:53:35.7656579Z [81/127] tests/browser/set-model.spec.ts:175:1 › pending and failed Set loading retain a moving primitive
+Validate production build	Complete production browser suite	2026-10-26T04:53:46.2296716Z [82/127] tests/browser/set-model.spec.ts:197:1 › valid container missing a required Set clip safely falls back
+Validate production build	Complete production browser suite	2026-10-26T04:54:02.0808061Z [83/127] tests/browser/set-model.spec.ts:214:1 › training preview switches summoners and reuses one Set instance
+Validate production build	Complete production browser suite	2026-10-26T04:54:11.0230060Z [84/127] tests/browser/set-model.spec.ts:234:1 › Set preview survives defeat, respawn, results and rematch without another download
+Validate production build	Complete production browser suite	2026-10-26T04:54:25.7487010Z [85/127] tests/browser/set-model.spec.ts:264:1 › normal Set preview starts a match and supports captured mobile movement and combat
+Validate production build	Complete production browser suite	2026-10-26T04:54:45.2057355Z [86/127] tests/browser/set-model.spec.ts:301:1 › combined preview flags preserve Riven while switching to and from Set
+Validate production build	Complete production browser suite	2026-10-26T04:54:51.7345905Z [87/127] tests/browser/six-summoner.spec.ts:85:5 › Kit selection renders six identities with independent playback and shared resources
+Validate production build	Complete production browser suite	2026-10-26T04:55:15.8347268Z tests/browser/six-summoner.spec.ts:85:5 › Kit selection renders six identities with independent playback and shared resources
+Validate production build	Complete production browser suite	2026-10-26T04:55:15.8368081Z Six summoner diagnostics {"selected":"Kit","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":2828},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":3150},{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":3702.7000000001863},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":708.3000000000466}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8192,"sb":0}},"frameMs":30.39223125623652,"entities":1345}
+Validate production build	Complete production browser suite	2026-10-26T04:55:15.8374951Z 
+Validate production build	Complete production browser suite	2026-10-26T04:55:15.9403974Z [88/127] tests/browser/six-summoner.spec.ts:85:5 › Set selection renders six identities with independent playback and shared resources
+Validate production build	Complete production browser suite	2026-10-26T04:55:36.4930756Z tests/browser/six-summoner.spec.ts:85:5 › Set selection renders six identities with independent playback and shared resources
+Validate production build	Complete production browser suite	2026-10-26T04:55:36.4947699Z Six summoner diagnostics {"selected":"Set","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":3277.100000000093},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":3594.4000000001397},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":3960.8000000000466},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":537.3999999999069}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8192,"sb":0}},"frameMs":37.719701523992455,"entities":1345}
+Validate production build	Complete production browser suite	2026-10-26T04:55:36.4955216Z 
+Validate production build	Complete production browser suite	2026-10-26T04:55:36.5223392Z [89/127] tests/browser/six-summoner.spec.ts:85:5 › Riven selection renders six identities with independent playback and shared resources
+Validate production build	Complete production browser suite	2026-10-26T04:55:54.9892176Z tests/browser/six-summoner.spec.ts:85:5 › Riven selection renders six identities with independent playback and shared resources
+Validate production build	Complete production browser suite	2026-10-26T04:55:54.9914036Z Six summoner diagnostics {"selected":"Riven","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":759.6000000000931},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":1491.6999999999534},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":1809.8999999999069},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":525.1999999999534}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8192,"sb":0}},"frameMs":33.919525768634216,"entities":1345}
+Validate production build	Complete production browser suite	2026-10-26T04:55:54.9926956Z 
+Validate production build	Complete production browser suite	2026-10-26T04:55:55.0216625Z [90/127] tests/browser/six-summoner.spec.ts:170:1 › all actors survive defeat, respawn, rematch and identity reorder without redownloads
+Validate production build	Complete production browser suite	2026-10-26T04:56:23.2707796Z [91/127] tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render
+Validate production build	Complete production browser suite	2026-10-26T04:56:34.9106909Z [92/127] tests/browser/six-summoner.spec.ts:252:1 › global primitive diagnostic skips every GLB and keeps normal bots active
+Validate production build	Complete production browser suite	2026-10-26T04:56:41.8717758Z [93/127] tests/browser/six-summoner.spec.ts:277:1 › normal match enables all six skinned actors and normal AI without preview flags
+Validate production build	Complete production browser suite	2026-10-26T04:57:00.3333292Z [94/127] tests/browser/territory.spec.ts:28:1 › production positional territory, visual frontier, grace, retained CP and camera
+Validate production build	Complete production browser suite	2026-10-26T04:57:15.1620965Z [95/127] tests/browser/territory.spec.ts:59:5 › production total-control result has all participants, final metrics, freezes and restarts
+Validate production build	Complete production browser suite	2026-10-26T04:57:32.9035197Z [96/127] tests/browser/territory.spec.ts:59:5 › production points result has all participants, final metrics, freezes and restarts
+Validate production build	Complete production browser suite	2026-10-26T04:57:57.4436776Z [97/127] tests/browser/territory.spec.ts:108:1 › normal full-map iPhone landscape HUD avoids controls and real touch deals damage
+Validate production build	Complete production browser suite	2026-10-26T04:58:11.1745212Z [98/127] tests/browser/territory.spec.ts:139:5 › natural alive ordered total control team 1
+Validate production build	Complete production browser suite	2026-10-26T04:58:27.7562390Z [99/127] tests/browser/territory.spec.ts:139:5 › natural alive ordered total control team 2
+Validate production build	Complete production browser suite	2026-10-26T04:58:34.6958851Z [100/127] tests/browser/territory.spec.ts:156:1 › crossed runner cannot backcap in production
+Validate production build	Complete production browser suite	2026-10-26T04:58:42.3897011Z [101/127] tests/browser/touch-combat.spec.ts:136:5 › Kit: back-to-back genuine touch press/release damages the known in-range target
+Validate production build	Complete production browser suite	2026-10-26T04:58:51.3776813Z [102/127] tests/browser/touch-combat.spec.ts:136:5 › Set: back-to-back genuine touch press/release damages the known in-range target
+Validate production build	Complete production browser suite	2026-10-26T04:59:01.5328083Z [103/127] tests/browser/touch-combat.spec.ts:152:1 › Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes
+Validate production build	Complete production browser suite	2026-10-26T04:59:13.4137122Z [104/127] tests/browser/touch-combat.spec.ts:173:1 › Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch
+Validate production build	Complete production browser suite	2026-10-26T04:59:26.1117011Z [105/127] tests/browser/touch-combat.spec.ts:191:1 › simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves
+Validate production build	Complete production browser suite	2026-10-26T04:59:34.3464038Z [106/127] tests/browser/touch-combat.spec.ts:221:5 › Kit: touchcancel while aiming never commits damage
+Validate production build	Complete production browser suite	2026-10-26T04:59:44.2533982Z [107/127] tests/browser/touch-combat.spec.ts:221:5 › Set: touchcancel while aiming never commits damage
+Validate production build	Complete production browser suite	2026-10-26T04:59:53.7556276Z [108/127] tests/browser/touch-combat.spec.ts:221:5 › Riven: touchcancel while aiming never commits damage
+Validate production build	Complete production browser suite	2026-10-26T05:00:02.6430473Z [109/127] tests/browser/touch-combat.spec.ts:232:1 › Riven: actual capture loss before release cancels without enqueuing a Basic
+Validate production build	Complete production browser suite	2026-10-26T05:00:11.3939741Z [110/127] tests/browser/touch-combat.spec.ts:274:5 › Kit: aimed non-Basic touch action produces authoritative damage
+Validate production build	Complete production browser suite	2026-10-26T05:00:18.3457124Z [111/127] tests/browser/touch-combat.spec.ts:274:5 › Set: aimed non-Basic touch action produces authoritative damage
+Validate production build	Complete production browser suite	2026-10-26T05:00:26.5420834Z [112/127] tests/browser/touch-combat.spec.ts:274:5 › Riven: aimed non-Basic touch action produces authoritative damage
+Validate production build	Complete production browser suite	2026-10-26T05:00:35.9100813Z [113/127] tests/browser/touch-combat.spec.ts:285:1 › touch Solar Ring uses its radial radius and creates authoritative HIT feedback
+Validate production build	Complete production browser suite	2026-10-26T05:00:43.2034108Z [114/127] tests/browser/touch-combat.spec.ts:296:1 › Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target
+Validate production build	Complete production browser suite	2026-10-26T05:00:55.3097071Z [115/127] tests/browser/touch-combat.spec.ts:322:1 › Set preview uses 1.65m cone, 150px cancellation is visible; Riven empty-path release visibly resolves MISS
+Validate production build	Complete production browser suite	2026-10-26T05:01:10.3526992Z [116/127] tests/browser/wilderness-environment.spec.ts:12:1 › western grove loads each approved species once and shares tree meshes and materials
+Validate production build	Complete production browser suite	2026-10-26T05:01:32.8199773Z [117/127] tests/browser/wilderness.spec.ts:25:5 › touch secures mobility, visible camp and timed authoritative buff
+Validate production build	Complete production browser suite	2026-10-26T05:01:41.3616607Z [118/127] tests/browser/wilderness.spec.ts:25:5 › touch secures cooldown, visible camp and timed authoritative buff
+Validate production build	Complete production browser suite	2026-10-26T05:01:55.5756154Z [119/127] tests/browser/wilderness.spec.ts:25:5 › touch secures defense, visible camp and timed authoritative buff
+Validate production build	Complete production browser suite	2026-10-26T05:02:08.2108599Z [120/127] tests/browser/wilderness.spec.ts:25:5 › touch secures damage, visible camp and timed authoritative buff
+Validate production build	Complete production browser suite	2026-10-26T05:02:25.0179101Z [121/127] tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness -1 and returns
+Validate production build	Complete production browser suite	2026-10-26T05:02:57.4632303Z [122/127] tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness 1 and returns
+Validate production build	Complete production browser suite	2026-10-26T05:03:24.9636881Z [123/127] tests/browser/wilderness.spec.ts:103:1 › bot rotation physically leaves lane toward real camp in production
+Validate production build	Complete production browser suite	2026-10-26T05:03:39.8690469Z [124/127] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 844 safe 0
+Validate production build	Complete production browser suite	2026-10-26T05:03:46.6887376Z [125/127] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 844 safe 44
+Validate production build	Complete production browser suite	2026-10-26T05:03:59.6024368Z [126/127] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 667 safe 44
+Validate production build	Complete production browser suite	2026-10-26T05:04:12.6530571Z [127/127] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 640 safe 44
+Validate production build	Complete production browser suite	2026-10-26T05:04:31.2276177Z   127 passed (33.0m)
+Validate production build	Preserve browser evidence even on failure	﻿2026-10-26T05:04:31.5928827Z ##[group]Run actions/upload-artifact@v4
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5929166Z with:
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5929494Z   name: browser-evidence-5227f2e02302b21e316cdbdf03f54c8737b509ea-1
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5929969Z   path: PlayCanvas/playwright-report/
+Validate production build	Preserve browser evidence even on failure	PlayCanvas/test-results/
+Validate production build	Preserve browser evidence even on failure	
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5930343Z   if-no-files-found: ignore
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5930592Z   retention-days: 14
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5930816Z   compression-level: 6
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5931030Z   overwrite: false
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5931248Z   include-hidden-files: false
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.5931504Z ##[endgroup]
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.7707541Z (node:5880) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.7708668Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.8021013Z Multiple search paths detected. Calculating the least common ancestor of all paths
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.8023268Z The least common ancestor is /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas. This will be the root directory of the artifact
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.8025070Z With the provided path, there will be 85 files uploaded
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.8026020Z Artifact name is valid!
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:31.8026546Z Root directory input is valid!
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:32.1728054Z Beginning upload of artifact content to blob storage
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:32.4911937Z (node:5880) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:33.4131230Z Uploaded bytes 8388608
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:33.6989539Z Uploaded bytes 16777216
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:33.9498338Z Uploaded bytes 25165824
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:33.9894504Z Uploaded bytes 33554432
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.3009704Z Uploaded bytes 41943040
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.4034356Z Uploaded bytes 42786362
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.4830946Z Finished uploading artifact content to blob storage!
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.4834680Z SHA256 digest of uploaded artifact zip is ba1c23b5cc5616abd2019e3087bd15813b49b2e3a92e221ccc80964aedb56c53
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.4836712Z Finalizing artifact upload
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.9182823Z Artifact browser-evidence-5227f2e02302b21e316cdbdf03f54c8737b509ea-1.zip successfully finalized. Artifact ID 12628314357
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.9185432Z Artifact browser-evidence-5227f2e02302b21e316cdbdf03f54c8737b509ea-1 has been successfully uploaded! Final size is 42786362 bytes. Artifact ID is 12628314357
+Validate production build	Preserve browser evidence even on failure	2026-10-26T05:04:34.9191924Z Artifact download URL: https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40269368420/artifacts/12628314357
+Validate production build	Record validated build identity	﻿2026-10-26T05:04:34.9391874Z ##[group]Run printf '%s\n' "$VALIDATED_SHA" > validated-sha.txt
+Validate production build	Record validated build identity	2026-10-26T05:04:34.9392672Z [36;1mprintf '%s\n' "$VALIDATED_SHA" > validated-sha.txt[0m
+Validate production build	Record validated build identity	2026-10-26T05:04:34.9393490Z [36;1mfind dist -type f -print0 | sort -z | xargs -0 sha256sum > dist.sha256[0m
+Validate production build	Record validated build identity	2026-10-26T05:04:34.9477505Z shell: /usr/bin/bash -e {0}
+Validate production build	Record validated build identity	2026-10-26T05:04:34.9477941Z env:
+Validate production build	Record validated build identity	2026-10-26T05:04:34.9478362Z   VALIDATED_SHA: 5227f2e02302b21e316cdbdf03f54c8737b509ea
+Validate production build	Record validated build identity	2026-10-26T05:04:34.9478917Z ##[endgroup]
+Validate production build	Upload validated production build	﻿2026-10-26T05:04:35.0556174Z ##[group]Run actions/upload-artifact@v4
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0556677Z with:
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0557230Z   name: validated-playcanvas-5227f2e02302b21e316cdbdf03f54c8737b509ea-1
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0558195Z   path: PlayCanvas/dist/
+Validate production build	Upload validated production build	PlayCanvas/dist.sha256
+Validate production build	Upload validated production build	PlayCanvas/validated-sha.txt
+Validate production build	Upload validated production build	
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0558910Z   if-no-files-found: error
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0559308Z   retention-days: 14
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0559680Z   compression-level: 6
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0560052Z   overwrite: false
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0560419Z   include-hidden-files: false
+Validate production build	Upload validated production build	2026-10-26T05:04:35.0560828Z ##[endgroup]
+Validate production build	Upload validated production build	2026-10-26T05:04:35.2378990Z (node:5897) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Validate production build	Upload validated production build	2026-10-26T05:04:35.2380973Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Validate production build	Upload validated production build	2026-10-26T05:04:35.2685774Z Multiple search paths detected. Calculating the least common ancestor of all paths
+Validate production build	Upload validated production build	2026-10-26T05:04:35.2689294Z The least common ancestor is /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/PlayCanvas. This will be the root directory of the artifact
+Validate production build	Upload validated production build	2026-10-26T05:04:35.2691169Z With the provided path, there will be 50 files uploaded
+Validate production build	Upload validated production build	2026-10-26T05:04:35.2692553Z Artifact name is valid!
+Validate production build	Upload validated production build	2026-10-26T05:04:35.2693265Z Root directory input is valid!
+Validate production build	Upload validated production build	2026-10-26T05:04:35.6506481Z Beginning upload of artifact content to blob storage
+Validate production build	Upload validated production build	2026-10-26T05:04:36.0035718Z (node:5897) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+Validate production build	Upload validated production build	2026-10-26T05:04:36.9261067Z Uploaded bytes 8388608
+Validate production build	Upload validated production build	2026-10-26T05:04:37.2322155Z Uploaded bytes 16777216
+Validate production build	Upload validated production build	2026-10-26T05:04:37.2810560Z Uploaded bytes 25165824
+Validate production build	Upload validated production build	2026-10-26T05:04:37.5705116Z Uploaded bytes 33554432
+Validate production build	Upload validated production build	2026-10-26T05:04:37.6244621Z Uploaded bytes 41943040
+Validate production build	Upload validated production build	2026-10-26T05:04:37.8137588Z Uploaded bytes 50331648
+Validate production build	Upload validated production build	2026-10-26T05:04:38.0936776Z Uploaded bytes 58720256
+Validate production build	Upload validated production build	2026-10-26T05:04:38.3785617Z Uploaded bytes 67108864
+Validate production build	Upload validated production build	2026-10-26T05:04:38.7171903Z Uploaded bytes 75497472
+Validate production build	Upload validated production build	2026-10-26T05:04:39.0254076Z Uploaded bytes 83886080
+Validate production build	Upload validated production build	2026-10-26T05:04:39.1823196Z Uploaded bytes 92274688
+Validate production build	Upload validated production build	2026-10-26T05:04:39.4906803Z Uploaded bytes 100663296
+Validate production build	Upload validated production build	2026-10-26T05:04:39.6170047Z Uploaded bytes 102776772
+Validate production build	Upload validated production build	2026-10-26T05:04:39.6962106Z Finished uploading artifact content to blob storage!
+Validate production build	Upload validated production build	2026-10-26T05:04:39.6965812Z SHA256 digest of uploaded artifact zip is 07ff48adc0d13102f0a6957aa10ee02e14dd14feb1e7d73c727487e983807d6e
+Validate production build	Upload validated production build	2026-10-26T05:04:39.6968907Z Finalizing artifact upload
+Validate production build	Upload validated production build	2026-10-26T05:04:40.1566632Z Artifact validated-playcanvas-5227f2e02302b21e316cdbdf03f54c8737b509ea-1.zip successfully finalized. Artifact ID 12628928296
+Validate production build	Upload validated production build	2026-10-26T05:04:40.1569722Z Artifact validated-playcanvas-5227f2e02302b21e316cdbdf03f54c8737b509ea-1 has been successfully uploaded! Final size is 102776772 bytes. Artifact ID is 12628928296
+Validate production build	Upload validated production build	2026-10-26T05:04:40.1577135Z Artifact download URL: https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40269368420/artifacts/12628928296
+Validate production build	Post Setup Node	﻿2026-10-26T05:04:40.1793959Z Post job cleanup.
+Validate production build	Post Setup Node	2026-10-26T05:04:40.3054346Z (node:5909) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+Validate production build	Post Setup Node	2026-10-26T05:04:40.3056186Z (Use `node --trace-deprecation ...` to show where the warning was created)
+Validate production build	Post Setup Node	2026-10-26T05:04:40.3060922Z Cache hit occurred on the primary key node-cache-Linux-x64-npm-ec2be6c2cda2971feffdd10b391efb0c6cee39d582eabcd45fcf5108cb07fa9a, not saving cache.
+Validate production build	Post Checkout immutable event revision	﻿2026-10-26T05:04:40.3208747Z Post job cleanup.
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4229844Z [command]/usr/bin/git version
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4280931Z git version 2.55.0
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4328432Z Temporarily overriding HOME='/home/runner/work/_temp/e9a67bf0-d794-4de5-ab47-4919d08dadc4' before making global git config changes
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4330302Z Adding repository directory to the temporary git global config as a safe directory
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4338534Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4392100Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4464276Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4788903Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.4831811Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.5128027Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+Validate production build	Post Checkout immutable event revision	2026-10-26T05:04:40.5186312Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+Validate production build	Complete job	﻿2026-10-26T05:04:40.5581092Z Cleaning up orphan processes
+Validate production build	Complete job	2026-10-26T05:04:40.6104146Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-node@v4, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

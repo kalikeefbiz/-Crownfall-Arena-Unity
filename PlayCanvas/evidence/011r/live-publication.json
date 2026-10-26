@@ -1,0 +1,33 @@
+{
+    "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/",
+    "testedSource": "5227f2e02302b21e316cdbdf03f54c8737b509ea",
+    "indexSha256": "7037923837a04b6ab100b694ff9c8b8951e1382ab3934cd448dd13d580913c28",
+    "passedBeforeProbeTimeout": {
+        "menuVisible": true,
+        "menuGlbRequests": 0,
+        "menuGameModuleRequests": 0,
+        "menuSimulationPresent": false,
+        "selectedSummoner": "Riven",
+        "selectionGlbRequests": 0,
+        "readyCombatIdentity": "riven",
+        "readyVisibleSummonerModels": 6
+    },
+    "additionalLocalProbe": {
+        "renderer": "Chromium / ANGLE SwiftShader",
+        "viewport": {
+            "width": 844,
+            "height": 390
+        },
+        "countdownTimeoutMs": 15000,
+        "result": "timed out awaiting active phase",
+        "scope": "extra publication probe; unchanged release public-flow assertion uses 30000ms",
+        "pauseAndReturnAttempted": false
+    },
+    "releaseGate": {
+        "browserTests": 127,
+        "browserPassed": 127,
+        "unitTests": 239,
+        "unitPassed": 239,
+        "conclusion": "success"
+    }
+}

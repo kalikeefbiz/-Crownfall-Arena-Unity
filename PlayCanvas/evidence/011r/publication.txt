@@ -1,0 +1,329 @@
+﻿2026-10-26T05:04:46.8369692Z Current runner version: '2.338.0'
+2026-10-26T05:04:46.8407854Z ##[group]Runner Image Provisioner
+2026-10-26T05:04:46.8409270Z Hosted Compute Agent
+2026-10-26T05:04:46.8410548Z Version: 20261021.618
+2026-10-26T05:04:46.8411667Z Commit: 21505ad2541d5be6135ed84fc33697146cf75b8e
+2026-10-26T05:04:46.8412925Z Build Date: 2026-10-21T00:45:21Z
+2026-10-26T05:04:46.8414235Z Worker ID: {c88e4270-28f7-4482-aa70-c8fb1f912cb7}
+2026-10-26T05:04:46.8415468Z Region: eastus
+2026-10-26T05:04:46.8416947Z Cloud: Azure
+2026-10-26T05:04:46.8417907Z ##[endgroup]
+2026-10-26T05:04:46.8420616Z ##[group]Operating System
+2026-10-26T05:04:46.8421830Z Ubuntu
+2026-10-26T05:04:46.8422778Z 24.04.5
+2026-10-26T05:04:46.8423737Z LTS
+2026-10-26T05:04:46.8424693Z ##[endgroup]
+2026-10-26T05:04:46.8425611Z ##[group]Runner Image
+2026-10-26T05:04:46.8426835Z Image: ubuntu-24.04
+2026-10-26T05:04:46.8427745Z Version: 20261012.334.1
+2026-10-26T05:04:46.8430393Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-26T05:04:46.8433298Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-26T05:04:46.8435002Z ##[endgroup]
+2026-10-26T05:04:46.8436948Z ##[group]GITHUB_TOKEN Permissions
+2026-10-26T05:04:46.8440242Z Contents: write
+2026-10-26T05:04:46.8441309Z Metadata: read
+2026-10-26T05:04:46.8442432Z ##[endgroup]
+2026-10-26T05:04:46.8445583Z Secret source: Actions
+2026-10-26T05:04:46.8447221Z Cache mode: write
+2026-10-26T05:04:46.8448661Z Prepare workflow directory
+2026-10-26T05:04:46.8951623Z Prepare all required actions
+2026-10-26T05:04:46.9025350Z Getting action download info
+2026-10-26T05:04:47.1471617Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-26T05:04:47.7542799Z Download action repository 'actions/download-artifact@v4' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-10-26T05:04:48.3806605Z Download action repository 'peaceiris/actions-gh-pages@v4' (SHA:84c30a85c19949d7eee79c4ff27748b70285e453)
+2026-10-26T05:04:48.6662805Z Complete job name: Publish validated build to /playcanvas/
+2026-10-26T05:04:48.7744723Z ##[group]Run actions/checkout@v4
+2026-10-26T05:04:48.7746187Z with:
+2026-10-26T05:04:48.7747124Z   ref: 5227f2e02302b21e316cdbdf03f54c8737b509ea
+2026-10-26T05:04:48.7748369Z   persist-credentials: false
+2026-10-26T05:04:48.7749535Z   repository: kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-26T05:04:48.7758962Z   token: ***
+2026-10-26T05:04:48.7759852Z   ssh-strict: true
+2026-10-26T05:04:48.7760893Z   ssh-user: git
+2026-10-26T05:04:48.7761812Z   clean: true
+2026-10-26T05:04:48.7762725Z   sparse-checkout-cone-mode: true
+2026-10-26T05:04:48.7763813Z   fetch-depth: 1
+2026-10-26T05:04:48.7764693Z   fetch-tags: false
+2026-10-26T05:04:48.7765596Z   show-progress: true
+2026-10-26T05:04:48.7766515Z   lfs: false
+2026-10-26T05:04:48.7767353Z   submodules: false
+2026-10-26T05:04:48.7768276Z   set-safe-directory: true
+2026-10-26T05:04:48.7769326Z   allow-unsafe-pr-checkout: false
+2026-10-26T05:04:48.7770897Z ##[endgroup]
+2026-10-26T05:04:48.9010347Z Syncing repository: kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-26T05:04:48.9014292Z ##[group]Getting Git version info
+2026-10-26T05:04:48.9016079Z Working directory is '/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity'
+2026-10-26T05:04:48.9018574Z [command]/usr/bin/git version
+2026-10-26T05:04:48.9070255Z git version 2.55.0
+2026-10-26T05:04:48.9173400Z ##[endgroup]
+2026-10-26T05:04:48.9181511Z Temporarily overriding HOME='/home/runner/work/_temp/a6e80864-88b7-42b1-8de1-86895ae199ba' before making global git config changes
+2026-10-26T05:04:48.9184784Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-26T05:04:48.9187773Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+2026-10-26T05:04:48.9215212Z Deleting the contents of '/home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity'
+2026-10-26T05:04:48.9233525Z ##[group]Initializing the repository
+2026-10-26T05:04:48.9241682Z [command]/usr/bin/git init /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+2026-10-26T05:04:48.9387837Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-26T05:04:48.9412264Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-26T05:04:48.9416128Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-26T05:04:48.9418886Z hint: call:
+2026-10-26T05:04:48.9420731Z hint:
+2026-10-26T05:04:48.9422693Z hint: 	git config --global init.defaultBranch <name>
+2026-10-26T05:04:48.9424940Z hint:
+2026-10-26T05:04:48.9426306Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-26T05:04:48.9429055Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-26T05:04:48.9431358Z hint:
+2026-10-26T05:04:48.9432749Z hint: 	git branch -m <name>
+2026-10-26T05:04:48.9434315Z hint:
+2026-10-26T05:04:48.9435870Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-26T05:04:48.9439491Z Initialized empty Git repository in /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/.git/
+2026-10-26T05:04:48.9445863Z [command]/usr/bin/git remote add origin https://github.com/kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-26T05:04:48.9459824Z ##[endgroup]
+2026-10-26T05:04:48.9463126Z ##[group]Disabling automatic garbage collection
+2026-10-26T05:04:48.9504824Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-26T05:04:48.9564492Z ##[endgroup]
+2026-10-26T05:04:48.9567301Z ##[group]Setting up auth
+2026-10-26T05:04:48.9573320Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T05:04:48.9617845Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T05:04:49.0022635Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T05:04:49.0066584Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T05:04:49.0303545Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T05:04:49.0347187Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T05:04:49.0583474Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-26T05:04:49.0628739Z ##[endgroup]
+2026-10-26T05:04:49.0630862Z ##[group]Fetching the repository
+2026-10-26T05:04:49.0639482Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin 5227f2e02302b21e316cdbdf03f54c8737b509ea
+2026-10-26T05:05:00.3986218Z From https://github.com/kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-26T05:05:00.3987397Z  * branch            5227f2e02302b21e316cdbdf03f54c8737b509ea -> FETCH_HEAD
+2026-10-26T05:05:00.3990721Z ##[endgroup]
+2026-10-26T05:05:00.3991781Z ##[group]Determining the checkout info
+2026-10-26T05:05:00.3993644Z ##[endgroup]
+2026-10-26T05:05:00.4000403Z [command]/usr/bin/git sparse-checkout disable
+2026-10-26T05:05:00.4055841Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-26T05:05:00.4091542Z ##[group]Checking out the ref
+2026-10-26T05:05:00.4096588Z [command]/usr/bin/git checkout --progress --force 5227f2e02302b21e316cdbdf03f54c8737b509ea
+2026-10-26T05:05:01.0193666Z Note: switching to '5227f2e02302b21e316cdbdf03f54c8737b509ea'.
+2026-10-26T05:05:01.0194268Z 
+2026-10-26T05:05:01.0194622Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-10-26T05:05:01.0195456Z changes and commit them, and you can discard any commits you make in this
+2026-10-26T05:05:01.0196582Z state without impacting any branches by switching back to a branch.
+2026-10-26T05:05:01.0197092Z 
+2026-10-26T05:05:01.0197456Z If you want to create a new branch to retain commits you create, you may
+2026-10-26T05:05:01.0198072Z do so (now or later) by using -c with the switch command. Example:
+2026-10-26T05:05:01.0198364Z 
+2026-10-26T05:05:01.0198478Z   git switch -c <new-branch-name>
+2026-10-26T05:05:01.0198662Z 
+2026-10-26T05:05:01.0198898Z Or undo this operation with:
+2026-10-26T05:05:01.0199085Z 
+2026-10-26T05:05:01.0199181Z   git switch -
+2026-10-26T05:05:01.0199340Z 
+2026-10-26T05:05:01.0199563Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-10-26T05:05:01.0199874Z 
+2026-10-26T05:05:01.0200434Z HEAD is now at 5227f2e Yield idle inspection rendering during staged resource work
+2026-10-26T05:05:01.0254328Z ##[endgroup]
+2026-10-26T05:05:01.0307556Z [command]/usr/bin/git log -1 --format=%H
+2026-10-26T05:05:01.0339054Z 5227f2e02302b21e316cdbdf03f54c8737b509ea
+2026-10-26T05:05:01.0352634Z ##[group]Removing auth
+2026-10-26T05:05:01.0353619Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T05:05:01.0394588Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T05:05:01.0637333Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T05:05:01.0666802Z http.https://github.com/.extraheader
+2026-10-26T05:05:01.0675961Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-26T05:05:01.0714411Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T05:05:01.0965065Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T05:05:01.1004500Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T05:05:01.1231673Z ##[endgroup]
+2026-10-26T05:05:01.1553929Z ##[group]Run actions/download-artifact@v4
+2026-10-26T05:05:01.1554473Z with:
+2026-10-26T05:05:01.1555122Z   name: validated-playcanvas-5227f2e02302b21e316cdbdf03f54c8737b509ea-1
+2026-10-26T05:05:01.1555920Z   path: validated-build
+2026-10-26T05:05:01.1556370Z   merge-multiple: false
+2026-10-26T05:05:01.1556908Z   repository: kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-26T05:05:01.1557378Z   run-id: 40269368420
+2026-10-26T05:05:01.1557742Z ##[endgroup]
+2026-10-26T05:05:01.3683433Z Downloading single artifact
+2026-10-26T05:05:01.3856906Z (node:2368) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-26T05:05:01.3858264Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-26T05:05:01.4743873Z Preparing to download the following artifacts:
+2026-10-26T05:05:01.4745451Z - validated-playcanvas-5227f2e02302b21e316cdbdf03f54c8737b509ea-1 (ID: 12628928296, Size: 102776772, Expected Digest: sha256:07ff48adc0d13102f0a6957aa10ee02e14dd14feb1e7d73c727487e983807d6e)
+2026-10-26T05:05:01.5935594Z Redirecting to blob download url: https://productionresultssa8.blob.core.windows.net/actions-results/41c4ff63-e31d-8a5a-ade5-8a0cc1b13237/workflow-job-run-6044b211-f02a-5dee-a495-aeec5b10c342/artifacts/dbeac064e8f9c931f39cae7c0e630711a4fb042ba2261b822dad3fa4ca54e00c.zip
+2026-10-26T05:05:01.5938398Z Starting download of artifact to: /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/validated-build
+2026-10-26T05:05:01.6744109Z (node:2368) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-10-26T05:05:03.0992156Z SHA256 digest of downloaded artifact is 07ff48adc0d13102f0a6957aa10ee02e14dd14feb1e7d73c727487e983807d6e
+2026-10-26T05:05:03.0993507Z Artifact download completed successfully.
+2026-10-26T05:05:03.0994072Z Total of 1 artifact(s) downloaded
+2026-10-26T05:05:03.1001339Z Download artifact has finished successfully
+2026-10-26T05:05:03.1188334Z ##[group]Run set -euo pipefail
+2026-10-26T05:05:03.1188701Z [36;1mset -euo pipefail[0m
+2026-10-26T05:05:03.1189069Z [36;1mtest "$(cat validated-sha.txt)" = "$EXPECTED_SHA"[0m
+2026-10-26T05:05:03.1189435Z [36;1msha256sum --check dist.sha256[0m
+2026-10-26T05:05:03.1189725Z [36;1mtest -f dist/index.html[0m
+2026-10-26T05:05:03.1190483Z [36;1mCURRENT_SHA="$(gh api "repos/$REPOSITORY/git/ref/heads/playcanvas-port" --jq .object.sha)"[0m
+2026-10-26T05:05:03.1191044Z [36;1mif [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then[0m
+2026-10-26T05:05:03.1191506Z [36;1m  echo "Refusing stale release $EXPECTED_SHA; source branch is $CURRENT_SHA" >&2[0m
+2026-10-26T05:05:03.1191932Z [36;1m  exit 1[0m
+2026-10-26T05:05:03.1192149Z [36;1mfi[0m
+2026-10-26T05:05:03.1530312Z shell: /usr/bin/bash -e {0}
+2026-10-26T05:05:03.1530731Z env:
+2026-10-26T05:05:03.1534712Z   GH_TOKEN: ***
+2026-10-26T05:05:03.1535102Z   EXPECTED_SHA: 5227f2e02302b21e316cdbdf03f54c8737b509ea
+2026-10-26T05:05:03.1535678Z   REPOSITORY: kalikeefbiz/-Crownfall-Arena-Unity
+2026-10-26T05:05:03.1536105Z ##[endgroup]
+2026-10-26T05:05:03.1678552Z dist/assets/environment/polyhaven/SOURCES.md: OK
+2026-10-26T05:05:03.1680794Z dist/assets/environment/polyhaven/dirt_albedo_1k.webp: OK
+2026-10-26T05:05:03.1689575Z dist/assets/environment/polyhaven/dirt_ar_1k.png: OK
+2026-10-26T05:05:03.1694693Z dist/assets/environment/polyhaven/dirt_normal_1k.webp: OK
+2026-10-26T05:05:03.1698935Z dist/assets/environment/polyhaven/dry_ground_rocks_albedo_1k.webp: OK
+2026-10-26T05:05:03.1712953Z dist/assets/environment/polyhaven/dry_ground_rocks_ar_1k.png: OK
+2026-10-26T05:05:03.1717919Z dist/assets/environment/polyhaven/dry_ground_rocks_normal_1k.webp: OK
+2026-10-26T05:05:03.1719079Z dist/assets/environment/polyhaven/forest_leaves_02_albedo_512.webp: OK
+2026-10-26T05:05:03.1723132Z dist/assets/environment/polyhaven/forest_leaves_02_ar_512.png: OK
+2026-10-26T05:05:03.1724693Z dist/assets/environment/polyhaven/forest_leaves_02_normal_512.webp: OK
+2026-10-26T05:05:03.1725693Z dist/assets/environment/polyhaven/sparse_grass_albedo_512.webp: OK
+2026-10-26T05:05:03.1729089Z dist/assets/environment/polyhaven/sparse_grass_ar_512.png: OK
+2026-10-26T05:05:03.1730772Z dist/assets/environment/polyhaven/sparse_grass_normal_512.webp: OK
+2026-10-26T05:05:03.1788352Z dist/assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb: OK
+2026-10-26T05:05:03.1826884Z dist/assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb: OK
+2026-10-26T05:05:03.1871920Z dist/assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb: OK
+2026-10-26T05:05:03.1914116Z dist/assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb: OK
+2026-10-26T05:05:03.1915019Z dist/assets/environment/trees/README.md: OK
+2026-10-26T05:05:03.1919743Z dist/assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb: OK
+2026-10-26T05:05:03.1922902Z dist/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb: OK
+2026-10-26T05:05:03.1927387Z dist/assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb: OK
+2026-10-26T05:05:03.1931352Z dist/assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb: OK
+2026-10-26T05:05:03.1932091Z dist/assets/environment/trees/mobile/README.md: OK
+2026-10-26T05:05:03.1932641Z dist/assets/environment/trees/mobile/preparation.json: OK
+2026-10-26T05:05:03.1933150Z dist/assets/frontend-Ddx99pEg.js: OK
+2026-10-26T05:05:03.1940715Z dist/assets/frontend/fonts/Cinzel-OFL.txt: OK
+2026-10-26T05:05:03.1961132Z dist/assets/frontend/fonts/Cinzel.woff: OK
+2026-10-26T05:05:03.1961946Z dist/assets/frontend/fonts/Rajdhani-OFL.txt: OK
+2026-10-26T05:05:03.1962701Z dist/assets/frontend/fonts/Rajdhani.woff: OK
+2026-10-26T05:05:03.1963819Z dist/assets/frontend/portraits/kit.webp: OK
+2026-10-26T05:05:03.1964590Z dist/assets/frontend/portraits/provenance.json: OK
+2026-10-26T05:05:03.1965374Z dist/assets/frontend/portraits/riven.webp: OK
+2026-10-26T05:05:03.1966192Z dist/assets/frontend/portraits/set.webp: OK
+2026-10-26T05:05:03.1966653Z dist/assets/frontend/ucl-arena-menu.jpeg: OK
+2026-10-26T05:05:03.1967089Z dist/assets/game-DwHibMSk.js: OK
+2026-10-26T05:05:03.1967484Z dist/assets/index-Bet49Jyd.js: OK
+2026-10-26T05:05:03.1967866Z dist/assets/index-BgPqw8kw.css: OK
+2026-10-26T05:05:03.1968274Z dist/assets/preload-helper-CRzLMJPS.js: OK
+2026-10-26T05:05:03.2146878Z dist/assets/summoners/kit/Kit_20K_Animated.glb: OK
+2026-10-26T05:05:03.2147675Z dist/assets/summoners/kit/README.md: OK
+2026-10-26T05:05:03.2185393Z dist/assets/summoners/kit/kit-10k-test.glb: OK
+2026-10-26T05:05:03.2186138Z dist/assets/summoners/riven/README.md: OK
+2026-10-26T05:05:03.2267121Z dist/assets/summoners/riven/Riven_Animated.glb: OK
+2026-10-26T05:05:03.2434633Z dist/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb: OK
+2026-10-26T05:05:03.2435722Z dist/assets/summoners/riven/weapons/README.md: OK
+2026-10-26T05:05:03.2436282Z dist/assets/summoners/set/README.md: OK
+2026-10-26T05:05:03.2507281Z dist/assets/summoners/set/Set_Animated.glb: OK
+2026-10-26T05:05:03.2507978Z dist/index.html: OK
+2026-10-26T05:05:03.7033868Z ##[group]Run peaceiris/actions-gh-pages@v4
+2026-10-26T05:05:03.7034194Z with:
+2026-10-26T05:05:03.7036692Z   github_token: ***
+2026-10-26T05:05:03.7036941Z   publish_dir: ./validated-build/dist
+2026-10-26T05:05:03.7037230Z   publish_branch: gh-pages
+2026-10-26T05:05:03.7037487Z   destination_dir: playcanvas
+2026-10-26T05:05:03.7037725Z   keep_files: true
+2026-10-26T05:05:03.7037935Z   force_orphan: false
+2026-10-26T05:05:03.7038146Z   enable_jekyll: false
+2026-10-26T05:05:03.7038374Z   allow_empty_commit: false
+2026-10-26T05:05:03.7038617Z   disable_nojekyll: false
+2026-10-26T05:05:03.7038849Z   exclude_assets: .github
+2026-10-26T05:05:03.7039091Z ##[endgroup]
+2026-10-26T05:05:03.8017626Z [INFO] Usage https://github.com/peaceiris/actions-gh-pages#readme
+2026-10-26T05:05:03.8023320Z ##[group]Dump inputs
+2026-10-26T05:05:03.8028254Z [INFO] GithubToken: true
+2026-10-26T05:05:03.8028893Z [INFO] PublishBranch: gh-pages
+2026-10-26T05:05:03.8029638Z [INFO] PublishDir: ./validated-build/dist
+2026-10-26T05:05:03.8030556Z [INFO] DestinationDir: playcanvas
+2026-10-26T05:05:03.8030977Z [INFO] ExternalRepository: 
+2026-10-26T05:05:03.8031347Z [INFO] AllowEmptyCommit: false
+2026-10-26T05:05:03.8031705Z [INFO] KeepFiles: true
+2026-10-26T05:05:03.8032254Z [INFO] ForceOrphan: false
+2026-10-26T05:05:03.8032780Z [INFO] UserName: 
+2026-10-26T05:05:03.8033244Z [INFO] UserEmail: 
+2026-10-26T05:05:03.8033652Z [INFO] CommitMessage: 
+2026-10-26T05:05:03.8034176Z [INFO] FullCommitMessage: 
+2026-10-26T05:05:03.8034753Z [INFO] TagName: 
+2026-10-26T05:05:03.8035315Z [INFO] TagMessage: 
+2026-10-26T05:05:03.8035987Z [INFO] EnableJekyll (DisableNoJekyll): false
+2026-10-26T05:05:03.8036738Z [INFO] CNAME: 
+2026-10-26T05:05:03.8037225Z [INFO] ExcludeAssets .github
+2026-10-26T05:05:03.8037591Z 
+2026-10-26T05:05:03.8038114Z ##[endgroup]
+2026-10-26T05:05:03.8038919Z ##[group]Setup auth token
+2026-10-26T05:05:03.8039486Z [INFO] setup GITHUB_TOKEN
+2026-10-26T05:05:03.8041251Z ##[endgroup]
+2026-10-26T05:05:03.8041773Z ##[group]Prepare publishing assets
+2026-10-26T05:05:03.8042435Z [INFO] ForceOrphan: false
+2026-10-26T05:05:03.8087231Z [command]/usr/bin/git clone --depth=1 --single-branch --branch gh-pages ***github.com/kalikeefbiz/-Crownfall-Arena-Unity.git /home/runner/actions_github_pages_1792991103803
+2026-10-26T05:05:03.8137043Z Cloning into '/home/runner/actions_github_pages_1792991103803'...
+2026-10-26T05:05:07.8717409Z [INFO] Keep existing files
+2026-10-26T05:05:07.8718002Z [INFO] chdir /home/runner/actions_github_pages_1792991103803
+2026-10-26T05:05:07.8718529Z [INFO] prepare publishing assets
+2026-10-26T05:05:07.8719861Z [INFO] copy /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity/validated-build/dist to /home/runner/actions_github_pages_1792991103803/playcanvas
+2026-10-26T05:05:07.9486117Z [INFO] delete excluded assets
+2026-10-26T05:05:07.9542316Z ##[endgroup]
+2026-10-26T05:05:07.9542797Z ##[group]Setup Git config
+2026-10-26T05:05:07.9560633Z [command]/usr/bin/git remote rm origin
+2026-10-26T05:05:07.9630779Z [command]/usr/bin/git remote add origin ***github.com/kalikeefbiz/-Crownfall-Arena-Unity.git
+2026-10-26T05:05:07.9678573Z [command]/usr/bin/git add --all
+2026-10-26T05:05:09.2580108Z [command]/usr/bin/git config user.name kalikeefbiz
+2026-10-26T05:05:09.2634201Z [command]/usr/bin/git config user.email kalikeefbiz@users.noreply.github.com
+2026-10-26T05:05:09.2671586Z ##[endgroup]
+2026-10-26T05:05:09.2672251Z ##[group]Create a commit
+2026-10-26T05:05:09.2686083Z [command]/usr/bin/git commit -m deploy: 5227f2e02302b21e316cdbdf03f54c8737b509ea
+2026-10-26T05:05:09.2825288Z [gh-pages 2711b05] deploy: 5227f2e02302b21e316cdbdf03f54c8737b509ea
+2026-10-26T05:05:09.2826216Z  33 files changed, 11298 insertions(+), 4 deletions(-)
+2026-10-26T05:05:09.2827310Z  create mode 100644 playcanvas/assets/environment/polyhaven/forest_leaves_02_albedo_512.webp
+2026-10-26T05:05:09.2828555Z  create mode 100644 playcanvas/assets/environment/polyhaven/forest_leaves_02_ar_512.png
+2026-10-26T05:05:09.2830571Z  create mode 100644 playcanvas/assets/environment/polyhaven/forest_leaves_02_normal_512.webp
+2026-10-26T05:05:09.2831878Z  create mode 100644 playcanvas/assets/environment/polyhaven/sparse_grass_albedo_512.webp
+2026-10-26T05:05:09.2833263Z  create mode 100644 playcanvas/assets/environment/polyhaven/sparse_grass_ar_512.png
+2026-10-26T05:05:09.2834706Z  create mode 100644 playcanvas/assets/environment/polyhaven/sparse_grass_normal_512.webp
+2026-10-26T05:05:09.2836294Z  create mode 100644 playcanvas/assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb
+2026-10-26T05:05:09.2837807Z  create mode 100644 playcanvas/assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb
+2026-10-26T05:05:09.2839405Z  create mode 100644 playcanvas/assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb
+2026-10-26T05:05:09.2840920Z  create mode 100644 playcanvas/assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb
+2026-10-26T05:05:09.2841973Z  create mode 100644 playcanvas/assets/environment/trees/README.md
+2026-10-26T05:05:09.2843049Z  create mode 100644 playcanvas/assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb
+2026-10-26T05:05:09.2844314Z  create mode 100644 playcanvas/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb
+2026-10-26T05:05:09.2845544Z  create mode 100644 playcanvas/assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb
+2026-10-26T05:05:09.2846798Z  create mode 100644 playcanvas/assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb
+2026-10-26T05:05:09.2847859Z  create mode 100644 playcanvas/assets/environment/trees/mobile/README.md
+2026-10-26T05:05:09.2848749Z  create mode 100644 playcanvas/assets/environment/trees/mobile/preparation.json
+2026-10-26T05:05:09.2849554Z  create mode 100644 playcanvas/assets/frontend-Ddx99pEg.js
+2026-10-26T05:05:09.2850537Z  create mode 100644 playcanvas/assets/frontend/fonts/Cinzel-OFL.txt
+2026-10-26T05:05:09.2851262Z  create mode 100644 playcanvas/assets/frontend/fonts/Cinzel.woff
+2026-10-26T05:05:09.2851924Z  create mode 100644 playcanvas/assets/frontend/fonts/Rajdhani-OFL.txt
+2026-10-26T05:05:09.2852639Z  create mode 100644 playcanvas/assets/frontend/fonts/Rajdhani.woff
+2026-10-26T05:05:09.2853348Z  create mode 100644 playcanvas/assets/frontend/portraits/kit.webp
+2026-10-26T05:05:09.2854128Z  create mode 100644 playcanvas/assets/frontend/portraits/provenance.json
+2026-10-26T05:05:09.2854886Z  create mode 100644 playcanvas/assets/frontend/portraits/riven.webp
+2026-10-26T05:05:09.2855620Z  create mode 100644 playcanvas/assets/frontend/portraits/set.webp
+2026-10-26T05:05:09.2856363Z  create mode 100644 playcanvas/assets/frontend/ucl-arena-menu.jpeg
+2026-10-26T05:05:09.2857286Z  create mode 100644 playcanvas/assets/game-DwHibMSk.js
+2026-10-26T05:05:09.2857867Z  create mode 100644 playcanvas/assets/index-Bet49Jyd.js
+2026-10-26T05:05:09.2858448Z  create mode 100644 playcanvas/assets/index-BgPqw8kw.css
+2026-10-26T05:05:09.2859381Z  create mode 100644 playcanvas/assets/preload-helper-CRzLMJPS.js
+2026-10-26T05:05:09.2860579Z ##[endgroup]
+2026-10-26T05:05:09.2860974Z ##[group]Push the commit or tag
+2026-10-26T05:05:09.2861255Z [command]/usr/bin/git push origin gh-pages
+2026-10-26T05:05:12.1308511Z To https://github.com/kalikeefbiz/-Crownfall-Arena-Unity.git
+2026-10-26T05:05:12.1309288Z    79e976a..2711b05  gh-pages -> gh-pages
+2026-10-26T05:05:12.1351071Z ##[endgroup]
+2026-10-26T05:05:12.1351467Z [INFO] Action successfully completed
+2026-10-26T05:05:12.1522949Z Post job cleanup.
+2026-10-26T05:05:12.2360838Z [command]/usr/bin/git version
+2026-10-26T05:05:12.2401734Z git version 2.55.0
+2026-10-26T05:05:12.2442777Z Temporarily overriding HOME='/home/runner/work/_temp/4fc22f3e-7745-4598-a6a0-3a96eef6a8e5' before making global git config changes
+2026-10-26T05:05:12.2444170Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-26T05:05:12.2448128Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/-Crownfall-Arena-Unity/-Crownfall-Arena-Unity
+2026-10-26T05:05:12.2489857Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-26T05:05:12.2542397Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-26T05:05:12.2795404Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-26T05:05:12.2832846Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-26T05:05:12.3113480Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-26T05:05:12.3153595Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-26T05:05:12.3565878Z Cleaning up orphan processes
+2026-10-26T05:05:12.4074034Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/download-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+

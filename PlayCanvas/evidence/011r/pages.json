@@ -1,0 +1,52 @@
+{
+    "conclusion": "success",
+    "headSha": "2711b05e3232af5ea7dfdb5b533a7767c9c2b545",
+    "jobs": [
+        {
+            "completedAt": "2026-10-26T05:05:36Z",
+            "conclusion": "success",
+            "databaseId": 121407748302,
+            "name": "build",
+            "startedAt": "2026-10-26T05:05:17Z",
+            "status": "completed",
+            "steps": [
+                { "conclusion": "success", "name": "Set up job", "number": 1, "status": "completed" },
+                { "conclusion": "success", "name": "Checkout", "number": 2, "status": "completed" },
+                { "conclusion": "success", "name": "Upload artifact", "number": 3, "status": "completed" },
+                { "conclusion": "success", "name": "Post Checkout", "number": 6, "status": "completed" },
+                { "conclusion": "success", "name": "Complete job", "number": 7, "status": "completed" }
+            ],
+            "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40272370689/job/121407748302"
+        },
+        {
+            "completedAt": "2026-10-26T05:05:51Z",
+            "conclusion": "success",
+            "databaseId": 121407845074,
+            "name": "deploy",
+            "startedAt": "2026-10-26T05:05:40Z",
+            "status": "completed",
+            "steps": [
+                { "conclusion": "success", "name": "Set up job", "number": 1, "status": "completed" },
+                { "conclusion": "success", "name": "Deploy to GitHub Pages", "number": 2, "status": "completed" },
+                { "conclusion": "success", "name": "Complete job", "number": 3, "status": "completed" }
+            ],
+            "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40272370689/job/121407845074"
+        },
+        {
+            "completedAt": "2026-10-26T05:05:46Z",
+            "conclusion": "success",
+            "databaseId": 121407845193,
+            "name": "report-build-status",
+            "startedAt": "2026-10-26T05:05:40Z",
+            "status": "completed",
+            "steps": [
+                { "conclusion": "success", "name": "Set up job", "number": 1, "status": "completed" },
+                { "conclusion": "success", "name": "Report Build Status", "number": 2, "status": "completed" },
+                { "conclusion": "success", "name": "Complete job", "number": 3, "status": "completed" }
+            ],
+            "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40272370689/job/121407845193"
+        }
+    ],
+    "status": "completed",
+    "url": "https://github.com/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/40272370689"
+}
