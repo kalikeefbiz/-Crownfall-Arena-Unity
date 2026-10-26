@@ -1,0 +1,733 @@
+{
+    "lanes": [
+        {
+            "lane": "upper",
+            "outward": {
+                "success": true,
+                "seconds": 42.983333333333334,
+                "distance": 257.8846043436964,
+                "collisions": 0,
+                "end": { "x": 100.96964917491425, "z": -0.07146009554535593 }
+            },
+            "returning": {
+                "success": true,
+                "seconds": 42.983333333333334,
+                "distance": 257.8846043436964,
+                "collisions": 0,
+                "end": { "x": -100.96964917491425, "z": -0.07146009554535593 }
+            }
+        },
+        {
+            "lane": "middle",
+            "outward": {
+                "success": true,
+                "seconds": 33.666666666666664,
+                "distance": 201.99999999999045,
+                "collisions": 0,
+                "end": { "x": 100.99999999999707, "z": 0 }
+            },
+            "returning": {
+                "success": true,
+                "seconds": 33.666666666666664,
+                "distance": 201.99999999999045,
+                "collisions": 0,
+                "end": { "x": -100.99999999999707, "z": 0 }
+            }
+        },
+        {
+            "lane": "lower",
+            "outward": {
+                "success": true,
+                "seconds": 42.983333333333334,
+                "distance": 257.8846043436964,
+                "collisions": 0,
+                "end": { "x": 100.96964917491425, "z": 0.07146009554535593 }
+            },
+            "returning": {
+                "success": true,
+                "seconds": 42.983333333333334,
+                "distance": 257.8846043436964,
+                "collisions": 0,
+                "end": { "x": -100.96964917491425, "z": 0.07146009554535593 }
+            }
+        }
+    ],
+    "networks": {
+        "master": { "freeNodes": 6724, "components": [6724] },
+        "three": { "freeNodes": 3888, "components": [3888] },
+        "upper": { "freeNodes": 1216, "components": [1216] },
+        "lower": { "freeNodes": 1216, "components": [1216] }
+    },
+    "rotations": {
+        "blueprint": [
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.192422502470215,
+                "collisions": 0,
+                "end": { "x": -72.98887776658498, "z": -47.94780725219937 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250247,
+                "collisions": 0,
+                "end": { "x": -46.98887776658507, "z": -47.947807252199816 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250246953,
+                "collisions": 0,
+                "end": { "x": -18.988877766584977, "z": -47.94780725219938 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250246953,
+                "collisions": 0,
+                "end": { "x": 18.988877766584977, "z": -47.94780725219938 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250247,
+                "collisions": 0,
+                "end": { "x": 46.98887776658507, "z": -47.947807252199816 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.192422502470215,
+                "collisions": 0,
+                "end": { "x": 72.98887776658498, "z": -47.94780725219937 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.192422502470215,
+                "collisions": 0,
+                "end": { "x": -72.98887776658498, "z": 47.94780725219937 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250247,
+                "collisions": 0,
+                "end": { "x": -46.98887776658507, "z": 47.947807252199816 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250246953,
+                "collisions": 0,
+                "end": { "x": -18.988877766584977, "z": 47.94780725219938 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250246953,
+                "collisions": 0,
+                "end": { "x": 18.988877766584977, "z": 47.94780725219938 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.19242250247,
+                "collisions": 0,
+                "end": { "x": 46.98887776658507, "z": 47.947807252199816 }
+            },
+            {
+                "success": true,
+                "seconds": 8.2,
+                "distance": 49.192422502470215,
+                "collisions": 0,
+                "end": { "x": 72.98887776658498, "z": 47.94780725219937 }
+            }
+        ],
+        "openAlternatives": [
+            {
+                "x": -80,
+                "s": -1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": -80, "z": -49 }
+                }
+            },
+            {
+                "x": -80,
+                "s": 1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": -80, "z": 49 }
+                }
+            },
+            {
+                "x": -45,
+                "s": -1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": -45, "z": -49 }
+                }
+            },
+            {
+                "x": -45,
+                "s": 1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": -45, "z": 49 }
+                }
+            },
+            {
+                "x": 0,
+                "s": -1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": 0, "z": -49 }
+                }
+            },
+            {
+                "x": 0,
+                "s": 1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": 0, "z": 49 }
+                }
+            },
+            {
+                "x": 45,
+                "s": -1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": 45, "z": -49 }
+                }
+            },
+            {
+                "x": 45,
+                "s": 1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": 45, "z": 49 }
+                }
+            },
+            {
+                "x": 80,
+                "s": -1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": 80, "z": -49 }
+                }
+            },
+            {
+                "x": 80,
+                "s": 1,
+                "result": {
+                    "success": true,
+                    "seconds": 8.166666666666666,
+                    "distance": 49,
+                    "collisions": 0,
+                    "end": { "x": 80, "z": 49 }
+                }
+            }
+        ],
+        "coveredLongitudinal": [
+            {
+                "success": true,
+                "seconds": 23.866666666666667,
+                "distance": 143.17933984877814,
+                "collisions": 0,
+                "end": { "x": 69.98224798749354, "z": -28.997159677998965 }
+            },
+            {
+                "success": true,
+                "seconds": 23.866666666666667,
+                "distance": 143.17933984877814,
+                "collisions": 0,
+                "end": { "x": 69.98224798749354, "z": 28.997159677998965 }
+            }
+        ]
+    },
+    "objectiveAccess": [
+        {
+            "id": "blue-core",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999716,
+                    "collisions": 0,
+                    "end": { "x": -100.99999999999972, "z": 0 }
+                },
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999716,
+                    "collisions": 0,
+                    "end": { "x": -101.00000000000028, "z": 0 }
+                },
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999996,
+                    "collisions": 0,
+                    "end": { "x": -101, "z": 1.0269562977782698e-15 }
+                },
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999996,
+                    "collisions": 0,
+                    "end": { "x": -101, "z": -1.0269562977782698e-15 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 5.333333333333333,
+                "distance": 31.365484905459436,
+                "collisions": 0,
+                "end": { "x": -96, "z": -1.2351231148954867e-15 }
+            }
+        },
+        {
+            "id": "red-core",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999716,
+                    "collisions": 0,
+                    "end": { "x": 101.00000000000028, "z": 0 }
+                },
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999716,
+                    "collisions": 0,
+                    "end": { "x": 100.99999999999972, "z": 0 }
+                },
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999996,
+                    "collisions": 0,
+                    "end": { "x": 101, "z": 1.0269562977782698e-15 }
+                },
+                {
+                    "success": true,
+                    "seconds": 0.8333333333333334,
+                    "distance": 4.999999999999996,
+                    "collisions": 0,
+                    "end": { "x": 101, "z": -1.0269562977782698e-15 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 5.333333333333333,
+                "distance": 31.365484905459436,
+                "collisions": 0,
+                "end": { "x": 106, "z": -1.2351231148954867e-15 }
+            }
+        },
+        {
+            "id": "mobility-blue",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -53, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -53, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -53, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -53, "z": -25 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 7.333333333333333,
+                "distance": 43.8916867042512,
+                "collisions": 0,
+                "end": { "x": -46, "z": -25 }
+            }
+        },
+        {
+            "id": "mobility-red",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 53, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 53, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 53, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 53, "z": -25 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 7.333333333333333,
+                "distance": 43.8916867042512,
+                "collisions": 0,
+                "end": { "x": 60, "z": -25 }
+            }
+        },
+        {
+            "id": "defense-blue",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -18, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -18, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -18, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -18, "z": -25 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 7.333333333333333,
+                "distance": 43.891686704251285,
+                "collisions": 0,
+                "end": { "x": -11, "z": -25 }
+            }
+        },
+        {
+            "id": "defense-red",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 18, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 18, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 18, "z": -25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 18, "z": -25 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 7.333333333333333,
+                "distance": 43.89168670425129,
+                "collisions": 0,
+                "end": { "x": 25, "z": -25 }
+            }
+        },
+        {
+            "id": "cooldown-blue",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -40, "z": 25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -40, "z": 25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -40, "z": 25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": -40, "z": 25 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 7.333333333333333,
+                "distance": 43.8916867042512,
+                "collisions": 0,
+                "end": { "x": -33, "z": 25 }
+            }
+        },
+        {
+            "id": "cooldown-red",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 40, "z": 25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 40, "z": 25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 40, "z": 25 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.1666666666666667,
+                    "distance": 7,
+                    "collisions": 0,
+                    "end": { "x": 40, "z": 25 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 7.333333333333333,
+                "distance": 43.8916867042512,
+                "collisions": 0,
+                "end": { "x": 47, "z": 25 }
+            }
+        },
+        {
+            "id": "major",
+            "approaches": [
+                {
+                    "success": true,
+                    "seconds": 1.3333333333333333,
+                    "distance": 7.999999999999972,
+                    "collisions": 0,
+                    "end": { "x": 1.1685097334179773e-14, "z": 26 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.3333333333333333,
+                    "distance": 7.999999999999972,
+                    "collisions": 0,
+                    "end": { "x": -1.1685097334179773e-14, "z": 26 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.3333333333333333,
+                    "distance": 8,
+                    "collisions": 0,
+                    "end": { "x": 0, "z": 26 }
+                },
+                {
+                    "success": true,
+                    "seconds": 1.3333333333333333,
+                    "distance": 8,
+                    "collisions": 0,
+                    "end": { "x": 0, "z": 26 }
+                }
+            ],
+            "loop": {
+                "success": true,
+                "seconds": 8.366666666666667,
+                "distance": 50.161319214208355,
+                "collisions": 0,
+                "end": { "x": 8, "z": 25.999999999999996 }
+            }
+        }
+    ],
+    "teamTravel": [
+        {
+            "id": "red-core",
+            "blue": {
+                "success": true,
+                "seconds": 8.166666666666666,
+                "distance": 48.99999999999682,
+                "collisions": 0,
+                "end": { "x": -101, "z": 0 }
+            },
+            "red": {
+                "success": true,
+                "seconds": 8.166666666666666,
+                "distance": 48.99999999999682,
+                "collisions": 0,
+                "end": { "x": 101, "z": 0 }
+            }
+        },
+        {
+            "id": "mobility-red",
+            "blue": {
+                "success": true,
+                "seconds": 13.333333333333334,
+                "distance": 79.99999999999679,
+                "collisions": 0,
+                "end": { "x": -53, "z": -25 }
+            },
+            "red": {
+                "success": true,
+                "seconds": 13.333333333333334,
+                "distance": 79.99999999999679,
+                "collisions": 0,
+                "end": { "x": 53, "z": -25 }
+            }
+        },
+        {
+            "id": "defense-red",
+            "blue": {
+                "success": true,
+                "seconds": 19.166666666666668,
+                "distance": 114.9999999999948,
+                "collisions": 0,
+                "end": { "x": -18, "z": -25 }
+            },
+            "red": {
+                "success": true,
+                "seconds": 19.166666666666668,
+                "distance": 114.9999999999948,
+                "collisions": 0,
+                "end": { "x": 18, "z": -25 }
+            }
+        },
+        {
+            "id": "cooldown-red",
+            "blue": {
+                "success": true,
+                "seconds": 15.5,
+                "distance": 92.99999999999605,
+                "collisions": 0,
+                "end": { "x": -40, "z": 25 }
+            },
+            "red": {
+                "success": true,
+                "seconds": 15.5,
+                "distance": 92.99999999999605,
+                "collisions": 0,
+                "end": { "x": 40, "z": 25 }
+            }
+        },
+        {
+            "id": "major",
+            "blue": {
+                "success": true,
+                "seconds": 22.333333333333332,
+                "distance": 133.99999999999372,
+                "collisions": 0,
+                "end": { "x": 0, "z": 26 }
+            },
+            "red": {
+                "success": true,
+                "seconds": 22.333333333333332,
+                "distance": 133.99999999999372,
+                "collisions": 0,
+                "end": { "x": 0, "z": 26 }
+            }
+        }
+    ],
+    "terrain": {
+        "maxSlope": 0.440542178070523,
+        "maxSlopeDegrees": 23.77551519125394,
+        "maxTraversableHeight": 3,
+        "modules": 60,
+        "triangles": 13704
+    }
+}

@@ -1,450 +1,211 @@
 {
-  "title": "Sol\u2019Rahn Arena \u2014 graybox V1 proposal",
-  "status": "design-targets-unvalidated",
-  "coordinate_system": "reference X territorial (blue -> red), Z lateral; use referenceToWorld({x,z}) for runtime PlayCanvas world",
-  "unit": "1 unit = 1 PlayCanvas world unit, provisional scale",
-  "extent": {
-    "x": [
-      -120,
-      120
+    "title": "Sol\u2019Rahn Arena \u2014 graybox V1 proposal",
+    "status": "design-targets-unvalidated",
+    "coordinate_system": "reference X territorial (blue -> red), Z lateral; use referenceToWorld({x,z}) for runtime PlayCanvas world",
+    "unit": "1 unit = 1 PlayCanvas world unit, provisional scale",
+    "extent": {
+        "x": [-120, 120],
+        "z": [-72, 72]
+    },
+    "cores": [
+        {
+            "team": "blue",
+            "x": -101,
+            "z": 0
+        },
+        {
+            "team": "red",
+            "x": 101,
+            "z": 0
+        }
     ],
-    "z": [
-      -72,
-      72
+    "bases": {
+        "half_x": 12,
+        "half_z": 16
+    },
+    "lanes": {
+        "upper": {
+            "centerline": [
+                [-101, 0],
+                [-87, -33],
+                [-69, -49],
+                [-38, -51],
+                [0, -51],
+                [38, -51],
+                [69, -49],
+                [87, -33],
+                [101, 0]
+            ],
+            "nominal_width": 14
+        },
+        "middle": {
+            "centerline": [
+                [-101, 0],
+                [-73, 0],
+                [-45, 0],
+                [0, 0],
+                [45, 0],
+                [73, 0],
+                [101, 0]
+            ],
+            "nominal_width": 18
+        },
+        "lower": {
+            "centerline": [
+                [-101, 0],
+                [-87, 33],
+                [-69, 49],
+                [-38, 51],
+                [0, 51],
+                [38, 51],
+                [69, 49],
+                [87, 33],
+                [101, 0]
+            ],
+            "nominal_width": 14
+        }
+    },
+    "rotation_links": [
+        [
+            [-70, 0],
+            [-74, -16],
+            [-70, -34],
+            [-73, -48]
+        ],
+        [
+            [-44, 0],
+            [-48, -16],
+            [-44, -34],
+            [-47, -48]
+        ],
+        [
+            [-16, 0],
+            [-20, -16],
+            [-16, -34],
+            [-19, -48]
+        ],
+        [
+            [16, 0],
+            [20, -16],
+            [16, -34],
+            [19, -48]
+        ],
+        [
+            [44, 0],
+            [48, -16],
+            [44, -34],
+            [47, -48]
+        ],
+        [
+            [70, 0],
+            [74, -16],
+            [70, -34],
+            [73, -48]
+        ],
+        [
+            [-70, 0],
+            [-74, 16],
+            [-70, 34],
+            [-73, 48]
+        ],
+        [
+            [-44, 0],
+            [-48, 16],
+            [-44, 34],
+            [-47, 48]
+        ],
+        [
+            [-16, 0],
+            [-20, 16],
+            [-16, 34],
+            [-19, 48]
+        ],
+        [
+            [16, 0],
+            [20, 16],
+            [16, 34],
+            [19, 48]
+        ],
+        [
+            [44, 0],
+            [48, 16],
+            [44, 34],
+            [47, 48]
+        ],
+        [
+            [70, 0],
+            [74, 16],
+            [70, 34],
+            [73, 48]
+        ]
+    ],
+    "minor_camps": [
+        {
+            "id": "mobility-blue",
+            "type": "Mobility",
+            "x": -53,
+            "z": -25
+        },
+        {
+            "id": "mobility-red",
+            "type": "Mobility",
+            "x": 53,
+            "z": -25
+        },
+        {
+            "id": "defense-blue",
+            "type": "Defense",
+            "x": -18,
+            "z": -25
+        },
+        {
+            "id": "defense-red",
+            "type": "Defense",
+            "x": 18,
+            "z": -25
+        },
+        {
+            "id": "cooldown-blue",
+            "type": "Cooldown",
+            "x": -40,
+            "z": 25
+        },
+        {
+            "id": "cooldown-red",
+            "type": "Cooldown",
+            "x": 40,
+            "z": 25
+        }
+    ],
+    "major_camp": {
+        "x": 0,
+        "z": 26,
+        "type": "existing-major-neutral"
+    },
+    "three_v_three": {
+        "active_lane": "middle",
+        "active_z_bounds": [-35, 35],
+        "playable_wilderness": "both mid-adjacent regions",
+        "inactive_lanes": ["upper", "lower"],
+        "boundaries": "mode-specific; validate route access"
+    },
+    "five_v_five": {
+        "lanes": ["upper", "middle", "lower"],
+        "wilderness": "complete"
+    },
+    "not_features": ["lane towers", "turrets", "independent second arena"],
+    "preserve": [
+        "Crown Core objectives",
+        "territorial-control scoring",
+        "six minor Wilderness camps and one major, subject to approved relocation",
+        "established player combat and movement"
+    ],
+    "validation_required": [
+        "travel times and full match pacing",
+        "area-control scoring adaptation",
+        "bot navigation and path choices",
+        "camera/frustum and canopy visibility",
+        "collision and elevation",
+        "mobile frame budgets"
     ]
-  },
-  "cores": [
-    {
-      "team": "blue",
-      "x": -101,
-      "z": 0
-    },
-    {
-      "team": "red",
-      "x": 101,
-      "z": 0
-    }
-  ],
-  "bases": {
-    "half_x": 12,
-    "half_z": 16
-  },
-  "lanes": {
-    "upper": {
-      "centerline": [
-        [
-          -101,
-          0
-        ],
-        [
-          -87,
-          -33
-        ],
-        [
-          -69,
-          -49
-        ],
-        [
-          -38,
-          -51
-        ],
-        [
-          0,
-          -51
-        ],
-        [
-          38,
-          -51
-        ],
-        [
-          69,
-          -49
-        ],
-        [
-          87,
-          -33
-        ],
-        [
-          101,
-          0
-        ]
-      ],
-      "nominal_width": 14
-    },
-    "middle": {
-      "centerline": [
-        [
-          -101,
-          0
-        ],
-        [
-          -73,
-          0
-        ],
-        [
-          -45,
-          0
-        ],
-        [
-          0,
-          0
-        ],
-        [
-          45,
-          0
-        ],
-        [
-          73,
-          0
-        ],
-        [
-          101,
-          0
-        ]
-      ],
-      "nominal_width": 18
-    },
-    "lower": {
-      "centerline": [
-        [
-          -101,
-          0
-        ],
-        [
-          -87,
-          33
-        ],
-        [
-          -69,
-          49
-        ],
-        [
-          -38,
-          51
-        ],
-        [
-          0,
-          51
-        ],
-        [
-          38,
-          51
-        ],
-        [
-          69,
-          49
-        ],
-        [
-          87,
-          33
-        ],
-        [
-          101,
-          0
-        ]
-      ],
-      "nominal_width": 14
-    }
-  },
-  "rotation_links": [
-    [
-      [
-        -70,
-        0
-      ],
-      [
-        -74,
-        -16
-      ],
-      [
-        -70,
-        -34
-      ],
-      [
-        -73,
-        -48
-      ]
-    ],
-    [
-      [
-        -44,
-        0
-      ],
-      [
-        -48,
-        -16
-      ],
-      [
-        -44,
-        -34
-      ],
-      [
-        -47,
-        -48
-      ]
-    ],
-    [
-      [
-        -16,
-        0
-      ],
-      [
-        -20,
-        -16
-      ],
-      [
-        -16,
-        -34
-      ],
-      [
-        -19,
-        -48
-      ]
-    ],
-    [
-      [
-        16,
-        0
-      ],
-      [
-        20,
-        -16
-      ],
-      [
-        16,
-        -34
-      ],
-      [
-        19,
-        -48
-      ]
-    ],
-    [
-      [
-        44,
-        0
-      ],
-      [
-        48,
-        -16
-      ],
-      [
-        44,
-        -34
-      ],
-      [
-        47,
-        -48
-      ]
-    ],
-    [
-      [
-        70,
-        0
-      ],
-      [
-        74,
-        -16
-      ],
-      [
-        70,
-        -34
-      ],
-      [
-        73,
-        -48
-      ]
-    ],
-    [
-      [
-        -70,
-        0
-      ],
-      [
-        -74,
-        16
-      ],
-      [
-        -70,
-        34
-      ],
-      [
-        -73,
-        48
-      ]
-    ],
-    [
-      [
-        -44,
-        0
-      ],
-      [
-        -48,
-        16
-      ],
-      [
-        -44,
-        34
-      ],
-      [
-        -47,
-        48
-      ]
-    ],
-    [
-      [
-        -16,
-        0
-      ],
-      [
-        -20,
-        16
-      ],
-      [
-        -16,
-        34
-      ],
-      [
-        -19,
-        48
-      ]
-    ],
-    [
-      [
-        16,
-        0
-      ],
-      [
-        20,
-        16
-      ],
-      [
-        16,
-        34
-      ],
-      [
-        19,
-        48
-      ]
-    ],
-    [
-      [
-        44,
-        0
-      ],
-      [
-        48,
-        16
-      ],
-      [
-        44,
-        34
-      ],
-      [
-        47,
-        48
-      ]
-    ],
-    [
-      [
-        70,
-        0
-      ],
-      [
-        74,
-        16
-      ],
-      [
-        70,
-        34
-      ],
-      [
-        73,
-        48
-      ]
-    ]
-  ],
-  "minor_camps": [
-    {
-      "id": "mobility-blue",
-      "type": "Mobility",
-      "x": -53,
-      "z": -25
-    },
-    {
-      "id": "mobility-red",
-      "type": "Mobility",
-      "x": 53,
-      "z": -25
-    },
-    {
-      "id": "defense-blue",
-      "type": "Defense",
-      "x": -18,
-      "z": -25
-    },
-    {
-      "id": "defense-red",
-      "type": "Defense",
-      "x": 18,
-      "z": -25
-    },
-    {
-      "id": "cooldown-blue",
-      "type": "Cooldown",
-      "x": -40,
-      "z": 25
-    },
-    {
-      "id": "cooldown-red",
-      "type": "Cooldown",
-      "x": 40,
-      "z": 25
-    }
-  ],
-  "major_camp": {
-    "x": 0,
-    "z": 26,
-    "type": "existing-major-neutral"
-  },
-  "three_v_three": {
-    "active_lane": "middle",
-    "active_z_bounds": [
-      -35,
-      35
-    ],
-    "playable_wilderness": "both mid-adjacent regions",
-    "inactive_lanes": [
-      "upper",
-      "lower"
-    ],
-    "boundaries": "mode-specific; validate route access"
-  },
-  "five_v_five": {
-    "lanes": [
-      "upper",
-      "middle",
-      "lower"
-    ],
-    "wilderness": "complete"
-  },
-  "not_features": [
-    "lane towers",
-    "turrets",
-    "independent second arena"
-  ],
-  "preserve": [
-    "Crown Core objectives",
-    "territorial-control scoring",
-    "six minor Wilderness camps and one major, subject to approved relocation",
-    "established player combat and movement"
-  ],
-  "validation_required": [
-    "travel times and full match pacing",
-    "area-control scoring adaptation",
-    "bot navigation and path choices",
-    "camera/frustum and canopy visibility",
-    "collision and elevation",
-    "mobile frame budgets"
-  ]
 }
