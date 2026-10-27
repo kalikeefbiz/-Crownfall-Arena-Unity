@@ -24,6 +24,7 @@ export class BotController {
     }
     steer(sim, goal) {
         const p = sim.player;
+        if (sim.map.navigate) return sim.map.navigate(p, goal);
         if (this.clear(sim, p, goal)) return goal;
         // Visibility graph around expanded obstacle corners, with Dijkstra routing.
         const margin = p.radius + 0.2;

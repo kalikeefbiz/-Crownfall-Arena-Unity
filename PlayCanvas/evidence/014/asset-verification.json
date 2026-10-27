@@ -1,0 +1,11 @@
+{
+    "assetCommit": "64019b48ec997d7b3873dc6628b7796c10498835",
+    "visualBytes": 48825928,
+    "visualSha256": "7faa8ecdc8e5b3f078d7ea0de09507a3572dccb2a63ac5eea30660e640a66a9d",
+    "collisionCandidateBytes": 587724,
+    "collisionCandidateSha256": "7046fbef7d83b48ce561c834e07f7c811f073f323358f1b0a7fb16efc75cba85",
+    "lfsFsck": "OK",
+    "derivedSurfaceSha256": "db9114206f546f7a11343d96cdc27c6770fd4765447f5e95200b644028ab11d5",
+    "ordinaryGitMapDuplicates": 0,
+    "blenderSourcesModified": false
+}

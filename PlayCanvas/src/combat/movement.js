@@ -32,7 +32,8 @@ export class MovementSimulation {
         const hit =
             Math.abs(x) > this.map.width / 2 - r ||
             Math.abs(z) > this.map.depth / 2 - r ||
-            this.map.walls.some((w) => circleHitsWall(x, z, r, w));
+            this.map.walls.some((w) => circleHitsWall(x, z, r, w)) ||
+            (!!this.map.walkable && !this.map.walkable(x, z));
         if (hit) this.collisions++;
         return hit;
     }

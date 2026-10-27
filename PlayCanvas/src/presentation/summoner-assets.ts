@@ -50,7 +50,9 @@ export class SummonerAssets {
                 }
             }
         };
-        const asset = new Asset(source, 'container', { url: `${import.meta.env.BASE_URL}${source}` });
+        const asset = new Asset(source, 'container', {
+            url: source.startsWith('https://') ? source : `${import.meta.env.BASE_URL}${source}`
+        });
         asset.options = parsing;
         const file = asset.file as { url: string; contents: ArrayBuffer | null };
         const started = performance.now();

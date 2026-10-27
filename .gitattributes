@@ -1,0 +1,4 @@
+PlayCanvas/assets/solrahn-three-lane/working/solrahn-three-lane-optimized.blend filter=lfs diff=lfs merge=lfs -text
+PlayCanvas/assets/solrahn-three-lane/runtime/solrahn-three-lane-visual.glb filter=lfs diff=lfs merge=lfs -text
+PlayCanvas/assets/solrahn-three-lane/working/solrahn-lane-collision-candidates.blend filter=lfs diff=lfs merge=lfs -text
+PlayCanvas/assets/solrahn-three-lane/runtime/solrahn-lane-collision-candidates.glb filter=lfs diff=lfs merge=lfs -text

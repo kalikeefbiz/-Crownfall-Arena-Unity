@@ -1,3 +1,5 @@
+import type { SolrahnSurface } from '../maps/solrahn';
+
 import type { BotController } from './bot-controller.js';
 import type { CombatSimulation, Combatant, CombatPlayer, CombatModifier, CombatCommand, Point } from './combat';
 import type { MatchSettings, Lane } from './match-data.js';
@@ -81,7 +83,12 @@ type MatchSimulation = CombatSimulation & { player: MatchActor };
 export class CrownfallMatch {
     constructor(
         selected?: number,
-        options?: { bots?: boolean; diagnostic?: boolean; settings?: Partial<MatchSettings> }
+        options?: {
+            bots?: boolean;
+            diagnostic?: boolean;
+            settings?: Partial<MatchSettings>;
+            arena?: SolrahnSurface | null;
+        }
     );
     phase: MatchPhase;
     countdownRemaining: number;

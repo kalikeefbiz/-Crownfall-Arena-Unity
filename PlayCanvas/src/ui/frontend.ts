@@ -23,6 +23,7 @@ export function createFrontend() {
     const host = document.body as HTMLBodyElement & { [ownerKey]?: { destroy(): void } };
     host[ownerKey]?.destroy();
     const abort = new AbortController();
+    const solrahn = new URLSearchParams(location.search).get('mapPreview') === 'solrahn';
     const root = document.createElement('div');
     root.id = 'frontend';
     document.body.append(root);
@@ -72,8 +73,8 @@ export function createFrontend() {
         let content = '';
         if (page === 'main')
             content =
-                header('SOL’RAHN ARENA · WORLD CUP') +
-                `<div class="cf-title-zone"><div class="cf-eyebrow">THE CROWN IS CLAIMED IN COMBAT</div><h1 class="cf-wordmark">CROWNFALL</h1><div class="cf-arena">ARENA</div><p>3V3 TERRITORIAL COMBAT · THE WILDERNESS AWAITS</p>${button('Enter Crownfall', 'select', true)}<div class="cf-subactions">${button('Settings', 'settings')}${button('Combat Practice', 'practice')}</div></div><div class="cf-annotation">THE SOL’RAHN<br>CHAMPIONSHIP</div>` +
+                header(solrahn ? 'SOL’RAHN · AUTHORED MAP PLAYTEST' : 'SOL’RAHN ARENA · WORLD CUP') +
+                `<div class="cf-title-zone"><div class="cf-eyebrow">THE CROWN IS CLAIMED IN COMBAT</div><h1 class="cf-wordmark">CROWNFALL</h1><div class="cf-arena">ARENA</div><p>${solrahn ? 'THREE-LANE ARENA · MIDDLE-LANE 3V3 PLAYTEST' : '3V3 TERRITORIAL COMBAT · THE WILDERNESS AWAITS'}</p>${button('Enter Crownfall', 'select', true)}<div class="cf-subactions">${button('Settings', 'settings')}${button('Combat Practice', 'practice')}</div></div><div class="cf-annotation">THE SOL’RAHN<br>CHAMPIONSHIP</div>` +
                 footer('BLACKHOUSE / UCL 3V3');
         if (page === 'select')
             content =
@@ -93,7 +94,7 @@ export function createFrontend() {
             content =
                 header('SETTINGS / LOCAL DEVICE', settingsReturn) +
                 title('DEVICE & CONTROL CONFIGURATION', 'Settings') +
-                `<div class="cf-settings-grid"><div class="cf-setting"><small>01 / GRAPHICS</small><h2>Visual Quality</h2><div class="cf-options">${button(`${!low ? '✓ ' : ''}Standard`, 'standard')}${button(`${low ? '✓ ' : ''}Low`, 'low')}</div><p>Low: reduced resolution, terrain normal and occlusion maps off.</p></div><div class="cf-setting"><small>02 / DISPLAY</small><h2>Fullscreen</h2>${button(document.fullscreenElement ? 'Exit Fullscreen' : 'Enter Fullscreen', 'fullscreen')}<p id="fullscreen-note">${document.fullscreenEnabled ? 'Landscape is recommended.' : 'On iPhone: Safari → Share → Add to Home Screen for a full-screen display.'}</p></div><div class="cf-setting"><small>03 / MOBILE INPUT</small><h2>Edit Controls</h2>${button('Position · Size · Opacity →', 'controls')}</div><div class="cf-setting"><small>04 / TRAINING</small><h2>Combat Practice</h2>${button('Enter Practice →', 'practice')}</div></div><div class="cf-notice" role="status">${notice}</div>` +
+                `<div class="cf-settings-grid"><div class="cf-setting"><small>01 / GRAPHICS</small><h2>Visual Quality</h2><div class="cf-options">${button(`${!low ? '✓ ' : ''}Standard`, 'standard')}${button(`${low ? '✓ ' : ''}Low`, 'low')}</div><p>${solrahn ? 'Low: reduced resolution; authored arena materials preserved.' : 'Low: reduced resolution, terrain normal and occlusion maps off.'}</p></div><div class="cf-setting"><small>02 / DISPLAY</small><h2>Fullscreen</h2>${button(document.fullscreenElement ? 'Exit Fullscreen' : 'Enter Fullscreen', 'fullscreen')}<p id="fullscreen-note">${document.fullscreenEnabled ? 'Landscape is recommended.' : 'On iPhone: Safari → Share → Add to Home Screen for a full-screen display.'}</p></div><div class="cf-setting"><small>03 / MOBILE INPUT</small><h2>Edit Controls</h2>${button('Position · Size · Opacity →', 'controls')}</div><div class="cf-setting"><small>04 / TRAINING</small><h2>Combat Practice</h2>${button('Enter Practice →', 'practice')}</div></div><div class="cf-notice" role="status">${notice}</div>` +
                 footer('SETTINGS · DEVICE SAVED', 'STANDARD / LOW');
         if (page === 'controls')
             content = `<div class="cf-editor-toolbar"><strong>EDIT CONTROLS</strong><label>Control <select id="edit-control">${controlIds.map((id) => `<option ${id === editing ? 'selected' : ''}>${id}</option>`).join('')}</select></label><label>Size <input id="edit-size" aria-label="Control size" type="range" min="0.8" max="1.35" step="0.05" value="${draft[editing].scale}"></label><label>Opacity <input id="edit-opacity" aria-label="Control opacity" type="range" min="0.35" max="1" step="0.05" value="${draft[editing].opacity}"></label>${button('Save', 'save-controls')}${button('Cancel', 'cancel-controls')}${button(resetArmed ? 'Confirm Reset' : 'Reset', 'reset-controls')}</div><p class="cf-editor-help" role="status">${notice || 'Drag controls to position · safe area and overlap protection enabled'}</p><div id="control-preview">${controlIds.map((id) => `<button class="cf-edit-pad ${id === editing ? 'selected' : ''}" data-control="${id}" aria-label="Position ${id}">${id === 'special' ? 'Stance / Special' : id}</button>`).join('')}</div>`;

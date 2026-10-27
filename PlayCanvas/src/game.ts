@@ -21,6 +21,7 @@ import { HumanAimAssist } from './combat/human-aim.js';
 import { matchSpawn } from './combat/match-space.js';
 import { Simulation } from './gameplay/simulation';
 import { Controls } from './input/controls';
+import { loadSolrahnSurface } from './maps/solrahn';
 import { createScene } from './presentation/scene';
 import { createHud } from './ui/hud';
 
@@ -110,11 +111,13 @@ export async function createGame(
         document.body.classList.toggle('debug', debug);
         document.body.classList.toggle('playable', !debug);
         const simulation = new Simulation();
+        if (new URLSearchParams(location.search).get('mapPreview') === 'solrahn' && !debug)
+            simulation.arena = await loadSolrahnSurface();
         simulation.lifecycle = !debug;
         simulation.bots = !debug;
         simulation.select(0);
         document.body.classList.toggle('lifecycle', simulation.lifecycle);
-        const scene = (owned.scene = createScene(app, !debug));
+        const scene = (owned.scene = createScene(app, !debug, simulation.arena));
         const hud = (owned.hud = createHud());
         const stepper = new CommandStepper();
         const input = (owned.input = new Controls(hud.move, hud.aim, canvas, (x, y) =>

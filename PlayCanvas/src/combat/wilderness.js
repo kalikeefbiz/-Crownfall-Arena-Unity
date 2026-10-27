@@ -11,7 +11,7 @@ export class Wilderness {
         this.teamDamage = { 1: 0, 2: 0 };
         this.rotationCount = 0;
         this.rewardCount = 0;
-        this.camps = CAMP_SITES.map((site) => {
+        this.camps = (match.arena?.camps || CAMP_SITES).map((site) => {
             const major = site.type === 'damage';
             return {
                 ...site,

@@ -14,6 +14,7 @@ import {
 import { WILDERNESS_REGIONS } from '../combat/wilderness-data.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import type { Simulation } from '../gameplay/simulation';
+import type { SolrahnSurface } from '../maps/solrahn';
 
 import { createCombatOverlay } from './combat-overlay';
 import { KIT_ASSET_PATH, createKitModel } from './kit-model';
@@ -21,6 +22,7 @@ import { createLaneEnvironment } from './lane-environment';
 import { RIVEN_ASSET_PATH, createRivenModel } from './riven-model';
 import { MOONREAPER_PATH, createRivenWeapons } from './riven-weapons';
 import { SET_ASSET_PATH, createSetModel } from './set-model';
+import { createSolrahnEnvironment } from './solrahn-environment';
 import { SummonerAssets } from './summoner-assets';
 import type { ModelFrame } from './summoner-assets';
 
@@ -31,7 +33,7 @@ function material(hex: number): StandardMaterial {
     m.update();
     return m;
 }
-export function createScene(app: AppBase, competitive = false) {
+export function createScene(app: AppBase, competitive = false, surface: SolrahnSurface | null = null) {
     const ownedMaterials = new Set<StandardMaterial>();
     const assets = new SummonerAssets(app);
     const weaponParams = new URLSearchParams(location.search);
@@ -43,11 +45,16 @@ export function createScene(app: AppBase, competitive = false) {
     const teamMaterials = { 1: material(0x369bff), 2: material(0xff425c) };
     const sceneRoot = new Entity('arena-presentation');
     app.root.addChild(sceneRoot);
-    const rivenWeapons = createRivenWeapons(assets, sceneRoot, weaponModels);
+    const rivenWeapons = createRivenWeapons(assets, sceneRoot, weaponModels, (x, z) => surface?.height(x, z) ?? 0);
     const params = new URLSearchParams(location.search);
-    const carved = competitive && params.get('environment') !== 'legacy';
+    const carved = !!surface || (competitive && params.get('environment') !== 'legacy');
     const territoryVisible = params.get('territoryTint') !== '0';
-    const environment = carved ? createLaneEnvironment(app, sceneRoot, assets) : null;
+    const environment = surface
+        ? createSolrahnEnvironment(sceneRoot, assets, surface)
+        : carved
+          ? createLaneEnvironment(app, sceneRoot, assets)
+          : null;
+    const ground = (x: number, z: number) => surface?.height(x, z) ?? 0;
     const stone = material(0x334758),
         boundary = material(0x74b6ba),
         gold = material(0xd6ad64);
@@ -80,8 +87,16 @@ export function createScene(app: AppBase, competitive = false) {
               walls: OBSTACLES.map((o) => ({ x: o.x, z: o.z, w: o.halfX * 2, d: o.halfZ * 2, h: 1.3 }))
           };
     if (!carved) primitive('lane-floor', 'box', [0, -0.15, 0], [geometry.width, 0.3, geometry.depth], stone);
-    const laneWidth = competitive ? MATCH_LANE.halfWidth * 2 : ARENA.halfWidth * 2;
-    const laneLength = competitive ? MATCH_LANE.goalB - MATCH_LANE.goalA : 32;
+    const laneWidth = surface
+        ? surface.lane.halfWidth * 2
+        : competitive
+          ? MATCH_LANE.halfWidth * 2
+          : ARENA.halfWidth * 2;
+    const laneLength = surface
+        ? surface.lane.goalB - surface.lane.goalA
+        : competitive
+          ? MATCH_LANE.goalB - MATCH_LANE.goalA
+          : 32;
     if (!carved)
         for (const x of [-laneWidth / 2, laneWidth / 2])
             primitive('lane-boundary', 'box', [x, 0.04, 0], [0.12, 0.08, geometry.depth], boundary);
@@ -123,8 +138,8 @@ export function createScene(app: AppBase, competitive = false) {
         }
     }
     const frontier = primitive('authoritative-frontier', 'box', [0, 0.07, 0], [laneWidth, 0.1, 0.18], gold);
-    blueTerritory.enabled = redTerritory.enabled = competitive && territoryVisible;
-    frontier.enabled = competitive;
+    blueTerritory.enabled = redTerritory.enabled = competitive && territoryVisible && !surface;
+    frontier.enabled = competitive && !surface;
     const root = new Entity('Kit-gameplay-root');
     app.root.addChild(root);
     environment?.groundActor(root);
@@ -158,20 +173,25 @@ export function createScene(app: AppBase, competitive = false) {
     const tip = primitive('aim-tip', 'box', [0, 0.1, -2.8], [0.28, 0.06, 0.28], gold, aimRoot);
     tip.setLocalEulerAngles(0, 45, 0);
     const camera = new Entity('MOBA-camera');
-    camera.addComponent('camera', { clearColor: new Color(0.045, 0.065, 0.1), fov: 48, nearClip: 0.1, farClip: 150 });
+    camera.addComponent('camera', {
+        clearColor: new Color(0.045, 0.065, 0.1),
+        fov: 48,
+        nearClip: 0.1,
+        farClip: surface ? 260 : 150
+    });
     app.root.addChild(camera);
     const follow = new Vec3(0, 0, 5);
-    const cameraOffset = competitive ? CAMERA_OFFSET : TRAINING_CAMERA_OFFSET;
+    const cameraOffset = surface ? { y: 26, z: 8 } : competitive ? CAMERA_OFFSET : TRAINING_CAMERA_OFFSET;
     const lookAhead = competitive ? CAMERA_LOOK_AHEAD : 0;
     const lookTarget = new Vec3();
     const updateCamera = () => {
-        camera.setPosition(follow.x, cameraOffset.y, follow.z + cameraOffset.z);
-        lookTarget.set(follow.x, 0, follow.z - lookAhead);
+        camera.setPosition(follow.x, follow.y + cameraOffset.y, follow.z + cameraOffset.z);
+        lookTarget.set(follow.x, follow.y, follow.z - lookAhead);
         camera.lookAt(lookTarget);
     };
     updateCamera();
     const light = new Entity('sun');
-    light.addComponent('light', { type: 'directional', color: new Color(1, 0.94, 0.84), intensity: 1.8 });
+    light.addComponent('light', { type: 'directional', color: new Color(1, 0.94, 0.84), intensity: surface ? 1 : 1.8 });
     light.setEulerAngles(48, -25, 0);
     app.root.addChild(light);
     app.scene.ambientLight = new Color(0.45, 0.5, 0.6);
@@ -214,11 +234,11 @@ export function createScene(app: AppBase, competitive = false) {
     const labelViews = new Map<string, HTMLDivElement>();
     const castViews = new Map<string, Entity>();
     const project = (p: { x: number; z: number }, height = 0) =>
-        camera.camera!.worldToScreen(new Vec3(p.x, height, p.z));
+        camera.camera!.worldToScreen(new Vec3(p.x, height + ground(p.x, p.z), p.z));
     const groundAt = (x: number, y: number) => {
         const near = camera.camera!.screenToWorld(x, y, 0.1),
             far = camera.camera!.screenToWorld(x, y, 100);
-        const t = -near.y / (far.y - near.y);
+        const t = (follow.y - near.y) / (far.y - near.y);
         return { x: near.x + (far.x - near.x) * t, z: near.z + (far.z - near.z) * t };
     };
     return {
@@ -229,6 +249,10 @@ export function createScene(app: AppBase, competitive = false) {
             environment?.quality(low);
         },
         async prepare(sim: Simulation, report: (label: string, done: number, total: number) => void) {
+            if (surface) {
+                follow.set(sim.combat.player.x, ground(sim.combat.player.x, sim.combat.player.z), sim.combat.player.z);
+                updateCamera();
+            }
             const paths = [KIT_ASSET_PATH, SET_ASSET_PATH, RIVEN_ASSET_PATH];
             const selected = sim.combat.definition.id === 'set' ? 1 : sim.combat.definition.id === 'riven' ? 2 : 0;
             const ordered = [paths[selected], ...paths.filter((_, i) => i !== selected)];
@@ -409,7 +433,7 @@ export function createScene(app: AppBase, competitive = false) {
                 }
                 const accepted = actor.journal.latestAccepted;
                 cast.enabled = !p.dead && !!accepted && actor.now - accepted.time < 0.28;
-                cast.setPosition(p.x + Math.sin(p.angle) * 0.9, 0.15, p.z + Math.cos(p.angle) * 0.9);
+                cast.setPosition(p.x + Math.sin(p.angle) * 0.9, ground(p.x, p.z) + 0.15, p.z + Math.cos(p.angle) * 0.9);
                 cast.setEulerAngles(0, (p.angle * 180) / Math.PI, 0);
             }
             for (const camp of camps) {
@@ -473,10 +497,14 @@ export function createScene(app: AppBase, competitive = false) {
                     targets.set(t.id, view);
                 }
                 view.body.enabled = !t.dead || t.kind === 'monster';
-                view.body.setPosition(t.x, t.dead ? 0.08 : t.radius > 1 ? 0.9 : 0.5, t.z);
+                view.body.setPosition(t.x, ground(t.x, t.z) + (t.dead ? 0.08 : t.radius > 1 ? 0.9 : 0.5), t.z);
                 view.health.enabled = !t.dead;
                 const actor = roster.get(t.id);
-                view.health.setPosition(t.x, actor ? (actor.definition.id === 'set' ? 2.15 : 2) : 1.2, t.z);
+                view.health.setPosition(
+                    t.x,
+                    ground(t.x, t.z) + (actor ? (actor.definition.id === 'set' ? 2.15 : 2) : 1.2),
+                    t.z
+                );
                 view.health.render!.meshInstances[0].material = actor ? teamMaterials[t.team === 1 ? 1 : 2] : green;
                 view.health.setLocalScale(Math.max(0.01, t.health / t.maxHealth), 0.08, 0.08);
                 view.body.render!.meshInstances[0].material = combat.journal.hits.some(
@@ -542,7 +570,7 @@ export function createScene(app: AppBase, competitive = false) {
                     actorView.frame.match = sim.match;
                     actorView.frame.aim.x = Math.sin(actor.player.angle);
                     actorView.frame.aim.z = Math.cos(actor.player.angle);
-                    actorView.root.setPosition(t.x, 0, t.z);
+                    actorView.root.setPosition(t.x, ground(t.x, t.z), t.z);
                     actorView.root.enabled = !t.dead;
                     indicatorFeedback(actorView.indicator, t);
                     actorView.model.update(actorView.frame);
@@ -563,7 +591,7 @@ export function createScene(app: AppBase, competitive = false) {
                     gold
                 ));
                 view.enabled = shot.active;
-                if (shot.active) view.setPosition(shot.x, 0.65, shot.z);
+                if (shot.active) view.setPosition(shot.x, ground(shot.x, shot.z) + 0.65, shot.z);
             });
             for (const view of flashes) view.enabled = false;
             simulations
@@ -578,12 +606,12 @@ export function createScene(app: AppBase, competitive = false) {
                     ));
                     view.enabled = effect.active && ['trail', 'pantherTrail', 'buffPulse'].includes(effect.type);
                     if (view.enabled) {
-                        view.setPosition(effect.x, 0.06, effect.z);
+                        view.setPosition(effect.x, ground(effect.x, effect.z) + 0.06, effect.z);
                         const size = (effect.range || 0.4) * 2;
                         view.setLocalScale(size, 0.03, size);
                     }
                 });
-            root.setPosition(sim.position.x, 0, sim.position.z);
+            root.setPosition(sim.position.x, ground(sim.position.x, sim.position.z), sim.position.z);
             kitModel.update(sim);
             rivenModel.update(sim);
             setModel.update(sim);
@@ -602,6 +630,7 @@ export function createScene(app: AppBase, competitive = false) {
             const blend = 1 - Math.exp(-CAMERA_FOLLOW_RATE * dt);
             follow.x += (sim.position.x - follow.x) * blend;
             follow.z += (sim.position.z - follow.z) * blend;
+            follow.y += (ground(sim.position.x, sim.position.z) - follow.y) * blend;
             updateCamera();
             const current =
                 intent ||
@@ -617,7 +646,7 @@ export function createScene(app: AppBase, competitive = false) {
         screenAim(x: number, y: number, sim: Simulation) {
             const near = camera.camera!.screenToWorld(x, y, 0.1);
             const far = camera.camera!.screenToWorld(x, y, 100);
-            const t = -near.y / (far.y - near.y);
+            const t = (ground(sim.position.x, sim.position.z) - near.y) / (far.y - near.y);
             if (t < 0 || !Number.isFinite(t)) return sim.aim;
             return {
                 x: near.x + (far.x - near.x) * t - sim.position.x,

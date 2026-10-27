@@ -14,10 +14,11 @@ import { Wilderness } from './wilderness.js';
 // Bots only supply commands; this remains the sole match authority.
 const idle = { moveX: 0, moveZ: 0 };
 export class CrownfallMatch {
-    constructor(selected = 0, { bots = false, diagnostic = false, settings = {} } = {}) {
+    constructor(selected = 0, { bots = false, diagnostic = false, settings = {}, arena = null } = {}) {
         this.diagnostic = diagnostic;
+        this.arena = arena;
         this.phase = 'prematch';
-        this.rules = new CrownfallRules(settings);
+        this.rules = new CrownfallRules(settings, arena?.lane);
         this.countdownRemaining = this.rules.settings.countdownSeconds;
         this.tick = 0;
         this.results = null;
@@ -33,16 +34,23 @@ export class CrownfallMatch {
                     ...CONFIG,
                     summoner: { ...CONFIG.summoner, speed: 6, radius: 0.45, spawn: { x: 0, z: 5 } }
                 };
-                const map = diagnostic
-                    ? {
-                          width: ARENA.halfWidth * 2,
-                          depth: ARENA.halfLength * 2,
-                          walls: OBSTACLES.map((o) => ({ x: o.x, z: o.z, w: o.halfX * 2, d: o.halfZ * 2 }))
-                      }
-                    : MATCH_WORLD;
+                const map =
+                    arena ||
+                    (diagnostic
+                        ? {
+                              width: ARENA.halfWidth * 2,
+                              depth: ARENA.halfLength * 2,
+                              walls: OBSTACLES.map((o) => ({ x: o.x, z: o.z, w: o.halfX * 2, d: o.halfZ * 2 }))
+                          }
+                        : MATCH_WORLD);
                 const sim = new CombatSimulation(
                     entry.definition,
-                    { targets: [], stations: [], zones: diagnostic ? [] : WILDERNESS_REGIONS, targetRespawn: Infinity },
+                    {
+                        targets: [],
+                        stations: [],
+                        zones: arena?.zones || (diagnostic ? [] : WILDERNESS_REGIONS),
+                        targetRespawn: Infinity
+                    },
                     config,
                     map
                 );
@@ -56,12 +64,14 @@ export class CrownfallMatch {
                     finalRespawnAvailable: true,
                     eliminated: false,
                     protectedUntil: 0,
-                    spawn: diagnostic
-                        ? {
-                              x: bots ? (slot - 1) * 3 : slot === 0 ? (team === 1 ? 0 : 0.65) : slot === 1 ? -3 : 3,
-                              z: bots ? (team === 1 ? 9.8 : -9.8) : team === 1 ? 5 : slot === 0 ? 4.1 : 4.6
-                          }
-                        : matchSpawn(team, slot)
+                    spawn: arena
+                        ? arena.spawn(team, slot)
+                        : diagnostic
+                          ? {
+                                x: bots ? (slot - 1) * 3 : slot === 0 ? (team === 1 ? 0 : 0.65) : slot === 1 ? -3 : 3,
+                                z: bots ? (team === 1 ? 9.8 : -9.8) : team === 1 ? 5 : slot === 0 ? 4.1 : 4.6
+                            }
+                          : matchSpawn(team, slot)
                 });
                 p.health = p.maxHealth = Math.round(p.maxHealth * this.rules.settings.durabilityMultiplier);
                 this.place(sim);

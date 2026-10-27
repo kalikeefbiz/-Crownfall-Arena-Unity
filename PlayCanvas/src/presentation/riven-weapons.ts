@@ -47,7 +47,12 @@ type View = {
 
 // Projectile objects (not flattened array indices or actor IDs) bind the visuals.
 // Pool reuse is reclassified every frame; removed combat authorities are disposed.
-export function createRivenWeapons(assets: SummonerAssets, parent: Entity, enabled: boolean) {
+export function createRivenWeapons(
+    assets: SummonerAssets,
+    parent: Entity,
+    enabled: boolean,
+    ground: (x: number, z: number) => number = () => 0
+) {
     const views = new Map<Projectile, View>();
     const fallbackMaterial = new StandardMaterial();
     fallbackMaterial.diffuse = new Color(0.25, 0.72, 0.95);
@@ -189,7 +194,7 @@ export function createRivenWeapons(assets: SummonerAssets, parent: Entity, enabl
                         phase === 'orbit'
                             ? (Math.atan2(shot.x - combat.player.x, shot.z - combat.player.z) * 180) / Math.PI
                             : ((shot.angle ?? 0) * 180) / Math.PI;
-                    view.root.setPosition(shot.x, 0.95, shot.z);
+                    view.root.setPosition(shot.x, ground(shot.x, shot.z) + 0.95, shot.z);
                     view.root.setEulerAngles(0, yaw, 0);
                     // Tilt the broad XY face towards the competitive overhead view.
                     view.pivot.setLocalEulerAngles(-60, 0, view.spin);
