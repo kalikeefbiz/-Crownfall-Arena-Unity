@@ -1,0 +1,36 @@
+{
+    "sourceCommit": "b3e8ee851583c568f3aa7fa7978e6a7c0e809a60",
+    "basePagesCommit": "129ae5cd91b134ed511a95953d155ff30a4c46ef",
+    "pagesCommit": "05d16186569c5961dd71d8383d98408687dc4c30",
+    "tree": "4753dd95af84bddd14aad9e47282f1e297487445",
+    "files": 51,
+    "uploadedBlobs": [
+        {
+            "path": "solrahn-goal-014/assets/frontend-Bm-tmaA5.js",
+            "sha": "a8dcea84fddb2e3b78633cc748dcedb9d3f70386",
+            "bytes": 14650
+        },
+        {
+            "path": "solrahn-goal-014/assets/game-qIy4q5-v.js",
+            "sha": "126b39fd9280db801290a2b0efee22d8a711ab6e",
+            "bytes": 1323581
+        },
+        {
+            "path": "solrahn-goal-014/assets/index-YmPDiK-e.js",
+            "sha": "068ef66f07331ce036285bd21361a74af80ae9e1",
+            "bytes": 1327
+        },
+        {
+            "path": "solrahn-goal-014/index.html",
+            "sha": "d3b2ef74bb8d450268c77171df44de440163a8c6",
+            "bytes": 653
+        },
+        {
+            "path": "solrahn-goal-014/preview-source.json",
+            "sha": "aa5f6b5ce19f2b388e80e1f70a19e1d92ed08e1f",
+            "bytes": 102
+        }
+    ],
+    "previewUrl": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-014/?mapPreview=solrahn",
+    "ordinaryGitMapCopies": 0
+}

@@ -1,0 +1,82 @@
+{
+    "changedPaths": [
+        "solrahn-goal-014/assets/environment/polyhaven/SOURCES.md",
+        "solrahn-goal-014/assets/environment/polyhaven/dirt_albedo_1k.webp",
+        "solrahn-goal-014/assets/environment/polyhaven/dirt_ar_1k.png",
+        "solrahn-goal-014/assets/environment/polyhaven/dirt_normal_1k.webp",
+        "solrahn-goal-014/assets/environment/polyhaven/dry_ground_rocks_albedo_1k.webp",
+        "solrahn-goal-014/assets/environment/polyhaven/dry_ground_rocks_ar_1k.png",
+        "solrahn-goal-014/assets/environment/polyhaven/dry_ground_rocks_normal_1k.webp",
+        "solrahn-goal-014/assets/environment/polyhaven/forest_leaves_02_albedo_512.webp",
+        "solrahn-goal-014/assets/environment/polyhaven/forest_leaves_02_ar_512.png",
+        "solrahn-goal-014/assets/environment/polyhaven/forest_leaves_02_normal_512.webp",
+        "solrahn-goal-014/assets/environment/polyhaven/sparse_grass_albedo_512.webp",
+        "solrahn-goal-014/assets/environment/polyhaven/sparse_grass_ar_512.png",
+        "solrahn-goal-014/assets/environment/polyhaven/sparse_grass_normal_512.webp",
+        "solrahn-goal-014/assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/README.md",
+        "solrahn-goal-014/assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb",
+        "solrahn-goal-014/assets/environment/trees/mobile/README.md",
+        "solrahn-goal-014/assets/environment/trees/mobile/preparation.json",
+        "solrahn-goal-014/assets/frontend-Bm-tmaA5.js",
+        "solrahn-goal-014/assets/frontend/fonts/Cinzel-OFL.txt",
+        "solrahn-goal-014/assets/frontend/fonts/Cinzel.woff",
+        "solrahn-goal-014/assets/frontend/fonts/Rajdhani-OFL.txt",
+        "solrahn-goal-014/assets/frontend/fonts/Rajdhani.woff",
+        "solrahn-goal-014/assets/frontend/portraits/kit.webp",
+        "solrahn-goal-014/assets/frontend/portraits/provenance.json",
+        "solrahn-goal-014/assets/frontend/portraits/riven.webp",
+        "solrahn-goal-014/assets/frontend/portraits/set.webp",
+        "solrahn-goal-014/assets/frontend/ucl-arena-menu.jpeg",
+        "solrahn-goal-014/assets/game-qIy4q5-v.js",
+        "solrahn-goal-014/assets/index-BgPqw8kw.css",
+        "solrahn-goal-014/assets/index-YmPDiK-e.js",
+        "solrahn-goal-014/assets/preload-helper-CRzLMJPS.js",
+        "solrahn-goal-014/assets/solrahn/surface.bin",
+        "solrahn-goal-014/assets/solrahn/surface.json",
+        "solrahn-goal-014/assets/summoners/kit/Kit_20K_Animated.glb",
+        "solrahn-goal-014/assets/summoners/kit/README.md",
+        "solrahn-goal-014/assets/summoners/kit/kit-10k-test.glb",
+        "solrahn-goal-014/assets/summoners/riven/README.md",
+        "solrahn-goal-014/assets/summoners/riven/Riven_Animated.glb",
+        "solrahn-goal-014/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+        "solrahn-goal-014/assets/summoners/riven/weapons/README.md",
+        "solrahn-goal-014/assets/summoners/set/README.md",
+        "solrahn-goal-014/assets/summoners/set/Set_Animated.glb",
+        "solrahn-goal-014/index.html",
+        "solrahn-goal-014/preview-source.json"
+    ],
+    "protected": {
+        "playcanvas": {
+            "before": "040000 tree ff44fba8658e50c01a402548c6f60ec1a769e962\tplaycanvas",
+            "after": "040000 tree ff44fba8658e50c01a402548c6f60ec1a769e962\tplaycanvas",
+            "identical": true
+        },
+        "index.html": {
+            "before": "100644 blob 11d54ce515a37802cd92ed1511fe7938ad254dfd\tindex.html",
+            "after": "100644 blob 11d54ce515a37802cd92ed1511fe7938ad254dfd\tindex.html",
+            "identical": true
+        },
+        "Build": {
+            "before": "040000 tree 6be925b8d3b11ba7f7d9d0d2d0a7840ef2b51bec\tBuild",
+            "after": "040000 tree 6be925b8d3b11ba7f7d9d0d2d0a7840ef2b51bec\tBuild",
+            "identical": true
+        },
+        "TemplateData": {
+            "before": "",
+            "after": "",
+            "identical": true
+        },
+        "recovery-build14": {
+            "before": "",
+            "after": "",
+            "identical": true
+        }
+    }
+}

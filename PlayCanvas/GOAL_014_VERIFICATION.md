@@ -126,3 +126,35 @@ following the established Pages subtree publication pattern. The manual
 and publication without replacing `/playcanvas/`. Source pushes use `[skip ci]`
 because the existing production workflow would otherwise automatically publish the
 new source to the live game. The source workflow now retrieves LFS for future builds.
+
+## Published-build verification
+
+Implementation commit: `b3e8ee851583c568f3aa7fa7978e6a7c0e809a60`.
+Pages commit: `05d16186569c5961dd71d8383d98408687dc4c30`.
+GitHub Pages reports **built**, and the public preview returns HTTP 200 with the
+matching `preview-source.json`. The terminal credential rejected Git push; source
+objects and the isolated Pages subtree were published through the GitHub Git Data API.
+No production publication workflow was dispatched.
+
+All **11 local browser checks passed** (nine existing arena tests, two preview tests).
+Both preview tests then **passed again against the public URL**, exercising real
+remote asset loading, captured touch movement, ability damage, AI combat, match
+completion and cached replay. See [live test output](evidence/014/live-browser-tests.txt).
+
+Public readiness was **9.834s landscape / 6.663s portrait**. The same software WebGL
+wall sampling gave **0.59 / 0.99 FPS** (approximately 1693 / 1015ms per frame), while
+PlayCanvas's initial smoothed frame-time counter was 25ms and is not a reliable wall
+throughput measure during startup. No mobile hardware performance claim is made.
+The complete browser receipts include allocated GPU memory and container load times:
+[landscape](evidence/014/live-browser-844.json), [portrait](evidence/014/live-browser-390.json).
+
+The [publication receipt](evidence/014/publication.json) records all new hosted blobs;
+none is a duplicate GLB. The [production protection receipt](evidence/014/production-protection.json)
+verifies identical Git objects for `/playcanvas/`, Unity `index.html`, `Build/`,
+`TemplateData/` and the existing recovery preview. All 51 changed Pages paths are
+inside `/solrahn-goal-014/`.
+
+Live game screenshots: [landscape combat](evidence/014/live-centre-combat-844.png),
+[portrait combat](evidence/014/live-centre-combat-390.png),
+[results](evidence/014/live-results-844.png). Landscape is recommended for playtesting.
+Physical iPhone Safari validation and stable mobile FPS remain unverified.

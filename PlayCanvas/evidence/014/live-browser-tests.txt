@@ -1,0 +1,10 @@
+
+Running 2 tests using 1 worker
+
+(node:7430) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] tests/browser/solrahn.spec.ts:26:5 › Solrahn authored map: readiness, combat, terrain, results and replay 844
+[2/2] tests/browser/solrahn.spec.ts:26:5 › Solrahn authored map: readiness, combat, terrain, results and replay 390
+  2 passed (1.6m)
