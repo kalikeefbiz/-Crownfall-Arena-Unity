@@ -2,6 +2,8 @@
 
 Founder-created environment preparation only. No gameplay integration or deployment.
 
+**Recovery update:** the four prepared Blender/GLB binaries are durably stored through Git LFS on `assets/solrahn-goal-013`. [Retrieval instructions, exact paths and verified checksums](reports/LFS_RECOVERY.md). Earlier Release-upload failure reports describe the prior state.
+
 - [Measured audit, before/after results, deliverables and limitations](reports/GOAL_013_REPORT.md)
 - [Original/optimized comparison gallery](previews/comparisons/index.html)
 - [Reproduce the Blender pipeline](reports/REPRODUCE.md)

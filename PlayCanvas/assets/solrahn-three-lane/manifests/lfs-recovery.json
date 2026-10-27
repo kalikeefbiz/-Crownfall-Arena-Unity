@@ -1,0 +1,41 @@
+{
+    "repository": "kalikeefbiz/-Crownfall-Arena-Unity",
+    "branch": "assets/solrahn-goal-013",
+    "asset_commit": "07311feacfd96dd9d5de01bf3c6c596bfa063f90",
+    "verified_at": "2026-10-27T00:03:09.557293+00:00",
+    "total_bytes": 103428271,
+    "verification": "Fetched all four LFS objects from origin into a newly empty separate LFS cache, ran git lfs fsck --objects, and independently matched each complete object size and SHA-256.",
+    "quota_check": "GitHub accepted the 103,428,271-byte LFS upload preflight and actual upload with no quota errors. Billing usage/summary access returned HTTP 403 Resource not accessible by integration, so exact remaining account quota could not be read.",
+    "assets": [
+        {
+            "path": "PlayCanvas/assets/solrahn-three-lane/working/solrahn-three-lane-optimized.blend",
+            "bytes": 53714858,
+            "sha256": "933d32e010c7e1c6ad1b8e21b06ecc6090ce33b9f9c630fb47db345e78656307",
+            "remote_download_verified": true
+        },
+        {
+            "path": "PlayCanvas/assets/solrahn-three-lane/working/solrahn-lane-collision-candidates.blend",
+            "bytes": 299761,
+            "sha256": "a3101eee867eb29c8058b823b0103efcb5871062261f0b9ea979edee8db8f827",
+            "remote_download_verified": true
+        },
+        {
+            "path": "PlayCanvas/assets/solrahn-three-lane/runtime/solrahn-three-lane-visual.glb",
+            "bytes": 48825928,
+            "sha256": "7faa8ecdc8e5b3f078d7ea0de09507a3572dccb2a63ac5eea30660e640a66a9d",
+            "remote_download_verified": true
+        },
+        {
+            "path": "PlayCanvas/assets/solrahn-three-lane/runtime/solrahn-lane-collision-candidates.glb",
+            "bytes": 587724,
+            "sha256": "7046fbef7d83b48ce561c834e07f7c811f073f323358f1b0a7fb16efc75cba85",
+            "remote_download_verified": true
+        }
+    ],
+    "source_branch": "playcanvas-port",
+    "source_commit": "8b3ab267b2c2a5bffe6653e2a1879dd45ca5b35a",
+    "production_gh_pages_unchanged": "129ae5cd91b134ed511a95953d155ff30a4c46ef",
+    "production_source_branch_unchanged": true,
+    "release_uploads_retried": false,
+    "r2_used": false
+}
