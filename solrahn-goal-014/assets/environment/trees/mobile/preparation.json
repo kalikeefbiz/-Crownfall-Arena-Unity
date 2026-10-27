@@ -1,0 +1,74 @@
+[
+    {
+        "source": "Meshy_AI_Pine_tree_1025063153_texture.glb",
+        "sourceBytes": 5213436,
+        "runtimeBytes": 379620,
+        "sourceSha256": "9f51f945f3555b824ae7f61f82a5d0dfc90905f2bf1d87894398a78a125a0590",
+        "runtimeSha256": "15460eb525b15ea5723bd24f0b9c292fdd0427a62fcc58d39646e273fd59d9fe",
+        "triangles": 2559,
+        "bounds": {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "normalized": false,
+            "count": 4815,
+            "type": "VEC3",
+            "max": [0.2863770127296448, 0.47582998871803284, 0.2707520127296448],
+            "min": [-0.2819820046424866, -0.47631800174713135, -0.27417001128196716]
+        }
+    },
+    {
+        "source": "Meshy_AI_Maple_tree_1025062934_texture.glb",
+        "sourceBytes": 7729688,
+        "runtimeBytes": 728492,
+        "sourceSha256": "3b0901cf17158cca50d24eecad0e4f08e5dbca94992699d23b1637243468ff0e",
+        "runtimeSha256": "dffee7231cdacdfcfb3725000808d15d9774c8692608bf98fb92f02b5c90a59b",
+        "triangles": 8199,
+        "bounds": {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "normalized": false,
+            "count": 11756,
+            "type": "VEC3",
+            "max": [0.4670409858226776, 0.4753420054912567, 0.3503420054912567],
+            "min": [-0.4670409858226776, -0.47582998871803284, -0.3371579945087433]
+        }
+    },
+    {
+        "source": "Meshy_AI_redwood_tree_1025061650_texture.glb",
+        "sourceBytes": 5795696,
+        "runtimeBytes": 451248,
+        "sourceSha256": "e53a2c229aacb5f5530bb04d55749e4c056c393e46a88b850f31988188dce350",
+        "runtimeSha256": "1adc5f2a2c3f22d80232b71445f05353ac1f6a378e512505ee7ea2553e032eb3",
+        "triangles": 3723,
+        "bounds": {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "normalized": false,
+            "count": 6271,
+            "type": "VEC3",
+            "max": [0.14135700464248657, 0.4753420054912567, 0.14331099390983582],
+            "min": [-0.14379900693893433, -0.47582998871803284, -0.1384280025959015]
+        }
+    },
+    {
+        "source": "Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+        "sourceBytes": 6099384,
+        "runtimeBytes": 599928,
+        "sourceSha256": "41dfef59d263dfdf3cbf9b247d2c74dcc0395894802816bb229d5afbcbcdddd1",
+        "runtimeSha256": "c93f512c21804d32db122848e26bd8477e0dea4c44c26784477904155f09003a",
+        "triangles": 6765,
+        "bounds": {
+            "bufferView": 1,
+            "byteOffset": 0,
+            "componentType": 5126,
+            "normalized": false,
+            "count": 9593,
+            "type": "VEC3",
+            "max": [0.4748539924621582, 0.4504390060901642, 0.4191890060901642],
+            "min": [-0.4714359939098358, -0.46167001128196716, -0.4055179953575134]
+        }
+    }
+]
