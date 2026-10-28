@@ -3,8 +3,8 @@ import metadata from '../../public/assets/solrahn/surface.json';
 // This raster is collision data sampled from the accepted visual GLB, never a rendered floor.
 export const SOLRAHN_TRANSFORM = { scale: 80, translation: [0, 8, 0], rotation: [0, 0, 0] };
 export const SOLRAHN_ASSET = import.meta.env.DEV
-    ? 'assets/solrahn/solrahn-full-quality.glb'
-    : 'https://media.githubusercontent.com/media/kalikeefbiz/-Crownfall-Arena-Unity/1d9777d93a7d1535203271b1a9735e90a62b989e/PlayCanvas/assets/solrahn-goal-015/runtime/solrahn-full-quality.glb';
+    ? 'assets/solrahn/solrahn-three-lane-visual.glb'
+    : 'https://media.githubusercontent.com/media/kalikeefbiz/-Crownfall-Arena-Unity/64019b48ec997d7b3873dc6628b7796c10498835/PlayCanvas/assets/solrahn-three-lane/runtime/solrahn-three-lane-visual.glb';
 export async function loadSolrahnSurface() {
     const response = await fetch(`${import.meta.env.BASE_URL}assets/solrahn/surface.bin`);
     if (!response.ok) throw new Error(`Sol’Rahn surface: HTTP ${response.status}`);

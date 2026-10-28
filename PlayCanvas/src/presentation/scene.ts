@@ -181,14 +181,11 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     });
     app.root.addChild(camera);
     const follow = new Vec3(0, 0, 5);
-    const cameraOffset = surface ? { y: 12, z: 14 } : competitive ? CAMERA_OFFSET : TRAINING_CAMERA_OFFSET;
-    const lookAhead = surface ? 0 : competitive ? CAMERA_LOOK_AHEAD : 0;
+    const cameraOffset = surface ? { y: 26, z: 8 } : competitive ? CAMERA_OFFSET : TRAINING_CAMERA_OFFSET;
+    const lookAhead = competitive ? CAMERA_LOOK_AHEAD : 0;
     const lookTarget = new Vec3();
     const updateCamera = () => {
-        // Keep the preview camera in front of the south base arch. The angle opens
-        // naturally as the player leaves spawn; no character or terrain scaling.
-        const cameraZ = surface ? Math.min(follow.z + cameraOffset.z, 52) : follow.z + cameraOffset.z;
-        camera.setPosition(follow.x, follow.y + cameraOffset.y, cameraZ);
+        camera.setPosition(follow.x, follow.y + cameraOffset.y, follow.z + cameraOffset.z);
         lookTarget.set(follow.x, follow.y, follow.z - lookAhead);
         camera.lookAt(lookTarget);
     };

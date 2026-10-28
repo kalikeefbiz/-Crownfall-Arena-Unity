@@ -1,0 +1,30 @@
+[WebServer] (node:5261) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 19 tests using 1 worker
+
+(node:5280) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/19] tests/browser/arena.spec.ts:35:1 › production arena renders, moves, aims independently, mirrors and preserves facing
+[2/19] tests/browser/arena.spec.ts:70:1 › landscape mobile supports two captured pointers and clears cancelled input
+[3/19] tests/browser/arena.spec.ts:117:1 › obstruction blocks movement in the rendered app
+[4/19] tests/browser/arena.spec.ts:135:5 › Kit selection and real Basic damage through HUD
+[5/19] tests/browser/arena.spec.ts:135:5 › Set selection and real Basic damage through HUD
+[6/19] tests/browser/arena.spec.ts:135:5 › Riven selection and real Basic damage through HUD
+[7/19] tests/browser/arena.spec.ts:158:1 › aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics
+[8/19] tests/browser/arena.spec.ts:176:1 › Set ground ultimate consumes charged meter and impacts after commitment
+[9/19] tests/browser/arena.spec.ts:187:1 › Riven stance changes actions and SCREAM updates stun/ultimate diagnostics
+[10/19] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 844x390
+[11/19] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 667x375
+[12/19] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 640x360
+[13/19] tests/browser/frontend.spec.ts:113:1 › real sequential readiness, authoritative result, replay cache, pause and menu rendering suspension
+[14/19] tests/browser/frontend.spec.ts:214:1 › failed essential model offers real retry and return without a countdown
+[15/19] tests/browser/frontend.spec.ts:232:1 › Combat Practice uses the existing sandbox authority and can return to menu
+[16/19] tests/browser/frontend.spec.ts:245:1 › saved control positions are the real captured touch targets across rotation
+[17/19] tests/browser/frontend.spec.ts:310:1 › preparation deadline prevents a late game module from starting behind the error screen
+[18/19] tests/browser/match.spec.ts:23:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch
+[19/19] tests/browser/match.spec.ts:63:1 › 3v3 selected Blue human takes real touch commands after countdown and reset
+  19 passed (3.6m)

@@ -1,0 +1,3 @@
+Public production entered gameplay.
+Public production AI, scoring and results passed.
+Public production replay and touch ability passed.

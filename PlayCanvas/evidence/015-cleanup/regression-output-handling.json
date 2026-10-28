@@ -1,0 +1,13 @@
+{
+    "historicalRecordsRestoredUnchanged": [
+        "PlayCanvas/evidence/011/countdown.png",
+        "PlayCanvas/evidence/011/readiness.json",
+        "PlayCanvas/evidence/011/results.png",
+        "PlayCanvas/evidence/014/browser-390.json",
+        "PlayCanvas/evidence/014/browser-844.json",
+        "PlayCanvas/evidence/014/centre-combat-390.png",
+        "PlayCanvas/evidence/014/centre-combat-844.png",
+        "PlayCanvas/evidence/014/natural-battle-390.png"
+    ],
+    "newReceiptsDirectory": "PlayCanvas/evidence/015-cleanup"
+}

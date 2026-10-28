@@ -39,17 +39,6 @@ export function createHud() {
         { signal: abort.signal }
     );
     let simSelect: ((index: number) => void) | undefined;
-    // Optional wall-clock throughput. Do not derive FPS from simulation dt or fixed ticks.
-    const performancePanel =
-        new URLSearchParams(location.search).get('perf') === '1' ? document.createElement('output') : null;
-    let measuredAt = performance.now(),
-        measuredFrames = 0;
-    if (performancePanel) {
-        performancePanel.setAttribute('aria-label', 'Frame performance');
-        performancePanel.style.cssText =
-            'position:fixed;left:8px;top:110px;z-index:100;pointer-events:none;background:#111d;color:#fff;padding:4px;font:12px monospace';
-        hud.append(performancePanel);
-    }
     const diagnostics = hud.querySelector<HTMLPreElement>('#diagnostics')!;
     return {
         destroy() {
@@ -63,13 +52,6 @@ export function createHud() {
         move: hud.querySelector<HTMLElement>('#move')!,
         aim: hud.querySelector<HTMLElement>('#aim')!,
         update(sim: Simulation, dt: number, frames: number, intent: PreviewIntent | null = null) {
-            if (performancePanel && performance.now() - measuredAt >= 1000) {
-                const wallMs = performance.now() - measuredAt;
-                const count = frames - measuredFrames;
-                performancePanel.textContent = `${((count * 1000) / wallMs).toFixed(1)} FPS · ${(wallMs / Math.max(1, count)).toFixed(1)} ms/frame`;
-                measuredAt = performance.now();
-                measuredFrames = frames;
-            }
             const c = sim.combat;
             const match = sim.match?.snapshot();
             hud.querySelector('header span')!.textContent =

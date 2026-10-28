@@ -1,0 +1,48 @@
+{
+    "baseline": "4fadf2cf0c1f51ec819f27c86294e4718ddc9e8d",
+    "sharedFiles": {
+        ".gitattributes": {
+            "matchesGoal014Baseline": true,
+            "sha256": "49ff48b7f62ef524aca7c7b20df34daa172072bf51c1accd40fd77534f25fb33"
+        },
+        "PlayCanvas/src/maps/solrahn.ts": {
+            "matchesGoal014Baseline": true,
+            "sha256": "6a059cd3d9ff2c3dfe232530d4a763b7553aa7a1239c5357e23f80c863810c3f"
+        },
+        "PlayCanvas/src/presentation/scene.ts": {
+            "matchesGoal014Baseline": true,
+            "sha256": "14d2ee5920b5735ef1ccd10ee2a0ed7d2b2560573a11678f6d65e21c4e825a8b"
+        },
+        "PlayCanvas/src/presentation/solrahn-environment.ts": {
+            "matchesGoal014Baseline": true,
+            "sha256": "1bbdefcb68461e854c7c788dd410a8fff300146b58941eb966dba512997bf2d1"
+        },
+        "PlayCanvas/src/presentation/summoner-assets.ts": {
+            "matchesGoal014Baseline": true,
+            "sha256": "a06748368c3642f454888eaed0e696eff1bbb188a54be6e278bc4f639f68a58b"
+        },
+        "PlayCanvas/src/ui/frontend.ts": {
+            "matchesGoal014Baseline": true,
+            "sha256": "6f00d6aeea99722b8ca901cf281ad1f9cb15c4596269cb39fa8cfa6f3e34f519"
+        },
+        "PlayCanvas/src/ui/hud.ts": {
+            "matchesGoal014Baseline": true,
+            "sha256": "ef663d180573fd749f5a1352ee9dcd0a2b2774abc63b3528e71a7d9882563cca"
+        },
+        "PlayCanvas/vite.config.ts": {
+            "matchesGoal014Baseline": true,
+            "sha256": "4d81db58905164d77b220a26beaf833584a5b68d9469486b8d0ffd1b85981fd4"
+        },
+        "PlayCanvas/public/assets/solrahn/surface.bin": {
+            "matchesGoal014Baseline": true,
+            "sha256": "db9114206f546f7a11343d96cdc27c6770fd4765447f5e95200b644028ab11d5"
+        },
+        "PlayCanvas/public/assets/solrahn/surface.json": {
+            "matchesGoal014Baseline": true,
+            "sha256": "c99c22a45c4f8cf642954a1ea9e0e465fd5cd39d3f0d7e9cd0679498aa6d2173"
+        }
+    },
+    "activeReferenceMatches": [],
+    "buildContainsRejectedAsset": false,
+    "approvedSourceAssetsUnmodified": true
+}

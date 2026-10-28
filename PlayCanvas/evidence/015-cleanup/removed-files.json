@@ -1,0 +1,32 @@
+{
+    "removed": [
+        ".github/workflows/publish-crownfall-solrahn-015.yml",
+        "PlayCanvas/scripts/solrahn-surface-015.py",
+        "PlayCanvas/tests/browser/solrahn-015.spec.ts",
+        "PlayCanvas/assets/solrahn-goal-015/runtime/solrahn-full-quality.glb",
+        "PlayCanvas/assets/solrahn-goal-015/scripts/audit_source.py",
+        "PlayCanvas/assets/solrahn-goal-015/scripts/compare_attributes.py",
+        "PlayCanvas/assets/solrahn-goal-015/scripts/export.py",
+        "PlayCanvas/assets/solrahn-goal-015/scripts/render_check.py",
+        "PlayCanvas/assets/solrahn-goal-015/scripts/render_views.py",
+        "PlayCanvas/assets/solrahn-goal-015/previews/export/cameras.json",
+        "PlayCanvas/assets/solrahn-goal-015/previews/export/middle-close.png",
+        "PlayCanvas/assets/solrahn-goal-015/previews/export/overview.png",
+        "PlayCanvas/assets/solrahn-goal-015/previews/source/cameras.json",
+        "PlayCanvas/assets/solrahn-goal-015/previews/source/middle-close.png",
+        "PlayCanvas/assets/solrahn-goal-015/previews/source/overview.png"
+    ],
+    "restoredSharedFiles": [
+        ".gitattributes",
+        "PlayCanvas/src/maps/solrahn.ts",
+        "PlayCanvas/src/presentation/scene.ts",
+        "PlayCanvas/src/presentation/solrahn-environment.ts",
+        "PlayCanvas/src/presentation/summoner-assets.ts",
+        "PlayCanvas/src/ui/frontend.ts",
+        "PlayCanvas/src/ui/hud.ts",
+        "PlayCanvas/vite.config.ts",
+        "PlayCanvas/public/assets/solrahn/surface.bin",
+        "PlayCanvas/public/assets/solrahn/surface.json"
+    ],
+    "baseline": "4fadf2cf0c1f51ec819f27c86294e4718ddc9e8d"
+}

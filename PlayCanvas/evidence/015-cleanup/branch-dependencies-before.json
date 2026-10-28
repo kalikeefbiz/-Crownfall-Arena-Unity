@@ -1,0 +1,22 @@
+{
+    "assets/solrahn-goal-013": {
+        "head": "64019b48ec997d7b3873dc6628b7796c10498835",
+        "goal015RuntimePaths": []
+    },
+    "browser-parity-unity": {
+        "head": "b082cf356494d532c2b8c0915849ec0fc61649d7",
+        "goal015RuntimePaths": []
+    },
+    "main": {
+        "head": "2f76b451655397ac019d0a80ab1ef5728f5fc802",
+        "goal015RuntimePaths": []
+    },
+    "playcanvas-port": {
+        "head": "58f60eecd86ea6109892165cd8dd7663993a45a9",
+        "goal015RuntimePaths": ["PlayCanvas/assets/solrahn-goal-015/runtime/solrahn-full-quality.glb"]
+    },
+    "recovery-build14": {
+        "head": "3a63d5ac729a05a03b9060a6a5ca37591b8908eb",
+        "goal015RuntimePaths": []
+    }
+}

@@ -36,7 +36,7 @@ export class SummonerAssets {
         return this.entries.get(source)?.state === 'loaded';
     }
 
-    load(source: string, timeoutMs = 45000): Promise<Asset> {
+    load(source: string): Promise<Asset> {
         const cached = this.entries.get(source);
         if (cached) return cached.promise;
         if (this.destroyed) return Promise.reject(new Error('Summoner assets disposed'));
@@ -104,7 +104,7 @@ export class SummonerAssets {
             timeout = globalThis.setTimeout(() => {
                 requestAbort.abort();
                 asset.fire('error', new Error(`Asset preparation timed out: ${source}`));
-            }, timeoutMs);
+            }, 45000);
             try {
                 const response = await fetch(file.url, { signal: requestAbort.signal });
                 if (!response.ok) throw new Error(`Asset request failed: ${response.status}`);

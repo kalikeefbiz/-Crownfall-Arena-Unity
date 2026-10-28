@@ -1,0 +1,31 @@
+{
+    "playcanvas/": {
+        "status": 200,
+        "htmlSha256": "934819389b9e0aaae74f8395e599a03b6c2263b50e80ef6aa875b1654b1b67f7"
+    },
+    "solrahn-goal-014/": {
+        "status": 200,
+        "htmlSha256": "656156ad7ecc0328596d0e705c91472db2c0961999e2d4e4e4cda8dd0ddb0665"
+    },
+    "goal014Metadata": {
+        "source": "b3e8ee851583c568f3aa7fa7978e6a7c0e809a60",
+        "map": "solrahn",
+        "productionReplaced": false
+    },
+    "allOriginalReleaseAssetsUnchanged": true,
+    "releaseAssets": {
+        "assets": [
+            {
+                "digest": "sha256:626f546561dc2b364e0ba960eb0ae5979492fecb5667a934902ea4dce6082d7f",
+                "name": "export_Meshy_AI_2026-10-26_4debfa.blend",
+                "size": 506928885
+            },
+            {
+                "digest": "sha256:a245c604a9f1b092c37dcc6b66bed5353df6506a9d16e91d5188f0c616f7af82",
+                "name": "export_Meshy_AI_2026-10-26_7d27be.blend",
+                "size": 154342975
+            }
+        ],
+        "tag_name": "solrahn-three-lane-source-v1"
+    }
+}

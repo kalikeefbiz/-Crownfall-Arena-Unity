@@ -1,0 +1,46 @@
+{
+    "Assets": {
+        "gitObjectBefore": "0491f07b2e816dec3990c1a6380927a57d464c50",
+        "workingTreeUnchanged": true
+    },
+    "Packages": {
+        "gitObjectBefore": "3f340a6cbc0b38deebed99495deb201c3333a766",
+        "workingTreeUnchanged": true
+    },
+    "ProjectSettings": {
+        "gitObjectBefore": "ef25bf6b7b38d2ac79d0dcb7be78b2a05aea49cb",
+        "workingTreeUnchanged": true
+    },
+    "Docs": {
+        "gitObjectBefore": "b5731e4876da6d12c64d90c4d3d4ae879935620e",
+        "workingTreeUnchanged": true
+    },
+    "PlayCanvas/src/combat": {
+        "gitObjectBefore": "fbcfc5d16ef7562ec8991ccac23d31b07ea3fcc2",
+        "workingTreeUnchanged": true
+    },
+    "PlayCanvas/public/assets/environment": {
+        "gitObjectBefore": "13f6ed826361ec4155570af8f43f5b21b03ec52a",
+        "workingTreeUnchanged": true
+    },
+    "PlayCanvas/public/assets/summoners": {
+        "gitObjectBefore": "c2bdbbd7a575ce5a52e5963e56ffbf45afb1b70f",
+        "workingTreeUnchanged": true
+    },
+    "PlayCanvas/public/assets/frontend": {
+        "gitObjectBefore": "988d6251b7f76cc4a93c2817a27879b1cbc30f6e",
+        "workingTreeUnchanged": true
+    },
+    "PlayCanvas/assets/solrahn-three-lane": {
+        "gitObjectBefore": "307dd1422fc4c42961c93d48ec406251266bd781",
+        "workingTreeUnchanged": true
+    },
+    "PlayCanvas/design": {
+        "gitObjectBefore": "5721a9cbad37c47100d3124fecb605e1e3a8fc0f",
+        "workingTreeUnchanged": true
+    },
+    "PlayCanvas/GOAL_014_VERIFICATION.md": {
+        "gitObjectBefore": "1532958f497a00cb80ea8b758b8c6775bf2cdfe2",
+        "workingTreeUnchanged": true
+    }
+}

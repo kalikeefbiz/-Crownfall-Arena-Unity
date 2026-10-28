@@ -1,8 +1,24 @@
-# Goal 015 — original full-quality Sol’Rahn preview
+# Goal 015 — RETIRED / REJECTED
 
-Preview: <https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-015/?mapPreview=solrahn>.
-Choose **Enter Crownfall → Enter Arena**. Landscape is recommended.
-Optional wall-clock FPS and frame-time display: append `&perf=1` (off by default).
+The founder tested this candidate on a physical iPhone and reported a browser crash
+while loading the approximately 240 MB full-resolution GLB. **Goal 015 is rejected
+for mobile gameplay and is no longer an active implementation.**
+
+Its runtime integration, tracked GLB pointer, dedicated scripts and publication
+workflow have been removed. The hosted `/solrahn-goal-015/` preview is retired.
+No repair, optimization or replacement export was attempted. Production, Goal 014,
+Goal 013 assets and the founder's original Release files are preserved.
+
+See [cleanup verification](GOAL_015_CLEANUP.md) for current status. The remaining
+content is historical evidence from the rejected experiment. Automated passes
+below do not establish mobile suitability; the founder's device result supersedes
+the previous unverified mobile status.
+
+## Historical verification — superseded
+
+Retired URL (historical only):
+`https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-015/?mapPreview=solrahn`.
+The former launch instructions and optional FPS readout no longer apply.
 Compare [Goal 014](https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-014/?mapPreview=solrahn) independently.
 
 ## Source and full-quality export

@@ -1,0 +1,214 @@
+{
+    "retiredPreviewLaunches": false,
+    "all51HostedFilesReturn404": true,
+    "checks": [
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/SOURCES.md",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/dirt_albedo_1k.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/dirt_ar_1k.png",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/dirt_normal_1k.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/dry_ground_rocks_albedo_1k.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/dry_ground_rocks_ar_1k.png",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/dry_ground_rocks_normal_1k.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/forest_leaves_02_albedo_512.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/forest_leaves_02_ar_512.png",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/forest_leaves_02_normal_512.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/sparse_grass_albedo_512.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/sparse_grass_ar_512.png",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/polyhaven/sparse_grass_normal_512.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/README.md",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/mobile/README.md",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/environment/trees/mobile/preparation.json",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend-CFhZ5Cxo.js",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/fonts/Cinzel-OFL.txt",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/fonts/Cinzel.woff",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/fonts/Rajdhani-OFL.txt",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/fonts/Rajdhani.woff",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/portraits/kit.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/portraits/provenance.json",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/portraits/riven.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/portraits/set.webp",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/frontend/ucl-arena-menu.jpeg",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/game-DxbqioXz.js",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/index-BZkLZh9_.js",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/index-BgPqw8kw.css",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/preload-helper-CRzLMJPS.js",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/solrahn/surface.bin",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/solrahn/surface.json",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/kit/Kit_20K_Animated.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/kit/README.md",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/kit/kit-10k-test.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/riven/README.md",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/riven/Riven_Animated.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/riven/weapons/README.md",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/set/README.md",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/assets/summoners/set/Set_Animated.glb",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/index.html",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/preview-source.json",
+            "status": 404
+        },
+        {
+            "path": "solrahn-goal-015/?mapPreview=solrahn",
+            "status": 404
+        }
+    ]
+}

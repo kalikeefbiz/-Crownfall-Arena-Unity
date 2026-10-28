@@ -137,7 +137,6 @@ export function createFrontend() {
         measurements.length = 0;
         show('loading');
         const started = performance.now();
-        const prepareSeconds = new URLSearchParams(location.search).get('mapPreview') === 'solrahn' ? 300 : 120;
         let timer = 0;
         try {
             const prepare = async () => {
@@ -176,13 +175,8 @@ export function createFrontend() {
                 prepare(),
                 new Promise<never>((_, reject) => {
                     timer = window.setTimeout(
-                        () =>
-                            reject(
-                                new Error(
-                                    `Preparation exceeded ${prepareSeconds} seconds. Check the connection and retry.`
-                                )
-                            ),
-                        prepareSeconds * 1000
+                        () => reject(new Error('Preparation exceeded 120 seconds. Check the connection and retry.')),
+                        120000
                     );
                 })
             ]);
