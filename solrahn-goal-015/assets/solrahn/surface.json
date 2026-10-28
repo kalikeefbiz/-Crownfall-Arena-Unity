@@ -1,0 +1,14 @@
+{
+    "version": 1,
+    "sourceSha256": "f1be971167f316e505c95fdff8145d2e500e53a574121f8a56ed6cb5e7600e79",
+    "scale": 80,
+    "translation": [0, 8, 0],
+    "rotation": [0, 0, 0],
+    "xMin": -30,
+    "zMin": -52,
+    "step": 0.25,
+    "width": 241,
+    "depth": 417,
+    "walkableCells": 14827,
+    "method": "Topmost visual-mesh triangle ray sample; local span <0.65m across 0.5m; ceiling 4m; 0.55m edge clearance; connected middle-lane component. Outer lanes inactive."
+}
