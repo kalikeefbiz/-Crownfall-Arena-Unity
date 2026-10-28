@@ -9,7 +9,7 @@ export function createSolrahnEnvironment(parent: Entity, assets: SummonerAssets,
     let model: Entity | null = null;
     let destroyed = false;
     let state = 'loading';
-    const ready = assets.load(SOLRAHN_ASSET).then((asset) => {
+    const ready = assets.load(SOLRAHN_ASSET, 240000).then((asset) => {
         if (destroyed) return;
         model = (asset.resource as ContainerResource).instantiateRenderEntity();
         model.name = 'Solrahn-authored-three-lane';
@@ -34,7 +34,7 @@ export function createSolrahnEnvironment(parent: Entity, assets: SummonerAssets,
                 mode: 'solrahn-authored',
                 state,
                 transform: SOLRAHN_TRANSFORM,
-                triangles: 668270,
+                triangles: 5568924,
                 meshInstances: 1,
                 surface: surface.metadata,
                 activeObjectives: surface.camps,

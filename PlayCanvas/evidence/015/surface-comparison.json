@@ -1,0 +1,21 @@
+{
+    "sameTransform": true,
+    "oldWalkableCells": 15321,
+    "newWalkableCells": 14827,
+    "removedCells": 529,
+    "addedCells": 35,
+    "oldWalkableHeightDifferenceMetres": {
+        "max": 0.3520000000000001,
+        "mean": 0.007915083871809933,
+        "p95": 0.020000000000000018
+    },
+    "changedHeightCells": 13954,
+    "sourceWorldBounds": {
+        "min": [-62.07552, -5.06448, -76.05896],
+        "max": [62.10728, 23.3604, 76.06848]
+    },
+    "goal014WorldBounds": {
+        "min": [-62.07552, -5.06448, -76.0611],
+        "max": [62.10728, 23.3604, 76.06848]
+    }
+}

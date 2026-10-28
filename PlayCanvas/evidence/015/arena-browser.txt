@@ -1,0 +1,17 @@
+
+Running 9 tests using 1 worker
+
+(node:1961) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/9] tests/browser/arena.spec.ts:35:1 › production arena renders, moves, aims independently, mirrors and preserves facing
+[2/9] tests/browser/arena.spec.ts:70:1 › landscape mobile supports two captured pointers and clears cancelled input
+[3/9] tests/browser/arena.spec.ts:117:1 › obstruction blocks movement in the rendered app
+[4/9] tests/browser/arena.spec.ts:135:5 › Kit selection and real Basic damage through HUD
+[5/9] tests/browser/arena.spec.ts:135:5 › Set selection and real Basic damage through HUD
+[6/9] tests/browser/arena.spec.ts:135:5 › Riven selection and real Basic damage through HUD
+[7/9] tests/browser/arena.spec.ts:158:1 › aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics
+[8/9] tests/browser/arena.spec.ts:176:1 › Set ground ultimate consumes charged meter and impacts after commitment
+[9/9] tests/browser/arena.spec.ts:187:1 › Riven stance changes actions and SCREAM updates stun/ultimate diagnostics
+  9 passed (57.8s)

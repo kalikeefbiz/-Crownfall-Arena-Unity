@@ -1,0 +1,13 @@
+
+> crownfall-playcanvas@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /workspace/crownfall/PlayCanvas
+
+
+ Test Files  27 passed (27)
+      Tests  242 passed (242)
+   Start at  02:17:46
+   Duration  84.93s (transform 1.19s, setup 0ms, import 13.81s, tests 63.18s, environment 2ms)
+

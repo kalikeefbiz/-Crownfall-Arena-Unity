@@ -1,0 +1,14 @@
+[
+    {
+        "name": "overview",
+        "position": [2, -2.4, 2.6],
+        "target": [0, 0, 0],
+        "ortho": 2.8
+    },
+    {
+        "name": "middle-close",
+        "position": [0.28, -0.34, 0.36],
+        "target": [0, 0, -0.07],
+        "ortho": 0.65
+    }
+]

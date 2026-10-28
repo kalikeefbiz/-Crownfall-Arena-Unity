@@ -1,0 +1,12 @@
+{
+    "overview": {
+        "meanAbsolutePixelError": 0.0019484230324074074,
+        "maxAbsolutePixelError": 18.0,
+        "sameCameraAndLighting": true
+    },
+    "middle-close": {
+        "meanAbsolutePixelError": 0.007294921875,
+        "maxAbsolutePixelError": 29.0,
+        "sameCameraAndLighting": true
+    }
+}

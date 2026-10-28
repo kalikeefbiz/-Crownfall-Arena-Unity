@@ -1,0 +1,103 @@
+{
+    "file": "solrahn-full-quality.glb",
+    "bytes": 240254728,
+    "sha256": "f1be971167f316e505c95fdff8145d2e500e53a574121f8a56ed6cb5e7600e79",
+    "meshes": 1,
+    "nodes": [
+        {
+            "mesh": 0,
+            "name": "Mesh_0"
+        }
+    ],
+    "primitives": 1,
+    "materials": [
+        {
+            "doubleSided": true,
+            "name": "Material_0",
+            "normalTexture": {
+                "index": 0
+            },
+            "pbrMetallicRoughness": {
+                "baseColorTexture": {
+                    "index": 1
+                },
+                "metallicRoughnessTexture": {
+                    "index": 2
+                }
+            }
+        }
+    ],
+    "samplers": [
+        {
+            "magFilter": 9729,
+            "minFilter": 9987
+        }
+    ],
+    "exported_vertices_including_uv_normal_tangent_splits": 3037882,
+    "triangles": 5568924,
+    "geometry_buffer_bytes": 212645424,
+    "images": [
+        {
+            "name": "Image_2",
+            "mimeType": "image/jpeg",
+            "width": 4096,
+            "height": 4096,
+            "bytes": 10397270,
+            "rgba8_mips_bytes": 89478485
+        },
+        {
+            "name": "Image_0",
+            "mimeType": "image/jpeg",
+            "width": 4096,
+            "height": 4096,
+            "bytes": 14845378,
+            "rgba8_mips_bytes": 89478485
+        },
+        {
+            "name": "Image_1",
+            "mimeType": "image/jpeg",
+            "width": 2048,
+            "height": 2048,
+            "bytes": 2364756,
+            "rgba8_mips_bytes": 22369621
+        }
+    ],
+    "texture_rgba8_mips_bytes": 201326591,
+    "extensions_used": [],
+    "extensions_required": [],
+    "external_uris": [],
+    "accessors": [
+        {
+            "bufferView": 0,
+            "componentType": 5126,
+            "count": 3037882,
+            "max": [0.7763410210609436, 0.19200499355793, 0.9508559703826904],
+            "min": [-0.7759439945220947, -0.16330599784851074, -0.9507369995117188],
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 1,
+            "componentType": 5126,
+            "count": 3037882,
+            "type": "VEC3"
+        },
+        {
+            "bufferView": 2,
+            "componentType": 5126,
+            "count": 3037882,
+            "type": "VEC2"
+        },
+        {
+            "bufferView": 3,
+            "componentType": 5126,
+            "count": 3037882,
+            "type": "VEC4"
+        },
+        {
+            "bufferView": 4,
+            "componentType": 5125,
+            "count": 16706772,
+            "type": "SCALAR"
+        }
+    ]
+}

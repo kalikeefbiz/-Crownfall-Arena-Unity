@@ -1,0 +1,15 @@
+{
+    "sourceVertices": 2782049,
+    "sourceTriangles": 5568924,
+    "exportTriangles": 5568924,
+    "comparedTriangleCorners": 16706772,
+    "maxAbsoluteError": {
+        "position": 0.0,
+        "normal": 6.714463233947754e-5,
+        "uv": 0.0
+    },
+    "status": "PASS",
+    "method": "Source triangle corners compared in order after required glTF Y-up/UV-V conversion; exported vertex splits permitted.",
+    "normalTolerance": 0.0001,
+    "normalPrecisionNote": "Blender glTF exporter rounds source normals to four decimal places then normalizes; no authored normal edits."
+}
