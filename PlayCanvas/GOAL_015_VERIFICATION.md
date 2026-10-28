@@ -108,11 +108,72 @@ can add substantially to this total.
 
 Initial local landscape readiness was 40.0s with a 9.28s map fetch; software wall
 throughput 0.23 FPS. This workspace uses Chromium SwiftShader software WebGL,
-not an iPhone GPU. Physical iPhone Safari loading, memory reliability and frame rate
-remain **UNVERIFIED** until the founder plays it. A successful desktop export/load
+not an iPhone GPU. Automated checks select the existing **Low display-resolution setting** (pixel
+ratio 1). This changes framebuffer resolution only: the original full mesh and
+4K textures remain loaded. Standard display resolution can be selected in Settings
+and may cost more GPU time on a Retina phone. Physical iPhone Safari loading,
+memory reliability and frame rate remain **UNVERIFIED** until the founder plays it. A successful desktop export/load
 is not mobile performance acceptance. No further optimization was performed.
 
 The Wilderness connectivity problem and full-map navigation remain unresolved.
 Only the current centre lane and connected adjacent Wilderness paths are navigable;
 all three authored lanes remain in the visual mesh. No 5v5, towers, future objectives,
 combat redesign, procedural terrain or next milestone was introduced.
+
+## Published build
+
+Implementation commit: `77f776163e92607efcf1de2a96394d7168991e59`.
+Pages commit: `c89ac91dfb0fcff1ad460637e065aa3f9c910295`.
+GitHub Pages reports **built**. The public source-revision manifest, HTML, all
+JavaScript bundles and terrain binary/metadata match the final local build byte for
+byte. The high-resolution GLB is served from its immutable CORS-enabled LFS URL,
+not the execution workspace or a duplicate Pages binary.
+
+The publication receipt proves identical Git objects for production `/playcanvas/`,
+Goal 014 `/solrahn-goal-014/`, the Unity root and Unity Build directory. All 51 hosted
+paths created are confined to `/solrahn-goal-015/`. Public Goal 014 still reports
+its original implementation `b3e8ee851583c568f3aa7fa7978e6a7c0e809a60`.
+No production publication workflow was dispatched; source commits use `[skip ci]`.
+
+Actual public-build captures with animated Summoners:
+[landscape combat](evidence/015/live-centre-combat-844.png),
+[portrait combat](evidence/015/live-centre-combat-390.png),
+[landscape spawn](evidence/015/live-spawn-844.png),
+[portrait spawn](evidence/015/live-spawn-390.png),
+[results](evidence/015/live-results-844.png).
+The centre combat images use the documented controlled roster for touch-hit
+verification; the other captures use the normal spawn and AI match.
+
+See [publication/protection receipt](evidence/015/publication.json),
+[public build-byte checks](evidence/015/public-http.json),
+[public isolation checks](evidence/015/public-isolation.json), and
+[complete public browser output](evidence/015/live-browser.txt).
+
+Public browser measurements (cold browser context per orientation):
+
+| Viewport          | Readiness | Map fetch / container ready | Wall FPS | Wall ms/frame |
+| ----------------- | --------: | --------------------------: | -------: | ------------: |
+| Landscape 844×390 |   23.270s |            9.365s / 10.020s |    0.214 |          4676 |
+| Portrait 390×844  |   23.530s |           10.240s / 10.848s |    0.287 |          3490 |
+
+The browser identifies its renderer as **ANGLE Vulkan SwiftShader Device (Subzero)**.
+These extremely slow software results are not mobile hardware measurements.
+The full GLB and all four character/weapon containers loaded; no load/allocation
+failure or JavaScript page error was observed. A successful load here does not
+establish iPhone memory reliability. Detailed counters and renderer receipts:
+[landscape](evidence/015/live-browser-844.json),
+[portrait](evidence/015/live-browser-390.json),
+[performance summary](evidence/015/public-performance.json).
+
+Both complete public preview browser tests **passed** (4.2 minutes total), covering
+remote full-quality map/model loading, touch movement, registered Ember Step damage,
+AI combat, natural match completion/results, and replay without redownloading models.
+No JavaScript page errors were reported. The public captures above use the final
+camera, including its final player-centred framing adjustment. The earlier local
+captures record the preceding look-ahead framing candidate; the final public
+captures are the delivered camera evidence.
+
+Portrait framing makes individual models easy to see but exposes less combat area
+horizontally; landscape is recommended. The software browser's low throughput limits
+animation assessment. Smooth animation, sustained thermal behaviour, Safari GPU
+allocation and practical mobile playability require the founder's physical iPhone.

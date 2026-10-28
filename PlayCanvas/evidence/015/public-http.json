@@ -1,0 +1,50 @@
+{
+    "preview-source.json": {
+        "status": 200,
+        "bytes": 223,
+        "sha256": "e9c48f0558760c7684dfff402582bd200ca5ffe02f42999bd15db40204ee22e5",
+        "matchesBuild": true
+    },
+    "index.html": {
+        "status": 200,
+        "bytes": 653,
+        "sha256": "66b54f0d2292f5167e661062bc9bc54029691593230813c26970be38897df14a",
+        "matchesBuild": true
+    },
+    "assets/solrahn/surface.bin": {
+        "status": 200,
+        "bytes": 301491,
+        "sha256": "65fbe4e635a7262a60867f16b3521d23db9c4d00edab78d08373e3bfba05273c",
+        "matchesBuild": true
+    },
+    "assets/solrahn/surface.json": {
+        "status": 200,
+        "bytes": 477,
+        "sha256": "922a5cb4e69e926474ffca0f34b4a4ad078ab258fc36013ff77716b51724ec55",
+        "matchesBuild": true
+    },
+    "assets/game-DxbqioXz.js": {
+        "status": 200,
+        "bytes": 1324130,
+        "sha256": "8b28d2b4a5fc0821198335f3f80c0e5eabfd324e1459d053c09bd67502a39c5d",
+        "matchesBuild": true
+    },
+    "assets/frontend-CFhZ5Cxo.js": {
+        "status": 200,
+        "bytes": 14729,
+        "sha256": "72d601409c9e7bb51400c0126922f216ad66452c916f20c6538d22c2a395ed95",
+        "matchesBuild": true
+    },
+    "assets/preload-helper-CRzLMJPS.js": {
+        "status": 200,
+        "bytes": 1534,
+        "sha256": "bcc465e3e61dc3878a69ffa95ccb53cb82d95b1639ada223420b281ebd150048",
+        "matchesBuild": true
+    },
+    "assets/index-BZkLZh9_.js": {
+        "status": 200,
+        "bytes": 1327,
+        "sha256": "5bae6f0eb2174830bfa595676c93f7cac0a46518fcf802d4f5508e0f677bd255",
+        "matchesBuild": true
+    }
+}

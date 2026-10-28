@@ -1,0 +1,32 @@
+{
+    "844": {
+        "viewport": {
+            "width": 844,
+            "height": 390
+        },
+        "readyMs": 23270,
+        "wallFps": 0.21385799828913601,
+        "wallFrameMs": 4676.0,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "mapFetchMs": 9364.600000000093,
+        "mapFetchDecodeMs": 10020.29999999993,
+        "allocatedGpuBytes": 821235064,
+        "displayPixelRatio": 1,
+        "physicalIPhoneVerified": false
+    },
+    "390": {
+        "viewport": {
+            "width": 390,
+            "height": 844
+        },
+        "readyMs": 23530,
+        "wallFps": 0.28650558685894373,
+        "wallFrameMs": 3490.3333333333335,
+        "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+        "mapFetchMs": 10240.399999999907,
+        "mapFetchDecodeMs": 10848,
+        "allocatedGpuBytes": 821235064,
+        "displayPixelRatio": 1,
+        "physicalIPhoneVerified": false
+    }
+}

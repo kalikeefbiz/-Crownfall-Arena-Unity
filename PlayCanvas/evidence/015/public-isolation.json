@@ -1,0 +1,30 @@
+{
+    "goal014": {
+        "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-014/preview-source.json",
+        "status": 200,
+        "bytes": 102,
+        "metadata": {
+            "source": "b3e8ee851583c568f3aa7fa7978e6a7c0e809a60",
+            "map": "solrahn",
+            "productionReplaced": false
+        }
+    },
+    "production": {
+        "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/",
+        "status": 200,
+        "bytes": 653
+    },
+    "goal015": {
+        "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-015/preview-source.json",
+        "status": 200,
+        "bytes": 223,
+        "metadata": {
+            "source": "77f776163e92607efcf1de2a96394d7168991e59",
+            "map": "solrahn",
+            "goal": 15,
+            "productionReplaced": false,
+            "goal014Replaced": false,
+            "assetSha256": "f1be971167f316e505c95fdff8145d2e500e53a574121f8a56ed6cb5e7600e79"
+        }
+    }
+}
