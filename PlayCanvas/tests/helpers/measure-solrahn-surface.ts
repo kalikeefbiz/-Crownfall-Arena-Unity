@@ -67,6 +67,7 @@ try {
             });
             await page.locator('.ability-ring').tap();
             const samples = [];
+            let excludedEndingPhase: string | null = null;
             // 120 wall seconds of central live combat, no accelerated ticks during sampling.
             const duration = warmth === 'cold' ? 120000 : 20000,
                 end = Date.now() + duration;
@@ -92,6 +93,11 @@ try {
                         estimatedWebGLDrawsPerFrame: (calls() - beforeCalls) / Math.max(1, state.frames - beforeFrames)
                     };
                 });
+                // Never count menu/results frames as six-actor combat performance.
+                if (timing.state.match.phase !== 'active') {
+                    excludedEndingPhase = timing.state.match.phase;
+                    break;
+                }
                 const metrics = await cdp.send('Performance.getMetrics');
                 samples.push({
                     ...timing,
@@ -99,12 +105,15 @@ try {
                 });
             }
             const times = samples.flatMap((s) => s.intervals).sort((a, b) => a - b);
+            if (!times.length) throw new Error('No active-match frame samples');
             results.push({
                 name,
                 url,
                 warmth,
                 readyMs,
-                wallDuration: duration,
+                requestedWallDuration: duration,
+                sampledActiveWallMs: times.reduce((a, b) => a + b, 0),
+                excludedEndingPhase,
                 medianFrameMs: times[Math.floor(times.length * 0.5)],
                 p95FrameMs: times[Math.floor(times.length * 0.95)],
                 meanFps: 1000 / (times.reduce((a, b) => a + b, 0) / times.length),
