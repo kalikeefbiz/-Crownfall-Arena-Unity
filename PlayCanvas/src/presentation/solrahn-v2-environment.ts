@@ -1,4 +1,4 @@
-import { Color, Entity, Mesh, MeshInstance, StandardMaterial, Vec3 } from 'playcanvas';
+import { Color, Entity, Mesh, MeshInstance, StandardMaterial, Vec3, calculateNormals } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
 import type { SolrahnV2 } from '../maps/solrahn-v2';
@@ -64,6 +64,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
         }
     const gateMesh = new Mesh(app.graphicsDevice);
     gateMesh.setPositions(gatePositions);
+    gateMesh.setNormals(calculateNormals(gatePositions, gateIndices));
     gateMesh.setIndices(gateIndices);
     gateMesh.update();
     bounds.addComponent('render', { meshInstances: [new MeshInstance(gateMesh, gateMat, bounds)], castShadows: false });

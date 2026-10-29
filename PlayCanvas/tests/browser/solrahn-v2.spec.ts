@@ -29,6 +29,10 @@ for (const viewport of [
         const page = await context.newPage();
         const errors: string[] = [];
         page.on('pageerror', (e) => errors.push(e.message));
+        page.on('console', (message) => {
+            if (message.type() === 'error' || /WebGL.*(?:INVALID|context lost|error)/i.test(message.text()))
+                errors.push(message.text());
+        });
         page.on('response', (r) => {
             if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`);
         });

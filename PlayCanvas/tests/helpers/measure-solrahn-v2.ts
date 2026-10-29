@@ -32,7 +32,23 @@ try {
         page.on('response', (r) => {
             if (r.status() >= 400) errors.push(`${r.status()} ${r.url()}`);
         });
-        await page.addInitScript(() => localStorage.setItem('crownfall.quality', 'low'));
+        await page.addInitScript(() => {
+            localStorage.setItem('crownfall.quality', 'low');
+            const counter = { total: 0 };
+            (window as unknown as { __crownfallDraws: { total: number } }).__crownfallDraws = counter;
+            for (const prototype of [
+                WebGLRenderingContext.prototype,
+                WebGL2RenderingContext.prototype
+            ] as unknown as Record<string, unknown>[])
+                for (const name of ['drawArrays', 'drawElements', 'drawArraysInstanced', 'drawElementsInstanced']) {
+                    const original = prototype[name];
+                    if (typeof original !== 'function') continue;
+                    prototype[name] = function (this: unknown, ...args: unknown[]) {
+                        counter.total++;
+                        return Reflect.apply(original, this, args);
+                    };
+                }
+        });
         for (const warmth of ['cold', 'warm']) {
             await page.goto(url);
             const start = Date.now();
@@ -51,7 +67,12 @@ try {
                 end = Date.now() + duration;
             while (Date.now() < end) {
                 const timing = await page.evaluate(async () => {
-                    let previous = performance.now();
+                    const harness = (window as unknown as { __crownfall: API }).__crownfall;
+                    const calls = () =>
+                        (window as unknown as { __crownfallDraws: { total: number } }).__crownfallDraws.total;
+                    const beforeFrames = harness.snapshot().frames,
+                        beforeCalls = calls();
+                    let previous = await new Promise<number>(requestAnimationFrame);
                     const intervals: number[] = [],
                         end = previous + 5000;
                     while (previous < end) {
@@ -60,7 +81,11 @@ try {
                         previous = t;
                     }
                     const state = (window as unknown as { __crownfall: API }).__crownfall.snapshot();
-                    return { intervals, state };
+                    return {
+                        intervals,
+                        state,
+                        estimatedWebGLDrawsPerFrame: (calls() - beforeCalls) / Math.max(1, state.frames - beforeFrames)
+                    };
                 });
                 const metrics = await cdp.send('Performance.getMetrics');
                 samples.push({
@@ -104,6 +129,8 @@ await writeFile(
         {
             renderer:
                 'Chromium SwiftShader; wall time, low resolution; no hardware GPU; cold empty browser cache vs warm page reload',
+            drawCallMethod:
+                'Same WebGL draw API counters for both builds; all render passes averaged over engine updates; wrappers forward original arguments and receiver.',
             physicalIPhoneSafari: 'NOT VERIFIED',
             results
         },
