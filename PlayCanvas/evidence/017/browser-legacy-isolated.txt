@@ -1,0 +1,13 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/wilderness.spec.ts --grep real captured touch leaves lane into Wilderness -1 and returns --workers=1 --retries=0 --forbid-only --trace=retain-on-failure --output=/workspace/goal017-legacy-test-results --reporter=line
+
+
+Running 1 test using 1 worker
+
+(node:7346) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness -1 and returns
+  1 passed (38.9s)

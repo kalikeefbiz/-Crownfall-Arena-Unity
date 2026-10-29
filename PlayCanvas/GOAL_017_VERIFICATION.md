@@ -3,6 +3,7 @@
 **Isolated preview only. Physical iPhone Safari: NOT VERIFIED. No production merge or visual-design lock.**
 
 Source branch: `goal-017-solrahn-surface`, parent `7e193f87b4821470b5697c00034036fe8ced0a6f`.
+Final rendering implementation: `48b4172` (initial material pass: `f76899c`).
 Preview: <https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/?mapPreview=solrahn-v2&surface=goal017&frontend=1>.
 Review board: <https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/review/>.
 Enter Crownfall → Enter Arena. The existing character selection, controls and live
@@ -34,12 +35,12 @@ Four CC0 Poly Haven families: Dry Ground Rocks, Grass Path 2, Forrest Ground 01,
 Mossy Rock. Source URLs, authoring and runtime SHA-256 hashes and conversions are
 in [materials.json](public/assets/solrahn-surface/materials.json) and the
 [asset README](assets/solrahn-surface/README.md). Only optimized runtime images
-are requested: eight 1024×1024 WebP maps plus a 1200×900 PNG weight texture.
+are requested: eight 1024×1024 WebP maps, a 1200×900 PNG weight texture, and a derived 1024×768 Low atlas.
 No authoring-size maps, displacement or model assets are requested for this pass.
 
 Color RGB is sRGB; alpha holds linear roughness. Normal RGB is linear OpenGL
 XYZ, with AO in alpha. Normal XY strength is reduced to 0.38. Roughness is clamped
-to [0.64,0.98]. Both low and high quality use this 1K budget. Textures have full
+to [0.64,0.98]. Both quality tiers use 1K assets. Low uses geometry normals and omits texture AO; High uses the blended OpenGL normal/AO maps, following the existing production quality convention. Textures have full
 mip chains, trilinear filtering and anisotropy capped at 4. UV scale is six metres
 per repeat, shared across chunks; outer skirt UVs follow the existing vertical
 faces. Analytic global tangents agree at duplicated boundaries. The existing
@@ -63,13 +64,13 @@ Source image x→u and y→v use exactly worldX=(v−.5)×120, worldZ=(.5−u)×
 Half-texel sampling preserves source endpoints; there is no flip, crop or stretch.
 See [weights.json](public/assets/solrahn-surface/weights.json).
 
-One standard lit PBR pass uses nine texture samples/samplers (one weight, four
-color/roughness, four normal/AO) per top-surface fragment. Opaque blending;
+One standard lit PBR pass uses **two texture reads on Low** (baked color/roughness plus world-tiled detail; three sampler bindings including weight debug) and **nine on High** (also four normal/AO). Opaque blending;
 no added terrain passes or shadow maps. The outer skirt reuses the rock maps.
-Runtime texture allocation is **50,498,696 bytes (48.16 MiB)**, including mips,
-as RGBA8 and SRGBA8. The eight WebP downloads total **4,520,040 bytes**; weights
-add **746,804 bytes**. These are transfer-file sizes, not GPU compression.
-The GPU allocation is engine accounting, not physical residency or GPU duration.
+The full ten-texture GPU capacity budget is **54,692,996 bytes (52.16 MiB)**, including mips,
+as RGBA8 and SRGBA8. The eight family WebP downloads total **4,520,040 bytes**; weights add **746,804 bytes**, and the derived Low atlas adds **272,096 bytes**. These are transfer-file sizes, not GPU compression.
+Per-run engine allocation totals are recorded in the measured table below. Texture capacity and engine accounting do not establish physical residency or GPU duration; normal images remain loaded for quality switching.
+Decoded browser image/bitmap backing stores are outside the sampled JavaScript
+heap metric; this report does not equate JS heap with total process memory.
 
 ## Reproduce
 
@@ -79,6 +80,7 @@ From `PlayCanvas/`:
 python3 -m pip install -r scripts/requirements-solrahn-v2.txt
 python3 scripts/solrahn-materials.py
 python3 scripts/solrahn-weights.py
+python3 scripts/solrahn-low-atlas.py
 npm ci
 npm test
 npm run typecheck
@@ -97,10 +99,11 @@ Start `npm run start -- --host 127.0.0.1 --port 4173`, then run
 `node tests/helpers/measure-solrahn-surface.ts [candidate URL] [baseline URL]`
 compares identical mobile dimensions/quality, serially, after other browsers stop.
 The baseline fixture uses the published GOAL 016 bundle, verified against its
-Pages Git blobs, served on the same local machine at port 4175. Both comparisons
-use six real models, the existing central roster fixture, ordinary bots and a
-Ring effect. Only countdown is skipped before sampling; measured samples use
-wall-clock frames without accelerated simulation.
+Pages Git blobs, served on the same local machine at port 4175. Recreate it with
+`python3 scripts/solrahn-surface-baseline.py`, then run
+`python3 -m http.server 4175 --directory /tmp/crownfall-goal016-baseline`. Both comparisons
+use six real models, real countdown, ordinary movement to mid-lane, normal bots
+and a Ring effect. No verification fixture or accelerated clock is used.
 
 Publish only after validation, from the exact committed source:
 `python3 scripts/publish-solrahn-surface.py COMMIT_SHA`.
@@ -122,15 +125,15 @@ movement/ability damage, results and cached rematch.
 
 ## Validation and performance
 
-- **250/250 unit tests pass** across 29 files, including all 249 inherited tests
-  and deterministic weight regeneration, every-pixel normalization, original
+- **251/251 unit tests pass** across 29 files, including all 249 inherited tests
+  and deterministic weight/Low-atlas regeneration, every-pixel normalization, original
   gameplay/geometry hashes and dirt-dominant landmark centers.
 - Typecheck, scoped ESLint (`src`, `tests`, Vite config), touched TypeScript
   formatting, Python compilation and production build pass.
-- **4/4 new material browser cases pass**: full landscape and portrait lifecycle,
+- **5/5 final material browser cases pass**: High normal/AO rendering, full landscape and portrait lifecycle,
   six character imports, natural bot damage, real touch movement and ability
   damage, results, rematch, corrupt-height rejection and missing-texture rejection.
-  The two failures deliberately tested by the last cases show the existing retry
+  The two deliberate asset-failure cases show the existing retry
   UI and never fetch an older map.
 - Full `npm run lint` was also run: **FAIL, three inherited errors** in the
   unchanged `assets/solrahn-three-lane/scripts/validate_glb.cjs` CommonJS utility
@@ -141,8 +144,103 @@ movement/ability damage, results and cached rematch.
   source instructions were retained; touched runtime/test TypeScript formatting
   passes. No formatter gate was weakened.
 
-Full original browser regression and serial measured performance results follow
-in the completed handoff. Raw receipts are in `evidence/017/`.
+The original 132-case sequential run was interrupted by a workspace process
+restart during case 127, after cases 1–126 completed with no reported failure.
+The raw interrupted log is retained as `browser-original-interrupted.txt`.
+The complete final Wilderness file was rerun: 10/11 passed. One unchanged legacy
+return-movement assertion reached |X|=11.18148 m when its 15-second poll required
+|X|<11 m. It runs on the existing production map without the new surface flag;
+that same case had passed as case 126 before the interruption. Its full failure
+and context are retained. The unchanged isolated rerun **passed 1/1**. All 132 original browser cases therefore have passing coverage, alongside the five final material cases; the interrupted run and timing failure remain visible in the receipts.
+
+Serial measured performance results follow in the completed handoff. Raw
+receipts are in `evidence/017/`.
 Physical iPhone Safari, sustained 30 fps, thermal stability and physical GPU
 residency remain **NOT VERIFIED**. Founder device testing and explicit review
 are required before production integration, foliage work or visual-design lock.
+
+
+### Performance iteration and remaining acceptance
+
+The first full-PBR implementation did not honor Low's cheaper normal/AO setting.
+Its static six-model SwiftShader medians were 716.6/650.0 ms cold/warm, versus
+316.6/316.7 ms for the verified GOAL 016 bundle. That substantial software
+regression was retained in `performance-first-pass.json`. A five-sample Low path remained costly. The final Low path uses a separate
+two-read shader: a 1K color/roughness bake of the same four families plus bounded
+6 m tiled soil microdetail. It uses geometry normals; High retains full PBR.
+The atlas is generated in linear color at the original raster/world endpoints
+and uses the unchanged production weights. It trades close-up material detail
+for speed, with no geometry or gameplay alteration.
+A selective-sampling experiment did not improve SwiftShader and is not shipped.
+An audit caught that the roster verification fixture removes bots: earlier
+static six-model timings are therefore explicitly excluded from live-combat
+acceptance. Their raw data remain available; live-combat timings below replace them.
+The final comparison below remains a software-renderer measurement, not an
+iPhone performance claim.
+
+**Recommendation: CONDITIONAL — isolated founder preview only.** Geometry,
+coordinate alignment, loading and gameplay regression evidence are complete.
+Physical-device frame time, memory stability, thermal behavior and Safari
+compatibility remain unverified. Software-relative material cost must be reviewed;
+performance acceptance is not marked PASS. Existing repository-wide lint/style
+failures also remain documented. No production integration, visual-design lock
+or foliage work is approved by this handoff.
+
+
+### Final live-combat measurements
+
+Chromium/SwiftShader, 844×390, DPR 1, Low quality, sequential contexts on the same
+executor. Cold uses an empty context cache; warm reloads the same context. Each
+build uses its real countdown and normal keyboard movement to mid-lane. Sampling
+starts after bot damage is observed and the human casts Ring. **No verification
+fixture, bot removal, actor relocation or accelerated clock is used.** All samples
+stayed in active matches with six full models loaded; bot damage increased during
+every window. Normal deaths/respawns and changing combat positions are included.
+Target windows are 60 wall seconds cold / 20 warm; actual sampled durations are
+recorded. No page or HTTP errors occurred.
+
+| Build/cache | Ready | Median frame | p95 frame | Mean FPS | Median WebGL draws | Engine textures |
+|---|---:|---:|---:|---:|---:|---:|
+| candidate cold | 3.595 s | 383.3 ms | 799.9 ms | 2.67 | 44.4 | 436.22 MiB |
+| candidate warm | 3.457 s | 466.6 ms | 950.0 ms | 2.07 | 50.5 | 436.22 MiB |
+| approved-goal-016 cold | 2.450 s | 166.7 ms | 366.7 ms | 5.11 | 35.3 | 384.05 MiB |
+| approved-goal-016 warm | 2.385 s | 283.4 ms | 600.1 ms | 3.52 | 50.4 | 384.06 MiB |
+
+Median frame times are **2.30× cold / 1.65× warm** the baseline.
+The atlas reduced candidate cold median from 583.3 to 383.3 ms
+compared with the prior five-sample live-combat run, but substantial software
+overhead remains. **Software-relative performance gate: FAIL. Physical iPhone
+Safari performance: NOT VERIFIED.** Both scenarios are far below 30 fps on this
+software renderer. The result supports isolated visual/gameplay review; it does
+not establish production performance acceptance or sustained device frame rate.
+
+This is one run per condition, with normal combat state changing at different
+frame rates. It has no confidence interval and is not a matched-frame GPU
+microbenchmark. Engine texture totals are allocation accounting, not physical
+residency. GPU duration is unavailable. Sampled JS heap ranges and bot damage
+growth are in the summary; native decoded images/bitmaps and process memory are
+outside that metric. These short runs do not establish leak or thermal stability.
+
+Receipts: [raw live samples](evidence/017/performance.json),
+[summary](evidence/017/performance-summary.json),
+[prior five-sample live run](evidence/017/performance-five-sample-live.json),
+[static six-model results, excluded from combat acceptance](evidence/017/performance-static-models.json),
+[material browser checks](evidence/017/browser-materials-final.txt),
+[interrupted original suite](evidence/017/browser-original-interrupted.txt),
+[final Wilderness file including timing failure](evidence/017/browser-wilderness-resume.txt),
+[unchanged isolated rerun](evidence/017/browser-legacy-isolated.txt),
+[final camera capture](evidence/017/camera-verified-build.txt).
+
+
+### Publication and protected content
+
+The isolated publisher compares every pre-existing Pages Git object against the
+initial 197-blob tree and refuses changes outside `solrahn-goal-017/`. Public
+SHA-256 checks cover all 66 recorded HTML/JS/CSS/JSON objects across production,
+GOAL 014, GOAL 016 and the Unity entry. The final post-publication proof and
+hosted browser results are committed in `evidence/017/`. The exact hosted source
+revision is recorded at
+<https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/preview-source.json>.
+No production merge, default-branch change or production workflow dispatch is
+authorized or performed by this goal. Founder device and visual review are
+required before production integration.

@@ -1,0 +1,106 @@
+{
+  "renderer": "Chromium SwiftShader; wall time, low resolution; no hardware GPU; cold empty browser cache vs warm page reload",
+  "physicalIPhoneSafari": "NOT VERIFIED",
+  "results": [
+    {
+      "name": "candidate",
+      "warmth": "cold",
+      "readyMs": 3595,
+      "combatSetupMs": 61889,
+      "medianFrameMs": 383.3000000000029,
+      "p95FrameMs": 799.9000000000087,
+      "meanFps": 2.6683254178788203,
+      "sampledActiveWallMs": 57714.09999999999,
+      "excludedEndingPhase": null,
+      "draws": 44.38461538461539,
+      "texturesMiB": 436.21945571899414,
+      "heapUsedMB": [
+        25.087976,
+        29.48992
+      ],
+      "sixModelsLoaded": true,
+      "botDamageGrowth": {
+        "1-1": 396.90000000000003,
+        "1-2": 808.6,
+        "2-0": 1345.2,
+        "2-1": 465.21999999999963,
+        "2-2": 603.4200000000001
+      }
+    },
+    {
+      "name": "candidate",
+      "warmth": "warm",
+      "readyMs": 3457,
+      "combatSetupMs": 61840,
+      "medianFrameMs": 466.59999999999127,
+      "p95FrameMs": 950,
+      "meanFps": 2.0722143682739382,
+      "sampledActiveWallMs": 21715.899999999994,
+      "excludedEndingPhase": null,
+      "draws": 50.54166666666667,
+      "texturesMiB": 436.21945571899414,
+      "heapUsedMB": [
+        24.960524,
+        29.433892
+      ],
+      "sixModelsLoaded": true,
+      "botDamageGrowth": {
+        "1-1": 418.95,
+        "1-2": 458.64,
+        "2-0": 372.40000000000003,
+        "2-1": 308.7000000000001,
+        "2-2": 305.76000000000005
+      }
+    },
+    {
+      "name": "approved-goal-016",
+      "warmth": "cold",
+      "readyMs": 2450,
+      "combatSetupMs": 36709,
+      "medianFrameMs": 166.6999999999971,
+      "p95FrameMs": 366.70000000000437,
+      "meanFps": 5.1088268195791375,
+      "sampledActiveWallMs": 56764.50000000001,
+      "excludedEndingPhase": null,
+      "draws": 35.303030303030305,
+      "texturesMiB": 384.0537414550781,
+      "heapUsedMB": [
+        23.462128,
+        36.281032
+      ],
+      "sixModelsLoaded": true,
+      "botDamageGrowth": {
+        "1-1": 1334.0800000000002,
+        "1-2": 1696.804,
+        "2-0": 753.2999999999998,
+        "2-1": 710.8899999999996,
+        "2-2": 1142.25
+      }
+    },
+    {
+      "name": "approved-goal-016",
+      "warmth": "warm",
+      "readyMs": 2385,
+      "combatSetupMs": 40627,
+      "medianFrameMs": 283.40000000000146,
+      "p95FrameMs": 600.0999999999985,
+      "meanFps": 3.518207930908181,
+      "sampledActiveWallMs": 20749.19999999999,
+      "excludedEndingPhase": null,
+      "draws": 50.408496732026144,
+      "texturesMiB": 384.0585479736328,
+      "heapUsedMB": [
+        28.023164,
+        31.388664
+      ],
+      "sixModelsLoaded": true,
+      "botDamageGrowth": {
+        "1-1": 396.90000000000003,
+        "1-2": 101.91999999999996,
+        "2-0": 844.2599999999998,
+        "2-1": 379.25999999999993,
+        "2-2": 280.32
+      }
+    }
+  ]
+}

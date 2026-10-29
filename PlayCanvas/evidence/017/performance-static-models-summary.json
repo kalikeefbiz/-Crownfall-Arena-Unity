@@ -1,0 +1,79 @@
+{
+  "renderer": "Chromium SwiftShader; wall time, low resolution; no hardware GPU; cold empty browser cache vs warm page reload",
+  "physicalIPhoneSafari": "NOT VERIFIED",
+  "results": [
+    {
+      "name": "candidate",
+      "warmth": "cold",
+      "readyMs": 3775,
+      "medianFrameMs": 583.3000000000029,
+      "p95FrameMs": 1150.0999999999985,
+      "meanFps": 1.7513698213960203,
+      "sampledActiveWallMs": 111912.40000000001,
+      "excludedEndingPhase": null,
+      "draws": 49,
+      "texturesMiB": 432.2194595336914,
+      "heapUsedMB": [
+        22.454048,
+        57.009388
+      ],
+      "allSixModelsLoaded": true,
+      "allBotsDidDamage": false
+    },
+    {
+      "name": "candidate",
+      "warmth": "warm",
+      "readyMs": 3087,
+      "medianFrameMs": 583.3000000000029,
+      "p95FrameMs": 1183.2000000000007,
+      "meanFps": 2.184451354127452,
+      "sampledActiveWallMs": 21515.699999999993,
+      "excludedEndingPhase": null,
+      "draws": 49.0,
+      "texturesMiB": 432.2194595336914,
+      "heapUsedMB": [
+        23.812048,
+        28.551888
+      ],
+      "allSixModelsLoaded": true,
+      "allBotsDidDamage": false
+    },
+    {
+      "name": "approved-goal-016",
+      "warmth": "cold",
+      "readyMs": 2475,
+      "medianFrameMs": 316.59999999999854,
+      "p95FrameMs": 600,
+      "meanFps": 3.2848086796032674,
+      "sampledActiveWallMs": 114161.89999999992,
+      "excludedEndingPhase": null,
+      "draws": 49.0,
+      "texturesMiB": 384.0601501464844,
+      "heapUsedMB": [
+        22.905892,
+        32.118876
+      ],
+      "allSixModelsLoaded": true,
+      "allBotsDidDamage": false
+    },
+    {
+      "name": "approved-goal-016",
+      "warmth": "warm",
+      "readyMs": 2325,
+      "medianFrameMs": 300,
+      "p95FrameMs": 649.8999999999996,
+      "meanFps": 3.71351229856639,
+      "sampledActiveWallMs": 20465.799999999992,
+      "excludedEndingPhase": null,
+      "draws": 49.0,
+      "texturesMiB": 384.0601501464844,
+      "heapUsedMB": [
+        27.070752,
+        36.34722
+      ],
+      "allSixModelsLoaded": true,
+      "allBotsDidDamage": false
+    }
+  ],
+  "validationAudit": "Static six-model renderer timing only. The roster verification fixture removed bot controllers. Excluded from live-combat acceptance."
+}

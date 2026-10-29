@@ -1,0 +1,19 @@
+{
+  "unitTests": 251,
+  "unitFiles": 29,
+  "materialBrowserCases": 5,
+  "originalBrowserCasesWithPassingCoverage": 132,
+  "originalRunInterruptedAt": 127,
+  "resumedFilePasses": 10,
+  "resumedFileFailures": 1,
+  "unchangedIsolatedRerunPasses": 1,
+  "typecheck": "PASS",
+  "runtimeTestLint": "PASS",
+  "touchedTypeScriptFormat": "PASS",
+  "build": "PASS",
+  "fullRepoLint": "FAIL: 3 inherited CommonJS utility errors",
+  "fullRepoFormat": "FAIL: existing/generated/instruction file style",
+  "softwarePerformance": "FAIL",
+  "physicalIPhoneSafari": "NOT VERIFIED",
+  "recommendation": "CONDITIONAL: isolated founder review only"
+}

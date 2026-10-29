@@ -1,0 +1,8 @@
+candidate cold readyMs 4303
+candidate cold activeFrames 157 medianMs 716.5999999999913 p95Ms 1416.5
+candidate warm readyMs 3631
+candidate warm activeFrames 45 medianMs 650 p95Ms 1349.9000000000015
+approved-goal-016 cold readyMs 2444
+approved-goal-016 cold activeFrames 370 medianMs 316.59999999999945 p95Ms 616.6999999999971
+approved-goal-016 warm readyMs 2381
+approved-goal-016 warm activeFrames 72 medianMs 316.7000000000007 p95Ms 683.3000000000011

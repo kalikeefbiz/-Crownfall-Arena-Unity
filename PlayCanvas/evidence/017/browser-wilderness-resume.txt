@@ -1,0 +1,51 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/wilderness.spec.ts --workers=1 --retries=0 --forbid-only --reporter=line
+
+
+Running 11 tests using 1 worker
+
+(node:6099) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/11] tests/browser/wilderness.spec.ts:25:5 › touch secures mobility, visible camp and timed authoritative buff
+[2/11] tests/browser/wilderness.spec.ts:25:5 › touch secures cooldown, visible camp and timed authoritative buff
+[3/11] tests/browser/wilderness.spec.ts:25:5 › touch secures defense, visible camp and timed authoritative buff
+[4/11] tests/browser/wilderness.spec.ts:25:5 › touch secures damage, visible camp and timed authoritative buff
+[5/11] tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness -1 and returns
+  1) tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness -1 and returns 
+
+    Error: expect(received).toBeLessThan(expected)
+
+    Expected: < 11
+    Received:   11.18148148148149
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+       96 |             touchPoints: [{ ...point, x: point.x - direction * 40 }]
+       97 |         });
+    >  98 |         await expect.poll(async () => Math.abs((await read(page)).combat.player.x)).toBeLessThan(11);
+          |                                                                                     ^
+       99 |         await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+      100 |         await expect(page.locator('#wilderness-buffs')).toBeHidden();
+      101 |         await context.close();
+        at /workspace/crownfall/PlayCanvas/tests/browser/wilderness.spec.ts:98:85
+
+    Error Context: test-results/wilderness-real-captured-t-0263c-o-Wilderness--1-and-returns/error-context.md
+
+
+(node:6476) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[6/11] tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness 1 and returns
+[7/11] tests/browser/wilderness.spec.ts:103:1 › bot rotation physically leaves lane toward real camp in production
+[8/11] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 844 safe 0
+[9/11] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 844 safe 44
+[10/11] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 667 safe 44
+[11/11] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 640 safe 44
+  1 failed
+    tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness -1 and returns 
+  10 passed (1.9m)

@@ -1,0 +1,12 @@
+candidate cold readyMs 3595
+candidate cold liveCombatSetupMs 61889
+candidate cold activeFrames 154 medianMs 383.3000000000029 p95Ms 799.9000000000087
+candidate warm readyMs 3457
+candidate warm liveCombatSetupMs 61840
+candidate warm activeFrames 45 medianMs 466.59999999999127 p95Ms 950
+approved-goal-016 cold readyMs 2450
+approved-goal-016 cold liveCombatSetupMs 36709
+approved-goal-016 cold activeFrames 290 medianMs 166.6999999999971 p95Ms 366.70000000000437
+approved-goal-016 warm readyMs 2385
+approved-goal-016 warm liveCombatSetupMs 40627
+approved-goal-016 warm activeFrames 73 medianMs 283.40000000000146 p95Ms 600.0999999999985

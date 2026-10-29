@@ -1,0 +1,1 @@
+Workspace process restart interrupted the sequential full 132-case run during case 127. Cases 1–126 completed without reported failure. The full final Wilderness file is rerun separately; no test assertions changed.

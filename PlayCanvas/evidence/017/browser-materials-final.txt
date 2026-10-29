@@ -1,0 +1,17 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/solrahn-surface.spec.ts --workers=1 --retries=0 --forbid-only --reporter=line
+
+
+Running 5 tests using 1 worker
+
+(node:9826) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/5] tests/browser/solrahn-surface.spec.ts:35:5 › V2 materials: readiness, combat, terrain, results and replay 844
+[2/5] tests/browser/solrahn-surface.spec.ts:35:5 › V2 materials: readiness, combat, terrain, results and replay 390
+[3/5] tests/browser/solrahn-surface.spec.ts:162:1 › corrupt V2 height data fails visibly without loading the older map
+[4/5] tests/browser/solrahn-surface.spec.ts:175:1 › missing material texture rejects readiness with retry and no older-map fallback
+[5/5] tests/browser/solrahn-surface.spec.ts:186:1 › High quality renders the four PBR families with tangent normals and AO
+  5 passed (2.4m)

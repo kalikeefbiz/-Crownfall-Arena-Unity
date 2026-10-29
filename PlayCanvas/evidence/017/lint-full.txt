@@ -1,0 +1,13 @@
+
+> crownfall-playcanvas@0.0.0 lint
+> eslint .
+
+
+/workspace/crownfall/PlayCanvas/assets/solrahn-three-lane/scripts/validate_glb.cjs
+  2:12  error  A `require()` style import is forbidden                        @typescript-eslint/no-require-imports
+  2:12  error  There should be at least one empty line between import groups  import-x/order
+  3:19  error  A `require()` style import is forbidden                        @typescript-eslint/no-require-imports
+
+✖ 3 problems (3 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
+

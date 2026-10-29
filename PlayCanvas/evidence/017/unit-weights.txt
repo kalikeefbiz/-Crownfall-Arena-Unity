@@ -1,0 +1,9 @@
+
+ RUN  v4.1.11 /workspace/crownfall/PlayCanvas
+
+
+ Test Files  1 passed (1)
+      Tests  1 passed (1)
+   Start at  20:04:58
+   Duration  3.28s (transform 23ms, setup 0ms, import 36ms, tests 3.13s, environment 0ms)
+

@@ -1,0 +1,48 @@
+
+> crownfall-playcanvas@0.0.0 fmt
+> prettier --check .
+
+Checking formatting...
+[warn] assets/solrahn-surface/source/dry_ground_rocks.json
+[warn] assets/solrahn-surface/source/forrest_ground_01.json
+[warn] assets/solrahn-surface/source/grass_path_2.json
+[warn] assets/solrahn-surface/source/mossy_rock.json
+[warn] evidence/016/asset-budget.json
+[warn] evidence/016/browser-390.json
+[warn] evidence/016/browser-844.json
+[warn] evidence/016/build-provenance.json
+[warn] evidence/016/calibration.json
+[warn] evidence/016/conversion.json
+[warn] evidence/016/device-acceptance.json
+[warn] evidence/016/external-entrances.json
+[warn] evidence/016/live-browser-390.json
+[warn] evidence/016/live-browser-844.json
+[warn] evidence/016/live-preview-source.json
+[warn] evidence/016/live-production-after.json
+[warn] evidence/016/live-production-before.json
+[warn] evidence/016/local-browser-390.json
+[warn] evidence/016/local-browser-844.json
+[warn] evidence/016/other-live-paths-after.json
+[warn] evidence/016/other-live-paths-before.json
+[warn] evidence/016/pages-build.json
+[warn] evidence/016/performance-summary.json
+[warn] evidence/016/performance.json
+[warn] evidence/016/production-immutability.json
+[warn] evidence/016/protected-bundles-after.json
+[warn] evidence/016/protected-bundles-before.json
+[warn] evidence/016/publication.json
+[warn] evidence/016/routes.json
+[warn] evidence/016/source-isolation.json
+[warn] evidence/016/source-workflows.json
+[warn] evidence/016/validation-summary.json
+[warn] evidence/017/baseline.json
+[warn] evidence/017/browser-844.json
+[warn] evidence/017/live-protected-before.json
+[warn] evidence/017/protection-before.json
+[warn] evidence/017/review.html
+[warn] GOAL_016.md
+[warn] GOAL_017.md
+[warn] public/assets/solrahn-surface/materials.json
+[warn] public/assets/solrahn-surface/weights.json
+[warn] public/assets/solrahn-v2/terrain.json
+[warn] Code style issues found in 42 files. Run Prettier with --write to fix.
