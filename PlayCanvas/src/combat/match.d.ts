@@ -1,4 +1,5 @@
 import type { SolrahnSurface } from '../maps/solrahn';
+import type { SolrahnV2 } from '../maps/solrahn-v2';
 
 import type { BotController } from './bot-controller.js';
 import type { CombatSimulation, Combatant, CombatPlayer, CombatModifier, CombatCommand, Point } from './combat';
@@ -87,7 +88,7 @@ export class CrownfallMatch {
             bots?: boolean;
             diagnostic?: boolean;
             settings?: Partial<MatchSettings>;
-            arena?: SolrahnSurface | null;
+            arena?: SolrahnSurface | SolrahnV2 | null;
         }
     );
     phase: MatchPhase;

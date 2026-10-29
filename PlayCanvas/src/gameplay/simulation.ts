@@ -2,6 +2,7 @@ import { CrownfallMatch } from '../combat/match.js';
 import { createCombat } from '../combat/sandbox.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import type { SolrahnSurface } from '../maps/solrahn';
+import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { resolveFacing } from '../presentation/facing';
 import type { FacingState } from '../presentation/facing';
 
@@ -13,7 +14,7 @@ export class Simulation {
     match: CrownfallMatch | null = null;
     lifecycle = false;
     bots = false;
-    arena: SolrahnSurface | null = null;
+    arena: SolrahnSurface | SolrahnV2 | null = null;
     select(index: number): void {
         this.match = this.lifecycle
             ? new CrownfallMatch(index, { bots: this.bots, diagnostic: !this.bots, arena: this.arena })

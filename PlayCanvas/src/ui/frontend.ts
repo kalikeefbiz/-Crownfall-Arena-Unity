@@ -23,7 +23,9 @@ export function createFrontend() {
     const host = document.body as HTMLBodyElement & { [ownerKey]?: { destroy(): void } };
     host[ownerKey]?.destroy();
     const abort = new AbortController();
-    const solrahn = new URLSearchParams(location.search).get('mapPreview') === 'solrahn';
+    const mapPreview = new URLSearchParams(location.search).get('mapPreview');
+    const v2 = mapPreview === 'solrahn-v2';
+    const solrahn = v2 || mapPreview === 'solrahn';
     const root = document.createElement('div');
     root.id = 'frontend';
     document.body.append(root);
@@ -73,7 +75,13 @@ export function createFrontend() {
         let content = '';
         if (page === 'main')
             content =
-                header(solrahn ? 'SOL’RAHN · AUTHORED MAP PLAYTEST' : 'SOL’RAHN ARENA · WORLD CUP') +
+                header(
+                    v2
+                        ? 'GOAL 016 · V2 TERRAIN GRAYBOX · 3V3 PREVIEW'
+                        : solrahn
+                          ? 'SOL’RAHN · AUTHORED MAP PLAYTEST'
+                          : 'SOL’RAHN ARENA · WORLD CUP'
+                ) +
                 `<div class="cf-title-zone"><div class="cf-eyebrow">THE CROWN IS CLAIMED IN COMBAT</div><h1 class="cf-wordmark">CROWNFALL</h1><div class="cf-arena">ARENA</div><p>${solrahn ? 'THREE-LANE ARENA · MIDDLE-LANE 3V3 PLAYTEST' : '3V3 TERRITORIAL COMBAT · THE WILDERNESS AWAITS'}</p>${button('Enter Crownfall', 'select', true)}<div class="cf-subactions">${button('Settings', 'settings')}${button('Combat Practice', 'practice')}</div></div><div class="cf-annotation">THE SOL’RAHN<br>CHAMPIONSHIP</div>` +
                 footer('BLACKHOUSE / UCL 3V3');
         if (page === 'select')

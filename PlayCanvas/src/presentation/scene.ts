@@ -15,6 +15,7 @@ import { WILDERNESS_REGIONS } from '../combat/wilderness-data.js';
 import { ARENA, OBSTACLES } from '../config/arena';
 import type { Simulation } from '../gameplay/simulation';
 import type { SolrahnSurface } from '../maps/solrahn';
+import type { SolrahnV2 } from '../maps/solrahn-v2';
 
 import { createCombatOverlay } from './combat-overlay';
 import { KIT_ASSET_PATH, createKitModel } from './kit-model';
@@ -23,6 +24,7 @@ import { RIVEN_ASSET_PATH, createRivenModel } from './riven-model';
 import { MOONREAPER_PATH, createRivenWeapons } from './riven-weapons';
 import { SET_ASSET_PATH, createSetModel } from './set-model';
 import { createSolrahnEnvironment } from './solrahn-environment';
+import { createSolrahnV2Environment } from './solrahn-v2-environment';
 import { SummonerAssets } from './summoner-assets';
 import type { ModelFrame } from './summoner-assets';
 
@@ -33,7 +35,7 @@ function material(hex: number): StandardMaterial {
     m.update();
     return m;
 }
-export function createScene(app: AppBase, competitive = false, surface: SolrahnSurface | null = null) {
+export function createScene(app: AppBase, competitive = false, surface: SolrahnSurface | SolrahnV2 | null = null) {
     const ownedMaterials = new Set<StandardMaterial>();
     const assets = new SummonerAssets(app);
     const weaponParams = new URLSearchParams(location.search);
@@ -49,11 +51,15 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     const params = new URLSearchParams(location.search);
     const carved = !!surface || (competitive && params.get('environment') !== 'legacy');
     const territoryVisible = params.get('territoryTint') !== '0';
-    const environment = surface
-        ? createSolrahnEnvironment(sceneRoot, assets, surface)
-        : carved
-          ? createLaneEnvironment(app, sceneRoot, assets)
-          : null;
+    const v2 = surface && 'kind' in surface ? surface : null;
+    const v2Environment = v2 ? createSolrahnV2Environment(app, sceneRoot, v2) : null;
+    const environment =
+        v2Environment ||
+        (surface
+            ? createSolrahnEnvironment(sceneRoot, assets, surface as SolrahnSurface)
+            : carved
+              ? createLaneEnvironment(app, sceneRoot, assets)
+              : null);
     const ground = (x: number, z: number) => surface?.height(x, z) ?? 0;
     const stone = material(0x334758),
         boundary = material(0x74b6ba),
@@ -181,11 +187,44 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     });
     app.root.addChild(camera);
     const follow = new Vec3(0, 0, 5);
-    const cameraOffset = surface ? { y: 26, z: 8 } : competitive ? CAMERA_OFFSET : TRAINING_CAMERA_OFFSET;
+    const cameraOffset = v2
+        ? CAMERA_OFFSET
+        : surface
+          ? { y: 26, z: 8 }
+          : competitive
+            ? CAMERA_OFFSET
+            : TRAINING_CAMERA_OFFSET;
     const lookAhead = competitive ? CAMERA_LOOK_AHEAD : 0;
     const lookTarget = new Vec3();
     const updateCamera = () => {
-        camera.setPosition(follow.x, follow.y + cameraOffset.y, follow.z + cameraOffset.z);
+        if (v2Environment?.topDown) {
+            const aspect = app.graphicsDevice.width / app.graphicsDevice.height;
+            const altitude = (Math.max(120, 160 / aspect) / (2 * Math.tan((24 * Math.PI) / 180))) * 1.12;
+            camera.camera!.farClip = 600;
+            camera.setPosition(0, altitude, 0);
+            lookTarget.set(0, 0, 0);
+            camera.lookAt(0, 0, 0, -1, 0, 0);
+            return;
+        }
+        if (v2) camera.camera!.farClip = 260;
+        const inspection = v2Environment?.focus;
+        if (inspection) {
+            const y = ground(inspection.x, inspection.z);
+            camera.setPosition(
+                inspection.x,
+                Math.max(y + cameraOffset.y, ground(inspection.x, inspection.z + cameraOffset.z) + 3),
+                inspection.z + cameraOffset.z
+            );
+            lookTarget.set(inspection.x, y, inspection.z - lookAhead);
+            camera.lookAt(lookTarget);
+            return;
+        }
+        const cameraY = follow.y + cameraOffset.y;
+        camera.setPosition(
+            follow.x,
+            v2 ? Math.max(cameraY, ground(follow.x, follow.z + cameraOffset.z) + 3) : cameraY,
+            follow.z + cameraOffset.z
+        );
         lookTarget.set(follow.x, follow.y, follow.z - lookAhead);
         camera.lookAt(lookTarget);
     };
@@ -238,6 +277,8 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     const groundAt = (x: number, y: number) => {
         const near = camera.camera!.screenToWorld(x, y, 0.1),
             far = camera.camera!.screenToWorld(x, y, 100);
+        const hit = v2?.raycast(near, far);
+        if (hit) return hit;
         const t = (follow.y - near.y) / (far.y - near.y);
         return { x: near.x + (far.x - near.x) * t, z: near.z + (far.z - near.z) * t };
     };
@@ -632,6 +673,7 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
             follow.z += (sim.position.z - follow.z) * blend;
             follow.y += (ground(sim.position.x, sim.position.z) - follow.y) * blend;
             updateCamera();
+            v2Environment?.projectLabels(project, sim.position.x, sim.position.z);
             const current =
                 intent ||
                 (sim.targeting
@@ -646,6 +688,8 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
         screenAim(x: number, y: number, sim: Simulation) {
             const near = camera.camera!.screenToWorld(x, y, 0.1);
             const far = camera.camera!.screenToWorld(x, y, 100);
+            const hit = v2?.raycast(near, far);
+            if (hit) return { x: hit.x - sim.position.x, z: hit.z - sim.position.z };
             const t = (ground(sim.position.x, sim.position.z) - near.y) / (far.y - near.y);
             if (t < 0 || !Number.isFinite(t)) return sim.aim;
             return {

@@ -22,6 +22,7 @@ import { matchSpawn } from './combat/match-space.js';
 import { Simulation } from './gameplay/simulation';
 import { Controls } from './input/controls';
 import { loadSolrahnSurface } from './maps/solrahn';
+import { loadSolrahnV2 } from './maps/solrahn-v2';
 import { createScene } from './presentation/scene';
 import { createHud } from './ui/hud';
 
@@ -113,6 +114,8 @@ export async function createGame(
         const simulation = new Simulation();
         if (new URLSearchParams(location.search).get('mapPreview') === 'solrahn' && !debug)
             simulation.arena = await loadSolrahnSurface();
+        if (new URLSearchParams(location.search).get('mapPreview') === 'solrahn-v2' && !debug)
+            simulation.arena = await loadSolrahnV2();
         simulation.lifecycle = !debug;
         simulation.bots = !debug;
         simulation.select(0);
