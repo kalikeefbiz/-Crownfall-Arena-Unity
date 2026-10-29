@@ -4,19 +4,16 @@ import {
     Mesh,
     MeshInstance,
     StandardMaterial,
-    Texture,
     SEMANTIC_TANGENT,
     calculateNormals,
     calculateTangents,
-    ADDRESS_REPEAT,
-    BLEND_NORMAL,
-    FILTER_LINEAR,
-    FILTER_LINEAR_MIPMAP_LINEAR
+    BLEND_NORMAL
 } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
 import { createLaneGeometry } from './lane-geometry';
 import type { SummonerAssets } from './summoner-assets';
+import { terrainTextures } from './terrain-textures';
 import { createWildernessEnvironment } from './wilderness-environment';
 
 // Six shared 1K maps; AR packs linear AO (R) and roughness (G).
@@ -25,39 +22,11 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
     const data = createLaneGeometry();
     const root = new Entity('packed-earth-environment');
     parent.addChild(root);
-    const textures: Texture[] = [];
+    const maps = terrainTextures(app, 'assets/environment/polyhaven');
+    const { textures, loading } = maps;
+    const loadMap = maps.load;
     const materials: StandardMaterial[] = [];
     let destroyed = false;
-    const loading = { state: 'loading', error: '', loadedMaps: 0 };
-    const loadMap = (name: string, srgb: boolean) => {
-        const texture = new Texture(app.graphicsDevice, {
-            name,
-            width: 1024,
-            height: 1024,
-            srgb,
-            flipY: true,
-            mipmaps: true,
-            addressU: ADDRESS_REPEAT,
-            addressV: ADDRESS_REPEAT,
-            minFilter: FILTER_LINEAR_MIPMAP_LINEAR,
-            magFilter: FILTER_LINEAR,
-            anisotropy: Math.min(4, app.graphicsDevice.maxAnisotropy)
-        });
-        textures.push(texture);
-        const image = new Image();
-        const ready = new Promise<void>((resolve, reject) => {
-            image.onload = () => {
-                if (!destroyed) {
-                    texture.setSource(image);
-                    loading.loadedMaps++;
-                }
-                resolve();
-            };
-            image.onerror = () => reject(new Error(`Terrain map unavailable: ${name}`));
-        });
-        image.src = `${import.meta.env.BASE_URL}assets/environment/polyhaven/${name}`;
-        return { texture, ready };
-    };
     const pending: Promise<void>[] = [];
     const makeMaterial = (name: string) => {
         const albedo = loadMap(`${name}_albedo_1k.webp`, true);
@@ -229,7 +198,7 @@ export function createLaneEnvironment(app: AppBase, parent: Entity, characters: 
             for (const mesh of meshes) mesh.destroy();
             contactMesh.destroy();
             for (const mat of materials) mat.destroy();
-            for (const texture of textures) texture.destroy();
+            maps.destroy();
         }
     };
 }

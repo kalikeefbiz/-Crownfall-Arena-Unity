@@ -1,0 +1,177 @@
+{
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "encoding": "color RGB sRGB / A linear roughness; normal RGB linear OpenGL / A linear AO",
+  "runtimeSize": [
+    1024,
+    1024
+  ],
+  "tileMetres": 6,
+  "normalStrength": 0.38,
+  "sources": [
+    {
+      "asset": "dry_ground_rocks",
+      "url": "https://polyhaven.com/a/dry_ground_rocks",
+      "tintLinear": [
+        1.04,
+        0.97,
+        0.87
+      ],
+      "sourceFiles": [
+        {
+          "role": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/dry_ground_rocks/dry_ground_rocks_diff_1k.jpg",
+          "bytes": 826834,
+          "sha256": "491ac5be54859171730c620ad768a615f600b81ce00d83bbeab8a7aed7b199d8"
+        },
+        {
+          "role": "nor_gl",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/dry_ground_rocks/dry_ground_rocks_nor_gl_1k.png",
+          "bytes": 6664526,
+          "sha256": "8de38381d101458e6500366d5e509d2c4abf5a79c2ff3353dc120554186a7a2e"
+        },
+        {
+          "role": "arm",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/dry_ground_rocks/dry_ground_rocks_arm_1k.png",
+          "bytes": 4838649,
+          "sha256": "8a27cfdad00a1d248aa673a3536e4c85ffaea0d44298c2f68747ac9f3fd8194d"
+        }
+      ],
+      "runtime": [
+        {
+          "path": "dry_ground_rocks_color.webp",
+          "bytes": 733020,
+          "sha256": "31d7cd8cdfbdc76b8ee498ec29b09a29968026b594f46a368e32e24957e8923e"
+        },
+        {
+          "path": "dry_ground_rocks_normal.webp",
+          "bytes": 641606,
+          "sha256": "0b74ff68da4d4e1dc906ef0e8b5a0e82777a07f29d3f4641a8d4baa1b3c2033e"
+        }
+      ]
+    },
+    {
+      "asset": "grass_path_2",
+      "url": "https://polyhaven.com/a/grass_path_2",
+      "tintLinear": [
+        0.86,
+        0.86,
+        0.75
+      ],
+      "sourceFiles": [
+        {
+          "role": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/grass_path_2/grass_path_2_diff_1k.jpg",
+          "bytes": 716010,
+          "sha256": "7f30b163739435c11f500f3818c7bb4922bab5f2734cc9ba6dd36817f0c9a8ab"
+        },
+        {
+          "role": "nor_gl",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/grass_path_2/grass_path_2_nor_gl_1k.png",
+          "bytes": 2199966,
+          "sha256": "cf7864e1ecb3359bd0cbc42106bdb6149a0d828cb7c91221ceb771d819b1d0bc"
+        },
+        {
+          "role": "arm",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/grass_path_2/grass_path_2_arm_1k.png",
+          "bytes": 1436449,
+          "sha256": "ac6f494c51f44f6bd14bd190a79f681adddf627c8e2ac83f3a11eb64ca66cdc0"
+        }
+      ],
+      "runtime": [
+        {
+          "path": "grass_path_2_color.webp",
+          "bytes": 500724,
+          "sha256": "5dcface871e26cbb90f49db8ea2736d235ffc6d8dc808fa1ccad878795aec58a"
+        },
+        {
+          "path": "grass_path_2_normal.webp",
+          "bytes": 364286,
+          "sha256": "81c304f260fba6878cc2bd714e4eb6cdc3bab1f76e0db67be38af577a3652f6f"
+        }
+      ]
+    },
+    {
+      "asset": "forrest_ground_01",
+      "url": "https://polyhaven.com/a/forrest_ground_01",
+      "tintLinear": [
+        0.79,
+        0.84,
+        0.75
+      ],
+      "sourceFiles": [
+        {
+          "role": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/forrest_ground_01/forrest_ground_01_diff_1k.jpg",
+          "bytes": 833711,
+          "sha256": "3dd6875cb3908e022a3c45ebbffa5e84c670ff2691fbbb6dc9ea4bff88523800"
+        },
+        {
+          "role": "nor_gl",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/forrest_ground_01/forrest_ground_01_nor_gl_1k.png",
+          "bytes": 6787606,
+          "sha256": "879a84565d016743583421a644bae72df26f4031ea8852fc6d6275feb967353e"
+        },
+        {
+          "role": "arm",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/forrest_ground_01/forrest_ground_01_arm_1k.png",
+          "bytes": 4650954,
+          "sha256": "f4a137f68021a6e84495ea990323bdc471d4e34dad3f393bdf608a211aebe772"
+        }
+      ],
+      "runtime": [
+        {
+          "path": "forrest_ground_01_color.webp",
+          "bytes": 506772,
+          "sha256": "230c62d43e46bc6ace43c2c1bc435e6dcbc76235ccb32b9be602acfc3ac6c552"
+        },
+        {
+          "path": "forrest_ground_01_normal.webp",
+          "bytes": 750242,
+          "sha256": "8bdab39e150f653f0d23eb16233530e11678706a0009921a412d56606e2044b5"
+        }
+      ]
+    },
+    {
+      "asset": "mossy_rock",
+      "url": "https://polyhaven.com/a/mossy_rock",
+      "tintLinear": [
+        0.85,
+        0.86,
+        0.8
+      ],
+      "sourceFiles": [
+        {
+          "role": "Diffuse",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/1k/mossy_rock/mossy_rock_diff_1k.jpg",
+          "bytes": 1124438,
+          "sha256": "4dbf37f1b0465c9c8914213163923be159716f5b97fb6946437b6c5e143ef540"
+        },
+        {
+          "role": "nor_gl",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/mossy_rock/mossy_rock_nor_gl_1k.png",
+          "bytes": 2154481,
+          "sha256": "08b01ee4387e4bb3433f901c62acc40d4be8d6d4a481e5fb508400cb4664d82e"
+        },
+        {
+          "role": "arm",
+          "url": "https://dl.polyhaven.org/file/ph-assets/Textures/png/1k/mossy_rock/mossy_rock_arm_1k.png",
+          "bytes": 1582490,
+          "sha256": "23663445ab17fe559cc255161773f1d59d6dbd2a165b678f32bc4ad6cdbab8ee"
+        }
+      ],
+      "runtime": [
+        {
+          "path": "mossy_rock_color.webp",
+          "bytes": 725498,
+          "sha256": "fb0c16d3763d2c8075613f0783d0b7201e5fcdd5dfc836e459fe597fd6065345"
+        },
+        {
+          "path": "mossy_rock_normal.webp",
+          "bytes": 297892,
+          "sha256": "ee3611e77b267fa38b51306a7f7fc7db62334002bb124f002639d525315d4388"
+        }
+      ]
+    }
+  ]
+}

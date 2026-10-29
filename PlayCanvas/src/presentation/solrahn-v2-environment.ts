@@ -1,8 +1,20 @@
-import { Color, Entity, Mesh, MeshInstance, StandardMaterial, Vec3, calculateNormals } from 'playcanvas';
+import {
+    Color,
+    Entity,
+    Mesh,
+    MeshInstance,
+    StandardMaterial,
+    Vec3,
+    calculateNormals,
+    calculateTangents,
+    SEMANTIC_TANGENT
+} from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
 import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { createV2Geometry } from '../maps/solrahn-v2-geometry';
+
+import { createSolrahnSurfaceMaterial } from './solrahn-surface-material';
 
 export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface: SolrahnV2) {
     const root = new Entity('Solrahn-V2-16bit-graybox');
@@ -13,19 +25,48 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
     mat.diffuseVertexColor = true;
     mat.gloss = 0.1;
     mat.update();
+    const pbr =
+        new URLSearchParams(location.search).get('surface') === 'goal017' ? createSolrahnSurfaceMaterial(app) : null;
     const meshes: Mesh[] = [];
+    const instances: MeshInstance[] = [];
     for (const data of geometry) {
         const mesh = new Mesh(app.graphicsDevice);
         mesh.setPositions(data.positions);
         mesh.setNormals(data.normals);
         mesh.setColors(data.colors);
+        if (pbr) {
+            const uvs: number[] = [];
+            const skirt = data === geometry[geometry.length - 1];
+            for (let i = 0; i < data.positions.length; i += 3) {
+                const [x, y, z] = data.positions.slice(i, i + 3);
+                if (skirt) uvs.push((Math.abs(data.normals[i]) > 0.5 ? z : x) / 6, y / 6);
+                else uvs.push(-z / 6, x / 6);
+            }
+            mesh.setUvs(0, uvs);
+            // Analytic global tangent: u=-worldZ, v=worldX. Duplicated chunk
+            // vertices receive identical frames as well as identical normals.
+            const tangents = skirt ? calculateTangents(data.positions, data.normals, uvs, data.indices) : [];
+            if (!skirt)
+                for (let i = 0; i < data.normals.length; i += 3) {
+                    const ty = data.normals[i + 2] / data.normals[i + 1];
+                    const length = Math.hypot(ty, 1);
+                    tangents.push(0, ty / length, -1 / length, -1);
+                }
+            mesh.setVertexStream(SEMANTIC_TANGENT, tangents, 4);
+        }
         mesh.setIndices(data.indices);
         mesh.update();
         meshes.push(mesh);
         const entity = new Entity('V2-heightfield-chunk');
         root.addChild(entity);
+        const instance = new MeshInstance(
+            mesh,
+            pbr ? (data === geometry[geometry.length - 1] ? pbr.skirt : pbr.mat) : mat,
+            entity
+        );
+        instances.push(instance);
         entity.addComponent('render', {
-            meshInstances: [new MeshInstance(mesh, mat, entity)],
+            meshInstances: [instance],
             castShadows: false,
             receiveShadows: false
         });
@@ -89,8 +130,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
     panel.id = 'v2-tools';
     panel.style.cssText =
         'position:fixed;top:6px;left:6px;z-index:25;background:#111e;color:white;padding:6px;font:11px system-ui;max-width:270px;max-height:40vh;overflow:auto;pointer-events:auto';
-    panel.innerHTML =
-        '<summary>V2 terrain · developer overlays</summary><p>3v3 only · 4 minor + major placeholders · no new bonuses</p><label>Floor <select><option value="neutral">Neutral / lanes</option><option value="height">Height samples</option><option value="slope">Slope limit 35°</option><option value="walk">Walkability / collision erosion</option></select></label><br><label><input type="checkbox" data-option="routes"> Routes / both spawns</label><br><label><input type="checkbox" data-option="markers" checked> Camp / major footprints</label><br><label><input type="checkbox" data-option="bounds" checked> Mode gates</label><br><label><input type="checkbox" data-option="camera"> Top-down camera</label><div class="v2-sample"></div>';
+    panel.innerHTML = `<summary>V2 terrain · developer overlays</summary><p>3v3 only · 4 minor + major placeholders · no new bonuses</p><label>Floor <select><option value="neutral">Surface / lanes</option>${pbr ? '<option value="dirt">Weight: dirt</option><option value="grass">Weight: grass path</option><option value="forest">Weight: forest / moss</option><option value="rock">Weight: exposed rock</option><option value="zones">Material boundaries</option>' : ''}<option value="height">Height samples</option><option value="slope">Slope limit 35°</option><option value="walk">Walkability / collision erosion</option></select></label><br><label><input type="checkbox" data-option="routes"> Routes / both spawns</label><br><label><input type="checkbox" data-option="markers" checked> Camp / major footprints</label><br><label><input type="checkbox" data-option="bounds" checked> Mode gates</label><br><label><input type="checkbox" data-option="camera"> Top-down camera</label><div class="v2-sample"></div>`;
     const focusSelect = document.createElement('select');
     focusSelect.dataset.option = 'focus';
     focusSelect.add(new Option('Camera: follow player', 'player'));
@@ -104,6 +144,13 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
     panel.append(document.createElement('br'), focusSelect);
     document.body.append(panel);
     const recolor = () => {
+        const debug = ['neutral', 'dirt', 'grass', 'forest', 'rock', 'zones'].indexOf(overlay);
+        if (pbr) {
+            pbr.debug(Math.max(0, debug));
+            instances.forEach((m, i) => {
+                m.material = debug >= 0 ? (i === instances.length - 1 ? pbr.skirt : pbr.mat) : mat;
+            });
+        }
         for (let k = 0; k < geometry.length - 1; k++) {
             const data = geometry[k],
                 colors: number[] = [];
@@ -151,8 +198,10 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
         return node;
     });
     return {
-        ready: Promise.resolve(),
-        loading: false,
+        ready: pbr?.ready ?? Promise.resolve(),
+        get loading() {
+            return pbr ? pbr.diagnostics.state === 'loading' : false;
+        },
         get topDown() {
             return panel.querySelector<HTMLInputElement>('[data-option=camera]')!.checked;
         },
@@ -167,7 +216,8 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
         get diagnostics() {
             return {
                 mode: 'solrahn-v2',
-                state: 'loaded',
+                state: pbr?.diagnostics.state ?? 'loaded',
+                materials: pbr?.diagnostics,
                 surface: surface.metadata,
                 allocations: {
                     textures: app.stats.vram.tex,
@@ -183,6 +233,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
                         c.positions.length * 4 +
                         c.normals.length * 4 +
                         c.colors.length * 4 +
+                        (pbr ? (c.positions.length / 3) * 24 : 0) +
                         c.indices.length * 2,
                     0
                 ),
@@ -194,7 +245,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
             };
         },
         quality(_low: boolean) {
-            /* No V2 textures to downsample. */
+            /* Both tiers use the measured 1K, one-pass PBR budget. */
         },
         groundActor(_parent: Entity) {
             /* Scene uses the shared triangle-plane sampler. */
@@ -231,6 +282,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
             labels.remove();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
+            pbr?.destroy();
             mat.destroy();
             markerMat.destroy();
             gateMat.destroy();
