@@ -57,6 +57,7 @@ try {
             await page.getByRole('button', { name: 'Enter Arena' }).tap();
             await page.waitForFunction(() => document.body.dataset.screen === 'gameplay', null, { timeout: 120000 });
             const readyMs = Date.now() - start;
+            console.log(name, warmth, 'readyMs', readyMs);
             // Identical existing fixture in both immutable builds: start live central
             // combat, then sample real wall-clock rendering with ordinary bots/effects.
             await page.evaluate(() => {
@@ -106,6 +107,16 @@ try {
             }
             const times = samples.flatMap((s) => s.intervals).sort((a, b) => a - b);
             if (!times.length) throw new Error('No active-match frame samples');
+            console.log(
+                name,
+                warmth,
+                'activeFrames',
+                times.length,
+                'medianMs',
+                times[Math.floor(times.length * 0.5)],
+                'p95Ms',
+                times[Math.floor(times.length * 0.95)]
+            );
             results.push({
                 name,
                 url,
