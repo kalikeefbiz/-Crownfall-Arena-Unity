@@ -5,6 +5,7 @@ import { readFileSync } from 'node:fs';
 import { expect, test } from 'vitest';
 
 import baseline from '../evidence/017/baseline.json';
+import atlas from '../public/assets/solrahn-surface/low-atlas.json';
 import weights from '../public/assets/solrahn-surface/weights.json';
 
 test('production weights regenerate exactly while approved gameplay source and payloads remain byte-identical', () => {
@@ -36,5 +37,26 @@ for p in m['landmarks']:
  u=round((.5-p['z']/160)*1199);v=round((.5+p['x']/120)*899)
  assert w[v,u,0]>=240,(p['id'],w[v,u])
 `
+    ]);
+}, 30000);
+
+test('Low atlas regenerates from the exact production weights and CC0 color maps', () => {
+    execFileSync('python3', ['scripts/solrahn-low-atlas.py']);
+    expect(atlas.sourceWeightsSha256).toBe(weights.files['weights.png'].sha256);
+    expect(atlas.size).toEqual([1024, 768]);
+    expect(
+        createHash('sha256')
+            .update(readFileSync(`public/assets/solrahn-surface/${atlas.file.path}`))
+            .digest('hex')
+    ).toBe(atlas.file.sha256);
+    for (const source of atlas.sourceColors)
+        expect(
+            createHash('sha256')
+                .update(readFileSync(`public/assets/solrahn-surface/${source.path}`))
+                .digest('hex')
+        ).toBe(source.sha256);
+    execFileSync('python3', [
+        '-c',
+        "from PIL import Image; i=Image.open('public/assets/solrahn-surface/low_atlas.webp'); assert i.size==(1024,768); assert i.getchannel('A').getextrema()[0]>=160"
     ]);
 }, 30000);

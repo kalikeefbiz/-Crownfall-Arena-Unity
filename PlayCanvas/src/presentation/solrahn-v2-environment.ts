@@ -244,8 +244,8 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
                 cameraFocus: focusSelect.value
             };
         },
-        quality(_low: boolean) {
-            /* Both tiers use the measured 1K, one-pass PBR budget. */
+        quality(low: boolean) {
+            pbr?.quality(low);
         },
         groundActor(_parent: Entity) {
             /* Scene uses the shared triangle-plane sampler. */

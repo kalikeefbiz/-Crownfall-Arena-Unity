@@ -30,7 +30,7 @@ for evidence in (ROOT/'PlayCanvas/evidence/017').glob('*.png'):
     shutil.copy2(evidence, review/evidence.name)
 shutil.copy2(ROOT/'PlayCanvas/evidence/017/review.html', review/'index.html')
 shutil.copy2(ROOT/'PlayCanvas/GOAL_017_VERIFICATION.md', review/'report.md')
-for manifest in ['materials.json', 'weights.json']:
+for manifest in ['materials.json', 'weights.json', 'low-atlas.json']:
     shutil.copy2(ROOT/'PlayCanvas/public/assets/solrahn-surface'/manifest, review/manifest)
 
 assert not git('diff', source, '--', 'PlayCanvas/src', 'PlayCanvas/public', 'PlayCanvas/scripts', 'PlayCanvas/vite.config.ts')

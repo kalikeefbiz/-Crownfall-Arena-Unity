@@ -11,7 +11,12 @@ type Inspection = {
         environment: {
             mode: string;
             state: string;
-            materials: { state: string; loadedMaps: number; textures: number };
+            materials: {
+                state: string;
+                loadedMaps: number;
+                textures: number;
+                shader: { detailNormals: boolean; maximumTextureReads: number };
+            };
         };
         summonerModels: { state: string }[];
         modelAssets: { downloads: number; assets: { source: string }[] };
@@ -85,8 +90,10 @@ for (const viewport of [
         expect(initial.environment.mode).toBe('solrahn-v2');
         expect(initial.environment.state).toBe('loaded');
         expect(initial.environment.materials.state).toBe('loaded');
-        expect(initial.environment.materials.loadedMaps).toBe(9);
-        expect(initial.environment.materials.textures).toBe(9);
+        expect(initial.environment.materials.loadedMaps).toBe(10);
+        expect(initial.environment.materials.textures).toBe(10);
+        expect(initial.environment.materials.shader.detailNormals).toBe(false);
+        expect(initial.environment.materials.shader.maximumTextureReads).toBe(2);
         expect(initial.summonerModels).toHaveLength(6);
         expect(initial.summonerModels.every((m) => m.state === 'loaded')).toBe(true);
         expect(initial.modelAssets.assets.filter((a) => a.source.includes('solrahn'))).toHaveLength(0);
@@ -174,4 +181,29 @@ test('missing material texture rejects readiness with retry and no older-map fal
     await page.getByRole('button', { name: 'Enter Arena' }).click();
     await expect(page.getByRole('button', { name: /retry/i })).toBeVisible({ timeout: 30000 });
     expect(requests.some((url) => url.includes('three-lane-visual.glb'))).toBe(false);
+});
+
+test('High quality renders the four PBR families with tangent normals and AO', async ({ page }) => {
+    test.setTimeout(120000);
+    const errors: string[] = [];
+    page.on('pageerror', (e) => errors.push(e.message));
+    page.on('console', (m) => {
+        if (m.type() === 'error') errors.push(m.text());
+    });
+    await page.setViewportSize({ width: 844, height: 390 });
+    await page.addInitScript(() => localStorage.setItem('crownfall.quality', 'high'));
+    await page.goto('/?mapPreview=solrahn-v2&surface=goal017&frontend=1');
+    await page.getByRole('button', { name: 'Enter Crownfall' }).click();
+    await page.getByRole('button', { name: 'Enter Arena' }).click();
+    await page.waitForFunction(() => document.body.dataset.screen === 'gameplay', null, { timeout: 90000 });
+    const state = await page.evaluate(() => (window as unknown as W).__crownfall.snapshot());
+    expect(state.environment.materials.shader.detailNormals).toBe(true);
+    expect(state.environment.materials.loadedMaps).toBe(10);
+    await page.locator('#v2-tools summary').click();
+    await page.locator('#v2-tools [data-option=camera]').check();
+    await page.waitForTimeout(1000);
+    const cdp = await page.context().newCDPSession(page);
+    const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
+    await writeFile('evidence/017/high-quality.png', Buffer.from(shot.data, 'base64'));
+    expect(errors).toEqual([]);
 });

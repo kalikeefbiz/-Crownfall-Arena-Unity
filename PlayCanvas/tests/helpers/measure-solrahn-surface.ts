@@ -1,12 +1,17 @@
 // Run separately, after browser suites, to avoid CPU contention.
-// node tests/helpers/measure-solrahn-v2.ts [candidate URL] [unchanged production URL]
+// node tests/helpers/measure-solrahn-surface.ts [candidate URL] [verified GOAL 016 URL]
 import { writeFile } from 'node:fs/promises';
 
 import { chromium } from '@playwright/test';
 
 type API = {
-    snapshot(): { frames: number; environment: unknown; modelAssets: unknown; match: { phase: string } };
-    verification: { pause(): void; advance(seconds: number): void; arrange(name: string): void };
+    snapshot(): {
+        frames: number;
+        environment: unknown;
+        modelAssets: unknown;
+        position: { x: number; z: number };
+        match: { phase: string; actors: { id: string; human: boolean; damage: number }[] };
+    };
 };
 const browser = await chromium.launch({
     args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader']
@@ -58,19 +63,39 @@ try {
             await page.waitForFunction(() => document.body.dataset.screen === 'gameplay', null, { timeout: 120000 });
             const readyMs = Date.now() - start;
             console.log(name, warmth, 'readyMs', readyMs);
-            // Identical existing fixture in both immutable builds: start live central
-            // combat, then sample real wall-clock rendering with ordinary bots/effects.
-            await page.evaluate(() => {
-                const v = (window as unknown as { __crownfall: API }).__crownfall.verification;
-                v.pause();
-                v.advance(3.1);
-                v.arrange('roster');
-            });
+            // No verification fixture: fixtures can disable bots. Use the real
+            // countdown and ordinary controls to bring the human into live combat.
+            const setupStart = Date.now();
+            await page.waitForFunction(
+                () => (window as unknown as { __crownfall: API }).__crownfall.snapshot().match.phase === 'active',
+                null,
+                { timeout: 90000 }
+            );
+            await page.keyboard.down('KeyW');
+            try {
+                await page.waitForFunction(
+                    () => (window as unknown as { __crownfall: API }).__crownfall.snapshot().position.z < 5,
+                    null,
+                    { timeout: 180000 }
+                );
+            } finally {
+                await page.keyboard.up('KeyW');
+            }
+            await page.waitForFunction(
+                () =>
+                    (window as unknown as { __crownfall: API }).__crownfall
+                        .snapshot()
+                        .match.actors.some((a) => !a.human && a.damage > 0),
+                null,
+                { timeout: 120000 }
+            );
             await page.locator('.ability-ring').tap();
+            const combatSetupMs = Date.now() - setupStart;
+            console.log(name, warmth, 'liveCombatSetupMs', combatSetupMs);
             const samples = [];
             let excludedEndingPhase: string | null = null;
-            // 120 wall seconds of central live combat, no accelerated ticks during sampling.
-            const duration = warmth === 'cold' ? 120000 : 20000,
+            // 60 wall seconds cold / 20 warm of normal live combat; no accelerated ticks.
+            const duration = warmth === 'cold' ? 60000 : 20000,
                 end = Date.now() + duration;
             while (Date.now() < end) {
                 const timing = await page.evaluate(async () => {
@@ -122,6 +147,7 @@ try {
                 url,
                 warmth,
                 readyMs,
+                combatSetupMs,
                 requestedWallDuration: duration,
                 sampledActiveWallMs: times.reduce((a, b) => a + b, 0),
                 excludedEndingPhase,
@@ -142,6 +168,7 @@ try {
                     })
                 )
             });
+            await writeFile('evidence/017/performance-progress.json', JSON.stringify({ results }, null, 2) + '\n');
         }
         await context.close();
     }
@@ -154,7 +181,7 @@ await writeFile(
         {
             renderer:
                 'Chromium SwiftShader; wall time, low resolution; no hardware GPU; cold empty browser cache vs warm page reload',
-            setup: 'Published GOAL 016 JS/CSS verified against gh-pages blobs, served locally on same machine as candidate; identical viewport/DPR, low quality, six full models. Existing roster fixture, then live normal bot combat and ring effect. Only countdown skipped before sampling.',
+            setup: 'Published GOAL 016 JS/CSS verified against gh-pages blobs, served locally on same machine as candidate; identical viewport/DPR, low quality, six full models. Real countdown, normal W movement from spawn to mid-lane, wait for bot damage, then Ring. No verification fixtures, bot removal, state relocation, or accelerated clocks.',
             gpuTimer:
                 'Hardware GPU duration/residency NOT AVAILABLE under SwiftShader; engine allocation accounting only.',
             drawCallMethod:
