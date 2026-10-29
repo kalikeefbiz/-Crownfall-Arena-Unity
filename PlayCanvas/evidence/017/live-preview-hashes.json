@@ -1,0 +1,150 @@
+{
+  "source": {
+    "source": "ba4af5dfad4105fb9924f712b9c8c779666c688a",
+    "map": "solrahn-v2",
+    "surface": "goal017",
+    "productionReplaced": false
+  },
+  "files": [
+    {
+      "path": "assets/frontend-T6oHj0Ne.js",
+      "bytes": 14726,
+      "sha256": "ae69642ac71f55866ba433fd019c0401d8fae87f6a8230768f78484cadcb66c2"
+    },
+    {
+      "path": "assets/game-OGDfIMp4.js",
+      "bytes": 1349899,
+      "sha256": "5a137338eb2b2784de37e5024b3ebe2a6b03f376cf49cff98aabc358e5f9b0c3"
+    },
+    {
+      "path": "assets/index-530iO4Ky.js",
+      "bytes": 1327,
+      "sha256": "d659d8777239c6a75f1b1e78c2dc2972569170de136c8781d7e39c63926d47d0"
+    },
+    {
+      "path": "assets/index-BgPqw8kw.css",
+      "bytes": 21920,
+      "sha256": "ca83f3715ed612bdf69431e67dbdf8cb6455bb7697f6ca71fa71097c1a08065d"
+    },
+    {
+      "path": "assets/preload-helper-CRzLMJPS.js",
+      "bytes": 1534,
+      "sha256": "bcc465e3e61dc3878a69ffa95ccb53cb82d95b1639ada223420b281ebd150048"
+    },
+    {
+      "path": "assets/solrahn-surface/dry_ground_rocks_color.webp",
+      "bytes": 733020,
+      "sha256": "31d7cd8cdfbdc76b8ee498ec29b09a29968026b594f46a368e32e24957e8923e"
+    },
+    {
+      "path": "assets/solrahn-surface/dry_ground_rocks_normal.webp",
+      "bytes": 641606,
+      "sha256": "0b74ff68da4d4e1dc906ef0e8b5a0e82777a07f29d3f4641a8d4baa1b3c2033e"
+    },
+    {
+      "path": "assets/solrahn-surface/forrest_ground_01_color.webp",
+      "bytes": 506772,
+      "sha256": "230c62d43e46bc6ace43c2c1bc435e6dcbc76235ccb32b9be602acfc3ac6c552"
+    },
+    {
+      "path": "assets/solrahn-surface/forrest_ground_01_normal.webp",
+      "bytes": 750242,
+      "sha256": "8bdab39e150f653f0d23eb16233530e11678706a0009921a412d56606e2044b5"
+    },
+    {
+      "path": "assets/solrahn-surface/grass_path_2_color.webp",
+      "bytes": 500724,
+      "sha256": "5dcface871e26cbb90f49db8ea2736d235ffc6d8dc808fa1ccad878795aec58a"
+    },
+    {
+      "path": "assets/solrahn-surface/grass_path_2_normal.webp",
+      "bytes": 364286,
+      "sha256": "81c304f260fba6878cc2bd714e4eb6cdc3bab1f76e0db67be38af577a3652f6f"
+    },
+    {
+      "path": "assets/solrahn-surface/low-atlas.json",
+      "bytes": 1190,
+      "sha256": "3eba396bae56b0967064e0a18205a372f55c68517daf3fafdcb1111fdc6f4fe7"
+    },
+    {
+      "path": "assets/solrahn-surface/low_atlas.webp",
+      "bytes": 272096,
+      "sha256": "78dd19c234ecd6bdb407d20854880fa2b43407a7136e51fd92b2bae1bd2988c9"
+    },
+    {
+      "path": "assets/solrahn-surface/materials.json",
+      "bytes": 6022,
+      "sha256": "ffd51e2be7d4e84af2a5ac951fbd4b90300479a86c86ca0f4384caded73b7e24"
+    },
+    {
+      "path": "assets/solrahn-surface/mossy_rock_color.webp",
+      "bytes": 725498,
+      "sha256": "fb0c16d3763d2c8075613f0783d0b7201e5fcdd5dfc836e459fe597fd6065345"
+    },
+    {
+      "path": "assets/solrahn-surface/mossy_rock_normal.webp",
+      "bytes": 297892,
+      "sha256": "ee3611e77b267fa38b51306a7f7fc7db62334002bb124f002639d525315d4388"
+    },
+    {
+      "path": "assets/solrahn-surface/weights.json",
+      "bytes": 1782,
+      "sha256": "1187a9ffa45aee4bb68c9916a2df5529e8fb4782adbbf0c2f0fe77fc55f68c17"
+    },
+    {
+      "path": "assets/solrahn-surface/weights.png",
+      "bytes": 746804,
+      "sha256": "c4fd3c2387ed1e8cf3e53ced393644f04676a4ddc16d0943a6af1f1721c716b5"
+    },
+    {
+      "path": "assets/solrahn-v2/height.u16",
+      "bytes": 55970,
+      "sha256": "911fef74ea745f499f8cdb8e31c92f764b09c969112955e6e771b717d19452d9"
+    },
+    {
+      "path": "assets/solrahn-v2/lane.bin",
+      "bytes": 27985,
+      "sha256": "208cfbff7335c3ba7c9d419ed6e0d842fdb933bbbbadfdb16eede73f2a79dc7d"
+    },
+    {
+      "path": "assets/solrahn-v2/terrain.json",
+      "bytes": 2325,
+      "sha256": "df07746800975e2f10fe6e1392adca2904de6375f4ed3dc12ea375005e4b729d"
+    },
+    {
+      "path": "assets/solrahn-v2/walk.bin",
+      "bytes": 154722,
+      "sha256": "18b51cafcf385d89df5ad453069302ae1ef5684c7ea7a28ecad0042064237589"
+    },
+    {
+      "path": "index.html",
+      "bytes": 653,
+      "sha256": "1ae5364b415b34eb03a5c2ed10110381ba782336069887a0a5e58a1d761c3d1f"
+    },
+    {
+      "path": "preview-source.json",
+      "bytes": 127,
+      "sha256": "54fcd5d6ac2451a5bb249ce4fe4fc71122f5df4bccf6c341b54ccdc188fdc418"
+    },
+    {
+      "path": "review/approved-blueprint.png",
+      "bytes": 659893,
+      "sha256": "f80be7f5a7580da915b0f55aa16dc948071d6013003176ddb59384a9293fd0db"
+    },
+    {
+      "path": "review/index.html",
+      "bytes": 3298,
+      "sha256": "a6303666bb61bb0f85e820e2360a39b8fab76bd11b07f877cada87ee89bdedae"
+    },
+    {
+      "path": "review/map-vs-blueprint.png",
+      "bytes": 1263677,
+      "sha256": "e52a6d32d85db436888497f6458158ce6d35e8cc2ac0656b2ef651b845f548b9"
+    },
+    {
+      "path": "review/report.md",
+      "bytes": 15747,
+      "sha256": "26e4acb0de7b50ac3f39f9ce76220f7d1fb67767e66e880c1f1c87eee909f7c9"
+    }
+  ]
+}

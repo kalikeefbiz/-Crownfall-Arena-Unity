@@ -15,5 +15,11 @@
   "fullRepoFormat": "FAIL: existing/generated/instruction file style",
   "softwarePerformance": "FAIL",
   "physicalIPhoneSafari": "NOT VERIFIED",
-  "recommendation": "CONDITIONAL: isolated founder review only"
+  "recommendation": "CONDITIONAL: isolated founder review only",
+  "hostedBrowserChecksPassed": 2,
+  "protectedHostedGitBlobs": 197,
+  "protectedLiveTextHashes": 66,
+  "newHostedFilesVerified": 28,
+  "hostedSource": "ba4af5dfad4105fb9924f712b9c8c779666c688a",
+  "pagesCommit": "4521174ae290685b5a7e875640081e2a73066b5b"
 }

@@ -14,7 +14,7 @@ dist/assets/preload-helper-CRzLMJPS.js      1.53 kB │ gzip:   0.80 kB
 dist/assets/frontend-T6oHj0Ne.js           14.72 kB │ gzip:   6.11 kB
 dist/assets/game-OGDfIMp4.js            1,349.89 kB │ gzip: 368.39 kB
 
-✓ built in 472ms
+✓ built in 527ms
 [plugin builtin:vite-reporter] 
 (!) Some chunks are larger than 500 kB after minification. Consider:
 - Using dynamic import() to code-split the application

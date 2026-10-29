@@ -244,3 +244,29 @@ revision is recorded at
 No production merge, default-branch change or production workflow dispatch is
 authorized or performed by this goal. Founder device and visual review are
 required before production integration.
+
+
+### Final publication receipt
+
+- Hosted source: `ba4af5dfad4105fb9924f712b9c8c779666c688a`; final rendering implementation: `48b4172`.
+- Pages commit: `4521174ae290685b5a7e875640081e2a73066b5b`.
+- Only `solrahn-goal-017/` changed: all **197 pre-existing Git blobs are identical**.
+- All **66 protected public HTML/JS/CSS/JSON SHA-256 values match** after publication.
+- **28 new hosted runtime/review files** match the publication manifest exactly.
+- **2/2 hosted mobile lifecycle checks pass**, covering landscape and portrait,
+  all six models, real touch movement and damaging ability, natural bot combat,
+  full results and cached rematch. No page/console/WebGL/HTTP errors were recorded
+  by the positive browser cases.
+- `playcanvas-port` remains `5eda5b34f34d05ece4fb3624fef5fd8bbefbc4e9`;
+  `goal-016-solrahn-v2` remains `7e193f87b4821470b5697c00034036fe8ced0a6f`.
+
+Proof: [publication](evidence/017/publication.json),
+[protected content](evidence/017/protection-after.json),
+[hosted hashes](evidence/017/live-preview-hashes.json),
+[hosted browser run](evidence/017/browser-live.txt).
+
+**Final recommendation: CONDITIONAL — isolated review only.** Software performance
+acceptance failed; physical iPhone Safari and sustained 30 fps are NOT VERIFIED.
+The terrain/material implementation, source provenance and regression evidence
+are delivered for founder review. No production merge or visual-design approval
+is implied.

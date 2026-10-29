@@ -1,0 +1,4 @@
+Preparing worktree (detached HEAD d08ea79)
+HEAD is now at d08ea79 Publish isolated GOAL 016 V2 preview from 93912bf4fdfd77475c8c4dbc9c7db0f7076a6a91
+To https://github.com/kalikeefbiz/-Crownfall-Arena-Unity.git
+   d08ea79..4521174  HEAD -> gh-pages

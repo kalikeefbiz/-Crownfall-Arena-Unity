@@ -3,12 +3,12 @@
     "width": 844,
     "height": 390
   },
-  "readyMs": 3441,
-  "wallFps": 4.839267196681646,
+  "readyMs": 23720,
+  "wallFps": 5.909001378766988,
   "initial": {
     "match": {
       "phase": "countdown",
-      "countdownRemaining": 2.966666666666667,
+      "countdownRemaining": 2.9833333333333334,
       "lane": {
         "goalA": -75,
         "goalB": 75,
@@ -698,7 +698,7 @@
             "duration": 0.4666669964790344
           }
         ],
-        "loadMs": 10.299999999813735,
+        "loadMs": 15.900000000372529,
         "error": "",
         "bounds": {
           "min": [
@@ -721,25 +721,25 @@
         ],
         "meshInstances": 1,
         "authoredForwardYaw": 0,
-        "instanceId": "41934550-7062-40bd-b6f7-1cf240e5f43b",
+        "instanceId": "1ed50ec3-5ead-49e8-bd3e-4c513c65f69d",
         "meshId": 53,
         "materialId": 26,
         "activeAnimation": "Idle_5",
-        "playbackTime": 0.03339999999999964,
+        "playbackTime": 0.01669999999999709,
         "playing": true,
         "attackCount": 0,
         "lastAttackSerial": 0,
         "staticComparison": false,
         "worldBounds": {
           "min": [
-            -0.38538542194395076,
-            0.33786998911831334,
-            70.19703464574626
+            -0.3831008926026376,
+            0.33790237680914537,
+            70.19725917753176
           ],
           "max": [
-            0.6951652052873347,
-            2.1719501284653764,
-            71.4399373135801
+            0.6952527902436318,
+            2.171905849318204,
+            71.4400059674246
           ]
         },
         "selected": true,
@@ -799,7 +799,7 @@
         "locomotionReason": "Running selected; RunFast intentionally excluded",
         "readySource": "Punch_Combo",
         "readyTime": 0,
-        "loadMs": 4.2999999998137355,
+        "loadMs": 4.199999999254942,
         "error": "",
         "bounds": {
           "min": [
@@ -823,11 +823,11 @@
         "meshInstances": 1,
         "jointCount": 87,
         "authoredForwardYaw": 0,
-        "instanceId": "84764770-b5ff-4269-83db-72271fd3a2b6",
+        "instanceId": "719d94fb-50d3-4782-9db2-fe0e0a6b26cb",
         "meshId": 54,
         "materialId": 27,
         "activeAnimation": "Ready",
-        "playbackTime": 0.03339999999999964,
+        "playbackTime": 0.01669999999999709,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
@@ -909,7 +909,7 @@
           "positionError": 0.01896846294403076,
           "rotationErrorDegrees": 12.873240271210351
         },
-        "loadMs": 36,
+        "loadMs": 16.40000000037253,
         "error": "",
         "bounds": {
           "min": [
@@ -933,24 +933,24 @@
         "meshInstances": 1,
         "jointCount": 68,
         "authoredForwardYaw": 0,
-        "instanceId": "17d99daa-faf2-4038-9303-23e418c4cec3",
+        "instanceId": "02a4f882-e6fe-43cd-8cec-99c441a8da69",
         "meshId": 55,
         "materialId": 28,
         "activeAnimation": "Idle_6",
-        "playbackTime": 0.03339999999999964,
+        "playbackTime": 0.01669999999999709,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
         "worldBounds": {
           "min": [
-            0.9252830083479628,
-            0.44036373290704045,
-            70.589078605215
+            0.925153908723683,
+            0.44038098690222116,
+            70.58846022836427
           ],
           "max": [
-            1.8073649221598347,
-            2.2067167528533576,
-            71.25484814390161
+            1.8085251072960262,
+            2.2064026074065333,
+            71.25504582387809
           ]
         },
         "selected": true,
@@ -965,7 +965,7 @@
         },
         "hipLocalPosition": [
           0.0033203279599547386,
-          1.0324974453345526,
+          1.0324181706864062,
           -0.009960962459445
         ],
         "rootScale": [
@@ -1011,7 +1011,7 @@
             "duration": 0.4666669964790344
           }
         ],
-        "loadMs": 27.59999999962747,
+        "loadMs": 36.600000001490116,
         "error": "",
         "bounds": {
           "min": [
@@ -1034,25 +1034,25 @@
         ],
         "meshInstances": 1,
         "authoredForwardYaw": 0,
-        "instanceId": "a7cadc0f-e8ad-4b23-8d5d-75a943347671",
+        "instanceId": "7c0000fe-396d-4906-8b7b-c93305fa95d3",
         "meshId": 53,
         "materialId": 26,
         "activeAnimation": "Idle_5",
-        "playbackTime": 0.03339999999999964,
+        "playbackTime": 0.01669999999999709,
         "playing": true,
         "attackCount": 0,
         "lastAttackSerial": 0,
         "staticComparison": false,
         "worldBounds": {
           "min": [
-            -0.6951652052873346,
-            0.33786998911831334,
-            -71.4399373135801
+            -0.6952527902436317,
+            0.33790237680914537,
+            -71.4400059674246
           ],
           "max": [
-            0.38538542194395065,
-            2.1719501284653764,
-            -70.19703464574626
+            0.38310089260263747,
+            2.171905849318204,
+            -70.19725917753176
           ]
         },
         "selected": true,
@@ -1112,7 +1112,7 @@
         "locomotionReason": "Running selected; RunFast intentionally excluded",
         "readySource": "Punch_Combo",
         "readyTime": 0,
-        "loadMs": 6,
+        "loadMs": 6.300000000745058,
         "error": "",
         "bounds": {
           "min": [
@@ -1136,11 +1136,11 @@
         "meshInstances": 1,
         "jointCount": 87,
         "authoredForwardYaw": 0,
-        "instanceId": "3c21301b-e879-4031-8a6c-8a0e7d722a3d",
+        "instanceId": "774b2a6f-d824-4e9d-9d01-7d73677d8c25",
         "meshId": 54,
         "materialId": 27,
         "activeAnimation": "Ready",
-        "playbackTime": 0.03339999999999964,
+        "playbackTime": 0.01669999999999709,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
@@ -1222,7 +1222,7 @@
           "positionError": 0.01896846294403076,
           "rotationErrorDegrees": 12.873240271210351
         },
-        "loadMs": 49.299999999813735,
+        "loadMs": 32.69999999925494,
         "error": "",
         "bounds": {
           "min": [
@@ -1246,24 +1246,24 @@
         "meshInstances": 1,
         "jointCount": 68,
         "authoredForwardYaw": 0,
-        "instanceId": "6a02a7ed-a530-4cba-89d4-e35cc1bb64f1",
+        "instanceId": "2d3f071c-5dc0-47c7-8c42-89ea4e25294b",
         "meshId": 55,
         "materialId": 28,
         "activeAnimation": "Idle_6",
-        "playbackTime": 0.03339999999999964,
+        "playbackTime": 0.01669999999999709,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
         "worldBounds": {
           "min": [
-            1.0926350965104505,
-            0.44036373290704045,
-            -71.25484814390161
+            1.0914749113742592,
+            0.44038098690222116,
+            -71.25504582387809
           ],
           "max": [
-            1.974716994982893,
-            2.2067167528533576,
-            -70.589078605215
+            1.9748461252860314,
+            2.2064026074065333,
+            -70.58846022836427
           ]
         },
         "selected": true,
@@ -1278,7 +1278,7 @@
         },
         "hipLocalPosition": [
           0.0033203279599547386,
-          1.0324974453345526,
+          1.0324181706864062,
           -0.009960962459445
         ],
         "rootScale": [
@@ -1295,22 +1295,22 @@
         {
           "source": "assets/summoners/kit/Kit_20K_Animated.glb",
           "state": "loaded",
-          "loadMs": 759.5
+          "loadMs": 9909.699999999255
         },
         {
           "source": "assets/summoners/set/Set_Animated.glb",
           "state": "loaded",
-          "loadMs": 332.5
+          "loadMs": 2465
         },
         {
           "source": "assets/summoners/riven/Riven_Animated.glb",
           "state": "loaded",
-          "loadMs": 236.40000000037253
+          "loadMs": 3249.5999999996275
         },
         {
           "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
           "state": "loaded",
-          "loadMs": 1027.800000000745
+          "loadMs": 5049.5999999996275
         }
       ],
       "gpu": {
@@ -1649,7 +1649,7 @@
           "duration": 0.4666669964790344
         }
       ],
-      "loadMs": 10.299999999813735,
+      "loadMs": 15.900000000372529,
       "error": "",
       "bounds": {
         "min": [
@@ -1672,25 +1672,25 @@
       ],
       "meshInstances": 1,
       "authoredForwardYaw": 0,
-      "instanceId": "41934550-7062-40bd-b6f7-1cf240e5f43b",
+      "instanceId": "1ed50ec3-5ead-49e8-bd3e-4c513c65f69d",
       "meshId": 53,
       "materialId": 26,
       "activeAnimation": "Idle_5",
-      "playbackTime": 0.03339999999999964,
+      "playbackTime": 0.01669999999999709,
       "playing": true,
       "attackCount": 0,
       "lastAttackSerial": 0,
       "staticComparison": false,
       "worldBounds": {
         "min": [
-          -0.38538542194395076,
-          0.33786998911831334,
-          70.19703464574626
+          -0.3831008926026376,
+          0.33790237680914537,
+          70.19725917753176
         ],
         "max": [
-          0.6951652052873347,
-          2.1719501284653764,
-          71.4399373135801
+          0.6952527902436318,
+          2.171905849318204,
+          71.4400059674246
         ]
       },
       "selected": true,
@@ -1768,7 +1768,7 @@
           "kind": "reso",
           "phase": "orbit",
           "orbitIndex": 0,
-          "instanceId": "8b5fe3da-e062-4680-9041-46d90a1321f3",
+          "instanceId": "ef871182-9275-4a08-8816-140c18876c40",
           "meshId": 56,
           "materialId": 29,
           "fallback": false,
@@ -1791,7 +1791,7 @@
           "kind": "reso",
           "phase": "orbit",
           "orbitIndex": 1,
-          "instanceId": "889f6894-b055-4574-8c96-cacbd9365be0",
+          "instanceId": "8e3ec4ad-5b39-47d9-a7cc-53f76aeadb2c",
           "meshId": 56,
           "materialId": 29,
           "fallback": false,
@@ -1814,7 +1814,7 @@
           "kind": "reso",
           "phase": "orbit",
           "orbitIndex": 0,
-          "instanceId": "eaf5b7a1-fe6b-42d4-b3e1-629330fa816c",
+          "instanceId": "767353cb-71e8-4ee3-85da-6ea650d13921",
           "meshId": 56,
           "materialId": 29,
           "fallback": false,
@@ -1837,7 +1837,7 @@
           "kind": "reso",
           "phase": "orbit",
           "orbitIndex": 1,
-          "instanceId": "59e8f5cd-a581-47f7-ad9c-0c3a5cd41d86",
+          "instanceId": "55b69c24-29d5-43b0-a6a5-d06a295c38ae",
           "meshId": 56,
           "materialId": 29,
           "fallback": false,
@@ -1905,7 +1905,7 @@
         1
       ]
     },
-    "frameMs": 18.339999999999964,
+    "frameMs": 16.66999999999971,
     "preview": null,
     "territory": {
       "frontierZ": 0,
@@ -1965,20 +1965,20 @@
   },
   "resources": [
     {
-      "url": "http://127.0.0.1:4173/assets/summoners/kit/Kit_20K_Animated.glb",
-      "durationMs": 452.90000000037253
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/assets/summoners/kit/Kit_20K_Animated.glb",
+      "durationMs": 9374.299999998882
     },
     {
-      "url": "http://127.0.0.1:4173/assets/summoners/set/Set_Animated.glb",
-      "durationMs": 63.299999999813735
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/assets/summoners/set/Set_Animated.glb",
+      "durationMs": 2362.699999999255
     },
     {
-      "url": "http://127.0.0.1:4173/assets/summoners/riven/Riven_Animated.glb",
-      "durationMs": 63.5
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/assets/summoners/riven/Riven_Animated.glb",
+      "durationMs": 3121.800000000745
     },
     {
-      "url": "http://127.0.0.1:4173/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
-      "durationMs": 115.6000000005588
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+      "durationMs": 4640
     }
   ]
 }

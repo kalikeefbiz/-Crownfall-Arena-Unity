@@ -1,0 +1,17 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/solrahn-surface.spec.ts --grep V2 materials --workers=1 --retries=0 --forbid-only --output=/workspace/goal017-live-results --reporter=line
+
+[WebServer] (node:11218) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+
+Running 2 tests using 1 worker
+
+(node:11243) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] tests/browser/solrahn-surface.spec.ts:35:5 › V2 materials: readiness, combat, terrain, results and replay 844
+[2/2] tests/browser/solrahn-surface.spec.ts:35:5 › V2 materials: readiness, combat, terrain, results and replay 390
+  2 passed (2.7m)
