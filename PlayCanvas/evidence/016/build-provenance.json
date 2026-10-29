@@ -1,0 +1,223 @@
+{
+  "source": "93912bf4fdfd77475c8c4dbc9c7db0f7076a6a91",
+  "files": {
+    "assets/environment/polyhaven/SOURCES.md": {
+      "bytes": 2072,
+      "sha256": "92996f46e7be4ca543babb076e69a61d00a30dd9eed335e582ebe20b266682d7"
+    },
+    "assets/environment/polyhaven/dirt_albedo_1k.webp": {
+      "bytes": 256400,
+      "sha256": "7c5aa6105d4900f10b65244060defad7687031572ed051ea7eec59f4ba8b3fee"
+    },
+    "assets/environment/polyhaven/dirt_ar_1k.png": {
+      "bytes": 1182466,
+      "sha256": "a125f2d8ef5bbcc22f1a1cc1482a194ca966f6e1446f98672b7dd8e45e4dc275"
+    },
+    "assets/environment/polyhaven/dirt_normal_1k.webp": {
+      "bytes": 650728,
+      "sha256": "7f2273a11f7084bbb43cd39c733f643f503119605612cb15877aa6a361b2a087"
+    },
+    "assets/environment/polyhaven/dry_ground_rocks_albedo_1k.webp": {
+      "bytes": 544052,
+      "sha256": "c2cf120f0bc9c7f2d63e0e0e4107b4c8a69692ee8811499982caa38ca0cd4ee0"
+    },
+    "assets/environment/polyhaven/dry_ground_rocks_ar_1k.png": {
+      "bytes": 1815517,
+      "sha256": "93f20db4a367e68420c90e61e31ee0ac736951db2f234384e951cef25b9855a2"
+    },
+    "assets/environment/polyhaven/dry_ground_rocks_normal_1k.webp": {
+      "bytes": 655838,
+      "sha256": "8b01e76723a50efb4b9c312bb634a1828b099a0d56cc15c211a524617f100ba6"
+    },
+    "assets/environment/polyhaven/forest_leaves_02_albedo_512.webp": {
+      "bytes": 143448,
+      "sha256": "cb1863a580f07406a5ce83c680b8f3d5241069f59598023f959e11984f59e1b8"
+    },
+    "assets/environment/polyhaven/forest_leaves_02_ar_512.png": {
+      "bytes": 486937,
+      "sha256": "f8394d4ac17b58169cc0d4cd13f2481c71947f65db6b7a9ab0193618fecc9669"
+    },
+    "assets/environment/polyhaven/forest_leaves_02_normal_512.webp": {
+      "bytes": 190932,
+      "sha256": "7c7b301bf7404d3054fa734ff9b06d91875976b6dea9996446272e180cae957c"
+    },
+    "assets/environment/polyhaven/sparse_grass_albedo_512.webp": {
+      "bytes": 95608,
+      "sha256": "49aefbd0567f12a787bd20e0531c7e5fa1902eefd7f561644e63a42eb46d0503"
+    },
+    "assets/environment/polyhaven/sparse_grass_ar_512.png": {
+      "bytes": 434978,
+      "sha256": "447e71dfea510c8fb65e2679e9e24472321af1598039c078b186ebeaf7df423b"
+    },
+    "assets/environment/polyhaven/sparse_grass_normal_512.webp": {
+      "bytes": 172584,
+      "sha256": "eadd1cb6666ce29f91f572cc21317c831fa976dfba8fbc59404ef4557989404f"
+    },
+    "assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb": {
+      "bytes": 7729688,
+      "sha256": "3b0901cf17158cca50d24eecad0e4f08e5dbca94992699d23b1637243468ff0e"
+    },
+    "assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb": {
+      "bytes": 5213436,
+      "sha256": "9f51f945f3555b824ae7f61f82a5d0dfc90905f2bf1d87894398a78a125a0590"
+    },
+    "assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb": {
+      "bytes": 6099384,
+      "sha256": "41dfef59d263dfdf3cbf9b247d2c74dcc0395894802816bb229d5afbcbcdddd1"
+    },
+    "assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb": {
+      "bytes": 5795696,
+      "sha256": "e53a2c229aacb5f5530bb04d55749e4c056c393e46a88b850f31988188dce350"
+    },
+    "assets/environment/trees/README.md": {
+      "bytes": 889,
+      "sha256": "1153e0b7cb56f9f020f50faf16b69e781df41d3c6252d7106b564e33257cc176"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb": {
+      "bytes": 728492,
+      "sha256": "dffee7231cdacdfcfb3725000808d15d9774c8692608bf98fb92f02b5c90a59b"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb": {
+      "bytes": 379620,
+      "sha256": "15460eb525b15ea5723bd24f0b9c292fdd0427a62fcc58d39646e273fd59d9fe"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb": {
+      "bytes": 599928,
+      "sha256": "c93f512c21804d32db122848e26bd8477e0dea4c44c26784477904155f09003a"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb": {
+      "bytes": 451248,
+      "sha256": "1adc5f2a2c3f22d80232b71445f05353ac1f6a378e512505ee7ea2553e032eb3"
+    },
+    "assets/environment/trees/mobile/README.md": {
+      "bytes": 1181,
+      "sha256": "7aeeb6811f77d97650a8ee580126c2c9f2febf3b648b150a60cd718a51a05fd6"
+    },
+    "assets/environment/trees/mobile/preparation.json": {
+      "bytes": 2928,
+      "sha256": "60cd6196a2e3f5c37b736dc7af38e6ce2147736f8f83dc6242c11a22950477ed"
+    },
+    "assets/frontend/fonts/Cinzel-OFL.txt": {
+      "bytes": 4383,
+      "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83"
+    },
+    "assets/frontend/fonts/Cinzel.woff": {
+      "bytes": 59460,
+      "sha256": "1f7ac117deec8915bc7cc826165a459eb9992042df9984df4066d6229a22b00d"
+    },
+    "assets/frontend/fonts/Rajdhani-OFL.txt": {
+      "bytes": 4373,
+      "sha256": "f62ef357d3a1c3d27edd35a6e1ba350e8a8d13499797964eeadefbf0b3b15d1f"
+    },
+    "assets/frontend/fonts/Rajdhani.woff": {
+      "bytes": 151564,
+      "sha256": "bbde9d81eda957d1cf0c54740b1d3d4e5d961a4a027fcec2fa648a5b116e6e47"
+    },
+    "assets/frontend/portraits/kit.webp": {
+      "bytes": 11618,
+      "sha256": "2527614c031ee311b34b668197e987b283a98c73b007ec3a8e4b3918fdc78439"
+    },
+    "assets/frontend/portraits/provenance.json": {
+      "bytes": 1342,
+      "sha256": "d5c5def405d7bea61d066a60a5700d95c80d267062df08856d2320ffcd53ed49"
+    },
+    "assets/frontend/portraits/riven.webp": {
+      "bytes": 8684,
+      "sha256": "96d00448e20db3348ce59509638417633a4e6d10a4e591249849e34df17245dd"
+    },
+    "assets/frontend/portraits/set.webp": {
+      "bytes": 12734,
+      "sha256": "ac57d49b4cb07d187bd0bb50c06cb010aaa3ca2b2eb734aa7f6f82ff389f7d0d"
+    },
+    "assets/frontend/ucl-arena-menu.jpeg": {
+      "bytes": 721906,
+      "sha256": "d785263520bd9ecef5b0c680550e322c8eb39a0d18ea15d055b77d316a697259"
+    },
+    "assets/frontend-DAJrjw9E.js": {
+      "bytes": 14726,
+      "sha256": "4d4cead93c1ae30b9ba407fac6bd9f67983f77472ecd8357cc7dc9f2723a7aaf"
+    },
+    "assets/game-Dg5WDZ1e.js": {
+      "bytes": 1336371,
+      "sha256": "85ce83bc3aff3d5a86bd8f64c4634288dd10d1fffbf9ff7028a1215cdb2cea17"
+    },
+    "assets/index-BgPqw8kw.css": {
+      "bytes": 21920,
+      "sha256": "ca83f3715ed612bdf69431e67dbdf8cb6455bb7697f6ca71fa71097c1a08065d"
+    },
+    "assets/index-_KC-nH9W.js": {
+      "bytes": 1327,
+      "sha256": "c2210fd4e8eb323c7ac7370764b145d0058b58fac47663257ea208a1cb420ec9"
+    },
+    "assets/preload-helper-CRzLMJPS.js": {
+      "bytes": 1534,
+      "sha256": "bcc465e3e61dc3878a69ffa95ccb53cb82d95b1639ada223420b281ebd150048"
+    },
+    "assets/solrahn/surface.bin": {
+      "bytes": 301491,
+      "sha256": "db9114206f546f7a11343d96cdc27c6770fd4765447f5e95200b644028ab11d5"
+    },
+    "assets/solrahn/surface.json": {
+      "bytes": 477,
+      "sha256": "c99c22a45c4f8cf642954a1ea9e0e465fd5cd39d3f0d7e9cd0679498aa6d2173"
+    },
+    "assets/solrahn-v2/height.u16": {
+      "bytes": 55970,
+      "sha256": "911fef74ea745f499f8cdb8e31c92f764b09c969112955e6e771b717d19452d9"
+    },
+    "assets/solrahn-v2/lane.bin": {
+      "bytes": 27985,
+      "sha256": "208cfbff7335c3ba7c9d419ed6e0d842fdb933bbbbadfdb16eede73f2a79dc7d"
+    },
+    "assets/solrahn-v2/terrain.json": {
+      "bytes": 2325,
+      "sha256": "df07746800975e2f10fe6e1392adca2904de6375f4ed3dc12ea375005e4b729d"
+    },
+    "assets/solrahn-v2/walk.bin": {
+      "bytes": 154722,
+      "sha256": "18b51cafcf385d89df5ad453069302ae1ef5684c7ea7a28ecad0042064237589"
+    },
+    "assets/summoners/kit/Kit_20K_Animated.glb": {
+      "bytes": 26939896,
+      "sha256": "b111e1f774b0483b78f45e43413515adb02e501941c5c99a995d09a43f96212f"
+    },
+    "assets/summoners/kit/README.md": {
+      "bytes": 1943,
+      "sha256": "4f7fc89e2dbb87d125d00b9a787f10ad46258b2537b951ebf7e7de185cc0d02d"
+    },
+    "assets/summoners/kit/kit-10k-test.glb": {
+      "bytes": 5317848,
+      "sha256": "11f0b6ad226eae565ddaa7e9104ca1aae2a85ecc954203a70fdce23b0adfb547"
+    },
+    "assets/summoners/riven/README.md": {
+      "bytes": 1899,
+      "sha256": "4a41c394d0abd5bfed38442e540e304ccead821e82e3f1535b8a53a5078289bc"
+    },
+    "assets/summoners/riven/Riven_Animated.glb": {
+      "bytes": 11170312,
+      "sha256": "ba2cb5d72eb2bcfe272c59a50b06a594100a5ac3ceac8f6af457c243c6a5de61"
+    },
+    "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb": {
+      "bytes": 23080916,
+      "sha256": "20bad659e39bc916b7f34fca587e55beed25eeae9d3e77d856879efd173636c8"
+    },
+    "assets/summoners/riven/weapons/README.md": {
+      "bytes": 1754,
+      "sha256": "8121fc8be3fd4b72f27ddbb48be117fc96061a9dc9c01070f52e0dbe9d78a140"
+    },
+    "assets/summoners/set/README.md": {
+      "bytes": 1223,
+      "sha256": "d1955dbd707d450984770008e5af2d209f026f4c1f76465ecc5aa48a7e0bb6e3"
+    },
+    "assets/summoners/set/Set_Animated.glb": {
+      "bytes": 10000416,
+      "sha256": "dbee0fd906f786f4af04eb87f130a816c0f98aa04531874487b403f7ca23e154"
+    },
+    "index.html": {
+      "bytes": 653,
+      "sha256": "cf0c3e8143cc3904eb8fa3f0bcd499d1b55384ff3c1a2015c60aefa82428c38f"
+    }
+  },
+  "totalStaticBytes": 113045822,
+  "note": "Total includes unchanged optional assets retained for the default arena and GOAL 014 entry; V2 does not request their environment textures or GLB."
+}

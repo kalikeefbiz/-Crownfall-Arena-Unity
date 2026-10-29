@@ -1,0 +1,80 @@
+{
+  "worldMetres": [
+    120,
+    160
+  ],
+  "selectedScale": 8,
+  "constantSlopeDegrees": 35,
+  "constantErosionMetres": 0.8035533905932738,
+  "note": "Exact V2 shape retained; uniform provisional vertical scale only. Study-mask nearest sampling in calibration; published converter uses conservative bilinear >254.",
+  "trials": [
+    {
+      "verticalScale": 12,
+      "walkableCells": 21942,
+      "campReachability": {
+        "north-mobility": {
+          "reachable": true,
+          "centreClearanceMetres": 1.8027756377319946
+        },
+        "north-cooldown": {
+          "reachable": false,
+          "centreClearanceMetres": 0.0
+        },
+        "north-defense": {
+          "reachable": false,
+          "centreClearanceMetres": 0.0
+        },
+        "south-defense": {
+          "reachable": false,
+          "centreClearanceMetres": 0.0
+        },
+        "south-cooldown": {
+          "reachable": true,
+          "centreClearanceMetres": 2.23606797749979
+        },
+        "south-mobility": {
+          "reachable": true,
+          "centreClearanceMetres": 1.5811388300841898
+        },
+        "major": {
+          "reachable": true,
+          "centreClearanceMetres": 2.5
+        }
+      }
+    },
+    {
+      "verticalScale": 8,
+      "walkableCells": 31091,
+      "campReachability": {
+        "north-mobility": {
+          "reachable": true,
+          "centreClearanceMetres": 5.220153254455275
+        },
+        "north-cooldown": {
+          "reachable": true,
+          "centreClearanceMetres": 5.70087712549569
+        },
+        "north-defense": {
+          "reachable": true,
+          "centreClearanceMetres": 3.5355339059327378
+        },
+        "south-defense": {
+          "reachable": true,
+          "centreClearanceMetres": 5.0
+        },
+        "south-cooldown": {
+          "reachable": true,
+          "centreClearanceMetres": 4.924428900898052
+        },
+        "south-mobility": {
+          "reachable": true,
+          "centreClearanceMetres": 4.031128874149275
+        },
+        "major": {
+          "reachable": true,
+          "centreClearanceMetres": 6.0
+        }
+      }
+    }
+  ]
+}

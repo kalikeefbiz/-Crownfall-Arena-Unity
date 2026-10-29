@@ -1,0 +1,102 @@
+{
+  "method": "Same public GitHub Pages host, 844x390, DPR 1, saved Low quality, sequential contexts, Chromium SwiftShader. Cold empty browser cache; warm reload in the same context. Timer from Enter Crownfall action to gameplay. Human idle at spawn; five ordinary bots; no verification acceleration. All samples active. JS heap and engine GPU allocation accounting are estimates, not process RSS or physical residency.",
+  "physicalIPhoneSafari": "NOT VERIFIED",
+  "rows": [
+    {
+      "build": "candidate",
+      "cache": "cold",
+      "readySeconds": 5.647,
+      "medianFrameMs": 183.3000000000029,
+      "p95FrameMs": 333.2999999999993,
+      "meanFps": 5.295335698865699,
+      "medianEstimatedWebGLDrawsPerFrame": 40,
+      "jsHeapUsedRangeBytes": [
+        22565976,
+        36596180
+      ],
+      "allocatedGpu": {
+        "tex": 402707616,
+        "vb": 5571212,
+        "ib": 699888,
+        "ub": 5200,
+        "sb": 0
+      },
+      "allSamplesDuringActualMatch": true,
+      "requestedWallSampleSeconds": 120.0,
+      "resourceEncodedBytes": 65414179,
+      "resourceTransferBytes": 65419579
+    },
+    {
+      "build": "candidate",
+      "cache": "warm",
+      "readySeconds": 5.907,
+      "medianFrameMs": 200,
+      "p95FrameMs": 399.90000000000146,
+      "meanFps": 4.85597934526013,
+      "medianEstimatedWebGLDrawsPerFrame": 40.0,
+      "jsHeapUsedRangeBytes": [
+        35906888,
+        49438272
+      ],
+      "allocatedGpu": {
+        "tex": 402705216,
+        "vb": 5571212,
+        "ib": 699888,
+        "ub": 3856,
+        "sb": 0
+      },
+      "allSamplesDuringActualMatch": true,
+      "requestedWallSampleSeconds": 20.0,
+      "resourceEncodedBytes": 65414179,
+      "resourceTransferBytes": 64020233
+    },
+    {
+      "build": "unchanged-production",
+      "cache": "cold",
+      "readySeconds": 7.945,
+      "medianFrameMs": 500,
+      "p95FrameMs": 1066.6000000000058,
+      "meanFps": 1.9382468974138778,
+      "medianEstimatedWebGLDrawsPerFrame": 60.328671328671334,
+      "jsHeapUsedRangeBytes": [
+        18492080,
+        25227268
+      ],
+      "allocatedGpu": {
+        "tex": 461436480,
+        "vb": 6104300,
+        "ib": 666954,
+        "ub": 8496,
+        "sb": 0
+      },
+      "allSamplesDuringActualMatch": true,
+      "requestedWallSampleSeconds": 120.0,
+      "resourceEncodedBytes": 73565393,
+      "resourceTransferBytes": 73574993
+    },
+    {
+      "build": "unchanged-production",
+      "cache": "warm",
+      "readySeconds": 3.87,
+      "medianFrameMs": 483.3000000000029,
+      "p95FrameMs": 966.6999999999971,
+      "meanFps": 2.0723241114910365,
+      "medianEstimatedWebGLDrawsPerFrame": 58.19230769230769,
+      "jsHeapUsedRangeBytes": [
+        21018968,
+        29329516
+      ],
+      "allocatedGpu": {
+        "tex": 461436480,
+        "vb": 6104300,
+        "ib": 666954,
+        "ub": 8048,
+        "sb": 0
+      },
+      "allSamplesDuringActualMatch": true,
+      "requestedWallSampleSeconds": 20.0,
+      "resourceEncodedBytes": 73565393,
+      "resourceTransferBytes": 64020233
+    }
+  ]
+}

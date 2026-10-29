@@ -1,0 +1,51 @@
+{
+  "sourceBranch": "goal-016-solrahn-v2",
+  "runtimeSource": "93912bf4fdfd77475c8c4dbc9c7db0f7076a6a91",
+  "pages": "d08ea79e0865568821e7ba8fe8141b202236efd7",
+  "unit": {
+    "fullPassed": 249,
+    "failed": 0,
+    "files": 28,
+    "original": 242,
+    "new": 7,
+    "finalV2RepeatPassed": 7
+  },
+  "browser": {
+    "completeRun": {
+      "total": 131,
+      "passed": 129,
+      "failed": 2
+    },
+    "failureResolutions": [
+      {
+        "test": "ergonomics 844x390 safe inset 0",
+        "initial": "concurrent run removed trace directory; screenshot timed out",
+        "isolatedFinal": "PASS, unchanged original test"
+      },
+      {
+        "test": "Wilderness -1 touch traversal",
+        "initial": "14.9556m at >15m movement poll deadline",
+        "isolatedFinal": "PASS, unchanged original test"
+      }
+    ],
+    "finalIsolatedPassed": 4,
+    "wildernessRerunPassed": 1,
+    "uniqueCasesCovered": 132,
+    "originalCasesCovered": 129,
+    "newCasesCovered": 3,
+    "firstLiveAttempt": {
+      "passed": 0,
+      "failed": 2,
+      "reason": "New test immediate isVisible query raced asynchronous menu rendering",
+      "resolution": "Await the same required menu with toBeVisible; no game change"
+    },
+    "finalLivePassed": 2,
+    "finalLiveFailed": 0
+  },
+  "typecheck": "PASS",
+  "scopedLint": "PASS",
+  "build": "PASS",
+  "productionUnchanged": true,
+  "physicalIPhoneSafari": "NOT VERIFIED",
+  "recommendation": "CONDITIONAL \u2014 preview testing only; founder device validation and approval required"
+}

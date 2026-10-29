@@ -1,0 +1,58 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/solrahn-v2.spec.ts --grep V2 graybox --output=/workspace/scratch/016-live-browser-output --reporter=line
+
+
+Running 2 tests using 1 worker
+
+(node:7352) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 844
+  1) tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 844 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      40 |         const entry = process.env.SOLRAHN_V2_URL || '/?mapPreview=solrahn-v2&verify=1&frontend=1';
+      41 |         await page.goto(entry);
+    > 42 |         expect(await page.getByRole('button', { name: 'Enter Crownfall' }).isVisible()).toBe(true);
+         |                                                                                         ^
+      43 |         expect(
+      44 |             await page.evaluate(() => performance.getEntriesByType('resource').some((e) => e.name.endsWith('.glb')))
+      45 |         ).toBe(false);
+        at /workspace/crownfall/PlayCanvas/tests/browser/solrahn-v2.spec.ts:42:89
+
+    Error Context: ../../scratch/016-live-browser-output/solrahn-v2-V2-graybox-read-f6e27-rain-results-and-replay-844/error-context.md
+
+
+(node:7428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/2] tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 390
+  2) tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 390 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: true
+    Received: false
+
+      40 |         const entry = process.env.SOLRAHN_V2_URL || '/?mapPreview=solrahn-v2&verify=1&frontend=1';
+      41 |         await page.goto(entry);
+    > 42 |         expect(await page.getByRole('button', { name: 'Enter Crownfall' }).isVisible()).toBe(true);
+         |                                                                                         ^
+      43 |         expect(
+      44 |             await page.evaluate(() => performance.getEntriesByType('resource').some((e) => e.name.endsWith('.glb')))
+      45 |         ).toBe(false);
+        at /workspace/crownfall/PlayCanvas/tests/browser/solrahn-v2.spec.ts:42:89
+
+    Error Context: ../../scratch/016-live-browser-output/solrahn-v2-V2-graybox-read-085b4-rain-results-and-replay-390/error-context.md
+
+
+  2 failed
+    tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 844 
+    tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 390 

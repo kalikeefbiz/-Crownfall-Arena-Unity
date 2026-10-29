@@ -39,7 +39,7 @@ for (const viewport of [
         await page.addInitScript(() => localStorage.setItem('crownfall.quality', 'low'));
         const entry = process.env.SOLRAHN_V2_URL || '/?mapPreview=solrahn-v2&verify=1&frontend=1';
         await page.goto(entry);
-        expect(await page.getByRole('button', { name: 'Enter Crownfall' }).isVisible()).toBe(true);
+        await expect(page.getByRole('button', { name: 'Enter Crownfall' })).toBeVisible();
         expect(
             await page.evaluate(() => performance.getEntriesByType('resource').some((e) => e.name.endsWith('.glb')))
         ).toBe(false);

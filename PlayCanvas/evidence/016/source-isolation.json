@@ -1,0 +1,55 @@
+{
+  "base": "5eda5b34f34d05ece4fb3624fef5fd8bbefbc4e9",
+  "protectedSources": {
+    "src/maps/solrahn.ts": {
+      "sha256": "6a059cd3d9ff2c3dfe232530d4a763b7553aa7a1239c5357e23f80c863810c3f",
+      "bytes": 6525,
+      "byteIdentical": true
+    },
+    "src/presentation/solrahn-environment.ts": {
+      "sha256": "1bbdefcb68461e854c7c788dd410a8fff300146b58941eb966dba512997bf2d1",
+      "bytes": 2191,
+      "byteIdentical": true
+    },
+    "src/combat/match-space.js": {
+      "sha256": "1cf8c4f841ecd3f1c151126099675157cac132acc63e8c98bcc8eda5f9e56fb4",
+      "bytes": 1004,
+      "byteIdentical": true
+    },
+    "src/combat/match.js": {
+      "sha256": "d81117e7d840e2cb664ef6b5d00b93ea034880e4ec77dd50c37ddd2747517626",
+      "bytes": 10730,
+      "byteIdentical": true
+    },
+    "src/combat/movement.js": {
+      "sha256": "f100cb03839d4e169466f040e454d940f714bcbed7f239f51b283e12b9b5455f",
+      "bytes": 2793,
+      "byteIdentical": true
+    },
+    "src/combat/wilderness.js": {
+      "sha256": "50e9061f64c1ea363180fa01d7b40b2f561bf26aeee5d4d7342eee75acb084ce",
+      "bytes": 8371,
+      "byteIdentical": true
+    },
+    "src/combat/bot-controller.js": {
+      "sha256": "35a23e4d15f01f0d60ad2afd56f7ef934f13de01ccbf6b4e5c8c253ee142bfe6",
+      "bytes": 7186,
+      "byteIdentical": true
+    },
+    "public/assets/solrahn/surface.bin": {
+      "sha256": "db9114206f546f7a11343d96cdc27c6770fd4765447f5e95200b644028ab11d5",
+      "bytes": 301491,
+      "byteIdentical": true
+    },
+    "public/assets/solrahn/surface.json": {
+      "sha256": "c99c22a45c4f8cf642954a1ea9e0e465fd5cd39d3f0d7e9cd0679498aa6d2173",
+      "bytes": 477,
+      "byteIdentical": true
+    },
+    "assets/solrahn-three-lane/runtime/solrahn-three-lane-visual.glb": {
+      "sha256": "7faa8ecdc8e5b3f078d7ea0de09507a3572dccb2a63ac5eea30660e640a66a9d",
+      "bytes": 48825928,
+      "lfsPointerUnchanged": true
+    }
+  }
+}

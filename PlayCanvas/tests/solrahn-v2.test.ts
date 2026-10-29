@@ -100,6 +100,7 @@ function traverse(a: { x: number; z: number }, b: { x: number; z: number }, full
 }
 
 test('six spawns, middle round trip, all six camps and major have return routes and alternate entrances', () => {
+    execFileSync('python3', ['scripts/solrahn-v2-entrances.py'], { stdio: 'pipe' });
     for (const team of [1, 2])
         for (let slot = 0; slot < 3; slot++) {
             const spawn = surface.spawn(team, slot);

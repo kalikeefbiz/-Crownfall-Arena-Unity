@@ -1,0 +1,39 @@
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:30] "GET / HTTP/1.1" 200 -
+
+
+Running 1 test using 1 worker
+
+(node:4120) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] tests/browser/solrahn-v2.spec.ts:144:1 › corrupt V2 height data fails visibly without loading the older map
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /?mapPreview=solrahn-v2&frontend=1 HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/index-Ud4gi49C.js HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/index-BgPqw8kw.css HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/preload-helper-CRzLMJPS.js HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/frontend-BJSOmp4U.js HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/frontend/ucl-arena-menu.jpeg HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/frontend/fonts/Rajdhani.woff HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/frontend/fonts/Cinzel.woff HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/frontend/portraits/kit.webp HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/frontend/portraits/set.webp HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/frontend/portraits/riven.webp HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:31] "GET /assets/game-b4Vy0nKJ.js HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:32] "GET /assets/solrahn-v2/walk.bin HTTP/1.1" 200 -
+
+[WebServer] 127.0.0.1 - - [29/Oct/2026 05:18:32] "GET /assets/solrahn-v2/lane.bin HTTP/1.1" 200 -
+
+  1 passed (5.5s)

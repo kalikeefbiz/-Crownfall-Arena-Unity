@@ -1,0 +1,4 @@
+Preparing worktree (detached HEAD cb742a5)
+HEAD is now at cb742a5 Retire rejected Solrahn Goal 015 preview; preserve all other hosted games
+To https://github.com/kalikeefbiz/-Crownfall-Arena-Unity.git
+   cb742a5..d08ea79  HEAD -> gh-pages

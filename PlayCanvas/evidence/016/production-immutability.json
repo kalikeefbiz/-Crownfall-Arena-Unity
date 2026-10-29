@@ -1,0 +1,18 @@
+{
+  "pagesBefore": "cb742a5094098cb27d2adec2aaf4bb2d1dc8d1a6",
+  "pagesAfter": "d08ea79e0865568821e7ba8fe8141b202236efd7",
+  "all142OriginalPagesBlobsUnchanged": true,
+  "originalBlobCount": 142,
+  "protectedBundleCount": 42,
+  "allOriginalBundleSha256Unchanged": true,
+  "newFilesOnlyUnder": "/solrahn-goal-016/",
+  "rootTree": [
+    "100644 blob e69de29bb2d1d6434b8b29ae775ad8c2e48c5391\t.nojekyll",
+    "040000 tree 6be925b8d3b11ba7f7d9d0d2d0a7840ef2b51bec\tBuild",
+    "100644 blob a06446d9c870c6252feb2fbbd30cf0e0d3ad3987\t_headers",
+    "100644 blob 11d54ce515a37802cd92ed1511fe7938ad254dfd\tindex.html",
+    "040000 tree ff44fba8658e50c01a402548c6f60ec1a769e962\tplaycanvas",
+    "040000 tree 9e2911aafd41442c250c52cedd471d0e71d6b62d\tsolrahn-goal-014",
+    "040000 tree da7d43eb8087651bdb7437aea2547923d4164121\tsolrahn-goal-016"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "physicalIPhoneSafari": "NOT VERIFIED",
+  "reason": "This execution environment has no attached physical iPhone running Safari.",
+  "sustained30Fps": "NOT VERIFIED",
+  "inputResponsivenessOnDevice": "NOT VERIFIED",
+  "crashesThermalsAndMemoryOnDevice": "NOT VERIFIED",
+  "browserTouchEmulation": "Chromium preliminary functionality checks only",
+  "renderer": "SwiftShader software WebGL; not a proxy for iPhone GPU performance",
+  "productionIntegrationApproved": false,
+  "founderDeviceTestingAndApprovalRequired": true
+}

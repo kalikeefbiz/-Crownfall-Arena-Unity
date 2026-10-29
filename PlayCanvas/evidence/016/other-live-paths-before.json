@@ -1,0 +1,20 @@
+{
+  "index.html": {
+    "status": 200,
+    "sha256": "a68836f2e1b42b8a79a76d0705a8447fbacbc4bf60d7850cf34daa19a6594c56",
+    "bytes": 3618,
+    "byteIdentical": true
+  },
+  "solrahn-goal-014/index.html": {
+    "status": 200,
+    "sha256": "656156ad7ecc0328596d0e705c91472db2c0961999e2d4e4e4cda8dd0ddb0665",
+    "bytes": 653,
+    "byteIdentical": true
+  },
+  "solrahn-goal-014/preview-source.json": {
+    "status": 200,
+    "sha256": "5d0f0db9204f46ad1bcc9b99b29c25016bd20d2cb840ffea31f1d31147b38d0c",
+    "bytes": 102,
+    "byteIdentical": true
+  }
+}

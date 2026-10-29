@@ -1,0 +1,16 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/solrahn-v2.spec.ts tests/browser/ergonomics.spec.ts --grep V2 graybox|corrupt V2|landscape targets and HUD stay clear at 844x390, safe inset 0 --output=/workspace/scratch/016-final-browser-output --reporter=line --trace=retain-on-failure
+
+
+Running 4 tests using 1 worker
+
+(node:6593) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+[2/4] tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 844
+[3/4] tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 390
+[4/4] tests/browser/solrahn-v2.spec.ts:148:1 › corrupt V2 height data fails visibly without loading the older map
+  4 passed (2.6m)

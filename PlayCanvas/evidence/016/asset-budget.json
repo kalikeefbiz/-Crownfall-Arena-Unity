@@ -1,0 +1,28 @@
+{
+  "sourceHeightmapPixels": 1080000,
+  "logicalRuntimeVertices": 27985,
+  "topChunks": 48,
+  "skirtMeshes": 1,
+  "uploadedVertices": 32688,
+  "triangles": 56640,
+  "terrainGpuBufferEstimateBytes": 1647360,
+  "geometryJsNumberPayloadEstimateBytes": 3974400,
+  "geometryJsEstimateExcludes": "array capacity, object overhead and PlayCanvas retained buffers",
+  "navigationScratchBytes": 928332,
+  "runtimeHeightFloat32Bytes": 111940,
+  "payloads": {
+    "height.u16": {
+      "bytes": 55970,
+      "sha256": "911fef74ea745f499f8cdb8e31c92f764b09c969112955e6e771b717d19452d9"
+    },
+    "walk.bin": {
+      "bytes": 154722,
+      "sha256": "18b51cafcf385d89df5ad453069302ae1ef5684c7ea7a28ecad0042064237589"
+    },
+    "lane.bin": {
+      "bytes": 27985,
+      "sha256": "208cfbff7335c3ba7c9d419ed6e0d842fdb933bbbbadfdb16eede73f2a79dc7d"
+    }
+  },
+  "notes": "GPU estimate covers static graybox floor only. Character textures and all other game resources are measured separately. No terrain texture allocation."
+}
