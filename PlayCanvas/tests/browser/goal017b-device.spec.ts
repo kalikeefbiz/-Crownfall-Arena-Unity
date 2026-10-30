@@ -232,3 +232,24 @@ test('monitor reports the actual rendering resolution across quality changes', a
     );
     await context.close();
 });
+
+for (const width of [844, 390])
+    test(`monitor toggle stays visible after quality changes ${width}`, async ({ page, browserName }) => {
+        await page.setViewportSize({ width, height: width === 844 ? 390 : 844 });
+        await enter(page, false);
+        await expect(page.locator('.perf-timing')).toContainText(/FPS \d+\.\d/);
+        for (const quality of ['high', 'low']) {
+            await page.locator(`[data-quality=${quality}]`).tap();
+            await expect
+                .poll(async () => (await snapshot(page)).environment.materials.shader.detailNormals)
+                .toBe(quality === 'high');
+            await expect(page.getByRole('button', { name: 'Hide performance' })).toBeInViewport({ ratio: 1 });
+            await expect(page.locator(`[data-quality=${quality}]`)).toBeInViewport({ ratio: 1 });
+        }
+        await page.screenshot({
+            path: `evidence/017b/${process.env.RECEIPT_PREFIX || 'local'}-${browserName}-toggle-${width}.png`
+        });
+        await page.getByRole('button', { name: 'Hide performance' }).tap();
+        await expect(page.getByRole('button', { name: 'Show performance' })).toBeInViewport({ ratio: 1 });
+        await expect(page.locator('#performance-values')).toBeHidden();
+    });

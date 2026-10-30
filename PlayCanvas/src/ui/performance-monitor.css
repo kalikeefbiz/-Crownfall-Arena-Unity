@@ -28,10 +28,17 @@
     background: #20364c;
     border: 1px solid #72889a;
     border-radius: 4px;
+    width: auto;
+    height: auto;
     min-height: 32px;
+    padding: 3px 6px;
+    margin: 0;
     touch-action: manipulation;
 }
 #performance-monitor .perf-toggle {
+    position: sticky;
+    top: 0;
+    z-index: 1;
     width: 100%;
     min-height: 36px;
 }
