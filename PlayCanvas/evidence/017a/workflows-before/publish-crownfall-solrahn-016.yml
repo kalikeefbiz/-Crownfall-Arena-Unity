@@ -1,0 +1,49 @@
+name: Publish isolated GOAL 016 V2 graybox
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: crownfall-solrahn-goal-016
+  cancel-in-progress: false
+jobs:
+  preview:
+    if: github.ref == 'refs/heads/goal-016-solrahn-v2'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: PlayCanvas
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: PlayCanvas/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/requirements-solrahn-v2.txt
+      - run: npm ci
+      - run: python3 scripts/solrahn-v2.py && git diff --exit-code -- public/assets/solrahn-v2
+      - run: npm test && npm run typecheck && npx eslint src tests vite.config.ts && npm run build
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:browser -- --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line
+      - name: Publish only GOAL 016, preserving all other Git objects
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          python3 scripts/publish-solrahn-v2.py "$SOURCE_SHA"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: goal-016-validation
+          path: PlayCanvas/evidence/016

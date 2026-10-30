@@ -1,0 +1,76 @@
+high-pbr warm cache primed after interrupted context; completed cold sample retained
+high-pbr warm readyMs 3304
+high-pbr warm liveCombatSetupMs 110658
+high-pbr warm activeFrames 18 medianMs 866.5999999999913 p95Ms 1866.5
+high-pbr cold readyMs 4337
+high-pbr cold liveCombatSetupMs 115236
+high-pbr cold activeFrames 28 medianMs 750 p95Ms 1383.1999999999825
+high-pbr warm readyMs 4038
+high-pbr warm liveCombatSetupMs 118241
+high-pbr warm activeFrames 25 medianMs 866.6000000000058 p95Ms 1616.5999999999767
+no-debug cold readyMs 3532
+no-debug cold liveCombatSetupMs 64326
+no-debug cold activeFrames 45 medianMs 500 p95Ms 1033.300000000003
+no-debug warm readyMs 3313
+no-debug warm liveCombatSetupMs 62745
+no-debug warm activeFrames 46 medianMs 466.59999999999127 p95Ms 516.6999999999971
+isotropic cold readyMs 3251
+isotropic cold liveCombatSetupMs 49763
+isotropic cold activeFrames 53 medianMs 416.59999999999854 p95Ms 766.6999999999971
+isotropic warm readyMs 3055
+isotropic warm liveCombatSetupMs 47631
+isotropic warm activeFrames 58 medianMs 383.40000000000146 p95Ms 766.6999999999971
+atlas-only cold readyMs 3473
+atlas-only cold liveCombatSetupMs 52680
+atlas-only cold activeFrames 58 medianMs 366.6999999999971 p95Ms 716.6000000000058
+atlas-only warm readyMs 2994
+atlas-only warm liveCombatSetupMs 51918
+atlas-only warm activeFrames 44 medianMs 483.3000000000029 p95Ms 933.3000000000029
+constant cold readyMs 3489
+constant cold liveCombatSetupMs 40410
+constant cold activeFrames 67 medianMs 316.59999999999854 p95Ms 583.3000000000029
+constant warm readyMs 3169
+constant warm liveCombatSetupMs 37490
+constant warm activeFrames 65 medianMs 316.59999999999854 p95Ms 666.6999999999971
+lazy-only cold readyMs 3579
+lazy-only cold liveCombatSetupMs 64611
+lazy-only cold activeFrames 40 medianMs 516.6999999999971 p95Ms 1183.3999999999942
+lazy-only warm readyMs 3149
+lazy-only warm liveCombatSetupMs 66640
+lazy-only warm activeFrames 44 medianMs 483.3999999999942 p95Ms 1016.5999999999913
+lazy-only cold readyMs 3494
+lazy-only cold liveCombatSetupMs 63117
+lazy-only cold activeFrames 41 medianMs 483.3000000000029 p95Ms 949.9000000000087
+lazy-only warm readyMs 3086
+lazy-only warm liveCombatSetupMs 63629
+lazy-only warm activeFrames 40 medianMs 516.5999999999913 p95Ms 1083.300000000003
+constant cold readyMs 3307
+constant cold liveCombatSetupMs 39719
+constant cold activeFrames 67 medianMs 300 p95Ms 649.9000000000015
+constant warm readyMs 2850
+constant warm liveCombatSetupMs 38746
+constant warm activeFrames 67 medianMs 316.6000000000058 p95Ms 516.6999999999971
+atlas-only cold readyMs 3100
+atlas-only cold liveCombatSetupMs 49890
+atlas-only cold activeFrames 52 medianMs 400 p95Ms 750
+atlas-only warm readyMs 2952
+atlas-only warm liveCombatSetupMs 51951
+atlas-only warm activeFrames 50 medianMs 416.6000000000058 p95Ms 716.6000000000058
+isotropic cold readyMs 2967
+isotropic cold liveCombatSetupMs 48670
+isotropic cold activeFrames 52 medianMs 400 p95Ms 783.3000000000029
+isotropic warm readyMs 3024
+isotropic warm liveCombatSetupMs 48784
+isotropic warm activeFrames 50 medianMs 400 p95Ms 800
+no-debug cold readyMs 3433
+no-debug cold liveCombatSetupMs 58819
+no-debug cold activeFrames 44 medianMs 466.6999999999971 p95Ms 883.2999999999884
+no-debug warm readyMs 3028
+no-debug warm liveCombatSetupMs 60355
+no-debug warm activeFrames 44 medianMs 499.8999999999942 p95Ms 816.6000000000058
+high-pbr cold readyMs 4377
+high-pbr cold liveCombatSetupMs 113033
+high-pbr cold activeFrames 28 medianMs 800 p95Ms 1733.2999999999884
+high-pbr warm readyMs 4012
+high-pbr warm liveCombatSetupMs 117691
+high-pbr warm activeFrames 21 medianMs 816.5999999999767 p95Ms 1566.7000000000116

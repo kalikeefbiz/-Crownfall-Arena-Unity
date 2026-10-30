@@ -1,0 +1,14 @@
+tests/browser/solrahn-performance.spec.ts 101ms (unchanged)
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test tests/browser/solrahn-performance.spec.ts --grep five rematch --workers=1 --retries=0 --forbid-only --reporter=line --output=test-results-017a-cycle
+
+
+Running 1 test using 1 worker
+
+(node:11346) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/1] tests/browser/solrahn-performance.spec.ts:7:1 › surface: five rematch/menu/quality cycles retain bounded resources and lazy High demand
+  1 passed (59.3s)

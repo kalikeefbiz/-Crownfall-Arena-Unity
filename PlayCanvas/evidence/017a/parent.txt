@@ -1,0 +1,23 @@
+commit 97a0132d52476e9301e6b6df5491bcf826405920
+Author:     kalikeefbiz <kalikeefbiz@gmail.com>
+AuthorDate: Thu Oct 29 17:56:03 2026 -0700
+Commit:     kalikeefbiz <kalikeefbiz@gmail.com>
+CommitDate: Thu Oct 29 17:56:03 2026 -0700
+
+    docs: add GOAL 017A performance remediation implementation brief [skip ci]
+
+commit 765041a87a857675b0e6411e5ad527aa527f3ea5
+Author:     Codex <codex@openai.com>
+AuthorDate: Thu Oct 29 21:11:04 2026 +0000
+Commit:     Codex <codex@openai.com>
+CommitDate: Thu Oct 29 21:11:04 2026 +0000
+
+    Record GOAL 017 hosted checks and immutable production proof [skip ci]
+
+commit ba4af5dfad4105fb9924f712b9c8c779666c688a
+Author:     Codex <codex@openai.com>
+AuthorDate: Thu Oct 29 20:59:40 2026 +0000
+Commit:     Codex <codex@openai.com>
+CommitDate: Thu Oct 29 20:59:40 2026 +0000
+
+    Record GOAL 017 source alignment, regressions and live performance [skip ci]

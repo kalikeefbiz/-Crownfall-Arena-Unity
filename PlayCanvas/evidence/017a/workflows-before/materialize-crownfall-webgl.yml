@@ -1,0 +1,133 @@
+name: Materialize Crownfall Unity Build 19
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/materialize-crownfall-webgl.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  materialize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve Build 19 artifact
+        id: artifact
+        shell: bash
+        run: |
+          set -euo pipefail
+          SHARE_ID="Ip87Og-oAn1Sx0TZQKIh1av4CH1xo6W7PDsbow1O4nw"
+          API="https://build-automation.services.api.unity.com/v2/shares/$SHARE_ID"
+          curl -fsSL --retry 3 "$API" -o /tmp/share.json
+          jq -e '.build == 19 and .buildStatus == "success" and .platform == "webgl" and .lastBuiltRevision == "b082cf356494d532c2b8c0915849ec0fc61649d7"' /tmp/share.json >/dev/null
+          URL="$(jq -r '([.links.artifacts[]? | select(.primary == true) | .files[0].href][0] // .links.download_primary.href // empty)' /tmp/share.json)"
+          if [ -z "$URL" ]; then
+            echo "Unity share metadata did not expose a primary artifact URL." >&2
+            cat /tmp/share.json >&2
+            exit 1
+          fi
+          echo "url=$URL" >> "$GITHUB_OUTPUT"
+
+      - name: Download existing Unity artifact
+        shell: bash
+        env:
+          ARTIFACT_URL: ${{ steps.artifact.outputs.url }}
+        run: |
+          set -euo pipefail
+          curl -fL --retry 3 --retry-all-errors "$ARTIFACT_URL" -o /tmp/crownfall-build19.zip
+          ls -lh /tmp/crownfall-build19.zip
+          unzip -t /tmp/crownfall-build19.zip >/dev/null
+          unzip -l /tmp/crownfall-build19.zip | tail -n 40
+
+      - name: Extract WebGL build
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf /tmp/crownfall-build19
+          mkdir -p /tmp/crownfall-build19
+          unzip -q /tmp/crownfall-build19.zip -d /tmp/crownfall-build19
+
+          INDEX="$(find /tmp/crownfall-build19 -type f -name index.html -print -quit)"
+          if [ -z "$INDEX" ]; then
+            echo "No index.html found in Unity artifact." >&2
+            exit 1
+          fi
+
+          ROOT="$(dirname "$INDEX")"
+          echo "WebGL root: $ROOT"
+
+          rm -rf webgl-hosted
+          mkdir -p webgl-hosted
+          cp -a "$ROOT"/. webgl-hosted/
+          rm -f webgl-hosted/_worker.js
+
+          cat > webgl-hosted/_headers <<'EOF'
+          /Build/*.wasm
+            Content-Type: application/wasm
+
+          /Build/*.js
+            Content-Type: application/javascript
+
+          /Build/*.data
+            Content-Type: application/octet-stream
+
+          /Build/*.json
+            Content-Type: application/json
+
+          /Build/*.wasm.br
+            Content-Type: application/wasm
+            Content-Encoding: br
+
+          /Build/*.js.br
+            Content-Type: application/javascript
+            Content-Encoding: br
+
+          /Build/*.data.br
+            Content-Type: application/octet-stream
+            Content-Encoding: br
+
+          /Build/*.wasm.gz
+            Content-Type: application/wasm
+            Content-Encoding: gzip
+
+          /Build/*.js.gz
+            Content-Type: application/javascript
+            Content-Encoding: gzip
+
+          /Build/*.data.gz
+            Content-Type: application/octet-stream
+            Content-Encoding: gzip
+
+          /*
+            X-Content-Type-Options: nosniff
+          EOF
+
+          test -f webgl-hosted/index.html
+          find webgl-hosted -type f -printf '%s %p\n' | sort -n | tail -n 30
+          MAX="$(find webgl-hosted -type f -printf '%s\n' | sort -n | tail -n 1)"
+          if [ "$MAX" -gt 100000000 ]; then
+            echo "A WebGL file exceeds GitHub's 100 MB hard file limit: $MAX bytes" >&2
+            exit 2
+          fi
+
+      - name: Commit hosted Build 19
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A webgl-hosted
+          if git diff --cached --quiet; then
+            echo "Build 19 is already materialized."
+            exit 0
+          fi
+          git commit -m "Materialize Crownfall Unity Build 19 for static hosting"
+          git push origin HEAD:main

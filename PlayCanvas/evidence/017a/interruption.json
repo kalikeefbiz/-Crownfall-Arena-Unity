@@ -1,0 +1,9 @@
+{
+  "completedBeforeInterruption": 11,
+  "checkpoint": "matrix-progress.json",
+  "resumedWith": "RESUME=1 bash evidence/017a/run-matrix.sh",
+  "completedConditionsRepeated": 0,
+  "interruptedCondition": "round 0 high-pbr warm",
+  "warmCacheRecovery": "Normal readiness in a new context primes HTTP cache, followed by warm reload. No repeat cold performance sample.",
+  "baselineAndIteration1": "Already complete; not repeated."
+}

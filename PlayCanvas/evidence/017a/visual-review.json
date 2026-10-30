@@ -1,0 +1,23 @@
+{
+  "pairedCaptures": 32,
+  "files": 64,
+  "dimensions": [
+    [
+      844,
+      390
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "inspectedPairs": [
+    "844-middle-lane",
+    "844-top-neutral",
+    "390-north-defense",
+    "390-blue-spawn"
+  ],
+  "engineeringVisualReview": "Terrain zoning, shape, material identity and seams preserved in inspected pairs. Low is slightly softer at oblique angles from anisotropy 1. High original shader strings remain identical.",
+  "founderDesignLock": false,
+  "physicalIPhoneSafari": "NOT VERIFIED"
+}

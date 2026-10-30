@@ -1,0 +1,5 @@
+src/presentation/terrain-textures.ts 95ms
+src/presentation/solrahn-surface-material.ts 47ms
+src/presentation/solrahn-v2-environment.ts 68ms
+tests/helpers/measure-solrahn-performance.ts 43ms
+tests/browser/solrahn-performance.spec.ts 23ms

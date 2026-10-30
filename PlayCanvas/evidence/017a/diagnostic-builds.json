@@ -1,0 +1,16 @@
+{
+  "atlas-only": {
+    "target": "dAlbedo=colorRough.rgb*modulation;",
+    "replacement": "dAlbedo=colorRough.rgb;",
+    "sourceSha256": "fc641501e82ae54128fd2a3c8b44fbb3b3a0214e7b6b23d506c586bf97a2e6ef",
+    "diagnosticSha256": "4a0a8ac8bf4d3003549a325055ca9c7a75ae3258e8b08c4f1447bef57d8c32d0",
+    "note": "Texture resources retained to isolate fragment work, same gameplay/camera/countdown and HTTP cache semantics."
+  },
+  "constant": {
+    "target": "dAlbedo=colorRough.rgb*modulation;",
+    "replacement": "dAlbedo=vec3(.4);",
+    "sourceSha256": "fc641501e82ae54128fd2a3c8b44fbb3b3a0214e7b6b23d506c586bf97a2e6ef",
+    "diagnosticSha256": "14d0cb04b0a9738226822f2f3925de5830de76f13aff96b9ade1e6800d9ce8eb",
+    "note": "Texture resources retained to isolate fragment work, same gameplay/camera/countdown and HTTP cache semantics."
+  }
+}

@@ -1,0 +1,10 @@
+[goal-017a-solrahn-performance 03b67c9] Defer High terrain assets and simplify Low lighting [skip ci]
+ 14 files changed, 938 insertions(+), 84 deletions(-)
+ create mode 100644 PlayCanvas/scripts/prepare-solrahn-diagnostics.py
+ create mode 100644 PlayCanvas/scripts/prepare-solrahn-performance.py
+ create mode 100644 PlayCanvas/scripts/verify-solrahn-performance-protection.py
+ create mode 100644 PlayCanvas/tests/browser/solrahn-performance.spec.ts
+ create mode 100644 PlayCanvas/tests/helpers/capture-solrahn-performance.ts
+ create mode 100644 PlayCanvas/tests/helpers/measure-solrahn-performance.ts
+ create mode 100644 PlayCanvas/tests/solrahn-material-lifecycle.test.ts
+ create mode 100644 PlayCanvas/tests/terrain-textures.test.ts

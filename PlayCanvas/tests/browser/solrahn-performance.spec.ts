@@ -69,7 +69,8 @@ test('surface: five rematch/menu/quality cycles retain bounded resources and laz
                 window as unknown as { __crownfall: { verification: { pause(): void; advance(s: number): void } } }
             ).__crownfall.verification;
             v.pause();
-            v.advance(340);
+            v.advance(300);
+            v.advance(40);
         });
         await expect(page.getByRole('button', { name: 'Play Again' })).toBeVisible({ timeout: 30000 });
         await click('enter');

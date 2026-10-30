@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Invoke only after the preceding benchmark exits; no other tests/browser/builds.
+set -eu
+BUILDS='[["lazy-only","http://127.0.0.1:4177/?mapPreview=solrahn-v2&surface=goal017&frontend=1&verify=1"],["constant","http://127.0.0.1:4179/?mapPreview=solrahn-v2&surface=goal017&frontend=1&verify=1"],["atlas-only","http://127.0.0.1:4178/?mapPreview=solrahn-v2&surface=goal017&frontend=1&verify=1"],["isotropic","http://127.0.0.1:4180/?mapPreview=solrahn-v2&surface=goal017&frontend=1&verify=1"],["no-debug","http://127.0.0.1:4181/?mapPreview=solrahn-v2&surface=goal017&frontend=1&verify=1"],["high-pbr","http://127.0.0.1:4173/?mapPreview=solrahn-v2&surface=goal017&frontend=1&verify=1&auditHigh=1"]]' LABEL=matrix node tests/helpers/measure-solrahn-performance.ts >> evidence/017a/benchmark-matrix.txt 2>&1

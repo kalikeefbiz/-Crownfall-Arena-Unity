@@ -1,0 +1,22 @@
+{
+  "lazy-dist": {
+    "gameBundle": "game-iksnC72N.js",
+    "sha256": "9ee5de5cf89c8560fa47c2d8be8d12c7590f168ff2fd78276bb5bc2ead4f446b"
+  },
+  "constant": {
+    "gameBundle": "game-DXdIO4u9.js",
+    "sha256": "14d0cb04b0a9738226822f2f3925de5830de76f13aff96b9ade1e6800d9ce8eb"
+  },
+  "atlas-only": {
+    "gameBundle": "game-DXdIO4u9.js",
+    "sha256": "4a0a8ac8bf4d3003549a325055ca9c7a75ae3258e8b08c4f1447bef57d8c32d0"
+  },
+  "isotropic": {
+    "gameBundle": "game-DXdIO4u9.js",
+    "sha256": "2b965e527615418c55b0d9f651bd4d3e387112fa12571b955955fe251197332e"
+  },
+  "no-debug": {
+    "gameBundle": "game-DXdIO4u9.js",
+    "sha256": "fcef91a9bf394bcae34610ca8df1b039b0f34c5f803104b129342fc67bf6ee28"
+  }
+}

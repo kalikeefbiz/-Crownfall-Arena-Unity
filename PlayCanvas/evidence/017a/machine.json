@@ -1,0 +1,30 @@
+{
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "node": "v24.19.0",
+  "cpuQuota": "200000 100000",
+  "memoryLimit": "8589934592",
+  "cpuModel": "AMD EPYC 9V74 80-Core Processor",
+  "renderer": "Chromium 156 headless ANGLE SwiftShader",
+  "viewport": [
+    844,
+    390
+  ],
+  "dpr": 1,
+  "workers": 1,
+  "physicalIPhoneSafari": "NOT VERIFIED",
+  "hardwareGpuTime": "UNAVAILABLE",
+  "protectedWorkflows": {
+    "../.github/workflows/publish-crownfall-playcanvas.yml": "8d7f2cb32e4b247a469e2402e4bf6d2b7f1cfd70a17eb117ac12ac4f0a968b1d",
+    "../.github/workflows/import-unity-m1.yml": "5c6256447671cb78183ec2695a02dbd76afae2466db441323c9fda20cc8d0fea",
+    "../.github/workflows/publish-crownfall-solrahn-preview.yml": "7e79b5c18c181081ed2f3d96d2460f075486bdc03916d90e3ea1845c62117982",
+    "../.github/workflows/validate-crownfall-current.yml": "af1ca7e651ebfe74590dc3d62402fa437f7a1cab8383986ee538be478e834def",
+    "../.github/workflows/publish-crownfall-gh-pages.yml": "5154432677ab966e930340b8b96f2d9f0975bcc755a7b355263c53e54c61bcf5",
+    "../.github/workflows/deploy-crownfall-pages.yml": "731eb76a6bb19edd20aa7055cf13715ce63b870d2d71d2c2d7cd73dea1c45433",
+    "../.github/workflows/materialize-crownfall-webgl.yml": "ed99f3e853d865658037ff5e71e0b3a7d2b3462e4baef2c3b281fefc332016a6",
+    "../.github/workflows/unpack-unity-m01.yml": "ec8895643f1944c7396b14d6d44ac8518e006668ea8e6922d3711be7284c65d4",
+    "../.github/workflows/publish-crownfall-solrahn-016.yml": "56a15f71313fcea5c307b80379e1c94415a28ac07b27898b040bf24454578c8c",
+    "../.github/workflows/publish-crownfall-recovery-preview.yml": "dbba2dc784fd083920ee2e3a55f6ae94dda9353331ffb1d654f674f08fa776e2",
+    "../.github/workflows/test-crownfall-deploy-script.yml": "5e5fa0a5b3928c65226d82e7b38c9ac6b72f199fab40f120db27ebb4d58bd851",
+    "../.github/workflows/unpack-unity.yml": "76a6a6785fba052b7497d9411fc7e951de9a3b5f25042fa9d1793d493b9eaced"
+  }
+}

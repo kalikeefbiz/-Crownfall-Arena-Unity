@@ -1,0 +1,18 @@
+goal017a cold readyMs 3232
+goal017a cold liveCombatSetupMs 51933
+goal017a cold activeFrames 55 medianMs 399.8999999999942 p95Ms 700
+goal017a warm readyMs 3092
+goal017a warm liveCombatSetupMs 48908
+goal017a warm activeFrames 54 medianMs 366.6999999999971 p95Ms 750.1000000000058
+goal017a cold readyMs 3019
+goal017a cold liveCombatSetupMs 49614
+goal017a cold activeFrames 53 medianMs 383.3000000000029 p95Ms 750
+goal017a warm readyMs 2921
+goal017a warm liveCombatSetupMs 48456
+goal017a warm activeFrames 50 medianMs 416.59999999999854 p95Ms 866.6999999999971
+goal017a cold readyMs 3424
+goal017a cold liveCombatSetupMs 50629
+goal017a cold activeFrames 53 medianMs 383.3000000000029 p95Ms 850
+goal017a warm readyMs 2960
+goal017a warm liveCombatSetupMs 48792
+goal017a warm activeFrames 55 medianMs 383.3999999999942 p95Ms 783.4000000000015

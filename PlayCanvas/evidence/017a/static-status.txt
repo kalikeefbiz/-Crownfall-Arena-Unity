@@ -1,0 +1,6 @@
+unit=0
+typecheck=0
+lint-scoped=0
+lint-all=1
+format-all=1
+build=0

@@ -1,0 +1,248 @@
+
+> crownfall-playcanvas@0.0.0 test:browser
+> playwright test --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line
+
+
+Running 140 tests using 1 worker
+
+(node:6160) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/140] tests/browser/aim-assist.spec.ts:75:5 › Kit: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+[2/140] tests/browser/aim-assist.spec.ts:75:5 › Set: genuine simultaneous retreat and basic touch hits behind, disabled comparison misses
+[3/140] tests/browser/aim-assist.spec.ts:119:1 › Riven touch hold waits, release acquires scythes, confirmed second direction and recall survive retreat
+[4/140] tests/browser/aim-assist.spec.ts:155:1 › manual drag chooses the opposite direction, cancel/blur/capture loss/orientation clear touch intentions
+[5/140] tests/browser/aim-assist.spec.ts:195:1 › rapid game-surface taps suppress default gestures; menu zoom and live setting remain available
+[6/140] tests/browser/aim-assist.spec.ts:245:1 › retreat and fire against three live pursuing bots records human damage through match authority
+[7/140] tests/browser/application-lifecycle.spec.ts:148:1 › real destroy/remount removes HUD, native listeners and saved diagnostic access; each key submits one command
+[8/140] tests/browser/application-lifecycle.spec.ts:182:1 › re-evaluating startup while mounted replaces its owner instead of duplicating UI or handlers
+[9/140] tests/browser/application-lifecycle.spec.ts:212:1 › destroy releases genuine simultaneous touch captures without committing the held ability after remount
+[10/140] tests/browser/application-lifecycle.spec.ts:284:1 › destroy during actual delayed GLB requests tolerates their late responses and remounts six working models
+[11/140] tests/browser/application-lifecycle.spec.ts:380:1 › destroy after GLB download while embedded texture decoding is pending leaves no late engine work
+[12/140] tests/browser/application-lifecycle.spec.ts:430:1 › destroy between download completion and the queued engine contents handoff cancels parsing safely
+[13/140] tests/browser/arena.spec.ts:35:1 › production arena renders, moves, aims independently, mirrors and preserves facing
+[14/140] tests/browser/arena.spec.ts:70:1 › landscape mobile supports two captured pointers and clears cancelled input
+[15/140] tests/browser/arena.spec.ts:117:1 › obstruction blocks movement in the rendered app
+[16/140] tests/browser/arena.spec.ts:135:5 › Kit selection and real Basic damage through HUD
+[17/140] tests/browser/arena.spec.ts:135:5 › Set selection and real Basic damage through HUD
+[18/140] tests/browser/arena.spec.ts:135:5 › Riven selection and real Basic damage through HUD
+[19/140] tests/browser/arena.spec.ts:158:1 › aimed Ember Step and radial Solar Ring execute with cooldown and health diagnostics
+[20/140] tests/browser/arena.spec.ts:176:1 › Set ground ultimate consumes charged meter and impacts after commitment
+[21/140] tests/browser/arena.spec.ts:187:1 › Riven stance changes actions and SCREAM updates stun/ultimate diagnostics
+[22/140] tests/browser/environment.spec.ts:43:1 › legacy recovery and tint-free carved rendering preserve the same authoritative fixture and camera
+[23/140] tests/browser/environment.spec.ts:77:1 › normal match defaults to carved terrain with territory indicators retained
+[24/140] tests/browser/ergonomics.spec.ts:32:5 › competitive camera follows Kit smoothly from behind with fixed forward focus
+[25/140] tests/browser/ergonomics.spec.ts:32:5 › competitive camera follows Set smoothly from behind with fixed forward focus
+[26/140] tests/browser/ergonomics.spec.ts:32:5 › competitive camera follows Riven smoothly from behind with fixed forward focus
+[27/140] tests/browser/ergonomics.spec.ts:81:5 › competitive Kit retains touch Basic timing with the farther camera
+[28/140] tests/browser/ergonomics.spec.ts:81:5 › competitive Set retains touch Basic timing with the farther camera
+[29/140] tests/browser/ergonomics.spec.ts:81:5 › competitive Riven retains touch Basic timing with the farther camera
+[30/140] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 0
+[31/140] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 844x390, safe inset 44
+[32/140] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 667x375, safe inset 44
+[33/140] tests/browser/ergonomics.spec.ts:131:5 › landscape targets and HUD stay clear at 640x360, safe inset 44
+[34/140] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 844x390
+[35/140] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 667x375
+[36/140] tests/browser/frontend.spec.ts:46:5 › menu-first, roster, settings and saved editor 640x360
+[37/140] tests/browser/frontend.spec.ts:113:1 › real sequential readiness, authoritative result, replay cache, pause and menu rendering suspension
+[38/140] tests/browser/frontend.spec.ts:214:1 › failed essential model offers real retry and return without a countdown
+[39/140] tests/browser/frontend.spec.ts:232:1 › Combat Practice uses the existing sandbox authority and can return to menu
+[40/140] tests/browser/frontend.spec.ts:245:1 › saved control positions are the real captured touch targets across rotation
+[41/140] tests/browser/frontend.spec.ts:310:1 › preparation deadline prevents a late game module from starting behind the error screen
+[42/140] tests/browser/hud-contracts.spec.ts:34:5 › HUD text follows exact default match settings and earned modifier values
+[43/140] tests/browser/hud-contracts.spec.ts:34:5 › HUD text follows nondefault match settings and earned modifier values
+[44/140] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 844x390, safe 0
+[45/140] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 844x390, safe 44
+[46/140] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 667x375, safe 44
+[47/140] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 640x360, safe 44
+[48/140] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 390x844, safe 0
+[49/140] tests/browser/hud-layout.spec.ts:43:5 › HUD rows follow content across fonts and match phases at 1280x720, safe 0
+[50/140] tests/browser/kit-model.spec.ts:46:1 › production serves unchanged Kit GLB
+[51/140] tests/browser/kit-model.spec.ts:54:1 › local Kit loads, grounds, follows and animates in the normal mobile match
+tests/browser/kit-model.spec.ts:54:1 › local Kit loads, grounds, follows and animates in the normal mobile match
+Kit measured diagnostics {"state":"loaded","bytes":26939896,"source":"assets/summoners/kit/Kit_20K_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_5","duration":1.8333330154418945},{"name":"Punch_Combo_1","duration":2.200000047683716},{"name":"RunFast","duration":0.4666669964790344}],"loadMs":2218.7000000001863,"error":"","bounds":{"min":[-0.38867348432540894,-2.587064562575847e-9,-0.20758193731307983],"max":[0.38867348432540894,1.7000000476837158,0.20758193731307983]},"height":1.7000000502707804,"scale":1.0294117342650992,"offset":[0,0.05264644266315462,0],"meshInstances":1,"authoredForwardYaw":0,"instanceId":"e794aabc-c34a-4714-9c8f-f4d298a9ae18","meshId":9,"materialId":23,"activeAnimation":"Idle_5","playbackTime":0.38330000000000025,"playing":true,"attackCount":0,"lastAttackSerial":0,"staticComparison":false,"worldBounds":{"min":[-0.42435271087346743,-0.11090896580443177,3.218038476572327],"max":[0.6687061969781518,1.7280997283563062,4.451755980278515]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"rootScale":[1,1,1],"frameMs":30.73004610243466}
+
+[52/140] tests/browser/kit-model.spec.ts:113:5 › Set retains primitives without fetching Kit
+[53/140] tests/browser/kit-model.spec.ts:113:5 › Riven retains primitives without fetching Kit
+[54/140] tests/browser/kit-model.spec.ts:131:1 › primitive comparison skips the GLB request
+[55/140] tests/browser/kit-model.spec.ts:145:1 › pending and failed loading keep playable primitive fallback
+[56/140] tests/browser/kit-model.spec.ts:167:1 › 10K comparison remains static and is requested only once
+[57/140] tests/browser/kit-model.spec.ts:181:1 › animated Kit survives death, respawn, results and restart without another download
+[58/140] tests/browser/match.spec.ts:23:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch
+  1) tests/browser/match.spec.ts:23:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: false
+    Received: true
+
+    Call Log:
+    - Timeout 15000ms exceeded while waiting on the predicate
+
+      32 |     await expect(page.locator('#match-status')).toContainText('Red 14 tickets');
+      33 |     await expect(page.locator('#match-status')).toContainText('RESPAWN');
+    > 34 |     await expect.poll(async () => (await snapshot(page)).actors.find((a) => a.id === '2-0')!.dead).toBe(false);
+         |                                                                                                    ^
+      35 |     await expect(page.locator('#match-status')).toContainText('PROTECTED');
+      36 |     await page.locator('#advance-match').click();
+      37 |     for (let i = 0; i < 14; i++) {
+        at /workspace/Crownfall-Arena/PlayCanvas/tests/browser/match.spec.ts:34:100
+
+    Error Context: test-results/match-rendered-lifecycle-c-2c656-s-results-and-clean-rematch/error-context.md
+
+
+(node:8079) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[59/140] tests/browser/match.spec.ts:63:1 › 3v3 selected Blue human takes real touch commands after countdown and reset
+[60/140] tests/browser/playable.spec.ts:12:1 › prematch inspection starts, fights a natural 3v3 battle, sees results, freeze and clean restart
+[61/140] tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 844x390
+[62/140] tests/browser/playable.spec.ts:75:5 › normal mobile HUD and actual captured touch controls 390x844
+[63/140] tests/browser/riven-model.spec.ts:65:1 › production serves the exact verified Riven GLB
+[64/140] tests/browser/riven-model.spec.ts:73:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+tests/browser/riven-model.spec.ts:73:1 › opt-in Riven loads lazily, grounds, runs, faces and idles at the locked mobile camera
+Riven measured diagnostics {"state":"loaded","bytes":11170312,"source":"assets/summoners/riven/Riven_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Idle_6","duration":7.366666793823242},{"name":"run_fast_7","duration":0.8666669726371765}],"registeredStates":["Idle_6","Walking","Running"],"runningClip":"Running","locomotionReason":"run_fast_7 failed loop validation; using Running","preferredLoop":{"valid":false,"positionError":0.01896846294403076,"rotationErrorDegrees":12.873240271210351},"loadMs":436,"error":"","bounds":{"min":[-0.44156354665756226,2.049818093041722e-9,-0.16084645688533783],"max":[0.44156360626220703,1.7000001668930054,0.16084642708301544]},"height":1.7000001648431873,"scale":1.029411664887353,"offset":[-3.0678858306627066e-8,0.035075997889893344,1.5339429153313533e-8],"meshInstances":1,"jointCount":68,"authoredForwardYaw":0,"instanceId":"4f759558-bdf9-49b9-9e13-9cca4032dedd","meshId":9,"materialId":23,"activeAnimation":"Idle_6","playbackTime":0.26659999999999995,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.4545507002204552,0.03507599818120699,3.8344228103126046],"max":[0.4545507002204552,1.7850760129006318,4.165577220366254]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.0033203279599547386,1.0339760374193807,-0.009960962459445],"rootScale":[1,1,1],"frameMs":35.43585898648897}
+
+[65/140] tests/browser/riven-model.spec.ts:156:1 › Riven aim/commit facing uses Riven controls without Kit punch animations
+[66/140] tests/browser/riven-model.spec.ts:184:5 › Riven primitive skips the download with no developer opt-in
+[67/140] tests/browser/riven-model.spec.ts:184:5 › Riven primitive skips the download with &rivenPrimitive=1
+[68/140] tests/browser/riven-model.spec.ts:202:1 › pending and failed Riven loading retain a moving primitive
+[69/140] tests/browser/riven-model.spec.ts:224:1 › valid container missing a required Riven clip safely falls back
+[70/140] tests/browser/riven-model.spec.ts:241:1 › training preview switches summoners and reuses one Riven instance
+[71/140] tests/browser/riven-model.spec.ts:261:1 › Riven preview survives defeat, respawn, results and rematch without another download
+[72/140] tests/browser/riven-touch.spec.ts:7:1 › Riven 3D preview supports simultaneous touch movement, aim, release and cancellation
+[73/140] tests/browser/riven-weapons.spec.ts:93:1 › two shared Moonreapers follow every Reso phase, stance and Elf Dance
+[74/140] tests/browser/riven-weapons.spec.ts:160:5 › failed asset keeps two functional fallback scythes per Riven
+[75/140] tests/browser/riven-weapons.spec.ts:160:5 › primitive keeps two functional fallback scythes per Riven
+[76/140] tests/browser/riven-weapons.spec.ts:177:1 › ordinary 3v3 selects Riven and renders independent player and AI scythes without preview flags
+[77/140] tests/browser/set-model.spec.ts:65:1 › production serves the exact verified Set GLB
+[78/140] tests/browser/set-model.spec.ts:73:1 › opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera
+tests/browser/set-model.spec.ts:73:1 › opt-in Set loads lazily, grounds, runs, faces and idles at the locked mobile camera
+Set measured diagnostics {"state":"loaded","bytes":10000416,"source":"assets/summoners/set/Set_Animated.glb","clips":[{"name":"Running","duration":0.6333330273628235},{"name":"Walking","duration":1.0333329439163208},{"name":"Punch_Combo","duration":2.4666669368743896},{"name":"RunFast","duration":0.4666669964790344}],"registeredStates":["Ready","Running"],"runningClip":"Running","locomotionReason":"Running selected; RunFast intentionally excluded","readySource":"Punch_Combo","readyTime":0,"loadMs":3467.699999999255,"error":"","bounds":{"min":[-0.6199274659156799,2.9567924997309092e-8,-0.2392396479845047],"max":[0.6199275255203247,1.7000000476837158,0.2392396330833435]},"height":1.7000000181157908,"scale":1.117647046913494,"offset":[-3.3308477607771577e-8,0.009313466953495945,8.327119401942894e-9],"meshInstances":1,"jointCount":87,"authoredForwardYaw":0,"instanceId":"a73797bf-3b92-4234-935a-934f3080aef0","meshId":9,"materialId":23,"activeAnimation":"Ready","playbackTime":0.1333000000000002,"playing":true,"previewEnabled":true,"presentationOnly":true,"worldBounds":{"min":[-0.6360617170823178,-0.06283756784961692,3.2168089065785646],"max":[0.6157246596404985,1.835775694312336,4.458091993275803]},"selected":true,"forcedPrimitive":false,"visible":true,"primitiveVisible":false,"yaw":180,"position":{"x":0,"y":0,"z":4},"hipLocalPosition":[0.005961951799690723,1.0001788139343262,0.05088947340846062],"rootScale":[1,1,1],"frameMs":39.539075189122016}
+
+[79/140] tests/browser/set-model.spec.ts:157:5 › Set primitive skips the download with no developer opt-in
+[80/140] tests/browser/set-model.spec.ts:157:5 › Set primitive skips the download with &setPrimitive=1
+[81/140] tests/browser/set-model.spec.ts:175:1 › pending and failed Set loading retain a moving primitive
+[82/140] tests/browser/set-model.spec.ts:197:1 › valid container missing a required Set clip safely falls back
+[83/140] tests/browser/set-model.spec.ts:214:1 › training preview switches summoners and reuses one Set instance
+[84/140] tests/browser/set-model.spec.ts:234:1 › Set preview survives defeat, respawn, results and rematch without another download
+[85/140] tests/browser/set-model.spec.ts:264:1 › normal Set preview starts a match and supports captured mobile movement and combat
+[86/140] tests/browser/set-model.spec.ts:301:1 › combined preview flags preserve Riven while switching to and from Set
+[87/140] tests/browser/six-summoner.spec.ts:85:5 › Kit selection renders six identities with independent playback and shared resources
+tests/browser/six-summoner.spec.ts:85:5 › Kit selection renders six identities with independent playback and shared resources
+Six summoner diagnostics {"selected":"Kit","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":430.90000000037253},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":2123.5},{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":2819.5},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":718.1999999992549}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8192,"sb":0}},"frameMs":41.18325106226034,"entities":1345}
+
+[88/140] tests/browser/six-summoner.spec.ts:85:5 › Set selection renders six identities with independent playback and shared resources
+tests/browser/six-summoner.spec.ts:85:5 › Set selection renders six identities with independent playback and shared resources
+Six summoner diagnostics {"selected":"Set","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":2216.199999999255},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":2618.300000000745},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":2942.0999999996275},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":687}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8192,"sb":0}},"frameMs":39.60864403658373,"entities":1345}
+
+[89/140] tests/browser/six-summoner.spec.ts:85:5 › Riven selection renders six identities with independent playback and shared resources
+tests/browser/six-summoner.spec.ts:85:5 › Riven selection renders six identities with independent playback and shared resources
+Six summoner diagnostics {"selected":"Riven","assets":{"downloads":4,"boundCalculations":4,"assets":[{"source":"assets/summoners/kit/Kit_20K_Animated.glb","state":"loaded","loadMs":2143.300000000745},{"source":"assets/summoners/set/Set_Animated.glb","state":"loaded","loadMs":2391.300000000745},{"source":"assets/summoners/riven/Riven_Animated.glb","state":"loaded","loadMs":2736.39999999851},{"source":"assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb","state":"loaded","loadMs":590.0999999996275}],"gpu":{"tex":461436480,"vb":6104300,"ib":666954,"ub":8192,"sb":0}},"frameMs":49.443916851816205,"entities":1345}
+
+[90/140] tests/browser/six-summoner.spec.ts:170:1 › all actors survive defeat, respawn, rematch and identity reorder without redownloads
+  2) tests/browser/six-summoner.spec.ts:170:1 › all actors survive defeat, respawn, rematch and identity reorder without redownloads 
+
+    Error: expect(received).toHaveLength(expected)
+
+    Expected length: 4
+    Received length: 0
+    Received array:  []
+
+      50 | function checkWeapons(s: Snapshot) {
+      51 |     const weapons = s.rivenWeapons.instances;
+    > 52 |     expect(weapons).toHaveLength(4);
+         |                     ^
+      53 |     expect(new Set(weapons.map((w) => w.instanceId)).size).toBe(4);
+      54 |     for (const m of s.summonerModels) {
+      55 |         const owned = weapons.filter((w) => w.ownerId === m.id && w.kind === 'reso');
+        at checkWeapons (/workspace/Crownfall-Arena/PlayCanvas/tests/browser/six-summoner.spec.ts:52:21)
+        at /workspace/Crownfall-Arena/PlayCanvas/tests/browser/six-summoner.spec.ts:209:5
+
+    Error Context: test-results/six-summoner-all-actors-su-bcaf5-reorder-without-redownloads/error-context.md
+
+
+(node:9092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[91/140] tests/browser/six-summoner.spec.ts:234:1 › one failed shared asset falls back for both teams while the other four models render
+[92/140] tests/browser/six-summoner.spec.ts:252:1 › global primitive diagnostic skips every GLB and keeps normal bots active
+[93/140] tests/browser/six-summoner.spec.ts:277:1 › normal match enables all six skinned actors and normal AI without preview flags
+[94/140] tests/browser/solrahn-performance.spec.ts:7:1 › surface: five rematch/menu/quality cycles retain bounded resources and lazy High demand
+  3) tests/browser/solrahn-performance.spec.ts:7:1 › surface: five rematch/menu/quality cycles retain bounded resources and lazy High demand 
+
+    Error: page.evaluate: Error: Invalid verification advance
+        at Object.advance (http://127.0.0.1:4173/assets/game-Cn0_0GFA.js:11020:6390)
+        at eval (eval at evaluate (:370:30), <anonymous>:4:9)
+        at UtilityScript.evaluate (<anonymous>:372:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at Object.advance (http://127.0.0.1:4173/assets/game-Cn0_0GFA.js:11020:6390)
+        at eval (eval at evaluate (:370:30), <anonymous>:4:9)
+        at UtilityScript.evaluate (<anonymous>:372:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at /workspace/Crownfall-Arena/PlayCanvas/tests/browser/solrahn-performance.spec.ts:67:20
+
+    Error Context: test-results/solrahn-performance-surfac-aa496-ources-and-lazy-High-demand/error-context.md
+
+
+(node:9305) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[95/140] tests/browser/solrahn-performance.spec.ts:94:1 › surface: failed deferred High can retry without replacing the working Low material
+[96/140] tests/browser/solrahn-performance.spec.ts:130:1 › surface: Low remains selected when a pending High load completes
+[97/140] tests/browser/solrahn-surface.spec.ts:35:5 › V2 materials: readiness, combat, terrain, results and replay 844
+[98/140] tests/browser/solrahn-surface.spec.ts:35:5 › V2 materials: readiness, combat, terrain, results and replay 390
+[99/140] tests/browser/solrahn-surface.spec.ts:162:1 › corrupt V2 height data fails visibly without loading the older map
+[100/140] tests/browser/solrahn-surface.spec.ts:175:1 › missing material texture rejects readiness with retry and no older-map fallback
+[101/140] tests/browser/solrahn-surface.spec.ts:186:1 › High quality renders the four PBR families with tangent normals and AO
+[102/140] tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 844
+[103/140] tests/browser/solrahn-v2.spec.ts:26:5 › V2 graybox: readiness, combat, terrain, results and replay 390
+[104/140] tests/browser/solrahn-v2.spec.ts:148:1 › corrupt V2 height data fails visibly without loading the older map
+[105/140] tests/browser/solrahn.spec.ts:26:5 › Solrahn authored map: readiness, combat, terrain, results and replay 844
+[106/140] tests/browser/solrahn.spec.ts:26:5 › Solrahn authored map: readiness, combat, terrain, results and replay 390
+[107/140] tests/browser/territory.spec.ts:28:1 › production positional territory, visual frontier, grace, retained CP and camera
+[108/140] tests/browser/territory.spec.ts:59:5 › production total-control result has all participants, final metrics, freezes and restarts
+[109/140] tests/browser/territory.spec.ts:59:5 › production points result has all participants, final metrics, freezes and restarts
+[110/140] tests/browser/territory.spec.ts:108:1 › normal full-map iPhone landscape HUD avoids controls and real touch deals damage
+[111/140] tests/browser/territory.spec.ts:139:5 › natural alive ordered total control team 1
+[112/140] tests/browser/territory.spec.ts:139:5 › natural alive ordered total control team 2
+[113/140] tests/browser/territory.spec.ts:156:1 › crossed runner cannot backcap in production
+[114/140] tests/browser/touch-combat.spec.ts:136:5 › Kit: back-to-back genuine touch press/release damages the known in-range target
+[115/140] tests/browser/touch-combat.spec.ts:136:5 › Set: back-to-back genuine touch press/release damages the known in-range target
+[116/140] tests/browser/touch-combat.spec.ts:152:1 › Riven: genuine touch hold never fires; release survives normal lost capture and launches both scythes
+[117/140] tests/browser/touch-combat.spec.ts:173:1 › Riven quick touch tap commits on release and Pulse retains release-only semantics after stance switch
+[118/140] tests/browser/touch-combat.spec.ts:191:1 › simultaneous movement and Basic touch fingers retain independent capture while actual damage resolves
+[119/140] tests/browser/touch-combat.spec.ts:221:5 › Kit: touchcancel while aiming never commits damage
+[120/140] tests/browser/touch-combat.spec.ts:221:5 › Set: touchcancel while aiming never commits damage
+[121/140] tests/browser/touch-combat.spec.ts:221:5 › Riven: touchcancel while aiming never commits damage
+[122/140] tests/browser/touch-combat.spec.ts:232:1 › Riven: actual capture loss before release cancels without enqueuing a Basic
+[123/140] tests/browser/touch-combat.spec.ts:274:5 › Kit: aimed non-Basic touch action produces authoritative damage
+[124/140] tests/browser/touch-combat.spec.ts:274:5 › Set: aimed non-Basic touch action produces authoritative damage
+[125/140] tests/browser/touch-combat.spec.ts:274:5 › Riven: aimed non-Basic touch action produces authoritative damage
+[126/140] tests/browser/touch-combat.spec.ts:285:1 › touch Solar Ring uses its radial radius and creates authoritative HIT feedback
+[127/140] tests/browser/touch-combat.spec.ts:296:1 › Set: touch ground marker clamps to 14m and touch ground ultimate damages the original line target
+[128/140] tests/browser/touch-combat.spec.ts:322:1 › Set preview uses 1.65m cone, 150px cancellation is visible; Riven empty-path release visibly resolves MISS
+[129/140] tests/browser/wilderness-environment.spec.ts:12:1 › western grove loads each approved species once and shares tree meshes and materials
+[130/140] tests/browser/wilderness.spec.ts:25:5 › touch secures mobility, visible camp and timed authoritative buff
+[131/140] tests/browser/wilderness.spec.ts:25:5 › touch secures cooldown, visible camp and timed authoritative buff
+[132/140] tests/browser/wilderness.spec.ts:25:5 › touch secures defense, visible camp and timed authoritative buff
+[133/140] tests/browser/wilderness.spec.ts:25:5 › touch secures damage, visible camp and timed authoritative buff
+[134/140] tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness -1 and returns
+[135/140] tests/browser/wilderness.spec.ts:69:5 › real captured touch leaves lane into Wilderness 1 and returns
+[136/140] tests/browser/wilderness.spec.ts:103:1 › bot rotation physically leaves lane toward real camp in production
+[137/140] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 844 safe 0
+[138/140] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 844 safe 44
+[139/140] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 667 safe 44
+[140/140] tests/browser/wilderness.spec.ts:126:5 › active reward HUD clear of controls 640 safe 44
+  Slow test file: tests/browser/playable.spec.ts (11.3m)
+  Slow test file: tests/browser/ergonomics.spec.ts (5.3m)
+  Consider running tests from slow files in parallel. See: https://playwright.dev/docs/test-parallel
+  3 failed
+    tests/browser/match.spec.ts:23:1 › rendered lifecycle countdown, death, visible respawn/protection, all final lives, results and clean rematch 
+    tests/browser/six-summoner.spec.ts:170:1 › all actors survive defeat, respawn, rematch and identity reorder without redownloads 
+    tests/browser/solrahn-performance.spec.ts:7:1 › surface: five rematch/menu/quality cycles retain bounded resources and lazy High demand 
+  137 passed (49.5m)
