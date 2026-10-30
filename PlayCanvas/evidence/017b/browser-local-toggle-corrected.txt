@@ -1,0 +1,14 @@
+
+Running 2 tests using 1 worker
+
+(node:16373) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [chromium] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844
+(node:16477) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/2] [webkit] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844
+  2 passed (34.3s)

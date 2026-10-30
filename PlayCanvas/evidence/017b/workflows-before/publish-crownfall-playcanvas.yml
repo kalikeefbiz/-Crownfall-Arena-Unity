@@ -1,0 +1,166 @@
+name: Validate and Publish Crownfall PlayCanvas
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [playcanvas-port]
+    paths:
+      - "PlayCanvas/**"
+      - "!PlayCanvas/**/*.md"
+      - "!PlayCanvas/evidence/**"
+      - ".github/workflows/**"
+  pull_request:
+    paths:
+      - "PlayCanvas/**"
+      - "!PlayCanvas/**/*.md"
+      - "!PlayCanvas/evidence/**"
+      - ".github/workflows/**"
+
+# PRs and validation never receive a write token.
+permissions:
+  contents: read
+
+concurrency:
+  # Serialize source-branch releases, including manual runs and reruns. A newer
+  # pending run replaces an older pending run; an active publish finishes first.
+  # PR validation has a separate group and may safely cancel superseded work.
+  group: ${{ github.event_name == 'pull_request' && format('crownfall-playcanvas-pr-{0}', github.event.pull_request.number) || 'crownfall-playcanvas-preview' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  validate:
+    name: Validate production build
+    runs-on: ubuntu-24.04
+    # Baseline full suite took 25.7 minutes, including a 15-minute match test.
+    # Allow 60 minutes for browsers plus installation, checks and evidence upload.
+    timeout-minutes: 90
+    defaults:
+      run:
+        working-directory: PlayCanvas
+    steps:
+      - name: Checkout immutable event revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          lfs: true
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: PlayCanvas/package-lock.json
+
+      - name: Clean dependency installation
+        run: npm ci
+
+      - name: Unit tests
+        run: npm test
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: ESLint
+        run: npm run lint
+
+      - name: Prettier validation
+        run: npm run fmt
+
+      - name: Production build
+        run: npm run build
+
+      - name: Install supported Chromium and system dependencies
+        run: npx playwright install --with-deps chromium
+
+      - name: Complete production browser suite
+        timeout-minutes: 65
+        env:
+          CI: "true"
+          # The locked Playwright Chromium is selected; no developer override.
+          CHROMIUM_PATH: ""
+          PLAYWRIGHT_HTML_OPEN: never
+          PLAYWRIGHT_HTML_OUTPUT_DIR: playwright-report
+        # Existing config serves dist via vite preview, with SwiftShader and one
+        # worker. Discover every test, including Riven; retain original timeouts.
+        # Global limit: 60 minutes. No retries, grep filters or max-failure cutoff.
+        run: npm run test:browser -- --workers=1 --retries=0 --forbid-only --global-timeout=3600000 --reporter=line,html --trace=retain-on-failure
+
+      - name: Preserve browser evidence even on failure
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-evidence-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            PlayCanvas/playwright-report/
+            PlayCanvas/test-results/
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Record validated build identity
+        env:
+          VALIDATED_SHA: ${{ github.sha }}
+        run: |
+          printf '%s\n' "$VALIDATED_SHA" > validated-sha.txt
+          find dist -type f -print0 | sort -z | xargs -0 sha256sum > dist.sha256
+
+      - name: Upload validated production build
+        uses: actions/upload-artifact@v4
+        with:
+          name: validated-playcanvas-${{ github.sha }}-${{ github.run_attempt }}
+          path: |
+            PlayCanvas/dist/
+            PlayCanvas/dist.sha256
+            PlayCanvas/validated-sha.txt
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    name: Publish validated build to /playcanvas/
+    needs: validate
+    # Default success() also prevents failed/cancelled validation from publishing.
+    if: ${{ github.ref == 'refs/heads/playcanvas-port' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout validated revision for publication metadata
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+
+      - name: Download this run's validated build
+        uses: actions/download-artifact@v4
+        with:
+          name: validated-playcanvas-${{ github.sha }}-${{ github.run_attempt }}
+          path: validated-build
+
+      - name: Verify build provenance and reject stale releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EXPECTED_SHA: ${{ github.sha }}
+          REPOSITORY: ${{ github.repository }}
+        working-directory: validated-build
+        run: |
+          set -euo pipefail
+          test "$(cat validated-sha.txt)" = "$EXPECTED_SHA"
+          sha256sum --check dist.sha256
+          test -f dist/index.html
+          CURRENT_SHA="$(gh api "repos/$REPOSITORY/git/ref/heads/playcanvas-port" --jq .object.sha)"
+          if [ "$CURRENT_SHA" != "$EXPECTED_SHA" ]; then
+            echo "Refusing stale release $EXPECTED_SHA; source branch is $CURRENT_SHA" >&2
+            exit 1
+          fi
+
+      - name: Publish validated artifact under existing GitHub Pages site
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./validated-build/dist
+          publish_branch: gh-pages
+          destination_dir: playcanvas
+          keep_files: true
+          force_orphan: false
+          enable_jekyll: false

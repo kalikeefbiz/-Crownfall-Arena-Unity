@@ -1,0 +1,421 @@
+{
+  "source": "f5c21f0783155583f8aafde55071acf3d2617f57",
+  "baseSource": "9f20e5bc666bfc3f9afedad53573b63c05d4068b",
+  "pagesBefore": "4521174ae290685b5a7e875640081e2a73066b5b",
+  "pagesAfter": "46768b70a5b014327a3b62bca2835359322cab17",
+  "protectedGitObjectsIdentical": true,
+  "protectedObjectCount": 306,
+  "changedPaths": [
+    "solrahn-goal-017b/assets/environment/polyhaven/SOURCES.md",
+    "solrahn-goal-017b/assets/environment/polyhaven/dirt_albedo_1k.webp",
+    "solrahn-goal-017b/assets/environment/polyhaven/dirt_ar_1k.png",
+    "solrahn-goal-017b/assets/environment/polyhaven/dirt_normal_1k.webp",
+    "solrahn-goal-017b/assets/environment/polyhaven/dry_ground_rocks_albedo_1k.webp",
+    "solrahn-goal-017b/assets/environment/polyhaven/dry_ground_rocks_ar_1k.png",
+    "solrahn-goal-017b/assets/environment/polyhaven/dry_ground_rocks_normal_1k.webp",
+    "solrahn-goal-017b/assets/environment/polyhaven/forest_leaves_02_albedo_512.webp",
+    "solrahn-goal-017b/assets/environment/polyhaven/forest_leaves_02_ar_512.png",
+    "solrahn-goal-017b/assets/environment/polyhaven/forest_leaves_02_normal_512.webp",
+    "solrahn-goal-017b/assets/environment/polyhaven/sparse_grass_albedo_512.webp",
+    "solrahn-goal-017b/assets/environment/polyhaven/sparse_grass_ar_512.png",
+    "solrahn-goal-017b/assets/environment/polyhaven/sparse_grass_normal_512.webp",
+    "solrahn-goal-017b/assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/README.md",
+    "solrahn-goal-017b/assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb",
+    "solrahn-goal-017b/assets/environment/trees/mobile/README.md",
+    "solrahn-goal-017b/assets/environment/trees/mobile/preparation.json",
+    "solrahn-goal-017b/assets/frontend-BvrFtEGx.js",
+    "solrahn-goal-017b/assets/frontend/fonts/Cinzel-OFL.txt",
+    "solrahn-goal-017b/assets/frontend/fonts/Cinzel.woff",
+    "solrahn-goal-017b/assets/frontend/fonts/Rajdhani-OFL.txt",
+    "solrahn-goal-017b/assets/frontend/fonts/Rajdhani.woff",
+    "solrahn-goal-017b/assets/frontend/portraits/kit.webp",
+    "solrahn-goal-017b/assets/frontend/portraits/provenance.json",
+    "solrahn-goal-017b/assets/frontend/portraits/riven.webp",
+    "solrahn-goal-017b/assets/frontend/portraits/set.webp",
+    "solrahn-goal-017b/assets/frontend/ucl-arena-menu.jpeg",
+    "solrahn-goal-017b/assets/game-WtbuSyI4.js",
+    "solrahn-goal-017b/assets/index-DFMzEqwj.js",
+    "solrahn-goal-017b/assets/index-sWEGSirf.css",
+    "solrahn-goal-017b/assets/preload-helper-CRzLMJPS.js",
+    "solrahn-goal-017b/assets/solrahn-surface/dry_ground_rocks_color.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/dry_ground_rocks_normal.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/forrest_ground_01_color.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/forrest_ground_01_normal.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/grass_path_2_color.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/grass_path_2_normal.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/low-atlas.json",
+    "solrahn-goal-017b/assets/solrahn-surface/low_atlas.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/materials.json",
+    "solrahn-goal-017b/assets/solrahn-surface/mossy_rock_color.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/mossy_rock_normal.webp",
+    "solrahn-goal-017b/assets/solrahn-surface/weights.json",
+    "solrahn-goal-017b/assets/solrahn-surface/weights.png",
+    "solrahn-goal-017b/assets/solrahn-v2/height.u16",
+    "solrahn-goal-017b/assets/solrahn-v2/lane.bin",
+    "solrahn-goal-017b/assets/solrahn-v2/terrain.json",
+    "solrahn-goal-017b/assets/solrahn-v2/walk.bin",
+    "solrahn-goal-017b/assets/solrahn/surface.bin",
+    "solrahn-goal-017b/assets/solrahn/surface.json",
+    "solrahn-goal-017b/assets/summoners/kit/Kit_20K_Animated.glb",
+    "solrahn-goal-017b/assets/summoners/kit/README.md",
+    "solrahn-goal-017b/assets/summoners/kit/kit-10k-test.glb",
+    "solrahn-goal-017b/assets/summoners/riven/README.md",
+    "solrahn-goal-017b/assets/summoners/riven/Riven_Animated.glb",
+    "solrahn-goal-017b/assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+    "solrahn-goal-017b/assets/summoners/riven/weapons/README.md",
+    "solrahn-goal-017b/assets/summoners/set/README.md",
+    "solrahn-goal-017b/assets/summoners/set/Set_Animated.glb",
+    "solrahn-goal-017b/index.html",
+    "solrahn-goal-017b/preview-source.json"
+  ],
+  "files": {
+    "assets/environment/polyhaven/SOURCES.md": {
+      "bytes": 2072,
+      "sha256": "92996f46e7be4ca543babb076e69a61d00a30dd9eed335e582ebe20b266682d7",
+      "gitBlob": "75b63a1bf4fbeb8b4380f27cda6d2087ac634257"
+    },
+    "assets/environment/polyhaven/dirt_albedo_1k.webp": {
+      "bytes": 256400,
+      "sha256": "7c5aa6105d4900f10b65244060defad7687031572ed051ea7eec59f4ba8b3fee",
+      "gitBlob": "f633a1f6fa6890876b9b514cccfdabf7aace8639"
+    },
+    "assets/environment/polyhaven/dirt_ar_1k.png": {
+      "bytes": 1182466,
+      "sha256": "a125f2d8ef5bbcc22f1a1cc1482a194ca966f6e1446f98672b7dd8e45e4dc275",
+      "gitBlob": "44ac1b2300b5134daaaf57cdd358b7b92966da58"
+    },
+    "assets/environment/polyhaven/dirt_normal_1k.webp": {
+      "bytes": 650728,
+      "sha256": "7f2273a11f7084bbb43cd39c733f643f503119605612cb15877aa6a361b2a087",
+      "gitBlob": "15fb7161d0dee413a2b5ec3f2c0f281c92423513"
+    },
+    "assets/environment/polyhaven/dry_ground_rocks_albedo_1k.webp": {
+      "bytes": 544052,
+      "sha256": "c2cf120f0bc9c7f2d63e0e0e4107b4c8a69692ee8811499982caa38ca0cd4ee0",
+      "gitBlob": "24c4b42ce6cff9d40059e86dee32e3eb23a7c346"
+    },
+    "assets/environment/polyhaven/dry_ground_rocks_ar_1k.png": {
+      "bytes": 1815517,
+      "sha256": "93f20db4a367e68420c90e61e31ee0ac736951db2f234384e951cef25b9855a2",
+      "gitBlob": "fe857d5ffdeea4a73d8dce375698785527a3e5d9"
+    },
+    "assets/environment/polyhaven/dry_ground_rocks_normal_1k.webp": {
+      "bytes": 655838,
+      "sha256": "8b01e76723a50efb4b9c312bb634a1828b099a0d56cc15c211a524617f100ba6",
+      "gitBlob": "769207e6e0f0aa80cc38c23b248c79f6842d6de7"
+    },
+    "assets/environment/polyhaven/forest_leaves_02_albedo_512.webp": {
+      "bytes": 143448,
+      "sha256": "cb1863a580f07406a5ce83c680b8f3d5241069f59598023f959e11984f59e1b8",
+      "gitBlob": "33ae553d88fd266945b6420ae8419138d34be283"
+    },
+    "assets/environment/polyhaven/forest_leaves_02_ar_512.png": {
+      "bytes": 486937,
+      "sha256": "f8394d4ac17b58169cc0d4cd13f2481c71947f65db6b7a9ab0193618fecc9669",
+      "gitBlob": "aa2ebb35a219f642dd5ba6bfad8126d22ec76160"
+    },
+    "assets/environment/polyhaven/forest_leaves_02_normal_512.webp": {
+      "bytes": 190932,
+      "sha256": "7c7b301bf7404d3054fa734ff9b06d91875976b6dea9996446272e180cae957c",
+      "gitBlob": "912dbefdf5e017f6d711d3f79041c91521d3e099"
+    },
+    "assets/environment/polyhaven/sparse_grass_albedo_512.webp": {
+      "bytes": 95608,
+      "sha256": "49aefbd0567f12a787bd20e0531c7e5fa1902eefd7f561644e63a42eb46d0503",
+      "gitBlob": "9553301a772f92dc2b5c25eb366c6a8c183fd582"
+    },
+    "assets/environment/polyhaven/sparse_grass_ar_512.png": {
+      "bytes": 434978,
+      "sha256": "447e71dfea510c8fb65e2679e9e24472321af1598039c078b186ebeaf7df423b",
+      "gitBlob": "5ef3416483500cb92e5cdea6d973dec545a4630b"
+    },
+    "assets/environment/polyhaven/sparse_grass_normal_512.webp": {
+      "bytes": 172584,
+      "sha256": "eadd1cb6666ce29f91f572cc21317c831fa976dfba8fbc59404ef4557989404f",
+      "gitBlob": "18d8497a2bb95528422d2b85bc6fc80164d585e8"
+    },
+    "assets/environment/trees/Meshy_AI_Maple_tree_1025062934_texture.glb": {
+      "bytes": 7729688,
+      "sha256": "3b0901cf17158cca50d24eecad0e4f08e5dbca94992699d23b1637243468ff0e",
+      "gitBlob": "d4ddc6ef0441052316a1decca4456e4435c80fe2"
+    },
+    "assets/environment/trees/Meshy_AI_Pine_tree_1025063153_texture.glb": {
+      "bytes": 5213436,
+      "sha256": "9f51f945f3555b824ae7f61f82a5d0dfc90905f2bf1d87894398a78a125a0590",
+      "gitBlob": "a595e9ec977c13923ce608daee425532fd9fb4e9"
+    },
+    "assets/environment/trees/Meshy_AI_Red_oak_tree_1025063928_texture.glb": {
+      "bytes": 6099384,
+      "sha256": "41dfef59d263dfdf3cbf9b247d2c74dcc0395894802816bb229d5afbcbcdddd1",
+      "gitBlob": "e63131b67361226193f5da3b1e741d80643ed727"
+    },
+    "assets/environment/trees/Meshy_AI_redwood_tree_1025061650_texture.glb": {
+      "bytes": 5795696,
+      "sha256": "e53a2c229aacb5f5530bb04d55749e4c056c393e46a88b850f31988188dce350",
+      "gitBlob": "d94ff9d41a8a808227e2f556e8c3e113699f943c"
+    },
+    "assets/environment/trees/README.md": {
+      "bytes": 889,
+      "sha256": "1153e0b7cb56f9f020f50faf16b69e781df41d3c6252d7106b564e33257cc176",
+      "gitBlob": "7901223929dd42ba2d8cd81de70316fcaeff40a7"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb": {
+      "bytes": 728492,
+      "sha256": "dffee7231cdacdfcfb3725000808d15d9774c8692608bf98fb92f02b5c90a59b",
+      "gitBlob": "811c503a68db218111eb6731996b3aea171d3bc5"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb": {
+      "bytes": 379620,
+      "sha256": "15460eb525b15ea5723bd24f0b9c292fdd0427a62fcc58d39646e273fd59d9fe",
+      "gitBlob": "ac5c27db0e2b7c0d62a45718c6804aeeb58bea6f"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb": {
+      "bytes": 599928,
+      "sha256": "c93f512c21804d32db122848e26bd8477e0dea4c44c26784477904155f09003a",
+      "gitBlob": "48de88b1acf2c9ecc75d3ceaa8c0708d3d322107"
+    },
+    "assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb": {
+      "bytes": 451248,
+      "sha256": "1adc5f2a2c3f22d80232b71445f05353ac1f6a378e512505ee7ea2553e032eb3",
+      "gitBlob": "f15f5e68351428b4d1375d1342b4f14d13ba380e"
+    },
+    "assets/environment/trees/mobile/README.md": {
+      "bytes": 1181,
+      "sha256": "7aeeb6811f77d97650a8ee580126c2c9f2febf3b648b150a60cd718a51a05fd6",
+      "gitBlob": "75febb77e02e4c697751d79f0ef32c63fd68ec43"
+    },
+    "assets/environment/trees/mobile/preparation.json": {
+      "bytes": 2928,
+      "sha256": "60cd6196a2e3f5c37b736dc7af38e6ce2147736f8f83dc6242c11a22950477ed",
+      "gitBlob": "89906cbd977c481d20c8e88797870b0642052285"
+    },
+    "assets/frontend/fonts/Cinzel-OFL.txt": {
+      "bytes": 4383,
+      "sha256": "f2b3029aba64c378bf0963b62945eee15e564fe4330b934c8f2eb058282b5e83",
+      "gitBlob": "afdfd1412be934fe7cc40a5a2c5e06e354c44dcf"
+    },
+    "assets/frontend/fonts/Cinzel.woff": {
+      "bytes": 59460,
+      "sha256": "1f7ac117deec8915bc7cc826165a459eb9992042df9984df4066d6229a22b00d",
+      "gitBlob": "24df1201a94580862289a4c5aedee3b5d2f03d86"
+    },
+    "assets/frontend/fonts/Rajdhani-OFL.txt": {
+      "bytes": 4373,
+      "sha256": "f62ef357d3a1c3d27edd35a6e1ba350e8a8d13499797964eeadefbf0b3b15d1f",
+      "gitBlob": "6dd809659a8ccace7ccee108d024d33cd4f936da"
+    },
+    "assets/frontend/fonts/Rajdhani.woff": {
+      "bytes": 151564,
+      "sha256": "bbde9d81eda957d1cf0c54740b1d3d4e5d961a4a027fcec2fa648a5b116e6e47",
+      "gitBlob": "d589d0131de01aeca44ed43cc02f20c740fe63b4"
+    },
+    "assets/frontend/portraits/kit.webp": {
+      "bytes": 11618,
+      "sha256": "2527614c031ee311b34b668197e987b283a98c73b007ec3a8e4b3918fdc78439",
+      "gitBlob": "8ac1cd6573483f24ac367d5de5adaf3871f54cb7"
+    },
+    "assets/frontend/portraits/provenance.json": {
+      "bytes": 1342,
+      "sha256": "d5c5def405d7bea61d066a60a5700d95c80d267062df08856d2320ffcd53ed49",
+      "gitBlob": "21f6b7ca8fcc785fffab1136e127ea8dddb93e8d"
+    },
+    "assets/frontend/portraits/riven.webp": {
+      "bytes": 8684,
+      "sha256": "96d00448e20db3348ce59509638417633a4e6d10a4e591249849e34df17245dd",
+      "gitBlob": "b56b8b29f4ddef2cae994c549a55b0c0c306b440"
+    },
+    "assets/frontend/portraits/set.webp": {
+      "bytes": 12734,
+      "sha256": "ac57d49b4cb07d187bd0bb50c06cb010aaa3ca2b2eb734aa7f6f82ff389f7d0d",
+      "gitBlob": "fc49d092b109dc18a2dfbaf0136f94d63c4bf314"
+    },
+    "assets/frontend/ucl-arena-menu.jpeg": {
+      "bytes": 721906,
+      "sha256": "d785263520bd9ecef5b0c680550e322c8eb39a0d18ea15d055b77d316a697259",
+      "gitBlob": "9bbdf947ba7cd42d1a2244e5fa80e89f6a24dbbe"
+    },
+    "assets/frontend-BvrFtEGx.js": {
+      "bytes": 18253,
+      "sha256": "380c35dd209ef7290d45ad9e13466d0bdac7edcd983b87ec963e30d38ba243cf",
+      "gitBlob": "7e055a94c57535b5e8abec6cc830fe47a4a529ea"
+    },
+    "assets/game-WtbuSyI4.js": {
+      "bytes": 1351907,
+      "sha256": "32f3773e54ff189fb824650a4cd90846a93dd71334c3ed89f17cdae4a7a610f0",
+      "gitBlob": "d8f0159d6c4b2fca99762e942ebcad105682a1b6"
+    },
+    "assets/index-DFMzEqwj.js": {
+      "bytes": 1550,
+      "sha256": "c87e52d326cce742799c7b8be306a8da38d6ae88b95c0c22a20cdcf0f0110290",
+      "gitBlob": "8ab581f8288da317f6421903b0b746105a5d1d97"
+    },
+    "assets/index-sWEGSirf.css": {
+      "bytes": 23043,
+      "sha256": "a0c5eaef50061243acd55b43f0718053f06f4c6d571f82a2215e61a0dd79f762",
+      "gitBlob": "040a033e3ec6a3c07b2ffda3377d565dd002777c"
+    },
+    "assets/preload-helper-CRzLMJPS.js": {
+      "bytes": 1534,
+      "sha256": "bcc465e3e61dc3878a69ffa95ccb53cb82d95b1639ada223420b281ebd150048",
+      "gitBlob": "5eaec12fe663c0d30efa57b6292ea09691e89f50"
+    },
+    "assets/solrahn/surface.bin": {
+      "bytes": 301491,
+      "sha256": "db9114206f546f7a11343d96cdc27c6770fd4765447f5e95200b644028ab11d5",
+      "gitBlob": "d8aa4e487fc4573e4c899a3c53e44a77abb3051c"
+    },
+    "assets/solrahn/surface.json": {
+      "bytes": 477,
+      "sha256": "c99c22a45c4f8cf642954a1ea9e0e465fd5cd39d3f0d7e9cd0679498aa6d2173",
+      "gitBlob": "b17bbbf464c3dfb9d800bf2e824b6f3450b31dd7"
+    },
+    "assets/solrahn-surface/dry_ground_rocks_color.webp": {
+      "bytes": 733020,
+      "sha256": "31d7cd8cdfbdc76b8ee498ec29b09a29968026b594f46a368e32e24957e8923e",
+      "gitBlob": "0538cb202066e67f7a607880e95e12b760489125"
+    },
+    "assets/solrahn-surface/dry_ground_rocks_normal.webp": {
+      "bytes": 641606,
+      "sha256": "0b74ff68da4d4e1dc906ef0e8b5a0e82777a07f29d3f4641a8d4baa1b3c2033e",
+      "gitBlob": "77e4acbc009992c88381c2f5dc16f7dab80eac41"
+    },
+    "assets/solrahn-surface/forrest_ground_01_color.webp": {
+      "bytes": 506772,
+      "sha256": "230c62d43e46bc6ace43c2c1bc435e6dcbc76235ccb32b9be602acfc3ac6c552",
+      "gitBlob": "abf2ed44249eff8e5891839500cad0c41312edcb"
+    },
+    "assets/solrahn-surface/forrest_ground_01_normal.webp": {
+      "bytes": 750242,
+      "sha256": "8bdab39e150f653f0d23eb16233530e11678706a0009921a412d56606e2044b5",
+      "gitBlob": "5174b2e9e2d90ec66c330b516cc1a4d664a6cbe9"
+    },
+    "assets/solrahn-surface/grass_path_2_color.webp": {
+      "bytes": 500724,
+      "sha256": "5dcface871e26cbb90f49db8ea2736d235ffc6d8dc808fa1ccad878795aec58a",
+      "gitBlob": "2f6377a7a292f21811b732b45599ec4999ab4d88"
+    },
+    "assets/solrahn-surface/grass_path_2_normal.webp": {
+      "bytes": 364286,
+      "sha256": "81c304f260fba6878cc2bd714e4eb6cdc3bab1f76e0db67be38af577a3652f6f",
+      "gitBlob": "f340255bc41b908de0aa46b3d4930387664cbf05"
+    },
+    "assets/solrahn-surface/low-atlas.json": {
+      "bytes": 1190,
+      "sha256": "3eba396bae56b0967064e0a18205a372f55c68517daf3fafdcb1111fdc6f4fe7",
+      "gitBlob": "cba1db48cec1710a29716e5c0df06a860fd7e832"
+    },
+    "assets/solrahn-surface/low_atlas.webp": {
+      "bytes": 272096,
+      "sha256": "78dd19c234ecd6bdb407d20854880fa2b43407a7136e51fd92b2bae1bd2988c9",
+      "gitBlob": "811a48abfd0b5458498fa14c314c196d7a37b2a9"
+    },
+    "assets/solrahn-surface/materials.json": {
+      "bytes": 6022,
+      "sha256": "ffd51e2be7d4e84af2a5ac951fbd4b90300479a86c86ca0f4384caded73b7e24",
+      "gitBlob": "6efcce0b69a5c7ad2cb1f880445f3f6956ab0b4f"
+    },
+    "assets/solrahn-surface/mossy_rock_color.webp": {
+      "bytes": 725498,
+      "sha256": "fb0c16d3763d2c8075613f0783d0b7201e5fcdd5dfc836e459fe597fd6065345",
+      "gitBlob": "2b9d8c1c945bcc8e2f8eaa8d91cd1431f550ca37"
+    },
+    "assets/solrahn-surface/mossy_rock_normal.webp": {
+      "bytes": 297892,
+      "sha256": "ee3611e77b267fa38b51306a7f7fc7db62334002bb124f002639d525315d4388",
+      "gitBlob": "89d779ecc16f35bd11f275a3400054791c8a9366"
+    },
+    "assets/solrahn-surface/weights.json": {
+      "bytes": 1782,
+      "sha256": "1187a9ffa45aee4bb68c9916a2df5529e8fb4782adbbf0c2f0fe77fc55f68c17",
+      "gitBlob": "b7031ceca550451d7baedaed963dd3c99e426243"
+    },
+    "assets/solrahn-surface/weights.png": {
+      "bytes": 746804,
+      "sha256": "c4fd3c2387ed1e8cf3e53ced393644f04676a4ddc16d0943a6af1f1721c716b5",
+      "gitBlob": "bdd7fffdc67ccee9a68aea8cdf260b76ddbf4303"
+    },
+    "assets/solrahn-v2/height.u16": {
+      "bytes": 55970,
+      "sha256": "911fef74ea745f499f8cdb8e31c92f764b09c969112955e6e771b717d19452d9",
+      "gitBlob": "c0b33e45e07c11b0129b3bcaf3f0d6f26bd7f4f7"
+    },
+    "assets/solrahn-v2/lane.bin": {
+      "bytes": 27985,
+      "sha256": "208cfbff7335c3ba7c9d419ed6e0d842fdb933bbbbadfdb16eede73f2a79dc7d",
+      "gitBlob": "538db03d309889d4bc2a9c24a06ce142a8d7ae35"
+    },
+    "assets/solrahn-v2/terrain.json": {
+      "bytes": 2325,
+      "sha256": "df07746800975e2f10fe6e1392adca2904de6375f4ed3dc12ea375005e4b729d",
+      "gitBlob": "bdfd84394ee4353ce6e89db64fc70c0e53c270c1"
+    },
+    "assets/solrahn-v2/walk.bin": {
+      "bytes": 154722,
+      "sha256": "18b51cafcf385d89df5ad453069302ae1ef5684c7ea7a28ecad0042064237589",
+      "gitBlob": "c317f42ef4856d24ffc902495dbf1f93bd0ea05b"
+    },
+    "assets/summoners/kit/Kit_20K_Animated.glb": {
+      "bytes": 26939896,
+      "sha256": "b111e1f774b0483b78f45e43413515adb02e501941c5c99a995d09a43f96212f",
+      "gitBlob": "e14568032d15a0eff2b61706e7b3edeadf2ee25b"
+    },
+    "assets/summoners/kit/README.md": {
+      "bytes": 1943,
+      "sha256": "4f7fc89e2dbb87d125d00b9a787f10ad46258b2537b951ebf7e7de185cc0d02d",
+      "gitBlob": "0de45535a1de189b1f37ebe64775637d972368a2"
+    },
+    "assets/summoners/kit/kit-10k-test.glb": {
+      "bytes": 5317848,
+      "sha256": "11f0b6ad226eae565ddaa7e9104ca1aae2a85ecc954203a70fdce23b0adfb547",
+      "gitBlob": "a9937b0479c750bf07d13a082de17a773f66c0f4"
+    },
+    "assets/summoners/riven/README.md": {
+      "bytes": 1899,
+      "sha256": "4a41c394d0abd5bfed38442e540e304ccead821e82e3f1535b8a53a5078289bc",
+      "gitBlob": "df7763c6539fd00f9eb8f506b0182e38cfea435c"
+    },
+    "assets/summoners/riven/Riven_Animated.glb": {
+      "bytes": 11170312,
+      "sha256": "ba2cb5d72eb2bcfe272c59a50b06a594100a5ac3ceac8f6af457c243c6a5de61",
+      "gitBlob": "470bef4da8eea6a0f9d919b1a3e045532a2b8407"
+    },
+    "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb": {
+      "bytes": 23080916,
+      "sha256": "20bad659e39bc916b7f34fca587e55beed25eeae9d3e77d856879efd173636c8",
+      "gitBlob": "064d67c5b8f5c526d34e1b23fc6f19476864782f"
+    },
+    "assets/summoners/riven/weapons/README.md": {
+      "bytes": 1754,
+      "sha256": "8121fc8be3fd4b72f27ddbb48be117fc96061a9dc9c01070f52e0dbe9d78a140",
+      "gitBlob": "15a0d9326c0fb9a94494d9902160020e9183eb57"
+    },
+    "assets/summoners/set/README.md": {
+      "bytes": 1223,
+      "sha256": "d1955dbd707d450984770008e5af2d209f026f4c1f76465ecc5aa48a7e0bb6e3",
+      "gitBlob": "902d9f96419f27eabadb601511346664e6322309"
+    },
+    "assets/summoners/set/Set_Animated.glb": {
+      "bytes": 10000416,
+      "sha256": "dbee0fd906f786f4af04eb87f130a816c0f98aa04531874487b403f7ca23e154",
+      "gitBlob": "0fa342e3bde0be65d59c67e11c3932661424c8d0"
+    },
+    "index.html": {
+      "bytes": 653,
+      "sha256": "ff863e0166670e7e20a8509881c7ca76357096e985d65f134a58cff213bda78b",
+      "gitBlob": "38e3a0e1d2ee2dbd7a09abc6d392cea320792153"
+    },
+    "preview-source.json": {
+      "bytes": 277,
+      "sha256": "d62722e2bd5adb9bfaf24a3fba968cfa6763d6c73465032f6cddef8335c3dcb1",
+      "gitBlob": "52c75879b81376d4a5950e9951f397c6ef9310c9"
+    }
+  },
+  "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017b/"
+}

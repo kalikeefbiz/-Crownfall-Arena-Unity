@@ -1,0 +1,10 @@
+[goal-017b-device-preview f5c21f0] Add isolated iPhone preview entry and lightweight live performance monitor [skip ci]
+ 11 files changed, 665 insertions(+), 12 deletions(-)
+ create mode 100644 PlayCanvas/GOAL_017B.md
+ create mode 100644 PlayCanvas/playwright.device-preview.config.ts
+ create mode 100644 PlayCanvas/scripts/publish-solrahn-device-preview.py
+ create mode 100644 PlayCanvas/scripts/verify-solrahn-device-preview.py
+ create mode 100644 PlayCanvas/src/ui/performance-monitor.css
+ create mode 100644 PlayCanvas/src/ui/performance-monitor.ts
+ create mode 100644 PlayCanvas/tests/browser/goal017b-device.spec.ts
+ create mode 100644 PlayCanvas/tests/performance-monitor.test.ts

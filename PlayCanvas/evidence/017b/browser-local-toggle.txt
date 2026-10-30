@@ -1,0 +1,83 @@
+
+Running 4 tests using 1 worker
+
+(node:15744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/4] [chromium] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844
+  1) [chromium] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844 
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator:  getByRole('button', { name: 'Hide performance' })
+    Expected: in viewport
+    Received: viewport ratio 0.25806450843811035
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "toBeInViewport" getByRole('button', { name: 'Hide performance' }) with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Hide performance' })
+        41 × locator resolved to <button class="perf-toggle" aria-expanded="true" aria-controls="performance-values">Hide performance ▴</button>
+           - unexpected value "viewport ratio 0.25806450843811035"
+
+
+      244 |                 .poll(async () => (await snapshot(page)).environment.materials.shader.detailNormals)
+      245 |                 .toBe(quality === 'high');
+    > 246 |             await expect(page.getByRole('button', { name: 'Hide performance' })).toBeInViewport({ ratio: 1 });
+          |                                                                                  ^
+      247 |             await expect(page.locator(`[data-quality=${quality}]`)).toBeInViewport({ ratio: 1 });
+      248 |         }
+      249 |         await page.screenshot({
+        at /workspace/Crownfall-Arena/PlayCanvas/tests/browser/goal017b-device.spec.ts:246:82
+
+    Error Context: test-results/017b/goal017b-device-monitor-to-181be-e-after-quality-changes-844-chromium/error-context.md
+
+
+(node:15851) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/4] [chromium] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 390
+(node:15957) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/4] [webkit] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844
+  2) [webkit] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844 
+
+    Error: expect(locator).toBeInViewport() failed
+
+    Locator:  getByRole('button', { name: 'Hide performance' })
+    Expected: in viewport
+    Received: viewport ratio 0.5
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "toBeInViewport" getByRole('button', { name: 'Hide performance' }) with timeout 30000ms
+      - waiting for getByRole('button', { name: 'Hide performance' })
+        42 × locator resolved to <button class="perf-toggle" aria-expanded="true" aria-controls="performance-values">Hide performance ▴</button>
+           - unexpected value "viewport ratio 0.5"
+
+
+      244 |                 .poll(async () => (await snapshot(page)).environment.materials.shader.detailNormals)
+      245 |                 .toBe(quality === 'high');
+    > 246 |             await expect(page.getByRole('button', { name: 'Hide performance' })).toBeInViewport({ ratio: 1 });
+          |                                                                                  ^
+      247 |             await expect(page.locator(`[data-quality=${quality}]`)).toBeInViewport({ ratio: 1 });
+      248 |         }
+      249 |         await page.screenshot({
+        at /workspace/Crownfall-Arena/PlayCanvas/tests/browser/goal017b-device.spec.ts:246:82
+
+    Error Context: test-results/017b/goal017b-device-monitor-to-181be-e-after-quality-changes-844-webkit/error-context.md
+
+
+(node:16062) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[4/4] [webkit] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 390
+  2 failed
+    [chromium] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844 
+    [webkit] › tests/browser/goal017b-device.spec.ts:237:5 › monitor toggle stays visible after quality changes 844 
+  2 passed (2.0m)

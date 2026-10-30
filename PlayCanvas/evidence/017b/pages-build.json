@@ -1,0 +1,32 @@
+{
+  "url": "https://api.github.com/repos/kalikeefbiz/-Crownfall-Arena-Unity/pages/builds/1326538336",
+  "status": "built",
+  "error": {
+    "message": null
+  },
+  "pusher": {
+    "login": "kalikeefbiz",
+    "id": 334712446,
+    "node_id": "U_kgDOE_NOfg",
+    "avatar_url": "https://avatars.githubusercontent.com/u/334712446?v=4",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/kalikeefbiz",
+    "html_url": "https://github.com/kalikeefbiz",
+    "followers_url": "https://api.github.com/users/kalikeefbiz/followers",
+    "following_url": "https://api.github.com/users/kalikeefbiz/following{/other_user}",
+    "gists_url": "https://api.github.com/users/kalikeefbiz/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/kalikeefbiz/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/kalikeefbiz/subscriptions",
+    "organizations_url": "https://api.github.com/users/kalikeefbiz/orgs",
+    "repos_url": "https://api.github.com/users/kalikeefbiz/repos",
+    "events_url": "https://api.github.com/users/kalikeefbiz/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/kalikeefbiz/received_events",
+    "type": "User",
+    "user_view_type": "public",
+    "site_admin": false
+  },
+  "commit": "4fff0767efdef6ea0f3b3bbbd87ae627bfbd8bf2",
+  "duration": 78952,
+  "created_at": "2026-10-30T07:40:34Z",
+  "updated_at": "2026-10-30T07:41:52Z"
+}

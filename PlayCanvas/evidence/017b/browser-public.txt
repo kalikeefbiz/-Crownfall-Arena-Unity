@@ -1,0 +1,20 @@
+
+Running 8 tests using 1 worker
+
+(node:15189) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/8] [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 844
+[2/8] [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 390
+[3/8] [chromium] › tests/browser/goal017b-device.spec.ts:161:1 › normal public entry renders live monitor with real countdown and AI
+[4/8] [chromium] › tests/browser/goal017b-device.spec.ts:194:1 › monitor reports the actual rendering resolution across quality changes
+(node:15335) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[5/8] [webkit] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 844
+[6/8] [webkit] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 390
+[7/8] [webkit] › tests/browser/goal017b-device.spec.ts:161:1 › normal public entry renders live monitor with real countdown and AI
+[8/8] [webkit] › tests/browser/goal017b-device.spec.ts:194:1 › monitor reports the actual rendering resolution across quality changes
+  8 passed (3.7m)

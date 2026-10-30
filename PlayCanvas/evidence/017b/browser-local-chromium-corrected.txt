@@ -1,0 +1,10 @@
+
+Running 2 tests using 1 worker
+
+(node:13906) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/2] [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 844
+[2/2] [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 390
+  2 passed (1.3m)

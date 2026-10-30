@@ -1,0 +1,62 @@
+name: Import Crownfall M0.1 Kit PNGs
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: crownfall-kit-import
+  cancel-in-progress: false
+
+jobs:
+  import:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Protect the M0 source baseline
+        run: git diff --exit-code 832b3a60fc3964c9f60f5cc8c5c07a6def765ddd -- Assets Packages ProjectSettings Tools Docs README.md
+      - name: Apply exact M0.1 patch
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, pathlib, zipfile
+          root = pathlib.Path.cwd().resolve()
+          archive = root / 'Crownfall-Unity-M0.1-Kit.zip'
+          assert hashlib.sha256(archive.read_bytes()).hexdigest() == '07651a8f7361696423a95f446c57a78cc48ec013aa5917272f4ee839491f5f0e', 'Wrong or corrupted M0.1 ZIP'
+          expected = ['Assets/Art/Characters/Kit/Idle/idle.png', 'Assets/Art/Characters/Kit/Idle/idle.png.meta', 'Assets/Art/Characters/Kit/Run/000.png', 'Assets/Art/Characters/Kit/Run/000.png.meta', 'Assets/Art/Characters/Kit/Run/001.png', 'Assets/Art/Characters/Kit/Run/001.png.meta', 'Assets/Art/Characters/Kit/Run/002.png', 'Assets/Art/Characters/Kit/Run/002.png.meta', 'Assets/Art/Characters/Kit/Run/003.png', 'Assets/Art/Characters/Kit/Run/003.png.meta', 'Assets/Crownfall/Configuration/KitSpriteSet.asset', 'Assets/Editor/M0Validation.cs', 'Docs/KIT_ASSETS.md', 'Docs/KitSourceManifest.json', 'Docs/M01_KIT_DELIVERY.md', 'README.md', 'Tools/validate_m0.py']
+          deleted = ['Assets/Art/Characters/Kit/Idle/Kit_Idle.jpeg', 'Assets/Art/Characters/Kit/Idle/Kit_Idle.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_01.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_01.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_02.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_02.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_03.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_03.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_04.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_04.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_05.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_05.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_06.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_06.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_07.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_07.jpeg.meta', 'Assets/Art/Characters/Kit/Run/Kit_Run_08.jpeg', 'Assets/Art/Characters/Kit/Run/Kit_Run_08.jpeg.meta']
+          with zipfile.ZipFile(archive) as z:
+              assert sorted(z.namelist()) == sorted(expected), 'Unexpected patch entries'
+              for name in expected:
+                  target = root / name
+                  assert target.resolve().is_relative_to(root), 'Unsafe destination'
+                  target.parent.mkdir(parents=True, exist_ok=True)
+                  target.write_bytes(z.read(name))
+          for name in deleted:
+              target = root / name
+              assert target.resolve().is_relative_to(root), 'Unsafe deletion'
+              target.unlink()
+          print('Applied five approved PNGs and removed old Kit JPEG assets/metas.')
+          PY
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate source and sprite assets
+        run: |
+          python -m pip install -r Tools/requirements-static.txt
+          python Tools/validate_m0.py
+          git diff --check
+      - name: Commit asset correction
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A -- Assets/Art/Characters/Kit Assets/Crownfall/Configuration/KitSpriteSet.asset Assets/Editor/M0Validation.cs Tools/validate_m0.py Docs README.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Fix M0.1 Kit PNG presentation with approved four-frame cycle"
+          git push origin HEAD:main

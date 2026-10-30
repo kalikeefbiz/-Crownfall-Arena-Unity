@@ -1,0 +1,54 @@
+
+Running 3 tests using 1 worker
+
+(node:12958) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/3] [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 844
+  1) [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 844 
+
+    Error: page.evaluate: Error: Invalid verification advance
+        at Object.advance (http://127.0.0.1:4182/assets/game-WtbuSyI4.js:11020:6395)
+        at eval (eval at evaluate (:370:30), <anonymous>:3:9)
+        at UtilityScript.evaluate (<anonymous>:372:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at Object.advance (http://127.0.0.1:4182/assets/game-WtbuSyI4.js:11020:6395)
+        at eval (eval at evaluate (:370:30), <anonymous>:3:9)
+        at UtilityScript.evaluate (<anonymous>:372:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at /workspace/Crownfall-Arena/PlayCanvas/tests/browser/goal017b-device.spec.ts:124:20
+
+    Error Context: test-results/017b/goal017b-device-device-preview-lifecycle-and-monitor-844-chromium/error-context.md
+
+
+(node:13089) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[2/3] [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 390
+  2) [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 390 
+
+    Error: page.evaluate: Error: Invalid verification advance
+        at Object.advance (http://127.0.0.1:4182/assets/game-WtbuSyI4.js:11020:6395)
+        at eval (eval at evaluate (:370:30), <anonymous>:3:9)
+        at UtilityScript.evaluate (<anonymous>:372:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at Object.advance (http://127.0.0.1:4182/assets/game-WtbuSyI4.js:11020:6395)
+        at eval (eval at evaluate (:370:30), <anonymous>:3:9)
+        at UtilityScript.evaluate (<anonymous>:372:16)
+        at UtilityScript.<anonymous> (<anonymous>:1:44)
+        at /workspace/Crownfall-Arena/PlayCanvas/tests/browser/goal017b-device.spec.ts:124:20
+
+    Error Context: test-results/017b/goal017b-device-device-preview-lifecycle-and-monitor-390-chromium/error-context.md
+
+
+(node:13229) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[3/3] [chromium] › tests/browser/goal017b-device.spec.ts:160:1 › normal public entry renders live monitor with real countdown and AI
+  2 failed
+    [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 844 
+    [chromium] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 390 
+  1 passed (2.1m)

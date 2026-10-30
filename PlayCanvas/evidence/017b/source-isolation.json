@@ -1,0 +1,12 @@
+{
+  "base": "9f20e5bc666bfc3f9afedad53573b63c05d4068b",
+  "terrainMaterialsMapsCombatInputAndPublicAssetsByteIdentical": true,
+  "protectedPaths": [
+    "PlayCanvas/src/presentation",
+    "PlayCanvas/src/maps",
+    "PlayCanvas/src/combat",
+    "PlayCanvas/src/input",
+    "PlayCanvas/public"
+  ],
+  "gameChange": "Optional completed-render observer and lightweight performance-state accessor only; simulation/rules unchanged."
+}

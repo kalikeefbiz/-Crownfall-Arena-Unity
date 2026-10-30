@@ -1,0 +1,8 @@
+{
+  "functionalPublicBuild": "f5c21f0783155583f8aafde55071acf3d2617f57",
+  "finalBuild": "2e70eebe4b6eaeea645a24466513955335d9c989",
+  "byteIdenticalGameplayAndFrontendBundles": [
+    "assets/frontend-BvrFtEGx.js",
+    "assets/game-WtbuSyI4.js"
+  ]
+}

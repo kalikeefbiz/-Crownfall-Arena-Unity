@@ -1,0 +1,11 @@
+
+Running 3 tests using 1 worker
+
+(node:14289) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+
+[1/3] [webkit] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 844
+[2/3] [webkit] › tests/browser/goal017b-device.spec.ts:33:5 › device preview lifecycle and monitor 390
+[3/3] [webkit] › tests/browser/goal017b-device.spec.ts:161:1 › normal public entry renders live monitor with real countdown and AI
+  3 passed (1.0m)

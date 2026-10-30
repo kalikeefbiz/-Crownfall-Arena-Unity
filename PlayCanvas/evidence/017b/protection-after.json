@@ -1,0 +1,16 @@
+{
+  "protectedGitObjectsIdentical": true,
+  "protectedObjectCount": 306,
+  "protectedPublicFiles": 85,
+  "source": {
+    "source": "2e70eebe4b6eaeea645a24466513955335d9c989",
+    "baseSource": "9f20e5bc666bfc3f9afedad53573b63c05d4068b",
+    "goal": "017b",
+    "branch": "goal-017b-device-preview",
+    "map": "solrahn-v2",
+    "surface": "goal017",
+    "productionReplaced": false,
+    "buildFlag": "VITE_DEVICE_PREVIEW=1"
+  },
+  "pages": "4fff0767efdef6ea0f3b3bbbd87ae627bfbd8bf2"
+}

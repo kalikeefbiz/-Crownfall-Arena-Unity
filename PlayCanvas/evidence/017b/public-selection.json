@@ -1,0 +1,1336 @@
+[
+  {
+    "browser": "chromium",
+    "selected": "riven",
+    "sixAnimatedModels": [
+      {
+        "id": "1-0",
+        "summonerId": "riven",
+        "team": 1,
+        "teamColor": "#369bff",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          0.21176470588235294,
+          0.6078431372549019,
+          1,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 11170312,
+        "source": "assets/summoners/riven/Riven_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_6",
+            "duration": 7.366666793823242
+          },
+          {
+            "name": "run_fast_7",
+            "duration": 0.8666669726371765
+          }
+        ],
+        "registeredStates": [
+          "Idle_6",
+          "Walking",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "run_fast_7 failed loop validation; using Running",
+        "preferredLoop": {
+          "valid": false,
+          "positionError": 0.01896846294403076,
+          "rotationErrorDegrees": 12.873240271210351
+        },
+        "loadMs": 73.19999999925494,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.44156354665756226,
+            2.049818093041722e-9,
+            -0.16084645688533783
+          ],
+          "max": [
+            0.44156360626220703,
+            1.7000001668930054,
+            0.16084642708301544
+          ]
+        },
+        "height": 1.7000001648431873,
+        "scale": 1.029411664887353,
+        "offset": [
+          -3.0678858306627066e-8,
+          0.035075997889893344,
+          1.5339429153313533e-8
+        ],
+        "meshInstances": 1,
+        "jointCount": 68,
+        "authoredForwardYaw": 0,
+        "instanceId": "08caed7c-059d-4516-937d-9a7f3e863be4",
+        "meshId": 53,
+        "materialId": 26,
+        "activeAnimation": "Idle_6",
+        "playbackTime": 0.7001000000000006,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            -0.5154621307289289,
+            0.44009913532207745,
+            70.64057845134613
+          ],
+          "max": [
+            0.3695935100524864,
+            2.219177966317352,
+            71.28119853445517
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 180,
+        "position": {
+          "x": 0,
+          "y": 0.46668192744255066,
+          "z": 71
+        },
+        "hipLocalPosition": [
+          0.0033203279599547386,
+          1.0368137174053975,
+          -0.009960962459445
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "1-1",
+        "summonerId": "kit-asher",
+        "team": 1,
+        "teamColor": "#369bff",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          0.21176470588235294,
+          0.6078431372549019,
+          1,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 26939896,
+        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_5",
+            "duration": 1.8333330154418945
+          },
+          {
+            "name": "Punch_Combo_1",
+            "duration": 2.200000047683716
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "loadMs": 5.899999998509884,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.38867348432540894,
+            -2.587064562575847e-9,
+            -0.20758193731307983
+          ],
+          "max": [
+            0.38867348432540894,
+            1.7000000476837158,
+            0.20758193731307983
+          ]
+        },
+        "height": 1.7000000502707804,
+        "scale": 1.0294117342650992,
+        "offset": [
+          0,
+          0.05264644266315462,
+          0
+        ],
+        "meshInstances": 1,
+        "authoredForwardYaw": 0,
+        "instanceId": "a5a8e06e-639e-4236-af45-b9061fe53b89",
+        "meshId": 54,
+        "materialId": 27,
+        "activeAnimation": "Idle_5",
+        "playbackTime": 0.7001000000000006,
+        "playing": true,
+        "attackCount": 0,
+        "lastAttackSerial": 0,
+        "staticComparison": false,
+        "worldBounds": {
+          "min": [
+            -1.8887757865423596,
+            0.36060941107132716,
+            70.22720394314594
+          ],
+          "max": [
+            -0.7911219603104381,
+            2.204078611598054,
+            71.45843861092034
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 180,
+        "position": {
+          "x": -1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": 71
+        },
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "1-2",
+        "summonerId": "set",
+        "team": 1,
+        "teamColor": "#369bff",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          0.21176470588235294,
+          0.6078431372549019,
+          1,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 10000416,
+        "source": "assets/summoners/set/Set_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Punch_Combo",
+            "duration": 2.4666669368743896
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "registeredStates": [
+          "Ready",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "Running selected; RunFast intentionally excluded",
+        "readySource": "Punch_Combo",
+        "readyTime": 0,
+        "loadMs": 4.199999999254942,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.6199274659156799,
+            2.9567924997309092e-8,
+            -0.2392396479845047
+          ],
+          "max": [
+            0.6199275255203247,
+            1.7000000476837158,
+            0.2392396330833435
+          ]
+        },
+        "height": 1.7000000181157908,
+        "scale": 1.117647046913494,
+        "offset": [
+          -3.3308477607771577e-8,
+          0.009313466953495945,
+          8.327119401942894e-9
+        ],
+        "meshInstances": 1,
+        "jointCount": 87,
+        "authoredForwardYaw": 0,
+        "instanceId": "82676f6c-e178-4776-8b29-2321fac237cd",
+        "meshId": 55,
+        "materialId": 28,
+        "activeAnimation": "Ready",
+        "playbackTime": 0.7001000000000006,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            0.813938197367487,
+            0.4038443984345633,
+            70.21680997244985
+          ],
+          "max": [
+            2.065724707324214,
+            2.302457485727008,
+            71.4580829999868
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 180,
+        "position": {
+          "x": 1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": 71
+        },
+        "hipLocalPosition": [
+          0.005961951799690723,
+          1.0001788139343262,
+          0.05088947340846062
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "2-0",
+        "summonerId": "kit-asher",
+        "team": 2,
+        "teamColor": "#ff425c",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          1,
+          0.25882352941176473,
+          0.3607843137254902,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 26939896,
+        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_5",
+            "duration": 1.8333330154418945
+          },
+          {
+            "name": "Punch_Combo_1",
+            "duration": 2.200000047683716
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "loadMs": 7.5,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.38867348432540894,
+            -2.587064562575847e-9,
+            -0.20758193731307983
+          ],
+          "max": [
+            0.38867348432540894,
+            1.7000000476837158,
+            0.20758193731307983
+          ]
+        },
+        "height": 1.7000000502707804,
+        "scale": 1.0294117342650992,
+        "offset": [
+          0,
+          0.05264644266315462,
+          0
+        ],
+        "meshInstances": 1,
+        "authoredForwardYaw": 0,
+        "instanceId": "5135567f-7d78-4ad6-b5f1-115ca35241ca",
+        "meshId": 54,
+        "materialId": 27,
+        "activeAnimation": "Idle_5",
+        "playbackTime": 0.7001000000000006,
+        "playing": true,
+        "attackCount": 0,
+        "lastAttackSerial": 0,
+        "staticComparison": false,
+        "worldBounds": {
+          "min": [
+            -0.6588780873732776,
+            0.36060941107132716,
+            -71.45843861092034
+          ],
+          "max": [
+            0.4387758308952301,
+            2.204078611598054,
+            -70.22720394314594
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 0,
+        "position": {
+          "x": 0,
+          "y": 0.46668192744255066,
+          "z": -71
+        },
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "2-1",
+        "summonerId": "set",
+        "team": 2,
+        "teamColor": "#ff425c",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          1,
+          0.25882352941176473,
+          0.3607843137254902,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 10000416,
+        "source": "assets/summoners/set/Set_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Punch_Combo",
+            "duration": 2.4666669368743896
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "registeredStates": [
+          "Ready",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "Running selected; RunFast intentionally excluded",
+        "readySource": "Punch_Combo",
+        "readyTime": 0,
+        "loadMs": 6.699999999254942,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.6199274659156799,
+            2.9567924997309092e-8,
+            -0.2392396479845047
+          ],
+          "max": [
+            0.6199275255203247,
+            1.7000000476837158,
+            0.2392396330833435
+          ]
+        },
+        "height": 1.7000000181157908,
+        "scale": 1.117647046913494,
+        "offset": [
+          -3.3308477607771577e-8,
+          0.009313466953495945,
+          8.327119401942894e-9
+        ],
+        "meshInstances": 1,
+        "jointCount": 87,
+        "authoredForwardYaw": 0,
+        "instanceId": "8ce11462-3572-4f2f-8de2-d19da5462488",
+        "meshId": 55,
+        "materialId": 28,
+        "activeAnimation": "Ready",
+        "playbackTime": 0.7001000000000006,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            -2.065724707324214,
+            0.4038443984345633,
+            -71.4580829999868
+          ],
+          "max": [
+            -0.8139381973674871,
+            2.302457485727008,
+            -70.21680997244985
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 0,
+        "position": {
+          "x": -1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": -71
+        },
+        "hipLocalPosition": [
+          0.005961951799690723,
+          1.0001788139343262,
+          0.05088947340846062
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "2-2",
+        "summonerId": "riven",
+        "team": 2,
+        "teamColor": "#ff425c",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          1,
+          0.25882352941176473,
+          0.3607843137254902,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 11170312,
+        "source": "assets/summoners/riven/Riven_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_6",
+            "duration": 7.366666793823242
+          },
+          {
+            "name": "run_fast_7",
+            "duration": 0.8666669726371765
+          }
+        ],
+        "registeredStates": [
+          "Idle_6",
+          "Walking",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "run_fast_7 failed loop validation; using Running",
+        "preferredLoop": {
+          "valid": false,
+          "positionError": 0.01896846294403076,
+          "rotationErrorDegrees": 12.873240271210351
+        },
+        "loadMs": 66.69999999925494,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.44156354665756226,
+            2.049818093041722e-9,
+            -0.16084645688533783
+          ],
+          "max": [
+            0.44156360626220703,
+            1.7000001668930054,
+            0.16084642708301544
+          ]
+        },
+        "height": 1.7000001648431873,
+        "scale": 1.029411664887353,
+        "offset": [
+          -3.0678858306627066e-8,
+          0.035075997889893344,
+          1.5339429153313533e-8
+        ],
+        "meshInstances": 1,
+        "jointCount": 68,
+        "authoredForwardYaw": 0,
+        "instanceId": "4b8d525b-ed38-4f2c-b107-0d8392f962ef",
+        "meshId": 53,
+        "materialId": 26,
+        "activeAnimation": "Idle_6",
+        "playbackTime": 0.7001000000000006,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            1.0804065683100879,
+            0.44009913532207745,
+            -71.28119853445517
+          ],
+          "max": [
+            1.9654621784126447,
+            2.219177966317352,
+            -70.64057845134613
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 0,
+        "position": {
+          "x": 1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": -71
+        },
+        "hipLocalPosition": [
+          0.0033203279599547386,
+          1.0368137174053975,
+          -0.009960962459445
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "modelAssets": {
+      "downloads": 4,
+      "boundCalculations": 4,
+      "assets": [
+        {
+          "source": "assets/summoners/riven/Riven_Animated.glb",
+          "state": "loaded",
+          "loadMs": 781.2999999970198
+        },
+        {
+          "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+          "state": "loaded",
+          "loadMs": 1630.0999999977648
+        },
+        {
+          "source": "assets/summoners/set/Set_Animated.glb",
+          "state": "loaded",
+          "loadMs": 846
+        },
+        {
+          "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+          "state": "loaded",
+          "loadMs": 1460.300000000745
+        }
+      ],
+      "gpu": {
+        "tex": 423843788,
+        "vb": 6356108,
+        "ib": 699888,
+        "ub": 4160,
+        "sb": 0
+      }
+    },
+    "errors": [],
+    "physicalIPhone": "NOT VERIFIED"
+  },
+  {
+    "browser": "webkit",
+    "selected": "set",
+    "sixAnimatedModels": [
+      {
+        "id": "1-0",
+        "summonerId": "set",
+        "team": 1,
+        "teamColor": "#369bff",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          0.21176470588235294,
+          0.6078431372549019,
+          1,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 10000416,
+        "source": "assets/summoners/set/Set_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Punch_Combo",
+            "duration": 2.4666669368743896
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "registeredStates": [
+          "Ready",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "Running selected; RunFast intentionally excluded",
+        "readySource": "Punch_Combo",
+        "readyTime": 0,
+        "loadMs": 20,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.6199274659156799,
+            2.9567924997309092e-8,
+            -0.2392396479845047
+          ],
+          "max": [
+            0.6199275255203247,
+            1.7000000476837158,
+            0.2392396330833435
+          ]
+        },
+        "height": 1.7000000181157908,
+        "scale": 1.117647046913494,
+        "offset": [
+          -3.3308477607771577e-8,
+          0.009313466953495945,
+          8.327119401942894e-9
+        ],
+        "meshInstances": 1,
+        "jointCount": 87,
+        "authoredForwardYaw": 0,
+        "instanceId": "399b9810-dfb4-4358-aaf5-f0502f2e189d",
+        "meshId": 53,
+        "materialId": 26,
+        "activeAnimation": "Ready",
+        "playbackTime": 1.12,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            -0.6360617170823178,
+            0.4038443984345633,
+            70.21680997244985
+          ],
+          "max": [
+            0.6157246596404985,
+            2.302457485727008,
+            71.4580829999868
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 180,
+        "position": {
+          "x": 0,
+          "y": 0.46668192744255066,
+          "z": 71
+        },
+        "hipLocalPosition": [
+          0.005961951799690723,
+          1.0001788139343262,
+          0.05088947340846062
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "1-1",
+        "summonerId": "kit-asher",
+        "team": 1,
+        "teamColor": "#369bff",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          0.21176470588235294,
+          0.6078431372549019,
+          1,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 26939896,
+        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_5",
+            "duration": 1.8333330154418945
+          },
+          {
+            "name": "Punch_Combo_1",
+            "duration": 2.200000047683716
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "loadMs": 4,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.38867348432540894,
+            -2.587064562575847e-9,
+            -0.20758193731307983
+          ],
+          "max": [
+            0.38867348432540894,
+            1.7000000476837158,
+            0.20758193731307983
+          ]
+        },
+        "height": 1.7000000502707804,
+        "scale": 1.0294117342650992,
+        "offset": [
+          0,
+          0.05264644266315462,
+          0
+        ],
+        "meshInstances": 1,
+        "authoredForwardYaw": 0,
+        "instanceId": "218a6f5f-977b-4780-abd3-09b6c99d6d5a",
+        "meshId": 54,
+        "materialId": 27,
+        "activeAnimation": "Idle_5",
+        "playbackTime": 1.12,
+        "playing": true,
+        "attackCount": 0,
+        "lastAttackSerial": 0,
+        "staticComparison": false,
+        "worldBounds": {
+          "min": [
+            -1.904399234794309,
+            0.34768858592785323,
+            70.20627218861664
+          ],
+          "max": [
+            -0.7740426391120544,
+            2.204357358001498,
+            71.44831433488959
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 180,
+        "position": {
+          "x": -1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": 71
+        },
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "1-2",
+        "summonerId": "riven",
+        "team": 1,
+        "teamColor": "#369bff",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          0.21176470588235294,
+          0.6078431372549019,
+          1,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 11170312,
+        "source": "assets/summoners/riven/Riven_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_6",
+            "duration": 7.366666793823242
+          },
+          {
+            "name": "run_fast_7",
+            "duration": 0.8666669726371765
+          }
+        ],
+        "registeredStates": [
+          "Idle_6",
+          "Walking",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "run_fast_7 failed loop validation; using Running",
+        "preferredLoop": {
+          "valid": false,
+          "positionError": 0.01896846294403076,
+          "rotationErrorDegrees": 12.873240271210806
+        },
+        "loadMs": 26,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.44156354665756226,
+            2.049818093041722e-9,
+            -0.16084645688533783
+          ],
+          "max": [
+            0.44156360626220703,
+            1.7000001668930054,
+            0.16084642708301544
+          ]
+        },
+        "height": 1.7000001648431873,
+        "scale": 1.029411664887353,
+        "offset": [
+          -3.0678858306627066e-8,
+          0.035075997889893344,
+          1.5339429153313533e-8
+        ],
+        "meshInstances": 1,
+        "jointCount": 68,
+        "authoredForwardYaw": 0,
+        "instanceId": "e982f5cf-dce6-479a-b896-e748bf0d6b96",
+        "meshId": 55,
+        "materialId": 28,
+        "activeAnimation": "Idle_6",
+        "playbackTime": 1.12,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            0.9354262202746071,
+            0.4400356765489557,
+            70.64749684496097
+          ],
+          "max": [
+            1.8180896014426255,
+            2.2216493325690054,
+            71.31051774830034
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 180,
+        "position": {
+          "x": 1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": 71
+        },
+        "hipLocalPosition": [
+          0.0033203279599547386,
+          1.0373306512810985,
+          -0.009960962459445
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "2-0",
+        "summonerId": "kit-asher",
+        "team": 2,
+        "teamColor": "#ff425c",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          1,
+          0.25882352941176473,
+          0.3607843137254902,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 26939896,
+        "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_5",
+            "duration": 1.8333330154418945
+          },
+          {
+            "name": "Punch_Combo_1",
+            "duration": 2.200000047683716
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "loadMs": 5,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.38867348432540894,
+            -2.587064562575847e-9,
+            -0.20758193731307983
+          ],
+          "max": [
+            0.38867348432540894,
+            1.7000000476837158,
+            0.20758193731307983
+          ]
+        },
+        "height": 1.7000000502707804,
+        "scale": 1.0294117342650992,
+        "offset": [
+          0,
+          0.05264644266315462,
+          0
+        ],
+        "meshInstances": 1,
+        "authoredForwardYaw": 0,
+        "instanceId": "f99287ae-ca1c-4acb-9bc8-3cebc13a5927",
+        "meshId": 54,
+        "materialId": 27,
+        "activeAnimation": "Idle_5",
+        "playbackTime": 1.12,
+        "playing": true,
+        "attackCount": 0,
+        "lastAttackSerial": 0,
+        "staticComparison": false,
+        "worldBounds": {
+          "min": [
+            -0.6759573472139371,
+            0.34768858592785323,
+            -71.44831433488959
+          ],
+          "max": [
+            0.4543993405049038,
+            2.204357358001498,
+            -70.20627218861664
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 0,
+        "position": {
+          "x": 0,
+          "y": 0.46668192744255066,
+          "z": -71
+        },
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "2-1",
+        "summonerId": "set",
+        "team": 2,
+        "teamColor": "#ff425c",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          1,
+          0.25882352941176473,
+          0.3607843137254902,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 10000416,
+        "source": "assets/summoners/set/Set_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Punch_Combo",
+            "duration": 2.4666669368743896
+          },
+          {
+            "name": "RunFast",
+            "duration": 0.4666669964790344
+          }
+        ],
+        "registeredStates": [
+          "Ready",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "Running selected; RunFast intentionally excluded",
+        "readySource": "Punch_Combo",
+        "readyTime": 0,
+        "loadMs": 32,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.6199274659156799,
+            2.9567924997309092e-8,
+            -0.2392396479845047
+          ],
+          "max": [
+            0.6199275255203247,
+            1.7000000476837158,
+            0.2392396330833435
+          ]
+        },
+        "height": 1.7000000181157908,
+        "scale": 1.117647046913494,
+        "offset": [
+          -3.3308477607771577e-8,
+          0.009313466953495945,
+          8.327119401942894e-9
+        ],
+        "meshInstances": 1,
+        "jointCount": 87,
+        "authoredForwardYaw": 0,
+        "instanceId": "613a99e6-df1e-4a1a-8f85-1d7f4e51bb57",
+        "meshId": 53,
+        "materialId": 26,
+        "activeAnimation": "Ready",
+        "playbackTime": 1.12,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            -2.065724707324214,
+            0.4038443984345633,
+            -71.4580829999868
+          ],
+          "max": [
+            -0.8139381973674871,
+            2.302457485727008,
+            -70.21680997244985
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 0,
+        "position": {
+          "x": -1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": -71
+        },
+        "hipLocalPosition": [
+          0.005961951799690723,
+          1.0001788139343262,
+          0.05088947340846062
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "id": "2-2",
+        "summonerId": "riven",
+        "team": 2,
+        "teamColor": "#ff425c",
+        "indicatorVisible": true,
+        "indicatorColor": [
+          1,
+          0.25882352941176473,
+          0.3607843137254902,
+          1
+        ],
+        "state": "loaded",
+        "bytes": 11170312,
+        "source": "assets/summoners/riven/Riven_Animated.glb",
+        "clips": [
+          {
+            "name": "Running",
+            "duration": 0.6333330273628235
+          },
+          {
+            "name": "Walking",
+            "duration": 1.0333329439163208
+          },
+          {
+            "name": "Idle_6",
+            "duration": 7.366666793823242
+          },
+          {
+            "name": "run_fast_7",
+            "duration": 0.8666669726371765
+          }
+        ],
+        "registeredStates": [
+          "Idle_6",
+          "Walking",
+          "Running"
+        ],
+        "runningClip": "Running",
+        "locomotionReason": "run_fast_7 failed loop validation; using Running",
+        "preferredLoop": {
+          "valid": false,
+          "positionError": 0.01896846294403076,
+          "rotationErrorDegrees": 12.873240271210806
+        },
+        "loadMs": 48,
+        "error": "",
+        "bounds": {
+          "min": [
+            -0.44156354665756226,
+            2.049818093041722e-9,
+            -0.16084645688533783
+          ],
+          "max": [
+            0.44156360626220703,
+            1.7000001668930054,
+            0.16084642708301544
+          ]
+        },
+        "height": 1.7000001648431873,
+        "scale": 1.029411664887353,
+        "offset": [
+          -3.0678858306627066e-8,
+          0.035075997889893344,
+          1.5339429153313533e-8
+        ],
+        "meshInstances": 1,
+        "jointCount": 68,
+        "authoredForwardYaw": 0,
+        "instanceId": "649f3a80-b71e-41f2-b42c-3ec7dae09518",
+        "meshId": 55,
+        "materialId": 28,
+        "activeAnimation": "Idle_6",
+        "playbackTime": 1.12,
+        "playing": true,
+        "previewEnabled": false,
+        "presentationOnly": true,
+        "worldBounds": {
+          "min": [
+            1.0819104018882304,
+            0.4400356765489557,
+            -71.31051774830034
+          ],
+          "max": [
+            1.9645738137351074,
+            2.2216493325690054,
+            -70.64749684496097
+          ]
+        },
+        "selected": true,
+        "forcedPrimitive": false,
+        "visible": true,
+        "primitiveVisible": false,
+        "yaw": 0,
+        "position": {
+          "x": 1.4500000476837158,
+          "y": 0.46668192744255066,
+          "z": -71
+        },
+        "hipLocalPosition": [
+          0.0033203279599547386,
+          1.0373306512810985,
+          -0.009960962459445
+        ],
+        "rootScale": [
+          1,
+          1,
+          1
+        ]
+      }
+    ],
+    "modelAssets": {
+      "downloads": 4,
+      "boundCalculations": 4,
+      "assets": [
+        {
+          "source": "assets/summoners/set/Set_Animated.glb",
+          "state": "loaded",
+          "loadMs": 413
+        },
+        {
+          "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+          "state": "loaded",
+          "loadMs": 1126
+        },
+        {
+          "source": "assets/summoners/riven/Riven_Animated.glb",
+          "state": "loaded",
+          "loadMs": 359
+        },
+        {
+          "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+          "state": "loaded",
+          "loadMs": 1051
+        }
+      ],
+      "gpu": {
+        "tex": 423843788,
+        "vb": 6356108,
+        "ib": 699888,
+        "ub": 4160,
+        "sb": 0
+      }
+    },
+    "errors": [],
+    "physicalIPhone": "NOT VERIFIED"
+  }
+]
