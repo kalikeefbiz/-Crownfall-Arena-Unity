@@ -1,0 +1,15 @@
+{
+  "checkedFor": "GOAL 018A Pages publication delay",
+  "components": [
+    {
+      "name": "Actions",
+      "status": "degraded_performance",
+      "updated_at": "2026-10-30T17:50:54.747Z"
+    },
+    {
+      "name": "Pages",
+      "status": "degraded_performance",
+      "updated_at": "2026-10-30T18:00:58.130Z"
+    }
+  ]
+}

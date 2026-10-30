@@ -1,0 +1,31 @@
+
+> crownfall-playcanvas@0.0.0 build
+> vite build
+
+vite v8.3.4 building client environment for production...
+transforming...
+✓ 1319 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                             0.65 kB │ gzip:   0.36 kB
+dist/assets/index-BZrC0sXW.css             23.12 kB │ gzip:   5.86 kB
+dist/assets/preload-helper-CRzLMJPS.js      1.53 kB │ gzip:   0.80 kB
+dist/assets/index-CcOakY0L.js               1.55 kB │ gzip:   0.75 kB
+dist/assets/frontend-9zgFtXf8.js           18.25 kB │ gzip:   7.30 kB
+dist/assets/game-BHYAarPP.js            1,355.55 kB │ gzip: 370.21 kB
+
+✓ built in 771ms
+[plugin builtin:vite-reporter] 
+(!) Some chunks are larger than 500 kB after minification. Consider:
+- Using dynamic import() to code-split the application
+- Use build.rolldownOptions.output.codeSplitting to improve chunking: https://rolldown.rs/reference/OutputOptions.codeSplitting
+- Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+To https://github.com/kalikeefbiz/-Crownfall-Arena-Unity.git
+   4fff076..1d7b0c1  1d7b0c1e1cbd4ea4244011619fbbe76d7eee2784 -> gh-pages
+{
+  "source": "c9981aad7220694d79439e5d20faa6d7250cc858",
+  "pagesBefore": "4fff0767efdef6ea0f3b3bbbd87ae627bfbd8bf2",
+  "pagesAfter": "1d7b0c1e1cbd4ea4244011619fbbe76d7eee2784",
+  "protectedObjectCount": 374,
+  "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-018a/"
+}

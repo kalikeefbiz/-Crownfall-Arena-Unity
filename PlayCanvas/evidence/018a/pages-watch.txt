@@ -1,0 +1,136 @@
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 2 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 3 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 3 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 3 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 4 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 4 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 4 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 5 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 5 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 5 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 6 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 6 minutes ago
+
+JOBS
+* build (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 6 minutes ago
+
+JOBS
+✓ build in 31s (ID 124223072995)
+* deploy (ID 124223546261)
+* report-build-status (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 7 minutes ago
+
+JOBS
+✓ build in 31s (ID 124223072995)
+* deploy (ID 124223546261)
+✓ report-build-status in 4s (ID 124223546431)
+Refreshing run status every 20 seconds. Press Ctrl+C to quit.
+
+* gh-pages pages-build-deployment · 41102661642
+Triggered via dynamic about 7 minutes ago
+
+JOBS
+✓ build in 31s (ID 124223072995)
+* deploy (ID 124223546261)
+✓ report-build-status in 4s (ID 124223546431)
+failed to get jobs: HTTP 502: Server Error (https://api.github.com/repos/kalikeefbiz/-Crownfall-Arena-Unity/actions/runs/41102661642/jobs?per_page=100)

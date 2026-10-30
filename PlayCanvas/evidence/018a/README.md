@@ -91,6 +91,10 @@ freezes actor positions for matching visible workload; rendering continues on
 wall time. It measures presentation cadence for an equivalent scene, not live
 combat throughput. Functional combat/lifecycle checks are separate.
 
+The local server expired after nine completed samples; those samples were
+retained and only the remaining three WebKit contexts were resumed against the
+same immutable builds. `performance-resumed-final.txt` records that continuation.
+
 No screenshot, inspector camera, accelerated simulation ticks or concurrent
 browser task is used in timing windows. GPU bytes are PlayCanvas accounting for
 textures/vertex/index buffers, not native driver residency. Chromium heap is a
@@ -134,3 +138,15 @@ Pages blob/mode/path entries exactly and lease-protects the gh-pages push.
 `publication.json` records deployed source and Pages commit SHAs. The preserved
 branch heads and Pages object lists provide independently reviewable protection
 proof. Production and every previous preview remain byte-for-byte intact.
+
+## Final public result
+
+All six public browser scenarios pass (three per engine). The public artifact
+matches deployed source `c9981aad7220694d79439e5d20faa6d7250cc858` and Pages commit
+`1d7b0c1e1cbd4ea4244011619fbbe76d7eee2784`. Nine key public files match publication
+hashes, all seven older public entry pages remain byte-identical, and all old
+source branch heads are unchanged. GitHub's reported Actions/Pages degradation
+caused a deployment delay; the actual public checks pass. The read-only workflow
+watch was stopped after public validation because the run-status API lagged the
+completed Pages deployment. `pages-build.json` reports built, and direct public
+hashes and browser receipts establish delivery independently of that status API.

@@ -9,6 +9,7 @@ Move up the middle lane to Z 14…-12. For immediate review, expand the existing
 **V2 terrain · developer overlays** and choose **Inspect: middle-lane**. Return to
 **Camera: follow player** to play normally. Deployed source SHA and Pages SHA are
 recorded in [publication receipt](evidence/018a/publication.json).
+Deployed source: `c9981aad7220694d79439e5d20faa6d7250cc858`.
 
 ## Delivered composition
 
@@ -21,6 +22,8 @@ low saddle stays open, with space between outcrops and a clear combat corridor.
 and [placement source](src/presentation/lane-enclosure-layout.ts).
 Tree heights: pine 6.4 / 7.4m; oak 5.8m. The banks remain governed by the original
 navigation mask, which permits movement there; the art adds no invisible walls.
+Actors can therefore pass through decorative rocks/trunks where that existing
+mask permits. No collision rule was changed to hide this limitation.
 
 Repeated geometry uses static hardware instancing with aggregate frustum bounds.
 Six shared meshes, four shared materials, four container downloads and six art
@@ -73,11 +76,21 @@ made only by the capture harness, not shipped camera behaviour.
 ## Validation and performance
 
 Final results are recorded in [verification evidence](evidence/018a/README.md).
-The full unit suite, typecheck, scoped lint, build, runtime hash verification,
-Chromium/WebKit mobile controls, quality changes, combat, rematch and cancellation
-checks are included. Khronos glTF validator reports zero errors; it warns that
-tangent space is generated at import. Both browser engines render the normal
-maps without observed failures.
+**259 unit tests and all six public Chromium/WebKit browser cases pass.**
+Typecheck, scoped lint, build and runtime hash verification pass. Public browser
+coverage includes landscape/portrait controls, six models, quality changes,
+AI damage, abilities, match completion/rematch, and cancelled-load recovery.
+A strict global-texture accounting assertion was corrected after a 3,360-byte
+warm-up delta; enclosure IDs and geometry buffers remained stable. The affected
+local Chromium case and the full public suite pass with the corrected check.
+Khronos glTF validation has zero errors; tangent space is generated at import.
+Both engines render the normal maps without observed failures.
+
+The live index, bundles, styles, source receipt and both rock GLBs match their
+publication hashes. All seven previous public entry pages remain byte-identical.
+GitHub Actions/Pages service degradation delayed deployment; public verification
+completed successfully. [Public verification](evidence/018a/public-after.json) ·
+[Public browser log](evidence/018a/browser-public.txt).
 
 The isolated preview preserves all production and prior-preview Git blobs and
 file modes. No production merge, heightmap, map layout, camps, navigation,

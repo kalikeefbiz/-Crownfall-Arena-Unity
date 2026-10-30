@@ -1,0 +1,93 @@
+{
+  "source": {
+    "source": "c9981aad7220694d79439e5d20faa6d7250cc858",
+    "baseSource": "d781667bc5216d32a2dad73de54ee031b66aac45",
+    "goal": "018a",
+    "branch": "goal-018a-lane-enclosure",
+    "map": "solrahn-v2",
+    "surface": "goal017",
+    "productionReplaced": false,
+    "buildFlags": [
+      "VITE_DEVICE_PREVIEW=1",
+      "VITE_LANE_ENCLOSURE=1"
+    ]
+  },
+  "newFilesVerified": {
+    "index.html": {
+      "bytes": 653,
+      "sha256": "7ec9bcecbf382e986bea50820a2d1f484209e38ea0c36ef28f66fa9bca3c47f9"
+    },
+    "preview-source.json": {
+      "bytes": 305,
+      "sha256": "b548935ba72b23259bbd6acbccf3f2f23f4576cb6333760475e9af6dbe1bac0d"
+    },
+    "assets/environment/stones/mobile/rock_face_02.glb": {
+      "bytes": 509732,
+      "sha256": "dce05f3ba7c3927274579714687891767a0f28305ce61d84410b4d3f12aeea37"
+    },
+    "assets/environment/stones/mobile/rock_moss_set_02.glb": {
+      "bytes": 240260,
+      "sha256": "1719855fbe1fe76f82a63149b15a5507ba74c33a4525fb45671e3e53295fb568"
+    },
+    "assets/frontend-9zgFtXf8.js": {
+      "bytes": 18253,
+      "sha256": "01a037ef0ab8a21ccec2a2bf8cb806d41ca5bae7b0772c4387bb28320a110db1"
+    },
+    "assets/game-BHYAarPP.js": {
+      "bytes": 1355551,
+      "sha256": "4a5c09419b7e8210a55ef4f75057028651b0d8eda87af333f128ae62a4b14a40"
+    },
+    "assets/index-BZrC0sXW.css": {
+      "bytes": 23123,
+      "sha256": "b5ba6d11bd51771fd47733fe6c3f2216df33fc23ce658be268a351816821eabb"
+    },
+    "assets/index-CcOakY0L.js": {
+      "bytes": 1550,
+      "sha256": "6a7bdf9f9f13b91e9a924899d2323242e1e0ce6ca305ee47bb29b3375623a802"
+    },
+    "assets/preload-helper-CRzLMJPS.js": {
+      "bytes": 1534,
+      "sha256": "bcc465e3e61dc3878a69ffa95ccb53cb82d95b1639ada223420b281ebd150048"
+    }
+  },
+  "priorPublicEntries": {
+    "index.html": {
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/index.html",
+      "bytes": 3618,
+      "sha256": "a68836f2e1b42b8a79a76d0705a8447fbacbc4bf60d7850cf34daa19a6594c56"
+    },
+    "playcanvas/index.html": {
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/playcanvas/index.html",
+      "bytes": 653,
+      "sha256": "934819389b9e0aaae74f8395e599a03b6c2263b50e80ef6aa875b1654b1b67f7"
+    },
+    "solrahn-goal-014/index.html": {
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-014/index.html",
+      "bytes": 653,
+      "sha256": "656156ad7ecc0328596d0e705c91472db2c0961999e2d4e4e4cda8dd0ddb0665"
+    },
+    "solrahn-goal-016/index.html": {
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-016/index.html",
+      "bytes": 653,
+      "sha256": "cf0c3e8143cc3904eb8fa3f0bcd499d1b55384ff3c1a2015c60aefa82428c38f"
+    },
+    "solrahn-goal-017/index.html": {
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/index.html",
+      "bytes": 653,
+      "sha256": "1ae5364b415b34eb03a5c2ed10110381ba782336069887a0a5e58a1d761c3d1f"
+    },
+    "solrahn-goal-017/review/index.html": {
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017/review/index.html",
+      "bytes": 3298,
+      "sha256": "a6303666bb61bb0f85e820e2360a39b8fab76bd11b07f877cada87ee89bdedae"
+    },
+    "solrahn-goal-017b/index.html": {
+      "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-017b/index.html",
+      "bytes": 653,
+      "sha256": "2a1f8749bdb38c7ea69df7eab6fcc8ad6ee8e106818b4bb61c3834ee8aeeefba"
+    }
+  },
+  "allPriorPublicEntriesByteIdentical": true,
+  "allPriorSourceBranchesUnchanged": true,
+  "pagesProtectedObjects": 374
+}

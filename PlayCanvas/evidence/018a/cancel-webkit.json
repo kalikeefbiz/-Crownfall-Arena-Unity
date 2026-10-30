@@ -3,7 +3,7 @@
   "state": {
     "match": {
       "phase": "countdown",
-      "countdownRemaining": 3,
+      "countdownRemaining": 2.9000000000000004,
       "lane": {
         "goalA": -75,
         "goalB": 75,
@@ -693,7 +693,7 @@
             "duration": 0.4666669964790344
           }
         ],
-        "loadMs": 18,
+        "loadMs": 17,
         "error": "",
         "bounds": {
           "min": [
@@ -716,25 +716,25 @@
         ],
         "meshInstances": 1,
         "authoredForwardYaw": 0,
-        "instanceId": "ec32f09d-1a00-4769-826e-5c181035d478",
+        "instanceId": "2ef535b2-c412-4995-a839-d0a305d93783",
         "meshId": 112,
         "materialId": 56,
         "activeAnimation": "Idle_5",
-        "playbackTime": 0,
+        "playbackTime": 0.1,
         "playing": true,
         "attackCount": 0,
         "lastAttackSerial": 0,
         "staticComparison": false,
         "worldBounds": {
           "min": [
-            -0.38125151740940233,
-            0.3400111082577377,
-            4.197473910417301
+            -0.39736519554176414,
+            0.33904692746148046,
+            70.19789539707992
           ],
           "max": [
-            0.6953391299866799,
-            2.173937481921546,
-            5.440078112743452
+            0.6934199219792392,
+            2.173869307405848,
+            71.44039507656086
           ]
         },
         "selected": true,
@@ -744,8 +744,8 @@
         "yaw": 180,
         "position": {
           "x": 0,
-          "y": 0.46875715255737305,
-          "z": 5
+          "y": 0.46668192744255066,
+          "z": 71
         },
         "rootScale": [
           1,
@@ -794,7 +794,7 @@
         "locomotionReason": "Running selected; RunFast intentionally excluded",
         "readySource": "Punch_Combo",
         "readyTime": 0,
-        "loadMs": 4,
+        "loadMs": 6,
         "error": "",
         "bounds": {
           "min": [
@@ -818,11 +818,11 @@
         "meshInstances": 1,
         "jointCount": 87,
         "authoredForwardYaw": 0,
-        "instanceId": "f2c2a623-d011-4e31-b40d-2fa33739b99c",
+        "instanceId": "42ec7306-35bb-4014-97d7-7fc186fa6c90",
         "meshId": 113,
         "materialId": 57,
         "activeAnimation": "Ready",
-        "playbackTime": 0,
+        "playbackTime": 0.1,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
@@ -904,7 +904,7 @@
           "positionError": 0.01896846294403076,
           "rotationErrorDegrees": 12.873240271210806
         },
-        "loadMs": 18,
+        "loadMs": 17,
         "error": "",
         "bounds": {
           "min": [
@@ -928,24 +928,24 @@
         "meshInstances": 1,
         "jointCount": 68,
         "authoredForwardYaw": 0,
-        "instanceId": "0c4d410d-af4a-429d-a976-0e02766549ca",
+        "instanceId": "6b75361c-4e75-4677-88ea-dd42aab46684",
         "meshId": 114,
         "materialId": 58,
         "activeAnimation": "Idle_6",
-        "playbackTime": 0,
+        "playbackTime": 0.1,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
         "worldBounds": {
           "min": [
-            0.9250257114452869,
-            0.4403989577029337,
-            70.58784256686381
+            0.9260012747544057,
+            0.4403484390419652,
+            70.59273062476403
           ],
           "max": [
-            1.8096821789557413,
-            2.2060856934508264,
-            71.25523347380708
+            1.802967759759737,
+            2.2081609453548734,
+            71.25398943049755
           ]
         },
         "selected": true,
@@ -960,7 +960,7 @@
         },
         "hipLocalPosition": [
           0.0033203279599547386,
-          1.0323389768600464,
+          1.0329242944615142,
           -0.009960962459445
         ],
         "rootScale": [
@@ -1006,7 +1006,7 @@
             "duration": 0.4666669964790344
           }
         ],
-        "loadMs": 29,
+        "loadMs": 28,
         "error": "",
         "bounds": {
           "min": [
@@ -1029,25 +1029,25 @@
         ],
         "meshInstances": 1,
         "authoredForwardYaw": 0,
-        "instanceId": "db263b38-2fc2-4b34-809a-c0441724acde",
+        "instanceId": "092c0d28-4eea-40a3-b8e1-c5540ff46695",
         "meshId": 112,
         "materialId": 56,
         "activeAnimation": "Idle_5",
-        "playbackTime": 0,
+        "playbackTime": 0.1,
         "playing": true,
         "attackCount": 0,
         "lastAttackSerial": 0,
         "staticComparison": false,
         "worldBounds": {
           "min": [
-            -0.6953391299866798,
-            0.3379359146983172,
-            -71.44008228506871
+            -0.693419921979239,
+            0.33904692746148046,
+            -71.44039507656086
           ],
           "max": [
-            0.3812515174094022,
-            2.1718623497198495,
-            -70.19747667151489
+            0.3973651955417641,
+            2.173869307405848,
+            -70.19789539707992
           ]
         },
         "selected": true,
@@ -1107,7 +1107,7 @@
         "locomotionReason": "Running selected; RunFast intentionally excluded",
         "readySource": "Punch_Combo",
         "readyTime": 0,
-        "loadMs": 6,
+        "loadMs": 8,
         "error": "",
         "bounds": {
           "min": [
@@ -1131,11 +1131,11 @@
         "meshInstances": 1,
         "jointCount": 87,
         "authoredForwardYaw": 0,
-        "instanceId": "25c2622d-0dc5-44d4-8e24-74c23fd9faf0",
+        "instanceId": "d6aae56d-44af-4a47-9ab5-9aa356e0f9dd",
         "meshId": 113,
         "materialId": 57,
         "activeAnimation": "Ready",
-        "playbackTime": 0,
+        "playbackTime": 0.1,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
@@ -1217,7 +1217,7 @@
           "positionError": 0.01896846294403076,
           "rotationErrorDegrees": 12.873240271210806
         },
-        "loadMs": 34,
+        "loadMs": 28,
         "error": "",
         "bounds": {
           "min": [
@@ -1241,24 +1241,24 @@
         "meshInstances": 1,
         "jointCount": 68,
         "authoredForwardYaw": 0,
-        "instanceId": "12baf28a-ed3f-4ddd-95e4-d5f13383356d",
+        "instanceId": "b5428561-65fd-4c89-8d2f-e10d1b773c14",
         "meshId": 114,
         "materialId": 58,
         "activeAnimation": "Idle_6",
-        "playbackTime": 0,
+        "playbackTime": 0.1,
         "playing": true,
         "previewEnabled": false,
         "presentationOnly": true,
         "worldBounds": {
           "min": [
-            1.0903178397145439,
-            0.4403989577029337,
-            -71.25523347380708
+            1.0970322589105481,
+            0.4403484390419652,
+            -71.25398943049755
           ],
           "max": [
-            1.9749743225644276,
-            2.2060856934508264,
-            -70.58784256686381
+            1.9739987285764502,
+            2.2081609453548734,
+            -70.59273062476403
           ]
         },
         "selected": true,
@@ -1273,7 +1273,7 @@
         },
         "hipLocalPosition": [
           0.0033203279599547386,
-          1.0323389768600464,
+          1.0329242944615142,
           -0.009960962459445
         ],
         "rootScale": [
@@ -1285,34 +1285,34 @@
     ],
     "modelAssets": {
       "downloads": 4,
-      "boundCalculations": 3,
+      "boundCalculations": 4,
       "assets": [
         {
           "source": "assets/summoners/kit/Kit_20K_Animated.glb",
           "state": "loaded",
-          "loadMs": 817
+          "loadMs": 1995
         },
         {
           "source": "assets/summoners/set/Set_Animated.glb",
           "state": "loaded",
-          "loadMs": 226
+          "loadMs": 457
         },
         {
           "source": "assets/summoners/riven/Riven_Animated.glb",
           "state": "loaded",
-          "loadMs": 241
+          "loadMs": 422
         },
         {
           "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
           "state": "loaded",
-          "loadMs": 783
+          "loadMs": 2094
         }
       ],
       "gpu": {
-        "tex": 444811932,
+        "tex": 444815292,
         "vb": 6949068,
         "ib": 847758,
-        "ub": 3584,
+        "ub": 4160,
         "sb": 0
       }
     },
@@ -1542,29 +1542,29 @@
             {
               "source": "assets/environment/stones/mobile/rock_face_02.glb",
               "state": "loaded",
-              "loadMs": 191
+              "loadMs": 240
             },
             {
               "source": "assets/environment/stones/mobile/rock_moss_set_02.glb",
               "state": "loaded",
-              "loadMs": 16
+              "loadMs": 122
             },
             {
               "source": "assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb",
               "state": "loaded",
-              "loadMs": 16
+              "loadMs": 128
             },
             {
               "source": "assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
               "state": "loaded",
-              "loadMs": 21
+              "loadMs": 51
             }
           ],
           "gpu": {
-            "tex": 444811932,
+            "tex": 444815292,
             "vb": 6949068,
             "ib": 847758,
-            "ub": 3584,
+            "ub": 4160,
             "sb": 0
           }
         }
@@ -1682,7 +1682,7 @@
         }
       },
       "allocations": {
-        "textures": 444811932,
+        "textures": 444815292,
         "vertexBuffers": 6949068,
         "indexBuffers": 847758
       },
@@ -1784,7 +1784,7 @@
           "duration": 0.4666669964790344
         }
       ],
-      "loadMs": 18,
+      "loadMs": 17,
       "error": "",
       "bounds": {
         "min": [
@@ -1807,25 +1807,25 @@
       ],
       "meshInstances": 1,
       "authoredForwardYaw": 0,
-      "instanceId": "ec32f09d-1a00-4769-826e-5c181035d478",
+      "instanceId": "2ef535b2-c412-4995-a839-d0a305d93783",
       "meshId": 112,
       "materialId": 56,
       "activeAnimation": "Idle_5",
-      "playbackTime": 0,
+      "playbackTime": 0.1,
       "playing": true,
       "attackCount": 0,
       "lastAttackSerial": 0,
       "staticComparison": false,
       "worldBounds": {
         "min": [
-          -0.38125151740940233,
-          0.3400111082577377,
-          4.197473910417301
+          -0.39736519554176414,
+          0.33904692746148046,
+          70.19789539707992
         ],
         "max": [
-          0.6953391299866799,
-          2.173937481921546,
-          5.440078112743452
+          0.6934199219792392,
+          2.173869307405848,
+          71.44039507656086
         ]
       },
       "selected": true,
@@ -1835,8 +1835,8 @@
       "yaw": 180,
       "position": {
         "x": 0,
-        "y": 0.46875715255737305,
-        "z": 5
+        "y": 0.46668192744255066,
+        "z": 71
       },
       "rootScale": [
         1,
@@ -1882,8 +1882,8 @@
       "yaw": 180,
       "position": {
         "x": 0,
-        "y": 0.46875715255737305,
-        "z": 5
+        "y": 0.46668192744255066,
+        "z": 71
       },
       "hipLocalPosition": null,
       "rootScale": [
@@ -1894,9 +1894,102 @@
     },
     "rivenWeapons": {
       "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
-      "state": "idle",
+      "state": "loaded",
       "error": "",
-      "instances": []
+      "instances": [
+        {
+          "ownerId": "1-2",
+          "team": 1,
+          "kind": "reso",
+          "phase": "orbit",
+          "orbitIndex": 0,
+          "instanceId": "2b587b31-4320-4e4e-84c5-b02a3bc09e1f",
+          "meshId": 115,
+          "materialId": 59,
+          "fallback": false,
+          "position": [
+            1.4500000476837158,
+            1.4166818857192993,
+            71
+          ],
+          "yaw": 0,
+          "spin": 0,
+          "authoritative": {
+            "x": 1.45,
+            "z": 71,
+            "angle": 0
+          }
+        },
+        {
+          "ownerId": "1-2",
+          "team": 1,
+          "kind": "reso",
+          "phase": "orbit",
+          "orbitIndex": 1,
+          "instanceId": "100d9ee4-c680-450f-9397-8d64bb581e69",
+          "meshId": 115,
+          "materialId": 59,
+          "fallback": false,
+          "position": [
+            1.4500000476837158,
+            1.4166818857192993,
+            71
+          ],
+          "yaw": 0,
+          "spin": 0,
+          "authoritative": {
+            "x": 1.45,
+            "z": 71,
+            "angle": 0
+          }
+        },
+        {
+          "ownerId": "2-2",
+          "team": 2,
+          "kind": "reso",
+          "phase": "orbit",
+          "orbitIndex": 0,
+          "instanceId": "fdb47b73-8f02-4fb6-80e2-acbfdd95f31b",
+          "meshId": 115,
+          "materialId": 59,
+          "fallback": false,
+          "position": [
+            1.4500000476837158,
+            1.4166818857192993,
+            -71
+          ],
+          "yaw": 0,
+          "spin": 0,
+          "authoritative": {
+            "x": 1.45,
+            "z": -71,
+            "angle": 0
+          }
+        },
+        {
+          "ownerId": "2-2",
+          "team": 2,
+          "kind": "reso",
+          "phase": "orbit",
+          "orbitIndex": 1,
+          "instanceId": "cf3cdbb3-655f-492e-b233-9e415850c79f",
+          "meshId": 115,
+          "materialId": 59,
+          "fallback": false,
+          "position": [
+            1.4500000476837158,
+            1.4166818857192993,
+            -71
+          ],
+          "yaw": 0,
+          "spin": 0,
+          "authoritative": {
+            "x": 1.45,
+            "z": -71,
+            "angle": 0
+          }
+        }
+      ]
     },
     "setModel": {
       "state": "idle",
@@ -1937,8 +2030,8 @@
       "yaw": 180,
       "position": {
         "x": 0,
-        "y": 0.46875715255737305,
-        "z": 5
+        "y": 0.46668192744255066,
+        "z": 71
       },
       "hipLocalPosition": null,
       "rootScale": [
@@ -1947,7 +2040,7 @@
         1
       ]
     },
-    "frameMs": 16.666666666666668,
+    "frameMs": 25,
     "preview": null,
     "territory": {
       "frontierZ": 0,
@@ -1983,14 +2076,14 @@
     },
     "position": {
       "x": 0,
-      "z": 5
+      "z": 71
     },
     "movement": {
       "x": 0,
       "z": 0
     },
     "aim": {
-      "x": 1.2246467991473532e-16,
+      "x": 0,
       "z": -1
     },
     "facing": {
@@ -2000,8 +2093,8 @@
     "targeting": false,
     "committedFacing": null,
     "collisions": 0,
-    "frames": 0,
-    "entities": 1369,
+    "frames": 1,
+    "entities": 1397,
     "visualScaleX": 1,
     "rootScaleX": 1
   }

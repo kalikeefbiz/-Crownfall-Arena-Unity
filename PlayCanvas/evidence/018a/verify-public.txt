@@ -1,0 +1,19 @@
+{
+  "source": {
+    "source": "c9981aad7220694d79439e5d20faa6d7250cc858",
+    "baseSource": "d781667bc5216d32a2dad73de54ee031b66aac45",
+    "goal": "018a",
+    "branch": "goal-018a-lane-enclosure",
+    "map": "solrahn-v2",
+    "surface": "goal017",
+    "productionReplaced": false,
+    "buildFlags": [
+      "VITE_DEVICE_PREVIEW=1",
+      "VITE_LANE_ENCLOSURE=1"
+    ]
+  },
+  "publicFiles": 9,
+  "priorEntries": 7,
+  "oldEntriesByteIdentical": true,
+  "oldSourceBranchesUnchanged": true
+}
