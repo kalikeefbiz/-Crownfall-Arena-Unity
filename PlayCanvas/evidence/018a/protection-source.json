@@ -1,0 +1,22 @@
+{
+  "base": "d781667bc5216d32a2dad73de54ee031b66aac45",
+  "unchanged": [
+    "src/maps",
+    "src/combat",
+    "src/gameplay",
+    "src/game.ts",
+    "src/main.ts",
+    "src/ui",
+    "src/presentation/solrahn-surface-material.ts",
+    "src/presentation/wilderness-environment.ts",
+    "src/presentation/wilderness-layout.ts",
+    "public/assets/solrahn-v2",
+    "public/assets/solrahn-surface",
+    "public/assets/environment/trees",
+    "../.github"
+  ],
+  "terrainAndGameplayUnmodified": true,
+  "cameraAndBlueTerritoryShaderUnmodified": true,
+  "sceneChange": "Only pass existing shared character cache to V2 constructor",
+  "runtimeAssetHashesVerified": true
+}

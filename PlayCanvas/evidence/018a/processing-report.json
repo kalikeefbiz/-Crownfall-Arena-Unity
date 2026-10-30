@@ -1,0 +1,42 @@
+{
+  "rock_face_02": [
+    {
+      "name": "rock_face_02",
+      "triangles": 2999,
+      "dimensions_blender_z_up": [
+        2.7125163078308105,
+        2.139155864715576,
+        2.4828062057495117
+      ]
+    }
+  ],
+  "rock_moss_set_02": [
+    {
+      "name": "rock_moss_set_02_rock09",
+      "triangles": 999,
+      "dimensions_blender_z_up": [
+        1.6275339126586914,
+        1.0161980390548706,
+        0.6076316833496094
+      ]
+    },
+    {
+      "name": "rock_moss_set_02_rock13",
+      "triangles": 999,
+      "dimensions_blender_z_up": [
+        2.101382255554199,
+        1.1416367292404175,
+        1.2551417350769043
+      ]
+    },
+    {
+      "name": "rock_moss_set_02_rock11",
+      "triangles": 1000,
+      "dimensions_blender_z_up": [
+        1.9548594951629639,
+        1.5304105281829834,
+        1.3055903911590576
+      ]
+    }
+  ]
+}

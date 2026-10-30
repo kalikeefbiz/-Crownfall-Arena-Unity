@@ -1,0 +1,11 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+cdpSession.send: Target page, context or browser has been closed
+    at shot (/workspace/crownfall/PlayCanvas/scripts/goal018a/capture.mjs:17:126)
+    at async file:///workspace/crownfall/PlayCanvas/scripts/goal018a/capture.mjs:18:3 {
+  log: []
+}
+
+Node.js v24.19.0

@@ -52,7 +52,7 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     const carved = !!surface || (competitive && params.get('environment') !== 'legacy');
     const territoryVisible = params.get('territoryTint') !== '0';
     const v2 = surface && 'kind' in surface ? surface : null;
-    const v2Environment = v2 ? createSolrahnV2Environment(app, sceneRoot, v2) : null;
+    const v2Environment = v2 ? createSolrahnV2Environment(app, sceneRoot, v2, assets) : null;
     const environment =
         v2Environment ||
         (surface

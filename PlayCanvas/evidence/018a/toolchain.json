@@ -1,0 +1,11 @@
+{
+  "node": "v24.19.0",
+  "platform": "linux",
+  "arch": "x64",
+  "playcanvas": "2.23.3",
+  "playwright": "1.64.1",
+  "blender": "4.3.2",
+  "cpu": "AMD EPYC 9V74 80-Core Processor",
+  "logicalCpus": 3,
+  "actualIPhoneTesting": false
+}

@@ -14,11 +14,22 @@ import type { AppBase } from 'playcanvas';
 import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { createV2Geometry } from '../maps/solrahn-v2-geometry';
 
+import { createLaneEnclosure } from './lane-enclosure';
 import { createSolrahnSurfaceMaterial } from './solrahn-surface-material';
+import type { SummonerAssets } from './summoner-assets';
 
-export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface: SolrahnV2) {
+export function createSolrahnV2Environment(
+    app: AppBase,
+    parent: Entity,
+    surface: SolrahnV2,
+    characters: SummonerAssets
+) {
     const root = new Entity('Solrahn-V2-16bit-graybox');
     parent.addChild(root);
+    const enclosure =
+        import.meta.env.VITE_LANE_ENCLOSURE === '1' && new URLSearchParams(location.search).get('enclosure') !== '0'
+            ? createLaneEnclosure(app, root, surface, characters)
+            : null;
     const geometry = createV2Geometry(surface);
     const mat = new StandardMaterial();
     mat.diffuse = new Color(1, 1, 1);
@@ -199,9 +210,9 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
         return node;
     });
     return {
-        ready: pbr?.ready ?? Promise.resolve(),
+        ready: Promise.all([pbr?.ready, enclosure?.ready]),
         get loading() {
-            return pbr ? pbr.diagnostics.state === 'loading' : false;
+            return pbr?.diagnostics.state === 'loading' || (enclosure?.loading ?? false);
         },
         get topDown() {
             return panel.querySelector<HTMLInputElement>('[data-option=camera]')!.checked;
@@ -219,6 +230,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
                 mode: 'solrahn-v2',
                 state: pbr?.diagnostics.state ?? 'loaded',
                 materials: pbr?.diagnostics,
+                enclosure: enclosure?.diagnostics,
                 surface: surface.metadata,
                 allocations: {
                     textures: app.stats.vram.tex,
@@ -281,6 +293,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
         destroy() {
             panel.remove();
             labels.remove();
+            enclosure?.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
             pbr?.destroy();
