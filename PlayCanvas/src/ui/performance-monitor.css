@@ -1,0 +1,58 @@
+#performance-monitor {
+    position: fixed;
+    z-index: 30;
+    top: calc(100px + env(safe-area-inset-top, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
+    width: 198px;
+    max-width: calc(100vw - 24px);
+    max-height: calc(100dvh - 244px - env(safe-area-inset-top, 0px) - env(safe-area-inset-bottom, 0px));
+    overflow: auto;
+    background: #101b28ee;
+    color: #f2f6ff;
+    border: 1px solid #90abc0;
+    border-radius: 6px;
+    font:
+        11px/15px system-ui,
+        sans-serif;
+    font-variant-numeric: tabular-nums;
+    pointer-events: auto;
+    touch-action: manipulation;
+}
+#performance-monitor[hidden],
+#performance-monitor [hidden] {
+    display: none;
+}
+#performance-monitor button {
+    font: inherit;
+    color: inherit;
+    background: #20364c;
+    border: 1px solid #72889a;
+    border-radius: 4px;
+    min-height: 32px;
+    touch-action: manipulation;
+}
+#performance-monitor .perf-toggle {
+    width: 100%;
+    min-height: 36px;
+}
+#performance-values {
+    padding: 3px 6px 5px;
+}
+#performance-monitor .perf-buttons {
+    display: flex;
+    gap: 6px;
+    margin-top: 3px;
+}
+#performance-monitor .perf-buttons button {
+    flex: 1;
+}
+#performance-monitor button[aria-pressed='true'] {
+    border-color: #e5c66b;
+    color: #ffe7a1;
+}
+#performance-monitor .perf-status:empty {
+    display: none;
+}
+#performance-monitor .perf-status {
+    color: #ffe7a1;
+}

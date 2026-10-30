@@ -31,7 +31,8 @@ export async function createGame(
     onResult: () => void = () => {
         /* Inspection entry has no front-end results callback. */
     },
-    practice = false
+    practice = false,
+    onRender?: (now: number) => void
 ) {
     let running = !managed;
     let preparing = false;
@@ -383,6 +384,10 @@ export async function createGame(
         let frames = 0,
             hudElapsed = 0,
             smoothedDt = 1 / 60;
+        if (onRender)
+            app.on('postrender', () => {
+                if (running) onRender(performance.now());
+            });
         app.on('update', (elapsed: number) => {
             if (!running) return;
             const dt = Math.min(elapsed, 0.1);
@@ -544,6 +549,18 @@ export async function createGame(
                 simulation.match?.start();
             },
             results: () => simulation.match?.snapshot().results,
+            performanceView(low: boolean) {
+                const environment = scene.environment as {
+                    materials?: { state?: string; shader?: { detailNormals: boolean } };
+                };
+                return {
+                    low,
+                    width: canvas.width,
+                    height: canvas.height,
+                    surfaceState: environment.materials?.state ?? 'loaded',
+                    appliedLow: environment.materials?.shader ? !environment.materials.shader.detailNormals : low
+                };
+            },
             snapshot: () => (diagnostics as { snapshot(): unknown }).snapshot()
         };
     } catch (error) {

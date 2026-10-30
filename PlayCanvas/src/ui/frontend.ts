@@ -11,6 +11,7 @@ import {
     safeRect
 } from './control-layout';
 import type { ControlId, Layout } from './control-layout';
+import { createPerformanceMonitor } from './performance-monitor';
 
 type Game = NonNullable<Awaited<ReturnType<typeof createGame>>>;
 const heroes = [
@@ -26,6 +27,7 @@ export function createFrontend() {
     const mapPreview = new URLSearchParams(location.search).get('mapPreview');
     const v2 = mapPreview === 'solrahn-v2';
     const solrahn = v2 || mapPreview === 'solrahn';
+    const devicePreview = new URLSearchParams(location.search).get('devicePreview') === '1';
     const root = document.createElement('div');
     root.id = 'frontend';
     document.body.append(root);
@@ -49,6 +51,33 @@ export function createFrontend() {
     } catch {
         /* Optional storage. */
     }
+    // Fresh device visits start on Low; saved settings still take precedence.
+    try {
+        if (devicePreview && localStorage.getItem('crownfall.quality') === null) {
+            localStorage.setItem('crownfall.quality', 'low');
+            low = true;
+        }
+    } catch {
+        /* Preserve the material factory's High default if storage is unavailable. */
+    }
+    const monitor = devicePreview
+        ? createPerformanceMonitor(
+              () =>
+                  game?.performanceView(low) ?? { low, appliedLow: low, width: 0, height: 0, surfaceState: 'loading' },
+              (value) => setQuality(value)
+          )
+        : undefined;
+    function setQuality(value: boolean) {
+        low = value;
+        game?.quality(low);
+        try {
+            localStorage.setItem('crownfall.quality', low ? 'low' : 'standard');
+        } catch {
+            notice = 'Quality applied for this session. Storage unavailable.';
+        }
+        monitor?.reset();
+        render();
+    }
     const pause = document.createElement('button');
     pause.id = 'pause-game';
     pause.textContent = 'Ⅱ Pause';
@@ -64,6 +93,7 @@ export function createFrontend() {
         `<div class="cf-footer"><span>${left}</span><span>${right}</span></div>`;
     const show = (next: string) => {
         page = next;
+        monitor?.active(next === 'gameplay');
         document.body.dataset.screen = next;
         root.hidden = next === 'gameplay';
         pause.hidden = next !== 'gameplay';
@@ -77,7 +107,9 @@ export function createFrontend() {
             content =
                 header(
                     v2
-                        ? 'GOAL 016 · V2 TERRAIN GRAYBOX · 3V3 PREVIEW'
+                        ? devicePreview
+                            ? 'GOAL 017B · IPHONE PERFORMANCE PLAYTEST'
+                            : 'GOAL 016 · V2 TERRAIN GRAYBOX · 3V3 PREVIEW'
                         : solrahn
                           ? 'SOL’RAHN · AUTHORED MAP PLAYTEST'
                           : 'SOL’RAHN ARENA · WORLD CUP'
@@ -102,7 +134,7 @@ export function createFrontend() {
             content =
                 header('SETTINGS / LOCAL DEVICE', settingsReturn) +
                 title('DEVICE & CONTROL CONFIGURATION', 'Settings') +
-                `<div class="cf-settings-grid"><div class="cf-setting"><small>01 / GRAPHICS</small><h2>Visual Quality</h2><div class="cf-options">${button(`${!low ? '✓ ' : ''}Standard`, 'standard')}${button(`${low ? '✓ ' : ''}Low`, 'low')}</div><p>${solrahn ? 'Low: reduced resolution; authored arena materials preserved.' : 'Low: reduced resolution, terrain normal and occlusion maps off.'}</p></div><div class="cf-setting"><small>02 / DISPLAY</small><h2>Fullscreen</h2>${button(document.fullscreenElement ? 'Exit Fullscreen' : 'Enter Fullscreen', 'fullscreen')}<p id="fullscreen-note">${document.fullscreenEnabled ? 'Landscape is recommended.' : 'On iPhone: Safari → Share → Add to Home Screen for a full-screen display.'}</p></div><div class="cf-setting"><small>03 / MOBILE INPUT</small><h2>Edit Controls</h2>${button('Position · Size · Opacity →', 'controls')}</div><div class="cf-setting"><small>04 / TRAINING</small><h2>Combat Practice</h2>${button('Enter Practice →', 'practice')}</div></div><div class="cf-notice" role="status">${notice}</div>` +
+                `<div class="cf-settings-grid"><div class="cf-setting"><small>01 / GRAPHICS</small><h2>Visual Quality</h2><div class="cf-options">${button(`${!low ? '✓ ' : ''}${devicePreview ? 'High' : 'Standard'}`, 'standard')}${button(`${low ? '✓ ' : ''}Low`, 'low')}</div><p>${solrahn ? 'Low: reduced resolution; authored arena materials preserved.' : 'Low: reduced resolution, terrain normal and occlusion maps off.'}</p></div><div class="cf-setting"><small>02 / DISPLAY</small><h2>Fullscreen</h2>${button(document.fullscreenElement ? 'Exit Fullscreen' : 'Enter Fullscreen', 'fullscreen')}<p id="fullscreen-note">${document.fullscreenEnabled ? 'Landscape is recommended.' : 'On iPhone: Safari → Share → Add to Home Screen for a full-screen display.'}</p></div><div class="cf-setting"><small>03 / MOBILE INPUT</small><h2>Edit Controls</h2>${button('Position · Size · Opacity →', 'controls')}</div><div class="cf-setting"><small>04 / TRAINING</small><h2>Combat Practice</h2>${button('Enter Practice →', 'practice')}</div></div><div class="cf-notice" role="status">${notice}</div>` +
                 footer('SETTINGS · DEVICE SAVED', 'STANDARD / LOW');
         if (page === 'controls')
             content = `<div class="cf-editor-toolbar"><strong>EDIT CONTROLS</strong><label>Control <select id="edit-control">${controlIds.map((id) => `<option ${id === editing ? 'selected' : ''}>${id}</option>`).join('')}</select></label><label>Size <input id="edit-size" aria-label="Control size" type="range" min="0.8" max="1.35" step="0.05" value="${draft[editing].scale}"></label><label>Opacity <input id="edit-opacity" aria-label="Control opacity" type="range" min="0.35" max="1" step="0.05" value="${draft[editing].opacity}"></label>${button('Save', 'save-controls')}${button('Cancel', 'cancel-controls')}${button(resetArmed ? 'Confirm Reset' : 'Reset', 'reset-controls')}</div><p class="cf-editor-help" role="status">${notice || 'Drag controls to position · safe area and overlap protection enabled'}</p><div id="control-preview">${controlIds.map((id) => `<button class="cf-edit-pad ${id === editing ? 'selected' : ''}" data-control="${id}" aria-label="Position ${id}">${id === 'special' ? 'Stance / Special' : id}</button>`).join('')}</div>`;
@@ -155,7 +187,7 @@ export function createFrontend() {
                 if (!game) {
                     const { createGame } = await import('../game');
                     if (token !== attempt) return;
-                    const created = await createGame(true, result, practice);
+                    const created = await createGame(true, result, practice, monitor?.frame);
                     if (token !== attempt) {
                         created?.destroy();
                         return;
@@ -284,14 +316,7 @@ export function createFrontend() {
             return;
         }
         if (name === 'standard' || name === 'low') {
-            low = name === 'low';
-            game?.quality(low);
-            try {
-                localStorage.setItem('crownfall.quality', name);
-            } catch {
-                notice = 'Quality applied for this session. Storage unavailable.';
-            }
-            render();
+            setQuality(name === 'low');
             return;
         }
         if (name === 'fullscreen') {
@@ -433,6 +458,7 @@ export function createFrontend() {
             observer.disconnect();
             clearTimeout(announcementTimer);
             game?.destroy();
+            monitor?.destroy();
             root.remove();
             pause.remove();
             document.body.classList.remove('official');
