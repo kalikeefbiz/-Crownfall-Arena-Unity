@@ -69,7 +69,7 @@ for (const viewport of [
             () => (window as unknown as W).__crownfall.snapshot() as unknown as { frames: number }
         );
         await writeFile(
-            `evidence/017/browser-${viewport.width}.json`,
+            `evidence/017a/browser-${viewport.width}.json`,
             JSON.stringify(
                 {
                     viewport,
@@ -90,8 +90,8 @@ for (const viewport of [
         expect(initial.environment.mode).toBe('solrahn-v2');
         expect(initial.environment.state).toBe('loaded');
         expect(initial.environment.materials.state).toBe('loaded');
-        expect(initial.environment.materials.loadedMaps).toBe(10);
-        expect(initial.environment.materials.textures).toBe(10);
+        expect(initial.environment.materials.loadedMaps).toBe(4);
+        expect(initial.environment.materials.textures).toBe(4);
         expect(initial.environment.materials.shader.detailNormals).toBe(false);
         expect(initial.environment.materials.shader.maximumTextureReads).toBe(2);
         expect(initial.summonerModels).toHaveLength(6);
@@ -99,9 +99,9 @@ for (const viewport of [
         expect(initial.modelAssets.assets.filter((a) => a.source.includes('solrahn'))).toHaveLength(0);
         await page.locator('#v2-tools summary').tap();
         await page.locator('#v2-tools [data-option=camera]').check();
-        await page.screenshot({ path: `evidence/017/top-down-${viewport.width}.png` });
+        await page.screenshot({ path: `evidence/017a/top-down-${viewport.width}.png` });
         await page.locator('#v2-tools select:not([data-option])').selectOption('walk');
-        await page.screenshot({ path: `evidence/017/collision-overlay-${viewport.width}.png` });
+        await page.screenshot({ path: `evidence/017a/collision-overlay-${viewport.width}.png` });
         await page.locator('#v2-tools select:not([data-option])').selectOption('neutral');
         await page.locator('#v2-tools [data-option=camera]').uncheck();
         await page.locator('#v2-tools summary').tap();
@@ -115,11 +115,11 @@ for (const viewport of [
         await page.evaluate(() => (window as unknown as W).__crownfall.verification.advance(50));
         const battle = await snapshot();
         expect(battle.match.actors.filter((a) => !a.human).every((a) => a.damage > 0)).toBe(true);
-        await page.screenshot({ path: `evidence/017/natural-battle-${viewport.width}.png` });
+        await page.screenshot({ path: `evidence/017a/natural-battle-${viewport.width}.png` });
         await page.evaluate(() => (window as unknown as W).__crownfall.verification.advance(280));
         await page.waitForFunction(() => ['announcement', 'results'].includes(document.body.dataset.screen || ''));
         await expect(page.getByRole('button', { name: 'Play Again' })).toBeVisible({ timeout: 30000 });
-        await page.screenshot({ path: `evidence/017/results-${viewport.width}.png` });
+        await page.screenshot({ path: `evidence/017a/results-${viewport.width}.png` });
         await page.getByRole('button', { name: 'Play Again' }).tap();
         await page.waitForFunction(() => document.body.dataset.screen === 'gameplay');
         expect((await snapshot()).match.elapsed).toBeLessThan(1);
@@ -153,7 +153,7 @@ for (const viewport of [
         await expect
             .poll(async () => (await snapshot()).match.actors.find((a) => a.human)!.damage, { timeout: 30000 })
             .toBeGreaterThan(0);
-        await page.screenshot({ path: `evidence/017/centre-combat-${viewport.width}.png` });
+        await page.screenshot({ path: `evidence/017a/centre-combat-${viewport.width}.png` });
         expect(errors).toEqual([]);
         await context.close();
     });
@@ -175,7 +175,7 @@ test('corrupt V2 height data fails visibly without loading the older map', async
 test('missing material texture rejects readiness with retry and no older-map fallback', async ({ page }) => {
     const requests: string[] = [];
     page.on('request', (r) => requests.push(r.url()));
-    await page.route('**/assets/solrahn-surface/grass_path_2_color.webp', (route) => route.abort());
+    await page.route('**/assets/solrahn-surface/low_atlas.webp', (route) => route.abort());
     await page.goto('/?mapPreview=solrahn-v2&surface=goal017&frontend=1');
     await page.getByRole('button', { name: 'Enter Crownfall' }).click();
     await page.getByRole('button', { name: 'Enter Arena' }).click();
@@ -204,6 +204,6 @@ test('High quality renders the four PBR families with tangent normals and AO', a
     await page.waitForTimeout(1000);
     const cdp = await page.context().newCDPSession(page);
     const shot = await cdp.send('Page.captureScreenshot', { format: 'png' });
-    await writeFile('evidence/017/high-quality.png', Buffer.from(shot.data, 'base64'));
+    await writeFile('evidence/017a/high-quality.png', Buffer.from(shot.data, 'base64'));
     expect(errors).toEqual([]);
 });

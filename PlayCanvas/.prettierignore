@@ -8,3 +8,6 @@ test-results
 playwright-report
 MIGRATION_CONTRACT.md
 CODEX_TASK_001.md
+
+.audit
+evidence/017a/original-dist

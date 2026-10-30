@@ -2,3 +2,5 @@ node_modules/
 dist/
 test-results/
 playwright-report/
+.audit/
+evidence/017a/original-dist/

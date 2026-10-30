@@ -1,4 +1,4 @@
-import { ADDRESS_CLAMP_TO_EDGE, Color, StandardMaterial } from 'playcanvas';
+import { ADDRESS_CLAMP_TO_EDGE, Color, StandardMaterial, isCompressedPixelFormat } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
 import atlas from '../../public/assets/solrahn-surface/low-atlas.json';
@@ -11,17 +11,24 @@ import { terrainTextures } from './terrain-textures';
 // sRGB is decoded by color textures' GPU format; all arithmetic below is linear.
 export function createSolrahnSurfaceMaterial(app: AppBase) {
     const maps = terrainTextures(app, 'assets/solrahn-surface');
-    const pending: Promise<void>[] = [];
-    const load = (name: string, srgb: boolean, isWeight = false) => {
-        const result = maps.load(
-            name,
-            srgb,
-            isWeight ? { width: 1200, height: 900, flipY: false, clamp: ADDRESS_CLAMP_TO_EDGE, data: true } : {}
-        );
-        pending.push(result.ready);
-        return result.texture;
-    };
-    const weight = load('weights.png', false, true);
+    let destroyed = false;
+    let requestedLow = false;
+    try {
+        requestedLow = localStorage.getItem('crownfall.quality') === 'low';
+    } catch {
+        /* Optional storage. */
+    }
+    let appliedLow: boolean | undefined;
+    let highPending: Promise<void> | undefined;
+    let highLoaded = false;
+    let materialUpdates = 0;
+    const weight = maps.load('weights.png', false, {
+        width: 1200,
+        height: 900,
+        flipY: false,
+        clamp: ADDRESS_CLAMP_TO_EDGE,
+        data: true
+    });
     const baked = maps.load('low_atlas.webp', true, {
         width: 1024,
         height: 768,
@@ -29,15 +36,18 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
         clamp: ADDRESS_CLAMP_TO_EDGE,
         data: true
     });
-    pending.push(baked.ready);
-    const colors = manifest.sources.map((s) => load(`${s.asset}_color.webp`, true));
-    const normals = manifest.sources.map((s) => load(`${s.asset}_normal.webp`, false));
+    // Low needs tiled dirt detail and the visible outer rock skirt. Other families
+    // and all normal/AO maps are first requested by an explicit High demand.
+    const dirt = maps.load(`${manifest.sources[0].asset}_color.webp`, true);
+    const rock = maps.load(`${manifest.sources[3].asset}_color.webp`, true);
+    const colors = [dirt.texture, dirt.texture, dirt.texture, rock.texture];
+    const normals: typeof colors = [];
     const mat = new StandardMaterial();
     mat.name = 'GOAL-017-four-layer-PBR';
     mat.diffuse = new Color(1, 1, 1);
     mat.diffuseMap = colors[0]; // Enables UV and standard lit material generation.
-    mat.normalMap = normals[0];
-    mat.aoMap = normals[0];
+    mat.normalMap = null;
+    mat.aoMap = null;
     mat.useMetalness = true;
     mat.metalness = 0;
     mat.gloss = 1;
@@ -118,7 +128,7 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
     chunks.set('normalMapPS', highNormal);
     chunks.set('glossPS', 'void getGlossiness() { dGlossiness = 1.0-clamp(surfaceRough,.64,.98)+.0000001; }');
     chunks.set('aoPS', 'void getAO() { dAo = surfaceDebug > .5 ? 1.0 : surfaceAO; }');
-    mat.setParameter('surfaceWeights', weight);
+    mat.setParameter('surfaceWeights', weight.texture);
     mat.setParameter('surfaceAtlas', baked.texture);
     colors.forEach((t, i) => mat.setParameter(`surfaceColor${i}`, t));
     normals.forEach((t, i) => mat.setParameter(`surfaceNormal${i}`, t));
@@ -138,9 +148,60 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
     skirt.useMetalness = true;
     skirt.metalness = 0;
     skirt.update();
-    let destroyed = false;
-    let detailNormals = true;
-    const ready = Promise.all(pending).then(
+    const apply = (low: boolean) => {
+        if (destroyed || appliedLow === low) return;
+        appliedLow = low;
+        materialUpdates++;
+        chunks.set('diffusePS', low ? lowDiffuse : highDiffuse);
+        chunks.set('normalMapPS', low ? lowNormal : highNormal);
+        // Rough Low terrain uses diffuse lighting with geometry normals. Avoid
+        // metallic F0/specular BRDF work; High retains its original roughness path.
+        mat.useMetalness = !low;
+        mat.normalMap = low ? null : normals[0];
+        mat.aoMap = low ? null : normals[0];
+        colors.forEach((t, i) => mat.setParameter(`surfaceColor${i}`, t));
+        normals.forEach((t, i) => mat.setParameter(`surfaceNormal${i}`, t));
+        mat.update();
+        skirt.useMetalness = !low;
+        skirt.normalMap = low ? null : normals[3];
+        skirt.aoMap = low ? null : normals[3];
+        skirt.update();
+    };
+    const demandHigh = () => {
+        if (highPending) return highPending;
+        maps.loading.state = 'loading';
+        maps.loading.error = '';
+        const colorMaps = manifest.sources.map((s) => maps.load(`${s.asset}_color.webp`, true));
+        const normalMaps = manifest.sources.map((s) => maps.load(`${s.asset}_normal.webp`, false));
+        highPending = Promise.all([...colorMaps, ...normalMaps].map((r) => r.ready))
+            .then(() => {
+                if (destroyed) return;
+                colorMaps.forEach((r, i) => {
+                    colors[i] = r.texture;
+                });
+                normalMaps.forEach((r, i) => {
+                    normals[i] = r.texture;
+                });
+                highLoaded = true;
+                maps.loading.state = 'loaded';
+                if (!requestedLow) apply(false);
+            })
+            .catch((error: unknown) => {
+                highPending = undefined;
+                if (!destroyed) {
+                    maps.loading.state = 'error';
+                    maps.loading.error = String(error);
+                }
+                throw error;
+            });
+        void highPending.catch(() => {
+            /* Diagnostics expose a deferred High failure; explicit High demand retries it. */
+        });
+        return highPending;
+    };
+    apply(true); // A valid Low material remains visible throughout an asynchronous High load.
+    const lowReady = Promise.all([weight.ready, baked.ready, dirt.ready, rock.ready]);
+    const ready = Promise.all([lowReady, requestedLow ? Promise.resolve() : demandHigh()]).then(
         () => {
             if (!destroyed) maps.loading.state = 'loaded';
         },
@@ -152,24 +213,19 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
             throw error;
         }
     );
-    // Environment readiness owns the rejection; attach now to avoid transient unhandled rejection.
     void ready.catch(() => {
-        /* Readiness propagates this failure to the existing retry UI. */
+        /* Scene readiness owns initial failure and the existing retry UI. */
     });
     return {
         mat,
         skirt,
         ready,
         quality(low: boolean) {
-            detailNormals = !low;
-            chunks.set('diffusePS', low ? lowDiffuse : highDiffuse);
-            chunks.set('normalMapPS', low ? lowNormal : highNormal);
-            mat.normalMap = low ? null : normals[0];
-            mat.aoMap = low ? null : normals[0];
-            mat.update();
-            skirt.normalMap = low ? null : normals[3];
-            skirt.aoMap = low ? null : normals[3];
-            skirt.update();
+            requestedLow = low;
+            if (destroyed) return;
+            if (low) apply(true);
+            else if (highLoaded) apply(false);
+            else void demandHigh();
         },
         debug(mode: number) {
             mat.setParameter('surfaceDebug', mode);
@@ -177,6 +233,7 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
         get diagnostics() {
             return {
                 ...maps.loading,
+                ownership: maps.ownership,
                 layerEncoding: weights.encoding,
                 weightsSha256: weights.files['weights.png'].sha256,
                 tileMetres: 6,
@@ -184,10 +241,13 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
                 gpuBytes: maps.textures.reduce((n, t) => n + t.gpuSize, 0),
                 shader: {
                     terrainPasses: 1,
-                    maximumTextureReads: detailNormals ? 9 : 2,
-                    samplers: detailNormals ? 9 : 3,
+                    maximumTextureReads: appliedLow ? 2 : 9,
+                    samplers: appliedLow ? 3 : 9,
                     lowAtlasSha256: atlas.file.sha256,
-                    detailNormals,
+                    detailNormals: !appliedLow,
+                    requestedLow,
+                    highLoaded,
+                    materialUpdates,
                     displacement: false
                 },
                 formats: maps.textures.map((t) => ({
@@ -197,11 +257,14 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
                     format: t.format,
                     gpuBytes: t.gpuSize,
                     mipmaps: t.mipmaps,
+                    levels: t.numLevels,
+                    compressed: isCompressedPixelFormat(t.format),
                     srgb: t.srgb
                 }))
             };
         },
         destroy() {
+            if (destroyed) return;
             destroyed = true;
             mat.destroy();
             skirt.destroy();
