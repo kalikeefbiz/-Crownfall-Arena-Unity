@@ -4,7 +4,7 @@ import hashlib,json,re,subprocess
 root=Path(__file__).resolve().parents[1];repo=root.parent
 def git(*args):return subprocess.check_output(['git','-C',str(repo),*args])
 original='765041a87a857675b0e6411e5ad527aa527f3ea5'
-allowed={'PlayCanvas/src/presentation/solrahn-surface-material.ts','PlayCanvas/src/presentation/terrain-textures.ts'}
+allowed={'PlayCanvas/src/presentation/solrahn-surface-material.ts','PlayCanvas/src/presentation/terrain-textures.ts','PlayCanvas/src/presentation/solrahn-v2-environment.ts'}
 paths=git('ls-tree','-r','--name-only',original,'PlayCanvas/src','PlayCanvas/public').decode().splitlines()
 protected={}
 for name in paths:

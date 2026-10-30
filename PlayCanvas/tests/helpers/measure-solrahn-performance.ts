@@ -1,6 +1,6 @@
 // Run separately, after browser suites, to avoid CPU contention.
 // BUILDS='[["build","http://127.0.0.1:4173/?mapPreview=solrahn-v2&surface=goal017&frontend=1&verify=1"]]' LABEL=final node tests/helpers/measure-solrahn-performance.ts
-import { writeFile } from 'node:fs/promises';
+import { readFile, writeFile } from 'node:fs/promises';
 
 import { chromium } from '@playwright/test';
 
@@ -16,12 +16,18 @@ type API = {
 const browser = await chromium.launch({
     args: ['--no-sandbox', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader']
 });
-const results = [];
+const results: { round: number; name: string; warmth: string; [key: string]: unknown }[] =
+    process.env.RESUME === '1'
+        ? JSON.parse(await readFile(`evidence/017a/${process.env.LABEL || 'benchmark'}-progress.json`, 'utf8')).results
+        : [];
 const builds: [string, string][] = JSON.parse(process.env.BUILDS!);
 const rounds = Number(process.env.ROUNDS || 3);
 try {
     for (let round = 0; round < rounds; round++) {
         for (const [name, url] of round % 2 ? [...builds].reverse() : builds) {
+            const completed = (warmth: string) =>
+                results.some((r) => r.round === round && r.name === name && r.warmth === warmth);
+            if (completed('cold') && completed('warm')) continue;
             const context = await browser.newContext({
                 viewport: { width: 844, height: 390 },
                 hasTouch: true,
@@ -85,7 +91,20 @@ try {
                         };
                     }
             });
+            let resumedWarmCache = false;
+            if (completed('cold') && !completed('warm')) {
+                // Reconstruct only the interrupted context's HTTP cache. No repeat sample.
+                await page.goto(url);
+                await page.getByRole('button', { name: 'Enter Crownfall' }).tap();
+                await page.getByRole('button', { name: 'Enter Arena' }).tap();
+                await page.waitForFunction(() => document.body.dataset.screen === 'gameplay', null, {
+                    timeout: 120000
+                });
+                resumedWarmCache = true;
+                console.log(name, 'warm cache primed after interrupted context; completed cold sample retained');
+            }
             for (const warmth of ['cold', 'warm']) {
+                if (completed(warmth)) continue;
                 const navigationStarted = Date.now();
                 await page.goto(url);
                 const start = Date.now();
@@ -196,6 +215,7 @@ try {
                 );
                 results.push({
                     round,
+                    resumedWarmCache,
                     graphics,
                     readyCounters,
                     name,
@@ -247,7 +267,7 @@ await writeFile(
         {
             renderer:
                 'Chromium SwiftShader; wall time, low resolution; no hardware GPU; cold empty browser cache vs warm page reload',
-            setup: 'Published GOAL 016 JS/CSS verified against gh-pages blobs, served locally on same machine as candidate; identical viewport/DPR, low quality, six full models. Real countdown, normal W movement from spawn to mid-lane, wait for bot damage, then Ring. No verification fixtures, bot removal, state relocation, or accelerated clocks.',
+            setup: 'Published GOAL 016 JS/CSS verified against gh-pages blobs, served locally on same machine as candidate; identical viewport/DPR, Low unless auditHigh=1 explicitly selects High, six full models. Real countdown, normal W movement from spawn to mid-lane, wait for bot damage, then Ring. No verification fixtures, bot removal, state relocation, or accelerated clocks.',
             gpuTimer:
                 'Hardware GPU duration/residency NOT AVAILABLE under SwiftShader; engine allocation accounting only.',
             drawCallMethod:

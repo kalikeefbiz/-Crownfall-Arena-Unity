@@ -4,3 +4,5 @@ test-results/
 playwright-report/
 .audit/
 evidence/017a/original-dist/
+
+__pycache__/

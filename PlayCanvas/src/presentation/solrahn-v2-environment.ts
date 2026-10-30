@@ -142,6 +142,7 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
     ])
         focusSelect.add(new Option(`Inspect: ${m.id}`, m.id));
     panel.append(document.createElement('br'), focusSelect);
+    const sampleReadout = panel.querySelector('.v2-sample')!;
     document.body.append(panel);
     const recolor = () => {
         const debug = ['neutral', 'dirt', 'grass', 'forest', 'rock', 'zones'].indexOf(overlay);
@@ -274,8 +275,8 @@ export function createSolrahnV2Environment(app: AppBase, parent: Entity, surface
                 node.style.left = `${p.x}px`;
                 node.style.top = `${p.y}px`;
             });
-            panel.querySelector('.v2-sample')!.textContent =
-                `x ${x.toFixed(1)} / z ${z.toFixed(1)} / y ${surface.height(x, z).toFixed(3)}m / ${surface.walkable(x, z) ? 'walkable' : 'blocked'}`;
+            if (panel.open)
+                sampleReadout.textContent = `x ${x.toFixed(1)} / z ${z.toFixed(1)} / y ${surface.height(x, z).toFixed(3)}m / ${surface.walkable(x, z) ? 'walkable' : 'blocked'}`;
         },
         destroy() {
             panel.remove();

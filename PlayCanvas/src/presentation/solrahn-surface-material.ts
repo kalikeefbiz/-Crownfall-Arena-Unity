@@ -27,19 +27,21 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
         height: 900,
         flipY: false,
         clamp: ADDRESS_CLAMP_TO_EDGE,
-        data: true
+        data: true,
+        anisotropy: 1
     });
     const baked = maps.load('low_atlas.webp', true, {
         width: 1024,
         height: 768,
         flipY: false,
         clamp: ADDRESS_CLAMP_TO_EDGE,
-        data: true
+        data: true,
+        anisotropy: 1
     });
     // Low needs tiled dirt detail and the visible outer rock skirt. Other families
     // and all normal/AO maps are first requested by an explicit High demand.
-    const dirt = maps.load(`${manifest.sources[0].asset}_color.webp`, true);
-    const rock = maps.load(`${manifest.sources[3].asset}_color.webp`, true);
+    const dirt = maps.load(`${manifest.sources[0].asset}_color.webp`, true, { anisotropy: 1 });
+    const rock = maps.load(`${manifest.sources[3].asset}_color.webp`, true, { anisotropy: 1 });
     const colors = [dirt.texture, dirt.texture, dirt.texture, rock.texture];
     const normals: typeof colors = [];
     const mat = new StandardMaterial();
@@ -152,6 +154,11 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
         if (destroyed || appliedLow === low) return;
         appliedLow = low;
         materialUpdates++;
+        // Keep trilinear mip filtering and both Low texture reads. SwiftShader
+        // ablation isolated the additional anisotropic taps as a material cost.
+        // Restore the original cap for High without rebuilding shader source.
+        for (const texture of maps.textures)
+            texture.anisotropy = Math.min(low ? 1 : 4, app.graphicsDevice.maxAnisotropy);
         chunks.set('diffusePS', low ? lowDiffuse : highDiffuse);
         chunks.set('normalMapPS', low ? lowNormal : highNormal);
         // Rough Low terrain uses diffuse lighting with geometry normals. Avoid
@@ -258,6 +265,7 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
                     gpuBytes: t.gpuSize,
                     mipmaps: t.mipmaps,
                     levels: t.numLevels,
+                    anisotropy: t.anisotropy,
                     compressed: isCompressedPixelFormat(t.format),
                     srgb: t.srgb
                 }))

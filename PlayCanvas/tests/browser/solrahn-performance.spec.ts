@@ -30,6 +30,7 @@ test('surface: five rematch/menu/quality cycles retain bounded resources and laz
                                 materials: {
                                     state: string;
                                     loadedMaps: number;
+                                    formats: { anisotropy: number }[];
                                     textures: number;
                                     shader: { detailNormals: boolean; materialUpdates: number };
                                 };
@@ -54,11 +55,13 @@ test('surface: five rematch/menu/quality cycles retain bounded resources and laz
         await expect
             .poll(async () => (await snapshot()).environment.materials.shader.detailNormals, { timeout: 30000 })
             .toBe(true);
+        expect((await snapshot()).environment.materials.formats.every((t) => t.anisotropy === 4)).toBe(true);
         const updates = (await snapshot()).environment.materials.shader.materialUpdates;
         await click('standard');
         expect((await snapshot()).environment.materials.shader.materialUpdates).toBe(updates);
         await click('low');
         expect((await snapshot()).environment.materials.shader.detailNormals).toBe(false);
+        expect((await snapshot()).environment.materials.formats.every((t) => t.anisotropy === 1)).toBe(true);
         await click('pause');
         await click('resume');
         await page.evaluate(() => {
@@ -90,6 +93,8 @@ test('surface: five rematch/menu/quality cycles retain bounded resources and laz
 
 test('surface: failed deferred High can retry without replacing the working Low material', async ({ page }) => {
     test.setTimeout(120000);
+    const errors: string[] = [];
+    page.on('pageerror', (error) => errors.push(error.message));
     await page.addInitScript(() => localStorage.setItem('crownfall.quality', 'low'));
     let fail = true;
     await page.route('**/grass_path_2_normal.webp', (route) => (fail ? route.abort() : route.continue()));
@@ -119,6 +124,7 @@ test('surface: failed deferred High can retry without replacing the working Low 
     fail = false;
     await click('standard');
     await expect.poll(async () => (await material()).shader.detailNormals, { timeout: 30000 }).toBe(true);
+    expect(errors).toEqual([]);
 });
 
 test('surface: Low remains selected when a pending High load completes', async ({ page }) => {

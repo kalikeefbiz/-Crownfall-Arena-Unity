@@ -17,7 +17,14 @@ export function terrainTextures(app: AppBase, base: string) {
         load(
             name: string,
             srgb: boolean,
-            options: { width?: number; height?: number; flipY?: boolean; clamp?: number; data?: boolean } = {}
+            options: {
+                width?: number;
+                height?: number;
+                flipY?: boolean;
+                clamp?: number;
+                data?: boolean;
+                anisotropy?: number;
+            } = {}
         ) {
             if (destroyed) throw new Error('Terrain textures have been destroyed');
             const existing = resources.get(name);
@@ -33,7 +40,7 @@ export function terrainTextures(app: AppBase, base: string) {
                 addressV: options.clamp ?? ADDRESS_REPEAT,
                 minFilter: FILTER_LINEAR_MIPMAP_LINEAR,
                 magFilter: FILTER_LINEAR,
-                anisotropy: Math.min(4, app.graphicsDevice.maxAnisotropy)
+                anisotropy: Math.min(options.anisotropy ?? 4, app.graphicsDevice.maxAnisotropy)
             });
             textures.push(texture);
             ownership.requests++;
