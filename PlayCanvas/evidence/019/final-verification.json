@@ -1,0 +1,44 @@
+{
+  "source": "c4f4ba1abacab9d07deda4b8810ab489a80aac5a",
+  "pages": "fa21a1949f3ded0b33d14e7e7fd11b0494aecf78",
+  "branch": "goal-019-solrahn-environment-transformation",
+  "url": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-019/",
+  "review": "https://kalikeefbiz.github.io/-Crownfall-Arena-Unity/solrahn-goal-019/review/",
+  "units": {
+    "passed": 259,
+    "total": 259
+  },
+  "localBrowser": {
+    "passed": 8,
+    "total": 8
+  },
+  "layoutBrowser": {
+    "passed": 4,
+    "total": 4
+  },
+  "hostedBrowser": {
+    "passed": 4,
+    "total": 4
+  },
+  "typecheck": "pass",
+  "scopedLint": "pass",
+  "build": "pass",
+  "format": "pass",
+  "matchedCameraPairs": 10,
+  "protectedPriorGitObjects": 451,
+  "protectedPriorPublicEntries": 7,
+  "newHostedFilesHashed": 37,
+  "productionMerged": false,
+  "physicalIPhone": "NOT VERIFIED",
+  "bankedResetInitiated": false,
+  "legacy017AFailures": [
+    "match.spec.ts:34 wall-time respawn poll",
+    "six-summoner.spec.ts:209 immediate post-restart weapon count"
+  ],
+  "remainingRisks": [
+    "Physical iPhone FPS, native memory, thermal behavior unverified",
+    "Software mean frame-time regression vs 018A: Chromium +53.7%, WebKit +2.8%; single bounded samples",
+    "Decorative bank rocks and trees retain original no-collision limitation",
+    "Some smooth hills, tree/rock style differences, crowded inherited portrait HUD"
+  ]
+}

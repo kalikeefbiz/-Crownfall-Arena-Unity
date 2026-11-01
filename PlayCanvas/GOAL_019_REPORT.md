@@ -133,6 +133,10 @@ lighting remains unchanged. Low/High switching and the monitor remain available.
   exact texture-request budgets, cached results/rematch and stable geometry IDs.
 - The separately scoped idle-banner fix is checked in both orientations and
   both engines; actionable feedback is still visible (`browser-layout.txt`).
+- **4/4 hosted gameplay checks pass** against the public GOAL 019 URL in both
+  engines and orientations, including real remote assets, damaging abilities,
+  AI activity, quality switching, results, rematch and resource reuse. Hosted
+  cases report zero captured page/console/HTTP errors (`browser-public.txt`).
 - Separate natural-AI checks select alternative characters, sample 100 seconds of
   ordinary match rules, and require actual deaths, living actors after a death,
   and Crownfall scoring. Both engines pass. These use fixed ticks for elapsed
