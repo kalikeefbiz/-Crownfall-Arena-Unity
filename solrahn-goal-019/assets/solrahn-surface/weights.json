@@ -1,0 +1,89 @@
+{
+  "encoding": "R dirt / G grass / B forest / A rock; linear data, alpha is NOT transparency",
+  "size": [
+    1200,
+    900
+  ],
+  "mapping": "x=(v/899-.5)*120; z=(.5-u/1199)*160; Y up",
+  "sourceSha256": "17efa4455d942e565cdc35e1f0fe9c981d59c1a3bc759ff72e1d32d0dd8b6db8",
+  "runtimeHeightSha256": "911fef74ea745f499f8cdb8e31c92f764b09c969112955e6e771b717d19452d9",
+  "landmarks": [
+    {
+      "id": "north-mobility",
+      "type": "mobility",
+      "x": -19.2,
+      "z": 54.4,
+      "radius": 3,
+      "active": true
+    },
+    {
+      "id": "north-cooldown",
+      "type": "cooldown",
+      "x": -20.4,
+      "z": -14.4,
+      "radius": 3,
+      "active": false
+    },
+    {
+      "id": "north-defense",
+      "type": "defense",
+      "x": -19.8,
+      "z": -56.0,
+      "radius": 3,
+      "active": false
+    },
+    {
+      "id": "south-defense",
+      "type": "defense",
+      "x": 20.4,
+      "z": 54.4,
+      "radius": 3,
+      "active": false
+    },
+    {
+      "id": "south-cooldown",
+      "type": "cooldown",
+      "x": 21.0,
+      "z": 0.0,
+      "radius": 3,
+      "active": false
+    },
+    {
+      "id": "south-mobility",
+      "type": "mobility",
+      "x": 20.4,
+      "z": -54.4,
+      "radius": 3,
+      "active": true
+    },
+    {
+      "id": "major",
+      "type": "major",
+      "x": -22.2,
+      "z": 20.0,
+      "radius": 4,
+      "active": false
+    }
+  ],
+  "sumRange": [
+    255,
+    255
+  ],
+  "slopeRange": [
+    0.0,
+    0.9733830162129662
+  ],
+  "meanWeights": [
+    0.3302819842327765,
+    0.3074709674096025,
+    0.27021362709149227,
+    0.09203342126555812
+  ],
+  "laneInteriorMinDirt": 0.95,
+  "files": {
+    "weights.png": {
+      "sha256": "c4fd3c2387ed1e8cf3e53ced393644f04676a4ddc16d0943a6af1f1721c716b5",
+      "bytes": 746804
+    }
+  }
+}

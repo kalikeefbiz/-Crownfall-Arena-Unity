@@ -1,0 +1,173 @@
+{
+  "license": "CC0-1.0 applies to Poly Haven stones only; existing approved Meshy trees retain original provenance",
+  "assets": [
+    {
+      "file": "public/assets/environment/stones/mobile/rock_face_02.glb",
+      "bytes": 509732,
+      "sha256": "dce05f3ba7c3927274579714687891767a0f28305ce61d84410b4d3f12aeea37",
+      "meshes": [
+        {
+          "name": "rock_face_section_2_proxy",
+          "triangles": 2999
+        }
+      ],
+      "textures": [
+        {
+          "name": "rock_face_02_nor_gl_1k",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 79979
+        },
+        {
+          "name": "rock_face_02_diff_1k",
+          "dimensions": [
+            1024,
+            1024
+          ],
+          "mime": "image/jpeg",
+          "bytes": 281601
+        },
+        {
+          "name": "rock_face_02_arm_1k",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 58614
+        }
+      ]
+    },
+    {
+      "file": "public/assets/environment/stones/mobile/rock_moss_set_02.glb",
+      "bytes": 240260,
+      "sha256": "1719855fbe1fe76f82a63149b15a5507ba74c33a4525fb45671e3e53295fb568",
+      "meshes": [
+        {
+          "name": "moss rock 10.001",
+          "triangles": 999
+        },
+        {
+          "name": "moss rock 14.001",
+          "triangles": 999
+        },
+        {
+          "name": "moss rock 12",
+          "triangles": 1000
+        }
+      ],
+      "textures": [
+        {
+          "name": "rock_moss_set_02_nor_gl_1k",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 65779
+        },
+        {
+          "name": "rock_moss_set_02_diff_1k",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 50159
+        },
+        {
+          "name": "rock_moss_set_02_rough_1k",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 41241
+        }
+      ]
+    },
+    {
+      "file": "public/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb",
+      "bytes": 379620,
+      "sha256": "15460eb525b15ea5723bd24f0b9c292fdd0427a62fcc58d39646e273fd59d9fe",
+      "meshes": [
+        {
+          "name": null,
+          "triangles": 2559
+        }
+      ],
+      "textures": [
+        {
+          "name": "",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 78689
+        },
+        {
+          "name": "",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 81860
+        },
+        {
+          "name": "",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 32049
+        }
+      ]
+    },
+    {
+      "file": "public/assets/environment/trees/mobile/Meshy_AI_Red_oak_tree_1025063928_texture.glb",
+      "bytes": 599928,
+      "sha256": "c93f512c21804d32db122848e26bd8477e0dea4c44c26784477904155f09003a",
+      "meshes": [
+        {
+          "name": null,
+          "triangles": 6765
+        }
+      ],
+      "textures": [
+        {
+          "name": "",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 105750
+        },
+        {
+          "name": "",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 73017
+        },
+        {
+          "name": "",
+          "dimensions": [
+            512,
+            512
+          ],
+          "mime": "image/jpeg",
+          "bytes": 30797
+        }
+      ]
+    }
+  ]
+}
