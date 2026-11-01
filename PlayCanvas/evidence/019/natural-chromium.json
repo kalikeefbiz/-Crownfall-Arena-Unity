@@ -1,0 +1,7068 @@
+{
+  "history": [
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 5.166666666666654,
+      "control": 0.5026733378608513,
+      "front": 0.40100067912770854,
+      "cp": {
+        "1": 36.99999999999993,
+        "2": 0
+      },
+      "tickets": {
+        "1": 15,
+        "2": 15
+      },
+      "pressureTeam": 1,
+      "pressureAge": 5.083333333333321,
+      "scoringTeam": 1,
+      "result": null,
+      "remaining": 294.83333333333337,
+      "results": null,
+      "feed": [],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 0,
+      "rewards": 0,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 3.0833333333333273
+        },
+        {
+          "x": -1.45,
+          "z": 40.500000000000064,
+          "previous": {
+            "x": -1.45,
+            "z": 40.600000000000065
+          },
+          "angle": 3.0812727439501364,
+          "animation": "run",
+          "distance": 30.499999999999936,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 3.0833333333333273
+        },
+        {
+          "x": 1.3716322369229612,
+          "z": 40.90016122136865,
+          "previous": {
+            "x": 1.3722867093131743,
+            "z": 41.000159079675164
+          },
+          "angle": 3.116388050782718,
+          "animation": "run",
+          "distance": 30.099999999999817,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 3.0833333333333273
+        },
+        {
+          "x": -0.3437397978482378,
+          "z": -41.30200135825548,
+          "previous": {
+            "x": -0.3424119033845036,
+            "z": -41.40199254134826
+          },
+          "angle": 0.054229081744947207,
+          "animation": "run",
+          "distance": 29.69999999999988,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -1.45,
+          "z": -41.70000000000008,
+          "previous": {
+            "x": -1.45,
+            "z": -41.80000000000008
+          },
+          "angle": 0.11587398486211896,
+          "animation": "run",
+          "distance": 29.29999999999992,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 0
+        },
+        {
+          "x": 0.7815339359572743,
+          "z": -42.20780358264516,
+          "previous": {
+            "x": 0.7842084287494484,
+            "z": -42.307767811688876
+          },
+          "angle": -0.000724120505372048,
+          "animation": "run",
+          "distance": 28.79999999999986,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 0
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 10.166666666666751,
+      "control": 0.502689320697964,
+      "front": 0.4033981046946016,
+      "cp": {
+        "1": 97.00000000000256,
+        "2": 0
+      },
+      "tickets": {
+        "1": 15,
+        "2": 15
+      },
+      "pressureTeam": 1,
+      "pressureAge": 10.083333333333414,
+      "scoringTeam": 1,
+      "result": null,
+      "remaining": 289.83333333333326,
+      "results": null,
+      "feed": [],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 0,
+      "rewards": 0,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 8.083333333333314
+        },
+        {
+          "x": -1.45,
+          "z": 10.499999999999737,
+          "previous": {
+            "x": -1.45,
+            "z": 10.599999999999737
+          },
+          "angle": 3.049378598342188,
+          "animation": "run",
+          "distance": 60.50000000000036,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 8.083333333333314
+        },
+        {
+          "x": 0.8207784015297606,
+          "z": 10.90660288008906,
+          "previous": {
+            "x": 0.8247056579899561,
+            "z": 11.006525733614648
+          },
+          "angle": -3.1049561746351286,
+          "animation": "run",
+          "distance": 60.09999999999992,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 8.083333333333314
+        },
+        {
+          "x": -0.8708911460911679,
+          "z": -11.30679620938894,
+          "previous": {
+            "x": -0.8682959110174153,
+            "z": -11.406762527491148
+          },
+          "angle": -0.037447995853378734,
+          "animation": "run",
+          "distance": 59.7000000000001,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -1.45,
+          "z": -11.699999999999733,
+          "previous": {
+            "x": -1.45,
+            "z": -11.799999999999732
+          },
+          "angle": 0.0679271782748401,
+          "animation": "run",
+          "distance": 59.300000000000345,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -0.26277623110990006,
+          "z": -12.2265925117509,
+          "previous": {
+            "x": -0.2577576160670713,
+            "z": -12.32646649987119
+          },
+          "angle": -0.15648683944367145,
+          "animation": "run",
+          "distance": 58.800000000000246,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 0
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 15.166666666667,
+      "control": 0.2528950879318597,
+      "front": -37.06573681022104,
+      "cp": {
+        "1": 114.40000000000404,
+        "2": 0
+      },
+      "tickets": {
+        "1": 14,
+        "2": 15
+      },
+      "pressureTeam": 2,
+      "pressureAge": 0.6000000000000002,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 284.833333333333,
+      "results": null,
+      "feed": [
+        "Set defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 0,
+      "rewards": 0,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -7.184506869979453,
+          "z": -2.267898683967937,
+          "previous": {
+            "x": -7.184506869979453,
+            "z": -2.267898683967937
+          },
+          "angle": 2.1731614572389892,
+          "animation": "idle",
+          "distance": 91.2049999999996,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 17.683333333333643,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 53.66100000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 813.4,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": 12.193971611893573,
+          "z": 10.57894151131648,
+          "previous": {
+            "x": 12.20231305639718,
+            "z": 10.47929001707985
+          },
+          "angle": -2.7220601114800567,
+          "animation": "run",
+          "distance": 87.79999999999863,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 720,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 16.016666666666893
+            }
+          },
+          "ultimateMeter": 29.366,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 615.4,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": 11.327492675266466,
+          "z": 7.807778529287424,
+          "previous": {
+            "x": 11.28853275259529,
+            "z": 7.710274045157432
+          },
+          "angle": 0.29928593182216007,
+          "animation": "run",
+          "distance": 90.99000000000011,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 259,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 14.16666666666692
+          },
+          "modifiers": {},
+          "ultimateMeter": 26.25,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 1,
+          "damage": 290,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -6.400548059437038,
+          "z": -1.8697594529734263,
+          "previous": {
+            "x": -6.484727467495711,
+            "z": -1.923739331251276
+          },
+          "angle": 0.9271894379186476,
+          "animation": "run",
+          "distance": 84.03333333333262,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1193.8,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "warcry": {
+              "damageBonus": 0.25,
+              "mitigation": 0.2,
+              "expires": 16.600000000000158
+            }
+          },
+          "ultimateMeter": 29.560000000000006,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 469.5,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -1.5342909763976795,
+          "z": 3.1314736204420845,
+          "previous": {
+            "x": -1.6244718578359436,
+            "z": 3.088260096829473
+          },
+          "angle": 1.2251825440001889,
+          "animation": "run",
+          "distance": 87.23499999999905,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 498.40000000000003,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 12.76666666666685
+          },
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 15.200000000000186
+            }
+          },
+          "ultimateMeter": 21.31,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 1,
+          "damage": 275.5,
+          "pressureSeconds": 0
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 20.166666666666803,
+      "control": 0.5,
+      "front": 0,
+      "cp": {
+        "1": 114.40000000000404,
+        "2": 12.19999999999993
+      },
+      "tickets": {
+        "1": 14,
+        "2": 14
+      },
+      "pressureTeam": 0,
+      "pressureAge": 0,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 279.8333333333332,
+      "results": null,
+      "feed": [
+        "Riven defeated Kit Asher",
+        "Set defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 0,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 1,
+      "rewards": 0,
+      "assignments": [
+        {
+          "id": "1-1",
+          "camp": "north-mobility",
+          "until": 41.68333333333361
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -12.599109278634518,
+          "z": 60.57322737885435,
+          "previous": {
+            "x": -12.522420351398578,
+            "z": 60.64494772770598
+          },
+          "angle": -2.209668607594335,
+          "animation": "run",
+          "distance": 106.47000000000054,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 53.66100000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 19.68333333333361,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 1,
+          "damage": 813.4,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": 2.744913382966058,
+          "z": 20.38454971331089,
+          "previous": {
+            "x": 2.8438175653335933,
+            "z": 20.369786153096317
+          },
+          "angle": 2.084364364101189,
+          "animation": "run",
+          "distance": 115.09999999999708,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 230,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 22.71666666666683
+            }
+          },
+          "ultimateMeter": 60.992000000000004,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 1099.8,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": 11.810302263437297,
+          "z": 13.234894669741637,
+          "previous": {
+            "x": 11.810302263437297,
+            "z": 13.234894669741637
+          },
+          "angle": -0.8447362349232559,
+          "animation": "idle",
+          "distance": 107.22500000000073,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 20.616666666666948,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 44.725,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 1,
+          "damage": 590,
+          "pressureSeconds": 0
+        },
+        {
+          "x": 6.392734383823541,
+          "z": 18.50376496046873,
+          "previous": {
+            "x": 6.449130999564826,
+            "z": 18.47144744613161
+          },
+          "angle": -1.0548765533746927,
+          "animation": "run",
+          "distance": 111.29333333333116,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1066.3999999999999,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 20.766666666666804
+          },
+          "modifiers": {
+            "slow": {
+              "slow": 0.35,
+              "expires": 20.766666666666804
+            },
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 36.345000000000006,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 559.5,
+          "pressureSeconds": 1.016666666666668
+        },
+        {
+          "x": 6.636551490140195,
+          "z": 17.29963939326425,
+          "previous": {
+            "x": 6.709707823785558,
+            "z": 17.231462044771014
+          },
+          "angle": -0.8617530797187165,
+          "animation": "run",
+          "distance": 117.23499999999734,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 400.40000000000003,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 12.76666666666685
+          },
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 21.800000000000214
+            },
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 27.759999999999998,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 1,
+          "damage": 375.5,
+          "pressureSeconds": 0
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 25.16666666666652,
+      "control": 0.1745221543914937,
+      "front": -48.821676841275945,
+      "cp": {
+        "1": 114.40000000000404,
+        "2": 26.99999999999985
+      },
+      "tickets": {
+        "1": 13,
+        "2": 14
+      },
+      "pressureTeam": 2,
+      "pressureAge": 0.5333333333333333,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 274.8333333333335,
+      "results": null,
+      "feed": [
+        "Set defeated Riven",
+        "Riven defeated Kit Asher",
+        "Set defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 560,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 25.899999999999867,
+          "lastHit": 24.716666666666544,
+          "rewarded": false
+        }
+      ],
+      "rotations": 2,
+      "rewards": 0,
+      "assignments": [
+        {
+          "id": "2-0",
+          "camp": "south-mobility",
+          "until": 44.616666666666774
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -7.97717493730201,
+          "z": 36.635940030975256,
+          "previous": {
+            "x": -7.8953668690100915,
+            "z": 36.70176130384615
+          },
+          "angle": 2.506877006425069,
+          "animation": "run",
+          "distance": 142.92499999999993,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 590.5,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 68.45190000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 1,
+          "damage": 1050.3600000000001,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -0.6672624304774991,
+          "z": 62.8752974510756,
+          "previous": {
+            "x": -0.6432317090550695,
+            "z": 62.97236713958812
+          },
+          "angle": -3.0188329869723036,
+          "animation": "run",
+          "distance": 125.89999999999684,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 71.83800000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 25.766666666666598,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 1,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1227.2,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": 18.553763942892008,
+          "z": -53.68961735064679,
+          "previous": {
+            "x": 18.51595441706775,
+            "z": -53.59166103509264
+          },
+          "angle": 2.8392130565862037,
+          "animation": "run",
+          "distance": 140.23000000000079,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 761,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 44.725,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 2,
+          "damage": 590,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -6.831401633518195,
+          "z": 35.6385039598406,
+          "previous": {
+            "x": -6.91382346001416,
+            "z": 35.69513118400945
+          },
+          "angle": -0.6026127320850584,
+          "animation": "run",
+          "distance": 138.5499999999969,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 702.0399999999998,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 21.200000000000113
+          },
+          "modifiers": {
+            "warcry": {
+              "damageBonus": 0.25,
+              "mitigation": 0.2,
+              "expires": 29.06666666666658
+            },
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 53.95400000000001,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 2,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 772,
+          "pressureSeconds": 1.5499999999999994
+        },
+        {
+          "x": -3.55736651973667,
+          "z": 34.768056231476294,
+          "previous": {
+            "x": -3.4607617273638143,
+            "z": 34.74221993741934
+          },
+          "angle": -1.299432277896597,
+          "animation": "run",
+          "distance": 145.13499999999576,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 400.40000000000003,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 12.76666666666685
+          },
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 27.949999999999864
+            },
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 36.96,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 2,
+          "damage": 605.5,
+          "pressureSeconds": 1.2333333333333338
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 30.166666666666234,
+      "control": 0.5,
+      "front": 0,
+      "cp": {
+        "1": 114.40000000000404,
+        "2": 26.99999999999985
+      },
+      "tickets": {
+        "1": 12,
+        "2": 14
+      },
+      "pressureTeam": 0,
+      "pressureAge": 0,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 269.83333333333377,
+      "results": null,
+      "feed": [
+        "Set defeated Kit Asher",
+        "Kit Asher secured MOBILITY CAMP",
+        "Set defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 2,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -14.31188232101147,
+          "z": 27.20505345094664,
+          "previous": {
+            "x": -14.31188232101147,
+            "z": 27.20505345094664
+          },
+          "angle": 0.6114601464448758,
+          "animation": "idle",
+          "distance": 169.44999999999771,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 32.16666666666629,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 100,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 1601.5600000000002,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -7.474831122643206,
+          "z": 38.13469858100885,
+          "previous": {
+            "x": -7.558519270973285,
+            "z": 38.18943699374691
+          },
+          "angle": -2.6736666228670543,
+          "animation": "run",
+          "distance": 153.3999999999953,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 32.46666666666627
+            }
+          },
+          "ultimateMeter": 71.83800000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1227.2,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": 15.860924504558103,
+          "z": -49.95856011119556,
+          "previous": {
+            "x": 15.89363377555171,
+            "z": -50.08024044482046
+          },
+          "angle": -0.1761938210607156,
+          "animation": "run",
+          "distance": 162.59499999999937,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 593,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "camp:mobility": {
+              "speedBonus": 0.2,
+              "label": "MOBILITY",
+              "expires": 49.133333333332956
+            }
+          },
+          "ultimateMeter": 44.725,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 2,
+          "damage": 590,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -11.28367667936398,
+          "z": 33.16686855160316,
+          "previous": {
+            "x": -11.336636877962128,
+            "z": 33.0820439244926
+          },
+          "angle": 0.6412918823616547,
+          "animation": "run",
+          "distance": 164.0833333333288,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 150.83999999999983,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 21.200000000000113
+          },
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 82.254,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 1135,
+          "pressureSeconds": 1.5499999999999994
+        },
+        {
+          "x": -10.734934112182117,
+          "z": 34.79343305796458,
+          "previous": {
+            "x": -10.654985452917716,
+            "z": 34.73336466459648
+          },
+          "angle": 0.600935981779045,
+          "animation": "run",
+          "distance": 172.13499999999422,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 400.40000000000003,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 12.76666666666685
+          },
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 46.06,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 3,
+          "damage": 833,
+          "pressureSeconds": 1.2333333333333338
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 35.166666666665954,
+      "control": 0.5345940399180447,
+      "front": 5.1891059877067,
+      "cp": {
+        "1": 114.40000000000404,
+        "2": 26.99999999999985
+      },
+      "tickets": {
+        "1": 12,
+        "2": 12
+      },
+      "pressureTeam": 1,
+      "pressureAge": 0.15,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 264.83333333333405,
+      "results": null,
+      "feed": [
+        "Riven defeated Riven",
+        "Riven defeated Set",
+        "Set defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 2,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -3.111849487541738,
+          "z": 53.13248126019614,
+          "previous": {
+            "x": -3.1105201696825837,
+            "z": 53.23247242437593
+          },
+          "angle": 3.0598482563392158,
+          "animation": "run",
+          "distance": 187.4499999999967,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 100,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 34.166666666666124,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 2,
+          "assists": 2,
+          "damage": 1601.5600000000002,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -8.171397894194204,
+          "z": 32.18388716925367,
+          "previous": {
+            "x": -8.200791677768763,
+            "z": 32.279469623120335
+          },
+          "angle": 2.926805291252552,
+          "animation": "run",
+          "distance": 178.79999999999384,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 475,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 4.056000000000002,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1778.44,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": 5.935879807804725,
+          "z": -13.685801023478733,
+          "previous": {
+            "x": 5.97055671587936,
+            "z": -13.800681448470911
+          },
+          "angle": -0.22274668391612987,
+          "animation": "run",
+          "distance": 200.2030000000008,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 593,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "camp:mobility": {
+              "speedBonus": 0.2,
+              "label": "MOBILITY",
+              "expires": 49.133333333332956
+            }
+          },
+          "ultimateMeter": 44.725,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 2,
+          "damage": 590,
+          "pressureSeconds": 0
+        },
+        {
+          "x": -1.850266462763828,
+          "z": -63.51069323560954,
+          "previous": {
+            "x": -1.84490129489568,
+            "z": -63.610549206756716
+          },
+          "angle": 0.05718131223976096,
+          "animation": "run",
+          "distance": 176.1833333333281,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 86.025,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 35.916666666666025,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 3,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1135,
+          "pressureSeconds": 1.5499999999999994
+        },
+        {
+          "x": -3.430017978178149,
+          "z": 29.199877357391216,
+          "previous": {
+            "x": -3.430017978178149,
+            "z": 29.199877357391216
+          },
+          "angle": -0.6173840139832748,
+          "animation": "idle",
+          "distance": 188.60499999999345,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 38.01666666666596,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 73.47000000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 3,
+          "damage": 1268,
+          "pressureSeconds": 1.2333333333333338
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 40.16666666666567,
+      "control": 0.5339610899445808,
+      "front": 5.09416349168713,
+      "cp": {
+        "1": 114.40000000000404,
+        "2": 40.39999999999992
+      },
+      "tickets": {
+        "1": 12,
+        "2": 12
+      },
+      "pressureTeam": 1,
+      "pressureAge": 0.966666666666668,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 259.83333333333434,
+      "results": null,
+      "feed": [
+        "Riven defeated Riven",
+        "Riven defeated Set",
+        "Set defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 2,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -2.6858333585275034,
+          "z": 23.351396534613556,
+          "previous": {
+            "x": -2.6649942294408135,
+            "z": 23.44920108818295
+          },
+          "angle": -2.923934240245973,
+          "animation": "run",
+          "distance": 217.449999999995,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 2,
+          "assists": 2,
+          "damage": 1601.5600000000002,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -4.518150176821486,
+          "z": 5.990456265982026,
+          "previous": {
+            "x": -4.566045290401482,
+            "z": 6.0782404222698165
+          },
+          "angle": -0.08389755329887151,
+          "animation": "run",
+          "distance": 208.59999999999215,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 75,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 41.88333333333241
+            }
+          },
+          "ultimateMeter": 27.556,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 2115.94,
+          "pressureSeconds": 9.533333333333387
+        },
+        {
+          "x": -5.458301617981364,
+          "z": 8.033970180469797,
+          "previous": {
+            "x": -5.467901132627703,
+            "z": 8.15358560304797
+          },
+          "angle": -3.1194520629917717,
+          "animation": "run",
+          "distance": 239.24300000000162,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 255.5,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "camp:mobility": {
+              "speedBonus": 0.2,
+              "label": "MOBILITY",
+              "expires": 49.133333333332956
+            }
+          },
+          "ultimateMeter": 69.16250000000002,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 2,
+          "damage": 990,
+          "pressureSeconds": 1.1166666666666676
+        },
+        {
+          "x": -2.997208210983263,
+          "z": -33.53972351798782,
+          "previous": {
+            "x": -2.991317819402959,
+            "z": -33.639549883678605
+          },
+          "angle": -0.08214552746021872,
+          "animation": "run",
+          "distance": 206.1833333333264,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 86.025,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 35.916666666666025,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1135,
+          "pressureSeconds": 2.666666666666662
+        },
+        {
+          "x": 0.5373836517301595,
+          "z": -58.13445167989605,
+          "previous": {
+            "x": 0.545557410613946,
+            "z": -58.23411706840034
+          },
+          "angle": -0.1494830976298908,
+          "animation": "run",
+          "distance": 201.50499999999272,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 73.47000000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 40.01666666666579,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 3,
+          "damage": 1268,
+          "pressureSeconds": 2.3499999999999965
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 45.166666666665385,
+      "control": 0.5178423464319943,
+      "front": 2.676351964799153,
+      "cp": {
+        "1": 122.00000000000412,
+        "2": 40.39999999999992
+      },
+      "tickets": {
+        "1": 11,
+        "2": 11
+      },
+      "pressureTeam": 1,
+      "pressureAge": 2.633333333333329,
+      "scoringTeam": 1,
+      "result": null,
+      "remaining": 254.83333333333462,
+      "results": null,
+      "feed": [
+        "Kit Asher defeated Kit Asher",
+        "Kit Asher defeated Riven",
+        "Riven defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 3,
+      "rewards": 1,
+      "assignments": [
+        {
+          "id": "1-2",
+          "camp": "north-mobility",
+          "until": 67.91666666666546
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.166666666666751
+        },
+        {
+          "x": -3.022964913472917,
+          "z": -1.7982123811282615,
+          "previous": {
+            "x": -3.0251406343775664,
+            "z": -1.6982360527372615
+          },
+          "angle": 3.016754882346541,
+          "animation": "run",
+          "distance": 252.74999999999298,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 735,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 16.49,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 2,
+          "damage": 1945.0600000000002,
+          "pressureSeconds": 10.166666666666751
+        },
+        {
+          "x": -4.395453049217287,
+          "z": 66.30099173767503,
+          "previous": {
+            "x": -4.317513675227723,
+            "z": 66.3636451811727
+          },
+          "angle": -2.147787326205233,
+          "animation": "run",
+          "distance": 220.49999999999147,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 29.431,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 45.916666666665456,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 3,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2115.94,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -3.809125523502764,
+          "z": 12.385154706334058,
+          "previous": {
+            "x": -3.809125523502764,
+            "z": 12.385154706334058
+          },
+          "angle": 2.728321151266478,
+          "animation": "idle",
+          "distance": 254.6030000000022,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 45.5333333333322,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 82.95000000000003,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 2,
+          "damage": 1175,
+          "pressureSeconds": 1.1166666666666676
+        },
+        {
+          "x": -2.9847441330113527,
+          "z": -3.5544915484700446,
+          "previous": {
+            "x": -2.9825684121067035,
+            "z": -3.6544678768610446
+          },
+          "angle": -0.029144247508444205,
+          "animation": "run",
+          "distance": 236.1833333333247,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1537,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "warcry": {
+              "damageBonus": 0.25,
+              "mitigation": 0.2,
+              "expires": 49.8666666666654
+            }
+          },
+          "ultimateMeter": 88.22500000000001,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 35.916666666666025,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1135,
+          "pressureSeconds": 2.666666666666662
+        },
+        {
+          "x": -1.0343479020266442,
+          "z": -28.180456217949633,
+          "previous": {
+            "x": -1.0271175362966902,
+            "z": -28.280194484484657
+          },
+          "angle": -0.08008261921119383,
+          "animation": "run",
+          "distance": 231.504999999991,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 73.47000000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 40.01666666666579,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 4,
+          "damage": 1268,
+          "pressureSeconds": 2.3499999999999965
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 50.1666666666651,
+      "control": 0.2576179738991298,
+      "front": -36.35730391513052,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 48.400000000000006
+      },
+      "tickets": {
+        "1": 10,
+        "2": 11
+      },
+      "pressureTeam": 2,
+      "pressureAge": 2.666666666666662,
+      "scoringTeam": 2,
+      "result": null,
+      "remaining": 249.8333333333349,
+      "results": null,
+      "feed": [
+        "Set defeated Kit Asher",
+        "Kit Asher defeated Kit Asher",
+        "Kit Asher defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 4,
+      "rewards": 1,
+      "assignments": [
+        {
+          "id": "2-1",
+          "camp": "north-mobility",
+          "until": 69.53333333333202
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -2.787091069166608,
+          "z": -1.1532691535081265,
+          "previous": {
+            "x": -2.787091069166608,
+            "z": -1.1532691535081265
+          },
+          "angle": -2.699247216376693,
+          "animation": "idle",
+          "distance": 263.74999999999454,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 50.499999999998586,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 45.745,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 3,
+          "assists": 2,
+          "damage": 2217.0600000000004,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -6.470650816289543,
+          "z": 38.11136835875865,
+          "previous": {
+            "x": -6.47148480477405,
+            "z": 38.21136488101421
+          },
+          "angle": 3.0385101994073414,
+          "animation": "run",
+          "distance": 250.49999999998977,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 29.431,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 45.916666666665456,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2115.94,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -1.4740293882011337,
+          "z": -43.24059164926386,
+          "previous": {
+            "x": -1.4679671690609009,
+            "z": -43.34040772762349
+          },
+          "angle": 0.007087102363415448,
+          "animation": "run",
+          "distance": 282.40300000000815,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 82.95000000000003,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 47.53333333333203,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 3,
+          "damage": 1175,
+          "pressureSeconds": 1.7833333333333319
+        },
+        {
+          "x": -6.526081455152344,
+          "z": 13.613704758669812,
+          "previous": {
+            "x": -6.499303352369288,
+            "z": 13.517356778870855
+          },
+          "angle": -0.26519560458295927,
+          "animation": "run",
+          "distance": 260.616666666658,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1265,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 17.2,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1870,
+          "pressureSeconds": 2.666666666666662
+        },
+        {
+          "x": -3.3590481007420148,
+          "z": 1.7146078302610435,
+          "previous": {
+            "x": -3.350749144428263,
+            "z": 1.6149527886218848
+          },
+          "angle": -0.14961250281847172,
+          "animation": "run",
+          "distance": 261.5049999999909,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 73.47000000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 40.01666666666579,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 4,
+          "damage": 1268,
+          "pressureSeconds": 3.016666666666661
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 55.16666666666482,
+      "control": 0.26106417229260437,
+      "front": -35.84037415610935,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 108.40000000000086
+      },
+      "tickets": {
+        "1": 10,
+        "2": 11
+      },
+      "pressureTeam": 2,
+      "pressureAge": 7.666666666666645,
+      "scoringTeam": 2,
+      "result": null,
+      "remaining": 244.8333333333352,
+      "results": null,
+      "feed": [
+        "Set defeated Kit Asher",
+        "Kit Asher defeated Kit Asher",
+        "Kit Asher defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 4,
+      "rewards": 1,
+      "assignments": [
+        {
+          "id": "2-1",
+          "camp": "north-mobility",
+          "until": 69.53333333333202
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -3.1864009220144465,
+          "z": 43.37258072606136,
+          "previous": {
+            "x": -3.2069500365003734,
+            "z": 43.47044662356322
+          },
+          "angle": 2.8528074451290646,
+          "animation": "run",
+          "distance": 291.74999999999983,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 45.745,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 52.499999999998415,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 3,
+          "assists": 2,
+          "damage": 2217.0600000000004,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -3.51167079672117,
+          "z": 36.94555344882226,
+          "previous": {
+            "x": -3.4271351448272833,
+            "z": 36.892133194621486
+          },
+          "angle": 2.614344513513052,
+          "animation": "run",
+          "distance": 279.49999999999477,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 55.716666666664956
+            }
+          },
+          "ultimateMeter": 45.467800000000004,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2516.86,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -2.6135973275715862,
+          "z": -13.293764127826126,
+          "previous": {
+            "x": -2.6123105358550243,
+            "z": -13.393755848318765
+          },
+          "angle": 0.0699861913894407,
+          "animation": "run",
+          "distance": 312.40300000001497,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 82.95000000000003,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 47.53333333333203,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 3,
+          "damage": 1175,
+          "pressureSeconds": 6.783333333333315
+        },
+        {
+          "x": -1.3727903029767052,
+          "z": 34.73519486339643,
+          "previous": {
+            "x": -1.3401890750085794,
+            "z": 34.678961777628615
+          },
+          "angle": -0.5566815587725011,
+          "animation": "run",
+          "distance": 290.41666666666225,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 864.08,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 55.699999999998155
+          },
+          "modifiers": {
+            "slow": {
+              "slow": 0.35,
+              "expires": 55.699999999998155
+            },
+            "warcry": {
+              "damageBonus": 0.25,
+              "mitigation": 0.2,
+              "expires": 59.899999999998165
+            },
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 27.223,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 1870,
+          "pressureSeconds": 3.9333333333333242
+        },
+        {
+          "x": -2.335225385046103,
+          "z": 30.94920951488149,
+          "previous": {
+            "x": -2.324881770693156,
+            "z": 30.849745905244006
+          },
+          "angle": -0.107502295427372,
+          "animation": "run",
+          "distance": 291.5049999999977,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 58.04999999999816
+            },
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 73.47000000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 4,
+          "damage": 1268,
+          "pressureSeconds": 5.166666666666654
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 60.16666666666453,
+      "control": 0.25811273004776086,
+      "front": -36.28309049283587,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 168.4000000000057
+      },
+      "tickets": {
+        "1": 10,
+        "2": 11
+      },
+      "pressureTeam": 2,
+      "pressureAge": 12.666666666666876,
+      "scoringTeam": 2,
+      "result": null,
+      "remaining": 239.83333333333547,
+      "results": null,
+      "feed": [
+        "Set defeated Kit Asher",
+        "Kit Asher defeated Kit Asher",
+        "Kit Asher defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 4,
+      "rewards": 1,
+      "assignments": [
+        {
+          "id": "2-1",
+          "camp": "north-mobility",
+          "until": 69.53333333333202
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": 4.218824286773575,
+          "z": 43.19433459362637,
+          "previous": {
+            "x": 4.238375814638535,
+            "z": 43.096264528070435
+          },
+          "angle": -2.908335366416063,
+          "animation": "run",
+          "distance": 323.9500000000052,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 23.000000000000085,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 99.215,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 3,
+          "assists": 2,
+          "damage": 3040.0600000000004,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -0.46163778019575097,
+          "z": 36.28309049283587,
+          "previous": {
+            "x": -0.5401777962618957,
+            "z": 36.22119165701216
+          },
+          "angle": 0.8641621715724248,
+          "animation": "run",
+          "distance": 309.5000000000016,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 54.87580000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2752.0600000000004,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -3.672665045424612,
+          "z": 16.63328252627104,
+          "previous": {
+            "x": -3.6834604687059453,
+            "z": 16.533866939785938
+          },
+          "angle": 0.22720739745350557,
+          "animation": "run",
+          "distance": 342.4030000000218,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 82.95000000000003,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 47.53333333333203,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 3,
+          "damage": 1175,
+          "pressureSeconds": 11.783333333333498
+        },
+        {
+          "x": 4.071310314238289,
+          "z": 40.51296971638022,
+          "previous": {
+            "x": 4.0340521384311545,
+            "z": 40.60576965353281
+          },
+          "angle": 0.15501964172914334,
+          "animation": "run",
+          "distance": 314.9966666666673,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 90.08,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 55.699999999998155
+          },
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 60.07299999999999,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 1,
+          "assists": 0,
+          "damage": 2207.5,
+          "pressureSeconds": 8.38333333333333
+        },
+        {
+          "x": 3.8368070829142153,
+          "z": 36.31202827333286,
+          "previous": {
+            "x": 3.8276925565613693,
+            "z": 36.21244451256152
+          },
+          "angle": 0.1716329403794603,
+          "animation": "run",
+          "distance": 317.20500000000357,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 625.8,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:2-1": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 99.955,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 0,
+          "deaths": 1,
+          "assists": 4,
+          "damage": 1752.5000000000005,
+          "pressureSeconds": 10.166666666666751
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 65.16666666666426,
+      "control": 0.1630027777063095,
+      "front": -50.54958334405357,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 228.40000000000794
+      },
+      "tickets": {
+        "1": 8,
+        "2": 10
+      },
+      "pressureTeam": 2,
+      "pressureAge": 17.666666666666945,
+      "scoringTeam": 2,
+      "result": null,
+      "remaining": 234.83333333333576,
+      "results": null,
+      "feed": [
+        "Kit Asher defeated Riven",
+        "Riven defeated Kit Asher",
+        "Riven defeated Set"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 4,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -1.135186707220878,
+          "z": 65.21149609285058,
+          "previous": {
+            "x": -1.1369485538757362,
+            "z": 65.31148057112779
+          },
+          "angle": 3.088945835659526,
+          "animation": "run",
+          "distance": 336.05000000000797,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 100,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 66.19999999999764,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 1,
+          "deaths": 4,
+          "assists": 3,
+          "damage": 3230.0600000000004,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -1.842031358626047,
+          "z": 31.483093221663594,
+          "previous": {
+            "x": -1.842031358626047,
+            "z": 31.483093221663594
+          },
+          "angle": 0.2374980423741858,
+          "animation": "idle",
+          "distance": 330.40000000000634,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 68.11666666666426,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 90.04900000000004,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 3,
+          "assists": 1,
+          "damage": 3062.6400000000003,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -1.2623092417700907,
+          "z": 35.4985014073,
+          "previous": {
+            "x": -1.2314503019735152,
+            "z": 35.59362094175339
+          },
+          "angle": -2.747232507245036,
+          "animation": "run",
+          "distance": 377.50300000002784,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 624.5,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 6.2700000000000005,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 2,
+          "deaths": 2,
+          "assists": 3,
+          "damage": 1621.75,
+          "pressureSeconds": 16.783333333333662
+        },
+        {
+          "x": -1.4412951841924155,
+          "z": -59.40024334242567,
+          "previous": {
+            "x": -1.4407031187506343,
+            "z": -59.500241589702874
+          },
+          "angle": -0.0035323933845358203,
+          "animation": "run",
+          "distance": 326.99666666666775,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 62.324999999999996,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 65.23333333333102,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 4,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2207.5,
+          "pressureSeconds": 10.316666666666759
+        },
+        {
+          "x": 0.14322038984731922,
+          "z": 35.88767059525656,
+          "previous": {
+            "x": 0.20173482860551206,
+            "z": 35.96876350775089
+          },
+          "angle": -2.5072962991047762,
+          "animation": "run",
+          "distance": 337.30500000000814,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 435.79999999999995,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 65.4666666666644
+            }
+          },
+          "ultimateMeter": 14.700000000000003,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 1,
+          "assists": 5,
+          "damage": 2238.7500000000005,
+          "pressureSeconds": 12.30000000000019
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 70.16666666666397,
+      "control": 0.17145121448288136,
+      "front": -49.282317827567795,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 288.4000000000045
+      },
+      "tickets": {
+        "1": 8,
+        "2": 10
+      },
+      "pressureTeam": 2,
+      "pressureAge": 22.66666666666666,
+      "scoringTeam": 2,
+      "result": null,
+      "remaining": 229.83333333333604,
+      "results": null,
+      "feed": [
+        "Kit Asher defeated Riven",
+        "Riven defeated Kit Asher",
+        "Riven defeated Set"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 19.11384314414752,
+          "z": -55.140661598821545,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 0,
+          "maxHealth": 850,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 74.13333333333296,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 29.966666666666303,
+          "lastHit": 29.13333333333296,
+          "rewarded": true
+        }
+      ],
+      "rotations": 5,
+      "rewards": 1,
+      "assignments": [
+        {
+          "id": "2-1",
+          "camp": "north-mobility",
+          "until": 93.54999999999734
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -2.006714515536466,
+          "z": 46.608209296280144,
+          "previous": {
+            "x": -2.0039798902861174,
+            "z": 46.70817189841084
+          },
+          "angle": -3.0718150780019062,
+          "animation": "run",
+          "distance": 369.2950000000127,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 105,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 68.8999999999974
+          },
+          "modifiers": {},
+          "ultimateMeter": 46.1,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 4,
+          "assists": 3,
+          "damage": 3920.0600000000004,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": 1.7329268340220703,
+          "z": 58.80178779599784,
+          "previous": {
+            "x": 1.7378874184642183,
+            "z": 58.90166468322403
+          },
+          "angle": -3.1300639543880986,
+          "animation": "run",
+          "distance": 342.70000000000914,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 90.04900000000004,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 3,
+          "assists": 1,
+          "damage": 3062.6400000000003,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -2.036098016903336,
+          "z": 44.93079001036256,
+          "previous": {
+            "x": -2.040481514804971,
+            "z": 44.83088613182851
+          },
+          "angle": 0.056694580172913615,
+          "animation": "run",
+          "distance": 411.3030000000336,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 224.5,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 36.67,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 2,
+          "deaths": 2,
+          "assists": 3,
+          "damage": 2131.75,
+          "pressureSeconds": 21.783333333333378
+        },
+        {
+          "x": -1.7502449957071688,
+          "z": -29.441785469385145,
+          "previous": {
+            "x": -1.7318784928361342,
+            "z": -29.540084358352868
+          },
+          "angle": -0.14216622205404605,
+          "animation": "run",
+          "distance": 356.99666666667457,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 62.324999999999996,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 65.23333333333102,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2207.5,
+          "pressureSeconds": 15.316666666667007
+        },
+        {
+          "x": 1.1025192832370687,
+          "z": 52.167885477558045,
+          "previous": {
+            "x": 1.0934274057174682,
+            "z": 52.06829964642144
+          },
+          "angle": -2.7023279016707127,
+          "animation": "run",
+          "distance": 367.30500000001496,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 145.79999999999995,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 31.150000000000002,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 1,
+          "assists": 5,
+          "damage": 2468.7500000000005,
+          "pressureSeconds": 17.3000000000003
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 75.16666666666369,
+      "control": 0.26298807043394534,
+      "front": -35.5517894349082,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 325.00000000000244
+      },
+      "tickets": {
+        "1": 7,
+        "2": 8
+      },
+      "pressureTeam": 2,
+      "pressureAge": 0.5166666666666666,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 224.83333333333633,
+      "results": null,
+      "feed": [
+        "Riven defeated Riven",
+        "Riven defeated Kit Asher",
+        "Kit Asher defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 75.14999999999708,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 6,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -4.9088724737113285,
+          "z": 64.82174015284858,
+          "previous": {
+            "x": -4.910674445491833,
+            "z": 64.92172391601892
+          },
+          "angle": 3.0067284426864855,
+          "animation": "run",
+          "distance": 381.2950000000154,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 53.125,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 75.88333333333043,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 1,
+          "deaths": 5,
+          "assists": 5,
+          "damage": 4030.0600000000004,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": 4.340515073079622,
+          "z": 45.266069543510746,
+          "previous": {
+            "x": 4.3575749571280875,
+            "z": 45.364603600345184
+          },
+          "angle": -2.9920258713232304,
+          "animation": "run",
+          "distance": 371.30000000001564,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 500,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 9.661999999999999,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 6,
+          "deaths": 3,
+          "assists": 1,
+          "damage": 3322.9400000000005,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -0.06555035085152543,
+          "z": 50.137477990911414,
+          "previous": {
+            "x": -0.06555035085152543,
+            "z": 50.137477990911414
+          },
+          "angle": 1.5316571831774177,
+          "animation": "idle",
+          "distance": 425.5030000000368,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 76.2166666666638,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 48.48250000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 3,
+          "assists": 3,
+          "damage": 2286.75,
+          "pressureSeconds": 24.833333333333204
+        },
+        {
+          "x": -3.4787798896434645,
+          "z": 0.10357886981639593,
+          "previous": {
+            "x": -3.4958397736925484,
+            "z": 0.005044812982061692
+          },
+          "angle": 0.10792057971232792,
+          "animation": "run",
+          "distance": 386.9966666666814,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 62.324999999999996,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 65.23333333333102,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2207.5,
+          "pressureSeconds": 17.350000000000296
+        },
+        {
+          "x": 8.841144101480642,
+          "z": 46.87297906548395,
+          "previous": {
+            "x": 8.841144101480642,
+            "z": 46.87297906548395
+          },
+          "angle": -0.7846487184655438,
+          "animation": "idle",
+          "distance": 389.89500000001965,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 0,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": true,
+          "targetable": false,
+          "respawnAt": 77.14999999999708,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 49.19500000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "respawnReserved": true,
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 6,
+          "damage": 2828.7500000000005,
+          "pressureSeconds": 18.550000000000228
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 80.1666666666634,
+      "control": 0.29037043099598264,
+      "front": -31.4444353506026,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 367.20000000000005
+      },
+      "tickets": {
+        "1": 7,
+        "2": 8
+      },
+      "pressureTeam": 2,
+      "pressureAge": 5.516666666666652,
+      "scoringTeam": 2,
+      "result": null,
+      "remaining": 219.8333333333366,
+      "results": null,
+      "feed": [
+        "Riven defeated Riven",
+        "Riven defeated Kit Asher",
+        "Kit Asher defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 75.14999999999708,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 6,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -1.9799452902607486,
+          "z": 35.01454652323051,
+          "previous": {
+            "x": -1.9930160892352886,
+            "z": 35.11368861426236
+          },
+          "angle": 3.0658522318800747,
+          "animation": "run",
+          "distance": 411.2950000000218,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 53.125,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 75.88333333333043,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 5,
+          "assists": 5,
+          "damage": 4030.0600000000004,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -4.682799657454932,
+          "z": 29.116032236856253,
+          "previous": {
+            "x": -4.583057085712754,
+            "z": 29.10886150591328
+          },
+          "angle": 2.0163498242159124,
+          "animation": "run",
+          "distance": 400.9000000000224,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 300,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 81.49999999999683
+            }
+          },
+          "ultimateMeter": 24.646,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 6,
+          "deaths": 3,
+          "assists": 1,
+          "damage": 3572.540000000001,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": 0.17571964279668065,
+          "z": -47.30555747454931,
+          "previous": {
+            "x": 0.18117292176561217,
+            "z": -47.405408672581615
+          },
+          "angle": 0.005766876914865146,
+          "animation": "run",
+          "distance": 449.2030000000422,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 48.48250000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 78.21666666666363,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 3,
+          "assists": 3,
+          "damage": 2286.75,
+          "pressureSeconds": 28.34999999999967
+        },
+        {
+          "x": -2.0933431195571623,
+          "z": 27.874324177974692,
+          "previous": {
+            "x": -2.0037523553422134,
+            "z": 27.829900142055145
+          },
+          "angle": -1.030996343643943,
+          "animation": "run",
+          "distance": 416.0300000000207,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1375.3999999999996,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "warcry": {
+              "damageBonus": 0.25,
+              "mitigation": 0.2,
+              "expires": 83.4166666666635
+            }
+          },
+          "ultimateMeter": 76.56500000000001,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2407.5,
+          "pressureSeconds": 20.866666666666763
+        },
+        {
+          "x": 1.2375096697403498,
+          "z": -52.90423140498435,
+          "previous": {
+            "x": 1.2431964847710155,
+            "z": -53.004069574713206
+          },
+          "angle": -0.012777776580553584,
+          "animation": "run",
+          "distance": 407.99500000002195,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 49.19500000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 79.14999999999691,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 6,
+          "damage": 2828.7500000000005,
+          "pressureSeconds": 21.566666666666723
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 85.16666666666312,
+      "control": 0.3864910762757489,
+      "front": -17.02633855863766,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 382.59999999999917
+      },
+      "tickets": {
+        "1": 7,
+        "2": 8
+      },
+      "pressureTeam": 2,
+      "pressureAge": 0.9500000000000013,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 214.8333333333369,
+      "results": null,
+      "feed": [
+        "Riven defeated Riven",
+        "Riven defeated Kit Asher",
+        "Kit Asher defeated Kit Asher"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 75.14999999999708,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 6,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -2.3480084894809172,
+          "z": 17.797717981089104,
+          "previous": {
+            "x": -2.363814526423148,
+            "z": 17.89646092613421
+          },
+          "angle": 3.0672165824155515,
+          "animation": "run",
+          "distance": 445.83000000002687,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 77.92500000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 5,
+          "assists": 5,
+          "damage": 4650.06,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -1.2069284887359748,
+          "z": 23.445940689935302,
+          "previous": {
+            "x": -1.1980401890236063,
+            "z": 23.545544897317434
+          },
+          "angle": -3.0617112049041952,
+          "animation": "run",
+          "distance": 430.5000000000291,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 300,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 87.68333333332981
+            }
+          },
+          "ultimateMeter": 42.88600000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 6,
+          "deaths": 3,
+          "assists": 1,
+          "damage": 4028.540000000001,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": -2.7433918552876833,
+          "z": -17.507390868273262,
+          "previous": {
+            "x": -2.743822155557997,
+            "z": -17.607389942477365
+          },
+          "angle": -0.09048972244428503,
+          "animation": "run",
+          "distance": 479.20300000004903,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 48.48250000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 78.21666666666363,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 3,
+          "assists": 3,
+          "damage": 2286.75,
+          "pressureSeconds": 29.63333333333293
+        },
+        {
+          "x": -1.2711802153530578,
+          "z": 16.254959136186216,
+          "previous": {
+            "x": -1.3568199669949343,
+            "z": 16.30659084096843
+          },
+          "angle": -0.4660786922118342,
+          "animation": "run",
+          "distance": 445.63000000002745,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 299.39999999999964,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 4,
+          "deaths": 2,
+          "assists": 1,
+          "damage": 2407.5,
+          "pressureSeconds": 21.216666666666743
+        },
+        {
+          "x": -1.8009402142921915,
+          "z": -23.103830274833534,
+          "previous": {
+            "x": -1.799156586564123,
+            "z": -23.203814366928864
+          },
+          "angle": 0.026677982171537114,
+          "animation": "run",
+          "distance": 437.99500000002877,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 49.19500000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 79.14999999999691,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 6,
+          "damage": 2828.7500000000005,
+          "pressureSeconds": 22.849999999999984
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 90.16666666666283,
+      "control": 0.31025735740396504,
+      "front": -28.461396389405245,
+      "cp": {
+        "1": 131.20000000000402,
+        "2": 424.79999999999677
+      },
+      "tickets": {
+        "1": 6,
+        "2": 7
+      },
+      "pressureTeam": 2,
+      "pressureAge": 0.2333333333333333,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 209.83333333333718,
+      "results": null,
+      "feed": [
+        "Kit Asher defeated Set",
+        "Set defeated Riven",
+        "Riven defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 75.14999999999708,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 6,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": 4.837137863622754,
+          "z": -7.200463357617645,
+          "previous": {
+            "x": 4.773503770391309,
+            "z": -7.187208087774606
+          },
+          "angle": 1.8818466191339154,
+          "animation": "run",
+          "distance": 478.9150000000316,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 486,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 90.76666666666283
+          },
+          "modifiers": {
+            "slow": {
+              "slow": 0.35,
+              "expires": 90.76666666666283
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 2,
+          "deaths": 5,
+          "assists": 5,
+          "damage": 5159.46,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": 1.5510175245344733,
+          "z": 59.40146111813874,
+          "previous": {
+            "x": 1.5499219155327457,
+            "z": 59.5014551161632
+          },
+          "angle": 3.0205229187459572,
+          "animation": "run",
+          "distance": 442.60000000003186,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 50.38600000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 90.23333333332961,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 6,
+          "deaths": 4,
+          "assists": 2,
+          "damage": 4028.540000000001,
+          "pressureSeconds": 10.066666666666746
+        },
+        {
+          "x": 2.6198883176748846,
+          "z": -2.478668339328249,
+          "previous": {
+            "x": 2.5801693632173466,
+            "z": -2.386894679399051
+          },
+          "angle": 2.812434707689491,
+          "animation": "run",
+          "distance": 514.5030000000551,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 745,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 54.98250000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 3,
+          "assists": 3,
+          "damage": 2386.75,
+          "pressureSeconds": 33.1499999999994
+        },
+        {
+          "x": -1.046735923019109,
+          "z": -64.41314349572994,
+          "previous": {
+            "x": -1.0546754031912982,
+            "z": -64.51282782074945
+          },
+          "angle": 0.14471768533855045,
+          "animation": "run",
+          "distance": 457.6300000000294,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 23.084999999999994,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 91.0666666666629,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 5,
+          "deaths": 3,
+          "assists": 1,
+          "damage": 2797.5,
+          "pressureSeconds": 21.883333333333372
+        },
+        {
+          "x": 8.584684299918175,
+          "z": -7.7149578668242,
+          "previous": {
+            "x": 8.487642164796833,
+            "z": -7.739099615126496
+          },
+          "angle": -1.4291199270328763,
+          "animation": "run",
+          "distance": 466.59500000003527,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 800,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "amp": {
+              "damageBonus": 0.3,
+              "mitigation": 0,
+              "expires": 91.3333333333296
+            }
+          },
+          "ultimateMeter": 58.705000000000005,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 1,
+          "deaths": 2,
+          "assists": 6,
+          "damage": 2997.7500000000005,
+          "pressureSeconds": 25.999999999999805
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 95.16666666666255,
+      "control": 0.39472911651681775,
+      "front": -15.790632522477338,
+      "cp": {
+        "1": 137.80000000000362,
+        "2": 424.79999999999677
+      },
+      "tickets": {
+        "1": 5,
+        "2": 7
+      },
+      "pressureTeam": 2,
+      "pressureAge": 1.9833333333333312,
+      "scoringTeam": 0,
+      "result": null,
+      "remaining": 204.83333333333746,
+      "results": null,
+      "feed": [
+        "Riven defeated Kit Asher",
+        "Kit Asher defeated Set",
+        "Set defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 75.14999999999708,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 6,
+      "rewards": 1,
+      "assignments": [],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:1-0": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 11.483333333333483
+        },
+        {
+          "x": -0.498343333986281,
+          "z": 66.09140065145542,
+          "previous": {
+            "x": -0.5173288762999544,
+            "z": 66.18958185730997
+          },
+          "angle": 2.9541580557256917,
+          "animation": "run",
+          "distance": 488.65025000003186,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {
+            "aura:1-0": {
+              "mitigation": 0.02,
+              "expires": null
+            }
+          },
+          "ultimateMeter": 34.15,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 96.33333333332926,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": true,
+          "human": false,
+          "kills": 2,
+          "deaths": 6,
+          "assists": 5,
+          "damage": 5709.46,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": 6.377362019530382,
+          "z": 29.86491683387065,
+          "previous": {
+            "x": 6.357382710037903,
+            "z": 29.96290064473859
+          },
+          "angle": 2.905598951025753,
+          "animation": "run",
+          "distance": 472.6000000000387,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 910,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 50.38600000000001,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 90.23333333332961,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 6,
+          "deaths": 4,
+          "assists": 2,
+          "damage": 4028.540000000001,
+          "pressureSeconds": 10.616666666666774
+        },
+        {
+          "x": 6.969171297529106,
+          "z": 15.581742623442844,
+          "previous": {
+            "x": 6.973848373914743,
+            "z": 15.481852058540634
+          },
+          "angle": -0.08364597299234253,
+          "animation": "run",
+          "distance": 545.3330000000608,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 745,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 66.98250000000002,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 3,
+          "assists": 4,
+          "damage": 2686.75,
+          "pressureSeconds": 33.1499999999994
+        },
+        {
+          "x": 0.9565186335346791,
+          "z": -34.51013560650074,
+          "previous": {
+            "x": 0.9486811206277991,
+            "z": -34.60982800035019
+          },
+          "angle": 0.003552023723014483,
+          "animation": "run",
+          "distance": 487.6300000000362,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 23.084999999999994,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 91.0666666666629,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 5,
+          "deaths": 3,
+          "assists": 2,
+          "damage": 2797.5,
+          "pressureSeconds": 21.883333333333372
+        },
+        {
+          "x": 8.724758609743764,
+          "z": 18.35266393974121,
+          "previous": {
+            "x": 8.744737919236243,
+            "z": 18.25468012887327
+          },
+          "angle": -0.2543596497956905,
+          "animation": "run",
+          "distance": 495.6950000000419,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 250,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 79.895,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 2,
+          "deaths": 2,
+          "assists": 6,
+          "damage": 3183.7500000000005,
+          "pressureSeconds": 25.999999999999805
+        }
+      ]
+    },
+    {
+      "phase": "active",
+      "countdownRemaining": 0,
+      "lane": {
+        "goalA": -75,
+        "goalB": 75,
+        "halfWidth": 4
+      },
+      "settings": {
+        "startingTickets": 15,
+        "respawnSeconds": 3,
+        "cpTarget": 1000,
+        "graceSeconds": 2,
+        "cpPerSecond": 12,
+        "depthBonus": 0,
+        "timeLimitSeconds": 300,
+        "countdownSeconds": 3,
+        "protectionSeconds": 2,
+        "ultimateDealt": 0.04,
+        "ultimateReceived": 0.025,
+        "durabilityMultiplier": 1.3
+      },
+      "elapsed": 100.16666666666227,
+      "control": 0.28054410314938005,
+      "front": -32.91838452759299,
+      "cp": {
+        "1": 137.80000000000362,
+        "2": 484.5999999999934
+      },
+      "tickets": {
+        "1": 5,
+        "2": 7
+      },
+      "pressureTeam": 2,
+      "pressureAge": 6.983333333333314,
+      "scoringTeam": 2,
+      "result": null,
+      "remaining": 199.83333333333775,
+      "results": null,
+      "feed": [
+        "Riven defeated Kit Asher",
+        "Kit Asher defeated Set",
+        "Set defeated Riven"
+      ],
+      "camps": [
+        {
+          "id": "north-mobility",
+          "type": "mobility",
+          "x": -19.2,
+          "z": 54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": -19.2,
+            "z": 54.4
+          },
+          "major": false,
+          "nextAttack": 21.616666666666777,
+          "lastHit": 20.65000000000011,
+          "rewarded": false
+        },
+        {
+          "id": "south-mobility",
+          "type": "mobility",
+          "x": 20.4,
+          "z": -54.4,
+          "radius": 0.7,
+          "active": true,
+          "team": 0,
+          "kind": "monster",
+          "health": 850,
+          "maxHealth": 850,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "name": "MOBILITY CAMP",
+          "home": {
+            "x": 20.4,
+            "z": -54.4
+          },
+          "major": false,
+          "nextAttack": 75.14999999999708,
+          "lastHit": null,
+          "rewarded": false
+        }
+      ],
+      "rotations": 7,
+      "rewards": 1,
+      "assignments": [
+        {
+          "id": "2-0",
+          "camp": "north-mobility",
+          "until": 121.2833333333291
+        }
+      ],
+      "actors": [
+        {
+          "x": 0,
+          "z": 71,
+          "previous": {
+            "x": 0,
+            "z": 71
+          },
+          "angle": 3.141592653589793,
+          "animation": "idle",
+          "distance": 0,
+          "id": "1-0",
+          "team": 1,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 0,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": 71
+          },
+          "protected": false,
+          "human": true,
+          "kills": 0,
+          "deaths": 0,
+          "assists": 0,
+          "damage": 0,
+          "pressureSeconds": 11.483333333333483
+        },
+        {
+          "x": -2.818077515180984,
+          "z": 36.9655447436708,
+          "previous": {
+            "x": -2.489570924348529,
+            "z": 37.193762665358896
+          },
+          "angle": -2.1779654000936906,
+          "animation": "run",
+          "distance": 519.3502500000386,
+          "id": "1-1",
+          "team": 1,
+          "kind": "summoner",
+          "health": 845,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 34.15,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": -1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 2,
+          "deaths": 6,
+          "assists": 5,
+          "damage": 5709.46,
+          "pressureSeconds": 10.933333333333456
+        },
+        {
+          "x": -7.330913435471058,
+          "z": 28.55466794159672,
+          "previous": {
+            "x": -7.328785364126604,
+            "z": 28.489702786995558
+          },
+          "angle": -0.09343716253781115,
+          "animation": "run",
+          "distance": 499.82500000004444,
+          "id": "1-2",
+          "team": 1,
+          "kind": "summoner",
+          "health": 490,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 100.41666666666228
+          },
+          "modifiers": {
+            "slow": {
+              "slow": 0.35,
+              "expires": 100.41666666666228
+            }
+          },
+          "ultimateMeter": 80.48600000000002,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": 71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 6,
+          "deaths": 4,
+          "assists": 2,
+          "damage": 4518.540000000001,
+          "pressureSeconds": 10.616666666666774
+        },
+        {
+          "x": -7.603285813604259,
+          "z": 33.89629232476294,
+          "previous": {
+            "x": -7.551593919740364,
+            "z": 33.80489786044062
+          },
+          "angle": -0.5057842439162175,
+          "animation": "run",
+          "distance": 576.2430000000709,
+          "id": "2-0",
+          "team": 2,
+          "kind": "summoner",
+          "health": 355,
+          "maxHealth": 845,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {
+            "slow": 98.34999999999573
+          },
+          "modifiers": {},
+          "ultimateMeter": 88.33250000000001,
+          "name": "Kit Asher",
+          "summonerId": "kit-asher",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 0,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 3,
+          "deaths": 3,
+          "assists": 4,
+          "damage": 2976.75,
+          "pressureSeconds": 34.9499999999993
+        },
+        {
+          "x": -0.6062898382350669,
+          "z": -4.767311776262672,
+          "previous": {
+            "x": -0.586414246742685,
+            "z": -4.8653166785014275
+          },
+          "angle": -0.17731376859541825,
+          "animation": "run",
+          "distance": 517.630000000043,
+          "id": "2-1",
+          "team": 2,
+          "kind": "summoner",
+          "health": 1625,
+          "maxHealth": 1625,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 23.084999999999994,
+          "name": "Set",
+          "summonerId": "set",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 91.0666666666629,
+          "spawn": {
+            "x": -1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 5,
+          "deaths": 3,
+          "assists": 2,
+          "damage": 2797.5,
+          "pressureSeconds": 26.866666666666422
+        },
+        {
+          "x": -1.6198840648106845,
+          "z": 28.87122431151518,
+          "previous": {
+            "x": -1.7058637301790407,
+            "z": 28.82016065376189
+          },
+          "angle": -1.7413991638426731,
+          "animation": "run",
+          "distance": 525.4950000000487,
+          "id": "2-2",
+          "team": 2,
+          "kind": "summoner",
+          "health": 150,
+          "maxHealth": 910,
+          "radius": 0.45,
+          "dead": false,
+          "targetable": true,
+          "respawnAt": 0,
+          "statuses": {},
+          "modifiers": {},
+          "ultimateMeter": 87.595,
+          "name": "Riven",
+          "summonerId": "riven",
+          "finalRespawnAvailable": true,
+          "eliminated": false,
+          "protectedUntil": 0,
+          "spawn": {
+            "x": 1.45,
+            "z": -71
+          },
+          "protected": false,
+          "human": false,
+          "kills": 2,
+          "deaths": 2,
+          "assists": 6,
+          "damage": 3313.7500000000005,
+          "pressureSeconds": 27.76666666666637
+        }
+      ]
+    }
+  ],
+  "errors": []
+}

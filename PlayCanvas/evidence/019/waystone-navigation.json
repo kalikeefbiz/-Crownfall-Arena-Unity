@@ -1,0 +1,38 @@
+[
+  {
+    "x": -14,
+    "z": -58.5,
+    "samples": 128,
+    "walkable": 0
+  },
+  {
+    "x": -19,
+    "z": -35,
+    "samples": 128,
+    "walkable": 0
+  },
+  {
+    "x": -17.5,
+    "z": -8.5,
+    "samples": 128,
+    "walkable": 0
+  },
+  {
+    "x": 17.5,
+    "z": 15,
+    "samples": 128,
+    "walkable": 0
+  },
+  {
+    "x": -17.5,
+    "z": 40,
+    "samples": 128,
+    "walkable": 0
+  },
+  {
+    "x": 17.5,
+    "z": 65,
+    "samples": 128,
+    "walkable": 0
+  }
+]

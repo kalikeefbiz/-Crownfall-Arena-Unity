@@ -1,0 +1,18 @@
+
+Running 8 tests using 1 worker
+
+(node:3973) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓  1 [chromium] › tests/browser/goal019-environment.spec.ts:33:5 › environment lifecycle and controls 844 (1.8m)
+  ✓  2 [chromium] › tests/browser/goal019-environment.spec.ts:33:5 › environment lifecycle and controls 390 (2.0m)
+  ✓  3 [chromium] › tests/browser/goal019-environment.spec.ts:193:1 › cancel during enclosure download and re-enter (24.7s)
+  ✓  4 [chromium] › tests/browser/goal019-environment.spec.ts:221:1 › natural deaths, respawns, scoring and alternate selection (18.1s)
+(node:4618) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  5 [webkit] › tests/browser/goal019-environment.spec.ts:33:5 › environment lifecycle and controls 844 (51.8s)
+  ✓  6 [webkit] › tests/browser/goal019-environment.spec.ts:33:5 › environment lifecycle and controls 390 (37.1s)
+  ✓  7 [webkit] › tests/browser/goal019-environment.spec.ts:193:1 › cancel during enclosure download and re-enter (14.5s)
+  ✓  8 [webkit] › tests/browser/goal019-environment.spec.ts:221:1 › natural deaths, respawns, scoring and alternate selection (26.6s)
+
+  8 passed (6.7m)

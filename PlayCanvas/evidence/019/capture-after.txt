@@ -1,0 +1,11 @@
+gameplay ready
+after blue-spawn
+after red-spawn
+after middle-lane
+after enclosure
+after footing
+after wilderness-entrance
+after objective-clearing
+after six-character-combat
+after mobile-landscape
+after mobile-portrait

@@ -1,0 +1,37 @@
+
+> crownfall-playcanvas@0.0.0 test
+> vitest run
+
+
+ RUN  v4.1.11 /workspace/crownfall/PlayCanvas
+
+ ❯ tests/solrahn-material-lifecycle.test.ts (2 tests | 1 failed) 16ms
+     × loads only Low resources, deduplicates High demand, and honors the latest toggle 12ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/solrahn-material-lifecycle.test.ts > surface quality demand > loads only Low resources, deduplicates High demand, and honors the latest toggle
+AssertionError: expected 5 to be 4 // Object.is equality
+
+- Expected
++ Received
+
+- 4
++ 5
+
+ ❯ tests/solrahn-material-lifecycle.test.ts:35:38
+     33|         vi.stubGlobal('localStorage', { getItem: () => 'low' });
+     34|         const surface = createSolrahnSurfaceMaterial(app);
+     35|         expect(state.resources.size).toBe(5);
+       |                                      ^
+     36|         state.resources.forEach((r) => r.resolve());
+     37|         await surface.ready;
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 31 passed (32)
+      Tests  1 failed | 258 passed (259)
+   Start at  02:46:41
+   Duration  61.80s (transform 649ms, setup 0ms, import 5.96s, tests 51.35s, environment 3ms)
+

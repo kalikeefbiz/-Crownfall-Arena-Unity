@@ -1,7 +1,7 @@
 import { ADDRESS_CLAMP_TO_EDGE, Color, StandardMaterial, isCompressedPixelFormat } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
-import atlas from '../../public/assets/solrahn-surface/low-atlas.json';
+import atlas from '../../public/assets/solrahn-surface/goal019-atlas.json';
 import manifest from '../../public/assets/solrahn-surface/materials.json';
 import weights from '../../public/assets/solrahn-surface/weights.json';
 
@@ -30,9 +30,9 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
         data: true,
         anisotropy: 1
     });
-    const baked = maps.load('low_atlas.webp', true, {
-        width: 1024,
-        height: 768,
+    const baked = maps.load('goal019_atlas.webp', true, {
+        width: 2048,
+        height: 1536,
         flipY: false,
         clamp: ADDRESS_CLAMP_TO_EDGE,
         data: true,
@@ -41,6 +41,7 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
     // Low needs tiled dirt detail and the visible outer rock skirt. Other families
     // and all normal/AO maps are first requested by an explicit High demand.
     const dirt = maps.load(`${manifest.sources[0].asset}_color.webp`, true, { anisotropy: 1 });
+    const footing = maps.load('goal019_stone.webp', true, { width: 512, height: 512, anisotropy: 1 });
     const rock = maps.load(`${manifest.sources[3].asset}_color.webp`, true, { anisotropy: 1 });
     const colors = [dirt.texture, dirt.texture, dirt.texture, rock.texture];
     const normals: typeof colors = [];
@@ -56,6 +57,16 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
     mat.shaderChunksVersion = '2.23';
     const chunks = mat.getShaderChunks('glsl');
     const highDiffuse = `
+        uniform float territoryFront, territoryEnabled;
+        vec3 solrahnControl(vec3 color) {
+            float lane = 1.0-smoothstep(3.7,4.3,abs(vPositionW.x));
+            float side = smoothstep(territoryFront-.35,territoryFront+.35,vPositionW.z);
+            vec3 tint = mix(vec3(.93,.36,.27),vec3(.25,.61,.95),side);
+            float edge=1.0-smoothstep(.045,.13,abs(vPositionW.z-territoryFront));
+            float shoulder=smoothstep(3.7,3.9,abs(vPositionW.x));
+            return mix(color,color*mix(vec3(1.0),tint*1.6,.18)+tint*(edge*.16+shoulder*.045),lane*territoryEnabled);
+        }
+
         uniform sampler2D surfaceWeights;
         uniform sampler2D surfaceColor0, surfaceColor1, surfaceColor2, surfaceColor3;
         uniform float surfaceDebug;
@@ -80,11 +91,23 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
                 +texture2D(surfaceColor1,surfaceUV)*surfaceW.g
                 +texture2D(surfaceColor2,surfaceUV)*surfaceW.b
                 +texture2D(surfaceColor3,surfaceUV)*surfaceW.a;
-            dAlbedo = colorRough.rgb;
+            float macro=.90+.09*sin(vPositionW.x*.19+vPositionW.z*.09)+.07*cos(vPositionW.z*.27-vPositionW.x*.12);
+            vec3 palette=mix(vec3(.68,.86,.62),vec3(1.10,.99,.83),surfaceW.r);
+            dAlbedo = solrahnControl(colorRough.rgb*macro*palette);
             surfaceRough = colorRough.a;
         }
     `;
     const lowDiffuse = `
+        uniform float territoryFront, territoryEnabled;
+        vec3 solrahnControl(vec3 color) {
+            float lane = 1.0-smoothstep(3.7,4.3,abs(vPositionW.x));
+            float side = smoothstep(territoryFront-.35,territoryFront+.35,vPositionW.z);
+            vec3 tint = mix(vec3(.93,.36,.27),vec3(.25,.61,.95),side);
+            float edge=1.0-smoothstep(.045,.13,abs(vPositionW.z-territoryFront));
+            float shoulder=smoothstep(3.7,3.9,abs(vPositionW.x));
+            return mix(color,color*mix(vec3(1.0),tint*1.6,.18)+tint*(edge*.16+shoulder*.045),lane*territoryEnabled);
+        }
+
         uniform sampler2D surfaceWeights, surfaceAtlas, surfaceColor0;
         uniform float surfaceDebug;
         vec4 surfaceW;
@@ -103,12 +126,12 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
                 dAlbedo=surfaceDebug<4.5?vec3(layer):surfaceW.r*vec3(.62,.35,.17)+surfaceW.g*vec3(.32,.43,.16)+surfaceW.b*vec3(.10,.26,.17)+surfaceW.a*vec3(.5);
                 return;
             }
-            vec2 auv=(uv*vec2(1023.0,767.0)+.5)/vec2(1024.0,768.0);
+            vec2 auv=(uv*vec2(2047.0,1535.0)+.5)/vec2(2048.0,1536.0);
             vec4 colorRough=texture2D(surfaceAtlas,auv);
             vec3 detail=texture2D(surfaceColor0,surfaceUV).rgb;
             float luminance=dot(detail,vec3(.2126,.7152,.0722));
             float modulation=mix(1.0,clamp(luminance/${atlas.detailMeanLuminance},${atlas.detailClamp[0]},${atlas.detailClamp[1]}),${atlas.detailStrength});
-            dAlbedo=colorRough.rgb*modulation;
+            dAlbedo=solrahnControl(colorRough.rgb*modulation);
             surfaceRough=colorRough.a;
         }
     `;
@@ -135,6 +158,11 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
     colors.forEach((t, i) => mat.setParameter(`surfaceColor${i}`, t));
     normals.forEach((t, i) => mat.setParameter(`surfaceNormal${i}`, t));
     mat.setParameter('surfaceDebug', 0);
+    mat.setParameter('territoryFront', 0);
+    mat.setParameter(
+        'territoryEnabled',
+        typeof location !== 'undefined' && new URLSearchParams(location.search).get('territoryTint') === '0' ? 0 : 1
+    );
     mat.update();
     // The existing vertical outer skirt uses rock with face-aligned UVs; no new mesh.
     const skirt = new StandardMaterial();
@@ -207,7 +235,7 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
         return highPending;
     };
     apply(true); // A valid Low material remains visible throughout an asynchronous High load.
-    const lowReady = Promise.all([weight.ready, baked.ready, dirt.ready, rock.ready]);
+    const lowReady = Promise.all([weight.ready, baked.ready, dirt.ready, rock.ready, footing.ready]);
     const ready = Promise.all([lowReady, requestedLow ? Promise.resolve() : demandHigh()]).then(
         () => {
             if (!destroyed) maps.loading.state = 'loaded';
@@ -226,6 +254,10 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
     return {
         mat,
         skirt,
+        stoneTexture: footing.texture,
+        territory(front: number) {
+            mat.setParameter('territoryFront', front);
+        },
         ready,
         quality(low: boolean) {
             requestedLow = low;

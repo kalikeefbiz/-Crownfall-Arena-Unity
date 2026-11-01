@@ -847,3 +847,9 @@ body:not(.lifecycle) #lifecycle-controls > :not(label) {
 .debug #aim-assist {
     display: none;
 }
+
+/* GOAL 019: the idle instruction permanently covered the local Summoner.
+   Keep actionable hit/aim/error feedback and all legacy/training presentation. */
+body:has(#v2-tools) #combat-feedback[data-outcome='READY'] {
+    visibility: hidden;
+}

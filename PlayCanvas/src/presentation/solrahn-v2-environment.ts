@@ -14,7 +14,8 @@ import type { AppBase } from 'playcanvas';
 import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { createV2Geometry } from '../maps/solrahn-v2-geometry';
 
-import { createLaneEnclosure } from './lane-enclosure';
+import { createSolrahnCauseway } from './solrahn-causeway';
+import { createSolrahnEnvironmentArt } from './solrahn-environment-art';
 import { createSolrahnSurfaceMaterial } from './solrahn-surface-material';
 import type { SummonerAssets } from './summoner-assets';
 
@@ -24,11 +25,11 @@ export function createSolrahnV2Environment(
     surface: SolrahnV2,
     characters: SummonerAssets
 ) {
-    const root = new Entity('Solrahn-V2-16bit-graybox');
+    const root = new Entity('Solrahn-V2-reclaimed-causeway');
     parent.addChild(root);
     const enclosure =
         import.meta.env.VITE_LANE_ENCLOSURE === '1' && new URLSearchParams(location.search).get('enclosure') !== '0'
-            ? createLaneEnclosure(app, root, surface, characters)
+            ? createSolrahnEnvironmentArt(app, root, surface, characters)
             : null;
     const geometry = createV2Geometry(surface);
     const mat = new StandardMaterial();
@@ -38,6 +39,7 @@ export function createSolrahnV2Environment(
     mat.update();
     const pbr =
         new URLSearchParams(location.search).get('surface') === 'goal017' ? createSolrahnSurfaceMaterial(app) : null;
+    const causeway = createSolrahnCauseway(app, root, surface, pbr?.stoneTexture);
     const meshes: Mesh[] = [];
     const instances: MeshInstance[] = [];
     for (const data of geometry) {
@@ -135,13 +137,14 @@ export function createSolrahnV2Environment(
         core.setPosition(0, surface.height(0, z) + 0.15, z);
         core.setLocalScale(6, 0.3, 2);
     }
+    markers.enabled = bounds.enabled = cores.enabled = false;
     let overlay = 'neutral',
         routes = false;
     const panel = document.createElement('details');
     panel.id = 'v2-tools';
     panel.style.cssText =
         'position:fixed;top:6px;left:6px;z-index:25;background:#111e;color:white;padding:6px;font:11px system-ui;max-width:270px;max-height:40vh;overflow:auto;pointer-events:auto';
-    panel.innerHTML = `<summary>V2 terrain · developer overlays</summary><p>3v3 only · 4 minor + major placeholders · no new bonuses</p><label>Floor <select><option value="neutral">Surface / lanes</option>${pbr ? '<option value="dirt">Weight: dirt</option><option value="grass">Weight: grass path</option><option value="forest">Weight: forest / moss</option><option value="rock">Weight: exposed rock</option><option value="zones">Material boundaries</option>' : ''}<option value="height">Height samples</option><option value="slope">Slope limit 35°</option><option value="walk">Walkability / collision erosion</option></select></label><br><label><input type="checkbox" data-option="routes"> Routes / both spawns</label><br><label><input type="checkbox" data-option="markers" checked> Camp / major footprints</label><br><label><input type="checkbox" data-option="bounds" checked> Mode gates</label><br><label><input type="checkbox" data-option="camera"> Top-down camera</label><div class="v2-sample"></div>`;
+    panel.innerHTML = `<summary>V2 terrain · developer overlays</summary><p>3v3 only · 4 minor + major placeholders · no new bonuses</p><label>Floor <select><option value="neutral">Surface / lanes</option>${pbr ? '<option value="dirt">Weight: dirt</option><option value="grass">Weight: grass path</option><option value="forest">Weight: forest / moss</option><option value="rock">Weight: exposed rock</option><option value="zones">Material boundaries</option>' : ''}<option value="height">Height samples</option><option value="slope">Slope limit 35°</option><option value="walk">Walkability / collision erosion</option></select></label><br><label><input type="checkbox" data-option="routes"> Routes / both spawns</label><br><label><input type="checkbox" data-option="markers"> Camp / major footprints</label><br><label><input type="checkbox" data-option="bounds"> Mode gates</label><br><label><input type="checkbox" data-option="camera"> Top-down camera</label><div class="v2-sample"></div>`;
     const focusSelect = document.createElement('select');
     focusSelect.dataset.option = 'focus';
     focusSelect.add(new Option('Camera: follow player', 'player'));
@@ -231,6 +234,7 @@ export function createSolrahnV2Environment(
                 state: pbr?.diagnostics.state ?? 'loaded',
                 materials: pbr?.diagnostics,
                 enclosure: enclosure?.diagnostics,
+                causeway: causeway.diagnostics,
                 surface: surface.metadata,
                 allocations: {
                     textures: app.stats.vram.tex,
@@ -263,6 +267,12 @@ export function createSolrahnV2Environment(
         groundActor(_parent: Entity) {
             /* Scene uses the shared triangle-plane sampler. */
         },
+        territory(front: number) {
+            pbr?.territory(front);
+        },
+        framePlayer(x: number, z: number) {
+            enclosure?.update(x, z);
+        },
         update(_active: boolean) {
             if (routes)
                 for (const path of debugRoutes)
@@ -294,6 +304,7 @@ export function createSolrahnV2Environment(
             panel.remove();
             labels.remove();
             enclosure?.destroy();
+            causeway.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
             pbr?.destroy();

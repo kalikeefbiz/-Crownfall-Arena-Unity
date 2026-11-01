@@ -1,0 +1,42 @@
+[
+  {
+    "path": "public/assets/environment/stones/mobile/rock_moss_set_02.glb",
+    "bytes": 240260,
+    "triangles": 2998,
+    "sha256": "1719855fbe1fe76f82a63149b15a5507ba74c33a4525fb45671e3e53295fb568",
+    "license": "CC0-1.0 / Poly Haven",
+    "materialCount": 1
+  },
+  {
+    "path": "public/assets/environment/stones/mobile/rock_face_02.glb",
+    "bytes": 509732,
+    "triangles": 2999,
+    "sha256": "dce05f3ba7c3927274579714687891767a0f28305ce61d84410b4d3f12aeea37",
+    "license": "CC0-1.0 / Poly Haven",
+    "materialCount": 1
+  },
+  {
+    "path": "public/assets/environment/trees/goal019/Meshy_AI_Maple_tree_1025062934_texture.glb",
+    "bytes": 649196,
+    "triangles": 8199,
+    "sha256": "0208dc1bdf9add1802ddb14c75324503ff552bc44c723f61b9b4845665d83d3c",
+    "license": "Founder-approved Meshy source (existing project rights)",
+    "materialCount": 1
+  },
+  {
+    "path": "public/assets/environment/trees/goal019/Meshy_AI_Pine_tree_1025063153_texture.glb",
+    "bytes": 355060,
+    "triangles": 2559,
+    "sha256": "0e06a5bfa570db4f6bc22c766523f492039436e680f94e466ddd20faab7b7839",
+    "license": "Founder-approved Meshy source (existing project rights)",
+    "materialCount": 1
+  },
+  {
+    "path": "public/assets/environment/trees/goal019/Meshy_AI_redwood_tree_1025061650_texture.glb",
+    "bytes": 404028,
+    "triangles": 3723,
+    "sha256": "a77ccd55f6b349a1f5500fef0004ef309c59110449acb2824fe62838af732130",
+    "license": "Founder-approved Meshy source (existing project rights)",
+    "materialCount": 1
+  }
+]

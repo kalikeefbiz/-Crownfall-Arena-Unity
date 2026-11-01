@@ -1,0 +1,29 @@
+[
+  {
+    "source": "public/assets/environment/trees/mobile/Meshy_AI_Maple_tree_1025062934_texture.glb",
+    "sourceSha256": "dffee7231cdacdfcfb3725000808d15d9774c8692608bf98fb92f02b5c90a59b",
+    "runtime": "public/assets/environment/trees/goal019/Meshy_AI_Maple_tree_1025062934_texture.glb",
+    "sha256": "0208dc1bdf9add1802ddb14c75324503ff552bc44c723f61b9b4845665d83d3c",
+    "bytes": 649196,
+    "geometry": "unchanged buffer bytes",
+    "rights": "Existing founder-approved Meshy assets; no CC0 relicense"
+  },
+  {
+    "source": "public/assets/environment/trees/mobile/Meshy_AI_Pine_tree_1025063153_texture.glb",
+    "sourceSha256": "15460eb525b15ea5723bd24f0b9c292fdd0427a62fcc58d39646e273fd59d9fe",
+    "runtime": "public/assets/environment/trees/goal019/Meshy_AI_Pine_tree_1025063153_texture.glb",
+    "sha256": "0e06a5bfa570db4f6bc22c766523f492039436e680f94e466ddd20faab7b7839",
+    "bytes": 355060,
+    "geometry": "unchanged buffer bytes",
+    "rights": "Existing founder-approved Meshy assets; no CC0 relicense"
+  },
+  {
+    "source": "public/assets/environment/trees/mobile/Meshy_AI_redwood_tree_1025061650_texture.glb",
+    "sourceSha256": "1adc5f2a2c3f22d80232b71445f05353ac1f6a378e512505ee7ea2553e032eb3",
+    "runtime": "public/assets/environment/trees/goal019/Meshy_AI_redwood_tree_1025061650_texture.glb",
+    "sha256": "a77ccd55f6b349a1f5500fef0004ef309c59110449acb2824fe62838af732130",
+    "bytes": 404028,
+    "geometry": "unchanged buffer bytes",
+    "rights": "Existing founder-approved Meshy assets; no CC0 relicense"
+  }
+]

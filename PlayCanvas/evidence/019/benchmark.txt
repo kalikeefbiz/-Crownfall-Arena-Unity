@@ -1,0 +1,7 @@
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+chromium 017b-equivalent 879.5 45
+chromium 018a 946.1 51
+chromium 019 1454.1 67
+webkit 017b-equivalent 137.9 45
+webkit 018a 203.2 51
+webkit 019 208.9 67

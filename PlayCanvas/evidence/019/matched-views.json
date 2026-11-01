@@ -1,0 +1,322 @@
+[
+  {
+    "label": "blue-spawn",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        0,
+        15.966681480407715,
+        89
+      ],
+      "euler": [
+        -35.16643724133419,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-blue-spawn.png",
+        "bytes": 400001,
+        "sha256": "919c30f0645f81668919688503899505003be6047f162917addd383a2eab992f"
+      },
+      "after": {
+        "path": "after-blue-spawn.png",
+        "bytes": 422344,
+        "sha256": "76488bc08397fbd448f941073fb10b8a1192cb70a44be69af132cb2338c37f99"
+      }
+    }
+  },
+  {
+    "label": "red-spawn",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        0,
+        15.966681480407715,
+        -53
+      ],
+      "euler": [
+        -35.16643724133419,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-red-spawn.png",
+        "bytes": 308049,
+        "sha256": "0e72071cb871c1b8ee989aa4ee0d0692d95826d26846d0245478c6f4b00f922d"
+      },
+      "after": {
+        "path": "after-red-spawn.png",
+        "bytes": 323960,
+        "sha256": "3e3f99e72b8efa7502ab0a5b821578f0bec88251a9a43cb34d53c8a118f1c052"
+      }
+    }
+  },
+  {
+    "label": "middle-lane",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        0,
+        16.300060272216797,
+        18
+      ],
+      "euler": [
+        -35.166432482618575,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-middle-lane.png",
+        "bytes": 449556,
+        "sha256": "3eca7de875fe7f93d1cb7f5d349edc8a53b20940be73106275a80e1daca5696c"
+      },
+      "after": {
+        "path": "after-middle-lane.png",
+        "bytes": 446477,
+        "sha256": "9ec7ec1ef4316651c1159af9cd7479405b4cad10f5c53ec733f63867312d1ec8"
+      }
+    }
+  },
+  {
+    "label": "enclosure",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        0,
+        15.966681480407715,
+        -17
+      ],
+      "euler": [
+        -35.16643724133419,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-enclosure.png",
+        "bytes": 405479,
+        "sha256": "563fa0a7928b833f638fade5534dace9d543b1cc8499f0b966ea76bfa66a67ea"
+      },
+      "after": {
+        "path": "after-enclosure.png",
+        "bytes": 426154,
+        "sha256": "0fa33209dc3850caf3ee0de69c4dc8a70e7ba05ff8374dea80e82a15e8c2056a"
+      }
+    }
+  },
+  {
+    "label": "footing",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        0,
+        15.966681480407715,
+        52
+      ],
+      "euler": [
+        -35.16643724133419,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-footing.png",
+        "bytes": 414018,
+        "sha256": "41aa8e1b4c8fcdeba6082277f129710a5022836e9d617efd5be7f998a9e9b96b"
+      },
+      "after": {
+        "path": "after-footing.png",
+        "bytes": 442889,
+        "sha256": "2569fd905678c9062ffe41041999d6bb22655d87cfaa4a85e3639db5f53c87b6"
+      }
+    }
+  },
+  {
+    "label": "wilderness-entrance",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        -10,
+        16.636516571044922,
+        40
+      ],
+      "euler": [
+        -35.16643724133419,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-wilderness-entrance.png",
+        "bytes": 419884,
+        "sha256": "13c1b1dc285e5202135067a9e67a0028b68078cd5cf6ed96f2ed5e4bb8e30f00"
+      },
+      "after": {
+        "path": "after-wilderness-entrance.png",
+        "bytes": 448819,
+        "sha256": "fdbd41decc2380964ea90847269aacab2a778b464a9ccb0be65db0b821fcf34e"
+      }
+    }
+  },
+  {
+    "label": "objective-clearing",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        -22.200000762939453,
+        16.435653686523438,
+        38
+      ],
+      "euler": [
+        -35.166437241334194,
+        -1.9869640592683726e-06,
+        1.2256405124372598e-14
+      ]
+    },
+    "maximumCameraDelta": 0.0,
+    "files": {
+      "before": {
+        "path": "before-objective-clearing.png",
+        "bytes": 418682,
+        "sha256": "9550bd9e8ff1bf52e618cfd15d9fadd8a6e11cd31f2f990e63cf1bf16895255e"
+      },
+      "after": {
+        "path": "after-objective-clearing.png",
+        "bytes": 427756,
+        "sha256": "bad41454b08d6fa8751df3c1ee7bd648df3b073ec26507fc3882ee6d5ce9c5bc"
+      }
+    }
+  },
+  {
+    "label": "six-character-combat",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        0,
+        16.300060272216797,
+        18
+      ],
+      "euler": [
+        -35.166432482618575,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-six-character-combat.png",
+        "bytes": 451227,
+        "sha256": "f63592b9a0a327a2271cdf32d470c60fe28ad3af2b148927e2fe1779d971fd1b"
+      },
+      "after": {
+        "path": "after-six-character-combat.png",
+        "bytes": 445971,
+        "sha256": "4a2acff3ea0252fc121521ea5f3d34373544f126424cc2c19b6a4c248a3e97e5"
+      }
+    }
+  },
+  {
+    "label": "mobile-landscape",
+    "viewport": {
+      "width": 844,
+      "height": 390
+    },
+    "camera": {
+      "position": [
+        0,
+        16.300060272216797,
+        18
+      ],
+      "euler": [
+        -35.166432482618575,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-mobile-landscape.png",
+        "bytes": 451005,
+        "sha256": "a9079600f6e0262de6296f760ad076b0a9c9e016e57dfe1a2e19c7aa4ab35148"
+      },
+      "after": {
+        "path": "after-mobile-landscape.png",
+        "bytes": 446132,
+        "sha256": "488df64b87d178f3e9c25dc7a7236a8e3c9c627b48ee9d2415266c54c57296e9"
+      }
+    }
+  },
+  {
+    "label": "mobile-portrait",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "camera": {
+      "position": [
+        0,
+        16.300060272216797,
+        18
+      ],
+      "euler": [
+        -35.166432482618575,
+        0,
+        0
+      ]
+    },
+    "maximumCameraDelta": 0,
+    "files": {
+      "before": {
+        "path": "before-mobile-portrait.png",
+        "bytes": 414941,
+        "sha256": "7095a4dcd574755a7922ca9245dde1c5e78445268f010b8aae50ddba5960c5ef"
+      },
+      "after": {
+        "path": "after-mobile-portrait.png",
+        "bytes": 428089,
+        "sha256": "6f70682f5968d170cde92672763decd93bb458c5d7fd09735b7c98f136992886"
+      }
+    }
+  }
+]

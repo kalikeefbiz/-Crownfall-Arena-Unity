@@ -230,10 +230,14 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     };
     updateCamera();
     const light = new Entity('sun');
-    light.addComponent('light', { type: 'directional', color: new Color(1, 0.94, 0.84), intensity: surface ? 1 : 1.8 });
-    light.setEulerAngles(48, -25, 0);
+    light.addComponent('light', {
+        type: 'directional',
+        color: new Color(1, 0.94, 0.84),
+        intensity: v2 ? 1.35 : surface ? 1 : 1.8
+    });
+    light.setEulerAngles(v2 ? 38 : 48, v2 ? -38 : -25, 0);
     app.root.addChild(light);
-    app.scene.ambientLight = new Color(0.45, 0.5, 0.6);
+    app.scene.ambientLight = v2 ? new Color(0.26, 0.33, 0.39) : new Color(0.45, 0.5, 0.6);
     const targets = new Map<string, { body: Entity; health: Entity }>();
     type ActorModel =
         ReturnType<typeof createKitModel> | ReturnType<typeof createRivenModel> | ReturnType<typeof createSetModel>;
@@ -430,6 +434,8 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
             localTeam = combat.player.team;
             if (competitive && sim.match) {
                 const z = -sim.match.rules.front;
+                v2Environment?.territory(z);
+                v2Environment?.framePlayer(sim.position.x, sim.position.z);
                 frontier.setPosition(0, 0.07, z);
                 const half = laneLength / 2;
                 blueTerritory.setPosition(0, 0.018, (z + half) / 2);

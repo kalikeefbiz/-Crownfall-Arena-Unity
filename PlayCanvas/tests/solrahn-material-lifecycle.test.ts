@@ -32,7 +32,7 @@ describe('surface quality demand', () => {
     it('loads only Low resources, deduplicates High demand, and honors the latest toggle', async () => {
         vi.stubGlobal('localStorage', { getItem: () => 'low' });
         const surface = createSolrahnSurfaceMaterial(app);
-        expect(state.resources.size).toBe(4);
+        expect(state.resources.size).toBe(5);
         state.resources.forEach((r) => r.resolve());
         await surface.ready;
         surface.quality(true);
@@ -40,7 +40,7 @@ describe('surface quality demand', () => {
         surface.quality(false);
         surface.quality(false);
         surface.quality(true);
-        expect(state.resources.size).toBe(10);
+        expect(state.resources.size).toBe(11);
         state.resources.forEach((r) => r.resolve());
         await vi.waitFor(() => expect(surface.diagnostics.shader.highLoaded).toBe(true));
         expect(surface.diagnostics.shader.detailNormals).toBe(false);

@@ -1,0 +1,44 @@
+
+Running 4 tests using 1 worker
+
+(node:5364) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+Skipping host requirements validation logic because `PLAYWRIGHT_SKIP_VALIDATE_HOST_REQUIREMENTS` env variable is set.
+  ✓  1 [chromium] › tests/browser/goal019-layout.spec.ts:2:30 › idle instruction clears the Summoner 844 (11.6s)
+  ✓  2 [chromium] › tests/browser/goal019-layout.spec.ts:2:30 › idle instruction clears the Summoner 390 (17.3s)
+(node:5567) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ✓  3 [webkit] › tests/browser/goal019-layout.spec.ts:2:30 › idle instruction clears the Summoner 844 (21.1s)
+  ✘  4 [webkit] › tests/browser/goal019-layout.spec.ts:2:30 › idle instruction clears the Summoner 390 (45.6s)
+
+
+  1) [webkit] › tests/browser/goal019-layout.spec.ts:2:30 › idle instruction clears the Summoner 390 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator:  locator('#combat-feedback')
+    Expected: visible
+    Received: hidden
+    Timeout:  30000ms
+
+    Call log:
+      - Expect "toBeVisible" locator('#combat-feedback') with timeout 30000ms
+      - waiting for locator('#combat-feedback')
+        51 × locator resolved to <div role="status" aria-live="polite" id="combat-feedback" data-outcome="READY">READY · Blue human · fight Red Summoners</div>
+           - unexpected value "hidden"
+
+
+       7 |         await page.getByRole('button', { name: 'Enter Arena' }).tap();
+       8 |         await page.waitForFunction(() => document.body.dataset.screen === 'gameplay', null, { timeout: 120000 });
+    >  9 |         await expect(page.locator('#combat-feedback')).toHaveAttribute('data-outcome', 'READY');
+         |                                                 ^
+      10 |         await expect(page.locator('#combat-feedback')).toBeHidden();
+      11 |         // Only the idle state is hidden; actionable feedback remains visible.
+      12 |         const visibility = await page.locator('#combat-feedback').evaluate((e) => {
+        at /workspace/crownfall/PlayCanvas/tests/browser/goal019-layout.spec.ts:9:49
+
+    Error Context: test-results/019-layout/goal019-layout-idle-instruction-clears-the-Summoner-390-webkit/error-context.md
+
+  1 failed
+    [webkit] › tests/browser/goal019-layout.spec.ts:2:30 › idle instruction clears the Summoner 390 
+  3 passed (1.8m)

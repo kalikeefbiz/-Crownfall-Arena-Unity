@@ -1,0 +1,453 @@
+{
+  "base": "8ad97bbafe010036d88234776cf1fa399066bb7a",
+  "unchanged": [
+    {
+      "path": "PlayCanvas/assets/solrahn-v2/source/crownfall_terrain_v2_review.zip",
+      "sha256": "17efa4455d942e565cdc35e1f0fe9c981d59c1a3bc759ff72e1d32d0dd8b6db8"
+    },
+    {
+      "path": "PlayCanvas/public/assets/solrahn-v2/height.u16",
+      "sha256": "911fef74ea745f499f8cdb8e31c92f764b09c969112955e6e771b717d19452d9"
+    },
+    {
+      "path": "PlayCanvas/public/assets/solrahn-v2/lane.bin",
+      "sha256": "208cfbff7335c3ba7c9d419ed6e0d842fdb933bbbbadfdb16eede73f2a79dc7d"
+    },
+    {
+      "path": "PlayCanvas/public/assets/solrahn-v2/terrain.json",
+      "sha256": "df07746800975e2f10fe6e1392adca2904de6375f4ed3dc12ea375005e4b729d"
+    },
+    {
+      "path": "PlayCanvas/public/assets/solrahn-v2/walk.bin",
+      "sha256": "18b51cafcf385d89df5ad453069302ae1ef5684c7ea7a28ecad0042064237589"
+    },
+    {
+      "path": "PlayCanvas/src/combat/ability-commands.js",
+      "sha256": "888d70b29c104b81a359fc00f56152b3e7ed7f30b05e9c9d0f514eed39b4e000"
+    },
+    {
+      "path": "PlayCanvas/src/combat/ability-input.d.ts",
+      "sha256": "ea565974b24e4ded600bccec5c01e0f4b62ed5426e50d43ee9c267999a93b884"
+    },
+    {
+      "path": "PlayCanvas/src/combat/ability-input.js",
+      "sha256": "8d69119676356e6124717ecef0b03542ebb1e0c0f7651dc506ec84792e4770fa"
+    },
+    {
+      "path": "PlayCanvas/src/combat/advanced-actions.js",
+      "sha256": "8b52281bfa83d1ee79591e202b27e230c36621a9f812a83195e56f69681c3664"
+    },
+    {
+      "path": "PlayCanvas/src/combat/bot-controller.js",
+      "sha256": "35a23e4d15f01f0d60ad2afd56f7ef934f13de01ccbf6b4e5c8c253ee142bfe6"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat-core.js",
+      "sha256": "637301cb75d3f7658f29d838656980564f9bdaa63b493924d3469c22ecd201f3"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat-data.js",
+      "sha256": "dd11c11d98ef2d4cab018cbf529df7cca5d8ee91b24ebdc1a9241df32cf30d20"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat-journal.js",
+      "sha256": "221f48c6b173618a4783ac4aa0ff0d67490b11cb8c3c18e761d712a24229ca2a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat.d.ts",
+      "sha256": "8768d2ada2a03d45158e089b0f6afac4f3f28a0c8682c29214295fee71d0a416"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat.js",
+      "sha256": "8456e8c6b16f0255819de0acc66fe8f44127c0bd92739879115a9c46df8e02ce"
+    },
+    {
+      "path": "PlayCanvas/src/combat/command-stepper.d.ts",
+      "sha256": "2a412f2ddc46a69f2b7ddc550a54afc26bf91e052e8a37fed64b87be3c9815b1"
+    },
+    {
+      "path": "PlayCanvas/src/combat/command-stepper.js",
+      "sha256": "1349cca29314eb773a6a01a3170b1dbff1d65288ca0d9d5290d9c7d3f825c69a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/config.js",
+      "sha256": "f76857c8c19a57e522a5a6eda72997d4eea22311cc7095e1f1012ef4add5def4"
+    },
+    {
+      "path": "PlayCanvas/src/combat/crownfall-rules.js",
+      "sha256": "6c07c4a7c97ba9e335627c13ae2d573c8c74da0e7de29369458d3865aae69944"
+    },
+    {
+      "path": "PlayCanvas/src/combat/human-aim.d.ts",
+      "sha256": "d656090796e5dd33340e93b3504ad596d96dfc434cf22e040c574219a2038b4f"
+    },
+    {
+      "path": "PlayCanvas/src/combat/human-aim.js",
+      "sha256": "feaa7a627488ed8314ad448e966cb11b59cb4efd06327b756edd6bd6bfc613e4"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-data.d.ts",
+      "sha256": "de7ab1d98c64a90fccd01170ef56ceab885780bd58cd2500f63db805f80f411a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-data.js",
+      "sha256": "4b34b3b5a60fe5f57db9193a1a0b8912423ce4420d31c801660f6391206d133b"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-space.d.ts",
+      "sha256": "bd93ba2446bc57c0eb362c21cbb465128643d6efc6e2ca053ffad0246197d55c"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-space.js",
+      "sha256": "1cf8c4f841ecd3f1c151126099675157cac132acc63e8c98bcc8eda5f9e56fb4"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match.d.ts",
+      "sha256": "1391d193f351783869f2a919ab171105cdbe31c0c076d8b111c4e129da1ce7b3"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match.js",
+      "sha256": "d81117e7d840e2cb664ef6b5d00b93ea034880e4ec77dd50c37ddd2747517626"
+    },
+    {
+      "path": "PlayCanvas/src/combat/modifiers.js",
+      "sha256": "7e21af4ef8bd0b925796f2a4e17f487bde8dd447f045f929a2295ab1440c541a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/movement.js",
+      "sha256": "f100cb03839d4e169466f040e454d940f714bcbed7f239f51b283e12b9b5455f"
+    },
+    {
+      "path": "PlayCanvas/src/combat/returning-weapons.js",
+      "sha256": "92350f331e0c9bd0eb5e874ef835893733cd06636af2a24c381a6b6b2c317f76"
+    },
+    {
+      "path": "PlayCanvas/src/combat/riven-data.js",
+      "sha256": "1f1f24989aaae794174280bbccf2f76f7c664222b1758b87565542df4e359c52"
+    },
+    {
+      "path": "PlayCanvas/src/combat/sandbox.js",
+      "sha256": "bad73ccf923fa2198040508844987441570f89b0b9033dc8c28aa7a68fe0f0d1"
+    },
+    {
+      "path": "PlayCanvas/src/combat/summoners.js",
+      "sha256": "18bb8e4916c1821f17450fd779ab2790ec21b0bbb75517749aadf81d31ad0b81"
+    },
+    {
+      "path": "PlayCanvas/src/combat/wilderness-data.js",
+      "sha256": "2eaddc557a19fb678a9631d043711bd4e230c9cb7e0bab0afe17b86cba469504"
+    },
+    {
+      "path": "PlayCanvas/src/combat/wilderness.js",
+      "sha256": "50e9061f64c1ea363180fa01d7b40b2f561bf26aeee5d4d7342eee75acb084ce"
+    },
+    {
+      "path": "PlayCanvas/src/gameplay/simulation.ts",
+      "sha256": "77bafc25141234f7f19a0874a3399dbd30698413002108ec51d2266966df4e25"
+    },
+    {
+      "path": "PlayCanvas/src/gameplay/vector.ts",
+      "sha256": "65baee7befb878e47a36c379a982929e31fc01320b05578a165ae60b55798982"
+    },
+    {
+      "path": "PlayCanvas/src/input/controls.ts",
+      "sha256": "4d1c2c35c4aba6211e52e7039c7fbb30cfe21d4947d1520a8ed39659f6335688"
+    },
+    {
+      "path": "PlayCanvas/src/input/game-gestures.d.ts",
+      "sha256": "d6ce518d3d2f8aa46def91b473a9bf544c42d500e45b76c9cdd3556b2f418be4"
+    },
+    {
+      "path": "PlayCanvas/src/input/game-gestures.js",
+      "sha256": "bef43172ac3f8860a72eea1519229143d7e73e54df115cbcfd3e6d3f5df93734"
+    },
+    {
+      "path": "PlayCanvas/src/maps/solrahn-v2-geometry.ts",
+      "sha256": "8632698cf110caee27fe24e886c37eddf371c55fdfea03becf523380ecb62a4c"
+    },
+    {
+      "path": "PlayCanvas/src/maps/solrahn-v2.ts",
+      "sha256": "42c626a478103b8a2186fdd4d24eb5fa66a59ff511da5bd939a483db53770858"
+    },
+    {
+      "path": "PlayCanvas/src/maps/solrahn.ts",
+      "sha256": "6a059cd3d9ff2c3dfe232530d4a763b7553aa7a1239c5357e23f80c863810c3f"
+    }
+  ],
+  "allowedPresentationChanges": [
+    "PlayCanvas/src/presentation/scene.ts",
+    "PlayCanvas/src/presentation/solrahn-surface-material.ts",
+    "PlayCanvas/src/presentation/solrahn-v2-environment.ts",
+    "PlayCanvas/src/style.css"
+  ],
+  "additionalCompleteSourceCheck": [
+    {
+      "path": "PlayCanvas/src/combat/ability-commands.js",
+      "sha256": "888d70b29c104b81a359fc00f56152b3e7ed7f30b05e9c9d0f514eed39b4e000"
+    },
+    {
+      "path": "PlayCanvas/src/combat/ability-input.d.ts",
+      "sha256": "ea565974b24e4ded600bccec5c01e0f4b62ed5426e50d43ee9c267999a93b884"
+    },
+    {
+      "path": "PlayCanvas/src/combat/ability-input.js",
+      "sha256": "8d69119676356e6124717ecef0b03542ebb1e0c0f7651dc506ec84792e4770fa"
+    },
+    {
+      "path": "PlayCanvas/src/combat/advanced-actions.js",
+      "sha256": "8b52281bfa83d1ee79591e202b27e230c36621a9f812a83195e56f69681c3664"
+    },
+    {
+      "path": "PlayCanvas/src/combat/bot-controller.js",
+      "sha256": "35a23e4d15f01f0d60ad2afd56f7ef934f13de01ccbf6b4e5c8c253ee142bfe6"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat-core.js",
+      "sha256": "637301cb75d3f7658f29d838656980564f9bdaa63b493924d3469c22ecd201f3"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat-data.js",
+      "sha256": "dd11c11d98ef2d4cab018cbf529df7cca5d8ee91b24ebdc1a9241df32cf30d20"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat-journal.js",
+      "sha256": "221f48c6b173618a4783ac4aa0ff0d67490b11cb8c3c18e761d712a24229ca2a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat.d.ts",
+      "sha256": "8768d2ada2a03d45158e089b0f6afac4f3f28a0c8682c29214295fee71d0a416"
+    },
+    {
+      "path": "PlayCanvas/src/combat/combat.js",
+      "sha256": "8456e8c6b16f0255819de0acc66fe8f44127c0bd92739879115a9c46df8e02ce"
+    },
+    {
+      "path": "PlayCanvas/src/combat/command-stepper.d.ts",
+      "sha256": "2a412f2ddc46a69f2b7ddc550a54afc26bf91e052e8a37fed64b87be3c9815b1"
+    },
+    {
+      "path": "PlayCanvas/src/combat/command-stepper.js",
+      "sha256": "1349cca29314eb773a6a01a3170b1dbff1d65288ca0d9d5290d9c7d3f825c69a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/config.js",
+      "sha256": "f76857c8c19a57e522a5a6eda72997d4eea22311cc7095e1f1012ef4add5def4"
+    },
+    {
+      "path": "PlayCanvas/src/combat/crownfall-rules.js",
+      "sha256": "6c07c4a7c97ba9e335627c13ae2d573c8c74da0e7de29369458d3865aae69944"
+    },
+    {
+      "path": "PlayCanvas/src/combat/human-aim.d.ts",
+      "sha256": "d656090796e5dd33340e93b3504ad596d96dfc434cf22e040c574219a2038b4f"
+    },
+    {
+      "path": "PlayCanvas/src/combat/human-aim.js",
+      "sha256": "feaa7a627488ed8314ad448e966cb11b59cb4efd06327b756edd6bd6bfc613e4"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-data.d.ts",
+      "sha256": "de7ab1d98c64a90fccd01170ef56ceab885780bd58cd2500f63db805f80f411a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-data.js",
+      "sha256": "4b34b3b5a60fe5f57db9193a1a0b8912423ce4420d31c801660f6391206d133b"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-space.d.ts",
+      "sha256": "bd93ba2446bc57c0eb362c21cbb465128643d6efc6e2ca053ffad0246197d55c"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match-space.js",
+      "sha256": "1cf8c4f841ecd3f1c151126099675157cac132acc63e8c98bcc8eda5f9e56fb4"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match.d.ts",
+      "sha256": "1391d193f351783869f2a919ab171105cdbe31c0c076d8b111c4e129da1ce7b3"
+    },
+    {
+      "path": "PlayCanvas/src/combat/match.js",
+      "sha256": "d81117e7d840e2cb664ef6b5d00b93ea034880e4ec77dd50c37ddd2747517626"
+    },
+    {
+      "path": "PlayCanvas/src/combat/modifiers.js",
+      "sha256": "7e21af4ef8bd0b925796f2a4e17f487bde8dd447f045f929a2295ab1440c541a"
+    },
+    {
+      "path": "PlayCanvas/src/combat/movement.js",
+      "sha256": "f100cb03839d4e169466f040e454d940f714bcbed7f239f51b283e12b9b5455f"
+    },
+    {
+      "path": "PlayCanvas/src/combat/returning-weapons.js",
+      "sha256": "92350f331e0c9bd0eb5e874ef835893733cd06636af2a24c381a6b6b2c317f76"
+    },
+    {
+      "path": "PlayCanvas/src/combat/riven-data.js",
+      "sha256": "1f1f24989aaae794174280bbccf2f76f7c664222b1758b87565542df4e359c52"
+    },
+    {
+      "path": "PlayCanvas/src/combat/sandbox.js",
+      "sha256": "bad73ccf923fa2198040508844987441570f89b0b9033dc8c28aa7a68fe0f0d1"
+    },
+    {
+      "path": "PlayCanvas/src/combat/summoners.js",
+      "sha256": "18bb8e4916c1821f17450fd779ab2790ec21b0bbb75517749aadf81d31ad0b81"
+    },
+    {
+      "path": "PlayCanvas/src/combat/wilderness-data.js",
+      "sha256": "2eaddc557a19fb678a9631d043711bd4e230c9cb7e0bab0afe17b86cba469504"
+    },
+    {
+      "path": "PlayCanvas/src/combat/wilderness.js",
+      "sha256": "50e9061f64c1ea363180fa01d7b40b2f561bf26aeee5d4d7342eee75acb084ce"
+    },
+    {
+      "path": "PlayCanvas/src/config/arena.ts",
+      "sha256": "673f9375ca9b915718b5d62146de54e3f054766cee812e20743d65703a9362a9"
+    },
+    {
+      "path": "PlayCanvas/src/game.ts",
+      "sha256": "87c80cca7dafc3d3d3a89bb067bdefb9cde0ebcaf7e9aa9dea48821b16f80001"
+    },
+    {
+      "path": "PlayCanvas/src/gameplay/simulation.ts",
+      "sha256": "77bafc25141234f7f19a0874a3399dbd30698413002108ec51d2266966df4e25"
+    },
+    {
+      "path": "PlayCanvas/src/gameplay/vector.ts",
+      "sha256": "65baee7befb878e47a36c379a982929e31fc01320b05578a165ae60b55798982"
+    },
+    {
+      "path": "PlayCanvas/src/input/controls.ts",
+      "sha256": "4d1c2c35c4aba6211e52e7039c7fbb30cfe21d4947d1520a8ed39659f6335688"
+    },
+    {
+      "path": "PlayCanvas/src/input/game-gestures.d.ts",
+      "sha256": "d6ce518d3d2f8aa46def91b473a9bf544c42d500e45b76c9cdd3556b2f418be4"
+    },
+    {
+      "path": "PlayCanvas/src/input/game-gestures.js",
+      "sha256": "bef43172ac3f8860a72eea1519229143d7e73e54df115cbcfd3e6d3f5df93734"
+    },
+    {
+      "path": "PlayCanvas/src/main.ts",
+      "sha256": "2730e34aa596599cde855457133ba9de083ed39de7e02524461a1f061fddeeb5"
+    },
+    {
+      "path": "PlayCanvas/src/maps/solrahn-v2-geometry.ts",
+      "sha256": "8632698cf110caee27fe24e886c37eddf371c55fdfea03becf523380ecb62a4c"
+    },
+    {
+      "path": "PlayCanvas/src/maps/solrahn-v2.ts",
+      "sha256": "42c626a478103b8a2186fdd4d24eb5fa66a59ff511da5bd939a483db53770858"
+    },
+    {
+      "path": "PlayCanvas/src/maps/solrahn.ts",
+      "sha256": "6a059cd3d9ff2c3dfe232530d4a763b7553aa7a1239c5357e23f80c863810c3f"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/ability-preview.ts",
+      "sha256": "fa04ebe655daa5ee085e3195f767f4f90d6409c5a716df6038a09305dae40cb9"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/combat-overlay.ts",
+      "sha256": "170d302e81929d525209e6d675d4104885a48b544ac9d8eafae80f9b9b6863c6"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/facing.ts",
+      "sha256": "5d932e4cbc1e096242ddfa9e2a30aca196efb42ac7478ec9e09a4e4bb2c72b86"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/kit-animation.ts",
+      "sha256": "0e24b0a4879e414ad8c0d4a1907f7548065bce83b676c4774a4ac780c1ad4e98"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/kit-model.ts",
+      "sha256": "2841dd5a0c47b6f2659db1c039232751c734cb6905f0d9d520a080381a42cf62"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/lane-enclosure-layout.ts",
+      "sha256": "ad46f998ed7a72e25a9de549bafb13b060caad1933cfd284af5a5329aa16f0cc"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/lane-enclosure.ts",
+      "sha256": "81406b37c3315eea7df0eabbc1828bd61596ccb585287f1a8b27dbfb7a472c2a"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/lane-environment.ts",
+      "sha256": "c2d21fb05c66745f59b076deccea3a14fd9720b44b77ea5d72acd5e39bdafe70"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/lane-geometry.ts",
+      "sha256": "27a072c6f8fbb856f3264a60598a3f997b17f9d99235c502a25ae38a5c5e7eed"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/riven-animation.ts",
+      "sha256": "1e7259ff3d4f61546b1c6b8f421d728860ad53e6185bdf1735345747211f9d8d"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/riven-model.ts",
+      "sha256": "d13966ee71cfd6ae64eff79acb57d6ee9759789c6849db101d65f69272dbf4d5"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/riven-weapons.ts",
+      "sha256": "f0ca768816e72565f0c6129166f765356781071a1f24695a1f867882ae6903af"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/set-animation.ts",
+      "sha256": "e87ddfe08a69df255d0372809a80c723d88c43110cb0162c2f826b0becf7c767"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/set-model.ts",
+      "sha256": "b1bc3a5c4e80e500e144245295100be06a63649eb416d9697dd5cc6773ef8e3e"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/solrahn-environment.ts",
+      "sha256": "1bbdefcb68461e854c7c788dd410a8fff300146b58941eb966dba512997bf2d1"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/summoner-assets.ts",
+      "sha256": "a06748368c3642f454888eaed0e696eff1bbb188a54be6e278bc4f639f68a58b"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/terrain-textures.ts",
+      "sha256": "096ecb4bfc1ae2e7d586d602541e091328abd4c9440a3a1188c1cead28a64640"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/wilderness-environment.ts",
+      "sha256": "747c9b8312647f46e1f39f89be7bc035a29410efb528e5a7d76f6731b3a67ab5"
+    },
+    {
+      "path": "PlayCanvas/src/presentation/wilderness-layout.ts",
+      "sha256": "43dadf727df6e4111f5f7b87fb9af8aed4f07620748ec82d74cfb07fdaee29c9"
+    },
+    {
+      "path": "PlayCanvas/src/ui/control-layout.ts",
+      "sha256": "a596e35563fbf50ac5e3e2f48b898abc0e9cae7326e479411d2d02c8b72dc268"
+    },
+    {
+      "path": "PlayCanvas/src/ui/frontend.css",
+      "sha256": "853cb1ffc1aba30fec2e9a7399a1f46a94cdd111274800a4932635382f5ad9f4"
+    },
+    {
+      "path": "PlayCanvas/src/ui/frontend.ts",
+      "sha256": "6bb793df88cdcfd98fb2c228aa893d878b14a546f7b804c1d276063768ae8665"
+    },
+    {
+      "path": "PlayCanvas/src/ui/hud.ts",
+      "sha256": "ef663d180573fd749f5a1352ee9dcd0a2b2774abc63b3528e71a7d9882563cca"
+    },
+    {
+      "path": "PlayCanvas/src/ui/performance-monitor.css",
+      "sha256": "949ef1ac05b48a6a7c2fe6c1000c9aab4df561c282423962771c733b94a56310"
+    },
+    {
+      "path": "PlayCanvas/src/ui/performance-monitor.ts",
+      "sha256": "7a20f68934a7e16564ab8fa2207b803cab4c1c03e5ea8db7fcc0f983c57593a2"
+    },
+    {
+      "path": "PlayCanvas/src/vite-env.d.ts",
+      "sha256": "da6339fa1ec86798c88aa5ea8765e3a1da09a9186b61cb88f56a951ec1633274"
+    }
+  ]
+}

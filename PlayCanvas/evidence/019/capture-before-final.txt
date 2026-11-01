@@ -1,0 +1,11 @@
+gameplay ready
+before blue-spawn
+before red-spawn
+before middle-lane
+before enclosure
+before footing
+before wilderness-entrance
+before objective-clearing
+before six-character-combat
+before mobile-landscape
+before mobile-portrait

@@ -1,0 +1,74 @@
+[
+  {
+    "engine": "chromium",
+    "build": "017b-equivalent",
+    "samples": 13,
+    "meanFps": 1.1370693349893728,
+    "meanMs": 879.4538461538461,
+    "p95Ms": 1366.699999999999,
+    "draws": 45,
+    "textures": 423854828,
+    "geometry": 7055996,
+    "jsHeap": 167000000
+  },
+  {
+    "engine": "chromium",
+    "build": "018a",
+    "samples": 13,
+    "meanFps": 1.0569535346965324,
+    "meanMs": 946.1153846153846,
+    "p95Ms": 1483.300000000001,
+    "draws": 51,
+    "textures": 444826332,
+    "geometry": 7796826,
+    "jsHeap": 167000000
+  },
+  {
+    "engine": "chromium",
+    "build": "019",
+    "samples": 8,
+    "meanFps": 0.687704699601991,
+    "meanMs": 1454.1124999999997,
+    "p95Ms": 1666.699999999999,
+    "draws": 67,
+    "textures": 463001644,
+    "geometry": 9623748,
+    "jsHeap": 177000000
+  },
+  {
+    "engine": "webkit",
+    "build": "017b-equivalent",
+    "samples": 87,
+    "meanFps": 7.2512085347557935,
+    "meanMs": 137.90804597701148,
+    "p95Ms": 169,
+    "draws": 45,
+    "textures": 423854828,
+    "geometry": 7055996,
+    "jsHeap": null
+  },
+  {
+    "engine": "webkit",
+    "build": "018a",
+    "samples": 59,
+    "meanFps": 4.920767306088407,
+    "meanMs": 203.22033898305085,
+    "p95Ms": 239,
+    "draws": 51,
+    "textures": 444826332,
+    "geometry": 7796826,
+    "jsHeap": null
+  },
+  {
+    "engine": "webkit",
+    "build": "019",
+    "samples": 57,
+    "meanFps": 4.786698018139067,
+    "meanMs": 208.91228070175438,
+    "p95Ms": 238,
+    "draws": 67,
+    "textures": 463001644,
+    "geometry": 9623748,
+    "jsHeap": null
+  }
+]
