@@ -206,9 +206,16 @@ use `[skip ci]`; no production publication workflow is dispatched. The new folde
 contains provenance, gameplay and the visual review. No earlier preview or
 production path is replaced, and no production merge is authorized or performed.
 
-The publisher generates `publication.json` with exact source, Pages parent/child,
-file hashes and protected-object counts. Post-deployment HTTPS verification is
-recorded in `public-after.json`; the final handoff identifies the confirmed SHAs.
+Deployed source: `c4f4ba1abacab9d07deda4b8810ab489a80aac5a`.
+Pages deployment: `fa21a1949f3ded0b33d14e7e7fd11b0494aecf78` (GitHub reports **built**).
+All **451 existing hosted Git objects** and file modes are identical.
+All **7 prior public entry pages** remain byte-identical over HTTPS, and **37
+selected new runtime/review files** match their publication hashes, including the
+20 comparison screenshots, bundles, new trees and ground maps. Captured runtime
+bundle hashes match the deployed build exactly. Existing source branches remain
+unchanged. Evidence: `publication.json`, `pages-build.json`, `public-after.json`.
+The final branch handoff commit adds deployment evidence only; the hosted source
+above is the exact runtime implementation.
 
 Ordinary capacity was used. No reset was initiated; the prohibited November 30
 banked reset was not selected or consumed by this task.

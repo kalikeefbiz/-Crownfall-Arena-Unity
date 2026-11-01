@@ -1,0 +1,19 @@
+{
+  "source": {
+    "source": "c4f4ba1abacab9d07deda4b8810ab489a80aac5a",
+    "baseSource": "8ad97bbafe010036d88234776cf1fa399066bb7a",
+    "goal": "019",
+    "branch": "goal-019-solrahn-environment-transformation",
+    "map": "solrahn-v2",
+    "surface": "goal017",
+    "productionReplaced": false,
+    "buildFlags": [
+      "VITE_DEVICE_PREVIEW=1",
+      "VITE_LANE_ENCLOSURE=1"
+    ]
+  },
+  "publicFiles": 37,
+  "priorEntries": 7,
+  "oldEntriesByteIdentical": true,
+  "oldSourceBranchesUnchanged": true
+}
