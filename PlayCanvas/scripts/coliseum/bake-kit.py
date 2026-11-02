@@ -119,6 +119,24 @@ img[bank] = bankc[bank]
 img[bridge] = stone[bridge] * 0.92
 img[stad] = seat[stad]
 
+# ---- backlot (stadium phase): the non-walkable rim ground around each base reads as forest floor + crags, not lawn ----
+rim_d = distance_transform_edt(rim) / PPM
+backlot = rim & (Z > 46)
+wb = np.clip((rim_d - 0.8) / 1.8, 0, 1)[:, :, None] * backlot[:, :, None]
+under = hexc('#26361f') * (0.85 + 0.2 * noise(1.6, 16))[:, :, None]
+under[gaussian_filter((rng.random((Hp, Wp)) > 0.996).astype(float), 1.4) > 0.03] = hexc('#5c4a3a')
+img = img * (1 - wb) + under * wb
+scatter = []
+for zz in np.arange(47.0, 82.0, 3.1):
+    for xx in np.arange(-41.0, 41.5, 3.1):
+        jx = xx + (rng.random() - 0.5) * 2.0
+        jz = zz + (rng.random() - 0.5) * 2.0
+        i, j = int((jx - X0) * PPM), int((jz - Z0) * PPM)
+        if not (0 <= i < Wp and 0 <= j < Hp) or not rim[j, i] or rim_d[j, i] < 1.7:
+            continue
+        crag = rim_d[j, i] >= 3.0 and rng.random() < 0.3   # crags sit deep in the backlot, never at the walk edge
+        scatter.append([round(float(jx), 2), round(float(jz), 2), 1 if crag else 0])
+
 # ---- camps (corner plazas) and the major: carved stone discs with a brass ring on the wilderness ----
 camps = []
 for L in LANDMARKS:
@@ -204,5 +222,6 @@ for zz in np.arange(-HD, HD, step):
 mirrored = camps + [dict(c, id=c['id'].replace('-blue', '-red'), z=-c['z']) for c in camps if c['z'] > 0]
 (OUT / 'slice.json').write_text(json.dumps(dict(
     bounds=[X0, X1, -HD, HD], mirrorZ=True, size=[Wp, Hp], waterY=1.55, water=rects,
-    groves=[list(g) for g in GROVES], camps=mirrored), indent=1) + '\n')
+    groves=[list(g) for g in GROVES], camps=mirrored, backlot=scatter,
+    stadium=dict(hx=SX, hz=SZ, r=SR)), indent=1) + '\n')
 print('ground', Wp, 'x', Hp, (OUT / 'ground.webp').stat().st_size, 'water rects', len(rects))

@@ -68,7 +68,16 @@ try {
         ['full-blue-base', 'middle-lane', 844, 390, [0, 60]],
         ['full-east-camp', 'middle-lane', 844, 390, [22, -38]],
         ['full-major', 'middle-lane', 844, 390, [-20, 4]],
-        ['full-portrait-red', 'middle-lane', 390, 844, [0, -30]]
+        ['full-portrait-red', 'middle-lane', 390, 844, [0, -30]],
+        ['stad-red-end', 'middle-lane', 844, 390, [0, -56]],
+        ['stad-red-base-side', 'middle-lane', 844, 390, [12, -70]],
+        ['stad-east-falls', 'middle-lane', 844, 390, [28, 6]],
+        ['stad-west-falls', 'middle-lane', 844, 390, [-28, 6]],
+        ['stad-blue-base', 'middle-lane', 844, 390, [0, 70]],
+        ['stad-portrait-red', 'middle-lane', 390, 844, [0, -60]],
+        ['stad-cinematic', 'middle-lane', 844, 390, [0, 0], [0, 26, 88, 0, 18, -10]],
+        ['stad-cinematic-portrait', 'middle-lane', 390, 844, [0, 0], [0, 24, 86, 0, 22, -10]],
+        ['stad-cinematic-crown', 'middle-lane', 844, 390, [0, 0], [-30, 14, 40, 0, 34, -6]]
     ];
     const raw = await readFile('public/assets/coliseum/height.u16');
     const NX = 113, NZ = 219, W = 84, D = 164;
@@ -86,7 +95,7 @@ try {
             : h(i + NX + 1) + (h(i + NX) - h(i + NX + 1)) * (1 - a) + (h(i + 1) - h(i + NX + 1)) * (1 - b);
     };
     const receipt = [];
-    for (const [label, focus, w = 844, h = 390, custom] of views.filter(
+    for (const [label, focus, w = 844, h = 390, custom, cine] of views.filter(
         (v) => !process.env.VIEW_FILTER || process.env.VIEW_FILTER.split(',').some((f) => v[0].includes(f))
     )) {
         await page.setViewportSize({ width: w, height: h });
@@ -97,16 +106,31 @@ try {
                 window.__crownfall.verification.advance(0.7);
             });
         await page.selectOption('#v2-tools [data-option=focus]', focus, { force: true });
-        const pose = custom ? { x: custom[0], z: custom[1], y: height(...custom) } : null;
+        const pose = custom ? { x: custom[0], z: custom[1], y: height(...custom), cine } : null;
+        await page.evaluate((cine) => {
+            let st = document.getElementById('cine-hide');
+            if (cine && !st) {
+                st = document.createElement('style');
+                st.id = 'cine-hide';
+                st.textContent = '* { visibility: hidden !important } canvas { visibility: visible !important }';
+                document.head.appendChild(st);
+            } else if (!cine && st) st.remove();
+        }, !!cine);
         await page.evaluate((pose) => {
             const app = window.__reviewApp,
                 c = app.root.findByName('MOBA-camera');
             if (window.__reviewCamera) app.off('prerender', window.__reviewCamera);
             if (pose) {
-                window.__reviewCamera = () => {
-                    c.setPosition(pose.x, pose.y + 15.5, pose.z + 18);
-                    c.lookAt(pose.x, pose.y, pose.z - 4);
-                };
+                window.__reviewCamera = pose.cine
+                    ? () => {
+                          c.camera.farClip = 600;
+                          c.setPosition(pose.cine[0], pose.cine[1], pose.cine[2]);
+                          c.lookAt(pose.cine[3], pose.cine[4], pose.cine[5]);
+                      }
+                    : () => {
+                          c.setPosition(pose.x, pose.y + 15.5, pose.z + 18);
+                          c.lookAt(pose.x, pose.y, pose.z - 4);
+                      };
                 app.on('prerender', window.__reviewCamera);
             }
         }, pose);
@@ -123,7 +147,18 @@ try {
                 const c = window.__reviewApp.root.findByName('MOBA-camera');
                 return { position: c.getPosition().toArray(), euler: c.getEulerAngles().toArray() };
             }),
-            snapshot: await page.evaluate(() => window.__crownfall.snapshot())
+            snapshot: await page.evaluate(() => window.__crownfall.snapshot()),
+            visible: await page.evaluate(() => {
+                const out = {};
+                window.__reviewApp.root.find((e) => e.render).forEach((e) =>
+                    e.render.meshInstances.forEach((mi) => {
+                        if (!mi.visibleThisFrame || !e.enabled) return;
+                        const k = e.name.replace(/-\d+$/, '');
+                        out[k] = (out[k] || 0) + 1;
+                    })
+                );
+                return out;
+            })
         });
         console.log(name, label);
     }

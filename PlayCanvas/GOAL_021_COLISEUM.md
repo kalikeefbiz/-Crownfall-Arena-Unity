@@ -40,3 +40,22 @@ Founder iPhone check of the slice: 29.8–30 FPS, p95 36–38 ms, so the kit cos
   - The stepping stones are separate blocks.
   - Pines are smaller and vary in tiers and girth; broadleaf crowns come in red, gold and green clusters.
 - Evidence: `evidence/021/kit2-*.png`, `kit2-review-sheet.png`.
+
+### Founder playtest of full kit (2026-11-02)
+- iPhone: 50–53.6 FPS (Low), p95 23–31 ms. Full kit approved apart from one bridge rail.
+- Fix: the major-island bridges (4.6 × 4.4 m) had their parapets laid across the walkway. Rail direction is now taken from which sides drop into the river. Evidence: `evidence/021/kit3-*.png`.
+- Noted: the blocked flat ground around each base and behind the wing groves is graybox-intentional (mirrored, walk mask symmetric). It reads as open grass, so it will be dressed as out-of-bounds in the stadium phase.
+
+## Stage 4: stadium framing (2026-11-02)
+- Founder approved the full kit ("Fixed we can proceed"). Built in `coliseum-kit.ts`, presentation only (no collision change).
+- Stands swept round the floor's rounded-rect boundary: parapet with torches and team banners (Blue +z, Red -z), a 9-row
+  lower bowl with aisles, an arcade with pointed arches and gold pilasters, a 6-row upper bowl, rim wall.
+  Gate towers with glowing slits at both ends. Dome: 28 ribs to an oculus with brass purlins; the crown hangs on chains.
+- Waterfalls: both rivers spill from a parapet spout down the seating tiers into their channel (scrolling water tile).
+- Backlot: the non-walkable ground round each base is painted forest floor and filled with dark pines and rock crags
+  (crags only deep inside, never at the walk edge), so it reads as out of bounds.
+- Cost: 8 stadium draws (glow via vertex alpha -> emissive, one material), backlot 4 draws, +~27k triangles total.
+  Kit draws in view went DOWN vs the full kit (full-major 63 -> 53, Blue base 57 -> 48). The Blue-end stands (+z,
+  behind the competitive camera) hide while the player is in the Blue third.
+- The gameplay camera (48 deg, pitched ~35 deg down) shows the parapet and lower bowl at the edges; the arcade, dome
+  and crown read in wide shots (`evidence/021/stadium-stad-cinematic*.png`). Review sheet: `stadium-review-sheet.png`.
