@@ -1,3 +1,1 @@
-{"source": "c21e32ceaca0b9052cdca7e10e4aec1484bcebca", "goal": "020", "branch": "goal-020-solrahn-art-direction", "map": "solrahn-v2", "surface": "goal017", "productionReplaced": false, "buildFlags": ["VITE_DEVICE_PREVIEW=1", "VITE_LANE_ENCLOSURE=1"]}
-
-
+{"source":"c21e32ceaca0b9052cdca7e10e4aec1484bcebca","branch":"goal-020-solrahn-art-direction","map":"solrahn-v2","productionReplaced":false,"buildFlags":["VITE_DEVICE_PREVIEW=1","VITE_LANE_ENCLOSURE=1"]}
