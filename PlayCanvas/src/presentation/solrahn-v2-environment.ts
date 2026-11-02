@@ -14,6 +14,8 @@ import type { AppBase } from 'playcanvas';
 import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { createV2Geometry } from '../maps/solrahn-v2-geometry';
 
+import { createColiseumStyleSlice } from './coliseum-style-slice';
+import type { SliceStyle } from './coliseum-style-slice';
 import { createSolrahnCauseway } from './solrahn-causeway';
 import { createSolrahnEnclosure } from './solrahn-enclosure';
 import { createSolrahnEnvironmentArt } from './solrahn-environment-art';
@@ -41,6 +43,12 @@ export function createSolrahnV2Environment(
     const walls =
         !bare && new URLSearchParams(location.search).get('layout') !== 'original'
             ? createSolrahnEnclosure(app, root, surface)
+            : null;
+    // GOAL 021 art-kit comparison: ?style=a|b|c dresses one 46 x 30 m stretch; everything else stays graybox.
+    const styleParam = new URLSearchParams(location.search).get('style');
+    const slice =
+        coliseum && (styleParam === 'a' || styleParam === 'b' || styleParam === 'c')
+            ? createColiseumStyleSlice(app, root, surface, styleParam as SliceStyle)
             : null;
     const geometry = createV2Geometry(surface);
     const mat = new StandardMaterial();
@@ -274,7 +282,7 @@ export function createSolrahnV2Environment(
         return node;
     });
     return {
-        ready: Promise.all([pbr?.ready, enclosure?.ready, walls?.ready]),
+        ready: Promise.all([pbr?.ready, enclosure?.ready, walls?.ready, slice?.ready]),
         get loading() {
             return pbr?.diagnostics.state === 'loading' || (enclosure?.loading ?? false) || (walls?.loading ?? false);
         },
@@ -296,6 +304,7 @@ export function createSolrahnV2Environment(
                 materials: pbr?.diagnostics,
                 enclosure: enclosure?.diagnostics,
                 walls: walls?.diagnostics,
+                styleSlice: slice?.stats,
                 causeway: causeway?.diagnostics,
                 surface: surface.metadata,
                 allocations: {
@@ -368,6 +377,7 @@ export function createSolrahnV2Environment(
             labels.remove();
             enclosure?.destroy();
             walls?.destroy();
+            slice?.destroy();
             causeway?.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
