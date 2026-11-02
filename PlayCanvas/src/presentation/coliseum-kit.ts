@@ -300,8 +300,13 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
     // bridge parapets (the low stepping-stone crossing stays open)
     for (const [bx0, bx1, bz0, bz1, bh] of layout.bridges ?? []) {
         const stepping = bh < 3.9;
-        const alongZ = bz1 - bz0 > bx1 - bx0;
         if (stepping) continue;
+        // rails go on the sides that drop into the river, not by footprint shape (near-square decks guessed wrong)
+        const cx = (bx0 + bx1) / 2,
+            cz = (bz0 + bz1) / 2;
+        const xSide = Math.min(surface.height(bx0 - 0.8, cz), surface.height(bx1 + 0.8, cz));
+        const zSide = Math.min(surface.height(cx, bz0 - 0.8), surface.height(cx, bz1 + 0.8));
+        const alongZ = xSide < zSide;
         for (const e of [0, 1]) {
             if (alongZ) {
                 const x = e ? bx1 - 0.2 : bx0 + 0.2;
