@@ -59,3 +59,6 @@ Founder iPhone check of the slice: 29.8–30 FPS, p95 36–38 ms, so the kit cos
   behind the competitive camera) hide while the player is in the Blue third.
 - The gameplay camera (48 deg, pitched ~35 deg down) shows the parapet and lower bowl at the edges; the arcade, dome
   and crown read in wide shots (`evidence/021/stadium-stad-cinematic*.png`). Review sheet: `stadium-review-sheet.png`.
+- Founder playtest (iPhone, Low): lane 59.8 FPS (p95 18 ms), Red-base forest edge 50.8 (p95 28), river bridge 47.7
+  (p95 27). "Performance feels better." Out-of-bounds forest approved. Menu: keep the current concept painting
+  (`public/assets/frontend/ucl-arena-menu.jpeg`); no live 3D backdrop. Stage 4 APPROVED.
