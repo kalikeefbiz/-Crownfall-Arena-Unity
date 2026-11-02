@@ -23,5 +23,5 @@ stays on walkable ground. Full suite: 263/264; the one failure is the known `sol
 this sandbox (unrelated, see GOAL_020).
 
 ## Not yet
-No art (graybox palette only), no stadium/crown, no water animation. No iPhone numbers yet: that is the point of this
-graybox. Captures in `evidence/021/` are headless SwiftShader: judge layout only.
+No art (graybox palette only), no stadium/crown, no water animation. Founder iPhone Safari test (2026-11-01, full match, Low, 459x747 portrait): 29.9 FPS, mean 33.5 ms,
+p95 37-38 ms (`evidence/021/iphone-safari-*.png`). Graybox layout and feel APPROVED by the founder. Captures in `evidence/021/` are headless SwiftShader: judge layout only.
