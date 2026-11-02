@@ -60,7 +60,15 @@ try {
         ['slice-ramp', 'middle-lane', 844, 390, [-4, 29]],
         ['slice-portrait', 'middle-lane', 390, 844, [0, 36]],
         ['kit-centre-rivers', 'middle-lane', 844, 390, [-3, 9]],
-        ['kit-west-groves', 'middle-lane', 844, 390, [-15, 26]]
+        ['kit-west-groves', 'middle-lane', 844, 390, [-15, 26]],
+        ['full-red-plaza', 'middle-lane', 844, 390, [0, -28]],
+        ['full-red-rivers', 'middle-lane', 844, 390, [-3, -6]],
+        ['full-red-groves', 'middle-lane', 844, 390, [-16, -22]],
+        ['full-red-base', 'middle-lane', 844, 390, [0, -60]],
+        ['full-blue-base', 'middle-lane', 844, 390, [0, 60]],
+        ['full-east-camp', 'middle-lane', 844, 390, [22, -38]],
+        ['full-major', 'middle-lane', 844, 390, [-20, 4]],
+        ['full-portrait-red', 'middle-lane', 390, 844, [0, -30]]
     ];
     const raw = await readFile('public/assets/coliseum/height.u16');
     const NX = 113, NZ = 219, W = 84, D = 164;

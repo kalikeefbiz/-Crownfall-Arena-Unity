@@ -14,7 +14,7 @@ import type { AppBase } from 'playcanvas';
 import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { createV2Geometry } from '../maps/solrahn-v2-geometry';
 
-import { createColiseumKitSlice } from './coliseum-kit-slice';
+import { createColiseumKit } from './coliseum-kit';
 import { createColiseumStyleSlice } from './coliseum-style-slice';
 import type { SliceStyle } from './coliseum-style-slice';
 import { createSolrahnCauseway } from './solrahn-causeway';
@@ -51,8 +51,8 @@ export function createSolrahnV2Environment(
         coliseum && (styleParam === 'a' || styleParam === 'b' || styleParam === 'c')
             ? createColiseumStyleSlice(app, root, surface, styleParam as SliceStyle)
             : null;
-    // Approved art kit (A + B colour) on the same stretch, default for the Coliseum; ?style=graybox turns it off.
-    let kit: ReturnType<typeof createColiseumKitSlice> | null = null;
+    // Approved art kit (A + B colour) over the whole arena, default for the Coliseum; ?style=graybox turns it off.
+    let kit: ReturnType<typeof createColiseumKit> | null = null;
     let kitDestroyed = false;
     const kitReady =
         coliseum && !slice && styleParam !== 'graybox'
@@ -60,8 +60,18 @@ export function createSolrahnV2Environment(
                   .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`kit slice: HTTP ${r.status}`))))
                   .then((data) => {
                       if (kitDestroyed) return;
-                      kit = createColiseumKitSlice(app, root, surface, data);
-                      return kit.ready;
+                      kit = createColiseumKit(app, root, surface, data);
+                      return kit.ready.then(() => {
+                          // The kit ground replaces the graybox heightfield (same lattice); keep only the outer skirt.
+                          if (kitDestroyed) return;
+                          instances.forEach((inst, k) => {
+                              if (k < instances.length - 1 && inst.node) inst.node.enabled = false;
+                          });
+                          // Camps and the major are painted into the kit ground; the placeholder pucks hide by default.
+                          markers.enabled = false;
+                          const box = panel.querySelector<HTMLInputElement>('[data-option=markers]');
+                          if (box) box.checked = false;
+                      });
                   })
             : null;
     const geometry = createV2Geometry(surface);

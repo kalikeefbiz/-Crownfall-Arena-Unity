@@ -25,3 +25,18 @@ this sandbox (unrelated, see GOAL_020).
 ## Not yet
 No art (graybox palette only), no stadium/crown, no water animation. Founder iPhone Safari test (2026-11-01, full match, Low, 459x747 portrait): 29.9 FPS, mean 33.5 ms,
 p95 37-38 ms (`evidence/021/iphone-safari-*.png`). Graybox layout and feel APPROVED by the founder. Captures in `evidence/021/` are headless SwiftShader: judge layout only.
+
+## Full art kit (2026-11-02)
+
+Founder iPhone check of the slice: 29.8–30 FPS, p95 36–38 ms, so the kit cost nothing against the graybox. Founder notes: the enemy half was still graybox ("dirt road"), and textures read rough.
+
+- The kit now dresses the whole arena. The layout is mirrored top/bottom, so `bake-kit.py` paints one half (84 × 82 m at 22 px/m, 1848 × 1804) and the ground mesh mirrors v for z < 0.
+- The ground mesh uses the same 113 × 219 lattice as the collision heightfield, in 16-row bands for culling. Once the kit loads, the graybox heightfield is hidden (only the outer skirt stays).
+- Steep quads (> 0.5 m rise) are split out onto a tiled sandstone strata texture, so cliffs, river banks and stadium risers no longer smear the drape.
+- A 2 m seamless grain overlay (linear-neutral, sRGB-encoded) adds close-up sharpness.
+- Changes across the map:
+  - Camps and the major are painted as carved stone discs with brass rings, and their placeholder pucks are hidden.
+  - Base discs are ringed with masonry.
+  - The stepping stones are separate blocks.
+  - Pines are smaller and vary in tiers and girth; broadleaf crowns come in red, gold and green clusters.
+- Evidence: `evidence/021/kit2-*.png`, `kit2-review-sheet.png`.
