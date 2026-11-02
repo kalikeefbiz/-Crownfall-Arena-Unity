@@ -1,0 +1,88 @@
+name: Publish isolated GOAL preview (one tap)
+
+# Founder-run from the GitHub app: Actions -> "Publish isolated GOAL preview (one tap)" -> Run workflow.
+# Builds the chosen work branch as a device preview and publishes ONLY gh-pages/<folder>/.
+# Never touches production (playcanvas/) or any other preview folder.
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: Work branch to build
+        required: true
+        default: goal-020-solrahn-art-direction
+      folder:
+        description: Preview folder on the site (must start with solrahn-goal-)
+        required: true
+        default: solrahn-goal-020
+
+permissions:
+  contents: read
+
+concurrency:
+  group: crownfall-goal-preview
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    defaults:
+      run:
+        working-directory: PlayCanvas
+    steps:
+      - name: Guard folder name
+        working-directory: .
+        env:
+          FOLDER: ${{ inputs.folder }}
+        run: |
+          case "$FOLDER" in
+            solrahn-goal-*) ;;
+            *) echo "Folder must start with solrahn-goal- (production is never a target)"; exit 1 ;;
+          esac
+          case "$FOLDER" in *[!a-z0-9-]*) echo "Folder may only use a-z, 0-9 and -"; exit 1 ;; esac
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.branch }}
+          lfs: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: PlayCanvas/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      - name: Build device preview
+        env:
+          VITE_DEVICE_PREVIEW: '1'
+          VITE_LANE_ENCLOSURE: '1'
+        run: npm run build
+      - name: Record preview source
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+          BRANCH: ${{ inputs.branch }}
+        run: |
+          SRC=$(git rev-parse HEAD)
+          node -e 'require("fs").writeFileSync("dist/preview-source.json", JSON.stringify({source:process.argv[1],branch:process.argv[2],map:"solrahn-v2",productionReplaced:false,buildFlags:["VITE_DEVICE_PREVIEW=1","VITE_LANE_ENCLOSURE=1"]})+"\n")' "$SRC" "$BRANCH"
+      - name: Check the site stays under the GitHub Pages 1 GB limit
+        working-directory: .
+        env:
+          FOLDER: ${{ inputs.folder }}
+        run: |
+          git fetch --depth=1 origin gh-pages
+          other=$(git ls-tree -r -l FETCH_HEAD | awk -v f="$FOLDER/" 'index($5,f)!=1 {s+=$4} END {print s+0}')
+          mine=$(du -sb PlayCanvas/dist | cut -f1)
+          total=$((other + mine))
+          echo "Site would be $((total / 1000000)) MB (limit 1000 MB)"
+          if [ "$total" -gt 1000000000 ]; then echo "Too large: remove an old preview folder first"; exit 1; fi
+      - name: Publish only the preview folder
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./PlayCanvas/dist
+          publish_branch: gh-pages
+          destination_dir: ${{ inputs.folder }}
+          keep_files: true
+          force_orphan: false
+          enable_jekyll: false
