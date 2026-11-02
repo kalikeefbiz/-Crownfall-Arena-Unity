@@ -1,0 +1,2855 @@
+{
+  "source": null,
+  "errors": [],
+  "views": [
+    {
+      "label": "middle-lane",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "camera": {
+        "position": [
+          0,
+          16.300060272216797,
+          18
+        ],
+        "euler": [
+          -35.166432482618575,
+          0,
+          0
+        ]
+      },
+      "snapshot": {
+        "match": {
+          "phase": "active",
+          "countdownRemaining": 0,
+          "lane": {
+            "goalA": -75,
+            "goalB": 75,
+            "halfWidth": 4
+          },
+          "settings": {
+            "startingTickets": 15,
+            "respawnSeconds": 3,
+            "cpTarget": 1000,
+            "graceSeconds": 2,
+            "cpPerSecond": 12,
+            "depthBonus": 0,
+            "timeLimitSeconds": 300,
+            "countdownSeconds": 3,
+            "protectionSeconds": 2,
+            "ultimateDealt": 0.04,
+            "ultimateReceived": 0.025,
+            "durabilityMultiplier": 1.3
+          },
+          "elapsed": 4.099999999999991,
+          "control": 0.5026715659866391,
+          "front": 0.40073489799586426,
+          "cp": {
+            "1": 24.199999999999896,
+            "2": 0
+          },
+          "tickets": {
+            "1": 15,
+            "2": 15
+          },
+          "pressureTeam": 1,
+          "pressureAge": 4.016666666666658,
+          "scoringTeam": 1,
+          "result": null,
+          "remaining": 295.90000000000003,
+          "results": null,
+          "feed": [],
+          "camps": [
+            {
+              "id": "north-mobility",
+              "type": "mobility",
+              "x": -19.2,
+              "z": 54.4,
+              "radius": 0.7,
+              "active": true,
+              "team": 0,
+              "kind": "monster",
+              "health": 850,
+              "maxHealth": 850,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {},
+              "name": "MOBILITY CAMP",
+              "home": {
+                "x": -19.2,
+                "z": 54.4
+              },
+              "major": false,
+              "nextAttack": 0,
+              "lastHit": null,
+              "rewarded": false
+            },
+            {
+              "id": "south-mobility",
+              "type": "mobility",
+              "x": 20.4,
+              "z": -54.4,
+              "radius": 0.7,
+              "active": true,
+              "team": 0,
+              "kind": "monster",
+              "health": 850,
+              "maxHealth": 850,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {},
+              "name": "MOBILITY CAMP",
+              "home": {
+                "x": 20.4,
+                "z": -54.4
+              },
+              "major": false,
+              "nextAttack": 0,
+              "lastHit": null,
+              "rewarded": false
+            }
+          ],
+          "rotations": 0,
+          "rewards": 0,
+          "assignments": [],
+          "actors": [
+            {
+              "x": -2.6,
+              "z": 4,
+              "previous": {
+                "x": -2.6,
+                "z": 4
+              },
+              "angle": 3.141592653589793,
+              "animation": "idle",
+              "distance": 0,
+              "id": "1-0",
+              "team": 1,
+              "kind": "summoner",
+              "health": 845,
+              "maxHealth": 845,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {},
+              "ultimateMeter": 0,
+              "name": "Kit Asher",
+              "summonerId": "kit-asher",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": 0,
+                "z": 71
+              },
+              "protected": false,
+              "human": true,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "damage": 0,
+              "pressureSeconds": 2.0166666666666644
+            },
+            {
+              "x": 0,
+              "z": 4,
+              "previous": {
+                "x": 0,
+                "z": 4
+              },
+              "angle": 3.0358539595925293,
+              "animation": "run",
+              "distance": 24.099999999999845,
+              "id": "1-1",
+              "team": 1,
+              "kind": "summoner",
+              "health": 1625,
+              "maxHealth": 1625,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:1-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Set",
+              "summonerId": "set",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": -1.45,
+                "z": 71
+              },
+              "protected": false,
+              "human": false,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "damage": 0,
+              "pressureSeconds": 2.0166666666666644
+            },
+            {
+              "x": 2.6,
+              "z": 4,
+              "previous": {
+                "x": 2.6,
+                "z": 4
+              },
+              "angle": 3.1358513366271943,
+              "animation": "run",
+              "distance": 23.699999999999775,
+              "id": "1-2",
+              "team": 1,
+              "kind": "summoner",
+              "health": 910,
+              "maxHealth": 910,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:1-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Riven",
+              "summonerId": "riven",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": 1.45,
+                "z": 71
+              },
+              "protected": false,
+              "human": false,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "damage": 0,
+              "pressureSeconds": 2.0166666666666644
+            },
+            {
+              "x": -2.6,
+              "z": -1,
+              "previous": {
+                "x": -2.6,
+                "z": -1
+              },
+              "angle": -0.09435776293445236,
+              "animation": "run",
+              "distance": 23.29999999999988,
+              "id": "2-0",
+              "team": 2,
+              "kind": "summoner",
+              "health": 845,
+              "maxHealth": 845,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:2-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Kit Asher",
+              "summonerId": "kit-asher",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": 0,
+                "z": -71
+              },
+              "protected": false,
+              "human": false,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "damage": 0,
+              "pressureSeconds": 0
+            },
+            {
+              "x": 0,
+              "z": -1,
+              "previous": {
+                "x": 0,
+                "z": -1
+              },
+              "angle": -0.10332786770537496,
+              "animation": "run",
+              "distance": 22.899999999999828,
+              "id": "2-1",
+              "team": 2,
+              "kind": "summoner",
+              "health": 1625,
+              "maxHealth": 1625,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:2-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Set",
+              "summonerId": "set",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": -1.45,
+                "z": -71
+              },
+              "protected": false,
+              "human": false,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "damage": 0,
+              "pressureSeconds": 0
+            },
+            {
+              "x": 2.6,
+              "z": -1,
+              "previous": {
+                "x": 2.6,
+                "z": -1
+              },
+              "angle": 0.08012489013642515,
+              "animation": "run",
+              "distance": 22.39999999999992,
+              "id": "2-2",
+              "team": 2,
+              "kind": "summoner",
+              "health": 910,
+              "maxHealth": 910,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:2-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Riven",
+              "summonerId": "riven",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": 1.45,
+                "z": -71
+              },
+              "protected": false,
+              "human": false,
+              "kills": 0,
+              "deaths": 0,
+              "assists": 0,
+              "damage": 0,
+              "pressureSeconds": 0
+            }
+          ]
+        },
+        "combat": {
+          "name": "kit-asher",
+          "stance": null,
+          "player": {
+            "x": -2.6,
+            "z": 4,
+            "previous": {
+              "x": -2.6,
+              "z": 4
+            },
+            "angle": 3.141592653589793,
+            "animation": "idle",
+            "distance": 0,
+            "id": "1-0",
+            "team": 1,
+            "kind": "summoner",
+            "health": 845,
+            "maxHealth": 845,
+            "radius": 0.45,
+            "dead": false,
+            "targetable": true,
+            "respawnAt": 0,
+            "statuses": {},
+            "modifiers": {},
+            "ultimateMeter": 0,
+            "name": "Kit Asher",
+            "summonerId": "kit-asher",
+            "finalRespawnAvailable": true,
+            "eliminated": false,
+            "protectedUntil": 0,
+            "spawn": {
+              "x": 0,
+              "z": 71
+            }
+          },
+          "targets": [
+            {
+              "x": 0,
+              "z": 4,
+              "previous": {
+                "x": 0,
+                "z": 4
+              },
+              "angle": 3.0358539595925293,
+              "animation": "run",
+              "distance": 24.099999999999845,
+              "id": "1-1",
+              "team": 1,
+              "kind": "summoner",
+              "health": 1625,
+              "maxHealth": 1625,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:1-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Set",
+              "summonerId": "set",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": -1.45,
+                "z": 71
+              }
+            },
+            {
+              "x": 2.6,
+              "z": 4,
+              "previous": {
+                "x": 2.6,
+                "z": 4
+              },
+              "angle": 3.1358513366271943,
+              "animation": "run",
+              "distance": 23.699999999999775,
+              "id": "1-2",
+              "team": 1,
+              "kind": "summoner",
+              "health": 910,
+              "maxHealth": 910,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:1-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Riven",
+              "summonerId": "riven",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": 1.45,
+                "z": 71
+              }
+            },
+            {
+              "x": -2.6,
+              "z": -1,
+              "previous": {
+                "x": -2.6,
+                "z": -1
+              },
+              "angle": -0.09435776293445236,
+              "animation": "run",
+              "distance": 23.29999999999988,
+              "id": "2-0",
+              "team": 2,
+              "kind": "summoner",
+              "health": 845,
+              "maxHealth": 845,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:2-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Kit Asher",
+              "summonerId": "kit-asher",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": 0,
+                "z": -71
+              }
+            },
+            {
+              "x": 0,
+              "z": -1,
+              "previous": {
+                "x": 0,
+                "z": -1
+              },
+              "angle": -0.10332786770537496,
+              "animation": "run",
+              "distance": 22.899999999999828,
+              "id": "2-1",
+              "team": 2,
+              "kind": "summoner",
+              "health": 1625,
+              "maxHealth": 1625,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:2-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Set",
+              "summonerId": "set",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": -1.45,
+                "z": -71
+              }
+            },
+            {
+              "x": 2.6,
+              "z": -1,
+              "previous": {
+                "x": 2.6,
+                "z": -1
+              },
+              "angle": 0.08012489013642515,
+              "animation": "run",
+              "distance": 22.39999999999992,
+              "id": "2-2",
+              "team": 2,
+              "kind": "summoner",
+              "health": 910,
+              "maxHealth": 910,
+              "radius": 0.45,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {
+                "aura:2-1": {
+                  "mitigation": 0.02,
+                  "expires": null
+                }
+              },
+              "ultimateMeter": 0,
+              "name": "Riven",
+              "summonerId": "riven",
+              "finalRespawnAvailable": true,
+              "eliminated": false,
+              "protectedUntil": 0,
+              "spawn": {
+                "x": 1.45,
+                "z": -71
+              }
+            },
+            {
+              "id": "north-mobility",
+              "type": "mobility",
+              "x": -19.2,
+              "z": 54.4,
+              "radius": 0.7,
+              "active": true,
+              "team": 0,
+              "kind": "monster",
+              "health": 850,
+              "maxHealth": 850,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {},
+              "name": "MOBILITY CAMP",
+              "home": {
+                "x": -19.2,
+                "z": 54.4
+              },
+              "major": false,
+              "nextAttack": 0,
+              "lastHit": null,
+              "rewarded": false
+            },
+            {
+              "id": "south-mobility",
+              "type": "mobility",
+              "x": 20.4,
+              "z": -54.4,
+              "radius": 0.7,
+              "active": true,
+              "team": 0,
+              "kind": "monster",
+              "health": 850,
+              "maxHealth": 850,
+              "dead": false,
+              "targetable": true,
+              "respawnAt": 0,
+              "statuses": {},
+              "modifiers": {},
+              "name": "MOBILITY CAMP",
+              "home": {
+                "x": 20.4,
+                "z": -54.4
+              },
+              "major": false,
+              "nextAttack": 0,
+              "lastHit": null,
+              "rewarded": false
+            }
+          ],
+          "cooldowns": {},
+          "now": 4.099999999999991,
+          "transactions": [],
+          "journal": {
+            "latestAttempt": null,
+            "latestAccepted": null,
+            "latestResolution": null,
+            "hits": []
+          },
+          "weapons": []
+        },
+        "summonerModels": [
+          {
+            "id": "1-0",
+            "summonerId": "kit-asher",
+            "team": 1,
+            "teamColor": "#369bff",
+            "indicatorVisible": true,
+            "indicatorColor": [
+              0.21176470588235294,
+              0.6078431372549019,
+              1,
+              1
+            ],
+            "state": "loaded",
+            "bytes": 26939896,
+            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+            "clips": [
+              {
+                "name": "Running",
+                "duration": 0.6333330273628235
+              },
+              {
+                "name": "Walking",
+                "duration": 1.0333329439163208
+              },
+              {
+                "name": "Idle_5",
+                "duration": 1.8333330154418945
+              },
+              {
+                "name": "Punch_Combo_1",
+                "duration": 2.200000047683716
+              },
+              {
+                "name": "RunFast",
+                "duration": 0.4666669964790344
+              }
+            ],
+            "loadMs": 23.100000000093132,
+            "error": "",
+            "bounds": {
+              "min": [
+                -0.38867348432540894,
+                -2.587064562575847e-9,
+                -0.20758193731307983
+              ],
+              "max": [
+                0.38867348432540894,
+                1.7000000476837158,
+                0.20758193731307983
+              ]
+            },
+            "height": 1.7000000502707804,
+            "scale": 1.0294117342650992,
+            "offset": [
+              0,
+              0.05264644266315462,
+              0
+            ],
+            "meshInstances": 1,
+            "authoredForwardYaw": 0,
+            "instanceId": "6bb33327-3ce2-453c-a227-6b0169802166",
+            "meshId": 76,
+            "materialId": 33,
+            "activeAnimation": "Idle_5",
+            "playbackTime": 0.43330000000000113,
+            "playing": true,
+            "attackCount": 0,
+            "lastAttackSerial": 0,
+            "staticComparison": false,
+            "worldBounds": {
+              "min": [
+                -3.0282463419363665,
+                0.35930853734275114,
+                3.2212202508484595
+              ],
+              "max": [
+                -1.9342322182613918,
+                2.198405015645882,
+                4.453707137527967
+              ]
+            },
+            "selected": true,
+            "forcedPrimitive": false,
+            "visible": true,
+            "primitiveVisible": false,
+            "yaw": 180,
+            "position": {
+              "x": -2.5999999046325684,
+              "y": 0.4682786464691162,
+              "z": 4
+            },
+            "rootScale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "1-1",
+            "summonerId": "set",
+            "team": 1,
+            "teamColor": "#369bff",
+            "indicatorVisible": true,
+            "indicatorColor": [
+              0.21176470588235294,
+              0.6078431372549019,
+              1,
+              1
+            ],
+            "state": "loaded",
+            "bytes": 10000416,
+            "source": "assets/summoners/set/Set_Animated.glb",
+            "clips": [
+              {
+                "name": "Running",
+                "duration": 0.6333330273628235
+              },
+              {
+                "name": "Walking",
+                "duration": 1.0333329439163208
+              },
+              {
+                "name": "Punch_Combo",
+                "duration": 2.4666669368743896
+              },
+              {
+                "name": "RunFast",
+                "duration": 0.4666669964790344
+              }
+            ],
+            "registeredStates": [
+              "Ready",
+              "Running"
+            ],
+            "runningClip": "Running",
+            "locomotionReason": "Running selected; RunFast intentionally excluded",
+            "readySource": "Punch_Combo",
+            "readyTime": 0,
+            "loadMs": 5.800000000046566,
+            "error": "",
+            "bounds": {
+              "min": [
+                -0.6199274659156799,
+                2.9567924997309092e-8,
+                -0.2392396479845047
+              ],
+              "max": [
+                0.6199275255203247,
+                1.7000000476837158,
+                0.2392396330833435
+              ]
+            },
+            "height": 1.7000000181157908,
+            "scale": 1.117647046913494,
+            "offset": [
+              -3.3308477607771577e-8,
+              0.009313466953495945,
+              8.327119401942894e-9
+            ],
+            "meshInstances": 1,
+            "jointCount": 87,
+            "authoredForwardYaw": 0,
+            "instanceId": "0876902b-3932-4b99-9e60-f077da4895d9",
+            "meshId": 77,
+            "materialId": 34,
+            "activeAnimation": "Running",
+            "playbackTime": 0.5333000000000011,
+            "playing": true,
+            "previewEnabled": false,
+            "presentationOnly": true,
+            "worldBounds": {
+              "min": [
+                -0.7128659262153839,
+                0.4797949357216912,
+                3.335124785271838
+              ],
+              "max": [
+                0.7136207290502822,
+                2.386800950541165,
+                4.764968416888945
+              ]
+            },
+            "selected": true,
+            "forcedPrimitive": false,
+            "visible": true,
+            "primitiveVisible": false,
+            "yaw": 173.94161910273152,
+            "position": {
+              "x": 0,
+              "y": 0.4817456305027008,
+              "z": 4
+            },
+            "hipLocalPosition": [
+              0.005961951799690723,
+              1.0631848916237228,
+              0.05088947340846062
+            ],
+            "rootScale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "1-2",
+            "summonerId": "riven",
+            "team": 1,
+            "teamColor": "#369bff",
+            "indicatorVisible": true,
+            "indicatorColor": [
+              0.21176470588235294,
+              0.6078431372549019,
+              1,
+              1
+            ],
+            "state": "loaded",
+            "bytes": 11170312,
+            "source": "assets/summoners/riven/Riven_Animated.glb",
+            "clips": [
+              {
+                "name": "Running",
+                "duration": 0.6333330273628235
+              },
+              {
+                "name": "Walking",
+                "duration": 1.0333329439163208
+              },
+              {
+                "name": "Idle_6",
+                "duration": 7.366666793823242
+              },
+              {
+                "name": "run_fast_7",
+                "duration": 0.8666669726371765
+              }
+            ],
+            "registeredStates": [
+              "Idle_6",
+              "Walking",
+              "Running"
+            ],
+            "runningClip": "Running",
+            "locomotionReason": "run_fast_7 failed loop validation; using Running",
+            "preferredLoop": {
+              "valid": false,
+              "positionError": 0.01896846294403076,
+              "rotationErrorDegrees": 12.873240271210351
+            },
+            "loadMs": 29.300000000046566,
+            "error": "",
+            "bounds": {
+              "min": [
+                -0.44156354665756226,
+                2.049818093041722e-9,
+                -0.16084645688533783
+              ],
+              "max": [
+                0.44156360626220703,
+                1.7000001668930054,
+                0.16084642708301544
+              ]
+            },
+            "height": 1.7000001648431873,
+            "scale": 1.029411664887353,
+            "offset": [
+              -3.0678858306627066e-8,
+              0.035075997889893344,
+              1.5339429153313533e-8
+            ],
+            "meshInstances": 1,
+            "jointCount": 68,
+            "authoredForwardYaw": 0,
+            "instanceId": "f23bc57a-8ad9-4236-ace8-814e0661ee99",
+            "meshId": 78,
+            "materialId": 35,
+            "activeAnimation": "Running",
+            "playbackTime": 0.5333000000000011,
+            "playing": true,
+            "previewEnabled": false,
+            "presentationOnly": true,
+            "worldBounds": {
+              "min": [
+                2.20651332530839,
+                0.5172553975888333,
+                3.5270231506377487
+              ],
+              "max": [
+                3.0058857571292057,
+                2.2521071912314143,
+                4.6273568439963455
+              ]
+            },
+            "selected": true,
+            "forcedPrimitive": false,
+            "visible": true,
+            "primitiveVisible": false,
+            "yaw": 179.6710467691962,
+            "position": {
+              "x": 2.5999999046325684,
+              "y": 0.4823217988014221,
+              "z": 4
+            },
+            "hipLocalPosition": [
+              0.0033203279599547386,
+              1.059777174713451,
+              -0.009960962459445
+            ],
+            "rootScale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "2-0",
+            "summonerId": "kit-asher",
+            "team": 2,
+            "teamColor": "#ff425c",
+            "indicatorVisible": true,
+            "indicatorColor": [
+              1,
+              0.25882352941176473,
+              0.3607843137254902,
+              1
+            ],
+            "state": "loaded",
+            "bytes": 26939896,
+            "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+            "clips": [
+              {
+                "name": "Running",
+                "duration": 0.6333330273628235
+              },
+              {
+                "name": "Walking",
+                "duration": 1.0333329439163208
+              },
+              {
+                "name": "Idle_5",
+                "duration": 1.8333330154418945
+              },
+              {
+                "name": "Punch_Combo_1",
+                "duration": 2.200000047683716
+              },
+              {
+                "name": "RunFast",
+                "duration": 0.4666669964790344
+              }
+            ],
+            "loadMs": 46.60000000009313,
+            "error": "",
+            "bounds": {
+              "min": [
+                -0.38867348432540894,
+                -2.587064562575847e-9,
+                -0.20758193731307983
+              ],
+              "max": [
+                0.38867348432540894,
+                1.7000000476837158,
+                0.20758193731307983
+              ]
+            },
+            "height": 1.7000000502707804,
+            "scale": 1.0294117342650992,
+            "offset": [
+              0,
+              0.05264644266315462,
+              0
+            ],
+            "meshInstances": 1,
+            "authoredForwardYaw": 0,
+            "instanceId": "467468ed-a264-4f2d-ae33-cf9831977945",
+            "meshId": 76,
+            "materialId": 33,
+            "activeAnimation": "Idle_5",
+            "playbackTime": 0.43330000000000113,
+            "playing": true,
+            "attackCount": 0,
+            "lastAttackSerial": 0,
+            "staticComparison": false,
+            "worldBounds": {
+              "min": [
+                -3.336180745880024,
+                0.38547104249259245,
+                -1.5144157732320247
+              ],
+              "max": [
+                -2.130911445246551,
+                2.2245675207957234,
+                -0.1843361351738615
+              ]
+            },
+            "selected": true,
+            "forcedPrimitive": false,
+            "visible": true,
+            "primitiveVisible": false,
+            "yaw": -5.406301580440076,
+            "position": {
+              "x": -2.5999999046325684,
+              "y": 0.4944411516189575,
+              "z": -1
+            },
+            "rootScale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "2-1",
+            "summonerId": "set",
+            "team": 2,
+            "teamColor": "#ff425c",
+            "indicatorVisible": true,
+            "indicatorColor": [
+              1,
+              0.25882352941176473,
+              0.3607843137254902,
+              1
+            ],
+            "state": "loaded",
+            "bytes": 10000416,
+            "source": "assets/summoners/set/Set_Animated.glb",
+            "clips": [
+              {
+                "name": "Running",
+                "duration": 0.6333330273628235
+              },
+              {
+                "name": "Walking",
+                "duration": 1.0333329439163208
+              },
+              {
+                "name": "Punch_Combo",
+                "duration": 2.4666669368743896
+              },
+              {
+                "name": "RunFast",
+                "duration": 0.4666669964790344
+              }
+            ],
+            "registeredStates": [
+              "Ready",
+              "Running"
+            ],
+            "runningClip": "Running",
+            "locomotionReason": "Running selected; RunFast intentionally excluded",
+            "readySource": "Punch_Combo",
+            "readyTime": 0,
+            "loadMs": 9.800000000046566,
+            "error": "",
+            "bounds": {
+              "min": [
+                -0.6199274659156799,
+                2.9567924997309092e-8,
+                -0.2392396479845047
+              ],
+              "max": [
+                0.6199275255203247,
+                1.7000000476837158,
+                0.2392396330833435
+              ]
+            },
+            "height": 1.7000000181157908,
+            "scale": 1.117647046913494,
+            "offset": [
+              -3.3308477607771577e-8,
+              0.009313466953495945,
+              8.327119401942894e-9
+            ],
+            "meshInstances": 1,
+            "jointCount": 87,
+            "authoredForwardYaw": 0,
+            "instanceId": "2677779a-b15e-4864-9e9e-dcf0e8be4370",
+            "meshId": 77,
+            "materialId": 34,
+            "activeAnimation": "Running",
+            "playbackTime": 0.5333000000000011,
+            "playing": true,
+            "previewEnabled": false,
+            "presentationOnly": true,
+            "worldBounds": {
+              "min": [
+                -0.7123456313125215,
+                0.7345107658093529,
+                -1.763576502419437
+              ],
+              "max": [
+                0.7113494966167803,
+                2.6415166473949157,
+                -0.33651452774983537
+              ]
+            },
+            "selected": true,
+            "forcedPrimitive": false,
+            "visible": true,
+            "primitiveVisible": false,
+            "yaw": -5.920250725604103,
+            "position": {
+              "x": 0,
+              "y": 0.7364614605903625,
+              "z": -1
+            },
+            "hipLocalPosition": [
+              0.005961951799690723,
+              1.0631848916237228,
+              0.05088947340846062
+            ],
+            "rootScale": [
+              1,
+              1,
+              1
+            ]
+          },
+          {
+            "id": "2-2",
+            "summonerId": "riven",
+            "team": 2,
+            "teamColor": "#ff425c",
+            "indicatorVisible": true,
+            "indicatorColor": [
+              1,
+              0.25882352941176473,
+              0.3607843137254902,
+              1
+            ],
+            "state": "loaded",
+            "bytes": 11170312,
+            "source": "assets/summoners/riven/Riven_Animated.glb",
+            "clips": [
+              {
+                "name": "Running",
+                "duration": 0.6333330273628235
+              },
+              {
+                "name": "Walking",
+                "duration": 1.0333329439163208
+              },
+              {
+                "name": "Idle_6",
+                "duration": 7.366666793823242
+              },
+              {
+                "name": "run_fast_7",
+                "duration": 0.8666669726371765
+              }
+            ],
+            "registeredStates": [
+              "Idle_6",
+              "Walking",
+              "Running"
+            ],
+            "runningClip": "Running",
+            "locomotionReason": "run_fast_7 failed loop validation; using Running",
+            "preferredLoop": {
+              "valid": false,
+              "positionError": 0.01896846294403076,
+              "rotationErrorDegrees": 12.873240271210351
+            },
+            "loadMs": 55.299999999813735,
+            "error": "",
+            "bounds": {
+              "min": [
+                -0.44156354665756226,
+                2.049818093041722e-9,
+                -0.16084645688533783
+              ],
+              "max": [
+                0.44156360626220703,
+                1.7000001668930054,
+                0.16084642708301544
+              ]
+            },
+            "height": 1.7000001648431873,
+            "scale": 1.029411664887353,
+            "offset": [
+              -3.0678858306627066e-8,
+              0.035075997889893344,
+              1.5339429153313533e-8
+            ],
+            "meshInstances": 1,
+            "jointCount": 68,
+            "authoredForwardYaw": 0,
+            "instanceId": "6ad3785e-d884-4c2f-b09d-935f839b3bca",
+            "meshId": 78,
+            "materialId": 35,
+            "activeAnimation": "Running",
+            "playbackTime": 0.5333000000000011,
+            "playing": true,
+            "previewEnabled": false,
+            "presentationOnly": true,
+            "worldBounds": {
+              "min": [
+                2.1480752602087962,
+                0.779490798896674,
+                -1.6542543087938393
+              ],
+              "max": [
+                3.0263320801101656,
+                2.514342653896972,
+                -0.4984933840972364
+              ]
+            },
+            "selected": true,
+            "forcedPrimitive": false,
+            "visible": true,
+            "primitiveVisible": false,
+            "yaw": 4.590818038766561,
+            "position": {
+              "x": 2.5999999046325684,
+              "y": 0.74455726146698,
+              "z": -1
+            },
+            "hipLocalPosition": [
+              0.0033203279599547386,
+              1.059777174713451,
+              -0.009960962459445
+            ],
+            "rootScale": [
+              1,
+              1,
+              1
+            ]
+          }
+        ],
+        "modelAssets": {
+          "downloads": 4,
+          "boundCalculations": 4,
+          "assets": [
+            {
+              "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+              "state": "loaded",
+              "loadMs": 848.8999999999069
+            },
+            {
+              "source": "assets/summoners/set/Set_Animated.glb",
+              "state": "loaded",
+              "loadMs": 1059.5999999998603
+            },
+            {
+              "source": "assets/summoners/riven/Riven_Animated.glb",
+              "state": "loaded",
+              "loadMs": 1060.8000000000466
+            },
+            {
+              "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+              "state": "loaded",
+              "loadMs": 1491.1999999999534
+            }
+          ],
+          "gpu": {
+            "tex": 463001644,
+            "vb": 8704588,
+            "ib": 1072776,
+            "ub": 5792,
+            "sb": 0
+          }
+        },
+        "environment": {
+          "mode": "solrahn-v2",
+          "state": "loaded",
+          "materials": {
+            "state": "loaded",
+            "error": "",
+            "loadedMaps": 5,
+            "ownership": {
+              "requests": 5,
+              "pending": 0,
+              "images": 3,
+              "bitmaps": 2,
+              "destroyed": false
+            },
+            "layerEncoding": "R dirt / G grass / B forest / A rock; linear data, alpha is NOT transparency",
+            "weightsSha256": "c4fd3c2387ed1e8cf3e53ced393644f04676a4ddc16d0943a6af1f1721c716b5",
+            "tileMetres": 6,
+            "textures": 5,
+            "gpuBytes": 35119584,
+            "shader": {
+              "terrainPasses": 1,
+              "maximumTextureReads": 2,
+              "samplers": 3,
+              "lowAtlasSha256": "549c2b32620914b123151bb3a3ba8d304d45154d24b9cf261a953a07119c7185",
+              "detailNormals": false,
+              "requestedLow": true,
+              "highLoaded": false,
+              "materialUpdates": 1,
+              "displacement": false
+            },
+            "formats": [
+              {
+                "name": "weights.png",
+                "width": 1200,
+                "height": 900,
+                "format": 7,
+                "gpuBytes": 5759464,
+                "mipmaps": true,
+                "levels": 11,
+                "anisotropy": 1,
+                "compressed": false,
+                "srgb": false
+              },
+              {
+                "name": "goal020_atlas.webp",
+                "width": 2048,
+                "height": 1536,
+                "format": 20,
+                "gpuBytes": 16777212,
+                "mipmaps": true,
+                "levels": 12,
+                "anisotropy": 1,
+                "compressed": false,
+                "srgb": true
+              },
+              {
+                "name": "dry_ground_rocks_color.webp",
+                "width": 1024,
+                "height": 1024,
+                "format": 20,
+                "gpuBytes": 5592404,
+                "mipmaps": true,
+                "levels": 11,
+                "anisotropy": 1,
+                "compressed": false,
+                "srgb": true
+              },
+              {
+                "name": "goal019_stone.webp",
+                "width": 512,
+                "height": 512,
+                "format": 20,
+                "gpuBytes": 1398100,
+                "mipmaps": true,
+                "levels": 10,
+                "anisotropy": 1,
+                "compressed": false,
+                "srgb": true
+              },
+              {
+                "name": "mossy_rock_color.webp",
+                "width": 1024,
+                "height": 1024,
+                "format": 20,
+                "gpuBytes": 5592404,
+                "mipmaps": true,
+                "levels": 11,
+                "anisotropy": 1,
+                "compressed": false,
+                "srgb": true
+              }
+            ]
+          },
+          "enclosure": {
+            "state": "loaded",
+            "error": "",
+            "section": {
+              "start": {
+                "x": 0,
+                "z": -75
+              },
+              "end": {
+                "x": 0,
+                "z": 75
+              },
+              "length": 150
+            },
+            "rocks": 57,
+            "trees": 27,
+            "instances": [
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -11.800000190734863,
+                  1.6641335487365723,
+                  -65
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -12.899999618530273,
+                  2.4695897102355957,
+                  -61.900001525878906
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  13.199999809265137,
+                  1.147740364074707,
+                  -59
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  14.300000190734863,
+                  0.811778724193573,
+                  -55.900001525878906
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -12.399999618530273,
+                  2.3376150131225586,
+                  -43
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -13.5,
+                  3.1081650257110596,
+                  -39.900001525878906
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  11.800000190734863,
+                  0.6756438612937927,
+                  -34
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  12.899999618530273,
+                  1.5018857717514038,
+                  -30.899999618530273
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -12.199999809265137,
+                  1.3708672523498535,
+                  -23
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -13.300000190734863,
+                  1.972900629043579,
+                  -19.899999618530273
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  13.600000381469727,
+                  1.4485809803009033,
+                  -17
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  14.699999809265137,
+                  2.307141065597534,
+                  -13.899999618530273
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -11.199999809265137,
+                  0.9548643827438354,
+                  -4
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -12.300000190734863,
+                  1.7979791164398193,
+                  -0.8999999761581421
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  13,
+                  2.162210702896118,
+                  10
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  14.100000381469727,
+                  3.3254659175872803,
+                  13.100000381469727
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -12.800000190734863,
+                  1.0980031490325928,
+                  31
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -13.899999618530273,
+                  2.035517930984497,
+                  34.099998474121094
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  11.399999618530273,
+                  1.4572206735610962,
+                  37
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  12.5,
+                  2.2117695808410645,
+                  40.099998474121094
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -11.699999809265137,
+                  0.9536247849464417,
+                  49
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  -12.800000190734863,
+                  1.1033872365951538,
+                  52.099998474121094
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  12.5,
+                  1.5392595529556274,
+                  61
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_face_02",
+                "position": [
+                  13.600000381469727,
+                  2.5341956615448,
+                  64.0999984741211
+                ],
+                "meshId": 69,
+                "materialId": 28
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  -9.699999809265137,
+                  1.7031222581863403,
+                  -62.599998474121094
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -10.899999618530273,
+                  1.850337266921997,
+                  -68.19999694824219
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  11.100000381469727,
+                  1.0555390119552612,
+                  -56.599998474121094
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  12.300000190734863,
+                  1.8885459899902344,
+                  -62.20000076293945
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  -10.300000190734863,
+                  2.2818615436553955,
+                  -40.599998474121094
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -11.5,
+                  2.856226682662964,
+                  -46.20000076293945
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  9.699999809265137,
+                  0.8099445104598999,
+                  -31.600000381469727
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  10.899999618530273,
+                  0.9205380082130432,
+                  -37.20000076293945
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  -10.100000381469727,
+                  1.5481735467910767,
+                  -20.600000381469727
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -11.300000190734863,
+                  1.948869228363037,
+                  -26.200000762939453
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  11.5,
+                  1.7617460489273071,
+                  -14.600000381469727
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  12.699999809265137,
+                  2.0230791568756104,
+                  -20.200000762939453
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  -9.100000381469727,
+                  1.1313165426254272,
+                  -1.600000023841858
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -10.300000190734863,
+                  1.534751534461975,
+                  -7.199999809265137
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  10.899999618530273,
+                  2.1331725120544434,
+                  12.399999618530273
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  12.100000381469727,
+                  2.2829320430755615,
+                  6.800000190734863
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  -10.699999809265137,
+                  1.280776858329773,
+                  33.400001525878906
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -11.899999618530273,
+                  1.4961814880371094,
+                  27.799999237060547
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  9.300000190734863,
+                  1.508133888244629,
+                  39.400001525878906
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  10.5,
+                  2.0893008708953857,
+                  33.79999923706055
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  -9.600000381469727,
+                  0.9101852774620056,
+                  51.400001525878906
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -10.800000190734863,
+                  1.3552078008651733,
+                  45.79999923706055
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock09",
+                "position": [
+                  10.399999618530273,
+                  1.7766779661178589,
+                  63.400001525878906
+                ],
+                "meshId": 70,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  11.600000381469727,
+                  1.8821933269500732,
+                  57.79999923706055
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  -27,
+                  1.6738170385360718,
+                  23
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -26,
+                  2.202096462249756,
+                  27
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  -16,
+                  2.6280064582824707,
+                  27
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  -25,
+                  1.7671045064926147,
+                  -19
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  -27,
+                  2.160128355026245,
+                  -59
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  26,
+                  2.8053529262542725,
+                  -59
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  27,
+                  2.378417491912842,
+                  5
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock13",
+                "position": [
+                  26,
+                  2.0409858226776123,
+                  59
+                ],
+                "meshId": 71,
+                "materialId": 29
+              },
+              {
+                "name": "rock_moss_set_02_rock11",
+                "position": [
+                  -25,
+                  2.052680253982544,
+                  59
+                ],
+                "meshId": 72,
+                "materialId": 29
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  -19,
+                  1.9637963771820068,
+                  -68
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  -25,
+                  3.667020797729492,
+                  -41
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  30,
+                  1.8820323944091797,
+                  -38
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  -30,
+                  1.1719386577606201,
+                  -23
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  -20,
+                  1.8131349086761475,
+                  -5
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  31,
+                  1.1130510568618774,
+                  -3
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  26,
+                  3.7735652923583984,
+                  23
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  -27,
+                  2.4641947746276855,
+                  39
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  30,
+                  1.572286605834961,
+                  43
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  19,
+                  2.3437583446502686,
+                  48
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  -17,
+                  3.118892192840576,
+                  65
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-pine",
+                "position": [
+                  29,
+                  1.648703694343567,
+                  73
+                ],
+                "meshId": 73,
+                "materialId": 30
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  24,
+                  3.5287373065948486,
+                  -64
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  -18,
+                  3.5804226398468018,
+                  -46
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  18,
+                  3.3448965549468994,
+                  -29
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  -26,
+                  3.727910280227661,
+                  1
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  19,
+                  2.3650476932525635,
+                  18
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  -21,
+                  2.589733839035034,
+                  34
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  26,
+                  2.543541669845581,
+                  61
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-redwood",
+                "position": [
+                  -29,
+                  1.6352025270462036,
+                  72
+                ],
+                "meshId": 74,
+                "materialId": 31
+              },
+              {
+                "name": "enclosure-maple",
+                "position": [
+                  -26,
+                  2.8497474193573,
+                  -61
+                ],
+                "meshId": 75,
+                "materialId": 32
+              },
+              {
+                "name": "enclosure-maple",
+                "position": [
+                  23,
+                  3.810821771621704,
+                  -43
+                ],
+                "meshId": 75,
+                "materialId": 32
+              },
+              {
+                "name": "enclosure-maple",
+                "position": [
+                  -24,
+                  3.312718391418457,
+                  -28
+                ],
+                "meshId": 75,
+                "materialId": 32
+              },
+              {
+                "name": "enclosure-maple",
+                "position": [
+                  27,
+                  1.8777354955673218,
+                  -9
+                ],
+                "meshId": 75,
+                "materialId": 32
+              },
+              {
+                "name": "enclosure-maple",
+                "position": [
+                  -29,
+                  2.437387704849243,
+                  16
+                ],
+                "meshId": 75,
+                "materialId": 32
+              },
+              {
+                "name": "enclosure-maple",
+                "position": [
+                  25,
+                  3.6804730892181396,
+                  35
+                ],
+                "meshId": 75,
+                "materialId": 32
+              },
+              {
+                "name": "enclosure-maple",
+                "position": [
+                  -26,
+                  2.2610909938812256,
+                  60
+                ],
+                "meshId": 75,
+                "materialId": 32
+              }
+            ],
+            "resources": {
+              "downloads": 5,
+              "boundCalculations": 0,
+              "assets": [
+                {
+                  "source": "assets/environment/stones/mobile/rock_face_02.glb",
+                  "state": "loaded",
+                  "loadMs": 352.4000000001397
+                },
+                {
+                  "source": "assets/environment/stones/mobile/rock_moss_set_02.glb",
+                  "state": "loaded",
+                  "loadMs": 28.5
+                },
+                {
+                  "source": "assets/environment/trees/goal019/Meshy_AI_Pine_tree_1025063153_texture.glb",
+                  "state": "loaded",
+                  "loadMs": 25
+                },
+                {
+                  "source": "assets/environment/trees/goal019/Meshy_AI_redwood_tree_1025061650_texture.glb",
+                  "state": "loaded",
+                  "loadMs": 54
+                },
+                {
+                  "source": "assets/environment/trees/goal019/Meshy_AI_Maple_tree_1025062934_texture.glb",
+                  "state": "loaded",
+                  "loadMs": 39.10000000009313
+                }
+              ],
+              "gpu": {
+                "tex": 463001644,
+                "vb": 8704588,
+                "ib": 1072776,
+                "ub": 5792,
+                "sb": 0
+              }
+            }
+          },
+          "causeway": {
+            "slabs": 840,
+            "triangles": 27189,
+            "batches": 16
+          },
+          "surface": {
+            "version": 2,
+            "sourceSha256": "17efa4455d942e565cdc35e1f0fe9c981d59c1a3bc759ff72e1d32d0dd8b6db8",
+            "heightmapSha256": "d7d55c029cc3ba2822afdccc0ff4d730adbcbdd8868ed334d265fdba6acb8054",
+            "sourceSize": [
+              1200,
+              900
+            ],
+            "sourceRange": [
+              3823,
+              53307
+            ],
+            "normalization": "unsigned16 / 65535 * 8 metres; no autocontrast",
+            "mapping": "x=(v/899-.5)*120; z=(.5-u/1199)*160; Y up",
+            "width": 120,
+            "depth": 160,
+            "nx": 145,
+            "nz": 193,
+            "verticalScale": 8,
+            "navWidth": 241,
+            "navDepth": 321,
+            "navStep": 0.5,
+            "radius": 0.45,
+            "erosion": 0.8035533905932738,
+            "maxSlopeDegrees": 35,
+            "maxStepMetres": 0.3,
+            "modeX": [
+              -28.8,
+              28.8
+            ],
+            "chunkCells": 24,
+            "topTriangles": 55296,
+            "edgeTriangles": 1344,
+            "totalTriangles": 56640,
+            "landmarks": [
+              {
+                "id": "north-mobility",
+                "type": "mobility",
+                "x": -19.2,
+                "z": 54.4,
+                "radius": 3,
+                "active": true
+              },
+              {
+                "id": "north-cooldown",
+                "type": "cooldown",
+                "x": -20.4,
+                "z": -14.4,
+                "radius": 3,
+                "active": false
+              },
+              {
+                "id": "north-defense",
+                "type": "defense",
+                "x": -19.8,
+                "z": -56,
+                "radius": 3,
+                "active": false
+              },
+              {
+                "id": "south-defense",
+                "type": "defense",
+                "x": 20.4,
+                "z": 54.4,
+                "radius": 3,
+                "active": false
+              },
+              {
+                "id": "south-cooldown",
+                "type": "cooldown",
+                "x": 21,
+                "z": 0,
+                "radius": 3,
+                "active": false
+              },
+              {
+                "id": "south-mobility",
+                "type": "mobility",
+                "x": 20.4,
+                "z": -54.4,
+                "radius": 3,
+                "active": true
+              },
+              {
+                "id": "major",
+                "type": "major",
+                "x": -22.2,
+                "z": 20,
+                "radius": 4,
+                "active": false
+              }
+            ],
+            "errorMetres": {
+              "max": 0.15609858010589228,
+              "p95": 0.03136486206972321,
+              "mean": 0.006814401031191644
+            },
+            "files": {
+              "height.u16": {
+                "bytes": 55970,
+                "sha256": "911fef74ea745f499f8cdb8e31c92f764b09c969112955e6e771b717d19452d9"
+              },
+              "walk.bin": {
+                "bytes": 154722,
+                "sha256": "18b51cafcf385d89df5ad453069302ae1ef5684c7ea7a28ecad0042064237589"
+              },
+              "lane.bin": {
+                "bytes": 27985,
+                "sha256": "208cfbff7335c3ba7c9d419ed6e0d842fdb933bbbbadfdb16eede73f2a79dc7d"
+              }
+            }
+          },
+          "allocations": {
+            "textures": 463001644,
+            "vertexBuffers": 8704588,
+            "indexBuffers": 1072776
+          },
+          "drawCalls": 75,
+          "triangles": 56640,
+          "meshInstances": 49,
+          "terrainGpuBytes": 2431872,
+          "activeObjectives": [
+            {
+              "id": "north-mobility",
+              "type": "mobility",
+              "x": -19.2,
+              "z": 54.4,
+              "radius": 3,
+              "active": true
+            },
+            {
+              "id": "south-mobility",
+              "type": "mobility",
+              "x": 20.4,
+              "z": -54.4,
+              "radius": 3,
+              "active": true
+            }
+          ],
+          "inactiveObjectives": [
+            {
+              "id": "north-cooldown",
+              "type": "cooldown",
+              "x": -20.4,
+              "z": -14.4,
+              "radius": 3,
+              "active": false
+            },
+            {
+              "id": "north-defense",
+              "type": "defense",
+              "x": -19.8,
+              "z": -56,
+              "radius": 3,
+              "active": false
+            },
+            {
+              "id": "south-defense",
+              "type": "defense",
+              "x": 20.4,
+              "z": 54.4,
+              "radius": 3,
+              "active": false
+            },
+            {
+              "id": "south-cooldown",
+              "type": "cooldown",
+              "x": 21,
+              "z": 0,
+              "radius": 3,
+              "active": false
+            },
+            {
+              "id": "major",
+              "type": "major",
+              "x": -22.2,
+              "z": 20,
+              "radius": 4,
+              "active": false
+            }
+          ],
+          "navigation": {
+            "routeSearches": 8,
+            "scratchBytes": 928332
+          },
+          "overlay": "neutral",
+          "cameraFocus": "middle-lane",
+          "territoryTint": true
+        },
+        "kitModel": {
+          "state": "loaded",
+          "bytes": 26939896,
+          "source": "assets/summoners/kit/Kit_20K_Animated.glb",
+          "clips": [
+            {
+              "name": "Running",
+              "duration": 0.6333330273628235
+            },
+            {
+              "name": "Walking",
+              "duration": 1.0333329439163208
+            },
+            {
+              "name": "Idle_5",
+              "duration": 1.8333330154418945
+            },
+            {
+              "name": "Punch_Combo_1",
+              "duration": 2.200000047683716
+            },
+            {
+              "name": "RunFast",
+              "duration": 0.4666669964790344
+            }
+          ],
+          "loadMs": 23.100000000093132,
+          "error": "",
+          "bounds": {
+            "min": [
+              -0.38867348432540894,
+              -2.587064562575847e-9,
+              -0.20758193731307983
+            ],
+            "max": [
+              0.38867348432540894,
+              1.7000000476837158,
+              0.20758193731307983
+            ]
+          },
+          "height": 1.7000000502707804,
+          "scale": 1.0294117342650992,
+          "offset": [
+            0,
+            0.05264644266315462,
+            0
+          ],
+          "meshInstances": 1,
+          "authoredForwardYaw": 0,
+          "instanceId": "6bb33327-3ce2-453c-a227-6b0169802166",
+          "meshId": 76,
+          "materialId": 33,
+          "activeAnimation": "Idle_5",
+          "playbackTime": 0.43330000000000113,
+          "playing": true,
+          "attackCount": 0,
+          "lastAttackSerial": 0,
+          "staticComparison": false,
+          "worldBounds": {
+            "min": [
+              -3.0282463419363665,
+              0.35930853734275114,
+              3.2212202508484595
+            ],
+            "max": [
+              -1.9342322182613918,
+              2.198405015645882,
+              4.453707137527967
+            ]
+          },
+          "selected": true,
+          "forcedPrimitive": false,
+          "visible": true,
+          "primitiveVisible": false,
+          "yaw": 180,
+          "position": {
+            "x": -2.5999999046325684,
+            "y": 0.4682786464691162,
+            "z": 4
+          },
+          "rootScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "rivenModel": {
+          "state": "idle",
+          "bytes": 11170312,
+          "source": "assets/summoners/riven/Riven_Animated.glb",
+          "clips": [],
+          "registeredStates": [],
+          "runningClip": "Running",
+          "locomotionReason": "",
+          "preferredLoop": null,
+          "loadMs": 0,
+          "error": "",
+          "bounds": null,
+          "height": 0,
+          "scale": 1,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "meshInstances": 0,
+          "jointCount": 0,
+          "authoredForwardYaw": 0,
+          "instanceId": null,
+          "meshId": null,
+          "materialId": null,
+          "activeAnimation": null,
+          "playbackTime": 0,
+          "playing": false,
+          "previewEnabled": false,
+          "presentationOnly": true,
+          "worldBounds": null,
+          "selected": false,
+          "forcedPrimitive": false,
+          "visible": false,
+          "primitiveVisible": false,
+          "yaw": 180,
+          "position": {
+            "x": -2.5999999046325684,
+            "y": 0.4682786464691162,
+            "z": 4
+          },
+          "hipLocalPosition": null,
+          "rootScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "rivenWeapons": {
+          "source": "assets/summoners/riven/weapons/Meshy_AI_Azure_Moonreaper_1025005546_texture.glb",
+          "state": "loaded",
+          "error": "",
+          "instances": [
+            {
+              "ownerId": "1-2",
+              "team": 1,
+              "kind": "reso",
+              "phase": "orbit",
+              "orbitIndex": 0,
+              "instanceId": "f32c6559-bfce-41a7-ac61-ab839c1c0146",
+              "meshId": 79,
+              "materialId": 36,
+              "fallback": false,
+              "position": [
+                0.6259531378746033,
+                1.416741132736206,
+                47.634803771972656
+              ],
+              "yaw": -2.590305761838186,
+              "spin": 0,
+              "authoritative": {
+                "x": 0.6259531668482404,
+                "z": 47.63480295893862,
+                "angle": 0
+              }
+            },
+            {
+              "ownerId": "1-2",
+              "team": 1,
+              "kind": "reso",
+              "phase": "orbit",
+              "orbitIndex": 1,
+              "instanceId": "8410b528-6950-4300-9068-44d0c886e84b",
+              "meshId": 79,
+              "materialId": 36,
+              "fallback": false,
+              "position": [
+                2.1885759830474854,
+                1.422155737876892,
+                46.96531677246094
+              ],
+              "yaw": -0.5486318519082942,
+              "spin": 0,
+              "authoritative": {
+                "x": 2.1885759324708114,
+                "z": 46.96531801335877,
+                "angle": 0
+              }
+            },
+            {
+              "ownerId": "2-2",
+              "team": 2,
+              "kind": "reso",
+              "phase": "orbit",
+              "orbitIndex": 0,
+              "instanceId": "49a4abff-e3dd-463b-840f-3211f025b24a",
+              "meshId": 79,
+              "materialId": 36,
+              "fallback": false,
+              "position": [
+                0.1650487780570984,
+                1.416907787322998,
+                -48.270938873291016
+              ],
+              "yaw": -2.948730136354698,
+              "spin": 0,
+              "authoritative": {
+                "x": 0.16504877826724973,
+                "z": -48.270937336270165,
+                "angle": 0
+              }
+            },
+            {
+              "ownerId": "2-2",
+              "team": 2,
+              "kind": "reso",
+              "phase": "orbit",
+              "orbitIndex": 1,
+              "instanceId": "42f9cc06-e368-4e9b-8242-c66beb1ac8ed",
+              "meshId": 79,
+              "materialId": 36,
+              "fallback": false,
+              "position": [
+                1.727671504020691,
+                1.4177263975143433,
+                -48.94042205810547
+              ],
+              "yaw": -1.0424443919932578,
+              "spin": 0,
+              "authoritative": {
+                "x": 1.7276715438898207,
+                "z": -48.94042228185002,
+                "angle": 0
+              }
+            }
+          ]
+        },
+        "setModel": {
+          "state": "idle",
+          "bytes": 10000416,
+          "source": "assets/summoners/set/Set_Animated.glb",
+          "clips": [],
+          "registeredStates": [],
+          "runningClip": "Running",
+          "locomotionReason": "",
+          "readySource": "",
+          "readyTime": 0,
+          "loadMs": 0,
+          "error": "",
+          "bounds": null,
+          "height": 0,
+          "scale": 1,
+          "offset": [
+            0,
+            0,
+            0
+          ],
+          "meshInstances": 0,
+          "jointCount": 0,
+          "authoredForwardYaw": 0,
+          "instanceId": null,
+          "meshId": null,
+          "materialId": null,
+          "activeAnimation": null,
+          "playbackTime": 0,
+          "playing": false,
+          "previewEnabled": false,
+          "presentationOnly": true,
+          "worldBounds": null,
+          "selected": false,
+          "forcedPrimitive": false,
+          "visible": false,
+          "primitiveVisible": false,
+          "yaw": 180,
+          "position": {
+            "x": -2.5999999046325684,
+            "y": 0.4682786464691162,
+            "z": 4
+          },
+          "hipLocalPosition": null,
+          "rootScale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "frameMs": 55.132653793600106,
+        "preview": null,
+        "territory": {
+          "frontierZ": -0.40073490142822266,
+          "camera": {
+            "x": 0,
+            "y": 16.300060272216797,
+            "z": 18
+          },
+          "lookTarget": {
+            "x": 0,
+            "y": 0.800061047077179,
+            "z": -4
+          },
+          "cameraForward": {
+            "x": 0,
+            "y": -0.5759534817373458,
+            "z": -0.817482468848494
+          },
+          "follow": {
+            "x": -2.591297879566001,
+            "z": 4.224246949645363
+          }
+        },
+        "input": {
+          "cancel": false
+        },
+        "aimAssist": {
+          "enabled": true,
+          "state": "idle",
+          "targetId": null,
+          "until": 0,
+          "abilityId": null
+        },
+        "position": {
+          "x": -2.6,
+          "z": 4
+        },
+        "movement": {
+          "x": 0,
+          "z": 0
+        },
+        "aim": {
+          "x": 0,
+          "z": -1
+        },
+        "facing": {
+          "facing": "Back",
+          "owner": "idle"
+        },
+        "targeting": false,
+        "committedFacing": null,
+        "collisions": 0,
+        "frames": 10,
+        "entities": 1596,
+        "visualScaleX": 1,
+        "rootScaleX": 1
+      }
+    }
+  ]
+}

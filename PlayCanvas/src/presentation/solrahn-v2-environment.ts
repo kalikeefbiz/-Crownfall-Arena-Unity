@@ -27,8 +27,12 @@ export function createSolrahnV2Environment(
 ) {
     const root = new Entity('Solrahn-V2-reclaimed-causeway');
     parent.addChild(root);
+    // Development-only reversible switch: ?bare=1 hides the stone lane and props so the raw terrain can be judged.
+    const bare = new URLSearchParams(location.search).get('bare') === '1';
     const enclosure =
-        import.meta.env.VITE_LANE_ENCLOSURE === '1' && new URLSearchParams(location.search).get('enclosure') !== '0'
+        !bare &&
+        import.meta.env.VITE_LANE_ENCLOSURE === '1' &&
+        new URLSearchParams(location.search).get('enclosure') !== '0'
             ? createSolrahnEnvironmentArt(app, root, surface, characters)
             : null;
     const geometry = createV2Geometry(surface);
@@ -39,7 +43,7 @@ export function createSolrahnV2Environment(
     mat.update();
     const pbr =
         new URLSearchParams(location.search).get('surface') === 'goal017' ? createSolrahnSurfaceMaterial(app) : null;
-    const causeway = createSolrahnCauseway(app, root, surface, pbr?.stoneTexture);
+    const causeway = bare ? null : createSolrahnCauseway(app, root, surface, pbr?.stoneTexture);
     const meshes: Mesh[] = [];
     const instances: MeshInstance[] = [];
     for (const data of geometry) {
@@ -234,7 +238,7 @@ export function createSolrahnV2Environment(
                 state: pbr?.diagnostics.state ?? 'loaded',
                 materials: pbr?.diagnostics,
                 enclosure: enclosure?.diagnostics,
-                causeway: causeway.diagnostics,
+                causeway: causeway?.diagnostics,
                 surface: surface.metadata,
                 allocations: {
                     textures: app.stats.vram.tex,
@@ -304,7 +308,7 @@ export function createSolrahnV2Environment(
             panel.remove();
             labels.remove();
             enclosure?.destroy();
-            causeway.destroy();
+            causeway?.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
             pbr?.destroy();

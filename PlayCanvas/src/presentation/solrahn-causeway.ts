@@ -10,7 +10,7 @@ export function createSolrahnCauseway(app: AppBase, parent: Entity, surface: Sol
     parent.addChild(root);
     const stone = new StandardMaterial();
     stone.name = 'weathered-limestone';
-    stone.diffuse = new Color(0.74, 0.72, 0.61);
+    stone.diffuse = new Color(0.97, 0.93, 0.8);
     stone.diffuseMap = stoneTexture ?? null;
     stone.diffuseVertexColor = true;
     stone.gloss = 0.08;
@@ -35,12 +35,15 @@ export function createSolrahnCauseway(app: AppBase, parent: Entity, surface: Sol
         const blades: number[] = [],
             bc: number[] = [],
             bi: number[] = [];
-        const slab = (x: number, z: number, rx: number, rz: number, id: number) => {
+        const slab = (x: number, z: number, rx: number, rz: number, id: number, moss = 0) => {
             const base = p.length / 3,
                 angle = (hash(id + 2) - 0.5) * 0.55,
                 ca = Math.cos(angle),
                 sa = Math.sin(angle);
-            const col = 0.78 + hash(id) * 0.24;
+            const col = 0.86 + hash(id) * 0.3,
+                mr = 1 - 0.2 * moss,
+                mg = 1 - 0.02 * moss,
+                mb = 1 - 0.3 * moss;
             const points = [
                 [-0.78, -1],
                 [0.68, -1],
@@ -53,17 +56,17 @@ export function createSolrahnCauseway(app: AppBase, parent: Entity, surface: Sol
             ];
             for (let ring = 0; ring < 2; ring++)
                 for (let k = 0; k < 8; k++) {
-                    const jitter = 0.92 + hash(id * 17 + k) * 0.08;
+                    const jitter = 0.72 + hash(id * 17 + k) * 0.28;
                     const dx = points[k][0] * rx * jitter * (ring ? 1 : 0.92),
                         dz = points[k][1] * rz * jitter * (ring ? 1 : 0.92);
                     const xx = x + dx * ca - dz * sa,
                         zz = z + dx * sa + dz * ca;
-                    p.push(xx, surface.height(xx, zz) + (ring ? -0.035 : 0.055 + hash(id) * 0.025), zz);
-                    c.push(col * (ring ? 0.55 : 1), col * (ring ? 0.57 : 1), col * (ring ? 0.53 : 1), 1);
+                    p.push(xx, surface.height(xx, zz) + (ring ? -0.05 : 0.04 + hash(id + 9) * 0.075), zz);
+                    c.push(col * mr * (ring ? 0.5 : 1), col * mg * (ring ? 0.52 : 1), col * mb * (ring ? 0.48 : 1), 1);
                     uv.push(xx / 2.9 + hash(id), zz / 2.9 + hash(id + 8));
                 }
-            p.push(x, surface.height(x, z) + 0.066, z);
-            c.push(col, col, col, 1);
+            p.push(x, surface.height(x, z) + 0.09, z);
+            c.push(col * mr, col * mg, col * mb, 1);
             uv.push(x / 2.9 + hash(id), z / 2.9 + hash(id + 8));
             for (let k = 0; k < 8; k++) {
                 const n = (k + 1) % 8;
@@ -82,17 +85,33 @@ export function createSolrahnCauseway(app: AppBase, parent: Entity, surface: Sol
             slabs++;
         };
         const zStart = -75 + sector * 19;
-        for (let row = 0; row < 17; row++)
-            for (let col = 0; col < 7; col++) {
-                const id = sector * 2000 + row * 29 + col;
-                const z = zStart + row * 1.1 + (hash(id + 6) - 0.5) * 0.2;
-                const x = (col - 3) * 1.12 + (row % 2) * 0.48 + (hash(id + 3) - 0.5) * 0.24;
-                const wear = 0.5 + 0.3 * Math.sin(z * 0.17) + 0.14 * Math.sin(z * 0.51 + x * 0.8);
-                // Alternating intact islands, ragged margins and eroded earth gaps.
-                if (hash(id + 10) > wear || (Math.abs(x) > 2.8 && hash(id + 5) > 0.45)) continue;
-                if (z > 75) continue;
-                slab(x, z, 0.48 + hash(id + 1) * 0.13, 0.43 + hash(id + 4) * 0.1, id);
-            }
+        // Route meanders gently; flagstone fields alternate with bare worn earth.
+        const cx = (zz: number) => 1.5 * Math.sin(zz * 0.045 + 0.8);
+        const placed: number[][] = [];
+        const lay = (x: number, z: number, rx: number, rz: number, id: number, moss: number) => {
+            for (const q of placed) if (Math.hypot(q[0] - x, q[1] - z) < (Math.max(rx, rz) + q[2]) * 0.78) return;
+            placed.push([x, z, Math.max(rx, rz)]);
+            slab(x, z, rx, rz, id, moss);
+        };
+        for (let j = 0; j < 900; j++) {
+            const id = sector * 5000 + j * 7,
+                z = zStart + hash(id + 1) * 19;
+            if (z > 75) continue;
+            const dx = (hash(id + 2) - 0.5) * 2 * 4.6,
+                field = Math.min(1, Math.max(0, 0.5 + 0.55 * Math.sin(z * 0.23 + 1.3) + 0.35 * Math.sin(z * 0.061 + 2))),
+                edge = 1 - Math.pow(Math.abs(dx) / 4.6, 2);
+            if (hash(id + 3) > field * edge * 0.72) continue;
+            // Many small stones, a few large ones; larger toward the worn centre.
+            const r = 0.2 + 0.78 * Math.pow(hash(id + 4), 2.3) * (0.55 + 0.45 * edge);
+            lay(
+                cx(z) + dx,
+                z,
+                r * (0.8 + hash(id + 5) * 0.55),
+                r * (0.8 + hash(id + 6) * 0.55),
+                id,
+                Math.abs(dx) > 3.1 ? 0.8 * hash(id + 7) : 0.25 * hash(id + 7)
+            );
+        }
         if (sector === 0 || sector === 7) {
             const z = sector === 0 ? -74.5 : 74.5;
             for (let k = 0; k < 22; k++) {
@@ -100,13 +119,13 @@ export function createSolrahnCauseway(app: AppBase, parent: Entity, surface: Sol
                 slab(Math.cos(a) * 3.7, z + Math.sin(a) * 1.2, 0.42, 0.38, 51000 + sector * 100 + k);
             }
         }
-        // Remnants of older shoulder masonry, interrupted at the saddles.
+        // Remnants of an older broken kerb: elongated blocks, interrupted at the saddles.
         for (const sign of [-1, 1])
-            for (let row = 0; row < 20; row++) {
-                const z = zStart + row * 0.93,
-                    id = 20000 + sector * 300 + row + (sign + 1) * 30;
-                if (Math.sin(z * 0.19 + sign) > 0.55 || hash(id) > 0.64) continue;
-                slab(sign * (4.9 + Math.sin(z * 0.14) * 0.5), z, 0.3, 0.41, id);
+            for (let z = zStart; z < zStart + 19; z += 1.15) {
+                const id = 20000 + sector * 300 + Math.round(z * 3) + (sign + 1) * 30;
+                if (Math.sin(z * 0.19 + sign) > 0.45 || hash(id) > 0.7 || z > 75) continue;
+                const xk = sign * (4.7 + Math.sin(z * 0.14) * 0.6) + (hash(id + 2) - 0.5) * 0.5;
+                lay(xk, z + (hash(id + 3) - 0.5) * 0.4, 0.26 + hash(id + 4) * 0.2, 0.5 + hash(id + 5) * 0.55, id, 0.6);
             }
         // Eroded waystones on navigation-blocked bank islands. Narrow bases
         // fit the original blocked footprint; they introduce no new collision.

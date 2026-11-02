@@ -1,4 +1,4 @@
-import { Color, Entity, StandardMaterial, Vec3, CULLFACE_NONE, BLEND_NORMAL } from 'playcanvas';
+import { Color, Entity, StandardMaterial, Vec3, CULLFACE_NONE, BLEND_NORMAL, FOG_LINEAR } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
 import type { PreviewIntent } from '../combat/ability-input';
@@ -180,7 +180,7 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     tip.setLocalEulerAngles(0, 45, 0);
     const camera = new Entity('MOBA-camera');
     camera.addComponent('camera', {
-        clearColor: new Color(0.045, 0.065, 0.1),
+        clearColor: v2 ? new Color(0.36, 0.42, 0.43) : new Color(0.045, 0.065, 0.1),
         fov: 48,
         nearClip: 0.1,
         farClip: surface ? 260 : 150
@@ -232,12 +232,19 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
     const light = new Entity('sun');
     light.addComponent('light', {
         type: 'directional',
-        color: new Color(1, 0.94, 0.84),
-        intensity: v2 ? 1.35 : surface ? 1 : 1.8
+        color: v2 ? new Color(1, 0.9, 0.74) : new Color(1, 0.94, 0.84),
+        intensity: v2 ? 1.55 : surface ? 1 : 1.8
     });
-    light.setEulerAngles(v2 ? 38 : 48, v2 ? -38 : -25, 0);
+    light.setEulerAngles(v2 ? 34 : 48, v2 ? -62 : -25, 0);
     app.root.addChild(light);
-    app.scene.ambientLight = v2 ? new Color(0.26, 0.33, 0.39) : new Color(0.45, 0.5, 0.6);
+    app.scene.ambientLight = v2 ? new Color(0.31, 0.37, 0.42) : new Color(0.45, 0.5, 0.6);
+    if (v2) {
+        // Gentle aerial haze: far hills separate from the lane and the clear colour matches the horizon.
+        app.scene.fog.type = FOG_LINEAR;
+        app.scene.fog.color = new Color(0.36, 0.42, 0.43);
+        app.scene.fog.start = 48;
+        app.scene.fog.end = 175;
+    }
     const targets = new Map<string, { body: Entity; health: Entity }>();
     type ActorModel =
         ReturnType<typeof createKitModel> | ReturnType<typeof createRivenModel> | ReturnType<typeof createSetModel>;

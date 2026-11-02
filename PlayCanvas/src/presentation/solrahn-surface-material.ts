@@ -1,7 +1,7 @@
 import { ADDRESS_CLAMP_TO_EDGE, Color, StandardMaterial, isCompressedPixelFormat } from 'playcanvas';
 import type { AppBase } from 'playcanvas';
 
-import atlas from '../../public/assets/solrahn-surface/goal019-atlas.json';
+import atlas from '../../public/assets/solrahn-surface/goal020-atlas.json';
 import manifest from '../../public/assets/solrahn-surface/materials.json';
 import weights from '../../public/assets/solrahn-surface/weights.json';
 
@@ -30,7 +30,7 @@ export function createSolrahnSurfaceMaterial(app: AppBase) {
         data: true,
         anisotropy: 1
     });
-    const baked = maps.load('goal019_atlas.webp', true, {
+    const baked = maps.load('goal020_atlas.webp', true, {
         width: 2048,
         height: 1536,
         flipY: false,

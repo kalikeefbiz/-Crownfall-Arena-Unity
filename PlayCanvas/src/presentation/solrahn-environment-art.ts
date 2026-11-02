@@ -45,7 +45,7 @@ export function createSolrahnEnvironmentArt(
     }[] = [];
     const parts = (model: Entity) =>
         (model.findComponents('render') as RenderComponent[]).flatMap((c) => c.meshInstances);
-    const record = (model: Entity, pivot: Entity) => {
+    const record = (model: Entity, pivot: Entity, tree = false) => {
         for (const component of model.findComponents('render') as RenderComponent[]) {
             component.castShadows = false;
             component.receiveShadows = false;
@@ -56,7 +56,8 @@ export function createSolrahnEnvironmentArt(
             const material = part.material as StandardMaterial;
             if (!toned.has(material.id)) {
                 toned.add(material.id);
-                material.diffuse.set(0.85, 0.88, 0.79);
+                if (tree) material.diffuse.set(1, 1, 0.94);
+                else material.diffuse.set(0.9, 0.92, 0.84);
                 material.gloss = 0.12;
                 material.glossMap = null;
                 material.useMetalness = false;
@@ -120,7 +121,7 @@ export function createSolrahnEnvironmentArt(
                 pivot.addChild(model);
                 model.setLocalScale(scale, scale, scale);
                 model.setLocalPosition((-(min.x + max.x) * scale) / 2, -min.y * scale, (-(min.z + max.z) * scale) / 2);
-                record(model, pivot);
+                record(model, pivot, true);
             }
         }
         // Static hardware instances: one world-matrix buffer per repeated mesh.
