@@ -245,6 +245,17 @@ export function createScene(app: AppBase, competitive = false, surface: SolrahnS
         app.scene.fog.start = 48;
         app.scene.fog.end = 175;
     }
+    // Coliseum: bright golden afternoon under an open sky (founder concept art); warm sun, cool sky fill, light haze.
+    if ((surface as { metadata?: { variant?: string } } | null)?.metadata?.variant === 'coliseum') {
+        light.light!.color = new Color(1, 0.88, 0.68);
+        light.light!.intensity = 1.7;
+        light.setEulerAngles(46, -38, 0);
+        app.scene.ambientLight = new Color(0.4, 0.43, 0.5);
+        app.scene.fog.color = new Color(0.72, 0.76, 0.8);
+        app.scene.fog.start = 70;
+        app.scene.fog.end = 220;
+        camera.camera!.clearColor = new Color(0.62, 0.73, 0.86);
+    }
     const targets = new Map<string, { body: Entity; health: Entity }>();
     type ActorModel =
         ReturnType<typeof createKitModel> | ReturnType<typeof createRivenModel> | ReturnType<typeof createSetModel>;

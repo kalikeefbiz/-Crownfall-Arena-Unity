@@ -58,7 +58,9 @@ try {
         ['mobile-portrait', 'middle-lane', 390, 844],
         ['slice-landscape', 'middle-lane', 844, 390, [-2, 36]],
         ['slice-ramp', 'middle-lane', 844, 390, [-4, 29]],
-        ['slice-portrait', 'middle-lane', 390, 844, [0, 36]]
+        ['slice-portrait', 'middle-lane', 390, 844, [0, 36]],
+        ['kit-centre-rivers', 'middle-lane', 844, 390, [-3, 9]],
+        ['kit-west-groves', 'middle-lane', 844, 390, [-15, 26]]
     ];
     const raw = await readFile('public/assets/coliseum/height.u16');
     const NX = 113, NZ = 219, W = 84, D = 164;

@@ -29,20 +29,20 @@ const RAMPS: [number, number, number][] = [
     [1, 20, 3.6],
     [1, 34, 2.4]
 ];
-const hash = (n: number) => {
+export const hash = (n: number) => {
     const s = Math.sin(n * 127.1 + 311.7) * 43758.5453;
     return s - Math.floor(s);
 };
-const lerp = (a: number[], b: number[], t: number) => a.map((v, i) => v + (b[i] - v) * t);
+export const lerp = (a: number[], b: number[], t: number) => a.map((v, i) => v + (b[i] - v) * t);
 // Lane floor edge at this z: the 10 m strip, widened by the z = 30 plaza.
 const laneEdge = (z: number) => Math.max(5, Math.sqrt(Math.max(0, 64 - (z - 30) ** 2)));
 const inRamp = (side: number, z: number, margin = 0) =>
     RAMPS.some(([s, rz, w]) => s === side && Math.abs(z - rz) <= w / 2 + 0.8 + margin);
 
-type Geo = { p: number[]; c: number[]; i: number[] };
-const geo = (): Geo => ({ p: [], c: [], i: [] });
+export type Geo = { p: number[]; c: number[]; i: number[] };
+export const geo = (): Geo => ({ p: [], c: [], i: [] });
 // Flat-shaded box (optionally tapered) with per-face colour.
-function box(
+export function box(
     g: Geo,
     cx: number,
     cy: number,
@@ -80,7 +80,7 @@ function box(
     }
 }
 // Low-poly rock/crown blob (icosahedron, one subdivision), smooth or faceted.
-const ico = (() => {
+export const ico = (() => {
     const t = (1 + Math.sqrt(5)) / 2;
     const v = [
         [-1, t, 0],
@@ -141,7 +141,7 @@ const ico = (() => {
     });
     return { v, f };
 })();
-function blob(
+export function blob(
     g: Geo,
     cx: number,
     cy: number,
@@ -167,7 +167,7 @@ function blob(
         g.i.push(o, o + 1, o + 2);
     }
 }
-function cone(
+export function cone(
     g: Geo,
     cx: number,
     cy: number,

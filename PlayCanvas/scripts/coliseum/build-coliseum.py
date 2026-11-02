@@ -44,6 +44,10 @@ BRIDGES = [  # (x0, x1, z0, z1, height)  walkable width + 1.6 visual
     (11.0, 15.0, -2.8, 2.8, PLATEAU_H - 0.25),                                      # stepping stones (2.4 m)
 ]
 FLANK_X, FLANK_HALF = 29.0, 0.8
+# Tree groves (art kit, 2026-11-01): solid, non-walkable clumps on the wilderness, kept off ramps, camps and crossings
+# so trees are honest obstacles. Mirrored top/bottom. (x, z, radius)
+GROVES = [(x, s * z, r) for x, z, r in ((-15.0, 16.0, 2.2), (-16.5, 35.0, 2.6), (-28.0, 22.0, 2.4), (15.0, 27.5, 2.4),
+                                         (14.5, 6.5, 1.8), (28.0, 28.0, 2.6)) for s in (1, -1)]
 STADIUM_X, STADIUM_Z, STADIUM_R = 35.0, 76.0, 26.0
 
 LANDMARKS = [
@@ -57,7 +61,7 @@ LANDMARKS = [
 ]
 
 # ---- classification ----------------------------------------------------------------------------
-LANE, RAMP, BRIDGE, RIVER, PLATEAU, RIM, STADIUM, BASE_BLUE, BASE_RED = range(9)
+LANE, RAMP, BRIDGE, RIVER, PLATEAU, RIM, STADIUM, BASE_BLUE, BASE_RED, GROVE = range(10)
 
 def rrect_sd(x, z, hx, hz, r):
     qx, qz = np.abs(x) - (hx - r), np.abs(z) - (hz - r)
@@ -98,6 +102,9 @@ def classify(x, z):
         cls[m] = RAMP; h[m] = LANE_H + (PLATEAU_H - LANE_H) * t[m]
     strip = (np.abs(x) <= LANE_HALF) & (np.abs(z) <= GOAL)
     cls[strip] = LANE; h[strip] = LANE_H
+    for gx_, gz_, gr in GROVES:
+        m = ((x - gx_) ** 2 + (z - gz_) ** 2 <= gr * gr) & (cls == PLATEAU)
+        cls[m] = GROVE
     cls[outside] = STADIUM
     h[outside] = RIM_H + np.minimum(3.2, 0.6 + np.floor(sd[outside] / 1.6) * 0.55)
     return cls, h
@@ -121,7 +128,7 @@ rng = np.random.default_rng(21)
 # Graybox palette, deliberately mid-dark: the scene's sun and ambient lift everything ~1.8x on screen.
 PAL = {
     LANE: (0.36, 0.34, 0.31), RAMP: (0.46, 0.34, 0.16), BRIDGE: (0.33, 0.31, 0.28), RIVER: (0.07, 0.17, 0.26),
-    PLATEAU: (0.17, 0.25, 0.14), RIM: (0.19, 0.18, 0.18), STADIUM: (0.09, 0.085, 0.1),
+    GROVE: (0.1, 0.15, 0.08), PLATEAU: (0.17, 0.25, 0.14), RIM: (0.19, 0.18, 0.18), STADIUM: (0.09, 0.085, 0.1),
     BASE_BLUE: (0.18, 0.27, 0.42), BASE_RED: (0.42, 0.2, 0.18),
 }
 col = np.zeros((NZ, NX, 3))
@@ -218,7 +225,7 @@ meta = dict(
     lane=dict(goalA=-GOAL, goalB=GOAL, halfWidth=SCORE_HALF),
     zones=[dict(x=s * (PLATEAU_IN + PLATEAU_OUT) / 2, z=0, w=PLATEAU_OUT - PLATEAU_IN, d=2 * PLATEAU_Z, tag='wilderness', name='WILDERNESS') for s in (-1, 1)],
     layout=dict(laneHalf=LANE_HALF, scoreHalf=SCORE_HALF, goal=GOAL, plazas=LANE_PLAZAS, bases={str(k): v for k, v in BASES.items()},
-                ramps=RAMPS, bridges=BRIDGES, island=ISLAND, laneH=LANE_H, plateauH=PLATEAU_H),
+                ramps=RAMPS, bridges=BRIDGES, groves=GROVES, island=ISLAND, laneH=LANE_H, plateauH=PLATEAU_H),
     landmarks=LANDMARKS,
     checks=checks,
     files=files,

@@ -14,6 +14,7 @@ import type { AppBase } from 'playcanvas';
 import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { createV2Geometry } from '../maps/solrahn-v2-geometry';
 
+import { createColiseumKitSlice } from './coliseum-kit-slice';
 import { createColiseumStyleSlice } from './coliseum-style-slice';
 import type { SliceStyle } from './coliseum-style-slice';
 import { createSolrahnCauseway } from './solrahn-causeway';
@@ -49,6 +50,19 @@ export function createSolrahnV2Environment(
     const slice =
         coliseum && (styleParam === 'a' || styleParam === 'b' || styleParam === 'c')
             ? createColiseumStyleSlice(app, root, surface, styleParam as SliceStyle)
+            : null;
+    // Approved art kit (A + B colour) on the same stretch, default for the Coliseum; ?style=graybox turns it off.
+    let kit: ReturnType<typeof createColiseumKitSlice> | null = null;
+    let kitDestroyed = false;
+    const kitReady =
+        coliseum && !slice && styleParam !== 'graybox'
+            ? fetch(`${import.meta.env.BASE_URL}assets/coliseum/kit/slice.json`)
+                  .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`kit slice: HTTP ${r.status}`))))
+                  .then((data) => {
+                      if (kitDestroyed) return;
+                      kit = createColiseumKitSlice(app, root, surface, data);
+                      return kit.ready;
+                  })
             : null;
     const geometry = createV2Geometry(surface);
     const mat = new StandardMaterial();
@@ -282,7 +296,7 @@ export function createSolrahnV2Environment(
         return node;
     });
     return {
-        ready: Promise.all([pbr?.ready, enclosure?.ready, walls?.ready, slice?.ready]),
+        ready: Promise.all([pbr?.ready, enclosure?.ready, walls?.ready, slice?.ready, kitReady]),
         get loading() {
             return pbr?.diagnostics.state === 'loading' || (enclosure?.loading ?? false) || (walls?.loading ?? false);
         },
@@ -305,6 +319,7 @@ export function createSolrahnV2Environment(
                 enclosure: enclosure?.diagnostics,
                 walls: walls?.diagnostics,
                 styleSlice: slice?.stats,
+                artKit: kit?.stats,
                 causeway: causeway?.diagnostics,
                 surface: surface.metadata,
                 allocations: {
@@ -344,8 +359,10 @@ export function createSolrahnV2Environment(
         framePlayer(x: number, z: number) {
             enclosure?.update(x, z);
             walls?.update(x, z);
+            kit?.framePlayer(x, z);
         },
         update(_active: boolean) {
+            kit?.update(performance.now() / 1000);
             if (routes)
                 for (const path of debugRoutes)
                     for (let i = 1; i < path.length; i++) {
@@ -378,6 +395,8 @@ export function createSolrahnV2Environment(
             enclosure?.destroy();
             walls?.destroy();
             slice?.destroy();
+            kitDestroyed = true;
+            kit?.destroy();
             causeway?.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
