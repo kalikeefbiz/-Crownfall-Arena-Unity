@@ -1,13 +1,17 @@
 import metadata from '../../public/assets/solrahn-v2/terrain.json';
+import enclosure from '../../public/assets/solrahn-v2/enclosure-goal020.json';
 
 type Point = { x: number; z: number };
 export async function loadSolrahnV2() {
     const buffers = await Promise.all(
         ['height.u16', 'walk.bin', 'lane.bin'].map(async (name) => {
-            const response = await fetch(`${import.meta.env.BASE_URL}assets/solrahn-v2/${name}`);
-            if (!response.ok) throw new Error(`V2 ${name}: HTTP ${response.status}`);
+            // GOAL 020: the walk mask with enclosure walls removed from it. `?layout=original` restores the open V2 field.
+            const walled = name === 'walk.bin' && new URLSearchParams(location.search).get('layout') !== 'original';
+            const file = walled ? enclosure.walk.file : name;
+            const response = await fetch(`${import.meta.env.BASE_URL}assets/solrahn-v2/${file}`);
+            if (!response.ok) throw new Error(`V2 ${file}: HTTP ${response.status}`);
             const buffer = await response.arrayBuffer();
-            const spec = metadata.files[name as keyof typeof metadata.files];
+            const spec = walled ? enclosure.walk : metadata.files[name as keyof typeof metadata.files];
             if (buffer.byteLength !== spec.bytes) throw new Error(`V2 ${name}: incomplete data`);
             const digest = await crypto.subtle.digest('SHA-256', buffer);
             if (Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('') !== spec.sha256)

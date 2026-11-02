@@ -79,8 +79,9 @@ export const SOLRAHN_TREES = [
     yaw: (i * 137.5) % 360
 }));
 
+// GOAL 020: the twelve lane-side rock groups are removed; the enclosure wall replaces them.
+void laneRocks;
 export const SOLRAHN_ROCKS = [
-    ...laneRocks,
     ...[
         [-27, 23],
         [-26, 27],

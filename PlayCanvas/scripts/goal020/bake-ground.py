@@ -148,6 +148,18 @@ for tx, tz in re.findall(r"x: (-?[\d.]+), z: (-?[\d.]+), scale", layout):
     shadow = np.exp(-((x - float(tx)) / 3.0) ** 2 - ((z - float(tz)) / 4.5) ** 2) * .24
     result[:, :, :3] *= (1 - shadow)[:, :, None]
 
+# --- GOAL 020 enclosure: dark, mossy contact band at the foot of every wall so rock sits IN the ground.
+enc = ROOT / 'public/assets/solrahn-v2/walk-goal020.bin'
+if enc.exists():
+    nw, nd = meta['navWidth'], meta['navDepth']
+    full0 = np.fromfile(ROOT / 'public/assets/solrahn-v2/walk.bin', dtype='u1')[nw * nd:].reshape(nd, nw) > 0
+    full1 = np.fromfile(enc, dtype='u1')[nw * nd:].reshape(nd, nw) > 0
+    wall = (full0 & ~full1).astype(float)
+    foot = gaussian_filter(wall, 2.2)
+    foot = sample(foot[:, :, None], (x + 60) / .5, (z + 80) / .5)[:, :, 0]
+    band = np.clip(foot * 1.6, 0, 1)
+    result[:, :, :3] *= (1 - .42 * band)[:, :, None] * (1 + band[:, :, None] * np.array([-.06, .04, -.08])[None, None, :])
+
 result[:, :, :3] = lin_to_srgb(result[:, :, :3])
 result[:, :, 3] = np.clip(np.rint(result[:, :, 3] * 32) / 32, .64, .98)
 dest = OUT / 'goal020_atlas.webp'

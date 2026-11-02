@@ -52,6 +52,10 @@ try {
         ['wilderness-entrance', 'major', 844, 390, [-10, 22]],
         ['objective-clearing', 'major'],
         ['six-character-combat', 'middle-lane'],
+        ['gate-throat-west', 'middle-lane', 844, 390, [-4, 30]],
+        ['gate-mouth-east', 'middle-lane', 844, 390, [4, 2]],
+        ['pocket-camp-west', 'middle-lane', 844, 390, [-19, -10]],
+        ['lane-north-run', 'middle-lane', 844, 390, [0, -50]],
         ['mobile-landscape', 'middle-lane', 844, 390],
         ['mobile-portrait', 'middle-lane', 390, 844]
     ];

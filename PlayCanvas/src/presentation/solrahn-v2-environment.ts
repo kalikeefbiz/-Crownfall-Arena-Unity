@@ -15,6 +15,7 @@ import type { SolrahnV2 } from '../maps/solrahn-v2';
 import { createV2Geometry } from '../maps/solrahn-v2-geometry';
 
 import { createSolrahnCauseway } from './solrahn-causeway';
+import { createSolrahnEnclosure } from './solrahn-enclosure';
 import { createSolrahnEnvironmentArt } from './solrahn-environment-art';
 import { createSolrahnSurfaceMaterial } from './solrahn-surface-material';
 import type { SummonerAssets } from './summoner-assets';
@@ -34,6 +35,10 @@ export function createSolrahnV2Environment(
         import.meta.env.VITE_LANE_ENCLOSURE === '1' &&
         new URLSearchParams(location.search).get('enclosure') !== '0'
             ? createSolrahnEnvironmentArt(app, root, surface, characters)
+            : null;
+    const walls =
+        !bare && new URLSearchParams(location.search).get('layout') !== 'original'
+            ? createSolrahnEnclosure(app, root, surface)
             : null;
     const geometry = createV2Geometry(surface);
     const mat = new StandardMaterial();
@@ -217,9 +222,9 @@ export function createSolrahnV2Environment(
         return node;
     });
     return {
-        ready: Promise.all([pbr?.ready, enclosure?.ready]),
+        ready: Promise.all([pbr?.ready, enclosure?.ready, walls?.ready]),
         get loading() {
-            return pbr?.diagnostics.state === 'loading' || (enclosure?.loading ?? false);
+            return pbr?.diagnostics.state === 'loading' || (enclosure?.loading ?? false) || (walls?.loading ?? false);
         },
         get topDown() {
             return panel.querySelector<HTMLInputElement>('[data-option=camera]')!.checked;
@@ -238,6 +243,7 @@ export function createSolrahnV2Environment(
                 state: pbr?.diagnostics.state ?? 'loaded',
                 materials: pbr?.diagnostics,
                 enclosure: enclosure?.diagnostics,
+                walls: walls?.diagnostics,
                 causeway: causeway?.diagnostics,
                 surface: surface.metadata,
                 allocations: {
@@ -308,6 +314,7 @@ export function createSolrahnV2Environment(
             panel.remove();
             labels.remove();
             enclosure?.destroy();
+            walls?.destroy();
             causeway?.destroy();
             root.destroy();
             for (const mesh of meshes) mesh.destroy();
