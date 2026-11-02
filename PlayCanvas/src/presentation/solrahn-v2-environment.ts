@@ -29,7 +29,9 @@ export function createSolrahnV2Environment(
     const root = new Entity('Solrahn-V2-reclaimed-causeway');
     parent.addChild(root);
     // Development-only reversible switch: ?bare=1 hides the stone lane and props so the raw terrain can be judged.
-    const bare = new URLSearchParams(location.search).get('bare') === '1';
+    // The Coliseum graybox (GOAL 021) shows only its authored terrain and gameplay markings: no Sol'Rahn dressing.
+    const coliseum = surface.metadata.variant === 'coliseum';
+    const bare = coliseum || new URLSearchParams(location.search).get('bare') === '1';
     const enclosure =
         !bare &&
         import.meta.env.VITE_LANE_ENCLOSURE === '1' &&
@@ -47,7 +49,9 @@ export function createSolrahnV2Environment(
     mat.gloss = 0.1;
     mat.update();
     const pbr =
-        new URLSearchParams(location.search).get('surface') === 'goal017' ? createSolrahnSurfaceMaterial(app) : null;
+        !coliseum && new URLSearchParams(location.search).get('surface') === 'goal017'
+            ? createSolrahnSurfaceMaterial(app)
+            : null;
     const causeway = bare ? null : createSolrahnCauseway(app, root, surface, pbr?.stoneTexture);
     const meshes: Mesh[] = [];
     const instances: MeshInstance[] = [];
@@ -96,7 +100,7 @@ export function createSolrahnV2Environment(
     const markers = new Entity('V2-neutral-placeholders');
     root.addChild(markers);
     const markerMat = new StandardMaterial();
-    markerMat.diffuse = new Color(0.7, 0.7, 0.65);
+    markerMat.diffuse = coliseum ? new Color(0.42, 0.36, 0.2) : new Color(0.7, 0.7, 0.65);
     markerMat.update();
     for (const m of surface.metadata.landmarks) {
         const e = new Entity(`${m.id} / PLACEHOLDER — NO NEW BONUS`);
@@ -135,7 +139,7 @@ export function createSolrahnV2Environment(
     root.addChild(cores);
     const coreMaterials: StandardMaterial[] = [];
     for (const team of [1, 2]) {
-        const z = team === 1 ? 75 : -75,
+        const z = team === 1 ? surface.lane.goalB + 3 : surface.lane.goalA - 3,
             m = new StandardMaterial();
         m.diffuse = team === 1 ? new Color(0.2, 0.5, 0.85) : new Color(0.85, 0.25, 0.3);
         m.update();
@@ -146,14 +150,62 @@ export function createSolrahnV2Environment(
         core.setPosition(0, surface.height(0, z) + 0.15, z);
         core.setLocalScale(6, 0.3, 2);
     }
-    markers.enabled = bounds.enabled = cores.enabled = false;
+    markers.enabled = bounds.enabled = cores.enabled = coliseum;
+    bounds.enabled = false;
+    // Graybox gameplay markings: gold scoring band, goal lines and plaza rings (one merged mesh).
+    const markings = new Entity('coliseum-gold-markings');
+    root.addChild(markings);
+    const goldMat = new StandardMaterial();
+    goldMat.diffuse = new Color(0.85, 0.62, 0.16);
+    goldMat.emissive = new Color(0.32, 0.22, 0.04);
+    goldMat.gloss = 0.3;
+    goldMat.update();
+    const goldPositions: number[] = [],
+        goldIndices: number[] = [];
+    const strip = (ax: number, az: number, bx: number, bz: number, w: number) => {
+        const len = Math.hypot(bx - ax, bz - az) || 1,
+            nx = ((bz - az) / len) * (w / 2),
+            nz = (-(bx - ax) / len) * (w / 2),
+            o = goldPositions.length / 3;
+        for (const [x, z] of [
+            [ax - nx, az - nz],
+            [ax + nx, az + nz],
+            [bx - nx, bz - nz],
+            [bx + nx, bz + nz]
+        ])
+            goldPositions.push(x, surface.height(x, z) + 0.03, z);
+        goldIndices.push(o, o + 2, o + 1, o + 1, o + 2, o + 3);
+    };
+    if (coliseum) {
+        const { goalA, goalB, halfWidth } = surface.lane;
+        for (const x of [-halfWidth, halfWidth])
+            for (let z = goalA; z < goalB; z += 1) strip(x, z, x, Math.min(goalB, z + 1), 0.22);
+        for (const z of [goalA, goalB]) strip(-6, z, 6, z, 0.6);
+        for (const z of [-30, 0, 30])
+            for (let k = 0; k < 40; k++) {
+                const a = (k / 40) * Math.PI * 2,
+                    b = ((k + 1) / 40) * Math.PI * 2;
+                strip(Math.cos(a) * 5, z + Math.sin(a) * 5, Math.cos(b) * 5, z + Math.sin(b) * 5, 0.16);
+            }
+        const goldMesh = new Mesh(app.graphicsDevice);
+        goldMesh.setPositions(goldPositions);
+        goldMesh.setNormals(calculateNormals(goldPositions, goldIndices));
+        goldMesh.setIndices(goldIndices);
+        goldMesh.update();
+        meshes.push(goldMesh);
+        markings.addComponent('render', {
+            meshInstances: [new MeshInstance(goldMesh, goldMat, markings)],
+            castShadows: false,
+            receiveShadows: false
+        });
+    }
     let overlay = 'neutral',
         routes = false;
     const panel = document.createElement('details');
     panel.id = 'v2-tools';
     panel.style.cssText =
         'position:fixed;top:6px;left:6px;z-index:25;background:#111e;color:white;padding:6px;font:11px system-ui;max-width:270px;max-height:40vh;overflow:auto;pointer-events:auto';
-    panel.innerHTML = `<summary>V2 terrain · developer overlays</summary><p>3v3 only · 4 minor + major placeholders · no new bonuses</p><label>Floor <select><option value="neutral">Surface / lanes</option>${pbr ? '<option value="dirt">Weight: dirt</option><option value="grass">Weight: grass path</option><option value="forest">Weight: forest / moss</option><option value="rock">Weight: exposed rock</option><option value="zones">Material boundaries</option>' : ''}<option value="height">Height samples</option><option value="slope">Slope limit 35°</option><option value="walk">Walkability / collision erosion</option></select></label><br><label><input type="checkbox" data-option="routes"> Routes / both spawns</label><br><label><input type="checkbox" data-option="markers"> Camp / major footprints</label><br><label><input type="checkbox" data-option="bounds"> Mode gates</label><br><label><input type="checkbox" data-option="camera"> Top-down camera</label><div class="v2-sample"></div>`;
+    panel.innerHTML = `<summary>${coliseum ? 'Coliseum graybox' : 'V2 terrain'} · developer overlays</summary><p>3v3 only · ${coliseum ? '6 minor' : '4 minor'} + major placeholders · no new bonuses</p><label>Floor <select><option value="neutral">Surface / lanes</option>${pbr ? '<option value="dirt">Weight: dirt</option><option value="grass">Weight: grass path</option><option value="forest">Weight: forest / moss</option><option value="rock">Weight: exposed rock</option><option value="zones">Material boundaries</option>' : ''}<option value="height">Height samples</option><option value="slope">Slope limit 35°</option><option value="walk">Walkability / collision erosion</option></select></label><br><label><input type="checkbox" data-option="routes"> Routes / both spawns</label><br><label><input type="checkbox" data-option="markers"${coliseum ? ' checked' : ''}> Camp / major footprints</label><br><label><input type="checkbox" data-option="bounds"> Mode gates</label><br><label><input type="checkbox" data-option="camera"> Top-down camera</label><div class="v2-sample"></div>`;
     const focusSelect = document.createElement('select');
     focusSelect.dataset.option = 'focus';
     focusSelect.add(new Option('Camera: follow player', 'player'));
@@ -239,7 +291,7 @@ export function createSolrahnV2Environment(
         },
         get diagnostics() {
             return {
-                mode: 'solrahn-v2',
+                mode: coliseum ? 'coliseum' : 'solrahn-v2',
                 state: pbr?.diagnostics.state ?? 'loaded',
                 materials: pbr?.diagnostics,
                 enclosure: enclosure?.diagnostics,
@@ -304,7 +356,7 @@ export function createSolrahnV2Environment(
         ) {
             labelNodes.forEach((node, i) => {
                 const p = project(surface.metadata.landmarks[i], 0.3);
-                node.style.display = markers.enabled && p.z > 0 ? 'block' : 'none';
+                node.style.display = markers.enabled && p.z > 0 && (!coliseum || panel.open) ? 'block' : 'none';
                 node.style.left = `${p.x}px`;
                 node.style.top = `${p.y}px`;
             });
@@ -322,6 +374,7 @@ export function createSolrahnV2Environment(
             pbr?.destroy();
             mat.destroy();
             markerMat.destroy();
+            goldMat.destroy();
             gateMat.destroy();
             gateMesh.destroy();
             for (const m of coreMaterials) m.destroy();

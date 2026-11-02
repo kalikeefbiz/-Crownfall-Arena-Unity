@@ -21,6 +21,7 @@ import { HumanAimAssist } from './combat/human-aim.js';
 import { matchSpawn } from './combat/match-space.js';
 import { Simulation } from './gameplay/simulation';
 import { Controls } from './input/controls';
+import { loadColiseum } from './maps/coliseum';
 import { loadSolrahnSurface } from './maps/solrahn';
 import { loadSolrahnV2 } from './maps/solrahn-v2';
 import { createScene } from './presentation/scene';
@@ -117,6 +118,8 @@ export async function createGame(
             simulation.arena = await loadSolrahnSurface();
         if (new URLSearchParams(location.search).get('mapPreview') === 'solrahn-v2' && !debug)
             simulation.arena = await loadSolrahnV2();
+        if (new URLSearchParams(location.search).get('mapPreview') === 'coliseum' && !debug)
+            simulation.arena = await loadColiseum();
         simulation.lifecycle = !debug;
         simulation.bots = !debug;
         simulation.select(0);

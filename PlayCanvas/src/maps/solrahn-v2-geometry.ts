@@ -28,9 +28,15 @@ export function createV2Geometry(surface: SolrahnV2) {
                         (((z === 0 || z === nz - 1 ? 1 : 2) * depth) / (nz - 1));
                     const length = Math.hypot(dx, 1, dz);
                     normals.push(-dx / length, 1 / length, -dz / length);
-                    const lane = surface.laneMask[z * nx + x];
-                    const shade = 0.42 + height(x, z) / 30;
-                    colors.push(lane ? 0.56 : shade, lane ? 0.57 : shade + 0.06, lane ? 0.55 : shade + 0.08, 1);
+                    const authored = surface.vertexColors;
+                    if (authored) {
+                        const k = (z * nx + x) * 3;
+                        colors.push(authored[k], authored[k + 1], authored[k + 2], 1);
+                    } else {
+                        const lane = surface.laneMask[z * nx + x];
+                        const shade = 0.42 + height(x, z) / 30;
+                        colors.push(lane ? 0.56 : shade, lane ? 0.57 : shade + 0.06, lane ? 0.55 : shade + 0.08, 1);
+                    }
                 }
             for (let j = 0; j < rows; j++)
                 for (let i = 0; i < cols; i++) {

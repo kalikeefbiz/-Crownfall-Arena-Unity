@@ -1,5 +1,5 @@
-import metadata from '../../public/assets/solrahn-v2/terrain.json';
 import enclosure from '../../public/assets/solrahn-v2/enclosure-goal020.json';
+import metadata from '../../public/assets/solrahn-v2/terrain.json';
 
 type Point = { x: number; z: number };
 export async function loadSolrahnV2() {
@@ -21,8 +21,22 @@ export async function loadSolrahnV2() {
     );
     return createSolrahnV2(buffers[0], buffers[1], buffers[2]);
 }
-export function createSolrahnV2(heightBuffer: ArrayBuffer, walkBuffer: ArrayBuffer, laneBuffer: ArrayBuffer) {
-    const { nx, nz, width, depth, navWidth: nw, navDepth: nd, navStep: step } = metadata;
+// Optional per-map extras (the Coliseum layout ships them; Sol'Rahn V2 keeps its original constants).
+export type SolrahnMetadata = typeof metadata & {
+    variant?: string;
+    spawn?: { z: number; x: number[] };
+    lane?: { goalA: number; goalB: number; halfWidth: number };
+    zones?: { x: number; z: number; w: number; d: number; tag: string; name: string }[];
+    layout?: Record<string, unknown>;
+};
+export function createSolrahnV2(
+    heightBuffer: ArrayBuffer,
+    walkBuffer: ArrayBuffer,
+    laneBuffer: ArrayBuffer,
+    meta: SolrahnMetadata = metadata,
+    colorBuffer: ArrayBuffer | null = null
+) {
+    const { nx, nz, width, depth, navWidth: nw, navDepth: nd, navStep: step } = meta;
     if (
         heightBuffer.byteLength !== nx * nz * 2 ||
         walkBuffer.byteLength !== nw * nd * 2 ||
@@ -31,8 +45,7 @@ export function createSolrahnV2(heightBuffer: ArrayBuffer, walkBuffer: ArrayBuff
         throw new Error('Incomplete V2 terrain');
     const values = new DataView(heightBuffer);
     const heights = new Float32Array(nx * nz);
-    for (let i = 0; i < heights.length; i++)
-        heights[i] = (values.getUint16(i * 2, true) * metadata.verticalScale) / 65535;
+    for (let i = 0; i < heights.length; i++) heights[i] = (values.getUint16(i * 2, true) * meta.verticalScale) / 65535;
     const laneMask = new Uint8Array(laneBuffer);
     const walk = new Uint8Array(walkBuffer, 0, nw * nd);
     const fullWalk = new Uint8Array(walkBuffer, nw * nd, nw * nd);
@@ -196,7 +209,9 @@ export function createSolrahnV2(heightBuffer: ArrayBuffer, walkBuffer: ArrayBuff
     };
     return {
         kind: 'solrahn-v2' as const,
-        metadata,
+        metadata: meta,
+        // RGB (0-1) per heightfield vertex when the map ships an authored graybox palette.
+        vertexColors: colorBuffer ? Float32Array.from(new Uint8Array(colorBuffer), (v) => v / 255) : null,
         heights,
         laneMask,
         height,
@@ -209,13 +224,16 @@ export function createSolrahnV2(heightBuffer: ArrayBuffer, walkBuffer: ArrayBuff
         width,
         depth,
         walls: [],
-        lane: { goalA: -75, goalB: 75, halfWidth: 4 },
-        spawn: (team: number, slot: number) => ({ x: [0, -1.45, 1.45][slot], z: team === 1 ? 71 : -71 }),
-        zones: [-20, 20].map((x) => ({ x, z: 0, w: 26, d: 145, tag: 'wilderness', name: 'WILDERNESS' })),
+        lane: meta.lane ?? { goalA: -75, goalB: 75, halfWidth: 4 },
+        spawn: (team: number, slot: number) => {
+            const s = meta.spawn ?? { z: 71, x: [0, -1.45, 1.45] };
+            return { x: s.x[slot], z: team === 1 ? s.z : -s.z };
+        },
+        zones: meta.zones ?? [-20, 20].map((x) => ({ x, z: 0, w: 26, d: 145, tag: 'wilderness', name: 'WILDERNESS' })),
         // Preserve the existing two Mobility mechanics at their matching V2 sites.
         // The other four camps and major remain explicitly inert debug footprints.
-        camps: metadata.landmarks.filter((m) => m.type === 'mobility').map((m) => ({ ...m, active: true })),
-        futureObjectives: metadata.landmarks.filter((m) => m.type !== 'mobility'),
+        camps: meta.landmarks.filter((m) => m.type === 'mobility').map((m) => ({ ...m, active: true })),
+        futureObjectives: meta.landmarks.filter((m) => m.type !== 'mobility'),
         get navigationStats() {
             return { routeSearches, scratchBytes: previous.byteLength + seen.byteLength + queue.byteLength };
         }

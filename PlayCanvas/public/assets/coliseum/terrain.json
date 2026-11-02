@@ -1,0 +1,264 @@
+{
+ "version": 1,
+ "variant": "coliseum",
+ "name": "Crownfall Coliseum",
+ "normalization": "unsigned16 / 65535 * 8 metres; +2 m datum (lane floor = 2.0)",
+ "mapping": "x = i/(nx-1)*width - width/2; z = j/(nz-1)*depth - depth/2; Y up; Blue +z, Red -z",
+ "width": 84.0,
+ "depth": 164.0,
+ "nx": 113,
+ "nz": 219,
+ "verticalScale": 8,
+ "navWidth": 169,
+ "navDepth": 329,
+ "navStep": 0.5,
+ "radius": 0.45,
+ "erosion": 0.8,
+ "maxSlopeDegrees": 35,
+ "maxStepMetres": 0.3,
+ "modeX": [
+  -35.0,
+  35.0
+ ],
+ "chunkCells": 24,
+ "topTriangles": 48832,
+ "edgeTriangles": 1320,
+ "totalTriangles": 50152,
+ "spawn": {
+  "z": 64.0,
+  "x": [
+   0,
+   -1.45,
+   1.45
+  ]
+ },
+ "lane": {
+  "goalA": -60.0,
+  "goalB": 60.0,
+  "halfWidth": 4.0
+ },
+ "zones": [
+  {
+   "x": -21.25,
+   "z": 0,
+   "w": 23.5,
+   "d": 108.0,
+   "tag": "wilderness",
+   "name": "WILDERNESS"
+  },
+  {
+   "x": 21.25,
+   "z": 0,
+   "w": 23.5,
+   "d": 108.0,
+   "tag": "wilderness",
+   "name": "WILDERNESS"
+  }
+ ],
+ "layout": {
+  "laneHalf": 5.0,
+  "scoreHalf": 4.0,
+  "goal": 60.0,
+  "plazas": [
+   [
+    0.0,
+    -30.0,
+    8.0
+   ],
+   [
+    0.0,
+    0.0,
+    8.0
+   ],
+   [
+    0.0,
+    30.0,
+    8.0
+   ]
+  ],
+  "bases": {
+   "1": [
+    0.0,
+    66.0,
+    10.0
+   ],
+   "2": [
+    0.0,
+    -66.0,
+    10.0
+   ]
+  },
+  "ramps": [
+   [
+    -1,
+    24,
+    5.0
+   ],
+   [
+    -1,
+    -24,
+    5.0
+   ],
+   [
+    -1,
+    10,
+    2.4
+   ],
+   [
+    -1,
+    -10,
+    2.4
+   ],
+   [
+    1,
+    20,
+    3.6
+   ],
+   [
+    1,
+    -20,
+    3.6
+   ],
+   [
+    1,
+    34,
+    2.4
+   ],
+   [
+    1,
+    -34,
+    2.4
+   ]
+  ],
+  "bridges": [
+   [
+    -24.3,
+    -19.7,
+    5.4,
+    9.8,
+    4.0
+   ],
+   [
+    -24.3,
+    -19.7,
+    -9.8,
+    -5.4,
+    4.0
+   ],
+   [
+    23.4,
+    28.6,
+    -2.8,
+    2.8,
+    4.0
+   ],
+   [
+    11.0,
+    15.0,
+    -2.8,
+    2.8,
+    3.75
+   ]
+  ],
+  "island": [
+   -22.0,
+   0.0,
+   6.2
+  ],
+  "laneH": 2.0,
+  "plateauH": 4.0
+ },
+ "landmarks": [
+  {
+   "id": "west-mobility-blue",
+   "type": "mobility",
+   "x": -24.0,
+   "z": 40.0,
+   "radius": 3,
+   "active": true
+  },
+  {
+   "id": "west-mobility-red",
+   "type": "mobility",
+   "x": -24.0,
+   "z": -40.0,
+   "radius": 3,
+   "active": true
+  },
+  {
+   "id": "east-defense-blue",
+   "type": "defense",
+   "x": 24.0,
+   "z": 40.0,
+   "radius": 3,
+   "active": false
+  },
+  {
+   "id": "east-defense-red",
+   "type": "defense",
+   "x": 24.0,
+   "z": -40.0,
+   "radius": 3,
+   "active": false
+  },
+  {
+   "id": "east-cooldown-blue",
+   "type": "cooldown",
+   "x": 20.0,
+   "z": 14.0,
+   "radius": 3,
+   "active": false
+  },
+  {
+   "id": "east-cooldown-red",
+   "type": "cooldown",
+   "x": 20.0,
+   "z": -14.0,
+   "radius": 3,
+   "active": false
+  },
+  {
+   "id": "major",
+   "type": "major",
+   "x": -22.0,
+   "z": 0.0,
+   "radius": 4,
+   "active": false
+  }
+ ],
+ "checks": {
+  "bases connected": true,
+  "west-mobility-blue reachable": true,
+  "west-mobility-red reachable": true,
+  "east-defense-blue reachable": true,
+  "east-defense-red reachable": true,
+  "east-cooldown-blue reachable": true,
+  "east-cooldown-red reachable": true,
+  "major reachable": true,
+  "blue base sealed (lane is the only way in)": true,
+  "red base sealed (lane is the only way in)": true,
+  "major still reachable with island bridge 1 closed": true,
+  "major still reachable with island bridge 2 closed": true,
+  "blue base -> major (m, grid path)": 86.0,
+  "red base -> major (m, grid path)": 86.0,
+  "blue base -> red base (m, grid path)": 128.0
+ },
+ "files": {
+  "height.u16": {
+   "bytes": 49494,
+   "sha256": "ffa0cbeeae53d17b9ad8c4bc2d2814c7d13022773157a1a3bb0281d626aa7533"
+  },
+  "walk.bin": {
+   "bytes": 111202,
+   "sha256": "d47bf46929a315ebf35fb7777f1e5ac7848a20aa6a19e2590dd8933c3a1356c5"
+  },
+  "lane.bin": {
+   "bytes": 24747,
+   "sha256": "a6139a5149bc9918047ec8a8b4801afd03fe969b712d1007493e3bf144085273"
+  },
+  "colors.bin": {
+   "bytes": 74241,
+   "sha256": "404bfee58f467ffef4a4fe0236d9440e20147f6fec53eb68275ca5f212a81777"
+  }
+ }
+}

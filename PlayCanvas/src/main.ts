@@ -5,8 +5,10 @@ import './ui/performance-monitor.css';
 // Only the dedicated device-preview build chooses this default entry.
 if (import.meta.env.VITE_DEVICE_PREVIEW === '1') {
     const entry = new URL(location.href);
-    entry.searchParams.set('mapPreview', 'solrahn-v2');
-    entry.searchParams.set('surface', 'goal017');
+    // GOAL 021: the Coliseum is the preview default; ?mapPreview=solrahn-v2 still opens the old map.
+    const map = entry.searchParams.get('mapPreview') || 'coliseum';
+    entry.searchParams.set('mapPreview', map);
+    if (map === 'solrahn-v2') entry.searchParams.set('surface', 'goal017');
     entry.searchParams.set('devicePreview', '1');
     entry.searchParams.set('frontend', '1');
     history.replaceState(null, '', entry);

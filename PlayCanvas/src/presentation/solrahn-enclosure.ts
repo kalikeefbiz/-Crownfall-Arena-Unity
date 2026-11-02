@@ -14,8 +14,8 @@ import {
 } from 'playcanvas';
 import type { AppBase, ContainerResource, RenderComponent } from 'playcanvas';
 
-import type { SolrahnV2 } from '../maps/solrahn-v2';
 import layout from '../../public/assets/solrahn-v2/enclosure-goal020.json';
+import type { SolrahnV2 } from '../maps/solrahn-v2';
 
 import { SummonerAssets } from './summoner-assets';
 
