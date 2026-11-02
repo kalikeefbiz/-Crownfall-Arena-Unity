@@ -85,48 +85,8 @@ export function createSolrahnCauseway(app: AppBase, parent: Entity, surface: Sol
             slabs++;
         };
         const zStart = -75 + sector * 19;
-        // Route meanders gently; flagstone fields alternate with bare worn earth.
-        const cx = (zz: number) => 1.5 * Math.sin(zz * 0.045 + 0.8);
-        const placed: number[][] = [];
-        const lay = (x: number, z: number, rx: number, rz: number, id: number, moss: number) => {
-            for (const q of placed) if (Math.hypot(q[0] - x, q[1] - z) < (Math.max(rx, rz) + q[2]) * 0.78) return;
-            placed.push([x, z, Math.max(rx, rz)]);
-            slab(x, z, rx, rz, id, moss);
-        };
-        for (let j = 0; j < 900; j++) {
-            const id = sector * 5000 + j * 7,
-                z = zStart + hash(id + 1) * 19;
-            if (z > 75) continue;
-            const dx = (hash(id + 2) - 0.5) * 2 * 4.6,
-                field = Math.min(1, Math.max(0, 0.5 + 0.55 * Math.sin(z * 0.23 + 1.3) + 0.35 * Math.sin(z * 0.061 + 2))),
-                edge = 1 - Math.pow(Math.abs(dx) / 4.6, 2);
-            if (hash(id + 3) > field * edge * 0.72) continue;
-            // Many small stones, a few large ones; larger toward the worn centre.
-            const r = 0.2 + 0.78 * Math.pow(hash(id + 4), 2.3) * (0.55 + 0.45 * edge);
-            lay(
-                cx(z) + dx,
-                z,
-                r * (0.8 + hash(id + 5) * 0.55),
-                r * (0.8 + hash(id + 6) * 0.55),
-                id,
-                Math.abs(dx) > 3.1 ? 0.8 * hash(id + 7) : 0.25 * hash(id + 7)
-            );
-        }
-        if (sector === 0 || sector === 7) {
-            const z = sector === 0 ? -74.5 : 74.5;
-            for (let k = 0; k < 22; k++) {
-                const a = (k * Math.PI * 2) / 22;
-                slab(Math.cos(a) * 3.7, z + Math.sin(a) * 1.2, 0.42, 0.38, 51000 + sector * 100 + k);
-            }
-        }
-        // Remnants of an older broken kerb: elongated blocks, interrupted at the saddles.
-        for (const sign of [-1, 1])
-            for (let z = zStart; z < zStart + 19; z += 1.15) {
-                const id = 20000 + sector * 300 + Math.round(z * 3) + (sign + 1) * 30;
-                if (Math.sin(z * 0.19 + sign) > 0.45 || hash(id) > 0.7 || z > 75) continue;
-                const xk = sign * (4.7 + Math.sin(z * 0.14) * 0.6) + (hash(id + 2) - 0.5) * 0.5;
-                lay(xk, z + (hash(id + 3) - 0.5) * 0.4, 0.26 + hash(id + 4) * 0.2, 0.5 + hash(id + 5) * 0.55, id, 0.6);
-            }
+        // GOAL 020: in-path flagstones, spawn rings and kerb removed at founder request (triangle budget);
+        // the lane now reads from the baked ground and the enclosure walls.
         // Eroded waystones on navigation-blocked bank islands. Narrow bases
         // fit the original blocked footprint; they introduce no new collision.
         const waystones = [
