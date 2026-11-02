@@ -71,7 +71,8 @@ export const SOLRAHN_TREES = [
     [-17, 65, 8, 'pine'],
     [-29, 72, 9, 'redwood'],
     [29, 73, 8, 'pine']
-].map(([x, z, height, species], i) => ({
+].filter(() => false) // GOAL 020: Meshy trees retired; faceted tree masses in solrahn-enclosure.ts replace them
+ .map(([x, z, height, species], i) => ({
     x: Number(x),
     z: Number(z),
     height: Number(height),

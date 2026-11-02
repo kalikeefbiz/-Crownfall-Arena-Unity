@@ -76,7 +76,7 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
     const meshes: Mesh[] = [];
     const buffers: VertexBuffer[] = [];
     const materials: StandardMaterial[] = [];
-    const diagnostics = { state: 'loading', error: '', wallBoulders: 0, wallTriangles: 0, scanInstances: 0, scanTriangles: 0 };
+    const diagnostics = { state: 'loading', error: '', wallBoulders: 0, wallTriangles: 0, scanInstances: 0, scanTriangles: 0, trees: 0, treeTriangles: 0 };
     let destroyed = false;
 
     // ---- procedural boulder wall ----------------------------------------------------------
@@ -120,13 +120,14 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
     // One boulder per ~1.8 m of wall; a second, taller crown boulder about a third of the time.
     let carry = 0;
     for (const [x0, z0, x1, z1, thickness, kind] of seg) {
+        if (kind === 'belt') continue; // belts carry trees, not boulders
         const len = Math.hypot(x1 - x0, z1 - z0);
         carry += len;
         if (carry < 1.45) continue;
         carry = 0;
         const mx = (x0 + x1) / 2, mz = (z0 + z1) / 2, id = blobId + 1;
         const jitter = (hash(id * 2.3) - 0.5) * 0.7;
-        const hy = (kind === 'lane' ? 1.55 : 1.35) * (0.8 + hash(id * 4.1) * 0.5);
+        const hy = (kind === 'lane' ? 1.55 : 1.9) * (0.8 + hash(id * 4.1) * 0.5);
         blob(mx + jitter, mz, thickness * 0.72, hy, hash(id));
         if (hash(id * 9.1) < 0.4) blob(mx - jitter * 0.8, mz + 0.7, thickness * 0.55, hy * 1.35, hash(id + 5));
     }
@@ -154,6 +155,113 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
         e.addComponent('render', { meshInstances: [new MeshInstance(mesh, wallMat, e)], castShadows: false, receiveShadows: false });
     });
     diagnostics.wallTriangles = wallTriangles;
+
+
+    // ---- faceted tree masses (hardware-instanced, camera-line masked) -----------------------
+    // Low-poly faceted crowns match the faceted rock and stay cheap; photoscanned Poly Haven trees are
+    // 0.5-0.8 M triangles each and read as a different art style next to them. Trees stand only on
+    // non-walkable ground (see design-enclosure.py), so nobody walks through a trunk.
+    const treeMat = new StandardMaterial();
+    treeMat.diffuse = new Color(1, 1, 1);
+    treeMat.diffuseVertexColor = true;
+    treeMat.gloss = 0.06;
+    treeMat.useMetalness = false;
+    treeMat.update();
+    materials.push(treeMat);
+    const cone = (p: number[], c: number[], i: number[], y0: number, y1: number, r: number, sides: number, col: number[], twist: number) => {
+        const base = p.length / 3;
+        for (let k = 0; k < sides; k++) {
+            const a0 = (k / sides) * 6.283 + twist, a1 = ((k + 1) / sides) * 6.283 + twist;
+            const jr = r * (0.88 + 0.24 * hash(k * 7 + y0 * 31));
+            // flat-shaded: own vertices per face
+            p.push(Math.cos(a0) * jr, y0, Math.sin(a0) * jr, Math.cos(a1) * r, y0, Math.sin(a1) * r, 0, y1, 0);
+            const shade = 0.82 + 0.3 * hash(k * 13 + y1 * 17);
+            for (let v = 0; v < 3; v++) c.push(col[0] * shade * (v === 2 ? 1.35 : 1), col[1] * shade * (v === 2 ? 1.3 : 1), col[2] * shade * (v === 2 ? 1.2 : 1), 1);
+            i.push(base + k * 3, base + k * 3 + 2, base + k * 3 + 1);
+        }
+    };
+    const crownBlob = (p: number[], c: number[], i: number[], cx: number, cy: number, cz: number, r: number, col: number[], seed: number) => {
+        for (const f of ico.faces) {
+            const base = p.length / 3;
+            const shade = 0.8 + 0.35 * hash(seed + f[0] * 3.3);
+            for (const vi of f) {
+                const u = ico.verts[vi], d = 0.85 + 0.25 * hash(seed * 5 + vi);
+                p.push(cx + u[0] * r * d, cy + u[1] * r * d * 0.85, cz + u[2] * r * d);
+                const top = 1 + 0.3 * Math.max(0, u[1]);
+                c.push(col[0] * shade * top, col[1] * shade * top, col[2] * shade * top, 1);
+            }
+            i.push(base, base + 1, base + 2);
+        }
+    };
+    const trunkCol = [0.11, 0.08, 0.06];
+    const variants = [0, 1, 2, 3].map((v) => {
+        const p: number[] = [], c: number[] = [], i: number[] = [];
+        if (v === 0 || v === 1) {
+            // conifers: trunk + stacked cones, v1 slimmer / taller
+            const g = v === 0 ? [0.06, 0.11, 0.06] : [0.05, 0.095, 0.065];
+            cone(p, c, i, 0, 0.35, 0.05, 5, trunkCol, 0);
+            const tiers = v === 0 ? 3 : 4, w = v === 0 ? 0.36 : 0.27;
+            for (let t = 0; t < tiers; t++) {
+                const y0 = 0.18 + (t * 0.72) / tiers, y1 = y0 + 0.5 - t * 0.04;
+                cone(p, c, i, y0, Math.min(1, y1), w * (1 - t / (tiers + 0.6)), 7, g, t * 0.7);
+            }
+        } else {
+            const g = v === 2 ? [0.075, 0.12, 0.05] : [0.065, 0.1, 0.045];
+            if (v === 2) {
+                cone(p, c, i, 0, 0.5, 0.05, 5, trunkCol, 0);
+                crownBlob(p, c, i, 0, 0.62, 0, 0.3, g, 1);
+                crownBlob(p, c, i, 0.16, 0.5, 0.08, 0.22, g, 2);
+                crownBlob(p, c, i, -0.14, 0.52, -0.1, 0.2, g, 3);
+            } else {
+                // undergrowth clump (scaled small)
+                crownBlob(p, c, i, 0, 0.3, 0, 0.42, g, 4);
+                crownBlob(p, c, i, 0.35, 0.22, 0.1, 0.3, g, 5);
+                crownBlob(p, c, i, -0.3, 0.2, -0.15, 0.28, g, 6);
+            }
+        }
+        const mesh = new Mesh(app.graphicsDevice);
+        mesh.setPositions(p);
+        mesh.setNormals(calculateNormals(p, i));
+        mesh.setColors(c);
+        mesh.setIndices(i);
+        mesh.update();
+        meshes.push(mesh);
+        return { mesh, tris: i.length / 3 };
+    });
+    type TreeBatch = { instance: MeshInstance; buffer: VertexBuffer; matrices: Float32Array; pos: number[][]; mask: string };
+    const treeBatches: TreeBatch[] = [];
+    const treeList = layout.trees as number[][];
+    let treeTriangles = 0;
+    variants.forEach((variant, v) => {
+        const list = treeList.filter((t) => t[3] === v);
+        if (!list.length) return;
+        const matrices = new Float32Array(list.length * 16);
+        const m = new Mat4(), q = new Quat(), t = new Vec3(), sc = new Vec3();
+        list.forEach(([x, z, h, , yaw], k) => {
+            const hh = v === 3 ? h * 0.32 : h;
+            q.setFromEulerAngles(0, yaw, 0);
+            t.set(x, surface.height(x, z) - 0.1, z);
+            sc.set(hh * (v === 3 ? 1.6 : 1), hh, hh * (v === 3 ? 1.6 : 1));
+            m.setTRS(t, q, sc);
+            matrices.set(m.data, k * 16);
+        });
+        const buffer = new VertexBuffer(app.graphicsDevice, VertexFormat.getDefaultInstancingFormat(app.graphicsDevice), list.length, { usage: BUFFER_STATIC, data: matrices.slice() });
+        buffers.push(buffer);
+        const e = new Entity(`tree-mass-${v}`);
+        root.addChild(e);
+        const instance = new MeshInstance(variant.mesh, treeMat, e);
+        instance.setInstancing(buffer, true);
+        e.addComponent('render', { meshInstances: [instance], castShadows: false, receiveShadows: false });
+        const aabb = variant.mesh.aabb.clone();
+        aabb.center.set(0, 5, 0);
+        aabb.halfExtents.set(70, 12, 85);
+        e.render!.customAabb = aabb;
+        treeBatches.push({ instance, buffer, matrices, pos: list.map((p) => [p[0], p[1], p[2]]), mask: '' });
+        treeTriangles += list.length * variant.tris;
+    });
+    diagnostics.trees = treeList.length;
+    diagnostics.treeTriangles = treeTriangles;
+    let lastX = Infinity, lastZ = Infinity;
 
     // ---- decimated Poly Haven scans (hardware-instanced) ----------------------------------
     const place = (name: string, list: Placement[], tint: [number, number, number]) =>
@@ -202,25 +310,29 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
             model.destroy();
         })();
 
+    // Barrier ridge: cliff sections sit ON the 3v3 boundary (inside camera width) between the forest windows,
+    // so the bigger arena (top / combo lanes) is glimpsed through the gaps but never reachable in 3v3.
     const ridge: Placement[] = [];
     const ridge04: Placement[] = [];
-    for (const side of [-1, 1]) {
-        let zc = -72 + (side > 0 ? 6 : 0);
-        let n = 0;
-        while (zc < 84) {
-            const big = n % 2 === 0;
-            const len = big ? 31 : 26; // visible length at the scale below
-            (big ? ridge04 : ridge).push({
-                x: side * (layout.outer + (big ? 7.5 : 3.6)),
-                z: zc + len / 2,
+    const windows = [-80, ...(layout.windows as number[]), 80];
+    for (const side of [-1, 1])
+        for (let i = 0; i < windows.length - 1; i++) {
+            const a = windows[i] + (i ? 6.5 : 0), b = windows[i + 1] - (i < windows.length - 2 ? 6.5 : 0);
+            const len = b - a;
+            if (len < 8) continue;
+            ridge.push({
+                x: side * (layout.outer + 2.6),
+                z: (a + b) / 2,
                 yaw: side > 0 ? 90 : -90,
-                scale: big ? 0.36 : 0.64,
-                sink: big ? 0.7 : 0.5
+                scale: Math.min(0.62, len / 41),
+                sink: 0.6
             });
-            zc += len - 2;
-            n++;
         }
-    }
+    // Base backdrops: a long cliff closes each end of the arena so no spawn looks onto empty sky.
+    // Only the far (-Z) end: the competitive camera sits +18 m on +Z, so a +Z backdrop would sit between it and Blue's base.
+    for (const end of [-1])
+        for (const x of [-30, 0, 30])
+            ridge04.push({ x: x + end * 4, z: end * 82, yaw: (end > 0 ? 180 : 0) + x * 0.15, scale: 0.62, sink: 1.0 });
     // Gate shoulders: one scan cluster hugging each end of every gap, alternating sides of the throat.
     const shoulders: Placement[] = [];
     (layout.gates as { side: string; z: number; width: number }[]).forEach((g, i) => {
@@ -259,6 +371,26 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
     return {
         ready,
         diagnostics,
+        // Hide trees standing between the competitive camera (behind, +Z) and the player, as the GOAL 019 props do.
+        update(x: number, z: number) {
+            if (Math.hypot(x - lastX, z - lastZ) < 0.75) return;
+            lastX = x;
+            lastZ = z;
+            for (const b of treeBatches) {
+                const keep = b.pos.map(([px, pz, h]) => !(Math.abs(px - x) < 3.2 + h * 0.25 && pz > z - 1.5 && pz < z + 15));
+                const mask = keep.map(Number).join('');
+                if (mask === b.mask) continue;
+                b.mask = mask;
+                const visible = new Float32Array(b.matrices.length);
+                let n = 0;
+                keep.forEach((k, i) => {
+                    if (k) visible.set(b.matrices.subarray(i * 16, i * 16 + 16), n++ * 16);
+                });
+                b.buffer.setData(visible);
+                b.instance.instancingCount = n;
+                b.instance.visible = n > 0;
+            }
+        },
         get loading() {
             return diagnostics.state === 'loading';
         },
@@ -268,6 +400,7 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
             meshes.forEach((m) => m.destroy());
             buffers.forEach((b) => b.destroy());
             wallMat.destroy();
+            treeMat.destroy();
             cache.destroy();
         }
     };

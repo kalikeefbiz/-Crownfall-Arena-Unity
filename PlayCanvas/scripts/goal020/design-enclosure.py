@@ -31,32 +31,34 @@ LANE_Z = (-69.0, 69.0)
 def lane_edge(z, phase):
     return LANE_HALF + 0.9 * math.sin(z * 0.085 + phase) + 0.35 * math.sin(z * 0.23 + phase * 2)
 
-# Gates: (side, z centre, WALKABLE width). Visual gap = width + 1.6 erosion. Varied on purpose:
-# narrow throats (2.4) gank-friendly, wide mouths (5) team-rotation friendly. Staggered L/R so nothing is a straight shot.
+# Gates: (side, z centre, WALKABLE width, kind). Visual gap = width + 1.6 erosion.
+# Founder rule: the lane is SEALED for ~30 m in front of each base (|z| > 40), so a push there is a commitment;
+# the middle 80 m opens every ~16 m per side, staggered L/R, so nobody is stuck in the lane for long.
 GATES = [
-    ('W', 58.0, 5.0, 'mouth'), ('W', 28.0, 2.4, 'throat'), ('W', -10.0, 3.6, 'gap'), ('W', -48.0, 2.4, 'throat'),
-    ('E', 48.0, 3.6, 'gap'), ('E', 21.0, 2.4, 'throat'), ('E', -2.0, 5.0, 'mouth'), ('E', -18.0, 2.4, 'throat'),
-    ('E', -42.0, 3.6, 'gap'), ('E', -60.0, 5.0, 'mouth'),
+    ('W', 34.0, 3.6, 'gap'), ('W', 18.0, 2.4, 'throat'), ('W', 2.0, 5.0, 'mouth'), ('W', -14.0, 2.4, 'throat'), ('W', -30.0, 3.6, 'gap'),
+    ('E', 27.0, 2.4, 'throat'), ('E', 10.0, 3.6, 'gap'), ('E', -6.0, 2.4, 'throat'), ('E', -22.0, 5.0, 'mouth'), ('E', -36.0, 3.6, 'gap'),
 ]
-# Wilderness spurs: (side, z, from 'in'/'out' anchor, length, pass width). Passes alternate inner/outer = S-shaped routes.
+# Wilderness spurs: (side, z, anchor, length, pass width). 'in'/'out' leave one pass at the far end (S-shaped routes);
+# 'mid' leaves a pass at BOTH ends (base-side camp pockets keep two entrances); 'seal' closes completely (base plazas).
 SPURS = [
-    ('W', 38.0, 'in', 14.0, 3.6), ('W', 2.0, 'out', 12.0, 3.6), ('W', -34.0, 'in', 13.0, 3.6),
-    ('W', 68.0, 'in', 10.0, 3.2), ('W', -68.0, 'out', 10.0, 3.2),
-    ('E', 30.0, 'out', 11.0, 4.0), ('E', 12.0, 'in', 12.0, 3.2), ('E', -26.0, 'in', 13.0, 3.6),
-    ('E', 68.0, 'out', 10.0, 3.2), ('E', -68.0, 'in', 10.0, 3.2),
+    ('W', 44.0, 'mid', 0.0, 3.6), ('W', 10.0, 'out', 12.0, 3.6), ('W', -22.0, 'in', 12.0, 3.6), ('W', -44.0, 'mid', 0.0, 3.6),
+    ('E', 40.0, 'mid', 0.0, 3.6), ('E', 16.0, 'in', 12.0, 3.6), ('E', -18.0, 'out', 12.0, 3.6), ('E', -30.0, 'mid', 0.0, 3.6),
+    ('W', 66.0, 'seal', 0.0, 0.0), ('W', -66.0, 'seal', 0.0, 0.0), ('E', 66.0, 'seal', 0.0, 0.0), ('E', -66.0, 'seal', 0.0, 0.0),
 ]
 OUTER = 27.4  # inner face of the outer cliff ridge; matches the 3v3 mode boundary (|x|<=28)
-SPUR_T = 2.2
+SPUR_T = 3.4  # thick enough to carry a tree belt
 
 segments = []  # (x0,z0,x1,z1,thickness,kind)
 
 def side(s):
     return -1 if s == 'W' else 1
 
-def lane_wall(s):
+BELT = 2.6  # tree belt behind each lane wall (wilderness side), same gaps as the wall
+
+def lane_wall(s, offset=WALL_T / 2, margin=0.0):
     phase = 0.8 if s == 'W' else 2.4
     zs = np.arange(LANE_Z[0], LANE_Z[1] + 0.01, 1.0)
-    gates = [(g[1], g[2] + 1.6) for g in GATES if g[0] == s]
+    gates = [(g[1], g[2] + 1.6 + margin) for g in GATES if g[0] == s]
     out, run = [], []
     for z in zs:
         in_gate = any(abs(z - c) < w / 2 for c, w in gates)
@@ -65,7 +67,7 @@ def lane_wall(s):
                 out.append(run)
             run = []
         else:
-            run.append((side(s) * (lane_edge(z, phase) + WALL_T / 2), float(z)))
+            run.append((side(s) * (lane_edge(z, phase) + offset), float(z)))
     if len(run) > 1:
         out.append(run)
     return out
@@ -74,12 +76,23 @@ for s in 'WE':
     for run in lane_wall(s):
         for (xa, za), (xb, zb) in zip(run[:-1], run[1:]):
             segments.append((xa, za, xb, zb, WALL_T, 'lane'))
+    # Belt flares at gates (wider gap) so each gate opens into the wilderness like a funnel, not a slot.
+    for run in lane_wall(s, WALL_T + BELT / 2 - 0.2, 2.4):
+        for (xa, za), (xb, zb) in zip(run[:-1], run[1:]):
+            segments.append((xa, za, xb, zb, BELT, 'belt'))
 
 spur_defs = []
 for s, z, anchor, length, passw in SPURS:
     sg = side(s)
-    inner = sg * (lane_edge(z, 0.8 if s == 'W' else 2.4) + WALL_T)
-    x_from, x_to = (inner, inner + sg * length) if anchor == 'in' else (sg * OUTER, sg * (OUTER - length))
+    inner = sg * (lane_edge(z, 0.8 if s == 'W' else 2.4) + WALL_T + BELT - 0.4)
+    if anchor == 'in':
+        x_from, x_to = inner, inner + sg * length
+    elif anchor == 'out':
+        x_from, x_to = sg * OUTER, sg * (OUTER - length)
+    elif anchor == 'mid':
+        x_from, x_to = inner + sg * (passw + 1.6 + SPUR_T / 2), sg * (OUTER - passw - 1.6 - SPUR_T / 2)
+    else:  # seal: lane wall to beyond the barrier
+        x_from, x_to = inner - sg * 1.0, sg * (OUTER + 2.0)
     spur_defs.append(dict(side=s, z=z, anchor=anchor, x0=x_from, x1=x_to, pass_width=passw))
     n = max(2, int(abs(x_to - x_from) / 1.0))
     for i in range(n):
@@ -143,12 +156,51 @@ for cid, cx, cz in camps:
     for gi, g in enumerate(GATES):
         gm = np.zeros_like(walk1)
         sg = side(g[0])
-        gm = (np.abs(Z - g[1]) < (g[2] + 1.6) / 2 + .6) & (np.abs(X) > LANE_HALF - 1.8) & (np.abs(X) < LANE_HALF + WALL_T + 2.2) & (np.sign(X) == sg)
+        gm = (np.abs(Z - g[1]) < (g[2] + 1.6) / 2 + .6) & (np.abs(X) > LANE_HALF - 1.8) & (np.abs(X) < LANE_HALF + WALL_T + BELT + 2.2) & (np.sign(X) == sg)
         if reachable(walk1 & ~gm, (cx, cz)):
             survive += 1
     report['camp_resilience'][cid] = f'{survive}/{len(GATES)} single-gate closures keep it reachable'
 report['gates'] = [dict(side=s, z=z, walkable_width=w, kind=k) for s, z, w, k in GATES]
 report['spurs'] = spur_defs
+
+# ---- tree masses (presentation only; placed ONLY on non-walkable ground so every trunk is honest) ----
+rng = np.random.default_rng(2020)
+belt_fp = np.zeros_like(walk0)
+for x0, z0, x1, z1, t, k in segments:
+    if k in ('belt', 'spur'):
+        belt_fp |= capsule_mask(x0, z0, x1, z1, t / 2)
+dist_walk = distance_transform_edt(~walk1) * STEP          # metres to nearest walkable cell
+lane_face = np.zeros_like(walk0)
+for x0, z0, x1, z1, t, k in segments:
+    if k == 'lane':
+        lane_face |= capsule_mask(x0, z0, x1, z1, t / 2 + 0.6)
+WINDOWS = [-52.0, -14.0, 24.0, 58.0]  # gaps in the barrier forest that look out onto the top / combo lanes
+window = np.zeros_like(walk0)
+for wz in WINDOWS:
+    window |= (np.abs(Z - wz) < 6.5) & (np.abs(X) > 28.5)
+camp_clear = np.zeros_like(walk0)
+for _, cx, cz in camps:
+    camp_clear |= (X - cx) ** 2 + (Z - cz) ** 2 < 6.5 ** 2
+inside = (np.abs(X) < 28.2) & ~walk1 & (dist_walk >= 0.5) & ~lane_face & ~camp_clear & (belt_fp | ~walk0)
+barrier = (np.abs(X) >= 28.2) & (np.abs(X) < 36.0) & ~window & (np.abs(Z) < 79)
+trees = []
+def scatter(mask, spacing, hmin, hmax, kinds, cap):
+    cand = np.argwhere(mask)
+    rng.shuffle(cand)
+    pts = np.array([[t[0], t[1]] for t in trees]) if trees else np.zeros((0, 2))
+    added = 0
+    for r, c in cand:
+        x, z = gx[c] + rng.uniform(-.2, .2), gz[r] + rng.uniform(-.2, .2)
+        if len(pts) and (((pts - (x, z)) ** 2).sum(1) < spacing ** 2).any():
+            continue
+        trees.append([round(float(x), 2), round(float(z), 2), round(float(rng.uniform(hmin, hmax)), 2), int(rng.choice(kinds)), int(rng.integers(0, 360))])
+        pts = np.vstack([pts, [x, z]])
+        added += 1
+        if added >= cap:
+            break
+scatter(inside, 2.5, 4.5, 7.5, [0, 1, 2, 3], 260)
+scatter(barrier, 2.3, 6.0, 9.5, [0, 1, 2], 320)
+report['trees'] = len(trees)
 
 # ---- outputs --------------------------------------------------------------------------------
 out_bin = V2 / 'walk-goal020.bin'
@@ -159,7 +211,7 @@ layout = dict(
     laneHalf=LANE_HALF, wallThickness=WALL_T, outer=OUTER,
     segments=[[round(v, 3) if isinstance(v, float) else v for v in s] for s in segments],
     gates=[dict(side=s, z=z, width=w, kind=k) for s, z, w, k in GATES],
-    spurs=spur_defs, report=report,
+    spurs=spur_defs, windows=WINDOWS, trees=trees, report=report,
 )
 (V2 / 'enclosure-goal020.json').write_text(json.dumps(layout, indent=1) + '\n')
 

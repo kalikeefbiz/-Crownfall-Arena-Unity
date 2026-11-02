@@ -282,6 +282,7 @@ export function createSolrahnV2Environment(
         },
         framePlayer(x: number, z: number) {
             enclosure?.update(x, z);
+            walls?.update(x, z);
         },
         update(_active: boolean) {
             if (routes)

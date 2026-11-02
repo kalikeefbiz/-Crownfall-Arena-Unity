@@ -160,6 +160,22 @@ if enc.exists():
     band = np.clip(foot * 1.6, 0, 1)
     result[:, :, :3] *= (1 - .42 * band)[:, :, None] * (1 + band[:, :, None] * np.array([-.06, .04, -.08])[None, None, :])
 
+# --- Top / combo lanes beyond the 3v3 barrier: the same worn route, seen through the forest windows.
+lane_src = np.fromfile(ROOT / 'public/assets/solrahn-v2/lane.bin', dtype='u1').reshape(meta['nz'], meta['nx']).astype(float)
+outer_lane = sample(gaussian_filter(lane_src, 1.2)[:, :, None], (x + 60) * 144 / 120, (z + 80) * 192 / 160)[:, :, 0]
+outer_lane = np.clip((outer_lane - .3) * 2.5, 0, 1) * smooth(29, 32, np.abs(x)) * (1 - .5 * smooth(-.5, 1, noise(5, 41)))
+for c in range(3):
+    result[:, :, c] = result[:, :, c] * (1 - .6 * outer_lane) + lane_colour[c] * lum(tiles[0][:, :, :3]) * .6 * outer_lane
+# --- Forest floor: darker, cooler ground under the tree masses.
+enc_json = ROOT / 'public/assets/solrahn-v2/enclosure-goal020.json'
+if enc_json.exists():
+    canopy = np.zeros((161, 121))
+    for tx, tz, th, _, _ in json.loads(enc_json.read_text())['trees']:
+        canopy[int(round(tz + 80)), int(round(tx + 60))] += th / 7
+    canopy = np.clip(gaussian_filter(canopy, 1.6) * 3.2, 0, 1)
+    canopy = sample(canopy[:, :, None], x + 60, z + 80)[:, :, 0]
+    result[:, :, :3] *= (1 - .38 * canopy)[:, :, None] * (1 + canopy[:, :, None] * np.array([-.08, .0, .05])[None, None, :])
+
 result[:, :, :3] = lin_to_srgb(result[:, :, :3])
 result[:, :, 3] = np.clip(np.rint(result[:, :, 3] * 32) / 32, .64, .98)
 dest = OUT / 'goal020_atlas.webp'
