@@ -60,11 +60,12 @@ jobs:
         run: npm run build
       - name: Record preview source
         env:
-          SOURCE_SHA: ${{ github.sha }}
           BRANCH: ${{ inputs.branch }}
+          RUN_ID: ${{ github.run_id }}
         run: |
           SRC=$(git rev-parse HEAD)
-          node -e 'require("fs").writeFileSync("dist/preview-source.json", JSON.stringify({source:process.argv[1],branch:process.argv[2],map:"solrahn-v2",productionReplaced:false,buildFlags:["VITE_DEVICE_PREVIEW=1","VITE_LANE_ENCLOSURE=1"]})+"\n")' "$SRC" "$BRANCH"
+          # The run id + time make every press a real commit, so GitHub Pages always rebuilds.
+          node -e 'require("fs").writeFileSync("dist/preview-source.json", JSON.stringify({source:process.argv[1],branch:process.argv[2],run:process.argv[3],published:new Date().toISOString(),map:"solrahn-v2",productionReplaced:false,buildFlags:["VITE_DEVICE_PREVIEW=1","VITE_LANE_ENCLOSURE=1"]})+"\n")' "$SRC" "$BRANCH" "$RUN_ID"
       - name: Check the site stays under the GitHub Pages 1 GB limit
         working-directory: .
         env:
