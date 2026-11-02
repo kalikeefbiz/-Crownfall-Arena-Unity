@@ -69,6 +69,8 @@ try {
         ['full-east-camp', 'middle-lane', 844, 390, [22, -38]],
         ['full-major', 'middle-lane', 844, 390, [-20, 4]],
         ['full-portrait-red', 'middle-lane', 390, 844, [0, -30]],
+        ['ruin-bridge', 'middle-lane', 390, 844, [13, 4]],
+        ['ruin-bridge-close', 'middle-lane', 844, 390, [13, 3], [17, 10, 8, 13, 3.5, 0]],
         ['stad-red-end', 'middle-lane', 844, 390, [0, -56]],
         ['stad-red-base-side', 'middle-lane', 844, 390, [12, -70]],
         ['stad-east-falls', 'middle-lane', 844, 390, [28, 6]],

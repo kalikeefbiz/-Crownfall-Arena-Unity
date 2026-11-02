@@ -356,14 +356,62 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
             }
         }
     }
-    // stepping stones: individual worn blocks standing out of the stream
+    // low crossing: a ruined bridge. The deck survives as cracked, uneven slabs (it is walked on, so no holes),
+    // the parapets are broken stubs, and fallen masonry lies in the stream on both sides.
     for (const [bx0, bx1, bz0, bz1, bh] of layout.bridges ?? []) {
         if (bh >= 3.9) continue;
-        for (let z = bz0 + 0.5; z < bz1 - 0.3; z += 1.15)
-            for (let x = bx0 + 0.6; x < bx1 - 0.3; x += 1.3) {
-                const t = hash(x * 3 + z * 5);
-                box(wall, x + 0.2 * (t - 0.5), bh - 0.9, z, 1.05, 1.9, 0.95, [0.62 + 0.1 * t, 0.57 + 0.08 * t, 0.48]);
+        const ROW = 0.92;
+        let row = 0;
+        for (let z = bz0 + 0.06; z < bz1 - 0.1; z += ROW, row++) {
+            const zl = Math.min(ROW - 0.07, bz1 - 0.06 - z);
+            // ragged outer edge: each row's ends crumble back a little
+            const l = bx0 + 0.12 + 0.32 * hash(row * 7.1),
+                r = bx1 - 0.12 - 0.32 * hash(row * 3.9 + 2);
+            const cuts = [l];
+            const n = 2 + (hash(row * 1.7) > 0.55 ? 1 : 0);
+            for (let c = 1; c < n; c++) cuts.push(l + ((r - l) * (c + 0.5 * (hash(row * 5 + c) - 0.5))) / n);
+            cuts.push(r);
+            for (let c = 0; c < n; c++) {
+                const t = hash(row * 11 + c * 3),
+                    w = cuts[c + 1] - cuts[c] - 0.07;
+                const top = bh + 0.07 + 0.05 * (t - 0.5) - (t > 0.82 ? 0.06 : 0); // a few sunken slabs
+                const tone = 0.8 + 0.28 * hash(row * 2 + c * 9);
+                box(wall, (cuts[c] + cuts[c + 1]) / 2, top - 0.24, z + zl / 2, w, 0.48, zl, [
+                    0.6 * tone,
+                    0.55 * tone,
+                    0.46 * tone
+                ]);
             }
+        }
+        // broken parapet stubs along both edges, outside the walkable strip
+        for (const e of [0, 1]) {
+            const x = e ? bx1 - 0.32 : bx0 + 0.32;
+            let k = 0;
+            for (let z = bz0 + 0.2; z < bz1 - 0.3; k++) {
+                const t = hash(k * 5.3 + e * 17),
+                    len = 0.55 + 0.8 * hash(k * 2.9 + e);
+                if (t > 0.35) {
+                    const hgt = 0.18 + 0.62 * hash(k * 8.1 + e * 3);
+                    box(wall, x, bh + 0.06 + hgt / 2, z + len / 2, 0.36, hgt, len, [0.7, 0.63, 0.5]);
+                    // a jagged top block on the taller stubs
+                    if (hgt > 0.5) box(wall, x + 0.04, bh + 0.06 + hgt + 0.1, z + len * 0.3, 0.3, 0.2, len * 0.45, [0.66, 0.6, 0.48]);
+                }
+                z += len + 0.25 + 0.5 * hash(k * 1.3 + e * 5);
+            }
+        }
+        // fallen masonry in the water beside the crossing
+        const wy = data.waterY;
+        for (let i = 0; i < 9; i++) {
+            const side = i % 2 ? 1 : -1;
+            const t = hash(i * 4.7 + 1),
+                u = hash(i * 9.3 + 2);
+            const x = side > 0 ? bx1 + 0.35 + 1.4 * t : bx0 - 0.35 - 1.4 * t;
+            const z = bz0 + 1.0 + (bz1 - bz0 - 2.0) * u;
+            const sx = 0.5 + 0.55 * hash(i * 3.1),
+                sz = 0.45 + 0.5 * hash(i * 6.2),
+                sy = 0.35 + 0.35 * hash(i * 1.9);
+            box(wall, x, wy - 0.1 + sy / 2, z, sx, sy, sz, [0.56, 0.52, 0.44]);
+        }
     }
     build(wall, vmat(0.16), 'kit-masonry', true);
     build(trim, vmat(0.3, new Color(0.14, 0.1, 0.03)), 'kit-brass-cap', true);
