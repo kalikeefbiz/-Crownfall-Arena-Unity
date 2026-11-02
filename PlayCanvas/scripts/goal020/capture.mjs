@@ -75,7 +75,7 @@ try {
     };
     const receipt = [];
     for (const [label, focus, w = 844, h = 390, custom] of views.filter(
-        (v) => !process.env.VIEW_FILTER || v[0].includes(process.env.VIEW_FILTER)
+        (v) => !process.env.VIEW_FILTER || process.env.VIEW_FILTER.split(',').some((f) => v[0].includes(f))
     )) {
         await page.setViewportSize({ width: w, height: h });
         if (label === 'six-character-combat')

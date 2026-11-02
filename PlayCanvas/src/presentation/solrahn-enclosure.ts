@@ -100,21 +100,21 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
         const base = bin.p.length / 3;
         const rx = r * (0.9 + hash(id * 3.1) * 0.35), rz = r * (0.9 + hash(id * 5.3) * 0.35);
         const rot = hash(id * 7.7) * 6.283, cr = Math.cos(rot), sr = Math.sin(rot);
-        const lowCol = [0.27, 0.31, 0.25], midCol = [0.5, 0.5, 0.44], hiCol = [0.64, 0.62, 0.54], moss = [0.3, 0.44, 0.2];
+        const lowCol = [0.07, 0.08, 0.075], midCol = [0.15, 0.155, 0.145], hiCol = [0.23, 0.23, 0.215], moss = [0.085, 0.12, 0.055];
         const tint = 0.9 + hash(id * 11.3) * 0.2 + tone * 0.08;
         ico.verts.forEach((u, vi) => {
-            const d = 0.8 + 0.4 * hash(id * 97 + vi * 13.7) + 0.16 * Math.sin(u[0] * 5 + id) * Math.cos(u[2] * 4 - id);
+            const d = 0.88 + 0.2 * hash(id * 97 + vi * 13.7) + 0.1 * Math.sin(u[0] * 3 + id) * Math.cos(u[2] * 2.5 - id);
             const lx = u[0] * rx * d, lz = u[2] * rz * d;
-            const y = Math.max(u[1] * hy * d, -hy * 0.2) + hy * 0.28; // buried base, rounded crown
+            const y = Math.max(u[1] * hy * d, -hy * 0.25) + hy * 0.15; // buried base, rounded crown
             const wx = x + lx * cr - lz * sr, wz = z + lx * sr + lz * cr;
             const wy = surface.height(wx, wz) + y - 0.35;
             bin.p.push(wx, Math.max(wy, ground - 0.4), wz);
             const t = Math.min(1, Math.max(0, (y + hy * 0.1) / (hy * 1.25)));
             let col = t < 0.5 ? mix(lowCol, midCol, t * 2) : mix(midCol, hiCol, (t - 0.5) * 2);
-            col = mix(col, moss, smooth(0.35, 0.9, u[1]) * (0.55 + 0.35 * hash(id * 17 + vi)));
+            col = mix(col, moss, smooth(0.35, 0.9, u[1]) * (0.3 + 0.35 * hash(id * 17 + vi)));
             bin.c.push(col[0] * tint, col[1] * tint, col[2] * tint, 1);
         });
-        for (const f of ico.faces) bin.i.push(base + f[0], base + f[2], base + f[1]);
+        for (const f of ico.faces) bin.i.push(base + f[0], base + f[1], base + f[2]);
         diagnostics.wallBoulders++;
     };
     // One boulder per ~1.8 m of wall; a second, taller crown boulder about a third of the time.
@@ -122,22 +122,30 @@ export function createSolrahnEnclosure(app: AppBase, parent: Entity, surface: So
     for (const [x0, z0, x1, z1, thickness, kind] of seg) {
         const len = Math.hypot(x1 - x0, z1 - z0);
         carry += len;
-        if (carry < 1.7) continue;
+        if (carry < 1.45) continue;
         carry = 0;
         const mx = (x0 + x1) / 2, mz = (z0 + z1) / 2, id = blobId + 1;
         const jitter = (hash(id * 2.3) - 0.5) * 0.7;
-        const hy = (kind === 'lane' ? 2.1 : 1.7) * (0.8 + hash(id * 4.1) * 0.75);
-        blob(mx + jitter, mz, thickness * 0.6, hy, hash(id));
-        if (hash(id * 9.1) < 0.34) blob(mx - jitter * 0.8, mz + 0.8, thickness * 0.5, hy * 1.45, hash(id + 5));
+        const hy = (kind === 'lane' ? 1.55 : 1.35) * (0.8 + hash(id * 4.1) * 0.5);
+        blob(mx + jitter, mz, thickness * 0.72, hy, hash(id));
+        if (hash(id * 9.1) < 0.4) blob(mx - jitter * 0.8, mz + 0.7, thickness * 0.55, hy * 1.35, hash(id + 5));
     }
     let wallTriangles = 0;
     bins.forEach((b, i) => {
         if (!b.p.length) return;
+        // Faceted (unwelded) rock reads as cut stone at gameplay distance; smooth normals read as pillows.
+        const fp: number[] = [], fc: number[] = [], fi: number[] = [];
+        for (let k = 0; k < b.i.length; k++) {
+            const v = b.i[k];
+            fp.push(b.p[v * 3], b.p[v * 3 + 1], b.p[v * 3 + 2]);
+            fc.push(b.c[v * 4], b.c[v * 4 + 1], b.c[v * 4 + 2], 1);
+            fi.push(k);
+        }
         const mesh = new Mesh(app.graphicsDevice);
-        mesh.setPositions(b.p);
-        mesh.setNormals(calculateNormals(b.p, b.i));
-        mesh.setColors(b.c);
-        mesh.setIndices(b.i);
+        mesh.setPositions(fp);
+        mesh.setNormals(calculateNormals(fp, fi));
+        mesh.setColors(fc);
+        mesh.setIndices(fi);
         mesh.update();
         meshes.push(mesh);
         wallTriangles += b.i.length / 3;
