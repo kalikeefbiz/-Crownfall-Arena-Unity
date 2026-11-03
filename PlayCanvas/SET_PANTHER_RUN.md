@@ -16,3 +16,16 @@ Founder ask: Set (humanoid panther) should run like a panther, not with the supp
 - Suite: 263/264, the one failure is the known unrelated `solrahn-surface` weights re-encode issue.
 - Known limits of the proof: standing up into the upright guard is a quick blend (no dedicated stop/start), and the
   run does not yet speed up or slow down with the wilderness speed passive.
+
+## Revision: upright panther sprint (founder direction, 2026-11-02)
+Founder: he shouldn't run on all fours; a powerful, forward-leaning, digitigrade bipedal sprint with feline weight
+transfer keeps his humanoid combat identity, with a quadrupedal burst saved for a special movement ability.
+
+- Set's run is now `PantherSprint` (0.44 s stride, both feet): torso pitched ~45-65 deg forward from the hips, head
+  kept level; running on the balls of the feet with heels never down; sinking through each mid-stance and springing
+  into a flight phase; hips sway over the planted leg and turn with the swinging leg while the shoulders counter-rotate;
+  clawed hands carried forward and low (fingers open, claws spread) swinging against the legs; tail streaming back as a
+  counterweight with one wave per stride. Stance foot travel matches 6 m/s.
+- The four-legged bound is kept as `PantherBurst` (registered, unused) for a future quadrupedal movement ability.
+- Compare: `?setRun=burst` (four-legged), `?setRun=human` (supplied clip).
+- Review frames: `evidence/summoners/set-panther-sprint-sheet.png`; the bound: `set-panther-run-sheet.png`.

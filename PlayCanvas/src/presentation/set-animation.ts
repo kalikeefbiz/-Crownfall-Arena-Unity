@@ -2,7 +2,7 @@ import { AnimCurve, AnimData, AnimSnapshot, AnimTrack } from 'playcanvas';
 import type { Entity } from 'playcanvas';
 
 import { inPlaceKitTrack } from './kit-animation';
-import { bakePantherRun, PANTHER_RUN } from './set-panther-run';
+import { bakePantherRun, PANTHER_BURST, PANTHER_SPRINT } from './set-panther-run';
 
 export const SET_CLIPS = ['Running', 'Walking', 'Punch_Combo', 'RunFast'] as const;
 // The opening supplied punch frame is a grounded combat-ready stance. Sample it
@@ -24,11 +24,10 @@ export function sampledSetReady(track: AnimTrack) {
     return ready;
 }
 
-// ?setRun=human keeps the supplied upright Running clip for side-by-side comparison.
-export const SET_RUN_STATE =
-    typeof location !== 'undefined' && new URLSearchParams(location.search).get('setRun') === 'human'
-        ? 'Running'
-        : PANTHER_RUN;
+// Set runs with the upright panther sprint. For comparison: ?setRun=human (supplied clip), ?setRun=burst (four-legged
+// bound, reserved for a future special movement ability).
+const runQuery = typeof location !== 'undefined' ? new URLSearchParams(location.search).get('setRun') : null;
+export const SET_RUN_STATE = runQuery === 'human' ? 'Running' : runQuery === 'burst' ? PANTHER_BURST : PANTHER_SPRINT;
 
 export class SetAnimationState {
     active = 'Ready';
@@ -60,17 +59,18 @@ export function attachSetAnimations(model: Entity, tracks: AnimTrack[]) {
             reference.z
         )
     );
-    const panther = bakePantherRun(model, ready);
+    const sprint = bakePantherRun(model, ready, PANTHER_SPRINT);
+    const burst = bakePantherRun(model, ready, PANTHER_BURST);
     model.addComponent('anim', { activate: true });
-    for (const track of [ready, running, panther]) model.anim!.addAnimationState(track.name, track, 1, true);
+    for (const track of [ready, running, sprint, burst]) model.anim!.addAnimationState(track.name, track, 1, true);
     model.anim!.baseLayer!.play('Ready');
     model.anim!.update(0);
     return {
         clips: tracks.map((track) => ({ name: track.name, duration: track.duration })),
-        registeredStates: ['Ready', 'Running', PANTHER_RUN],
+        registeredStates: ['Ready', 'Running', PANTHER_SPRINT, PANTHER_BURST],
         runningClip: SET_RUN_STATE,
         locomotionReason:
-            'PantherRun: four-legged bound baked in code on the Set skeleton; ?setRun=human restores Running',
+            'PantherSprint: upright digitigrade sprint baked in code on the Set skeleton; PantherBurst (four-legged) reserved; ?setRun=human|burst to compare',
         readySource: SET_READY_SOURCE,
         readyTime: SET_READY_TIME
     };

@@ -4,7 +4,7 @@ import { chromium } from '@playwright/test';
 import { writeFile, mkdir } from 'node:fs/promises';
 const url = process.env.CAPTURE_URL || 'http://127.0.0.1:4182/';
 const name = process.env.CAPTURE_NAME || 'set-run';
-const state = process.env.SET_STATE || 'PantherRun';
+const state = process.env.SET_STATE || 'PantherSprint';
 const out = process.env.OUT_DIR || 'evidence/summoners';
 await mkdir(out, { recursive: true });
 const browser = await chromium.launch({
@@ -40,6 +40,27 @@ try {
         return { states: model.anim.baseLayer.states, duration: model.anim.baseLayer.activeStateDuration };
     });
     console.log('states', JSON.stringify(info));
+    if (process.env.DEBUG_POSE)
+        console.log(
+            await page.evaluate((state) => {
+                const pivot = window.__reviewApp.root.find((e) => e.name === 'Set-3D-facing' && e.children[0]?.anim)[0];
+                const m = pivot.children[0];
+                m.anim.baseLayer.play(state);
+                m.anim.baseLayer.activeStateCurrentTime = 0.1;
+                m.anim.update(0);
+                const g = (n) => m.findByName(n);
+                return JSON.stringify({
+                    active: m.anim.baseLayer.activeState,
+                    hips: g('mixamorig:Hips').getLocalPosition().toArray(),
+                    spine2: g('mixamorig:Spine2').getLocalEulerAngles().toArray(),
+                    world: ['mixamorig:Hips', 'mixamorig:Spine', 'mixamorig:Spine2', 'mixamorig:Neck', 'mixamorig:Head'].map((n) => {
+                        const inv = m.getWorldTransform().clone().invert();
+                        return inv.transformPoint(g(n).getPosition()).toArray().map((v) => +v.toFixed(3));
+                    }),
+                    track: m.anim.baseLayer._controller._states?.[state]?._animationList?.[0]?.animTrack?.duration
+                });
+            }, state)
+        );
     const views = (process.env.VIEWS || 'side,quarter,game').split(',');
     const frames = Number(process.env.FRAMES || 6);
     for (const view of views)

@@ -1,20 +1,24 @@
 import { AnimCurve, AnimData, AnimTrack, Mat4, Quat, Vec3 } from 'playcanvas';
 import type { Entity, GraphNode } from 'playcanvas';
 
-// Set's four-legged panther run, generated in code on Set's own skeleton (no new asset).
+// Set's panther locomotion, generated in code on Set's own skeleton (no new asset). Two gaits:
 //
-// The supplied clips are upright human runs. This builds a low, bounding big-cat gait instead: the body drops and the
-// spine runs near level, the arms become forelegs with elbows back and paws planted flat, the hind legs work in a deep
-// crouch on their toes, the spine flexes and stretches with each bound, the head stays level and the tail counters.
+// - PantherSprint (his run): an upright, forward-leaning, digitigrade sprint. He stays on two legs (his humanoid combat
+//   identity) but moves like a cat: running on the balls of his feet with heels never down, sinking low through each
+//   stance and springing into a flight phase, hips swaying over the planted leg and turning with the stride while the
+//   shoulders counter-rotate, clawed hands carried forward and low, tail streaming back as a counterweight.
+// - PantherBurst: a four-legged half-bound (body low, arms as forelegs, spine flexing and stretching per bound). Kept
+//   for a future quadrupedal special movement ability; not used for ordinary running.
 //
 // It is baked ONCE when the model loads: for each sample the skeleton is posed with simple two-bone IK in the model's
 // bind space (forward +Z, up +Y, bind units), every animated bone's local rotation is read back, and the samples become
 // an ordinary AnimTrack. At runtime it costs the same as any other clip.
 
-export const PANTHER_RUN = 'PantherRun';
-// One stride. Paw travel during stance is matched to the game's 6 m/s run so planted paws do not skate.
-export const PANTHER_CYCLE = 0.34;
-const SAMPLES = 34;
+export const PANTHER_SPRINT = 'PantherSprint';
+export const PANTHER_BURST = 'PantherBurst';
+// One full stride (both feet). Foot travel during stance is matched to the game's 6 m/s run so planted feet do not skate.
+export const PANTHER_CYCLE = { [PANTHER_SPRINT]: 0.44, [PANTHER_BURST]: 0.34 } as const;
+type Gait = keyof typeof PANTHER_CYCLE;
 
 const B = {
     hips: 'mixamorig:Hips',
@@ -84,7 +88,12 @@ function ik(root: Vec3, target: Vec3, l1: number, l2: number, pole: Vec3) {
     };
 }
 
-export function bakePantherRun(model: Entity, ready: AnimTrack) {
+const rotY = (deg: number) => new Quat().setFromEulerAngles(0, deg, 0);
+const yawPitch = (yaw: number, pitch: number) => new Quat().mul2(rotY(yaw), rotX(pitch));
+
+export function bakePantherRun(model: Entity, ready: AnimTrack, gait: Gait = PANTHER_SPRINT) {
+    const SAMPLES = gait === PANTHER_SPRINT ? 32 : 34;
+    const CYCLE = PANTHER_CYCLE[gait];
     // Pose in clean bind space: identity root, every node at its bind transform.
     const savedPos = model.getLocalPosition().clone(),
         savedScale = model.getLocalScale().clone(),
@@ -159,14 +168,111 @@ export function bakePantherRun(model: Entity, ready: AnimTrack) {
     for (const s of ['Left', 'Right'] as const)
         for (const p of ['Shoulder', 'Arm', 'ForeArm', 'Hand', 'UpLeg', 'Leg', 'Foot', 'ToeBase'])
             animated.add(side(s, p));
+    // fingers held open (claws spread) instead of the punch frame's fist
+    for (const s of ['Left', 'Right'] as const)
+        for (const f of ['Thumb', 'Middle', 'Ring', 'Pinky'])
+            for (const j of [1, 2, 3]) if (rest.has(side(s, `Hand${f}${j}`))) animated.add(side(s, `Hand${f}${j}`));
     const samples = new Map<string, number[]>();
     for (const n of animated) samples.set(n, []);
     const hipPos: number[] = [];
+
+    const record = () => {
+        for (const n of animated) {
+            const q = R(n).node.getLocalRotation();
+            const arr = samples.get(n)!;
+            const at = arr.length;
+            // keep quaternion sign continuous so interpolation takes the short way
+            if (at >= 4 && arr[at - 4] * q.x + arr[at - 3] * q.y + arr[at - 2] * q.z + arr[at - 1] * q.w < 0)
+                arr.push(-q.x, -q.y, -q.z, -q.w);
+            else arr.push(q.x, q.y, q.z, q.w);
+        }
+        const hp = R(B.hips).node.getLocalPosition();
+        hipPos.push(hp.x, hp.y, hp.z);
+    };
+    const handAim = (s: 'Left' | 'Right', dir: Vec3, thumbRef: Vec3) => {
+        const hand = R(side(s, 'Hand'));
+        const mid = R(side(s, 'HandMiddle1')).pos,
+            thumb = R(side(s, 'HandThumb1')).pos;
+        aim(side(s, 'Hand'), sub(mid, hand.pos), sub(thumb, hand.pos), dir, thumbRef);
+    };
+    const tailEnd = () => {
+        const parent = R(B.tail[B.tail.length - 2]);
+        turn(B.tail[B.tail.length - 1], new Quat().mul2(parent.node.getRotation(), parent.rot.clone().invert()));
+    };
+
+    // Upright sprint: one leg cycle per stride, left foot strikes at phase 0, right at 0.5.
+    const SDUTY = 0.34,
+        SREACH = 0.4;
+    const stride = (phase: number, off: number) => {
+        const p = (((phase - off) % 1) + 1) % 1;
+        if (p < SDUTY) return { z: SREACH * (1 - (2 * p) / SDUTY), y: 0, swing: 0 };
+        const s = (p - SDUTY) / (1 - SDUTY);
+        // swing: heel kicks up under the hip first, then the foot reaches forward and drops for the next strike
+        return {
+            z: -SREACH + 2 * SREACH * smooth(Math.min(1, s * 1.08)),
+            y: 0.32 * Math.sin(Math.PI * s) ** 0.8 * (1 - 0.35 * s),
+            swing: Math.sin(Math.PI * s)
+        };
+    };
+    const sprintPose = (phase: number) => {
+        const w = 2 * Math.PI * phase;
+        // compression at each mid-stance (phase 0.17 / 0.67), lift through the flight phases between
+        const sink = Math.cos(2 * (w - 2 * Math.PI * (SDUTY / 2)));
+        const sway = Math.cos(w - 2 * Math.PI * (SDUTY / 2)); // +1 over the planted left leg, -1 over the right
+        const yaw = -9 * Math.cos(w - 2 * Math.PI * (0.5 + SDUTY / 2)); // pelvis turns with the swinging leg
+        R(B.hips).node.setPosition(hipRest.x + 0.03 * sway, 0.97 - 0.045 * sink, hipRest.z + 0.02);
+        turn(B.hips, yawPitch(yaw, 36 + 2 * sink));
+        const lean = [52, 60, 66];
+        B.spine.forEach((n, i) => turn(n, yawPitch(yaw * (1 - i * 0.9), lean[i] + 3 * sink)));
+        turn(B.neck, yawPitch(-yaw * 0.6, 30));
+        turn(B.head, yawPitch(0, 0 - 2 * sink));
+
+        for (const s of ['Left', 'Right'] as const) {
+            const sx = s === 'Left' ? 1 : -1;
+            const up = R(side(s, 'UpLeg')).node.getPosition();
+            const f = stride(phase, s === 'Left' ? 0 : 0.5);
+            // ball of the foot contacts; the heel stays high behind it (digitigrade)
+            const toe = v3(up.x - sx * 0.005, toeY + f.y, hipRest.z + 0.08 + f.z);
+            const ankle = toe.clone().add(v3(0, 0.16 - 0.03 * f.swing, -0.09 - 0.05 * f.swing));
+            const pole = v3(sx * 0.15, 0, 1);
+            const knee = ik(up, ankle, legL1, legL2, pole);
+            aim(side(s, 'UpLeg'), side(s, 'Leg'), FWD, sub(knee.joint, up), pole);
+            aim(side(s, 'Leg'), side(s, 'Foot'), FWD, sub(knee.end, knee.joint), v3(sx * 0.1, 0, 1));
+            aim(side(s, 'Foot'), side(s, 'ToeBase'), X, sub(toe, knee.end), X);
+            aim(side(s, 'ToeBase'), side(s, 'Toe_End'), X, v3(0, -0.12 - 1.4 * f.swing, 1), X);
+
+            // arms swing against the legs, carried forward and low with the claws out
+            const swingA = -sx * Math.cos(w);
+            const sh = R(side(s, 'Arm')).node.getPosition();
+            const wrist = sh.clone().add(v3(sx * 0.05, -0.3 + 0.07 * swingA, 0.2 + 0.2 * swingA));
+            const ePole = v3(sx * 0.7, 0, -1);
+            const elbow = ik(sh, wrist, armL1, armL2, ePole);
+            aim(side(s, 'Arm'), side(s, 'ForeArm'), BACK, sub(elbow.joint, sh), ePole);
+            aim(side(s, 'ForeArm'), side(s, 'Hand'), BACK, sub(elbow.end, elbow.joint), v3(sx * 0.3, 0.3, -1));
+            handAim(s, v3(0, -0.45, 1), v3(-sx, 0.4, 0));
+        }
+        // tail streams back, a little above level, waving once per stride as a counterweight
+        for (let i = 0; i < B.tail.length - 1; i++)
+            aim(
+                B.tail[i],
+                B.tail[i + 1],
+                X,
+                v3(0.24 * Math.sin(w + 0.6 + i * 0.8), 0.02 + 0.16 * i + 0.05 * sink, -1),
+                X
+            );
+        tailEnd();
+        B.sash.forEach((n, i) => turn(n, rotX((i >= 6 ? 34 : 24) + 7 * Math.sin(w * 2 + i))));
+    };
 
     for (let k = 0; k <= SAMPLES; k++) {
         const phase = (k % SAMPLES) / SAMPLES;
         restoreBind();
         const w = 2 * Math.PI * phase;
+        if (gait === PANTHER_SPRINT) {
+            sprintPose(phase);
+            record();
+            continue;
+        }
         // Spine flexes (arches) as the hind legs swing under, stretches as the forelegs reach out.
         const flex = Math.cos(w - 2 * Math.PI * 0.2);
         const bob = 0.03 * Math.cos(2 * w - 0.6);
@@ -222,17 +328,7 @@ export function bakePantherRun(model: Entity, ready: AnimTrack) {
         // Sash strips keep hanging with gravity instead of tilting with the pelvis; a little flutter.
         B.sash.forEach((n, i) => turn(n, rotX((i >= 6 ? 40 : 16) + 6 * Math.sin(w * 2 + i))));
 
-        for (const n of animated) {
-            const q = R(n).node.getLocalRotation();
-            const arr = samples.get(n)!;
-            const at = arr.length;
-            // keep quaternion sign continuous so interpolation takes the short way
-            if (at >= 4 && arr[at - 4] * q.x + arr[at - 3] * q.y + arr[at - 2] * q.z + arr[at - 1] * q.w < 0)
-                arr.push(-q.x, -q.y, -q.z, -q.w);
-            else arr.push(q.x, q.y, q.z, q.w);
-        }
-        const hp = R(B.hips).node.getLocalPosition();
-        hipPos.push(hp.x, hp.y, hp.z);
+        record();
     }
     restoreBind();
     model.setLocalPosition(savedPos);
@@ -240,8 +336,8 @@ export function bakePantherRun(model: Entity, ready: AnimTrack) {
     model.setLocalRotation(savedRot);
 
     // Same curve layout as the Ready track; animated bones get the baked samples, everything else holds Ready.
-    const times = Array.from({ length: SAMPLES + 1 }, (_, k) => (k / SAMPLES) * PANTHER_CYCLE);
-    const inputs = [new AnimData(1, [0, PANTHER_CYCLE]), new AnimData(1, times)];
+    const times = Array.from({ length: SAMPLES + 1 }, (_, k) => (k / SAMPLES) * CYCLE);
+    const inputs = [new AnimData(1, [0, CYCLE]), new AnimData(1, times)];
     const outputs: AnimData[] = [];
     const curves: AnimCurve[] = [];
     let baked = 0;
@@ -262,5 +358,5 @@ export function bakePantherRun(model: Entity, ready: AnimTrack) {
         }
     });
     if (baked < animated.size) throw new Error(`Set panther run: only ${baked} of ${animated.size + 1} curves bound`);
-    return new AnimTrack(PANTHER_RUN, PANTHER_CYCLE, inputs, outputs, curves);
+    return new AnimTrack(gait, CYCLE, inputs, outputs, curves);
 }
