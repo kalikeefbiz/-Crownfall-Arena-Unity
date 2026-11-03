@@ -60,7 +60,7 @@ export function createSetModel(
         source,
         clips: [] as { name: string; duration: number }[],
         registeredStates: [] as string[],
-        runningClip: 'Running' as const,
+        runningClip: 'Running' as string,
         locomotionReason: '',
         readySource: '',
         readyTime: 0,
@@ -161,7 +161,7 @@ export function createSetModel(
             if (model?.anim) {
                 model.anim.playing = selected && !player.dead && sim.match?.phase !== 'results';
                 if (transition || model.anim.baseLayer!.activeState !== animation.active)
-                    model.anim.baseLayer!.transition(animation.active, 0.12);
+                    model.anim.baseLayer!.transition(animation.active, 0.2);
             }
         },
         snapshot() {

@@ -2,6 +2,7 @@ import { AnimCurve, AnimData, AnimSnapshot, AnimTrack } from 'playcanvas';
 import type { Entity } from 'playcanvas';
 
 import { inPlaceKitTrack } from './kit-animation';
+import { bakePantherRun, PANTHER_RUN } from './set-panther-run';
 
 export const SET_CLIPS = ['Running', 'Walking', 'Punch_Combo', 'RunFast'] as const;
 // The opening supplied punch frame is a grounded combat-ready stance. Sample it
@@ -23,13 +24,19 @@ export function sampledSetReady(track: AnimTrack) {
     return ready;
 }
 
+// ?setRun=human keeps the supplied upright Running clip for side-by-side comparison.
+export const SET_RUN_STATE =
+    typeof location !== 'undefined' && new URLSearchParams(location.search).get('setRun') === 'human'
+        ? 'Running'
+        : PANTHER_RUN;
+
 export class SetAnimationState {
     active = 'Ready';
     reset() {
         this.active = 'Ready';
     }
     update(moving: boolean, alive: boolean) {
-        const next = moving && alive ? 'Running' : 'Ready';
+        const next = moving && alive ? SET_RUN_STATE : 'Ready';
         const changed = next !== this.active;
         this.active = next;
         return changed;
@@ -53,15 +60,17 @@ export function attachSetAnimations(model: Entity, tracks: AnimTrack[]) {
             reference.z
         )
     );
+    const panther = bakePantherRun(model, ready);
     model.addComponent('anim', { activate: true });
-    for (const track of [ready, running]) model.anim!.addAnimationState(track.name, track, 1, true);
+    for (const track of [ready, running, panther]) model.anim!.addAnimationState(track.name, track, 1, true);
     model.anim!.baseLayer!.play('Ready');
     model.anim!.update(0);
     return {
         clips: tracks.map((track) => ({ name: track.name, duration: track.duration })),
-        registeredStates: ['Ready', 'Running'],
-        runningClip: 'Running' as const,
-        locomotionReason: 'Running selected; RunFast intentionally excluded',
+        registeredStates: ['Ready', 'Running', PANTHER_RUN],
+        runningClip: SET_RUN_STATE,
+        locomotionReason:
+            'PantherRun: four-legged bound baked in code on the Set skeleton; ?setRun=human restores Running',
         readySource: SET_READY_SOURCE,
         readyTime: SET_READY_TIME
     };

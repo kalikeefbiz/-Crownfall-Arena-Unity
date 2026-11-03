@@ -82,8 +82,8 @@
   "laneInteriorMinDirt": 0.95,
   "files": {
     "weights.png": {
-      "sha256": "c4fd3c2387ed1e8cf3e53ced393644f04676a4ddc16d0943a6af1f1721c716b5",
-      "bytes": 746804
+      "sha256": "9f25b3032cd904a52e63ffadd8787c890120ebef9618e0281d81a5cb4e0b6d5d",
+      "bytes": 742490
     }
   }
 }
