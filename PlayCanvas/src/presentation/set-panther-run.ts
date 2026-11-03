@@ -17,7 +17,7 @@ import type { Entity, GraphNode } from 'playcanvas';
 export const PANTHER_SPRINT = 'PantherSprint';
 export const PANTHER_BURST = 'PantherBurst';
 // One full stride (both feet). Foot travel during stance is matched to the game's 6 m/s run so planted feet do not skate.
-export const PANTHER_CYCLE = { [PANTHER_SPRINT]: 0.44, [PANTHER_BURST]: 0.34 } as const;
+export const PANTHER_CYCLE = { [PANTHER_SPRINT]: 0.66, [PANTHER_BURST]: 0.34 } as const;
 type Gait = keyof typeof PANTHER_CYCLE;
 
 const B = {
@@ -168,10 +168,11 @@ export function bakePantherRun(model: Entity, ready: AnimTrack, gait: Gait = PAN
     for (const s of ['Left', 'Right'] as const)
         for (const p of ['Shoulder', 'Arm', 'ForeArm', 'Hand', 'UpLeg', 'Leg', 'Foot', 'ToeBase'])
             animated.add(side(s, p));
-    // fingers held open (claws spread) instead of the punch frame's fist
-    for (const s of ['Left', 'Right'] as const)
-        for (const f of ['Thumb', 'Middle', 'Ring', 'Pinky'])
-            for (const j of [1, 2, 3]) if (rest.has(side(s, `Hand${f}${j}`))) animated.add(side(s, `Hand${f}${j}`));
+    // burst: fingers held open (paws spread) instead of the punch frame's fist; the sprint keeps the fists
+    if (gait === PANTHER_BURST)
+        for (const s of ['Left', 'Right'] as const)
+            for (const f of ['Thumb', 'Middle', 'Ring', 'Pinky'])
+                for (const j of [1, 2, 3]) if (rest.has(side(s, `Hand${f}${j}`))) animated.add(side(s, `Hand${f}${j}`));
     const samples = new Map<string, number[]>();
     for (const n of animated) samples.set(n, []);
     const hipPos: number[] = [];
@@ -201,67 +202,71 @@ export function bakePantherRun(model: Entity, ready: AnimTrack, gait: Gait = PAN
     };
 
     // Upright sprint: one leg cycle per stride, left foot strikes at phase 0, right at 0.5.
-    const SDUTY = 0.34,
-        SREACH = 0.4;
+    // Upright sprint, matched to the founder's 2D run cycle: torso driven far forward over a deep, lunging stride on the
+    // balls of the feet; fists pumping like a fighter (one driven out at shoulder height, the other pulled back to the
+    // hip); tail raised high and hooked over in a C; sash streaming straight back. Left foot strikes at 0, right at 0.5.
+    const SDUTY = 0.28,
+        SREACH = 0.5;
     const stride = (phase: number, off: number) => {
         const p = (((phase - off) % 1) + 1) % 1;
         if (p < SDUTY) return { z: SREACH * (1 - (2 * p) / SDUTY), y: 0, swing: 0 };
         const s = (p - SDUTY) / (1 - SDUTY);
-        // swing: heel kicks up under the hip first, then the foot reaches forward and drops for the next strike
+        // swing: the foot leaves the ground far behind, the knee drives up under the chest, then reaches out to land
         return {
-            z: -SREACH + 2 * SREACH * smooth(Math.min(1, s * 1.08)),
-            y: 0.32 * Math.sin(Math.PI * s) ** 0.8 * (1 - 0.35 * s),
+            z: -SREACH + 2 * SREACH * smooth(Math.min(1, s * 1.1)),
+            y: 0.4 * Math.sin(Math.PI * s) ** 0.7 * (1 - 0.4 * s),
             swing: Math.sin(Math.PI * s)
         };
     };
+    const mixV = (a: Vec3, b: Vec3, t: number) => new Vec3().lerp(a, b, t);
     const sprintPose = (phase: number) => {
         const w = 2 * Math.PI * phase;
-        // compression at each mid-stance (phase 0.17 / 0.67), lift through the flight phases between
+        // compression at each mid-stance (0.15 / 0.65), lift through the flight phases between
         const sink = Math.cos(2 * (w - 2 * Math.PI * (SDUTY / 2)));
         const sway = Math.cos(w - 2 * Math.PI * (SDUTY / 2)); // +1 over the planted left leg, -1 over the right
-        const yaw = -9 * Math.cos(w - 2 * Math.PI * (0.5 + SDUTY / 2)); // pelvis turns with the swinging leg
-        R(B.hips).node.setPosition(hipRest.x + 0.03 * sway, 0.97 - 0.045 * sink, hipRest.z + 0.02);
-        turn(B.hips, yawPitch(yaw, 36 + 2 * sink));
-        const lean = [52, 60, 66];
+        const yaw = -8 * Math.cos(w - 2 * Math.PI * (0.5 + SDUTY / 2)); // pelvis turns with the swinging leg
+        R(B.hips).node.setPosition(hipRest.x + 0.025 * sway, 0.82 - 0.05 * sink, hipRest.z);
+        turn(B.hips, yawPitch(yaw, 44 + 2 * sink));
+        const lean = [62, 72, 78];
         B.spine.forEach((n, i) => turn(n, yawPitch(yaw * (1 - i * 0.9), lean[i] + 3 * sink)));
-        turn(B.neck, yawPitch(-yaw * 0.6, 30));
-        turn(B.head, yawPitch(0, 0 - 2 * sink));
+        turn(B.neck, yawPitch(-yaw * 0.6, 44));
+        turn(B.head, yawPitch(0, 12 - 2 * sink));
 
         for (const s of ['Left', 'Right'] as const) {
             const sx = s === 'Left' ? 1 : -1;
             const up = R(side(s, 'UpLeg')).node.getPosition();
             const f = stride(phase, s === 'Left' ? 0 : 0.5);
             // ball of the foot contacts; the heel stays high behind it (digitigrade)
-            const toe = v3(up.x - sx * 0.005, toeY + f.y, hipRest.z + 0.08 + f.z);
-            const ankle = toe.clone().add(v3(0, 0.16 - 0.03 * f.swing, -0.09 - 0.05 * f.swing));
-            const pole = v3(sx * 0.15, 0, 1);
+            const toe = v3(up.x - sx * 0.01, toeY + f.y, hipRest.z + 0.06 + f.z);
+            const ankle = toe.clone().add(v3(0, 0.17 - 0.03 * f.swing, -0.09 - 0.06 * f.swing));
+            const pole = v3(sx * 0.2, 0, 1);
             const knee = ik(up, ankle, legL1, legL2, pole);
             aim(side(s, 'UpLeg'), side(s, 'Leg'), FWD, sub(knee.joint, up), pole);
             aim(side(s, 'Leg'), side(s, 'Foot'), FWD, sub(knee.end, knee.joint), v3(sx * 0.1, 0, 1));
             aim(side(s, 'Foot'), side(s, 'ToeBase'), X, sub(toe, knee.end), X);
             aim(side(s, 'ToeBase'), side(s, 'Toe_End'), X, v3(0, -0.12 - 1.4 * f.swing, 1), X);
 
-            // arms swing against the legs, carried forward and low with the claws out
-            const swingA = -sx * Math.cos(w);
+            // fists pump against the legs: driven forward at shoulder height <-> pulled back to the hip, elbow high
+            const t = smooth((1 - sx * Math.cos(w)) / 2); // 1 = this fist fully forward (left fist forward at phase 0.5)
             const sh = R(side(s, 'Arm')).node.getPosition();
-            const wrist = sh.clone().add(v3(sx * 0.05, -0.3 + 0.07 * swingA, 0.2 + 0.2 * swingA));
-            const ePole = v3(sx * 0.7, 0, -1);
+            const wrist = sh.clone().add(mixV(v3(sx * 0.1, -0.3, -0.12), v3(-sx * 0.04, -0.08, 0.44), t));
+            const ePole = mixV(v3(sx * 0.3, 0.4, -1), v3(sx * 0.6, -1, 0), t);
             const elbow = ik(sh, wrist, armL1, armL2, ePole);
             aim(side(s, 'Arm'), side(s, 'ForeArm'), BACK, sub(elbow.joint, sh), ePole);
-            aim(side(s, 'ForeArm'), side(s, 'Hand'), BACK, sub(elbow.end, elbow.joint), v3(sx * 0.3, 0.3, -1));
-            handAim(s, v3(0, -0.45, 1), v3(-sx, 0.4, 0));
+            aim(side(s, 'ForeArm'), side(s, 'Hand'), BACK, sub(elbow.end, elbow.joint), ePole);
+            handAim(s, sub(elbow.end, elbow.joint), v3(0, 1, 0));
         }
-        // tail streams back, a little above level, waving once per stride as a counterweight
-        for (let i = 0; i < B.tail.length - 1; i++)
-            aim(
-                B.tail[i],
-                B.tail[i + 1],
-                X,
-                v3(0.24 * Math.sin(w + 0.6 + i * 0.8), 0.02 + 0.16 * i + 0.05 * sink, -1),
-                X
-            );
+        // tail raised high and hooked over in a C, with a little whip each stride
+        const curl = [v3(0, 0.3, -1), v3(0, 0.9, -0.8), v3(0, 1, 0.15), v3(0, 0.35, 1)];
+        for (let i = 0; i < B.tail.length - 1; i++) {
+            const d = curl[i].clone();
+            d.x += 0.18 * Math.sin(w + 0.6 + i * 0.8);
+            d.y += 0.12 * sink * (i === 0 ? 1 : 0);
+            aim(B.tail[i], B.tail[i + 1], X, d, X);
+        }
         tailEnd();
-        B.sash.forEach((n, i) => turn(n, rotX((i >= 6 ? 34 : 24) + 7 * Math.sin(w * 2 + i))));
+        // sash streams straight back in the wind
+        B.sash.forEach((n, i) => turn(n, rotX((i >= 6 ? 66 : 74) + 8 * Math.sin(w * 2 + i * 1.3))));
     };
 
     for (let k = 0; k <= SAMPLES; k++) {

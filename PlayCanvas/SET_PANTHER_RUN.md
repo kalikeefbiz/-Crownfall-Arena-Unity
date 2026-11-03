@@ -29,3 +29,10 @@ transfer keeps his humanoid combat identity, with a quadrupedal burst saved for 
 - The four-legged bound is kept as `PantherBurst` (registered, unused) for a future quadrupedal movement ability.
 - Compare: `?setRun=burst` (four-legged), `?setRun=human` (supplied clip).
 - Review frames: `evidence/summoners/set-panther-sprint-sheet.png`; the bound: `set-panther-run-sheet.png`.
+
+## Revision 2: matched to the founder's 2D run cycle (2026-11-02)
+Reference: the 8-frame Set run from the 2D build (`Crownfall-Browser-V21-Reference`, `src/character-visuals.js`:
+run 8 frames at 12 fps = 0.667 s). Sprint now: cycle 0.66 s, torso driven far forward (hips 44, spine 62-78 deg),
+deep lunging stride (reach 0.5, duty 0.28, hips 0.82), fists pumping like a fighter (one driven out at shoulder height,
+the other pulled back to the hip, elbow high; fists kept, not open claws), tail raised and hooked over in a C, sash
+streaming straight back. Frames: `evidence/summoners/set-panther-sprint-sheet.png` (8 frames, side + three-quarter).
