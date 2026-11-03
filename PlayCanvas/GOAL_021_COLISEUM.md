@@ -62,3 +62,14 @@ Founder iPhone check of the slice: 29.8–30 FPS, p95 36–38 ms, so the kit cos
 - Founder playtest (iPhone, Low): lane 59.8 FPS (p95 18 ms), Red-base forest edge 50.8 (p95 28), river bridge 47.7
   (p95 27). "Performance feels better." Out-of-bounds forest approved. Menu: keep the current concept painting
   (`public/assets/frontend/ucl-arena-menu.jpeg`); no live 3D backdrop. Stage 4 APPROVED.
+
+## Stage 5: polish (2026-11-02, approved plan)
+- Broadleaf trees rebuilt in the pines' faceted style: crowns are clusters of 20-face gems with one flat colour per face
+  (sun-lit facets), on a trunk that forks into limbs. Three shapes: round oak, tall poplar, wide flat-top. Same
+  placement, colours and draws; kit triangles 99.8k -> 92.9k.
+- Ground (`bake-kit.py`): anti-aliased mortar lines (were sub-pixel and aliased), gently bevelled stones, softer
+  grain; gold inlays anti-aliased. Grass: smoother field, the pixel speckle replaced by small stamped leaves and
+  flowers on an even scatter with soft drifts. Detail overlay grain roughly halved. Cliff tile 256 -> 512 px with
+  anti-aliased joints, a sunlit lip on each course and shade under it. Backlot scatter unchanged (RNG stream kept).
+- Texture download unchanged at ~458 KB (ground 427 -> 425 KB, cliff 12 -> 21 KB, detail 10 -> 3 KB).
+- Before/after: `evidence/021/polish-review-sheet.png` (`before-pol-*`, `after-pol-*`).

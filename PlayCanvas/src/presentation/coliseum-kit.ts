@@ -13,7 +13,7 @@ import type { AppBase } from 'playcanvas';
 
 import type { SolrahnV2 } from '../maps/solrahn-v2';
 
-import { blob, box, cone, geo, hash } from './coliseum-style-slice';
+import { blob, box, cone, geo, hash, lerp } from './coliseum-style-slice';
 import type { Geo } from './coliseum-style-slice';
 import { terrainTextures } from './terrain-textures';
 
@@ -147,7 +147,7 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
         anisotropy: 4
     });
     const detailTex = maps.load('detail.webp', true, { width: 256, height: 256, anisotropy: 2 });
-    const cliffTex = maps.load('cliff.webp', true, { width: 256, height: 256, anisotropy: 2 });
+    const cliffTex = maps.load('cliff.webp', true, { width: 512, height: 512, anisotropy: 2 });
     const groundMat = new StandardMaterial();
     groundMat.diffuseMap = groundTex.texture;
     groundMat.diffuseDetailMap = detailTex.texture;
@@ -313,7 +313,7 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
     // base discs: a ring of masonry around everything that is not the lane mouth
     for (const bz of [66, -66]) {
         const R = 10.33;
-        for (let a = 0; a < Math.PI * 2; ) {
+        for (let a = 0; a < Math.PI * 2;) {
             const x = Math.cos(a) * R,
                 z = bz + Math.sin(a) * R;
             const len = 0.95 + 0.6 * hash(a * 9 + bz);
@@ -394,7 +394,17 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
                     const hgt = 0.18 + 0.62 * hash(k * 8.1 + e * 3);
                     box(wall, x, bh + 0.06 + hgt / 2, z + len / 2, 0.36, hgt, len, [0.7, 0.63, 0.5]);
                     // a jagged top block on the taller stubs
-                    if (hgt > 0.5) box(wall, x + 0.04, bh + 0.06 + hgt + 0.1, z + len * 0.3, 0.3, 0.2, len * 0.45, [0.66, 0.6, 0.48]);
+                    if (hgt > 0.5)
+                        box(
+                            wall,
+                            x + 0.04,
+                            bh + 0.06 + hgt + 0.1,
+                            z + len * 0.3,
+                            0.3,
+                            0.2,
+                            len * 0.45,
+                            [0.66, 0.6, 0.48]
+                        );
                 }
                 z += len + 0.25 + 0.5 * hash(k * 1.3 + e * 5);
             }
@@ -441,50 +451,172 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
             );
         }
     };
-    const broad = (g: Geo, x: number, y: number, z: number, hgt: number, seed: number) => {
+    // Broadleaf trees in the pines' faceted style: crowns are clusters of low-poly gems (icosahedra, 20 faces) with one
+    // flat colour per face, on a trunk that forks into limbs. Three shapes: round oak, tall poplar, wide flat-top.
+    const ICO_V = (() => {
+        const t = (1 + Math.sqrt(5)) / 2;
+        return [
+            [-1, t, 0],
+            [1, t, 0],
+            [-1, -t, 0],
+            [1, -t, 0],
+            [0, -1, t],
+            [0, 1, t],
+            [0, -1, -t],
+            [0, 1, -t],
+            [t, 0, -1],
+            [t, 0, 1],
+            [-t, 0, -1],
+            [-t, 0, 1]
+        ].map((v) => v.map((c) => c / Math.hypot(...v)));
+    })();
+    const ICO_F = [
+        [0, 11, 5],
+        [0, 5, 1],
+        [0, 1, 7],
+        [0, 7, 10],
+        [0, 10, 11],
+        [1, 5, 9],
+        [5, 11, 4],
+        [11, 10, 2],
+        [10, 7, 6],
+        [7, 1, 8],
+        [3, 9, 4],
+        [3, 4, 2],
+        [3, 2, 6],
+        [3, 6, 8],
+        [3, 8, 9],
+        [4, 9, 5],
+        [2, 4, 11],
+        [6, 2, 10],
+        [8, 6, 7],
+        [9, 8, 1]
+    ];
+    const SUN = norm([-0.45, 0.8, 0.4]);
+    const gem = (g: Geo, c: V3, r: number, ry: number, low: number[], high: number[], seed: number) => {
+        const yaw = hash(seed * 1.9) * Math.PI * 2,
+            tilt = 0.35 * (hash(seed * 2.7) - 0.5);
+        const cy = Math.cos(yaw),
+            sy = Math.sin(yaw),
+            ct = Math.cos(tilt),
+            st = Math.sin(tilt);
+        const pts = ICO_V.map((v, i) => {
+            const d = 0.88 + 0.24 * hash(seed * 31 + i);
+            const x0 = v[0] * cy - v[2] * sy,
+                z0 = v[0] * sy + v[2] * cy;
+            const y1 = v[1] * ct - z0 * st,
+                z1 = v[1] * st + z0 * ct;
+            return [c[0] + x0 * r * d, c[1] + y1 * ry * d, c[2] + z1 * r * d];
+        });
+        ICO_F.forEach((f, k) => {
+            const [A, B, C] = f.map((i) => pts[i]);
+            const n = norm(cross(sub(B, A), sub(C, A)));
+            const t = Math.min(1, Math.max(0, 0.5 + 0.5 * n[1]));
+            const lit = 0.78 + 0.3 * Math.max(0, dot(n, SUN)) + 0.12 * (hash(seed * 7 + k) - 0.5);
+            const col = lerp(low, high, t).map((v) => v * lit);
+            const o = g.p.length / 3;
+            g.p.push(...A, ...B, ...C);
+            for (let q = 0; q < 3; q++) g.c.push(col[0], col[1], col[2], 1);
+            g.i.push(o, o + 1, o + 2);
+        });
+    };
+    const BARK = [0.26, 0.16, 0.1];
+    const broad = (gp: Geo, gb: Geo, x: number, y: number, z: number, hgt: number, seed: number) => {
         const pick = hash(seed * 3);
         const [low, high] =
             pick > 0.62
                 ? [
-                      [0.42, 0.11, 0.05],
-                      [0.92, 0.36, 0.14]
+                      [0.4, 0.1, 0.05],
+                      [0.9, 0.34, 0.13]
                   ]
                 : pick > 0.3
                   ? [
-                        [0.48, 0.3, 0.07],
-                        [0.98, 0.74, 0.28]
+                        [0.46, 0.28, 0.07],
+                        [0.96, 0.72, 0.27]
                     ]
                   : [
-                        [0.14, 0.25, 0.08],
-                        [0.46, 0.66, 0.24]
+                        [0.13, 0.24, 0.08],
+                        [0.44, 0.64, 0.23]
                     ];
-        const n = 3 + Math.floor(hash(seed * 4.7) * 2);
-        for (let k = 0; k < n; k++) {
-            const a = k * 2.3 + seed,
-                d = k === 0 ? 0 : hgt * (0.12 + 0.08 * hash(seed + k));
-            const s = k === 0 ? 0.27 : 0.15 + 0.06 * hash(seed * 2 + k);
-            blob(
-                g,
-                x + Math.cos(a) * d,
-                y + hgt * (k === 0 ? 0.66 : 0.5 + 0.12 * hash(seed + k * 3)),
-                z + Math.sin(a) * d,
-                hgt * s,
-                hgt * s * 0.85,
-                hgt * s,
+        const shape = hash(seed * 5.9);
+        const lean = [0.06 * (hash(seed * 4.1) - 0.5) * hgt, 0, 0.06 * (hash(seed * 6.3) - 0.5) * hgt];
+        const at = (dx: number, dy: number, dz: number, k = 1): V3 => [
+            x + dx + lean[0] * k,
+            y + dy,
+            z + dz + lean[2] * k
+        ];
+        const a0 = hash(seed * 8.3) * Math.PI * 2;
+        if (shape < 0.2) {
+            // poplar: straight trunk, a tall narrow crown of stacked gems
+            beam(gp, at(0, 0, 0, 0), at(0, hgt * 0.34, 0), hgt * 0.07, BARK);
+            [
+                [0.4, 0.17, 0.36],
+                [0.6, 0.2, 0.42],
+                [0.82, 0.14, 0.3]
+            ].forEach(([fy, fr, fry], k) =>
+                gem(
+                    gb,
+                    at(0.04 * hgt * Math.cos(a0 + k * 2.1), hgt * fy, 0.04 * hgt * Math.sin(a0 + k * 2.1)),
+                    hgt * fr,
+                    hgt * fry,
+                    low,
+                    high,
+                    seed * 3 + k
+                )
+            );
+        } else if (shape < 0.45) {
+            // flat-top: trunk forks into two spreading limbs under broad, flattened pads
+            const fork = at(0, hgt * 0.42, 0);
+            beam(gp, at(0, 0, 0, 0), fork, hgt * 0.075, BARK);
+            const tips: V3[] = [];
+            for (let k = 0; k < 2; k++) {
+                const a = a0 + k * Math.PI + 0.4 * (hash(seed + k) - 0.5);
+                const tip = at(Math.cos(a) * hgt * 0.26, hgt * 0.6, Math.sin(a) * hgt * 0.26);
+                beam(gp, fork, tip, hgt * 0.05, BARK);
+                tips.push(tip);
+            }
+            gem(gb, at(0, hgt * 0.7, 0), hgt * 0.3, hgt * 0.12, low, high, seed * 3);
+            tips.forEach((t, k) =>
+                gem(gb, [t[0], t[1] + hgt * 0.06, t[2]], hgt * 0.24, hgt * 0.1, low, high, seed * 3 + k + 1)
+            );
+        } else {
+            // round oak: trunk forks into three limbs, one big gem with smaller ones at the limb tips and on top
+            const fork = at(0, hgt * 0.38, 0);
+            beam(gp, at(0, 0, 0, 0), fork, hgt * 0.08, BARK);
+            gem(gb, at(0, hgt * 0.68, 0), hgt * 0.27, hgt * 0.23, low, high, seed * 3);
+            for (let k = 0; k < 3; k++) {
+                const a = a0 + (k * Math.PI * 2) / 3 + 0.5 * (hash(seed * 2 + k) - 0.5);
+                const tip = at(
+                    Math.cos(a) * hgt * 0.2,
+                    hgt * (0.58 + 0.06 * hash(seed + k * 5)),
+                    Math.sin(a) * hgt * 0.2
+                );
+                beam(gp, fork, tip, hgt * 0.045, BARK);
+                gem(
+                    gb,
+                    [tip[0], tip[1] + hgt * 0.05, tip[2]],
+                    hgt * (0.17 + 0.04 * hash(seed * 9 + k)),
+                    hgt * 0.15,
+                    low,
+                    high,
+                    seed * 3 + k + 1
+                );
+            }
+            gem(
+                gb,
+                at(0.05 * hgt * Math.cos(a0 + 1), hgt * 0.86, 0.05 * hgt * Math.sin(a0 + 1)),
+                hgt * 0.15,
+                hgt * 0.13,
                 low,
                 high,
-                seed + k,
-                0.22
+                seed * 3 + 7
             );
         }
     };
-    const trunks = (g: Geo, x: number, y: number, z: number, hgt: number, seed: number) =>
-        cone(g, x, y, z, 0.12, hgt * 0.55, [0.24, 0.15, 0.09], 5, seed);
     const plant = (gp: Geo, gb: Geo, x: number, z: number, hgt: number, seed: number) => {
         const y = surface.height(x, z) - 0.05;
         if (hash(seed * 1.7) < 0.45) {
-            trunks(gp, x, y, z, hgt, seed);
-            broad(gb, x, y, z, hgt * 0.9, seed);
+            broad(gp, gb, x, y, z, hgt * 0.9, seed);
         } else pine(gp, x, y, z, hgt, seed);
         stats.trees++;
     };
@@ -554,7 +686,19 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
                     const lean = hash(seed) - 0.5;
                     blob(cell.gr, x, y + 0.4, z, r * 1.6, 0.9, r * 1.3, lo, hi, seed, 0.5);
                     blob(cell.gr, x + 0.35 * lean, y + hgt * 0.45, z, r, hgt * 0.45, r * 0.8, lo, hi, seed + 1, 0.55);
-                    blob(cell.gr, x + 0.8 * lean, y + hgt * 0.85, z + 0.2, r * 0.55, hgt * 0.3, r * 0.5, lo, hi, seed + 2, 0.6);
+                    blob(
+                        cell.gr,
+                        x + 0.8 * lean,
+                        y + hgt * 0.85,
+                        z + 0.2,
+                        r * 0.55,
+                        hgt * 0.3,
+                        r * 0.5,
+                        lo,
+                        hi,
+                        seed + 2,
+                        0.6
+                    );
                 } else {
                     pine(cell.gp, x, y, z, 3.4 + 2.0 * hash(seed * 3.7), seed);
                     stats.trees++;
@@ -599,7 +743,11 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
         return [r.x + r.nx * d, y, r.z + r.nz * d];
     };
     // Walk the contour at offset d, calling back every `spacing` metres with position, normal and running index.
-    const along = (d: number, spacing: number, cb2: (x: number, z: number, nx: number, nz: number, n: number) => void) => {
+    const along = (
+        d: number,
+        spacing: number,
+        cb2: (x: number, z: number, nx: number, nz: number, n: number) => void
+    ) => {
         let carry = spacing / 2,
             n = 0;
         for (let k = 0; k < ring.length; k++) {
@@ -651,7 +799,11 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
     };
     // profile edges (d0, y0) -> (d1, y1) swept round the contour; [colour, aisle colour]
     const prof: [number, number, number, number, number[], number[] | null][] = [];
-    prof.push([6.0, 5.2, 6.0, 8.8, C_.parapet, null], [6.0, 8.8, 6.8, 8.8, C_.brass, null], [6.8, 8.8, 6.8, BOWL_Y, C_.riser, null]);
+    prof.push(
+        [6.0, 5.2, 6.0, 8.8, C_.parapet, null],
+        [6.0, 8.8, 6.8, 8.8, C_.brass, null],
+        [6.8, 8.8, 6.8, BOWL_Y, C_.riser, null]
+    );
     for (let s = 0; s < SEATS; s++) {
         const d = BOWL_D + s * RUN,
             y = BOWL_Y + s * RISE;
@@ -663,7 +815,10 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
     for (let s = 0; s < UP_SEATS; s++) {
         const d = BACK_D + s * UP_RUN,
             y = ROOF_Y + s * UP_RISE;
-        prof.push([d, y, d, y + UP_RISE, C_.riser, C_.aisle], [d, y + UP_RISE, d + UP_RUN, y + UP_RISE, C_.seat, C_.aisle]);
+        prof.push(
+            [d, y, d, y + UP_RISE, C_.riser, C_.aisle],
+            [d, y + UP_RISE, d + UP_RUN, y + UP_RISE, C_.seat, C_.aisle]
+        );
     }
     prof.push([rimD, rimY, rimD, crownY, C_.rimwall, null], [rimD, crownY, rimD + 1.4, crownY, C_.brass, null]);
 
@@ -711,7 +866,8 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
                 [-nx, 0, -nz]
             );
         }
-        if (n % 2 === 0) box(sec.glow, fx - nx * 0.04, concourseY + h / 2 + 0.3, fz - nz * 0.04, 0.24, h - 1.2, 0.1, C_.gold, yaw);
+        if (n % 2 === 0)
+            box(sec.glow, fx - nx * 0.04, concourseY + h / 2 + 0.3, fz - nz * 0.04, 0.24, h - 1.2, 0.1, C_.gold, yaw);
     });
     // parapet torches and team banners (Blue half +z, Red half -z)
     along(6.35, 7.2, (x, z, nx, nz, n) => {
@@ -725,8 +881,20 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
                 bz = z - nz * 0.42,
                 tx = -nz * 0.7,
                 tz = nx * 0.7;
-            quad(sec.stone, [bx - tx, 8.7, bz - tz], [bx + tx, 8.7, bz + tz], [bx + tx, 6.4, bz + tz], [bx - tx, 6.4, bz - tz], team, [-nx, 0, -nz]);
-            quad(sec.stone, [bx - tx, 6.4, bz - tz], [bx + tx, 6.4, bz + tz], [bx, 5.8, bz], [bx, 5.8, bz], team, [-nx, 0, -nz]);
+            quad(
+                sec.stone,
+                [bx - tx, 8.7, bz - tz],
+                [bx + tx, 8.7, bz + tz],
+                [bx + tx, 6.4, bz + tz],
+                [bx - tx, 6.4, bz - tz],
+                team,
+                [-nx, 0, -nz]
+            );
+            quad(sec.stone, [bx - tx, 6.4, bz - tz], [bx + tx, 6.4, bz + tz], [bx, 5.8, bz], [bx, 5.8, bz], team, [
+                -nx,
+                0,
+                -nz
+            ]);
             box(sec.glow, bx - nx * 0.02, 8.6, bz - nz * 0.02, 1.5, 0.12, 0.06, C_.gold, yaw);
         }
     });
@@ -735,14 +903,27 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
         const zg = end * (sd0.hz + ARC_D + 1.2);
         const sec = sectors[sectorOf(0, zg)];
         box(sec.stone, 0, concourseY + 8, zg, 9, 16, 3, C_.pillar);
-        quad(sec.stone, [-2, concourseY, zg - end * 1.52], [2, concourseY, zg - end * 1.52], [2, concourseY + 9, zg - end * 1.52], [-2, concourseY + 9, zg - end * 1.52], C_.back, [0, 0, -end]);
+        quad(
+            sec.stone,
+            [-2, concourseY, zg - end * 1.52],
+            [2, concourseY, zg - end * 1.52],
+            [2, concourseY + 9, zg - end * 1.52],
+            [-2, concourseY + 9, zg - end * 1.52],
+            C_.back,
+            [0, 0, -end]
+        );
         box(sec.glow, 0, concourseY + 7.5, zg - end * 1.56, 0.4, 14, 0.06, C_.gold);
         for (const sx of [-1, 1]) {
             const tx = sx * 7.2;
             box(sec.stone, tx, 20, zg, 3.6, 24, 3.6, C_.rimwall);
             box(sec.stone, tx, 32.6, zg, 4.2, 1.2, 4.2, C_.brass);
             cone(sec.stone, tx, 33.2, zg, 2.2, 9, C_.rimwall, 6, sx + end);
-            for (const [px, pz] of [[1, 1], [1, -1], [-1, 1], [-1, -1]])
+            for (const [px, pz] of [
+                [1, 1],
+                [1, -1],
+                [-1, 1],
+                [-1, -1]
+            ])
                 cone(sec.stone, tx + px * 1.8, 33.2, zg + pz * 1.8, 0.4, 3, C_.pillar, 4, px + pz);
             box(sec.glow, tx, 20, zg - end * 1.83, 0.3, 18, 0.06, C_.gold);
         }
@@ -782,7 +963,13 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
             R = 6.6;
         for (let k = 0; k < 4; k++) {
             const a = (k / 4) * Math.PI * 2 + 0.4;
-            beam(crown, [Math.cos(a) * R * 0.9, cy + 2, Math.sin(a) * R * 0.9], [Math.cos(a) * ocul * 0.8, apex, Math.sin(a) * ocul * 0.8], 0.18, C_.riser);
+            beam(
+                crown,
+                [Math.cos(a) * R * 0.9, cy + 2, Math.sin(a) * R * 0.9],
+                [Math.cos(a) * ocul * 0.8, apex, Math.sin(a) * ocul * 0.8],
+                0.18,
+                C_.riser
+            );
         }
         const N = 18;
         for (let k = 0; k < N; k++) {
@@ -791,11 +978,37 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
             const P = (a: number, r: number, y: number): V3 => [Math.cos(a) * r, y, Math.sin(a) * r];
             const out = [Math.cos((a0 + a1) / 2), 0, Math.sin((a0 + a1) / 2)];
             quad(crown, P(a0, R, cy), P(a1, R, cy), P(a1, R, cy + 1.8), P(a0, R, cy + 1.8), C_.gold, out);
-            quad(crown, P(a0, R - 0.6, cy), P(a1, R - 0.6, cy), P(a1, R - 0.6, cy + 1.8), P(a0, R - 0.6, cy + 1.8), C_.brass, [-out[0], 0, -out[2]]);
-            quad(crown, P(a0, R - 0.6, cy + 1.8), P(a1, R - 0.6, cy + 1.8), P(a1, R, cy + 1.8), P(a0, R, cy + 1.8), C_.brass, [0, 1, 0]);
+            quad(
+                crown,
+                P(a0, R - 0.6, cy),
+                P(a1, R - 0.6, cy),
+                P(a1, R - 0.6, cy + 1.8),
+                P(a0, R - 0.6, cy + 1.8),
+                C_.brass,
+                [-out[0], 0, -out[2]]
+            );
+            quad(
+                crown,
+                P(a0, R - 0.6, cy + 1.8),
+                P(a1, R - 0.6, cy + 1.8),
+                P(a1, R, cy + 1.8),
+                P(a0, R, cy + 1.8),
+                C_.brass,
+                [0, 1, 0]
+            );
             quad(crown, P(a0, R - 0.6, cy), P(a1, R - 0.6, cy), P(a1, R, cy), P(a0, R, cy), C_.flame, [0, -1, 0]);
             const tall = k % 3 === 0;
-            cone(crown, Math.cos(a0) * (R - 0.3), cy + 1.8, Math.sin(a0) * (R - 0.3), tall ? 0.5 : 0.32, tall ? 4.2 : 2.2, C_.gold, 4, k);
+            cone(
+                crown,
+                Math.cos(a0) * (R - 0.3),
+                cy + 1.8,
+                Math.sin(a0) * (R - 0.3),
+                tall ? 0.5 : 0.32,
+                tall ? 4.2 : 2.2,
+                C_.gold,
+                4,
+                k
+            );
         }
         cone(crown, 0, cy - 2.4, 0, 1.4, -2.6, C_.gold, 8, 1);
         const crownMat = vmat(0.6, new Color(0.45, 0.42, 0.38));
@@ -844,7 +1057,19 @@ export function createColiseumKit(app: AppBase, parent: Entity, surface: Solrahn
             box(spout, side * 41.1, 9.3, 0, 1.2, 0.6, half * 2 + 1.2, C_.brass);
             for (const zz of [-1, 1]) box(spout, side * 41.1, 9.6, zz * (half + 0.45), 1.0, 1.8, 0.7, C_.pillar);
             for (let m = 0; m < 4; m++)
-                blob(mist, side * (34.3 - 0.5 * hash(m + side)), data.waterY + 0.05, (m / 3 - 0.5) * half * 1.6, 0.6, 0.28, 0.55, [0.75, 0.86, 0.9], [0.95, 0.98, 1], m * 7 + side, 0.3);
+                blob(
+                    mist,
+                    side * (34.3 - 0.5 * hash(m + side)),
+                    data.waterY + 0.05,
+                    (m / 3 - 0.5) * half * 1.6,
+                    0.6,
+                    0.28,
+                    0.55,
+                    [0.75, 0.86, 0.9],
+                    [0.95, 0.98, 1],
+                    m * 7 + side,
+                    0.3
+                );
         }
         const mesh = new Mesh(app.graphicsDevice);
         mesh.setPositions(p);

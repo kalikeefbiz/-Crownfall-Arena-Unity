@@ -40,6 +40,10 @@ def noise(m, seed):
     n = gaussian_filter(r, m * PPM / 2, mode='reflect')
     return n / (n.std() + 1e-9)
 
+def aa(d, w):
+    """Anti-aliased line mask: 1 inside half-width w (metres) of a line at distance d, ~1 px soft edge."""
+    return np.clip((w - d) * PPM + 0.5, 0, 1)
+
 def hexc(s):
     return np.array([int(s[i:i + 2], 16) / 255 for i in (1, 3, 5)])
 
@@ -59,32 +63,56 @@ col = np.floor((X + off) / 1.3)
 gx = np.minimum((X + off) % 1.3, 1.3 - (X + off) % 1.3)
 gz = np.minimum(Z % 0.85, 0.85 - Z % 0.85)
 ids = row * 977 + col
-G = 0.035
-grout = (gx < G) | (gz < G)
+G = 0.04
+dg = np.minimum(gx, gz)
 ring = np.floor(pd / 1.0)
 ang = np.arctan2(Z - pz_of, X)
 nseg = np.maximum(8, ring * 6 + 6)
 segf = ang / (2 * np.pi / nseg) + ring * 0.37
 ids = np.where(in_plaza, 50000 + ring * 131 + np.floor(segf) + pz_of * 3, ids)
-rgrout = (np.minimum(pd % 1.0, 1 - pd % 1.0) < G) | (np.abs(segf % 1.0 - 0.5) > 0.5 - G / np.maximum(pd, 0.5) * 2.5)
-grout = np.where(in_plaza, rgrout, grout)
+dseg = (0.5 - np.abs(segf % 1.0 - 0.5)) * (2 * np.pi * np.maximum(pd, 0.5) / nseg)
+rdg = np.minimum(np.minimum(pd % 1.0, 1 - pd % 1.0), dseg)
+dg = np.where(in_plaza, rdg, dg)
+grout = aa(dg, G)
 u = np.unique(ids)
 v = np.random.default_rng(3).random(len(u))[np.searchsorted(u, ids)]
 band = np.clip(0.5 + 0.45 * noise(7, 4), 0, 1)[:, :, None]
 stone = (hexc('#e6d3ac') * (1 - band) + hexc('#d9b98a') * band) * (0.9 + 0.14 * v)[:, :, None]
-stone *= (1 + 0.035 * noise(0.35, 5))[:, :, None]
-stone *= np.where(grout, 0.66, 1.0)[:, :, None]
+stone *= (1 + 0.02 * noise(0.35, 5))[:, :, None]
+# each stone is gently bevelled: its rim a touch darker than its face, then a clean mortar line
+stone *= (0.94 + 0.06 * np.clip((dg - G) / 0.12, 0, 1))[:, :, None]
+stone *= (1 - 0.27 * grout)[:, :, None]
 med = in_plaza & (pd < 2.0)
 stone[med] = hexc('#e9cf93') * (0.95 + 0.05 * noise(0.5, 6)[med])[:, None]
 
 # ---- wilderness: rich painted grass, sparse red leaves and small flowers ----
 light = np.clip(noise(5.5, 7) * 0.55 + 0.5, 0, 1)[:, :, None]
 grass = hexc('#3d6a32') * (1 - light) + hexc('#77a646') * light
-grass *= (1 + 0.05 * noise(0.45, 8))[:, :, None]
-leaf = (rng.random((Hp, Wp)) > 0.994) & (noise(3, 9) > 0.3)
-grass[gaussian_filter(leaf.astype(float), 1.1) > 0.07] = hexc('#b8482a')
-flower = (rng.random((Hp, Wp)) > 0.9975)
-grass[gaussian_filter(flower.astype(float), 0.8) > 0.06] = hexc('#f2d36b')
+grass *= (1 + 0.035 * noise(1.4, 8) + 0.015 * noise(0.4, 18))[:, :, None]
+rng.random((Hp, Wp)); rng.random((Hp, Wp))   # keep the shared stream (backlot scatter) where it was
+LEAVES = [hexc('#b8482a'), hexc('#c8642c'), hexc('#a63d24'), hexc('#d08a36')]
+lr = np.random.default_rng(77)
+drift = noise(4, 9)
+SP = 0.5
+for zz in np.arange(0, Z1, SP):
+    for xx in np.arange(X0, X1, SP):
+        px, pz = xx + lr.random() * SP, zz + lr.random() * SP
+        i, j = int((px - X0) * PPM), int((pz - Z0) * PPM)
+        if not (3 <= i < Wp - 3 and 3 <= j < Hp - 3):
+            continue
+        if lr.random() > 0.45 + 0.25 * np.clip(drift[j, i], -1, 1):   # drifts: denser in some patches, never noisy
+            continue
+        flower = lr.random() < 0.35
+        L = 0.06 if flower else 0.09 + 0.06 * lr.random()      # half-length, metres
+        Wd = 0.06 if flower else L * 0.5
+        a = lr.random() * np.pi
+        col = hexc('#f2d36b') if flower else LEAVES[lr.integers(len(LEAVES))] * (0.9 + 0.2 * lr.random())
+        ys, xs_ = np.mgrid[j - 3:j + 4, i - 3:i + 4]
+        dx, dz = X[ys, xs_] - px, Z[ys, xs_] - pz
+        u_, v_ = dx * np.cos(a) + dz * np.sin(a), -dx * np.sin(a) + dz * np.cos(a)
+        e = np.sqrt((u_ / L) ** 2 + (v_ / Wd) ** 2)
+        m = np.clip((1 - e) * L * PPM + 0.5, 0, 1)[:, :, None]
+        grass[ys, xs_] = grass[ys, xs_] * (1 - m) + col * m
 forest = hexc('#2c4426') * (0.9 + 0.15 * noise(1.2, 10))[:, :, None]
 
 rim = (cls == C['RIM'])
@@ -157,10 +185,9 @@ for L in LANDMARKS:
     img[edge] *= 0.8
     camps.append(dict(id=L['id'], type=L['type'], x=L['x'], z=L['z'], r=round(r, 2)))
 
-gold = lane & ((np.abs(np.abs(X) - 4.0) < 0.1) & (np.abs(Z) <= 60.0) | (np.abs(pd - (pr_of - 3.0)) < 0.085))
-img[gold] = hexc('#c99a45')
-goal_line = lane & (np.abs(Z - 60.0) < 0.12) & (np.abs(X) <= 5.0)
-img[goal_line] = hexc('#c99a45')
+gw = np.maximum(aa(np.abs(np.abs(X) - 4.0), 0.1) * (np.abs(Z) <= 60.0), aa(np.abs(pd - (pr_of - 3.0)), 0.085))
+gw = np.maximum(gw, aa(np.abs(Z - 60.0), 0.12) * (np.abs(X) <= 5.0)) * lane
+img = img * (1 - gw[:, :, None]) + hexc('#c99a45') * gw[:, :, None]
 wall = ~lane & ~(cls == C['RAMP']) & ~bridge
 foot = np.exp(-distance_transform_edt(~wall) / (0.55 * PPM))
 img *= (1 - 0.32 * foot * lane)[:, :, None]
@@ -170,7 +197,7 @@ for gx_, gz_, gr in GROVES:
         continue
     gro = np.maximum(gro, np.exp(-np.clip(np.hypot(X - gx_, Z - gz_) - gr, 0, None) / 1.2))
 img *= (1 - 0.35 * gro * (cls == C['PLATEAU']))[:, :, None]
-Image.fromarray(np.rint(np.clip(img, 0, 1) * 255).astype('u1')).save(OUT / 'ground.webp', quality=86, method=6)
+Image.fromarray(np.rint(np.clip(img, 0, 1) * 255).astype('u1')).save(OUT / 'ground.webp', quality=88, method=6)
 
 # ---- seamless tiles ----
 def tilenoise(n, sigma, seed, shape=None):
@@ -181,21 +208,31 @@ def tilenoise(n, sigma, seed, shape=None):
 N = 256
 # detail: grain around LINEAR 0.5 (the engine decodes colour maps as sRGB, and the overlay blend is neutral at
 # linear 0.5), so the drape is unchanged on average; stored sRGB-encoded.
-grain = 0.5 * tilenoise(N, 0.8, 41) + 0.35 * tilenoise(N, 2.5, 42) + 0.25 * tilenoise(N, 7, 43)
-det = np.clip(0.5 + 0.06 * grain, 0, 1) ** (1 / 2.2)
+grain = 0.25 * tilenoise(N, 1.2, 41) + 0.45 * tilenoise(N, 3, 42) + 0.3 * tilenoise(N, 8, 43)
+det = np.clip(0.5 + 0.035 * grain, 0, 1) ** (1 / 2.2)
 Image.fromarray(np.rint(det * 255).astype('u1')).convert('RGB').save(OUT / 'detail.webp', quality=90, method=6)
 
-# cliff: horizontal sandstone strata with blocky vertical joints (u along the face, v up; 3 m tile)
-yy = (np.arange(N) + 0.5) / N
-strata = np.floor(yy * 7 + 0.35 * np.sin(np.arange(N)[None, :] / N * 2 * np.pi * 2) * 0)
-course = np.floor(yy * 7)[:, None] * np.ones((1, N))
-jx = (np.arange(N)[None, :] / N * 5 + (course % 2) * 0.5 + 0.3 * np.random.default_rng(5).random((7,))[course.astype(int)]) % 1.0
-joint = (np.minimum(jx, 1 - jx) < 0.012) | (np.minimum((yy * 7) % 1.0, 1 - (yy * 7) % 1.0)[:, None] < 0.03)
-blockid = course * 31 + np.floor(np.arange(N)[None, :] / N * 5 + (course % 2) * 0.5)
+# cliff: dressed sandstone courses (u along the face, v up; 3 m tile, 512 px): anti-aliased mortar joints, a sunlit lip
+# on each course top and a soft shadow under it, gentle block-to-block tone variation
+NC, COURSES, BLOCKS = 512, 7, 5
+yy = (np.arange(NC) + 0.5) / NC
+xx_ = (np.arange(NC) + 0.5) / NC
+course = np.floor(yy * COURSES)[:, None] * np.ones((1, NC))
+shift = (course % 2) * 0.5 + 0.25 * np.random.default_rng(5).random(COURSES)[course.astype(int)]
+bu = xx_[None, :] * BLOCKS + shift
+fy = (yy * COURSES) % 1.0
+px_m = 3.0 / NC                                            # metres per pixel of the tile
+dj = np.minimum(bu % 1.0, 1 - bu % 1.0) * (3.0 / BLOCKS) / px_m   # pixels to the nearest vertical joint
+dc = np.minimum(fy, 1 - fy)[:, None] * (3.0 / COURSES) / px_m     # pixels to the nearest bed joint
+joint = np.clip(np.maximum(2.2 - dj, 2.6 - dc) + 0.5, 0, 1)
+blockid = course * 31 + np.floor(bu)
 bv = np.random.default_rng(6).random(int(blockid.max()) + 2)[blockid.astype(int)]
-cl = hexc('#c9ab7c')[None, None, :] * (0.82 + 0.2 * bv)[:, :, None] * (1 + 0.05 * tilenoise(N, 1.2, 44))[:, :, None]
-cl *= (0.92 + 0.08 * np.sin(yy * 7 * np.pi) ** 2)[:, None, None]
-cl[joint] *= 0.6
+cl = hexc('#c9ab7c')[None, None, :] * (0.87 + 0.13 * bv)[:, :, None]
+cl *= (1 + 0.03 * tilenoise(NC, 2.5, 44) + 0.02 * tilenoise(NC, 9, 45))[:, :, None]
+lip = np.clip(1 - fy[:, None] * (3.0 / COURSES) / px_m / 6, 0, 1)   # bright just below each course top
+foot = np.clip(1 - (1 - fy)[:, None] * (3.0 / COURSES) / px_m / 9, 0, 1)        # shade just above each bed joint
+cl *= (1 + 0.1 * lip - 0.12 * foot)[:, :, None]
+cl *= (1 - 0.42 * joint)[:, :, None]
 Image.fromarray(np.rint(np.clip(cl, 0, 1) * 255).astype('u1')).save(OUT / 'cliff.webp', quality=90, method=6)
 
 ripple = 0.6 * tilenoise(N, 10, 31) + 0.4 * tilenoise(N, 4, 32)
