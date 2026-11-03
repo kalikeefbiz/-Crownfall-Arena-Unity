@@ -2,6 +2,7 @@ import { BoundingBox, Entity } from 'playcanvas';
 import type { AnimTrack, AppBase, ContainerResource, RenderComponent } from 'playcanvas';
 
 import { attachSetAnimations, SetAnimationState } from './set-animation';
+import { createSetSprite } from './set-sprite';
 import { SummonerAssets } from './summoner-assets';
 import type { ModelFrame } from './summoner-assets';
 
@@ -45,6 +46,10 @@ export function createSetModel(
     const previewEnabled = query.get('setPreview') === '1';
     const forcedPrimitive = query.get('models') === 'primitive' || query.get('setPrimitive') === '1';
     const source = SET_ASSET_PATH;
+    // 2.5D proof: Set is drawn from the founder's painted 2D frames by default; ?setSprite=0 restores the 3D model.
+    const spriteMode = query.get('setSprite') !== '0';
+    const sprite = spriteMode ? createSetSprite(app, root) : null;
+    let lastTime = performance.now();
     const animation = new SetAnimationState();
     const pivot = new Entity('Set-3D-facing');
     root.addChild(pivot);
@@ -144,13 +149,37 @@ export function createSetModel(
                 yaw = (Math.atan2(sim.aim.x, sim.aim.z) * 180) / Math.PI;
             }
             selected = (competitive || previewEnabled) && sim.combat.definition.id === 'set' && !forcedPrimitive;
-            if (selected && (sim.match?.phase !== 'prematch' || assets.isLoaded(source)) && metrics.state === 'idle')
+            if (
+                !spriteMode &&
+                selected &&
+                (sim.match?.phase !== 'prematch' || assets.isLoaded(source)) &&
+                metrics.state === 'idle'
+            )
                 start();
             const owner = sim.facing.owner;
             if (owner === 'aim') yaw = (Math.atan2(sim.aim.x, sim.aim.z) * 180) / Math.PI;
             else if (owner === 'commit') yaw = (sim.combat.committedAngle * 180) / Math.PI;
             else if (owner === 'movement') yaw = (Math.atan2(sim.movement.x, sim.movement.z) * 180) / Math.PI;
             pivot.setLocalEulerAngles(0, yaw + SET_AUTHORED_FORWARD_YAW, 0);
+            if (sprite) {
+                const now = performance.now();
+                const dt = Math.min(0.1, (now - lastTime) / 1000);
+                lastTime = now;
+                const spriteSelected =
+                    (competitive || previewEnabled) && sim.combat.definition.id === 'set' && !forcedPrimitive;
+                const alive = !player.dead && (!sim.match || sim.match.phase === 'active');
+                const rad = (yaw * Math.PI) / 180;
+                sprite.update(
+                    dt,
+                    spriteSelected && !player.dead,
+                    player.animation === 'run' && alive,
+                    Math.sin(rad),
+                    Math.cos(rad)
+                );
+                pivot.enabled = false;
+                if (spriteSelected) primitive.enabled = !sprite.ready;
+                return;
+            }
             pivot.enabled = selected && !!model;
             // Only the matching character presenter can hide the fallback.
             if (selected) primitive.enabled = !pivot.enabled;
@@ -187,6 +216,7 @@ export function createSetModel(
                 playbackTime: model?.anim?.baseLayer!.activeStateCurrentTime ?? 0,
                 playing: !!model?.anim?.playing && root.enabled && pivot.enabled,
                 previewEnabled,
+                sprite: sprite ? { ...sprite.state } : null,
                 presentationOnly: true,
                 worldBounds: worldBounds
                     ? { min: worldBounds.getMin().toArray(), max: worldBounds.getMax().toArray() }
@@ -203,6 +233,7 @@ export function createSetModel(
         },
         destroy() {
             destroyed = true;
+            sprite?.destroy();
             pivot.destroy();
             if (!sharedAssets) assets.destroy();
         }
